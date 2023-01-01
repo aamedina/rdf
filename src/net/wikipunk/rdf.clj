@@ -115,22 +115,25 @@
                 h)))
           h xs))
 
+(def ^:private +props+
+  #{:rdf/type
+    :rdfs/subClassOf
+    :rdfs/subPropertyOf
+    :owl/equivalentClass
+    :owl/equivalentProperty})
+
 (def cat-rdf-idents
   (comp
     (filter (comp :rdf/type meta))
     (map ns-publics)
     (mapcat vals)
     (map deref)
-    (filter :rdf/type)
+    (filter #(some +props+ (keys %)))
     (filter (comp qualified-keyword? :db/ident))
     (map (fn [entity]
            (reduce (fn [entity term]
                      (update entity term #(if (coll? %) % [%])))
-                   entity #{:rdf/type
-                            :rdfs/subClassOf
-                            :rdfs/subPropertyOf
-                            :owl/equivalentClass
-                            :owl/equivalentProperty})))))
+                   entity +props+)))))
 
 (defn make-class-hierarchy
   []
@@ -141,7 +144,9 @@
               :rdf/keys  [type]
               :rdfs/keys [subClassOf equivalentClass]
               :as        entity}]
-        (if (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
+        (if (or subClassOf
+                equivalentClass
+                (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
           (deriving h entity (concat (filter #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
                                      (filter keyword? subClassOf)
                                      (filter keyword? equivalentClass)))
@@ -158,7 +163,9 @@
               :rdf/keys  [type]
               :rdfs/keys [subPropertyOf equivalentProperty]
               :as        entity}]
-        (if (some #(isa? classes % :rdf/Property) type)
+        (if (or subPropertyOf
+                equivalentProperty
+                (some #(isa? classes % :rdf/Property) type))
           (deriving h entity (concat (filter #(isa? classes % :rdf/Property)
                                              type)
                                      (filter keyword? subPropertyOf)
@@ -172,9 +179,9 @@
   (transduce
     cat-rdf-idents
     (completing
-      (fn [h {:db/keys   [ident]
-              :rdf/keys  [type]
-              :as        entity}]
+      (fn [h {:db/keys  [ident]
+              :rdf/keys [type]
+              :as       entity}]
         (if (some #{:owl/NamedIndividual} type)
           (conj h ident)
           h)))
@@ -185,9 +192,9 @@
   []
   (let [classes    (make-class-hierarchy)
         properties (make-property-hierarchy classes)]
-    {:classes     classes
-     :properties  properties
-     :things      (make-things classes)}))
+    {:classes    classes
+     :properties properties
+     :things     (make-things classes)}))
 
 (defn compute-class-precedence-list
   [tag]
@@ -351,21 +358,19 @@
                                            (catch org.apache.jena.riot.RiotException ex
                                              ;; ...try RDF/XML?
                                              (.toGraph (doto parser (.lang Lang/RDFXML)))))))
-          ns-prefix-map              (set/rename-keys (dissoc (into (if (and prefix uri)
-                                                                      {prefix uri}
-                                                                      {})
+          ns-prefix-map              (set/rename-keys (dissoc (into (cond-> (:rdf/ns-prefix-map md {})
+                                                                      (and prefix uri)
+                                                                      (assoc prefix uri))
                                                                     (.getNsPrefixMap (.getPrefixMapping g)))
-                                                              "ruleml"
-                                                              "")
+                                                              "ruleml")
                                                       {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "dc11" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype"})]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
                       (map (fn [[subject triples]]
                              (into {:db/ident (g/data subject)}
                                    (map (fn [[pred triples]]
-                                          (let [k (g/data pred)
+                                          (let [k       (g/data pred)
                                                 objects (mapv #(g/data (.getObject ^Triple %)) triples)]
-                                            
                                             [k (if (= 1 (count objects))
                                                  (first objects)
                                                  objects)])))
@@ -445,7 +450,7 @@
 
                                      :else v)))
                             (map (fn [form] (walk/postwalk walk-rdf-list form))))
-        public?        (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
+        public?  (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
         mappings (->> (remove public? forms)
                       (filter #(some #{:rdfa/PrefixMapping
                                        :rdfa/TermMapping}
