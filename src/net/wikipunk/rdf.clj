@@ -363,7 +363,7 @@
                                                                       (assoc prefix uri))
                                                                     (.getNsPrefixMap (.getPrefixMapping g)))
                                                               "ruleml")
-                                                      {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "dc11" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype"})]
+                                                      {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "dc11" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"})]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
                       (map (fn [[subject triples]]

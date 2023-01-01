@@ -25,8 +25,8 @@
                        "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                        "skos" "http://www.w3.org/2004/02/skos/core#",
-                       "st" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-                       "vann" "http://purl.org/vocab/vann/"},
+                       "vann" "http://purl.org/vocab/vann/",
+                       "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
    :rdf/uri "http://purl.org/vocab/bio/0.1/",
    :rdfa/prefix "bio",
@@ -36,47 +36,47 @@
                       :rdf/value
                       "Batch of revisions based on community feedback"}
                      {:dcterms/creator "Ian Davis",
-                      :dcterms/date    "2004-03-05",
-                      :rdf/value       "Added Creative Commons license"}
-                     {:dcterms/creator "Ian Davis",
-                      :dcterms/date    "2010-04-20",
-                      :rdf/value       "Added change history"}
-                     {:dcterms/creator "Ian Davis",
-                      :dcterms/date "2011-06-14",
-                      :rdf/value "Expanded description and added diagrams"}
-                     {:dcterms/creator "Ian Davis",
                       :dcterms/date "2009-05-19",
                       :rdf/value "Minor changes to improve publishing process"}
                      {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2005-04-01",
-                      :rdf/value       "Added examples"}],
+                      :rdf/value       "Added examples"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date    "2010-04-20",
+                      :rdf/value       "Added change history"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date    "2004-03-05",
+                      :rdf/value       "Added Creative Commons license"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date "2011-06-14",
+                      :rdf/value "Expanded description and added diagrams"}],
    :skos/historyNote
    [{:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-10",
-     :rdf/value       "Added bio:Formation and bio:Disbanding events"}
+     :dcterms/date "2010-06-06",
+     :rdf/value
+     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
     {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2003-07-28",
-     :rdf/value       "Added keywords property"}
+     :dcterms/date    "2010-05-10",
+     :rdf/value       "Major expansion of properties and classes"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2011-06-10",
+     :rdf/value       "Added bio:Performance event"}
     {:dcterms/creator "Ian Davis",
      :dcterms/date    "2011-06-14",
      :rdf/value       "Added bio:Relationship class and properties"}
     {:dcterms/creator "Ian Davis",
      :dcterms/date    "2011-06-10",
-     :rdf/value       "Added bio:Performance event"}
+     :rdf/value       "Added bio:Formation and bio:Disbanding events"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2010-06-05",
+     :rdf/value       "Added biography property"}
     {:dcterms/creator "Alexandre Passant",
      :dcterms/date "2011-06-14",
      :rdf/value
      "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
     {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2010-05-10",
-     :rdf/value       "Major expansion of properties and classes"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2010-06-05",
-     :rdf/value       "Added biography property"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date "2010-06-06",
-     :rdf/value
-     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}],
+     :dcterms/date    "2003-07-28",
+     :rdf/value       "Added keywords property"}],
    :vann/example "http://purl.org/vocab/bio/examples/1",
    :vann/preferredNamespacePrefix "bio",
    :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
@@ -100,7 +100,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Accession"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Adoption
   "The event of creating of a legal parent/child relationship that does not exist biologically."
@@ -115,7 +115,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Adoption"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Annulment
   "The event of declaring a marriage void from the beginning as though it never existed."
@@ -130,7 +130,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Annulment"},
    :rdfs/subClassOf :bio/GroupEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Assassination
   "The event of a person being deliberately targeted and killed."
@@ -144,7 +144,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Assassination"},
    :rdfs/subClassOf :bio/Murder,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Baptism
   "The ceremonial event held to admit a person to membership of a Christian church."
@@ -164,7 +164,7 @@
     :dcterms/date "2010-05-20",
     :rdf/value
     "Revised comment, replacing 'the Christian church' with 'a Christian church' "},
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def BarMitzvah
   "The ceremonial event held when a Jewish boy reaches age 13."
@@ -178,7 +178,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BarMitzvah"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def BasMitzvah
   "The ceremonial event held when a Jewish girl reaching age 13, also known as \"Bat Mitzvah.\""
@@ -193,7 +193,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BasMitzvah"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Birth
   "The event of a person entering into life."
@@ -208,12 +208,12 @@
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2010-05-04",
                      :rdf/value       "Marked as testing"},
-   :st/term_status "testing",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Birth \n    ; dc:date \"1879-03-14\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:parent &lt;http://dbpedia.org/resource/Pauline_Koch&gt;\n    ; bio:parent &lt;http://dbpedia.org/resource/Hermann_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Ulm&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The birth of Albert Einstein"}})
+    :rdfs/label "The birth of Albert Einstein"},
+   :vs/term_status "testing"})
 
 (def Burial
   "The event of interring the remains of a person's body into the ground."
@@ -228,7 +228,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Burial"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Coronation
   "The ceremonial event of a person being invested with regal power to become a monarch."
@@ -243,7 +243,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Coronation"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Cremation
   "The event of disposing of the remains of a person's body by fire."
@@ -258,12 +258,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Cremation"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Cremation \n    ; dc:date \"1955-04-18\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The cremation of Albert Einstein"}})
+    :rdfs/label "The cremation of Albert Einstein"},
+   :vs/term_status "unstable"})
 
 (def Death
   "The event of a person's life ending."
@@ -278,12 +278,12 @@
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2010-05-04",
                      :rdf/value       "Marked as a stable term"},
-   :st/term_status "stable",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Death \n    ; dc:date \"1955-04-18\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The death of Albert Einstein"}})
+    :rdfs/label "The death of Albert Einstein"},
+   :vs/term_status "stable"})
 
 (def Demotion
   "The event of a person changing the position they hold with an employer to one with less importance or responsibility."
@@ -298,7 +298,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Demotion"},
    :rdfs/subClassOf :bio/PositionChange,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Disbanding
   "The event of a group or organization being disbanded."
@@ -312,7 +312,7 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Disbanding"},
    :rdfs/subClassOf  :bio/IndividualEvent,
-   :st/term_status   "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Dismissal
   "The event of a person involuntarily giving up their office or position. Dismissal is often perceived to be the employee's fault and may be considered disgraceful."
@@ -327,7 +327,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Dismissal"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Divorce
   "The event of legally dissolving a marriage."
@@ -340,12 +340,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Divorce"},
    :rdfs/subClassOf :bio/GroupEvent,
-   :st/term_status "unstable",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Divorce \n    ; dc:date \"1919-02-14\"\n    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Zurich&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The divorce of Albert Einstein and Mileva Marić"}})
+    :rdfs/label "The divorce of Albert Einstein and Mileva Marić"},
+   :vs/term_status "unstable"})
 
 (def Emigration
   "The event of a person leaving their homeland with the intent of residing elsewhere."
@@ -360,12 +360,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Emigration"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Emigration \n    ; dc:date \"1933\"^^xsd:gYear\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "Albert Einstein emigrating to the United States"}})
+    :rdfs/label "Albert Einstein emigrating to the United States"},
+   :vs/term_status "unstable"})
 
 (def Employment
   "The event of a person entering an occupational relationship with an employer."
@@ -380,7 +380,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Employment"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Enrolment
   "The event of a person initiating attendence to a school or other place of learning."
@@ -395,7 +395,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Enrolment"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Event
   "An event is an occurrence that brings about a change in the state of affairs for one or more people and/or other agents. Events are assumed to occur over a period of time and may not have precise start and end points."
@@ -425,11 +425,11 @@
                        :dcterms/date "2010-05-20",
                        :rdf/value
                        "Removed subclass of owl-time ProperInteval"}],
-   :st/term_status "testing",
    :vann/usageNote
    {:rdf/language "en",
     :rdf/value
-    "This class is intended to describe biographical events, i.e. events in the life of a person."}})
+    "This class is intended to describe biographical events, i.e. events in the life of a person."},
+   :vs/term_status "testing"})
 
 (def Execution
   "The event of a person being deliberately killed as punishment."
@@ -444,7 +444,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Execution"},
    :rdfs/subClassOf :bio/Death,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Formation
   "The event of a group or organization coming into being."
@@ -458,7 +458,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Formation"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Funeral
   "The event of marking a person's death with a ceremony."
@@ -472,7 +472,7 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Funeral"},
    :rdfs/subClassOf  :bio/IndividualEvent,
-   :st/term_status   "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Graduation
   "The event of a person being awarded educational diplomas or degrees."
@@ -487,13 +487,13 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Graduation"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Graduation \n    ; dc:date \"1905\"^^xsd:gYear\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:organization &lt;http://dbpedia.org/resource/University_of_Zurich&gt;\n    .</code></pre>\n        ",
     :rdfs/label
-    "Albert Einstein receiving his Doctorate from the University of Zurich"}})
+    "Albert Einstein receiving his Doctorate from the University of Zurich"},
+   :vs/term_status "unstable"})
 
 (def GroupEvent
   "A type of event that is principally about one or more agents and their partnership. Other agents may be involved but the event is most significant for the partner agent."
@@ -510,7 +510,7 @@
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
                      :bio/Event],
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Imprisonment
   "The event of a person being detained in a jail or prison."
@@ -524,7 +524,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Imprisonment"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Inauguration
   "The ceremonial event marking the beginning of a person's term of office as a leader."
@@ -539,7 +539,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Inauguration"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def IndividualEvent
   "A type of event that is principally about a single person, group or organization. Other agents may be involved but the event is most significant for the principal agent."
@@ -556,7 +556,7 @@
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
                      :bio/Event],
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Interval
   "A extended interval of time related to a particular state of affairs, such as the lifespan of a person or a period of employment."
@@ -571,7 +571,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Interval"},
    :rdfs/subClassOf :time/ProperInterval,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Investiture
   "The ceremonial event of a person taking a public office or honour."
@@ -586,7 +586,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Investiture"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Marriage
   "The event of creating uniting the participants into a new family unit, sometimes accompanied by a formal wedding ceremony. This is intended to cover a broad range of marriages including those given formal legal standing, common-law, or by convention. It is not restricted to marriages of two people of the opposite gender, but also includes polygamous and same-sex unions."
@@ -608,12 +608,12 @@
    :skos/historyNote {:dcterms/creator "Ian Davis",
                       :dcterms/date "2010-05-04",
                       :rdf/value "Made equivalent to cyc:WeddingEvent_Generic"},
-   :st/term_status "stable",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Marriage \n    ; dc:date \"1903\"\n    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Bern&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The marriage of Albert Einstein and Mileva Marić"}})
+    :rdfs/label "The marriage of Albert Einstein and Mileva Marić"},
+   :vs/term_status "stable"})
 
 (def Murder
   "The event of a person being killed unlawfully with intent by the killer."
@@ -628,7 +628,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Murder"},
    :rdfs/subClassOf :bio/Death,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def NameChange
   "The event of a person changing their name."
@@ -641,7 +641,7 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Change of Name"},
    :rdfs/subClassOf  :bio/IndividualEvent,
-   :st/term_status   "unstable"})
+   :vs/term_status   "unstable"})
 
 (def Naturalization
   "The event of a person obtaining citizenship. Note that the place the naturalization event occurs at may be different from the state the person is obtaining citizenship of."
@@ -656,12 +656,12 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Naturalization"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable",
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
     "\n        <pre><code>_:e a bio:Emigration \n    ; dc:date \"1940\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "Albert Einstein becoming a citizen of the United States"}})
+    :rdfs/label "Albert Einstein becoming a citizen of the United States"},
+   :vs/term_status "unstable"})
 
 (def Ordination
   "The ceremonial event held when a person receives authority to act in religious matters."
@@ -676,7 +676,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Ordination"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Performance
   "The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc."
@@ -692,7 +692,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Performance"},
    :rdfs/subClassOf :bio/GroupEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def PositionChange
   "The event of a person changing the position they hold with an employer."
@@ -707,7 +707,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Change of Position"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Promotion
   "The event of a person changing the position they hold with an employer to one with more importance or responsibility."
@@ -722,7 +722,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Promotion"},
    :rdfs/subClassOf :bio/PositionChange,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Redundancy
   "The event of a person involuntarily giving up an office or position that is no longer needed. Redundancy is usually perceived to be the employer's fault and is usually due to conditions outside of the employee's control."
@@ -737,7 +737,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Redundancy"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Relationship
   "A particular type of connection existing between people, groups or organizations related to or having dealings with each other."
@@ -752,7 +752,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Agent Relationship"},
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Resignation
   "The event of a person voluntarily giving up or quitting their office or position."
@@ -767,7 +767,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Resignation"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def Retirement
   "The event of a person exiting an occupational relationship with an employer after a qualifying time period. In many cultures retirement is expected and even required once the person reaches a particular age."
@@ -782,7 +782,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Retirement"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def agent
   "A person, organization or group that plays a role in an event."
@@ -815,9 +815,9 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Biography"},
-   :st/term_status "unstable",
    :vann/usageNote
-   "<p>It is expected that the value of this property is either a literal formatted with HTML markup or a pointer to an HTML document.</p>"})
+   "<p>It is expected that the value of this property is either a literal formatted with HTML markup or a pointer to an HTML document.</p>",
+   :vs/term_status "unstable"})
 
 (def birth
   "An birth event associated with a person, group or organization."
@@ -860,9 +860,9 @@
     :dcterms/date "2010-06-06",
     :rdf/value
     "Made equivalent to rel:parentOf on suggestion of Gautier Poupeau"},
-   :st/term_status "unstable",
    :vann/usageNote
-   "Note that this is a strict definition of child that does not include adopted children, step-children or similar non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation."})
+   "Note that this is a strict definition of child that does not include adopted children, step-children or similar non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.",
+   :vs/term_status "unstable"})
 
 (def concludingEvent
   "An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event."
@@ -918,9 +918,9 @@
                      {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2010-05-03",
                       :rdf/value       "Added a plural label"}],
-   :st/term_status "stable",
    :vann/usageNote
-   "<p>The date should be formatted as specified in <a href=\"http://www.w3.org/TR/NOTE-datetime\">ISO8601</a>.\n    For example: 2003-03-15 corresponds to the 15th March 2003, and 2003-03-15T13:21-05:00 corresponds to 15th March 2003, 8:21 am, US Eastern Standard Time.</p>"})
+   "<p>The date should be formatted as specified in <a href=\"http://www.w3.org/TR/NOTE-datetime\">ISO8601</a>.\n    For example: 2003-03-15 corresponds to the 15th March 2003, and 2003-03-15T13:21-05:00 corresponds to 15th March 2003, 8:21 am, US Eastern Standard Time.</p>",
+   :vs/term_status "stable"})
 
 (def death
   "An death event associated with a person, group or organization."
@@ -979,11 +979,11 @@
                      :dcterms/date    "2010-05-03",
                      :rdf/value       "Added a plural label"},
    :skos/historyNote [{:dcterms/creator "Ian Davis",
-                       :dcterms/date    "2011-06-14",
-                       :rdf/value       "Changed domain to foaf:Agent"}
-                      {:dcterms/creator "Ian Davis",
                        :dcterms/date "2010-05-03",
-                       :rdf/value "Made a subproperty of owl:differentFrom"}]})
+                       :rdf/value "Made a subproperty of owl:differentFrom"}
+                      {:dcterms/creator "Ian Davis",
+                       :dcterms/date    "2011-06-14",
+                       :rdf/value       "Changed domain to foaf:Agent"}]})
 
 (def eventInterval
   "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."
@@ -999,7 +999,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Event Interval"},
    :rdfs/range :bio/Interval,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def father
   "The biological father of a person, also known as the genitor."
@@ -1021,9 +1021,9 @@
     :dcterms/date "2010-06-06",
     :rdf/value
     "Made subproperty of rel:childOf on suggestion of Gautier Poupeau"},
-   :st/term_status "unstable",
    :vann/usageNote
-   "Note that this is a strict definition of father that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation."})
+   "Note that this is a strict definition of father that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.",
+   :vs/term_status "unstable"})
 
 (def followingEvent
   "An event that starts at some time after this event."
@@ -1109,7 +1109,7 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Relationship Interval"},
    :rdfs/range       :bio/Interval,
-   :st/term_status   "unstable"})
+   :vs/term_status   "unstable"})
 
 (def keywords
   "A comma delimited list of key words that describe a person."
@@ -1131,7 +1131,7 @@
    :skos/historyNote {:dcterms/creator "Ian Davis",
                       :dcterms/date "2010-05-03",
                       :rdf/value "Declared that this is a datatype property"},
-   :st/term_status "stable"})
+   :vs/term_status "stable"})
 
 (def mother
   "The biological mother of a person, also known as the genetrix."
@@ -1154,9 +1154,9 @@
     :dcterms/date "2010-06-06",
     :rdf/value
     "Made subproperty of rel:childOf on suggestion of Gautier Poupeau"},
-   :st/term_status "unstable",
    :vann/usageNote
-   "Note that this is a strict definition of mother that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation."})
+   "Note that this is a strict definition of mother that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.",
+   :vs/term_status "unstable"})
 
 (def officiator
   "A person that officiates at a ceremonial event."
@@ -1192,7 +1192,7 @@
    :skos/historyNote {:dcterms/creator "Ian Davis",
                       :dcterms/date "2010-05-03",
                       :rdf/value "Declared that this is a datatype property"},
-   :st/term_status   "stable"})
+   :vs/term_status   "stable"})
 
 (def organization
   "An organization that plays a role in an event."
@@ -1284,7 +1284,7 @@
                       {:dcterms/creator "Ian Davis",
                        :dcterms/date    "2010-05-03",
                        :rdf/value       "Added a plural label"}],
-   :st/term_status   "stable"})
+   :vs/term_status   "stable"})
 
 (def position
   "The employment position or public office involved in an event."
@@ -1303,7 +1303,7 @@
                 :rdf/value    "Position"},
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :bio/agent,
-   :st/term_status "unstable"})
+   :vs/term_status "unstable"})
 
 (def precedingEvent
   "An event that occurs and concludes at some time before this event."
