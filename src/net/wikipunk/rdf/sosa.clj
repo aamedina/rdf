@@ -29,13 +29,13 @@
                        "voaf"    "http://purl.org/vocommons/voaf#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type [:voaf/Vocabulary :owl/Ontology],
+   :rdf/uri "http://www.w3.org/ns/sosa/",
    :rdfa/prefix "sosa",
    :rdfa/uri "http://www.w3.org/ns/sosa/",
    :rdfs/isDefinedBy {:rdf/uri
                       "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
    :vann/preferredNamespacePrefix "sosa",
-   :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/"}
-  (:refer-clojure :exclude [name]))
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/"})
 
 (def ActuatableProperty
   "An actuatable quality (property, characteristic) of a FeatureOfInterest."

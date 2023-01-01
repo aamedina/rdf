@@ -1,6 +1,7 @@
 (ns net.wikipunk.rdf.acl
-  "http://www.w3.org/ns/auth/acl#"
-  {:rdf/ns-prefix-map {"acl"     "http://www.w3.org/ns/auth/acl#",
+  "Basic Access Control ontology"
+  {:dcterms/title "Basic Access Control ontology",
+   :rdf/ns-prefix-map {"acl"     "http://www.w3.org/ns/auth/acl#",
                        "dcterms" "http://purl.org/dc/terms/",
                        "foaf"    "http://xmlns.com/foaf/0.1/",
                        "gen"     "http://www.w3.org/2006/gen/ont#",
@@ -8,9 +9,12 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "vcard"   "http://www.w3.org/2006/vcard/ns#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "acl",
-   :rdfa/uri          "http://www.w3.org/ns/auth/acl#"}
+   :rdf/type :rdfa/PrefixMapping,
+   :rdf/uri "http://www.w3.org/ns/auth/acl",
+   :rdfa/prefix "acl",
+   :rdfa/uri "http://www.w3.org/ns/auth/acl#",
+   :rdfs/comment
+   "Defines the class Authorization and its essential properties,\n    and also some classes of access such as read and write. "}
   (:refer-clojure :exclude [agent]))
 
 (def Access
@@ -23,7 +27,7 @@
                 :rdf/value    "access"}})
 
 (def Append
-  "Append accesses are specific write access which only add information, and do not remove information.     For text files, for example, append access allows bytes to be added onto the end of the file.     For RDF graphs, Append access allows adds triples to the graph but does not remove any.     Append access is useful for dropbox functionality.     Dropbox can be used for link notification, which the information added is a notification     that a some link has been made elsewhere relevant to the given resource."
+  "Append accesses are specific write access which only add information, and do not remove information. For text files, for example, append access allows bytes to be added onto the end of the file. For RDF graphs, Append access allows adds triples to the graph but does not remove any. Append access is useful for dropbox functionality. Dropbox can be used for link notification, which the information added is a notification that a some link has been made elsewhere relevant to the given resource."
   {:db/ident :acl/Append,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -42,7 +46,7 @@
    :rdfs/subClassOf :foaf/Agent})
 
 (def Authorization
-  "An element of access control,     allowing agent to agents access of some kind to resources or classes of resources"
+  "An element of access control, allowing agent to agents access of some kind to resources or classes of resources"
   {:db/ident :acl/Authorization,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -59,7 +63,7 @@
    :rdfs/subClassOf :acl/Access})
 
 (def Origin
-  "An Origin is basically a web site         (Note WITHOUT the trailing slash after the domain name and port in its URI)         and is the basis for controlling access to data by web apps         in the Same Origin Model of web security.         All scripts from the same origin are given the same right."
+  "An Origin is basically a web site (Note WITHOUT the trailing slash after the domain name and port in its URI) and is the basis for controlling access to data by web apps in the Same Origin Model of web security. All scripts from the same origin are given the same right."
   {:db/ident :acl/Origin,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -85,7 +89,7 @@
    :rdfs/subClassOf :acl/Access})
 
 (def accessControl
-  "The Access Control file for this information resource.         This may of course be a virtual resource implemented by the access control system.         Note that HTTP header `Link: <foo.acl>; rel=\"acl\"` can also be used for this."
+  "The Access Control file for this information resource. This may of course be a virtual resource implemented by the access control system. Note that HTTP header `Link: <foo.acl>; rel=\"acl\"` can also be used for this."
   {:db/ident :acl/accessControl,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -135,7 +139,7 @@
    :rdfs/range :rdfs/Class})
 
 (def agentGroup
-  "A group of persons or social entities to being given the right.           The right is given to any entity which is a vcard:member of the group,           as defined by the document received when the Group is dereferenced."
+  "A group of persons or social entities to being given the right. The right is given to any entity which is a vcard:member of the group, as defined by the document received when the Group is dereferenced."
   {:db/ident :acl/agentGroup,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -145,7 +149,7 @@
    :rdfs/range :vcard/Group})
 
 (def default
-  "If a resource has no ACL file (it is 404),         then access to the resource is given by the ACL of the immediately         containing directory, or failing that (404) the ACL of the recursively next         containing directory which has an ACL file.         Within that ACL file,         any Authorization which has that directory as its acl:default applies to the         resource. (The highest directory must have an ACL file.)"
+  "If a resource has no ACL file (it is 404), then access to the resource is given by the ACL of the immediately containing directory, or failing that (404) the ACL of the recursively next containing directory which has an ACL file. Within that ACL file, any Authorization which has that directory as its acl:default applies to the resource. (The highest directory must have an ACL file.)"
   {:db/ident :acl/default,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -154,7 +158,7 @@
    :rdfs/label "default access for things in this"})
 
 (def defaultForNew
-  "THIS IS OBSOLETE AS OF 2017-08-01.   See 'default'.         Was: A directory for which this authorization is used for new files in the directory."
+  "THIS IS OBSOLETE AS OF 2017-08-01. See 'default'. Was: A directory for which this authorization is used for new files in the directory."
   {:db/ident :acl/defaultForNew,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -163,7 +167,7 @@
    :rdfs/label "default access for new things in the object"})
 
 (def delegates
-  "Delegates a person or another agent to act on behalf of the agent.     For example, Alice delegates Bob to act on behalf of Alice for ACL purposes."
+  "Delegates a person or another agent to act on behalf of the agent. For example, Alice delegates Bob to act on behalf of Alice for ACL purposes."
   {:db/ident :acl/delegates,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -182,7 +186,7 @@
    :rdfs/range   :rdfs/Class})
 
 (def origin
-  "A web application, identified by its Origin, such as         <https://scripts.example.com>, being given the right.         When a user of the web application at a certain origin accesses the server,         then the browser sets the Origin: header to warn that a possibly untrusted webapp         is being used.         Then, BOTH the user AND the origin must have the required access."
+  "A web application, identified by its Origin, such as <https://scripts.example.com>, being given the right. When a user of the web application at a certain origin accesses the server, then the browser sets the Origin: header to warn that a possibly untrusted webapp is being used. Then, BOTH the user AND the origin must have the required access."
   {:db/ident :acl/origin,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -194,7 +198,7 @@
    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin"})
 
 (def owner
-  "The person or other agent which owns this.     For example, the owner of a file in a filesystem.     There is a sense of \"right to control\".   Typically defaults to the agent who created     something, but can be changed."
+  "The person or other agent which owns this. For example, the owner of a file in a filesystem. There is a sense of \"right to control\". Typically defaults to the agent who created something, but can be changed."
   {:db/ident :acl/owner,
    :rdf/type :rdf/Property,
    :rdfs/comment

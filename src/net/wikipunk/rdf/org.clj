@@ -1,24 +1,24 @@
 (ns net.wikipunk.rdf.org
   "Core organization ontology"
-  {:dcterms/contributor [{:foaf/mbox "dguardiola@quinode.fr",
-                          :foaf/name "Dominique Guardiola"}
-                         {:foaf/mbox "mpoveda@fi.upm.es",
-                          :foaf/name "María Poveda Villalón"}
-                         {:foaf/mbox "antonio.maccioni@agid.gov.it",
+  {:dcterms/contributor [{:foaf/mbox "antonio.maccioni@agid.gov.it",
                           :foaf/name "Antonio Maccioni"}
                          {:foaf/mbox "dave@epimorphics.com",
                           :foaf/name "Dave Reynolds"}
-                         {:foaf/mbox "lupe@fi.upm.es",
-                          :foaf/name "Guadalupe Aguado de Cea"}
-                         {:foaf/mbox "emontiel@fi.upm.es",
-                          :foaf/name "Elena Montiel Ponsoda"}
-                         {:foaf/mbox "ogiraldo@fi.upm.es",
-                          :foaf/name "Olga Ximena Giraldo"}
                          {:foaf/homepage
                           "http://www.asahi-net.or.jp/~ax2s-kmtn/",
                           :foaf/name "Shuji Kamitsuna"}
                          {:foaf/mbox "giorgia.lodi@agid.gov.it",
-                          :foaf/name "Giorgia Lodi"}],
+                          :foaf/name "Giorgia Lodi"}
+                         {:foaf/mbox "emontiel@fi.upm.es",
+                          :foaf/name "Elena Montiel Ponsoda"}
+                         {:foaf/mbox "dguardiola@quinode.fr",
+                          :foaf/name "Dominique Guardiola"}
+                         {:foaf/mbox "lupe@fi.upm.es",
+                          :foaf/name "Guadalupe Aguado de Cea"}
+                         {:foaf/mbox "mpoveda@fi.upm.es",
+                          :foaf/name "María Poveda Villalón"}
+                         {:foaf/mbox "ogiraldo@fi.upm.es",
+                          :foaf/name "Olga Ximena Giraldo"}],
    :dcterms/created #inst "2010-05-28T00:00:00.000-04:00",
    :dcterms/license "http://www.opendatacommons.org/licenses/pddl/1.0/",
    :dcterms/modified [#inst "2010-06-09T00:00:00.000-04:00"
@@ -53,6 +53,7 @@
                        "vcard"   "http://www.w3.org/2006/vcard/ns#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/org#",
    :rdfa/prefix "org",
    :rdfa/uri "http://www.w3.org/ns/org#",
    :rdfs/comment
@@ -201,7 +202,7 @@
                  :rdf/value    "membresía"}]})
 
 (def Organization
-  "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures.  It is recommended that SKOS lexical labels should be used to label the Organization. In particular `skos:prefLabel` for the primary (possibly legally recognized name), `skos:altLabel` for alternative names (trading names, colloquial names) and `skos:notation` to denote a code from a code list. Alternative names: _Collective_ _Body_ _Org_ _Group_"
+  "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures. It is recommended that SKOS lexical labels should be used to label the Organization. In particular `skos:prefLabel` for the primary (possibly legally recognized name), `skos:altLabel` for alternative names (trading names, colloquial names) and `skos:notation` to denote a code from a code list. Alternative names: _Collective_ _Body_ _Org_ _Group_"
   {:db/ident :org/Organization,
    :owl/disjointWith [:org/Role :org/ChangeEvent :org/Membership :org/Site],
    :owl/equivalentClass :foaf/Organization,
@@ -235,7 +236,7 @@
    :rdfs/subClassOf :foaf/Agent})
 
 (def OrganizationalCollaboration
-  "A collaboration between two or more Organizations such as a project. It meets the criteria for being an Organization in that it has an identity and defining purpose independent of its particular members but is neither a formally recognized legal entity nor a sub-unit within some larger organization. Might typically have a shorter lifetime than the Organizations within it, but not necessarily. All members are `org:Organization`s rather than individuals and those Organizations can play particular roles within the venture. Alternative names: _Project_ _Venture_  _Endeavour_ _Consortium_ _Endeavour_"
+  "A collaboration between two or more Organizations such as a project. It meets the criteria for being an Organization in that it has an identity and defining purpose independent of its particular members but is neither a formally recognized legal entity nor a sub-unit within some larger organization. Might typically have a shorter lifetime than the Organizations within it, but not necessarily. All members are `org:Organization`s rather than individuals and those Organizations can play particular roles within the venture. Alternative names: _Project_ _Venture_ _Endeavour_ _Consortium_ _Endeavour_"
   {:db/ident :org/OrganizationalCollaboration,
    :owl/equivalentClass {:owl/intersectionOf [:org/Organization
                                               {:owl/allValuesFrom
@@ -685,7 +686,7 @@
    :rdfs/range :org/Site})
 
 (def hasSubOrganization
-  "Represents hierarchical containment of Organizations or Organizational Units; indicates an organization which is a sub-part or child of this organization.  Inverse of `org:subOrganizationOf`."
+  "Represents hierarchical containment of Organizations or Organizational Units; indicates an organization which is a sub-part or child of this organization. Inverse of `org:subOrganizationOf`."
   {:db/ident :org/hasSubOrganization,
    :owl/inverseOf :org/subOrganizationOf,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
@@ -835,7 +836,7 @@
    :rdfs/range       :org/Post})
 
 (def identifier
-  "Gives an identifier, such as a company registration number, that can be used to used to uniquely identify the organization. Many different national and international identier schemes are available. The org ontology is neutral to which schemes are used. The particular identifier scheme should be indicated by the datatype of the identifier value.  Using datatypes to distinguish the notation scheme used is consistent with recommended best practice for `skos:notation` of which this property is a specialization."
+  "Gives an identifier, such as a company registration number, that can be used to used to uniquely identify the organization. Many different national and international identier schemes are available. The org ontology is neutral to which schemes are used. The particular identifier scheme should be indicated by the datatype of the identifier value. Using datatypes to distinguish the notation scheme used is consistent with recommended best practice for `skos:notation` of which this property is a specialization."
   {:db/ident :org/identifier,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
@@ -1310,7 +1311,7 @@
    :rdfs/range :org/Role})
 
 (def roleProperty
-  "This is a metalevel property which is used to annotate an `org:Role` instance with a sub-property of `org:memberOf` that can be used to directly indicate the role for easy of query. The intended semantics is a Membership relation involving the Role implies the existence of a direct property relationship through an inference rule of the form:  `{ [] org:member ?p; org:organization ?o; org:role [org:roleProperty ?r] } -> {?p ?r ?o}`."
+  "This is a metalevel property which is used to annotate an `org:Role` instance with a sub-property of `org:memberOf` that can be used to directly indicate the role for easy of query. The intended semantics is a Membership relation involving the Role implies the existence of a direct property relationship through an inference rule of the form: `{ [] org:member ?p; org:organization ?o; org:role [org:roleProperty ?r] } -> {?p ?r ?o}`."
   {:db/ident :org/roleProperty,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
    :rdfs/comment

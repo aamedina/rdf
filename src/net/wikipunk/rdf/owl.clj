@@ -14,6 +14,7 @@
                        "xml"     "http://www.w3.org/XML/1998/namespace",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2002/07/owl",
    :rdfa/prefix "owl",
    :rdfa/uri "http://www.w3.org/2002/07/owl#",
    :rdfs/comment

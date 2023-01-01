@@ -14,6 +14,7 @@
                        "time"    "http://www.w3.org/2006/time#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/time/gregorian",
    :rdfa/prefix "greg",
    :rdfa/uri "http://www.w3.org/ns/time/gregorian/",
    :rdfs/comment {:rdf/language "en",

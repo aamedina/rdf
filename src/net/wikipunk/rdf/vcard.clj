@@ -9,6 +9,7 @@
                        "xml"   "http://www.w3.org/XML/1998/namespace",
                        "xsd"   "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2006/vcard/ns",
    :rdfa/prefix "vcard",
    :rdfa/uri "http://www.w3.org/2006/vcard/ns#",
    :rdfs/comment {:rdf/language "en",
@@ -17,7 +18,7 @@
    {:rdf/uri "http://www.w3.org/Submission/2010/SUBM-vcard-rdf-20100120/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Ontology for vCard"}}
-  (:refer-clojure :exclude [key agent class fn]))
+  (:refer-clojure :exclude [agent class fn key]))
 
 (def Acquaintance
   {:db/ident         :vcard/Acquaintance,
@@ -28,7 +29,7 @@
    :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Address
-  "To specify the components of the delivery address for the  object"
+  "To specify the components of the delivery address for the object"
   {:db/ident :vcard/Address,
    :owl/equivalentClass
    {:owl/unionOf [{:owl/intersectionOf [{:owl/onProperty :vcard/country-name,
@@ -245,7 +246,7 @@
                 :rdf/value    "Gender"}})
 
 (def Group
-  "Object representing a group of persons or entities.  A group object will usually contain hasMember properties to specify the members of the group."
+  "Object representing a group of persons or entities. A group object will usually contain hasMember properties to specify the members of the group."
   {:db/ident :vcard/Group,
    :owl/disjointWith [:vcard/Organization :vcard/Location :vcard/Individual],
    :owl/equivalentClass {:owl/intersectionOf [{:owl/onProperty :vcard/hasMember,
@@ -498,7 +499,7 @@
    :rdfs/subClassOf  :vcard/Gender})
 
 (def Organization
-  "An object representing an organization.  An organization is a single entity, and might represent a business or government, a department or division within a business or government, a club, an association, or the like."
+  "An object representing an organization. An organization is a single entity, and might represent a business or government, a department or division within a business or government, a club, an association, or the like."
   {:db/ident :vcard/Organization,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -683,7 +684,7 @@
    :rdfs/subClassOf  :vcard/Gender})
 
 (def VCard
-  "The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)"
+  "The vCard class is equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)"
   {:db/ident :vcard/VCard,
    :owl/equivalentClass :vcard/Kind,
    :rdf/type :owl/Class,
@@ -1022,7 +1023,7 @@
                 :rdf/value    "has family name"}})
 
 (def hasGender
-  "To specify  the sex or gender identity of the object. URIs are recommended to enable interoperable sex and gender codes to be used."
+  "To specify the sex or gender identity of the object. URIs are recommended to enable interoperable sex and gender codes to be used."
   {:db/ident :vcard/hasGender,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment

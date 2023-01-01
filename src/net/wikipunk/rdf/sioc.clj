@@ -1,6 +1,13 @@
 (ns net.wikipunk.rdf.sioc
-  "http://rdfs.org/sioc/ns#"
-  {:rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
+  "SIOC (Semantically-Interlinked Online Communities) is an ontology for describing the information in online communities. This information can be used to export information from online communities and to link them together. The scope of the application areas that SIOC can be used for includes (and is not limited to) weblogs, message boards, mailing lists and chat channels."
+  {:dcterms/description
+   {:rdf/language "en",
+    :rdf/value
+    "SIOC (Semantically-Interlinked Online Communities) is an ontology for describing the information in online communities. \nThis information can be used to export information from online communities and to link them together. The scope of the application areas that SIOC can be used for includes (and is not limited to) weblogs, message boards, mailing lists and chat channels."},
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "SIOC Core Ontology Namespace"},
+   :owl/versionInfo "Revision: 1.36",
+   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "foaf" "http://xmlns.com/foaf/0.1/",
                        "owl" "http://www.w3.org/2002/07/owl#",
                        "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -8,11 +15,13 @@
                        "sioc" "http://rdfs.org/sioc/ns#",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                        "wot" "http://xmlns.com/wot/0.1/"},
-   :rdf/type :rdfa/PrefixMapping,
+   :rdf/type [:owl/Thing :owl/Ontology],
+   :rdf/uri "http://rdfs.org/sioc/ns#",
    :rdfa/prefix "sioc",
    :rdfa/uri "http://rdfs.org/sioc/ns#",
    :rdfs/isDefinedBy
-   {:rdf/uri "http://www.w3.org/Submission/2007/SUBM-sioc-spec-20070612/"}}
+   {:rdf/uri "http://www.w3.org/Submission/2007/SUBM-sioc-spec-20070612/"},
+   :rdfs/seeAlso "http://rdfs.org/sioc/spec"}
   (:refer-clojure :exclude [name]))
 
 (def Community
@@ -414,7 +423,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "embeds knowledge"},
-   :rdfs/range "http://www.w3.org/2004/03/trix/rdfg-1/Graph"})
+   :rdfs/range :rdfg/Graph})
 
 (def feed
   "A feed (e.g. RSS, Atom, etc.) pertaining to this resource (e.g. for a Forum, Site, UserAccount, etc.)."

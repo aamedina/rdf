@@ -11,12 +11,13 @@
                        "spl"  "http://spinrdf.org/spl#",
                        "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://spinrdf.org/spin",
    :rdfa/prefix "spin",
    :rdfa/uri "http://spinrdf.org/spin#",
    :rdfs/comment
    "An RDF Schema that can be used to attach constraints and rules to RDFS classes, and to encapsulate reusable SPARQL queries into functions and templates.",
    :rdfs/label "SPIN Modeling Vocabulary"}
-  (:refer-clojure :exclude [symbol update eval]))
+  (:refer-clojure :exclude [eval symbol update]))
 
 (def AskTemplate
   "A SPIN template that wraps an ASK query."
@@ -225,7 +226,7 @@
    :spin/abstract   true})
 
 (def TableDataProvider
-  "An abstraction of objects that can produce tabular data. This serves as a base class of spin:SelectTemplate, because SELECT queries can produce tables with columns for each result variable. However, other types of TableDataProviders are conceivable by other frameworks, and this class may prove as a useful shared foundation.  TableDataProviders can link to definitions of columns via spin:column, and these definitions can inform rendering engines."
+  "An abstraction of objects that can produce tabular data. This serves as a base class of spin:SelectTemplate, because SELECT queries can produce tables with columns for each result variable. However, other types of TableDataProviders are conceivable by other frameworks, and this class may prove as a useful shared foundation. TableDataProviders can link to definitions of columns via spin:column, and these definitions can inform rendering engines."
   {:db/ident :spin/TableDataProvider,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -334,7 +335,7 @@
    :rdfs/subPropertyOf :spin/systemProperty})
 
 (def ask
-  "Executes a given ASK query and returns its boolean result. The first argument must point to an sp:Ask or a SPIN template call that has an ASK query as its body. All subsequent argument can come in pairs, with the first one being a variable name and the second its binding.  Example:      BIND (spin:ask(?query, \"this\", owl:Thing) AS ?result) .  will execute the sp:Ask behind ?query with the variable ?this pre-bound to owl:Thing."
+  "Executes a given ASK query and returns its boolean result. The first argument must point to an sp:Ask or a SPIN template call that has an ASK query as its body. All subsequent argument can come in pairs, with the first one being a variable name and the second its binding. Example: BIND (spin:ask(?query, \"this\", owl:Thing) AS ?result) . will execute the sp:Ask behind ?query with the variable ?this pre-bound to owl:Thing."
   {:db/ident :spin/ask,
    :rdf/type :spin/Function,
    :rdfs/comment
@@ -437,7 +438,7 @@
    :rdfs/subPropertyOf :spin/query})
 
 (def construct
-  "Evaluates a given sp:Construct or SPIN template call (first argument on the left hand side) and binds the resulting triples to the variables on the right hand side.  Example:      (?query \"this\" owl:Thing) spin:construct (?s ?p ?o)  will execute the sp:Construct ?query using the binding of owl:Thing to ?this. The resulting triples will be bound to ?s, ?p and ?o. If any of ?s ?p ?o are bound, it will only return the matching triples."
+  "Evaluates a given sp:Construct or SPIN template call (first argument on the left hand side) and binds the resulting triples to the variables on the right hand side. Example: (?query \"this\" owl:Thing) spin:construct (?s ?p ?o) will execute the sp:Construct ?query using the binding of owl:Thing to ?this. The resulting triples will be bound to ?s, ?p and ?o. If any of ?s ?p ?o are bound, it will only return the matching triples."
   {:db/ident :spin/construct,
    :rdf/type :spin/MagicProperty,
    :rdfs/comment
@@ -446,7 +447,7 @@
    :rdfs/subClassOf :spin/MagicProperties})
 
 (def constructViolations
-  "Takes an instance (?arg1) and a class definition (?arg2) and returns all constraint violations for that instance as triples. This magic property basically runs its own constraint checker for defining meta-constraints, and can also be used to classify instances.  Example:      CONSTRUCT {         ?s ?p ?o .     }     WHERE {         (my:Person my:OldPerson) spin:constructViolations (?s ?p ?o) .     }"
+  "Takes an instance (?arg1) and a class definition (?arg2) and returns all constraint violations for that instance as triples. This magic property basically runs its own constraint checker for defining meta-constraints, and can also be used to classify instances. Example: CONSTRUCT { ?s ?p ?o . } WHERE { (my:Person my:OldPerson) spin:constructViolations (?s ?p ?o) . }"
   {:db/ident :spin/constructViolations,
    :rdf/type :spin/MagicProperty,
    :rdfs/comment
@@ -600,7 +601,7 @@
    :rdfs/subPropertyOf :spin/systemProperty})
 
 (def select
-  "Executes a given SELECT or ASK query (or a corresponding SPIN template call) and binds its result rows to the variables specified on the right hand side. May also pre-bind variables for the query execution, using name-value pairs on the left hand side.  Example:      (?query \"this\" owl:Thing) spin:select (?a ?b)  will execute the sp:Select or sp:Ask that ?query points to and pre-bind ?this with the value of owl:Thing for the execution of the query. The first result variable of the query's result set will be bound to ?a, the second to ?b etc. If the nodes on the right are bound (or constants) then it will match with the values from the result set.  Note that the first argument on the left hand side can be an instance of a SPIN template (but not the template itself). If you need to execute a template, retrieve its spin:body first."
+  "Executes a given SELECT or ASK query (or a corresponding SPIN template call) and binds its result rows to the variables specified on the right hand side. May also pre-bind variables for the query execution, using name-value pairs on the left hand side. Example: (?query \"this\" owl:Thing) spin:select (?a ?b) will execute the sp:Select or sp:Ask that ?query points to and pre-bind ?this with the value of owl:Thing for the execution of the query. The first result variable of the query's result set will be bound to ?a, the second to ?b etc. If the nodes on the right are bound (or constants) then it will match with the values from the result set. Note that the first argument on the left hand side can be an instance of a SPIN template (but not the template itself). If you need to execute a template, retrieve its spin:body first."
   {:db/ident :spin/select,
    :rdf/type :spin/MagicProperty,
    :rdfs/comment

@@ -24,6 +24,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "vann"    "http://purl.org/vocab/vann/"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://purl.org/vocab/vann/",
    :rdfa/prefix "vann",
    :rdfa/uri "http://purl.org/vocab/vann/",
    :vann/preferredNamespacePrefix "vann",

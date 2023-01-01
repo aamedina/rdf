@@ -4,25 +4,25 @@
    {:rdf/language "en",
     :rdf/value
     "ADMS is a profile of DCAT, used to describe semantic assets (or just 'Assets'), defined as highly reusable metadata (e.g. xml schemata, generic data models) and reference data (e.g. code lists, taxonomies, dictionaries, vocabularies) that are used for eGovernment system development."},
-   :dcterms/creator [{:foaf/homepage "http://makxdekkers.com/",
-                      :foaf/name "Makx Dekkers",
-                      :rdfs/seeAlso "http://makxdekkers.com/makxdekkers.rdf#me"}
-                     {:foaf/homepage      "http://www.w3.org/People/all#phila",
-                      :foaf/name          "Phil Archer",
-                      :rdfs/seeAlso       "http://philarcher.org/foaf.rdf#me",
-                      :schema/affiliation "http://www.w3.org/data#W3C"}
-                     {:foaf/homepage "http://andrea-perego.name/",
-                      :foaf/name "Andrea Perego",
-                      :rdfs/seeAlso "http://andrea-perego.name/foaf/#me",
-                      :schema/affiliation
-                      {:foaf/homepage "http://ies.jrc.ec.europa.eu/DE",
-                       :foaf/name
-                       "European Commission, Joint Research Centre "}}],
+   :dcterms/creator
+   [{:foaf/homepage      "http://andrea-perego.name/",
+     :foaf/name          "Andrea Perego",
+     :rdfs/seeAlso       "http://andrea-perego.name/foaf/#me",
+     :schema/affiliation {:foaf/homepage "http://ies.jrc.ec.europa.eu/DE",
+                          :foaf/name
+                          "European Commission, Joint Research Centre "}}
+    {:foaf/homepage      "http://www.w3.org/People/all#phila",
+     :foaf/name          "Phil Archer",
+     :rdfs/seeAlso       "http://philarcher.org/foaf.rdf#me",
+     :schema/affiliation "http://www.w3.org/data#W3C"}
+    {:foaf/homepage "http://makxdekkers.com/",
+     :foaf/name     "Makx Dekkers",
+     :rdfs/seeAlso  "http://makxdekkers.com/makxdekkers.rdf#me"}],
    :dcterms/description
    "This is the RDF encoding of the Asset Description Metadata Schema, originally \n    developed under the European Union's ISA Programme and further developed by the W3C Government Linked Data Working Group.\n    It re-uses terms from several other vocabularies, notably Dublin Core, with elements of SKOS, FOAF and more. ",
    :dcterms/modified [#inst "2015-07-22T00:00:00.000-04:00"
-                      #inst "2013-09-16T00:00:00.000-04:00"
                       #inst "2013-05-24T00:00:00.000-04:00"
+                      #inst "2013-09-16T00:00:00.000-04:00"
                       #inst "2013-12-21T00:00:00.000-05:00"],
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Asset Description Metadata Schema (ADMS)"},
@@ -47,6 +47,7 @@
                        "xml"     "http://www.w3.org/XML/1998/namespace",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type [:voaf/Vocabulary :owl/Ontology],
+   :rdf/uri "http://www.w3.org/ns/adms",
    :rdfa/prefix "adms",
    :rdfa/uri "http://www.w3.org/ns/adms#",
    :rdfs/comment

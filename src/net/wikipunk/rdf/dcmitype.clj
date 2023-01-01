@@ -1,7 +1,11 @@
 (ns net.wikipunk.rdf.dcmitype
-  "http://purl.org/dc/dcmitype/"
+  "DCMI Type Vocabulary"
   {:dcat/downloadURL
    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_type.ttl",
+   :dcterms/modified #inst "2012-06-14T00:00:00.000-04:00",
+   :dcterms/publisher "http://purl.org/dc/aboutdcmi#DCMI",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "DCMI Type Vocabulary"},
    :rdf/ns-prefix-map {"dcam"     "http://purl.org/dc/dcam/",
                        "dcmitype" "http://purl.org/dc/dcmitype/",
                        "dcterms"  "http://purl.org/dc/terms/",
@@ -10,6 +14,7 @@
                        "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"     "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type :rdfa/PrefixMapping,
+   :rdf/uri "http://purl.org/dc/dcmitype/",
    :rdfa/prefix "dcmitype",
    :rdfa/uri "http://purl.org/dc/dcmitype/"})
 
@@ -30,7 +35,7 @@
                 :rdf/value    "Collection"}})
 
 (def Dataset
-  "Examples include lists, tables, and databases.  A dataset may be useful for direct machine processing."
+  "Examples include lists, tables, and databases. A dataset may be useful for direct machine processing."
   {:db/ident :dcmitype/Dataset,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
@@ -62,7 +67,7 @@
                 :rdf/value    "Event"}})
 
 (def Image
-  "Examples include images and photographs of physical objects, paintings, prints, drawings, other images and graphics, animations and moving pictures, film, diagrams, maps, musical notation.  Note that Image may include both electronic and physical representations."
+  "Examples include images and photographs of physical objects, paintings, prints, drawings, other images and graphics, animations and moving pictures, film, diagrams, maps, musical notation. Note that Image may include both electronic and physical representations."
   {:db/ident :dcmitype/Image,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
@@ -96,7 +101,7 @@
                 :rdf/value    "Interactive Resource"}})
 
 (def MovingImage
-  "Examples include animations, movies, television programs, videos, zoetropes, or visual output from a simulation.  Instances of the type Moving Image must also be describable as instances of the broader type Image."
+  "Examples include animations, movies, television programs, videos, zoetropes, or visual output from a simulation. Instances of the type Moving Image must also be describable as instances of the broader type Image."
   {:db/ident :dcmitype/MovingImage,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description

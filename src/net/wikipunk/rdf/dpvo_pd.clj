@@ -44,6 +44,7 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "https://w3id.org/dpv/dpv-owl/dpv-pd",
    :rdfa/prefix "dpvo-pd",
    :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :vann/preferredNamespacePrefix "dpvo-pd",
@@ -294,9 +295,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Biometric"},
-   :rdfs/subClassOf
-   [:dpvo-pd/Identifying
-    "https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"],
+   :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo/SpecialCategoryPersonalData],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1181,9 +1180,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Ethnic Origin"},
-   :rdfs/subClassOf
-   [:dpvo-pd/Ethnicity
-    "https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"],
+   :rdfs/subClassOf [:dpvo-pd/Ethnicity :dpvo/SpecialCategoryPersonalData],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1220,7 +1217,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "External"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1395,7 +1392,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Financial"},
    :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Financial",
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1697,7 +1694,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Historical"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1731,7 +1728,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "Household"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf     :dpvo/PersonalData,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1926,7 +1923,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Internal"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1984,7 +1981,7 @@
                     :rdf/value    "changed"}})
 
 (def LifeHistory
-  "Information about personal history regarding events or activities - including  their occurrences that might be directly related or have had an influence (e.g. World War, 9/11)"
+  "Information about personal history regarding events or activities - including their occurrences that might be directly related or have had an influence (e.g. World War, 9/11)"
   {:db/ident :dpvo-pd/LifeHistory,
    :dcterms/created #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator ["Fajar Ekaputra" "Elmar Kiesling; Harshvardhan J. Pandit"],
@@ -2144,9 +2141,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Medical Health"},
-   :rdfs/subClassOf
-   [:dpvo-pd/External
-    "https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/SpecialCategoryPersonalData],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -2493,9 +2488,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Philosophical Belief"},
-   :rdfs/subClassOf
-   [:dpvo-pd/KnowledgeBelief
-    "https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"],
+   :rdfs/subClassOf [:dpvo-pd/KnowledgeBelief
+                     :dpvo/SpecialCategoryPersonalData],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -2622,9 +2616,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Political Affiliation"},
    :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Political",
-   :rdfs/subClassOf
-   [:dpvo-pd/PublicLife
-    "https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"],
+   :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/SpecialCategoryPersonalData],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -2641,8 +2633,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Political Opinion"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"
-                     :dpvo-pd/PublicLife],
+   :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData :dpvo-pd/PublicLife],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -2803,7 +2794,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Profile"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -2893,8 +2884,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Race"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"
-                     :dpvo-pd/Ethnicity],
+   :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData :dpvo-pd/Ethnicity],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -2965,8 +2955,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Religion"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"
-                     :dpvo-pd/PublicLife],
+   :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData :dpvo-pd/PublicLife],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -2984,7 +2973,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Religious Belief"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"
+   :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/KnowledgeBelief],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -3131,8 +3120,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Sexual"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"
-                     :dpvo-pd/External],
+   :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData :dpvo-pd/External],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -3219,7 +3207,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Social"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -3396,7 +3384,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Tracking"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PersonalData",
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -3412,7 +3400,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Trade Union Membership"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#SpecialCategoryPersonalData"
+   :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/GroupMembership],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})

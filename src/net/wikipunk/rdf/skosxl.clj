@@ -17,6 +17,7 @@
                        "skos"    "http://www.w3.org/2004/02/skos/core#",
                        "skosxl"  "http://www.w3.org/2008/05/skos-xl#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2008/05/skos-xl",
    :rdfa/prefix "skosxl",
    :rdfa/uri "http://www.w3.org/2008/05/skos-xl#",
    :rdfs/isDefinedBy {:rdf/uri

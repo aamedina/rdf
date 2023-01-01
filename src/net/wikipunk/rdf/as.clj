@@ -1,23 +1,25 @@
 (ns net.wikipunk.rdf.as
   "Extended Activity Streams 2.0 Vocabulary"
-  {:dcat/downloadURL  "https://www.w3.org/ns/activitystreams-owl",
-   :owl/imports       "http://www.w3.org/ns/prov#",
+  {:dcat/downloadURL
+   "https://raw.githubusercontent.com/w3c/activitystreams/master/vocabulary/activitystreams2.owl",
+   :owl/imports "http://www.w3.org/ns/prov#",
    :rdf/ns-prefix-map {"as"   "http://www.w3.org/ns/activitystreams#",
                        "owl"  "http://www.w3.org/2002/07/owl#",
                        "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                        "xml"  "http://www.w3.org/XML/1998/namespace",
                        "xsd"  "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :owl/Ontology,
-   :rdfa/prefix       "as",
-   :rdfa/uri          "https://www.w3.org/ns/activitystreams#",
-   :rdfs/comment      {:rdf/language "en",
-                       :rdf/value "Extended Activity Streams 2.0 Vocabulary"},
-   :rdfs/isDefinedBy  {:rdf/uri
-                       "https://www.w3.org/TR/activitystreams-vocabulary/"},
-   :rdfs/label        {:rdf/language "en",
-                       :rdf/value    "Activity Streams 2.0"}}
-  (:refer-clojure :exclude [next last first name]))
+   :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/activitystreams#",
+   :rdfa/prefix "as",
+   :rdfa/uri "https://www.w3.org/ns/activitystreams#",
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "Extended Activity Streams 2.0 Vocabulary"},
+   :rdfs/isDefinedBy {:rdf/uri
+                      "https://www.w3.org/TR/activitystreams-vocabulary/"},
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Activity Streams 2.0"}}
+  (:refer-clojure :exclude [first last name next]))
 
 (def Accept
   "Actor accepts the Object"

@@ -404,7 +404,8 @@
    https://www.dublincore.org/specifications/dublin-core/dces/"
   [form]
   (if (and (keyword? form) (or (= (namespace form) "dc")
-                               (= (namespace form) "dct")))
+                               (= (namespace form) "dct")
+                               (= (namespace form) "dc11")))
 
     (keyword "dcterms" (name form))
     form))
@@ -451,14 +452,18 @@
                                      :else v)))
                             (map (fn [form] (walk/postwalk walk-rdf-list form))))
         public?  (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
-        mappings (->> (remove public? forms)
-                      (filter #(some #{:rdfa/PrefixMapping
-                                       :rdfa/TermMapping}
-                                     [(:rdf/type %)]))
-                      (into []))]
+        ontologies (->> (remove public? forms)
+                        (filter :rdf/type)
+                        (filter (fn [form]
+                                  (some #(or (isa? *classes* % :owl/Ontology)
+                                             (isa? *classes* % :voaf/Vocabulary))
+                                        (if (coll? (:rdf/type form))
+                                          (:rdf/type form)
+                                          [(:rdf/type form)])))))
+        the-ont (or (first ontologies)
+                    (first (filter :rdf/uri (remove public? forms))))]
     (with-meta (sort-by :db/ident (filter public? forms))
-      (assoc (merge md (first (get (group-by :rdf/type (filter :rdf/uri forms)) :owl/Ontology)))
-             :rdfa/PrefixOrTermMapping mappings))))
+      (merge md the-ont))))
 
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -506,8 +511,15 @@
                                                  (:rdf/value docstring "")
                                                  docstring)
                                      docstring (when docstring
-                                                 (str/trim (str/replace docstring #"\s" " ")))
-                                     v         (assoc v :db/ident k)]
+                                                 (str/trim (str/replace docstring #"\s+" " ")))
+                                     v         (cond-> (assoc v :db/ident k)
+                                                 (and (nil? (:rdf/type v))
+                                                      (:rdfs/subClassOf v))
+                                                 (assoc :rdf/type :rdfs/Class)
+
+                                                 (and (nil? (:rdf/type v))
+                                                      (:rdfs/subPropertyOf v))
+                                                 (assoc :rdf/type :rdf/Property))]
                                  (if docstring
                                    (list 'def sym docstring (dissoc v :lv2/documentation))
                                    (list 'def sym v))))))]
@@ -520,7 +532,6 @@
                                     (:rdfs/comment md)
                                     (:rdfs/label md)
                                     (:rdfa/uri md)
-                                    (:skos/historyNote md)
                                     (:doc md))
                       docstring (if (vector? docstring)
                                   (if (every? string? docstring)
@@ -533,7 +544,7 @@
                                   (:rdf/value docstring)
                                   docstring)
                       docstring (when docstring
-                                  (str/trim (str/replace docstring #"\s" " ")))]
+                                  (str/trim (str/replace docstring #"\s+" " ")))]
                   (when docstring
                     [docstring]))
               ~(dissoc (cond-> (dissoc md :db/ident)
@@ -556,6 +567,10 @@
   String
   (emit [s arg-map]
     (emit {:dcat/downloadURL s} arg-map))
+
+  clojure.lang.Named
+  (emit [n arg-map]
+    (emit @(resolve (symbol n)) arg-map))
   
   clojure.lang.IPersistentMap
   (emit [x arg-map]
@@ -582,21 +597,21 @@
   [x]
   (or (:rdf/type x) (type x)))
 
-(defn find-class
-  [class-name]
-  (when-some [var (ns-resolve (get *ns-aliases* (namespace class-name))
+(defn find-metaobject
+  [ident]
+  (when-some [var (ns-resolve (get *ns-aliases* (namespace ident))
                               (cond
-                                (= (name class-name) "Class")
+                                (= (name ident) "Class")
                                 'T
                                 
-                                (get clojure.lang.RT/DEFAULT_IMPORTS class-name)
-                                (symbol (str class-name "Class"))
+                                (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
+                                (symbol (str (name ident) "Class"))
 
-                                (= (name class-name) "nil")
+                                (= (name ident) "nil")
                                 'null
 
                                 :else
-                                (-> (name class-name)
+                                (-> (name ident)
                                     (str/replace #"^#" "")
                                     (symbol))))]
     @var))
@@ -617,4 +632,4 @@
 
   clojure.lang.Keyword
   (sniff [k]
-    (find-class k)))
+    (find-metaobject k)))

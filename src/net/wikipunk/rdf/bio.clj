@@ -28,59 +28,60 @@
                        "st" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                        "vann" "http://purl.org/vocab/vann/"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://purl.org/vocab/bio/0.1/",
    :rdfa/prefix "bio",
    :rdfa/uri "http://purl.org/vocab/bio/0.1/",
    :skos/changeNote [{:dcterms/creator "Ian Davis",
-                      :dcterms/date    "2005-04-01",
-                      :rdf/value       "Added examples"}
-                     {:dcterms/creator "Ian Davis",
-                      :dcterms/date "2009-05-19",
-                      :rdf/value "Minor changes to improve publishing process"}
-                     {:dcterms/creator "Ian Davis",
-                      :dcterms/date    "2004-03-05",
-                      :rdf/value       "Added Creative Commons license"}
-                     {:dcterms/creator "Ian Davis",
-                      :dcterms/date "2011-06-14",
-                      :rdf/value "Expanded description and added diagrams"}
-                     {:dcterms/creator "Ian Davis",
                       :dcterms/date "2010-05-20",
                       :rdf/value
                       "Batch of revisions based on community feedback"}
                      {:dcterms/creator "Ian Davis",
+                      :dcterms/date "2009-05-19",
+                      :rdf/value "Minor changes to improve publishing process"}
+                     {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2010-04-20",
-                      :rdf/value       "Added change history"}],
+                      :rdf/value       "Added change history"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date    "2004-03-05",
+                      :rdf/value       "Added Creative Commons license"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date    "2005-04-01",
+                      :rdf/value       "Added examples"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date "2011-06-14",
+                      :rdf/value "Expanded description and added diagrams"}],
    :skos/historyNote
    [{:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-10",
-     :rdf/value       "Added bio:Performance event"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-14",
-     :rdf/value       "Added bio:Relationship class and properties"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-10",
-     :rdf/value       "Added bio:Formation and bio:Disbanding events"}
-    {:dcterms/creator "Ian Davis",
      :dcterms/date    "2010-05-10",
      :rdf/value       "Major expansion of properties and classes"}
     {:dcterms/creator "Ian Davis",
      :dcterms/date    "2010-06-05",
      :rdf/value       "Added biography property"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2003-07-28",
-     :rdf/value       "Added keywords property"}
     {:dcterms/creator "Alexandre Passant",
      :dcterms/date "2011-06-14",
      :rdf/value
      "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
     {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2011-06-10",
+     :rdf/value       "Added bio:Formation and bio:Disbanding events"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2003-07-28",
+     :rdf/value       "Added keywords property"}
+    {:dcterms/creator "Ian Davis",
      :dcterms/date "2010-06-06",
      :rdf/value
-     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}],
+     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2011-06-10",
+     :rdf/value       "Added bio:Performance event"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2011-06-14",
+     :rdf/value       "Added bio:Relationship class and properties"}],
    :vann/example "http://purl.org/vocab/bio/examples/1",
    :vann/preferredNamespacePrefix "bio",
    :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
-   :vann/termGroup [:bio/termgroup2
-                    :bio/termgroup5
+   :vann/termGroup [:bio/termgroup5
+                    :bio/termgroup2
                     :bio/termgroup4
                     :bio/termgroup1
                     :bio/termgroup3]}
@@ -407,16 +408,16 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Event"},
-   :rdfs/subClassOf ["http://purl.org/NET/c4dm/event.owl#Event"
+   :rdfs/subClassOf [:event/Event
                      "http://linkedevents.org/ontology/Event"
-                     "http://purl.org/dc/dcmitype/Event"
+                     :dcmitype/Event
                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :skos/changeNote [{:dcterms/creator "Ian Davis",
-                      :dcterms/date    "2010-05-04",
-                      :rdf/value       "Marked as a stable term"}
-                     {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2010-05-20",
-                      :rdf/value       "Marked as testing status"}],
+                      :rdf/value       "Marked as testing status"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date    "2010-05-04",
+                      :rdf/value       "Marked as a stable term"}],
    :skos/historyNote [{:dcterms/creator "Ian Davis",
                        :dcterms/date "2010-05-20",
                        :rdf/value "Removed subclass of owl-time ProperInteval"}
@@ -568,7 +569,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Interval"},
-   :rdfs/subClassOf "http://www.w3.org/2006/time#ProperInterval",
+   :rdfs/subClassOf :time/ProperInterval,
    :st/term_status "unstable"})
 
 (def Investiture
@@ -680,7 +681,7 @@
   "The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc."
   {:db/ident :bio/Performance,
    :dcterms/issued "2011-06-12",
-   :owl/equivalentClass "http://purl.org/ontology/mo/Performance",
+   :owl/equivalentClass :mo/Performance,
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -909,7 +910,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Date"},
-   :rdfs/subPropertyOf "http://purl.org/dc/elements/1.1/date",
+   :rdfs/subPropertyOf :dcterms/date,
    :skos/changeNote [{:dcterms/creator "Ian Davis",
                       :dcterms/date    "2010-05-04",
                       :rdf/value       "Marked as a stable term"}
@@ -977,11 +978,11 @@
                      :dcterms/date    "2010-05-03",
                      :rdf/value       "Added a plural label"},
    :skos/historyNote [{:dcterms/creator "Ian Davis",
-                       :dcterms/date "2010-05-03",
-                       :rdf/value "Made a subproperty of owl:differentFrom"}
-                      {:dcterms/creator "Ian Davis",
                        :dcterms/date    "2011-06-14",
-                       :rdf/value       "Changed domain to foaf:Agent"}]})
+                       :rdf/value       "Changed domain to foaf:Agent"}
+                      {:dcterms/creator "Ian Davis",
+                       :dcterms/date "2010-05-03",
+                       :rdf/value "Made a subproperty of owl:differentFrom"}]})
 
 (def eventInterval
   "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."
@@ -1122,7 +1123,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Key Words"},
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf "http://purl.org/dc/elements/1.1/subject",
+   :rdfs/subPropertyOf :dcterms/subject,
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2010-05-04",
                      :rdf/value       "Marked as a stable term"},

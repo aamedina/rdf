@@ -16,14 +16,15 @@
                        "schema" "http://schema.org/",
                        "xsd"    "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/json-ld#",
    :rdfa/prefix "jsonld",
    :rdfa/uri "http://www.w3.org/ns/json-ld#",
    :rdfs/isDefinedBy {:rdf/uri "https://www.w3.org/TR/json-ld/"},
    :rdfs/seeAlso "http://www.w3.org/TR/json-ld11"}
-  (:refer-clojure :exclude [type import reverse]))
+  (:refer-clojure :exclude [import reverse type]))
 
 (def Context
-  "Defines term definitions and other aspects of a JSON-LD `Context`.  A [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`."
+  "Defines term definitions and other aspects of a JSON-LD `Context`. A [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`."
   {:db/ident :jsonld/Context,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -49,7 +50,7 @@
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#dfn-term-definition"})
 
 (def TermDefinition
-  "A [term definition](http://www.w3.org/TR/json-ld11/#dfn-term-definitions) is an entry in a [context](#Context), where the key defines a term which may be used within a dictionary as a key, type, or elsewhere that a string is interpreted as a vocabulary item. Its value is an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions).    An [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definition) MUST be a map composed of zero or more keys from `@id`, `@reverse`, `@type`, `@language`, `@container`, `@context`, `@prefix`, `@propagate`, or `@protected`. An expanded term definition SHOULD NOT contain any other keys."
+  "A [term definition](http://www.w3.org/TR/json-ld11/#dfn-term-definitions) is an entry in a [context](#Context), where the key defines a term which may be used within a dictionary as a key, type, or elsewhere that a string is interpreted as a vocabulary item. Its value is an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions). An [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definition) MUST be a map composed of zero or more keys from `@id`, `@reverse`, `@type`, `@language`, `@container`, `@context`, `@prefix`, `@propagate`, or `@protected`. An expanded term definition SHOULD NOT contain any other keys."
   {:db/ident :jsonld/TermDefinition,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -90,7 +91,7 @@
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#iana-considerations"})
 
 (def container
-  "The associated `@container` value in an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions).  If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an array containing exactly any one of those keywords, or a combination of `@set` and any of `@index`, `@id`, `@graph`, `@type`, `@language` in any order.  `@container` may also be an array containing `@graph` along with either `@id` or `@index` and also optionally including `@set`.  If the value is `@language`, when the term is used outside of the `@context`, the associated value MUST be a language map.  If the value is `@index`, when the term is used outside of the `@context`, the associated value MUST be an index map."
+  "The associated `@container` value in an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions). If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an array containing exactly any one of those keywords, or a combination of `@set` and any of `@index`, `@id`, `@graph`, `@type`, `@language` in any order. `@container` may also be an array containing `@graph` along with either `@id` or `@index` and also optionally including `@set`. If the value is `@language`, when the term is used outside of the `@context`, the associated value MUST be a language map. If the value is `@index`, when the term is used outside of the `@context`, the associated value MUST be an index map."
   {:db/ident :jsonld/container,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -426,7 +427,7 @@
    :schema/rangeIncludes :xsd/string})
 
 (def type
-  "If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@type` keyword, its value MUST be a map with only the entry `@container` set to `@set`, and optionally an entry `@protected`.    If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@type` keyword, its value MUST be an _IRI reference_, a _term_, `null`, or one of the keywords `@id`, `@json`, `@none`, or `@vocab`."
+  "If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@type` keyword, its value MUST be a map with only the entry `@container` set to `@set`, and optionally an entry `@protected`. If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@type` keyword, its value MUST be an _IRI reference_, a _term_, `null`, or one of the keywords `@id`, `@json`, `@none`, or `@vocab`."
   {:db/ident :jsonld/type,
    :rdf/type :rdf/Property,
    :rdfs/comment

@@ -45,6 +45,7 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "https://w3id.org/dpv/dpv-owl/dpv-gdpr",
    :rdfa/prefix "dpvo-gdpr",
    :rdfa/uri "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :vann/preferredNamespacePrefix "dpvo-gdpr",
@@ -64,7 +65,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "A13 Right to be Informed"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -82,7 +83,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "A14 Right to be Informed"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -100,7 +101,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "A15 Right of Access"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -118,7 +119,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "A16 Right to Rectification"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -137,7 +138,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "A17 Right to Erasure"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -155,7 +156,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "A18 Right to Restrict Processing"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -173,7 +174,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "A19 Right to Rectification"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -191,7 +192,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "A20 Right to Data Portability"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -210,7 +211,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "A21 Right to object"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -228,7 +229,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value "A22 Right to object to automated decision making"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -251,7 +252,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 45(3) adequacy decision"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -275,7 +276,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 46(2-a) legal instrument"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -298,7 +299,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 46(2-b) Binding Corporate Rules (BCR)"},
    :rdfs/subClassOf [:dpvo-gdpr/BindingCorporateRules
-                     "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"],
+                     :dpvo/DataTransferLegalBasis],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -322,8 +323,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "Art 46(2-c) Standard Contractual Clauses (SCC) by EC"},
-   :rdfs/subClassOf [:dpvo-gdpr/SCCByCommission
-                     "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"],
+   :rdfs/subClassOf [:dpvo-gdpr/SCCByCommission :dpvo/DataTransferLegalBasis],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -349,7 +349,7 @@
                 :rdf/value
                 "Art 46(2-d) Standard Contractual Clauses (SCC) by DPA"},
    :rdfs/subClassOf [:dpvo-gdpr/SCCBySupervisoryAuthority
-                     "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"],
+                     :dpvo/DataTransferLegalBasis],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -373,7 +373,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 46(2-e) code of conduct"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -397,7 +397,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 46(2-f) certification"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -421,7 +421,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 46(3-a) contractual clauses"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -445,7 +445,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 46(3-b) administrative arrangements"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -469,8 +469,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-a) explicit consent"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#ExplicitlyExpressedConsent"
-                     "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"],
+   :rdfs/subClassOf [:dpvo/ExplicitlyExpressedConsent
+                     :dpvo/DataTransferLegalBasis],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -494,8 +494,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-b) performance of contract"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#Contract"
-                     "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"],
+   :rdfs/subClassOf [:dpvo/Contract :dpvo/DataTransferLegalBasis],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -519,8 +518,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-c) conclusion of contract"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#Contract"
-                     "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"],
+   :rdfs/subClassOf [:dpvo/Contract :dpvo/DataTransferLegalBasis],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -544,8 +542,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-d) public interest"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"
-                     "https://w3id.org/dpv/dpv-owl#PublicInterest"],
+   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo/PublicInterest],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -569,7 +566,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-e) legal claims"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -593,9 +590,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-f) protect vital interests"},
-   :rdfs/subClassOf
-   ["https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"
-    "https://w3id.org/dpv/dpv-owl#VitalInterestOfNatualPerson"],
+   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis
+                     :dpvo/VitalInterestOfNatualPerson],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -619,7 +615,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-g) public register"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis",
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -642,8 +638,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(2) legitimate interests"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#DataTransferLegalBasis"
-                     "https://w3id.org/dpv/dpv-owl#LegitimateInterest"],
+   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo/LegitimateInterest],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -667,7 +662,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art.6(1-a) consent"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#ExpressedConsent",
+   :rdfs/subClassOf :dpvo/ExpressedConsent,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -692,8 +687,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-a) explicit consent"},
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1a
-                     "https://w3id.org/dpv/dpv-owl#ExplicitlyExpressedConsent"],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1a :dpvo/ExplicitlyExpressedConsent],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -718,8 +712,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art.6(1-a) regular consent"},
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1a
-                     "https://w3id.org/dpv/dpv-owl#ExpressedConsent"],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1a :dpvo/ExpressedConsent],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -739,7 +732,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-b) contract"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#Contract",
+   :rdfs/subClassOf :dpvo/Contract,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -759,8 +752,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-b) contract performance"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#ContractPerformance"
-                     :dpvo-gdpr/A6-1-b],
+   :rdfs/subClassOf [:dpvo/ContractPerformance :dpvo-gdpr/A6-1-b],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -780,8 +772,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-b) enter into contract"},
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1-b
-                     "https://w3id.org/dpv/dpv-owl#EnterIntoContract"],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-b :dpvo/EnterIntoContract],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -801,7 +792,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-c) legal obligation"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#LegalObligation",
+   :rdfs/subClassOf :dpvo/LegalObligation,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -821,7 +812,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-d) protect vital interests"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#VitalInterest",
+   :rdfs/subClassOf :dpvo/VitalInterest,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -842,8 +833,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "Art 6(1-d) protect vital interests of data subject"},
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1-d
-                     "https://w3id.org/dpv/dpv-owl#VitalInterestOfDataSubject"],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-d :dpvo/VitalInterestOfDataSubject],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -864,8 +854,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value
                 "Art 6(1-d) protect vital interests of natural person"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#VitalInterestOfNaturalPerson"
-                     :dpvo-gdpr/A6-1-d],
+   :rdfs/subClassOf [:dpvo/VitalInterestOfNaturalPerson :dpvo-gdpr/A6-1-d],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -885,9 +874,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value "Art 6(1-e) public interest or official authority"},
-   :rdfs/subClassOf
-   ["https://w3id.org/dpv/dpv-owl#OfficialAuthorityOfController"
-    "https://w3id.org/dpv/dpv-owl#PublicInterest"],
+   :rdfs/subClassOf [:dpvo/OfficialAuthorityOfController :dpvo/PublicInterest],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -907,9 +894,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-e) official authority"},
-   :rdfs/subClassOf
-   ["https://w3id.org/dpv/dpv-owl#OfficialAuthorityOfController"
-    :dpvo-gdpr/A6-1-e],
+   :rdfs/subClassOf [:dpvo/OfficialAuthorityOfController :dpvo-gdpr/A6-1-e],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -929,8 +914,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-e) public interest"},
-   :rdfs/subClassOf ["https://w3id.org/dpv/dpv-owl#PublicInterest"
-                     :dpvo-gdpr/A6-1-e],
+   :rdfs/subClassOf [:dpvo/PublicInterest :dpvo-gdpr/A6-1-e],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -950,7 +934,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-f) legitimate interest"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#LegitimateInterest",
+   :rdfs/subClassOf :dpvo/LegitimateInterest,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -970,9 +954,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-f) legitimate interest of controller"},
-   :rdfs/subClassOf
-   [:dpvo-gdpr/A6-1-f
-    "https://w3id.org/dpv/dpv-owl#LegitimateInterestOfController"],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-f :dpvo/LegitimateInterestOfController],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -992,9 +974,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-f) legitimate interest of third party"},
-   :rdfs/subClassOf
-   [:dpvo-gdpr/A6-1-f
-    "https://w3id.org/dpv/dpv-owl#LegitimateInterestOfThirdParty"],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-f :dpvo/LegitimateInterestOfThirdParty],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -1010,7 +990,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "A7-3 Right to Withdraw Consent"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1027,7 +1007,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "A77 Right to Complaint"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#DataSubjectRight",
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1046,7 +1026,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-a) explicit consent"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#ExplicitlyExpressedConsent",
+   :rdfs/subClassOf :dpvo/ExplicitlyExpressedConsent,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1065,7 +1045,7 @@
    :rdfs/label
    {:rdf/language "en",
     :rdf/value "Art 9(2-b) employment, social security, social protection law"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#LegalBasis",
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1083,7 +1063,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-c) protect vital interest"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#VitalInterest",
+   :rdfs/subClassOf :dpvo/VitalInterest,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1103,7 +1083,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-d) legitimate activities"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#LegitimateInterest",
+   :rdfs/subClassOf :dpvo/LegitimateInterest,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1121,7 +1101,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-e) data made public"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#LegalBasis",
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1140,7 +1120,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-f) judicial process"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#LegalBasis",
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1160,7 +1140,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-g) public interest"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PublicInterest",
+   :rdfs/subClassOf :dpvo/PublicInterest,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1179,7 +1159,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-h) health & medicine"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#LegalBasis",
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1197,7 +1177,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 9(2-i) public interest in public health"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PublicInterest",
+   :rdfs/subClassOf :dpvo/PublicInterest,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1219,7 +1199,7 @@
    {:rdf/language "en",
     :rdf/value
     "Art 9(2-j) public interest, scientific research, statistical purpose"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#PublicInterest",
+   :rdfs/subClassOf :dpvo/PublicInterest,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1238,8 +1218,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AdHoc Contractual Clauses"},
-   :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
-                     "https://w3id.org/dpv/dpv-owl#Contract"],
+   :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool :dpvo/Contract],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1326,7 +1305,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "DPIA Conformity"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#ConformanceStatus",
+   :rdfs/subClassOf     :dpvo/ConformanceStatus,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1384,7 +1363,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "DPIA Necessity Assessment"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DPIA",
+   :rdfs/subClassOf     :dpvo/DPIA,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1400,7 +1379,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "DPIA Necessity Status"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#AuditStatus",
+   :rdfs/subClassOf     :dpvo/AuditStatus,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1446,7 +1425,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "DPIA Outcome"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DPIA",
+   :rdfs/subClassOf     :dpvo/DPIA,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1508,7 +1487,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "DPIA Outcome Status"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#AuditStatus",
+   :rdfs/subClassOf     :dpvo/AuditStatus,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1523,7 +1502,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "DPIA Procedure"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#DPIA",
+   :rdfs/subClassOf     :dpvo/DPIA,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1539,7 +1518,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "DPIA Processing Recommendation"},
-   :rdfs/subClassOf     "https://w3id.org/dpv/dpv-owl#AuditStatus",
+   :rdfs/subClassOf     :dpvo/AuditStatus,
    :vs/term_status      {:rdf/language "en",
                          :rdf/value    "accepted"}})
 
@@ -1600,7 +1579,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DPIA Risk Status"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#AuditStatus",
+   :rdfs/subClassOf :dpvo/AuditStatus,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1620,8 +1599,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Data Transfer Tool"},
-   :rdfs/subClassOf
-   "https://w3id.org/dpv/dpv-owl#TechnicalOrganisationalMeasure",
+   :rdfs/subClassOf :dpvo/TechnicalOrganisationalMeasure,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1638,7 +1616,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Direct Data Collection Notice"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#RightFulfilmentNotice",
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1685,7 +1663,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GDPR Lawfulness"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#Lawfulness",
+   :rdfs/subClassOf :dpvo/Lawfulness,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1717,7 +1695,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Indirect Data Collection Notice"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#RightFulfilmentNotice",
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1734,7 +1712,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Rights Recipients Notice"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#RightFulfilmentNotice",
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1751,7 +1729,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SAR Notice"},
-   :rdfs/subClassOf "https://w3id.org/dpv/dpv-owl#RightFulfilmentNotice",
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1812,8 +1790,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Standard Contractual Clauses (SCC)"},
-   :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
-                     "https://w3id.org/dpv/dpv-owl#Contract"],
+   :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool :dpvo/Contract],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -1832,8 +1809,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Supplementary Measure"},
-   :rdfs/subClassOf
-   [:dpvo-gdpr/DataTransferTool
-    "https://w3id.org/dpv/dpv-owl#TechnicalOrganisationalMeasure"],
+   :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})

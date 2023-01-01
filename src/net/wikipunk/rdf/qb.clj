@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.qb
   "Vocabulary for multi-dimensional (e.g. statistical) data publishing"
-  {:dcterms/contributor [{:foaf/mbox "dave@epimorphics.com"}
-                         {:foaf/mbox "ian@epimorphics.com"}
+  {:dcterms/contributor [{:foaf/mbox "arofan.gregory@earthlink.net"}
                          {:foaf/mbox "jeni@jenitennison.com"}
+                         {:foaf/mbox "dave@epimorphics.com"}
                          {:foaf/mbox "richard@cyganiak.de"}
-                         {:foaf/mbox "arofan.gregory@earthlink.net"}],
+                         {:foaf/mbox "ian@epimorphics.com"}],
    :dcterms/created #inst "2010-07-12T00:00:00.000-04:00",
    :dcterms/license "http://www.opendatacommons.org/licenses/pddl/1.0/",
    :dcterms/modified [#inst "2010-11-27T00:00:00.000-05:00"
@@ -24,6 +24,7 @@
                        "void"    "http://rdfs.org/ns/void#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://purl.org/linked-data/cube",
    :rdfa/prefix "qb",
    :rdfa/uri "http://purl.org/linked-data/cube#",
    :rdfs/comment
@@ -146,7 +147,7 @@
    :rdfs/subClassOf [:qb/CodedProperty :qb/ComponentProperty]})
 
 (def HierarchicalCodeList
-  "Represents a generalized hierarchy of concepts which can be used for coding. The hierarchy is defined by one or more roots together with a property which relates concepts in the hierarchy to thier child concept .  The same concepts may be members of multiple hierarchies provided that different qb:parentChildProperty values are used for each hierarchy."
+  "Represents a generalized hierarchy of concepts which can be used for coding. The hierarchy is defined by one or more roots together with a property which relates concepts in the hierarchy to thier child concept . The same concepts may be members of multiple hierarchies provided that different qb:parentChildProperty values are used for each hierarchy."
   {:db/ident :qb/HierarchicalCodeList,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
@@ -294,7 +295,7 @@
    :rdfs/range :qb/ComponentProperty})
 
 (def componentRequired
-  "Indicates whether a component property is required (true) or optional (false) in the context of a DSD. Only applicable     to components correspond to an attribute. Defaults to false (optional)."
+  "Indicates whether a component property is required (true) or optional (false) in the context of a DSD. Only applicable to components correspond to an attribute. Defaults to false (optional)."
   {:db/ident :qb/componentRequired,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment

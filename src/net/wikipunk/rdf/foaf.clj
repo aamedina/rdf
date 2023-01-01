@@ -11,6 +11,7 @@
                        "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://xmlns.com/foaf/0.1/",
    :rdfa/prefix "foaf",
    :rdfa/uri "http://xmlns.com/foaf/0.1/",
    :rdfs/comment

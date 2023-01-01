@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.oa
   "Web Annotation Ontology"
-  {:dcterms/creator [{:foaf/name "Benjamin Young",
+  {:dcterms/creator [{:foaf/name "Paolo Ciccarese",
                       :rdf/type  :foaf/Person}
                      {:foaf/name "Robert Sanderson",
                       :rdf/type  :foaf/Person}
-                     {:foaf/name "Paolo Ciccarese",
+                     {:foaf/name "Benjamin Young",
                       :rdf/type  :foaf/Person}],
    :dcterms/modified "2016-11-12T21:28:11Z",
    :dcterms/title "Web Annotation Ontology",
@@ -40,6 +40,7 @@
                        "xml"      "http://www.w3.org/XML/1998/namespace",
                        "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/oa#",
    :rdfa/prefix "oa",
    :rdfa/uri "http://www.w3.org/ns/oa#",
    :rdfs/comment
@@ -56,7 +57,7 @@
    :rdfs/label       "Annotation"})
 
 (def Choice
-  "A subClass of  as:OrderedCollection  that conveys to a consuming application that it should select one of the resources in the  as:items  list to use, rather than all of them.  This is typically used to provide a choice of resources to render to the user, based on further supplied properties.  If the consuming application cannot determine the user's preference, then it should use the first in the list."
+  "A subClass of as:OrderedCollection that conveys to a consuming application that it should select one of the resources in the as:items list to use, rather than all of them. This is typically used to provide a choice of resources to render to the user, based on further supplied properties. If the consuming application cannot determine the user's preference, then it should use the first in the list."
   {:db/ident :oa/Choice,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -96,7 +97,7 @@
    :rdfs/subClassOf :oa/Selector})
 
 (def Direction
-  "A class to encapsulate the different text directions that a textual resource might take.  It is not used directly in the Annotation Model, only its three instances."
+  "A class to encapsulate the different text directions that a textual resource might take. It is not used directly in the Annotation Model, only its three instances."
   {:db/ident :oa/Direction,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -267,7 +268,7 @@
    :rdfs/subClassOf :oa/Selector})
 
 (def annotationService
-  "The object of the relationship is the end point of a service that conforms to the annotation-protocol, and it may be associated with any resource.  The expectation of asserting the relationship is that the object is the preferred service for maintaining annotations about the subject resource, according to the publisher of the relationship.    This relationship is intended to be used both within Linked Data descriptions and as the  rel  type of a Link, via HTTP Link Headers rfc5988 for binary resources and in HTML <link> elements.  For more information about these, please see the Annotation Protocol specification annotation-protocol."
+  "The object of the relationship is the end point of a service that conforms to the annotation-protocol, and it may be associated with any resource. The expectation of asserting the relationship is that the object is the preferred service for maintaining annotations about the subject resource, according to the publisher of the relationship. This relationship is intended to be used both within Linked Data descriptions and as the rel type of a Link, via HTTP Link Headers rfc5988 for binary resources and in HTML <link> elements. For more information about these, please see the Annotation Protocol specification annotation-protocol."
   {:db/ident :oa/annotationService,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -285,7 +286,7 @@
    :rdfs/label "assessing"})
 
 (def bodyValue
-  "The object of the predicate is a plain text string to be used as the content of the body of the Annotation.  The value MUST be an  xsd:string  and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for  rdf:langString ."
+  "The object of the predicate is a plain text string to be used as the content of the body of the Annotation. The value MUST be an xsd:string and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for rdf:langString ."
   {:db/ident :oa/bodyValue,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -420,7 +421,7 @@
    :rdfs/label "hasScope"})
 
 (def hasSelector
-  "The object of the relationship is a Selector that describes the segment or region of interest within the source resource.  Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model."
+  "The object of the relationship is a Selector that describes the segment or region of interest within the source resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model."
   {:db/ident :oa/hasSelector,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -537,7 +538,7 @@
    :rdfs/range :xsd/string})
 
 (def processingLanguage
-  "The object of the property is the language that should be used for textual processing algorithms when dealing with the content of the resource, including hyphenation, line breaking, which font to use for rendering and so forth.  The value must follow the recommendations of BCP47."
+  "The object of the property is the language that should be used for textual processing algorithms when dealing with the content of the resource, including hyphenation, line breaking, which font to use for rendering and so forth. The value must follow the recommendations of BCP47."
   {:db/ident :oa/processingLanguage,
    :rdf/type :rdf/Property,
    :rdfs/comment

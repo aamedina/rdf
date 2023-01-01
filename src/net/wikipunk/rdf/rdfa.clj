@@ -16,6 +16,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/rdfa#",
    :rdfa/prefix "rdfa",
    :rdfa/uri "http://www.w3.org/ns/rdfa#",
    :rdfs/isDefinedBy "http://www.w3.org/TR/rdfa-core/#s_initialcontexts"})
@@ -25,18 +26,21 @@
   {:db/ident        :rdfa/DocumentError,
    :dcterms/description
    "error condition; to be used when the document fails to be fully processed as a result of non-conformant host language markup",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/Error})
 
 (def ErrorClass
   "is the class for all error conditions"
   {:db/ident        :rdfa/Error,
    :dcterms/description "is the class for all error conditions",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/PGClass})
 
 (def Info
   "is the class for all informations"
   {:db/ident        :rdfa/Info,
    :dcterms/description "is the class for all informations",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/PGClass})
 
 (def PGClass
@@ -56,6 +60,7 @@
   "is the class for prefix mappings"
   {:db/ident        :rdfa/PrefixMapping,
    :dcterms/description "is the class for prefix mappings",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/PrefixOrTermMapping})
 
 (def PrefixOrTermMapping
@@ -69,12 +74,14 @@
   {:db/ident        :rdfa/PrefixRedefinition,
    :dcterms/description
    "warning; to be used when a prefix, either from the initial context or inherited from an ancestor node, is redefined in an element",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/Warning})
 
 (def TermMapping
   "is the class for term mappings"
   {:db/ident        :rdfa/TermMapping,
    :dcterms/description "is the class for term mappings",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/PrefixOrTermMapping})
 
 (def UnresolvedCURIE
@@ -82,12 +89,14 @@
   {:db/ident        :rdfa/UnresolvedCURIE,
    :dcterms/description
    "warning; to be used when a CURIE prefix fails to be resolved",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/Warning})
 
 (def UnresolvedTerm
   "warning; to be used when a Term fails to be resolved"
   {:db/ident        :rdfa/UnresolvedTerm,
    :dcterms/description "warning; to be used when a Term fails to be resolved",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/Warning})
 
 (def VocabReferenceError
@@ -95,12 +104,14 @@
   {:db/ident        :rdfa/VocabReferenceError,
    :dcterms/description
    "warning; to be used when the value of a @vocab attribute cannot be dereferenced, hence the vocabulary expansion cannot be completed",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/Warning})
 
 (def Warning
   "is the class for all warnings"
   {:db/ident        :rdfa/Warning,
    :dcterms/description "is the class for all warnings",
+   :rdf/type        :rdfs/Class,
    :rdfs/subClassOf :rdfa/PGClass})
 
 (def context
@@ -143,7 +154,7 @@
    :rdfs/domain :rdfa/PrefixOrTermMapping})
 
 (def usesVocabulary
-  "provides a relationship between the host document and a vocabulary  defined using the @vocab facility of RDFa1.1"
+  "provides a relationship between the host document and a vocabulary defined using the @vocab facility of RDFa1.1"
   {:db/ident :rdfa/usesVocabulary,
    :dcterms/description
    "provides a relationship between the host document and a vocabulary\n\tdefined using the @vocab facility of RDFa1.1",

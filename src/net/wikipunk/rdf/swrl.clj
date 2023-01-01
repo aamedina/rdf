@@ -1,14 +1,18 @@
 (ns net.wikipunk.rdf.swrl
-  "http://www.w3.org/2003/11/swrl#"
+  "RDF Schema definition of the RDF Concrete Syntax for the Semantic Web Rule Language"
   {:dcat/downloadURL
    "http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.rdf",
+   :owl/versionInfo "$Id: swrl.rdf,v 1.1 2004/05/21 18:46:39 vivien Exp $",
    :rdf/ns-prefix-map {"owl"  "http://www.w3.org/2002/07/owl#",
                        "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                        "swrl" "http://www.w3.org/2003/11/swrl#"},
    :rdf/type :rdfa/PrefixMapping,
+   :rdf/uri "http://www.w3.org/2003/11/swrl",
    :rdfa/prefix "swrl",
-   :rdfa/uri "http://www.w3.org/2003/11/swrl#"})
+   :rdfa/uri "http://www.w3.org/2003/11/swrl#",
+   :rdfs/comment
+   "RDF Schema definition of the RDF Concrete Syntax for the Semantic Web Rule Language"})
 
 (def Atom
   "common superclass"
@@ -103,7 +107,7 @@
    :rdfs/range  :rdf/List})
 
 (def body
-  "rule body (antecedent):  List of Atom"
+  "rule body (antecedent): List of Atom"
   {:db/ident     :swrl/body,
    :rdf/type     :rdf/Property,
    :rdfs/comment "rule body (antecedent):  List of Atom",
@@ -129,7 +133,7 @@
    :rdfs/range  :owl/DataRange})
 
 (def head
-  "rule head (consequent):  List of Atom"
+  "rule head (consequent): List of Atom"
   {:db/ident     :swrl/head,
    :rdf/type     :rdf/Property,
    :rdfs/comment "rule head (consequent):  List of Atom",

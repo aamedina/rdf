@@ -28,6 +28,7 @@
                        "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2003/12/exif/ns",
    :rdfa/prefix "exif",
    :rdfa/uri "http://www.w3.org/2003/12/exif/ns#"})
 

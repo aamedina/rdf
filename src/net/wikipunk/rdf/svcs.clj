@@ -1,14 +1,20 @@
 (ns net.wikipunk.rdf.svcs
-  "http://rdfs.org/sioc/services#"
-  {:rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
+  "Extends the SIOC Core Ontology (Semantically-Interlinked Online Communities) by defining basic information on community-related web services."
+  {:dcterms/description
+   "Extends the SIOC Core Ontology (Semantically-Interlinked Online Communities) by defining basic information on community-related web services.",
+   :dcterms/title "SIOC Services Ontology Module Namespace",
+   :owl/imports "http://rdfs.org/sioc/ns#",
+   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
                        "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "sioc"    "http://rdfs.org/sioc/ns#",
                        "svcs"    "http://rdfs.org/sioc/services#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "svcs",
-   :rdfa/uri          "http://rdfs.org/sioc/services#"})
+   :rdf/type [:owl/Thing :owl/Ontology],
+   :rdf/uri "http://rdfs.org/sioc/services#",
+   :rdfa/prefix "svcs",
+   :rdfa/uri "http://rdfs.org/sioc/services#",
+   :rdfs/seeAlso "http://rdfs.org/sioc/spec/#sec-modules"})
 
 (def Service
   "A Service is web service associated with a Site or part of it."

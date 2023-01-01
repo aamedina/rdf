@@ -1,16 +1,16 @@
 (ns net.wikipunk.rdf.mo
-  "The Music Ontology Specification provides main concepts and          properties fo describing music (i.e. artists, albums and tracks)          on the Semantic Web."
+  "The Music Ontology Specification provides main concepts and properties fo describing music (i.e. artists, albums and tracks) on the Semantic Web."
   {:dcterms/created "2006/12/21 12:00:00",
    :dcterms/date "2013/07/22 16:54:19",
    :dcterms/description
    "\n        The Music Ontology Specification provides main concepts and \n        properties fo describing music (i.e. artists, albums and tracks) \n        on the Semantic Web. \n    ",
    :dcterms/title "The Music Ontology",
    :foaf/maker ["http://www.talkdigger.com/foaf/fgiasson"
+                {:foaf/homepage "http://simon-reinhardt.de/",
+                 :foaf/name     "Simon Reinhardt"}
                 {:foaf/homepage "http://apassant.net/",
                  :foaf/name     "Alexandre Passant"}
                 {:foaf/name "George Fazekas"}
-                {:foaf/homepage "http://simon-reinhardt.de/",
-                 :foaf/name     "Simon Reinhardt"}
                 "http://raimond.me.uk/foaf.rdf#moustaki"
                 "http://foaf.me/zazi#me"
                 "http://kurtisrandom.com/foaf.rdf#kurtjx"],
@@ -42,6 +42,7 @@
                        "wot" "http://xmlns.com/wot/0.1/",
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://purl.org/ontology/mo/",
    :rdfa/prefix "mo",
    :rdfa/uri "http://purl.org/ontology/mo/",
    :vann/preferredNamespacePrefix "mo",
@@ -73,7 +74,7 @@
    :vs/term_status   "stable"})
 
 (def Arrangement
-  "An arrangement event.         Takes as agent the arranger, and produces a score (informational object, not the actually published score)."
+  "An arrangement event. Takes as agent the arranger, and produces a score (informational object, not the actually published score)."
   {:db/ident :mo/Arrangement,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -131,7 +132,7 @@
    :vs/term_status      "unstable"})
 
 (def Composition
-  "A composition event.         Takes as agent the composer himself.         It produces a MusicalWork, or a MusicalExpression (when the initial \"product\" is a score, for example), or both..."
+  "A composition event. Takes as agent the composer himself. It produces a MusicalWork, or a MusicalExpression (when the initial \"product\" is a score, for example), or both..."
   {:db/ident :mo/Composition,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -225,7 +226,7 @@
    :vs/term_status "unstable"})
 
 (def Festival
-  "A festival - musical/artistic event lasting several days, like Glastonbury, Rock Am Ring...         We migth decompose this event (which is in fact just a classification of the space/time region related to          a particular festival) using hasSubEvent in several performances at different space/time."
+  "A festival - musical/artistic event lasting several days, like Glastonbury, Rock Am Ring... We migth decompose this event (which is in fact just a classification of the space/time region related to a particular festival) using hasSubEvent in several performances at different space/time."
   {:db/ident :mo/Festival,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -237,7 +238,7 @@
    :vs/term_status "stable"})
 
 (def Genre
-  "An expressive style of music.                  Any taxonomy can be plug-in here. You can either define a genre by yourself, like this:          :mygenre a mo:Genre; dc:title \"electro rock\".          Or you can refer to a DBPedia genre (such as http://dbpedia.org/resource/Baroque_music), allowing semantic web         clients to access easily really detailed structured information about the genre you are refering to."
+  "An expressive style of music. Any taxonomy can be plug-in here. You can either define a genre by yourself, like this: :mygenre a mo:Genre; dc:title \"electro rock\". Or you can refer to a DBPedia genre (such as http://dbpedia.org/resource/Baroque_music), allowing semantic web clients to access easily really detailed structured information about the genre you are refering to."
   {:db/ident :mo/Genre,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -248,7 +249,7 @@
    :vs/term_status "stable"})
 
 (def Instrument
-  "Any of various devices or contrivances that can be used to produce musical tones or sound.                  Any taxonomy can be used to subsume this concept. The default one is one extracted by Ivan Herman         from the Musicbrainz instrument taxonomy, conforming to SKOS. This concept holds a seeAlso link          towards this taxonomy."
+  "Any of various devices or contrivances that can be used to produce musical tones or sound. Any taxonomy can be used to subsume this concept. The default one is one extracted by Ivan Herman from the Musicbrainz instrument taxonomy, conforming to SKOS. This concept holds a seeAlso link towards this taxonomy."
   {:db/ident :mo/Instrument,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -260,7 +261,7 @@
    :vs/term_status "stable"})
 
 (def Instrumentation
-  "Instrumentation deals with the techniques of writing music for a specific instrument,          including the limitations of the instrument, playing techniques and idiomatic handling of the instrument."
+  "Instrumentation deals with the techniques of writing music for a specific instrument, including the limitations of the instrument, playing techniques and idiomatic handling of the instrument."
   {:db/ident :mo/Instrumentation,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -364,7 +365,7 @@
    :vs/term_status "testing"})
 
 (def Movement
-  "A movement is a self-contained part of a musical work. While individual or selected movements from a composition are sometimes performed separately, a performance of the complete work requires all the movements to be performed in succession.  Often a composer attempts to interrelate the movements thematically, or sometimes in more subtle ways, in order that the individual movements exert a cumulative effect. In some forms, composers sometimes link the movements, or ask for them to be played without a pause between them."
+  "A movement is a self-contained part of a musical work. While individual or selected movements from a composition are sometimes performed separately, a performance of the complete work requires all the movements to be performed in succession. Often a composer attempts to interrelate the movements thematically, or sometimes in more subtle ways, in order that the individual movements exert a cumulative effect. In some forms, composers sometimes link the movements, or ask for them to be played without a pause between them."
   {:db/ident :mo/Movement,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -376,7 +377,7 @@
    :vs/term_status "unstable"})
 
 (def MusicArtist
-  "A person or a group of people (or a computer :-) ), whose musical          creative work shows sensitivity and imagination"
+  "A person or a group of people (or a computer :-) ), whose musical creative work shows sensitivity and imagination"
   {:db/ident :mo/MusicArtist,
    :mo/level "1",
    :rdf/type :owl/Class,
@@ -400,7 +401,7 @@
    :vs/term_status "stable"})
 
 (def MusicalExpression
-  "The intellectual or artistic realization of a work in the form of alpha-numeric, musical, or choreographic notation, sound, etc., or any combination of such forms.       For example:  Work #1 Franz Schubert's Trout quintet      * Expression #1 the composer's score     * Expression #2 sound issued from the performance by the Amadeus Quartet and Hephzibah Menuhin on piano     * Expression #3 sound issued from the performance by the Cleveland Quartet and Yo-Yo Ma on the cello     * . . . .   The Music Ontology defines the following sub-concepts of a MusicalExpression, which should be used instead of MusicalExpression itself: Score (the result of an arrangement), Sound (produced during a performance), Signal. However, it is possible to stick to FRBR and bypass the worflow mechanism this ontology defines by using the core FRBR properties on such objects. But it is often better to use events to interconnect such  expressions (allowing to go deeply into the production process - `this performer was playing this particular instrument at that particular time')."
+  "The intellectual or artistic realization of a work in the form of alpha-numeric, musical, or choreographic notation, sound, etc., or any combination of such forms. For example: Work #1 Franz Schubert's Trout quintet * Expression #1 the composer's score * Expression #2 sound issued from the performance by the Amadeus Quartet and Hephzibah Menuhin on piano * Expression #3 sound issued from the performance by the Cleveland Quartet and Yo-Yo Ma on the cello * . . . . The Music Ontology defines the following sub-concepts of a MusicalExpression, which should be used instead of MusicalExpression itself: Score (the result of an arrangement), Sound (produced during a performance), Signal. However, it is possible to stick to FRBR and bypass the worflow mechanism this ontology defines by using the core FRBR properties on such objects. But it is often better to use events to interconnect such expressions (allowing to go deeply into the production process - `this performer was playing this particular instrument at that particular time')."
   {:db/ident :mo/MusicalExpression,
    :mo/level "1",
    :rdf/type :owl/Class,
@@ -412,7 +413,7 @@
    :vs/term_status "unstable"})
 
 (def MusicalItem
-  "A single exemplar of a musical expression.      For example, it could be a single exemplar of a CD. This is normally an single object (a CD) possessed by somebody.  From the FRBR final report: The entity defined as item is a concrete entity. It is in many instances a single physical object (e.g., a copy of a one-volume monograph, a single audio cassette, etc.). There are instances, however, where the entity defined as item comprises more than one physical object (e.g., a monograph issued as two separately bound volumes, a recording issued on three separate compact discs, etc.).  In terms of intellectual content and physical form, an item exemplifying a manifestation is normally the same as the manifestation itself. However, variations may occur from one item to another, even when the items exemplify the same manifestation, where those variations are the result of actions external to the intent of the producer of the manifestation (e.g., damage occurring after the item was produced, binding performed by a library, etc.)."
+  "A single exemplar of a musical expression. For example, it could be a single exemplar of a CD. This is normally an single object (a CD) possessed by somebody. From the FRBR final report: The entity defined as item is a concrete entity. It is in many instances a single physical object (e.g., a copy of a one-volume monograph, a single audio cassette, etc.). There are instances, however, where the entity defined as item comprises more than one physical object (e.g., a monograph issued as two separately bound volumes, a recording issued on three separate compact discs, etc.). In terms of intellectual content and physical form, an item exemplifying a manifestation is normally the same as the manifestation itself. However, variations may occur from one item to another, even when the items exemplify the same manifestation, where those variations are the result of actions external to the intent of the producer of the manifestation (e.g., damage occurring after the item was produced, binding performed by a library, etc.)."
   {:db/ident :mo/MusicalItem,
    :mo/level "1",
    :rdf/type :owl/Class,
@@ -423,7 +424,7 @@
    :vs/term_status "unstable"})
 
 (def MusicalManifestation
-  "This entity is related to the edition/production/publication of a musical expression (musical manifestation are closely related with the music industry (their terms, concepts, definitions, methods (production, publication, etc.), etc.)      From the FRBR final report: The entity defined as manifestation encompasses a wide range of materials, including manuscripts, books, periodicals, maps, posters, sound recordings, films, video recordings, CD-ROMs, multimedia kits, etc. As an entity, manifestation represents all the physical objects that bear the same characteristics, in respect to both intellectual content and physical form.   Work #1 J. S. Bach's Six suites for unaccompanied cello      * Expression #1 sound issued during the performance by Janos Starker recorded in 1963 and 1965           o Manifestation #1 recordings released on 33 1/3 rpm sound discs in 1965 by Mercury           o Manifestation #2 recordings re-released on compact disc in 1991 by Mercury      * Expression #2 sound issued during the performances by Yo-Yo Ma recorded in 1983           o Manifestation #1 recordings released on 33 1/3 rpm sound discs in 1983 by CBS Records           o Manifestation #2 recordings re-released on compact disc in 1992 by CBS Records              Changes that occur deliberately or even inadvertently in the production process that affect the copies result, strictly speaking, in a new manifestation. A manifestation resulting from such a change may be identified as a particular \"state\" or \"issue\" of the publication.  Changes that occur to an individual copy after the production process is complete (e.g., the loss of a page, rebinding, etc.) are not considered to result in a new manifestation. That copy is simply considered to be an exemplar (or item) of the manifestation that deviates from the copy as produced.  With the entity defined as manifestation we can describe the physical characteristics of a set of items and the characteristics associated with the production and distribution of that set of items that may be important factors in enabling users to choose a manifestation appropriate to their physical needs and constraints, and to identify and acquire a copy of that manifestation.  Defining manifestation as an entity also enables us to draw relationships between specific manifestations of a work. We can use the relationships between manifestations to identify, for example, the specific publication that was used to create a microreproduction."
+  "This entity is related to the edition/production/publication of a musical expression (musical manifestation are closely related with the music industry (their terms, concepts, definitions, methods (production, publication, etc.), etc.) From the FRBR final report: The entity defined as manifestation encompasses a wide range of materials, including manuscripts, books, periodicals, maps, posters, sound recordings, films, video recordings, CD-ROMs, multimedia kits, etc. As an entity, manifestation represents all the physical objects that bear the same characteristics, in respect to both intellectual content and physical form. Work #1 J. S. Bach's Six suites for unaccompanied cello * Expression #1 sound issued during the performance by Janos Starker recorded in 1963 and 1965 o Manifestation #1 recordings released on 33 1/3 rpm sound discs in 1965 by Mercury o Manifestation #2 recordings re-released on compact disc in 1991 by Mercury * Expression #2 sound issued during the performances by Yo-Yo Ma recorded in 1983 o Manifestation #1 recordings released on 33 1/3 rpm sound discs in 1983 by CBS Records o Manifestation #2 recordings re-released on compact disc in 1992 by CBS Records Changes that occur deliberately or even inadvertently in the production process that affect the copies result, strictly speaking, in a new manifestation. A manifestation resulting from such a change may be identified as a particular \"state\" or \"issue\" of the publication. Changes that occur to an individual copy after the production process is complete (e.g., the loss of a page, rebinding, etc.) are not considered to result in a new manifestation. That copy is simply considered to be an exemplar (or item) of the manifestation that deviates from the copy as produced. With the entity defined as manifestation we can describe the physical characteristics of a set of items and the characteristics associated with the production and distribution of that set of items that may be important factors in enabling users to choose a manifestation appropriate to their physical needs and constraints, and to identify and acquire a copy of that manifestation. Defining manifestation as an entity also enables us to draw relationships between specific manifestations of a work. We can use the relationships between manifestations to identify, for example, the specific publication that was used to create a microreproduction."
   {:db/ident :mo/MusicalManifestation,
    :mo/level "1",
    :rdf/type :owl/Class,
@@ -435,7 +436,7 @@
    :vs/term_status "stable"})
 
 (def MusicalWork
-  "Distinct intellectual or artistic musical creation.      From the FRBR final report: A work is an abstract entity; there is no single material object one can point to as the work. We recognize the work through individual realizations or expressions of the work, but the work itself exists only in the commonality of content between and among the various expressions of the work. When we speak of Homer's Iliad as a work, our point of reference is not a particular recitation or text of the work, but the intellectual creation that lies behind all the various expressions of the work.       For example:  work #1 J. S. Bach's The art of the fugue"
+  "Distinct intellectual or artistic musical creation. From the FRBR final report: A work is an abstract entity; there is no single material object one can point to as the work. We recognize the work through individual realizations or expressions of the work, but the work itself exists only in the commonality of content between and among the various expressions of the work. When we speak of Homer's Iliad as a work, our point of reference is not a particular recitation or text of the work, but the intellectual creation that lies behind all the various expressions of the work. For example: work #1 J. S. Bach's The art of the fugue"
   {:db/ident :mo/MusicalWork,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -459,7 +460,7 @@
    :vs/term_status "stable"})
 
 (def Performance
-  "A performance event.          It might include as agents performers, engineers, conductors, or even listeners.         It might include as factors a score, a MusicalWork, musical instruments.          It might produce a sound:-)"
+  "A performance event. It might include as agents performers, engineers, conductors, or even listeners. It might include as factors a score, a MusicalWork, musical instruments. It might produce a sound:-)"
   {:db/ident :mo/Performance,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -527,7 +528,7 @@
    :vs/term_status "stable"})
 
 (def Recording
-  "A recording event.         Takes a sound as a factor to produce a signal (analog or digital).         The location of such events (if any) is the actual location of the corresponding         microphone or the \"recording device\"."
+  "A recording event. Takes a sound as a factor to produce a signal (analog or digital). The location of such events (if any) is the actual location of the corresponding microphone or the \"recording device\"."
   {:db/ident :mo/Recording,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -608,7 +609,7 @@
    :vs/term_status "unstable"})
 
 (def Score
-  "Here, we are dealing with the informational object (the MusicalExpression), not the actually \"published\" score.         This may be, for example, the product of an arrangement process."
+  "Here, we are dealing with the informational object (the MusicalExpression), not the actually \"published\" score. This may be, for example, the product of an arrangement process."
   {:db/ident :mo/Score,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -620,7 +621,7 @@
    :vs/term_status "stable"})
 
 (def Show
-  "A show - a musical event lasting several days, in a particular venue. Examples can be         \"The Magic Flute\" at the Opera Bastille, August 2005, or a musical in the west end..."
+  "A show - a musical event lasting several days, in a particular venue. Examples can be \"The Magic Flute\" at the Opera Bastille, August 2005, or a musical in the west end..."
   {:db/ident :mo/Show,
    :mo/level "2",
    :rdf/type :owl/Class,
@@ -691,7 +692,7 @@
    :vs/term_status      "unstable"})
 
 (def Stream
-  "Transmission over a network  used as medium to broadcast a musical manifestation"
+  "Transmission over a network used as medium to broadcast a musical manifestation"
   {:db/ident :mo/Stream,
    :mo/level "1",
    :rdf/type :owl/Class,
@@ -784,7 +785,7 @@
    :vs/term_status "testing"})
 
 (def album
-  "One or more track issued together.             This is a type of MusicalManifestation defined by the musical industry."
+  "One or more track issued together. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/album,
    :dcterms/description
    "\n        One or more track issued together.\n            This is a type of MusicalManifestation defined by the musical industry.\n    ",
@@ -852,7 +853,7 @@
    :vs/term_status   "testing"})
 
 (def audiobook
-  "Book read by a narrator without music.         This is a type of MusicalManifestation defined by the musical industry."
+  "Book read by a narrator without music. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/audiobook,
    :dcterms/description
    "\n        Book read by a narrator without music.\n        This is a type of MusicalManifestation defined by the musical industry.\n    ",
@@ -868,7 +869,7 @@
    :vs/term_status "deprecated"})
 
 (def available_as
-  "Relates a musical manifestation to a musical item (this album, and my particular cd). By using         this property, there is no assumption on wether the full content is available on the linked item.         To be explicit about this, you can use a sub-property, such as mo:item (the full manifestation         is available on that item) or mo:preview (only a part of the manifestation is available on         that item).          This is a subproperty of frbr:examplar."
+  "Relates a musical manifestation to a musical item (this album, and my particular cd). By using this property, there is no assumption on wether the full content is available on the linked item. To be explicit about this, you can use a sub-property, such as mo:item (the full manifestation is available on that item) or mo:preview (only a part of the manifestation is available on that item). This is a subproperty of frbr:examplar."
   {:db/ident :mo/available_as,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -916,7 +917,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/mo/"})
 
 (def bpm
-  "Indicates the BPM of a MusicalWork or a particular Performance          Beats per minute: the pace of music measured by the number of beats occurring in 60 seconds."
+  "Indicates the BPM of a MusicalWork or a particular Performance Beats per minute: the pace of music measured by the number of beats occurring in 60 seconds."
   {:db/ident :mo/bpm,
    :mo/level "2",
    :rdf/type :owl/DatatypeProperty,
@@ -967,7 +968,7 @@
    :vs/term_status   "unstable"})
 
 (def compilation
-  "Collection of previously released manifestations of a musical expression by one or more artists.         This is a type of MusicalManifestation defined by the musical industry."
+  "Collection of previously released manifestations of a musical expression by one or more artists. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/compilation,
    :dcterms/description
    "\n        Collection of previously released manifestations of a musical expression by one or more artists.\n        This is a type of MusicalManifestation defined by the musical industry.\n    ",
@@ -1018,7 +1019,7 @@
    :vs/term_status "unstable"})
 
 (def composed_in
-  "Associates a MusicalWork to the Composition event pertaining         to its creation. For example, I might use this property to associate         the Magic Flute to its composition event, occuring during 1782 and having as         a mo:composer Mozart."
+  "Associates a MusicalWork to the Composition event pertaining to its creation. For example, I might use this property to associate the Magic Flute to its composition event, occuring during 1782 and having as a mo:composer Mozart."
   {:db/ident :mo/composed_in,
    :mo/level "2",
    :owl/inverseOf :mo/produced_work,
@@ -1033,7 +1034,7 @@
    :vs/term_status "unstable"})
 
 (def composer
-  "Associates a composition event to the actual composer. For example,         this property could link the event corresponding to the composition of the         Magic Flute in 1782 to Mozart himself (who obviously has a FOAF profile:-) )."
+  "Associates a composition event to the actual composer. For example, this property could link the event corresponding to the composition of the Magic Flute in 1782 to Mozart himself (who obviously has a FOAF profile:-) )."
   {:db/ident :mo/composer,
    :mo/level "2",
    :rdf/type :owl/ObjectProperty,
@@ -1132,7 +1133,7 @@
    :vs/term_status "stable"})
 
 (def djmix_of
-  "Indicates that all (or most of) the tracks of a musical work or the expression of a musical work were mixed together from all (or most of) the tracks from another musical work or the expression of a musical work to form a so called DJ-Mix.       The tracks might have been altered by pitching (so that the tempo of one track matches the tempo of the following track) and fading (so that one track blends in smoothly with the other). If the tracks have been more substantially altered, the \"mo:remix\" relationship type is more appropriate."
+  "Indicates that all (or most of) the tracks of a musical work or the expression of a musical work were mixed together from all (or most of) the tracks from another musical work or the expression of a musical work to form a so called DJ-Mix. The tracks might have been altered by pitching (so that the tempo of one track matches the tempo of the following track) and fading (so that one track blends in smoothly with the other). If the tracks have been more substantially altered, the \"mo:remix\" relationship type is more appropriate."
   {:db/ident :mo/djmix_of,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1144,7 +1145,7 @@
    :vs/term_status "unstable"})
 
 (def djmixed
-  "Used to relate an artist who djmixed a musical work or the expression of a musical work.       The artist usually selected the tracks, chose their sequence, and slightly changed them by fading (so that one track blends in smoothly with the other) or pitching (so that the tempo of one track matches the tempo of the following track). This applies to a 'Mixtape' in which all tracks were DJ-mixed together into one single long track."
+  "Used to relate an artist who djmixed a musical work or the expression of a musical work. The artist usually selected the tracks, chose their sequence, and slightly changed them by fading (so that one track blends in smoothly with the other) or pitching (so that the tempo of one track matches the tempo of the following track). This applies to a 'Mixtape' in which all tracks were DJ-mixed together into one single long track."
   {:db/ident :mo/djmixed,
    :mo/level "1",
    :owl/inverseOf :mo/djmixed_by,
@@ -1158,7 +1159,7 @@
    :vs/term_status "unstable"})
 
 (def djmixed_by
-  "Used to relate a work or the expression of a work to an artist who djmixed it.       The artist usually selected the tracks, chose their sequence, and slightly changed them by fading (so that one track blends in smoothly with the other) or pitching (so that the tempo of one track matches the tempo of the following track). This applies to a 'Mixtape' in which all tracks were DJ-mixed together into one single long track."
+  "Used to relate a work or the expression of a work to an artist who djmixed it. The artist usually selected the tracks, chose their sequence, and slightly changed them by fading (so that one track blends in smoothly with the other) or pitching (so that the tempo of one track matches the tempo of the following track). This applies to a 'Mixtape' in which all tracks were DJ-mixed together into one single long track."
   {:db/ident :mo/djmixed_by,
    :mo/level "1",
    :owl/inverseOf :mo/djmixed,
@@ -1172,7 +1173,7 @@
    :vs/term_status "unstable"})
 
 (def download
-  "This property can be used to link from a person to the website where they make their works available, or from                 a manifestation (a track or an album, for example) to a web page where it is available for                 download.                  It is better to use one of the three sub-properties instead of this one in order to specify wether the         content can be accessed for free (mo:freedownload), if it is just free preview material (mo:previewdownload), or         if it can be accessed for some money (mo:paiddownload) (this includes links to the Amazon store, for example).                  This property MUST be used only if the content is just available through a web page (holding, for example                 a Flash application) - it is better to link to actual content directly through the use of mo:available_as and                 mo:Stream, mo:Torrent or mo:ED2K, etc. Therefore, Semantic Web user agents that don't know how to read HTML and even                 less to rip streams from Flash applications can still access the audio content."
+  "This property can be used to link from a person to the website where they make their works available, or from a manifestation (a track or an album, for example) to a web page where it is available for download. It is better to use one of the three sub-properties instead of this one in order to specify wether the content can be accessed for free (mo:freedownload), if it is just free preview material (mo:previewdownload), or if it can be accessed for some money (mo:paiddownload) (this includes links to the Amazon store, for example). This property MUST be used only if the content is just available through a web page (holding, for example a Flash application) - it is better to link to actual content directly through the use of mo:available_as and mo:Stream, mo:Torrent or mo:ED2K, etc. Therefore, Semantic Web user agents that don't know how to read HTML and even less to rip streams from Flash applications can still access the audio content."
   {:db/ident :mo/download,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1214,7 +1215,7 @@
    :vs/term_status "testing"})
 
 (def encodes
-  "Relates a MusicalItem (a track on a particular CD, an audio file, a stream somewhere) to the signal it encodes.          This is usually a lower-resolution version of the master signal (issued from a Recording event)."
+  "Relates a MusicalItem (a track on a particular CD, an audio file, a stream somewhere) to the signal it encodes. This is usually a lower-resolution version of the master signal (issued from a Recording event)."
   {:db/ident :mo/encodes,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1328,7 +1329,7 @@
    :vs/term_status "stable"})
 
 (def free_download
-  "This property can be used to link from a person to the website where they make their works available, or from         a manifestation (a track or an album, for example) to a web page where it is available for free          download.          This property MUST be used only if the content is just available through a web page (holding, for example         a Flash application) - it is better to link to actual content directly through the use of mo:available_as and          mo:Stream, mo:Torrent or mo:ED2K, etc. Therefore, Semantic Web user agents that don't know how to read HTML and even         less to rip streams from Flash applications can still access the audio content."
+  "This property can be used to link from a person to the website where they make their works available, or from a manifestation (a track or an album, for example) to a web page where it is available for free download. This property MUST be used only if the content is just available through a web page (holding, for example a Flash application) - it is better to link to actual content directly through the use of mo:available_as and mo:Stream, mo:Torrent or mo:ED2K, etc. Therefore, Semantic Web user agents that don't know how to read HTML and even less to rip streams from Flash applications can still access the audio content."
   {:db/ident :mo/free_download,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1351,7 +1352,7 @@
    :vs/term_status   "deprecated"})
 
 (def genre
-  "Associates an event (like a performance or a recording) to a particular musical genre.         Further version of this property may also include works and scores in the domain."
+  "Associates an event (like a performance or a recording) to a particular musical genre. Further version of this property may also include works and scores in the domain."
   {:db/ident :mo/genre,
    :mo/level "2",
    :rdf/type :owl/ObjectProperty,
@@ -1513,7 +1514,7 @@
    :vs/term_status "testing"})
 
 (def interview
-  "Recording of the questioning of a person.         This is a type of MusicalManifestation defined by the musical industry."
+  "Recording of the questioning of a person. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/interview,
    :dcterms/description
    "\n        Recording of the questioning of a person.\n        This is a type of MusicalManifestation defined by the musical industry.\n    ",
@@ -1553,7 +1554,7 @@
    :vs/term_status "testing"})
 
 (def isrc
-  "The ISRC (International Standard Recording Code) is the international identification system for sound recordings and music videorecordings.      Each ISRC is a unique and permanent identifier for a specific recording which can be permanently encoded into a product as its digital fingerprint.      Encoded ISRC provide the means to automatically identify recordings for royalty payments."
+  "The ISRC (International Standard Recording Code) is the international identification system for sound recordings and music videorecordings. Each ISRC is a unique and permanent identifier for a specific recording which can be permanently encoded into a product as its digital fingerprint. Encoded ISRC provide the means to automatically identify recordings for royalty payments."
   {:db/ident :mo/isrc,
    :mo/level "1",
    :rdf/type :owl/DatatypeProperty,
@@ -1580,7 +1581,7 @@
    :vs/term_status     "testing"})
 
 (def item
-  "Relates a musical manifestation to a musical item (this album, and my particular cd) holding the                 entire manifestation, and not just a part of it."
+  "Relates a musical manifestation to a musical item (this album, and my particular cd) holding the entire manifestation, and not just a part of it."
   {:db/ident :mo/item,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1593,7 +1594,7 @@
    :vs/term_status "testing"})
 
 (def key
-  "Indicated the key used by the musicians during a performance, or the key of a MusicalWork.         Any of 24 major or minor diatonic scales that provide the tonal framework for a piece of music."
+  "Indicated the key used by the musicians during a performance, or the key of a MusicalWork. Any of 24 major or minor diatonic scales that provide the tonal framework for a piece of music."
   {:db/ident :mo/key,
    :mo/level "2",
    :rdf/type :owl/ObjectProperty,
@@ -1635,7 +1636,7 @@
    :vs/term_status "testing"})
 
 (def level
-  "This annotation property associates to a particular Music Ontology term the corresponding         expressiveness level. These levels can be:              - 1: Only editorial/Musicbrainz type information             - 2: Workflow information             - 3: Even decomposition                  This property is mainly used for specification generation."
+  "This annotation property associates to a particular Music Ontology term the corresponding expressiveness level. These levels can be: - 1: Only editorial/Musicbrainz type information - 2: Workflow information - 3: Even decomposition This property is mainly used for specification generation."
   {:db/ident :mo/level,
    :rdf/type :owl/AnnotationProperty,
    :rdfs/comment
@@ -1644,7 +1645,7 @@
    :rdfs/label "level"})
 
 (def licence
-  "Used to link a work or the expression of a work to the license under which they can be manipulated (downloaded, modified, etc).       This is usually used to link to a Creative Commons licence."
+  "Used to link a work or the expression of a work to the license under which they can be manipulated (downloaded, modified, etc). This is usually used to link to a Creative Commons licence."
   {:db/ident :mo/licence,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1685,7 +1686,7 @@
    :vs/term_status     "stable"})
 
 (def live
-  "A musical manifestation that was recorded live.         This is a type of MusicalManifestation defined by the musical industry."
+  "A musical manifestation that was recorded live. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/live,
    :dcterms/description
    "\n        A musical manifestation that was recorded live.\n        This is a type of MusicalManifestation defined by the musical industry.",
@@ -1723,7 +1724,7 @@
    :vs/term_status "stable"})
 
 (def mashup_of
-  "Indicates that musical works or the expressions of a musical work were mashed up on this album or track.       This means that two musical works or the expressions of a musical work by different artists are mixed together, over each other, or otherwise combined into a single musical work (usually by a third artist, the remixer)."
+  "Indicates that musical works or the expressions of a musical work were mashed up on this album or track. This means that two musical works or the expressions of a musical work by different artists are mixed together, over each other, or otherwise combined into a single musical work (usually by a third artist, the remixer)."
   {:db/ident :mo/mashup_of,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1749,7 +1750,7 @@
    :vs/term_status "testing"})
 
 (def medley_of
-  "Indicates that a musical expression is a medley of several other musical expressions.       This means that the orignial musical expression were rearranged to create a new musical expression in the form of a medley."
+  "Indicates that a musical expression is a medley of several other musical expressions. This means that the orignial musical expression were rearranged to create a new musical expression in the form of a medley."
   {:db/ident :mo/medley_of,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -1984,7 +1985,7 @@
    :vs/term_status "unstable"})
 
 (def paid_download
-  "Provide a link from an artist to a web page where all of that artist's musical work is available for some money,                 or a link from a manifestation (record/track, for example) to a web page providing a paid access to this manifestation."
+  "Provide a link from an artist to a web page where all of that artist's musical work is available for some money, or a link from a manifestation (record/track, for example) to a web page providing a paid access to this manifestation."
   {:db/ident :mo/paid_download,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -2007,7 +2008,7 @@
    :vs/term_status   "deprecated"})
 
 (def performance_of
-  "Associates a Performance to a musical work or an arrangement that is being used as a factor in it.         For example, I might use this property to attach the Magic Flute musical work to          a particular Performance."
+  "Associates a Performance to a musical work or an arrangement that is being used as a factor in it. For example, I might use this property to attach the Magic Flute musical work to a particular Performance."
   {:db/ident :mo/performance_of,
    :mo/level "2",
    :owl/inverseOf :mo/performed_in,
@@ -2037,7 +2038,7 @@
    :vs/term_status "unstable"})
 
 (def performed_in
-  "Associates a Musical Work or an Score to Performances in which they were         a factor. For example, I might use this property in order to          associate the Magic Flute to a particular performance at the Opera         Bastille last year."
+  "Associates a Musical Work or an Score to Performances in which they were a factor. For example, I might use this property in order to associate the Magic Flute to a particular performance at the Opera Bastille last year."
   {:db/ident :mo/performed_in,
    :mo/level "2",
    :owl/inverseOf :mo/performance_of,
@@ -2079,7 +2080,7 @@
    :vs/term_status "stable"})
 
 (def preview
-  "Relates a musical manifestation to a musical item (this album, and my particular cd), which holds                 a preview of the manifestation (eg. one track for an album, or a snippet for a track)"
+  "Relates a musical manifestation to a musical item (this album, and my particular cd), which holds a preview of the manifestation (eg. one track for an album, or a snippet for a track)"
   {:db/ident :mo/preview,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -2092,7 +2093,7 @@
    :vs/term_status "testing"})
 
 (def preview_download
-  "This property can be used to link from a person to the website where they make previews of their works available, or from                 a manifestation (a track or an album, for example) to a web page where a preview download is available.                  This property MUST be used only if the content is just available through a web page (holding, for example                 a Flash application) - it is better to link to actual content directly through the use of mo:available_as and                 mo:Stream, mo:Torrent or mo:ED2K, etc. Therefore, Semantic Web user agents that don't know how to read HTML and even                 less to rip streams from Flash applications can still access the audio content."
+  "This property can be used to link from a person to the website where they make previews of their works available, or from a manifestation (a track or an album, for example) to a web page where a preview download is available. This property MUST be used only if the content is just available through a web page (holding, for example a Flash application) - it is better to link to actual content directly through the use of mo:available_as and mo:Stream, mo:Torrent or mo:ED2K, etc. Therefore, Semantic Web user agents that don't know how to read HTML and even less to rip streams from Flash applications can still access the audio content."
   {:db/ident :mo/preview_download,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -2136,7 +2137,7 @@
    :vs/term_status "stable"})
 
 (def produced_score
-  "Associates an arrangement or a composition event to a score product (score here does not refer to a published score, but more         an abstract arrangement of a particular work)."
+  "Associates an arrangement or a composition event to a score product (score here does not refer to a published score, but more an abstract arrangement of a particular work)."
   {:db/ident :mo/produced_score,
    :mo/level "2",
    :rdf/type :owl/ObjectProperty,
@@ -2193,7 +2194,7 @@
    :vs/term_status "stable"})
 
 (def produced_work
-  "Associates a composition event to the produced MusicalWork. For example,                 this property could link the event corresponding to the composition of the                 Magic Flute in 1782 to the Magic Flute musical work itself. This musical work                 can then be used in particular performances."
+  "Associates a composition event to the produced MusicalWork. For example, this property could link the event corresponding to the composition of the Magic Flute in 1782 to the Magic Flute musical work itself. This musical work can then be used in particular performances."
   {:db/ident :mo/produced_work,
    :mo/level "2",
    :owl/inverseOf :mo/composed_in,
@@ -2346,7 +2347,7 @@
    :vs/term_status "stable"})
 
 (def puid
-  "Link a signal to the PUIDs associated with it, that is, PUID computed from MusicalItems (mo:AudioFile)          derived from this signal.         PUIDs (Portable Unique IDentifier) are the IDs used in the          proprietary MusicDNS AudioFingerprinting system which is operated by MusicIP.          Using PUIDs, one (with some luck) can identify the Signal object associated with a particular audio file, therefore allowing         to access further information (on which release this track is featured? etc.). Using some more metadata one can identify         the particular Track corresponding to the audio file (a track on a particular release)."
+  "Link a signal to the PUIDs associated with it, that is, PUID computed from MusicalItems (mo:AudioFile) derived from this signal. PUIDs (Portable Unique IDentifier) are the IDs used in the proprietary MusicDNS AudioFingerprinting system which is operated by MusicIP. Using PUIDs, one (with some luck) can identify the Signal object associated with a particular audio file, therefore allowing to access further information (on which release this track is featured? etc.). Using some more metadata one can identify the particular Track corresponding to the audio file (a track on a particular release)."
   {:db/ident :mo/puid,
    :mo/level "1",
    :rdf/type :owl/DatatypeProperty,
@@ -2398,7 +2399,7 @@
    :vs/term_status "testing"})
 
 (def record_side
-  "Associates the side on a vinyl record, where a track is located, e.g. A, B, C, etc. This property can then also be used  in conjunction with mo:track_number, so that one can infer e.g. \"A1\", that means, track number 1 on side A."
+  "Associates the side on a vinyl record, where a track is located, e.g. A, B, C, etc. This property can then also be used in conjunction with mo:track_number, so that one can infer e.g. \"A1\", that means, track number 1 on side A."
   {:db/ident :mo/record_side,
    :mo/level "1",
    :rdf/type :owl/DatatypeProperty,
@@ -2416,7 +2417,7 @@
    :rdf/type :owl/ObjectProperty})
 
 (def recorded_as
-  "This is a shortcut property, allowing to bypass all the Sound/Recording steps. This property         allows to directly link a Performance to the recorded Signal. This is recommended for \"normal\"         users. However, advanced users wanting to express things such as the location of the microphone will         have to create this shortcut as well as the whole workflow, in order to let the \"normal\" users access         simply the, well, simple information:-) ."
+  "This is a shortcut property, allowing to bypass all the Sound/Recording steps. This property allows to directly link a Performance to the recorded Signal. This is recommended for \"normal\" users. However, advanced users wanting to express things such as the location of the microphone will have to create this shortcut as well as the whole workflow, in order to let the \"normal\" users access simply the, well, simple information:-) ."
   {:db/ident :mo/recorded_as,
    :mo/level "2",
    :owl/inverseOf :mo/records,
@@ -2430,7 +2431,7 @@
    :vs/term_status "stable"})
 
 (def recorded_in
-  "Associates a physical Sound to a Recording event where it is being used          in order to produce a signal. For example, I might use this property to          associate the sound produced by a particular performance of the magic flute         to a given recording, done using my cell-phone."
+  "Associates a physical Sound to a Recording event where it is being used in order to produce a signal. For example, I might use this property to associate the sound produced by a particular performance of the magic flute to a given recording, done using my cell-phone."
   {:db/ident :mo/recorded_in,
    :mo/level "2",
    :owl/inverseOf :mo/recording_of,
@@ -2445,7 +2446,7 @@
    :vs/term_status "unstable"})
 
 (def recording_of
-  "Associates a Recording event to a physical Sound being recorded.                 For example, I might use this property to                 associate a given recording, done using my cell phone, to the          sound produced by a particular performance of the magic flute."
+  "Associates a Recording event to a physical Sound being recorded. For example, I might use this property to associate a given recording, done using my cell phone, to the sound produced by a particular performance of the magic flute."
   {:db/ident :mo/recording_of,
    :mo/level "2",
    :owl/inverseOf :mo/recorded_in,
@@ -2460,7 +2461,7 @@
    :vs/term_status "stable"})
 
 (def records
-  "This is the inverse of the shortcut property recordedAs, allowing to relate directly a performance         to a signal."
+  "This is the inverse of the shortcut property recordedAs, allowing to relate directly a performance to a signal."
   {:db/ident :mo/records,
    :mo/level "2",
    :owl/inverseOf :mo/recordedAs,
@@ -2523,7 +2524,7 @@
    :vs/term_status "stable"})
 
 (def remaster_of
-  "This relates two musical work or the expression of a musical work, where one is a remaster of the other.       A remaster is a new version made for release from source recordings that were earlier released separately. This is usually done to improve the audio quality or adjust for more modern playback equipment. The process generally doesn't involve changing the music in any artistically important way. It may, however, result in tracks that are a few seconds longer or shorter."
+  "This relates two musical work or the expression of a musical work, where one is a remaster of the other. A remaster is a new version made for release from source recordings that were earlier released separately. This is usually done to improve the audio quality or adjust for more modern playback equipment. The process generally doesn't involve changing the music in any artistically important way. It may, however, result in tracks that are a few seconds longer or shorter."
   {:db/ident :mo/remaster_of,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -2535,7 +2536,7 @@
    :vs/term_status "unstable"})
 
 (def remix
-  "Musical manifestation that primarily contains remixed material.          This is a type of MusicalManifestation defined by the musical industry."
+  "Musical manifestation that primarily contains remixed material. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/remix,
    :dcterms/description
    "\n        Musical manifestation that primarily contains remixed material. \n        This is a type of MusicalManifestation defined by the musical industry.\n    ",
@@ -2557,7 +2558,7 @@
    :vs/term_status "unstable"})
 
 (def remixed
-  "Used to relate an artist who remixed a musical work or the expression of a musical work.       This involves taking just one other musical work and using audio editing to make it sound like a significantly different, but usually still recognisable, song. It can be used to link an artist to a single song that they remixed, or, if they remixed an entire musical work."
+  "Used to relate an artist who remixed a musical work or the expression of a musical work. This involves taking just one other musical work and using audio editing to make it sound like a significantly different, but usually still recognisable, song. It can be used to link an artist to a single song that they remixed, or, if they remixed an entire musical work."
   {:db/ident :mo/remixed,
    :mo/level "1",
    :owl/inverseOf :mo/remixer,
@@ -2571,7 +2572,7 @@
    :vs/term_status "unstable"})
 
 (def remixer
-  "Used to relate a musical work or the expression of a musical work to an artist who remixed it.       This involves taking just one other musical work and using audio editing to make it sound like a significantly different, but usually still recognisable, song. It can be used to link an artist to a single song that they remixed, or, if they remixed an entire musical work."
+  "Used to relate a musical work or the expression of a musical work to an artist who remixed it. This involves taking just one other musical work and using audio editing to make it sound like a significantly different, but usually still recognisable, song. It can be used to link an artist to a single song that they remixed, or, if they remixed an entire musical work."
   {:db/ident :mo/remixer,
    :mo/level "1",
    :owl/inverseOf :mo/remixed,
@@ -2584,7 +2585,7 @@
    :vs/term_status "unstable"})
 
 (def review
-  "Used to link a work or the expression of a work to a review.       The review does not have to be open content, as long as it is accessible to the general internet population."
+  "Used to link a work or the expression of a work to a review. The review does not have to be open content, as long as it is accessible to the general internet population."
   {:db/ident :mo/review,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -2605,7 +2606,7 @@
    :vs/term_status "deprecated"})
 
 (def sample_rate
-  "Associates a digital signal to its sample rate. It might be easier to express it this way instead of         defining a timeline map:-) Range is xsd:float."
+  "Associates a digital signal to its sample rate. It might be easier to express it this way instead of defining a timeline map:-) Range is xsd:float."
   {:db/ident :mo/sample_rate,
    :mo/level "1",
    :rdf/type [:owl/DatatypeProperty :owl/FunctionalProperty],
@@ -2712,7 +2713,7 @@
    :vs/term_status   "deprecated"})
 
 (def similar_to
-  "A similarity relationships between two objects (so far, either an agent, a signal or a genre, but         this could grow).         This relationship is pretty general and doesn't make any assumptions on how the similarity claim         was derived.         Such similarity statements can come from a range of different sources (Musicbrainz similarities between         artists, or coming from some automatic content analysis).         However, the origin of such statements should be kept using a named graph approach - and ultimately, the          documents providing such statements should attach some metadata to themselves (confidence of the claim, etc.)."
+  "A similarity relationships between two objects (so far, either an agent, a signal or a genre, but this could grow). This relationship is pretty general and doesn't make any assumptions on how the similarity claim was derived. Such similarity statements can come from a range of different sources (Musicbrainz similarities between artists, or coming from some automatic content analysis). However, the origin of such statements should be kept using a named graph approach - and ultimately, the documents providing such statements should attach some metadata to themselves (confidence of the claim, etc.)."
   {:db/ident :mo/similar_to,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,
@@ -2759,7 +2760,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/mo/"})
 
 (def soundtrack
-  "Sound recording on a narrow strip of a motion picture film.         This is a type of MusicalManifestation defined by the musical industry."
+  "Sound recording on a narrow strip of a motion picture film. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/soundtrack,
    :dcterms/description
    "\n        Sound recording on a narrow strip of a motion picture film.\n        This is a type of MusicalManifestation defined by the musical industry.\n    ",
@@ -2769,7 +2770,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/mo/"})
 
 (def spokenword
-  "Spoken word is a form of music or artistic performance in which lyrics, poetry, or stories are spoken rather than sung.          Spoken-word is often done with a musical background, but emphasis is kept on the speaker.         This is a type of MusicalManifestation defined by the musical industry."
+  "Spoken word is a form of music or artistic performance in which lyrics, poetry, or stories are spoken rather than sung. Spoken-word is often done with a musical background, but emphasis is kept on the speaker. This is a type of MusicalManifestation defined by the musical industry."
   {:db/ident :mo/spokenword,
    :dcterms/description
    "\n        Spoken word is a form of music or artistic performance in which lyrics, poetry, or stories are spoken rather than sung. \n        Spoken-word is often done with a musical background, but emphasis is kept on the speaker.\n        This is a type of MusicalManifestation defined by the musical industry.\n    ",
@@ -2792,7 +2793,7 @@
    :vs/term_status "unstable"})
 
 (def tempo
-  "Rate of speed or pace of music. Tempo markings are traditionally given in Italian;          common markings include: grave (solemn; very, very slow); largo (broad; very slow);          adagio (quite slow); andante (a walking pace); moderato (moderate); allegro (fast; cheerful);          vivace (lively); presto (very fast); accelerando (getting faster); ritardando (getting slower);          and a tempo (in time; returning to the original pace)."
+  "Rate of speed or pace of music. Tempo markings are traditionally given in Italian; common markings include: grave (solemn; very, very slow); largo (broad; very slow); adagio (quite slow); andante (a walking pace); moderato (moderate); allegro (fast; cheerful); vivace (lively); presto (very fast); accelerando (getting faster); ritardando (getting slower); and a tempo (in time; returning to the original pace)."
   {:db/ident :mo/tempo,
    :mo/level "2",
    :rdf/type :owl/DatatypeProperty,
@@ -2901,7 +2902,7 @@
    :vs/term_status "unstable"})
 
 (def trmid
-  "Indicates the TRMID of a track.         TRM IDs are MusicBrainz' old AudioFingerprinting system.          TRM (TRM Recognizes Music) IDs are (somewhat) unique ids that represent          the audio signature of a musical piece (see AudioFingerprint)."
+  "Indicates the TRMID of a track. TRM IDs are MusicBrainz' old AudioFingerprinting system. TRM (TRM Recognizes Music) IDs are (somewhat) unique ids that represent the audio signature of a musical piece (see AudioFingerprint)."
   {:db/ident :mo/trmid,
    :mo/level "1",
    :rdf/type :owl/DatatypeProperty,
@@ -2981,7 +2982,7 @@
    :vs/term_status "stable"})
 
 (def wikipedia
-  "Used to link an work, an expression of a work, a manifestation of a work,          a person, an instrument or a musical genre to its corresponding WikiPedia page.          The full URL should be used, not just the WikiName."
+  "Used to link an work, an expression of a work, a manifestation of a work, a person, an instrument or a musical genre to its corresponding WikiPedia page. The full URL should be used, not just the WikiName."
   {:db/ident :mo/wikipedia,
    :mo/level "1",
    :rdf/type :owl/ObjectProperty,

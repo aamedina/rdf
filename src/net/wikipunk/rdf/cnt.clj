@@ -10,6 +10,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2011/content",
    :rdfa/prefix "cnt",
    :rdfa/uri "http://www.w3.org/2011/content#",
    :rdfs/comment
@@ -20,7 +21,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Representing Content in RDF"},
    :rdfs/seeAlso "http://www.w3.org/WAI/intro/earl"}
-  (:refer-clojure :exclude [bytes rest chars]))
+  (:refer-clojure :exclude [bytes chars rest]))
 
 (def Content
   "The content."

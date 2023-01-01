@@ -1,6 +1,9 @@
 (ns net.wikipunk.rdf.ore
-  "http://www.openarchives.org/ore/terms/"
-  {:rdf/ns-prefix-map {"dcmitype" "http://purl.org/dc/dcmitype/",
+  "The OAI ORE terms vocabulary"
+  {:dcterms/license   "http://creativecommons.org/licenses/by-sa/3.0/",
+   :dcterms/publisher {:rdfs/label "The Open Archives Initiative ORE Project"},
+   :dcterms/title     "The OAI ORE terms vocabulary",
+   :rdf/ns-prefix-map {"dcmitype" "http://purl.org/dc/dcmitype/",
                        "dcterms"  "http://purl.org/dc/elements/1.1/",
                        "ore"      "http://www.openarchives.org/ore/terms/",
                        "owl"      "http://www.w3.org/2002/07/owl#",
@@ -9,8 +12,12 @@
                        "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
                        "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type          :rdfa/PrefixMapping,
+   :rdf/uri           "http://www.openarchives.org/ore/terms/",
    :rdfa/prefix       "ore",
-   :rdfa/uri          "http://www.openarchives.org/ore/terms/"})
+   :rdfa/uri          "http://www.openarchives.org/ore/terms/",
+   :rdfs/comment      "The set of terms provided by the OAI ORE initiative",
+   :rdfs/label        "The OAI ORE terms vocabulary",
+   :rdfs/seeAlso      "http://www.openarchives.org/ore/toc"})
 
 (def AggregatedResource
   "A resource which is included in an Aggregation. Note that asserting that a resource is a member of the class of Aggregated Resources does not imply anything other than that it is aggregated by at least one Aggregation."
@@ -134,7 +141,7 @@
    :rdfs/range :ore/Aggregation})
 
 (def similarTo
-  "The subject of this relationship MUST be an Aggregation.  This Aggregation should be considered an expression within the ORE context of the object of the relationship, as it is broadly equivalent to the resource. For example, the Aggregation may consist of the resources which, together, make up a journal article which has a DOI assigned to it. The Aggregation is not the article to which the DOI was assigned, but is a representation of it in some manner."
+  "The subject of this relationship MUST be an Aggregation. This Aggregation should be considered an expression within the ORE context of the object of the relationship, as it is broadly equivalent to the resource. For example, the Aggregation may consist of the resources which, together, make up a journal article which has a DOI assigned to it. The Aggregation is not the article to which the DOI was assigned, but is a representation of it in some manner."
   {:db/ident :ore/similarTo,
    :rdf/type :rdf/Property,
    :rdfs/comment

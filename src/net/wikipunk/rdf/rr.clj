@@ -1,22 +1,36 @@
 (ns net.wikipunk.rdf.rr
-  "http://www.w3.org/ns/r2rml#"
-  {:rdf/ns-prefix-map {"cc"      "http://creativecommons.org/ns#",
-                       "dcterms" "http://purl.org/dc/elements/1.1/",
-                       "foaf"    "http://xmlns.com/foaf/0.1/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "r2rml"   "http://www.w3.org/ns/r2rml#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
-                       "rr"      "http://www.w3.org/ns/r2rml#",
-                       "vaem"    "http://www.linkedmodel.org/schema/vaem#",
-                       "vann"    "http://purl.org/vocab/vann/",
-                       "xml"     "http://www.w3.org/XML/1998/namespace",
-                       "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type          :rdfa/PrefixMapping,
-   :rdfa/prefix       "rr",
-   :rdfa/uri          "http://www.w3.org/ns/r2rml#",
-   :rdfs/isDefinedBy  {:rdf/uri
-                       "http://www.w3.org/TR/2012/REC-r2rml-20120927/"}}
+  "RDB to RDF Mapping Language - Vocabulary"
+  {:cc/license          "http://creativecommons.org/licenses/by/3.0/",
+   :dcterms/contributor ["http://www.w3.org/People/Ivan/"
+                         "http://boris.villazon.terrazas.name"],
+   :dcterms/creator     "http://richard.cyganiak.de/foaf.rdf#cygri",
+   :dcterms/description {:rdf/language "en",
+                         :rdf/value "RDB to RDF Mapping Language - Vocabulary"},
+   :dcterms/issued      #inst "2012-01-24T00:00:00.000-05:00",
+   :dcterms/modified    #inst "2012-07-16T00:00:00.000-04:00",
+   :dcterms/publisher   "http://www.w3.org/",
+   :dcterms/title       {:rdf/language "en",
+                         :rdf/value    "R2RML vocabulary"},
+   :rdf/ns-prefix-map   {"cc" "http://creativecommons.org/ns#",
+                         "dcterms" "http://purl.org/dc/elements/1.1/",
+                         "foaf" "http://xmlns.com/foaf/0.1/",
+                         "owl" "http://www.w3.org/2002/07/owl#",
+                         "r2rml" "http://www.w3.org/ns/r2rml#",
+                         "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                         "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+                         "rr" "http://www.w3.org/ns/r2rml#",
+                         "vaem" "http://www.linkedmodel.org/schema/vaem#",
+                         "vann" "http://purl.org/vocab/vann/",
+                         "xml" "http://www.w3.org/XML/1998/namespace",
+                         "xsd" "http://www.w3.org/2001/XMLSchema#"},
+   :rdf/type            [:voaf/Vocabulary :owl/Ontology],
+   :rdf/uri             "http://www.w3.org/ns/r2rml#",
+   :rdfa/prefix         "rr",
+   :rdfa/uri            "http://www.w3.org/ns/r2rml#",
+   :rdfs/isDefinedBy    {:rdf/uri
+                         "http://www.w3.org/TR/2012/REC-r2rml-20120927/"},
+   :vann/preferredNamespacePrefix "rr",
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/r2rml#"}
   (:refer-clojure :exclude [class]))
 
 (def BaseTableOrView

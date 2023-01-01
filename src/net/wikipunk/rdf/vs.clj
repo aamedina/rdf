@@ -15,6 +15,7 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2003/06/sw-vocab-status/ns",
    :rdfa/prefix "vs",
    :rdfa/uri "http://www.w3.org/2003/06/sw-vocab-status/ns#",
    :rdfs/comment

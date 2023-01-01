@@ -25,6 +25,7 @@
                        "time"    "http://www.w3.org/2006/time#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2006/time",
    :rdfa/prefix "time",
    :rdfa/uri "http://www.w3.org/2006/time#",
    :rdfs/isDefinedBy {:rdf/uri
@@ -65,10 +66,9 @@
                  :rdf/value    "descripción de fecha-tiempo"}
                 {:rdf/language "en",
                  :rdf/value    "Date-Time description"}],
-   :rdfs/subClassOf [{:owl/hasValue
-                      "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian",
-                      :owl/onProperty :time/hasTRS,
-                      :rdf/type :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/gYear,
+                      :owl/onProperty    :time/year,
+                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/gDay,
                       :owl/onProperty    :time/day,
                       :rdf/type          :owl/Restriction}
@@ -76,9 +76,10 @@
                       :owl/onProperty    :time/month,
                       :rdf/type          :owl/Restriction}
                      :time/GeneralDateTimeDescription
-                     {:owl/allValuesFrom :xsd/gYear,
-                      :owl/onProperty    :time/year,
-                      :rdf/type          :owl/Restriction}],
+                     {:owl/hasValue
+                      "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian",
+                      :owl/onProperty :time/hasTRS,
+                      :rdf/type :owl/Restriction}],
    :skos/definition
    [{:rdf/language "es",
      :rdf/value
@@ -198,28 +199,28 @@
                  :rdf/value    "descripción de duración"}
                 {:rdf/language "en",
                  :rdf/value    "Duration description"}],
-   :rdfs/subClassOf [{:owl/hasValue
-                      "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian",
-                      :owl/onProperty :time/hasTRS,
-                      :rdf/type :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/months,
+   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/seconds,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/hours,
-                      :rdf/type          :owl/Restriction}
-                     :time/GeneralDurationDescription
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/days,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/years,
+                      :owl/onProperty    :time/months,
+                      :rdf/type          :owl/Restriction}
+                     :time/GeneralDurationDescription
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/hours,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/minutes,
                       :rdf/type          :owl/Restriction}
+                     {:owl/hasValue
+                      "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian",
+                      :owl/onProperty :time/hasTRS,
+                      :rdf/type :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/seconds,
+                      :owl/onProperty    :time/years,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/weeks,
@@ -286,41 +287,41 @@
                 {:rdf/language "en",
                  :rdf/value    "Generalized date-time description"}],
    :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :time/timeZone,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/day,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/monthOfYear,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/month,
+                      :rdf/type           :owl/Restriction}
+                     :time/TemporalPosition
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/year,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/hour,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/week,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/minute,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/dayOfYear,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/day,
-                      :rdf/type           :owl/Restriction}
-                     :time/TemporalPosition
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/timeZone,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/monthOfYear,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfWeek,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/year,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/second,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/month,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/hour,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/week,
+                      :owl/onProperty     :time/dayOfWeek,
                       :rdf/type           :owl/Restriction}],
    :skos/definition
    ["Descripción de fecha y hora estructurada con valores separados para los distintos elementos de un sistema calendario-reloj."
@@ -328,10 +329,10 @@
      :rdf/value
      "Description of date and time structured with separate values for the various elements of a calendar-clock system"}],
    :skos/note
-   [{:rdf/language "es",
+   ["Some combinations of properties are redundant - for example, within a specified :year if :dayOfYear is provided then :day and :month can be computed, and vice versa. Individual values should be consistent with each other and the calendar, indicated through the value of the :hasTRS property."
+    {:rdf/language "es",
      :rdf/value
-     "Algunas combinaciones de propiedades son redundantes - por ejemplo, dentro de un 'año' especificado si se proporciona 'día del año' entonces 'día' y 'mes' se pueden computar, y viceversa. Los valores individuales deberían ser consistentes entre ellos y con el calendario, indicado a través del valor de la propiedad 'tiene TRS'."}
-    "Some combinations of properties are redundant - for example, within a specified :year if :dayOfYear is provided then :day and :month can be computed, and vice versa. Individual values should be consistent with each other and the calendar, indicated through the value of the :hasTRS property."]})
+     "Algunas combinaciones de propiedades son redundantes - por ejemplo, dentro de un 'año' especificado si se proporciona 'día del año' entonces 'día' y 'mes' se pueden computar, y viceversa. Los valores individuales deberían ser consistentes entre ellos y con el calendario, indicado a través del valor de la propiedad 'tiene TRS'."}]})
 
 (def GeneralDurationDescription
   "Description of temporal extent structured with separate values for the various elements of a calendar-clock system."
@@ -352,26 +353,26 @@
                       :owl/onProperty     :time/hours,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/minutes,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/seconds,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/years,
+                      :rdf/type           :owl/Restriction}
+                     :time/TemporalDuration
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/weeks,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/months,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/minutes,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}
-                     :time/TemporalDuration
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/years,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/days,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/weeks,
                       :rdf/type           :owl/Restriction}],
    :skos/definition
    [{:rdf/language "en",
@@ -491,30 +492,30 @@
                 {:rdf/language "es",
                  :rdf/value    "mes del año"}],
    :rdfs/subClassOf [{:owl/cardinality 0,
-                      :owl/onProperty  :time/minute,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/hour,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/year,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/month,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/week,
+                      :owl/onProperty  :time/second,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
                       :owl/onProperty  :time/day,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
-                      :owl/onProperty  :time/second,
+                      :owl/onProperty  :time/minute,
                       :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/month,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :time/hour,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :time/week,
+                      :rdf/type        :owl/Restriction}
+                     :time/DateTimeDescription
                      {:owl/hasValue   :time/unitMonth,
                       :owl/onProperty :time/unitType,
                       :rdf/type       :owl/Restriction}
-                     :time/DateTimeDescription],
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :time/year,
+                      :rdf/type        :owl/Restriction}],
    :skos/definition [{:rdf/language "en",
                       :rdf/value    "The month of the year"}
                      {:rdf/language "es",
@@ -622,7 +623,7 @@
                      :rdf/value    "星期日"}]})
 
 (def TRS
-  "A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system.   This is a stub class, representing the set of all temporal reference systems."
+  "A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system. This is a stub class, representing the set of all temporal reference systems."
   {:db/ident :time/TRS,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -811,7 +812,7 @@
      "A temporal position described using either a (nominal) value from an ordinal reference system, or a (numeric) value in a temporal coordinate system. "}]})
 
 (def TimeZone
-  "A Time Zone specifies the amount by which the local time is offset from UTC.   A time zone is usually denoted geographically (e.g. Australian Eastern Daylight Time), with a constant value in a given region.  The region where it applies and the offset from UTC are specified by a locally recognised governing authority."
+  "A Time Zone specifies the amount by which the local time is offset from UTC. A time zone is usually denoted geographically (e.g. Australian Eastern Daylight Time), with a constant value in a given region. The region where it applies and the offset from UTC are specified by a locally recognised governing authority."
   {:db/ident :time/TimeZone,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -926,24 +927,24 @@
    :rdfs/subClassOf [{:owl/cardinality 0,
                       :owl/onProperty  :time/minutes,
                       :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/years,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/seconds,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/weeks,
-                      :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
                       :owl/onProperty  :time/hours,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
-                      :owl/onProperty  :time/days,
+                      :owl/onProperty  :time/months,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :time/seconds,
                       :rdf/type        :owl/Restriction}
                      :time/DurationDescription
                      {:owl/cardinality 0,
-                      :owl/onProperty  :time/months,
+                      :owl/onProperty  :time/weeks,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/years,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :time/days,
                       :rdf/type        :owl/Restriction}],
    :skos/definition "Year duration",
    :skos/historyNote
@@ -1026,7 +1027,7 @@
      "Asume una dirección en el tiempo. Si una entidad temporal T1 está antes que otra entidad temporal T2, entonces el final de T1 está antes que el principio de T2. Así, \"antes\" se puede considerar básica para instantes y derivada para intervalos."}]})
 
 (def day
-  "Day position in a calendar-clock system.  The range of this property is not specified, so can be replaced by any specific representation of a calendar day from any calendar."
+  "Day position in a calendar-clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar day from any calendar."
   {:db/ident :time/day,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -1116,7 +1117,7 @@
      "length of, or element of the length of, a temporal extent expressed in days"}]})
 
 (def generalDay
-  "Day of month - formulated as a text string with a pattern constraint to reproduce the same lexical form as gDay, except that values up to 99 are permitted, in order to support calendars with more than 31 days in a month.  Note that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."
+  "Day of month - formulated as a text string with a pattern constraint to reproduce the same lexical form as gDay, except that values up to 99 are permitted, in order to support calendars with more than 31 days in a month. Note that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."
   {:db/ident :time/generalDay,
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
@@ -1143,7 +1144,7 @@
      "Day of month - formulated as a text string with a pattern constraint to reproduce the same lexical form as gDay, except that values up to 99 are permitted, in order to support calendars with more than 31 days in a month. \nNote that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."}]})
 
 (def generalMonth
-  "Month of year - formulated as a text string with a pattern constraint to reproduce the same lexical form as gMonth, except that values up to 20 are permitted, in order to support calendars with more than 12 months in the year.  Note that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."
+  "Month of year - formulated as a text string with a pattern constraint to reproduce the same lexical form as gMonth, except that values up to 20 are permitted, in order to support calendars with more than 12 months in the year. Note that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."
   {:db/ident :time/generalMonth,
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
@@ -1170,7 +1171,7 @@
      "Month of year - formulated as a text string with a pattern constraint to reproduce the same lexical form as gMonth, except that values up to 20 are permitted, in order to support calendars with more than 12 months in the year. \nNote that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."}]})
 
 (def generalYear
-  "Year number - formulated as a text string with a pattern constraint to reproduce the same lexical form as gYear, but not restricted to values from the Gregorian calendar.  Note that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."
+  "Year number - formulated as a text string with a pattern constraint to reproduce the same lexical form as gYear, but not restricted to values from the Gregorian calendar. Note that the value-space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type."
   {:db/ident :time/generalYear,
    :owl/onDatatype :xsd/string,
    :owl/withRestrictions
@@ -2132,7 +2133,7 @@
      "length, or element of, a temporal extent expressed in minutes"}]})
 
 (def month
-  "Month position in a calendar-clock system.  The range of this property is not specified, so can be replaced by any specific representation of a calendar month from any calendar."
+  "Month position in a calendar-clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar month from any calendar."
   {:db/ident :time/month,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -2823,7 +2824,7 @@
      "Using xsd:dateTime in this place means that the duration of the interval is implicit: it corresponds to the length of the smallest non-zero element of the date-time literal. However, this rule cannot be used for intervals whose duration is more than one rank smaller than the starting time - e.g. the first minute or second of a day, the first hour of a month, or the first day of a year. In these cases the desired interval cannot be distinguished from the interval corresponding to the next rank up. Because of this essential ambiguity, use of this property is not recommended and it is deprecated."}]})
 
 (def year
-  "Year position in a calendar-clock system.  The range of this property is not specified, so can be replaced by any specific representation of a calendar year from any calendar."
+  "Year position in a calendar-clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar year from any calendar."
   {:db/ident :time/year,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment

@@ -9,11 +9,12 @@
                        "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfa/prefix "rdf",
    :rdfa/uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/isDefinedBy {:rdf/uri
                       "http://www.w3.org/TR/2004/REC-rdf-mt-20040210/"}}
-  (:refer-clojure :exclude [type first rest]))
+  (:refer-clojure :exclude [first rest type]))
 
 (def Alt
   "The class of containers of alternatives."

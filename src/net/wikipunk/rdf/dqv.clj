@@ -1,14 +1,14 @@
 (ns net.wikipunk.rdf.dqv
   "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."
-  {:dcterms/contributor [{:foaf/name "Jeremy Debattista"}
-                         {:foaf/name "Amrapali Zaveri"}
-                         {:foaf/name "Deirdre Lee"}
+  {:dcterms/contributor [{:foaf/name "Deirdre Lee"}
+                         {:foaf/name "Makx Dekkers"}
                          {:foaf/name "Nandana Mihindukulasooriya"}
                          {:foaf/name "Christophe Guéret"}
-                         {:foaf/name "Makx Dekkers"}],
+                         {:foaf/name "Amrapali Zaveri"}
+                         {:foaf/name "Jeremy Debattista"}],
    :dcterms/created #inst "2015-12-17T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name "Antoine Isaac"}
-                     {:foaf/name "Riccardo Albertoni"}],
+   :dcterms/creator [{:foaf/name "Riccardo Albertoni"}
+                     {:foaf/name "Antoine Isaac"}],
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
@@ -35,6 +35,7 @@
                        "voaf"    "http://purl.org/vocommons/voaf#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :voaf/Vocabulary,
+   :rdf/uri "http://www.w3.org/ns/dqv",
    :rdfa/prefix "dqv",
    :rdfa/uri "http://www.w3.org/ns/dqv#",
    :rdfs/isDefinedBy {:rdf/uri "https://www.w3.org/TR/vocab-dqv/"},
@@ -146,7 +147,7 @@
     "Represents quality metadata, it is defined to group quality certificates, policies, measurements and annotations under a named graph."},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Quality Metadata"},
-   :rdfs/subClassOf "http://www.w3.org/2004/03/trix/rdfg-1/Graph",
+   :rdfs/subClassOf :rdfg/Graph,
    :vann/usageNote
    {:rdf/language "en",
     :rdf/value

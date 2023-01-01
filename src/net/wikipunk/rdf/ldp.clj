@@ -1,9 +1,9 @@
 (ns net.wikipunk.rdf.ldp
   "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace."
   {:dcterms/created #inst "2015-02-26T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name "Steve Speicher"}
-                     {:foaf/name "Ashok Malhotra"}
-                     {:foaf/name "John Arwe"}],
+   :dcterms/creator [{:foaf/name "Ashok Malhotra"}
+                     {:foaf/name "John Arwe"}
+                     {:foaf/name "Steve Speicher"}],
    :dcterms/description
    "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace.",
    :dcterms/publisher "http://www.w3.org/data#W3C",
@@ -19,6 +19,7 @@
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/ldp#",
    :rdfa/prefix "ldp",
    :rdfa/uri "http://www.w3.org/ns/ldp#",
    :rdfs/comment
@@ -117,7 +118,7 @@
    :vs/term_status "stable"})
 
 (def Page
-  "URI signifying that the resource is an in-sequence page resource, as defined by LDP Paging.  Typically used on Link rel='type' response headers."
+  "URI signifying that the resource is an in-sequence page resource, as defined by LDP Paging. Typically used on Link rel='type' response headers."
   {:db/ident :ldp/Page,
    :rdf/type :rdfs/Class,
    :rdfs/comment
@@ -168,7 +169,7 @@
    :vs/term_status "stable"})
 
 (def PreferMinimalContainer
-  "URI identifying the subset of a LDPC's triples present in an empty LDPC, for example to allow clients to express interest in receiving them.  Currently this excludes containment and membership triples, but in the future other exclusions might be added.  This definition is written to automatically exclude those new classes of triples."
+  "URI identifying the subset of a LDPC's triples present in an empty LDPC, for example to allow clients to express interest in receiving them. Currently this excludes containment and membership triples, but in the future other exclusions might be added. This definition is written to automatically exclude those new classes of triples."
   {:db/ident :ldp/PreferMinimalContainer,
    :rdf/type :owl/Individual,
    :rdfs/comment
@@ -283,7 +284,7 @@
    :vs/term_status "stable"})
 
 (def membershipResource
-  "Indicates the membership-constant-URI in a membership triple.  Depending upon the membership triple pattern a container uses, as indicated by the presence of ldp:hasMemberRelation or ldp:isMemberOfRelation, the membership-constant-URI might occupy either the subject or object position in membership triples."
+  "Indicates the membership-constant-URI in a membership triple. Depending upon the membership triple pattern a container uses, as indicated by the presence of ldp:hasMemberRelation or ldp:isMemberOfRelation, the membership-constant-URI might occupy either the subject or object position in membership triples."
   {:db/ident :ldp/membershipResource,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -295,7 +296,7 @@
    :vs/term_status "stable"})
 
 (def pageSequence
-  "Link to a page sequence resource, as defined by LDP Paging.  Typically used to communicate the sorting criteria used to allocate LDPC members to pages."
+  "Link to a page sequence resource, as defined by LDP Paging. Typically used to communicate the sorting criteria used to allocate LDPC members to pages."
   {:db/ident :ldp/pageSequence,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -317,7 +318,7 @@
    :vs/term_status "testing"})
 
 (def pageSortCriteria
-  "Link to the list of sorting criteria used by the server in a representation.  Typically used on Link response headers as an extension link relation URI in the rel= parameter."
+  "Link to the list of sorting criteria used by the server in a representation. Typically used on Link response headers as an extension link relation URI in the rel= parameter."
   {:db/ident :ldp/pageSortCriteria,
    :rdf/type :rdf/Property,
    :rdfs/comment

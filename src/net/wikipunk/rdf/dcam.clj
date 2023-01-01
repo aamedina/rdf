@@ -1,7 +1,11 @@
 (ns net.wikipunk.rdf.dcam
-  "http://purl.org/dc/dcam/"
+  "Metadata terms for vocabulary description"
   {:dcat/downloadURL
    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_abstract_model.ttl",
+   :dcterms/modified #inst "2012-06-14T00:00:00.000-04:00",
+   :dcterms/publisher "http://purl.org/dc/aboutdcmi#DCMI",
+   :dcterms/title {:rdf/language "en",
+                   :rdf/value    "Metadata terms for vocabulary description"},
    :rdf/ns-prefix-map {"dcam"    "http://purl.org/dc/dcam/",
                        "dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -9,6 +13,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"    "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type :rdfa/PrefixMapping,
+   :rdf/uri "http://purl.org/dc/dcam/",
    :rdfa/prefix "dcam",
    :rdfa/uri "http://purl.org/dc/dcam/"})
 

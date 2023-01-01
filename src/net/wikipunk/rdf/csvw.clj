@@ -51,11 +51,12 @@
                        "xml" "http://www.w3.org/XML/1998/namespace",
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/csvw#",
    :rdfa/prefix "csvw",
    :rdfa/uri "http://www.w3.org/ns/csvw#",
    :rdfs/isDefinedBy {:rdf/uri "https://www.w3.org/TR/tabular-metadata/"},
    :rdfs/seeAlso "http://www.w3.org/TR/tabular-metadata"}
-  (:refer-clojure :exclude [name format]))
+  (:refer-clojure :exclude [format name]))
 
 (def Cell
   "A Cell represents a cell at the intersection of a Row and a Column within a Table."
@@ -428,7 +429,7 @@
    :rdfs/range :xsd/string})
 
 (def foreignKey
-  "For a Table: a list of foreign keys on the table.  For a Schema: an array property of foreign key definitions that define how the values from specified columns within this table link to rows within this table or other tables."
+  "For a Table: a list of foreign keys on the table. For a Schema: an array property of foreign key definitions that define how the values from specified columns within this table link to rows within this table or other tables."
   {:db/ident :csvw/foreignKey,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -718,7 +719,7 @@
    :rdfs/range :xsd/string})
 
 (def primaryKey
-  "For Schema: A column reference property that holds either a single reference to a column description object or an array of references.  For Row: a possibly empty list of cells whose values together provide a unique identifier for this row. This is similar to the name of a column."
+  "For Schema: A column reference property that holds either a single reference to a column description object or an array of references. For Row: a possibly empty list of cells whose values together provide a unique identifier for this row. This is similar to the name of a column."
   {:db/ident :csvw/primaryKey,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1079,7 +1080,7 @@
    :rdfs/range :csvw/Direction})
 
 (def title
-  "For a Transformation A natural language property that describes the format that will be generated from the transformation.  For a Column: A natural language property that provides possible alternative names for the column."
+  "For a Transformation A natural language property that describes the format that will be generated from the transformation. For a Column: A natural language property that provides possible alternative names for the column."
   {:db/ident :csvw/title,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1132,7 +1133,7 @@
    :rdfs/subClassOf  :xsd/string})
 
 (def url
-  "For a Table: This link property gives the single URL of the CSV file that the table is held in, relative to the location of the metadata document.  For a Transformation: A link property giving the single URL of the file that the script or template is held in, relative to the location of the metadata document."
+  "For a Table: This link property gives the single URL of the CSV file that the table is held in, relative to the location of the metadata document. For a Transformation: A link property giving the single URL of the file that the script or template is held in, relative to the location of the metadata document."
   {:db/ident :csvw/url,
    :rdf/type :rdf/Property,
    :rdfs/comment

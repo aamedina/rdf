@@ -35,6 +35,7 @@
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://usefulinc.com/ns/doap#",
    :rdfa/prefix "doap",
    :rdfa/uri "http://usefulinc.com/ns/doap#"}
   (:refer-clojure :exclude [name]))
@@ -645,7 +646,7 @@
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "developer forum"},
-   :rdfs/range       "http://rdfs.org/sioc/ns#Container"})
+   :rdfs/range       :sioc/Container})
 
 (def documentation
   "Documentation of the project."
@@ -820,7 +821,7 @@
    :rdfs/range       :foaf/Person})
 
 (def homepage
-  "URL of a project's homepage,   associated with exactly one project."
+  "URL of a project's homepage, associated with exactly one project."
   {:db/ident :doap/homepage,
    :rdf/type [:owl/InverseFunctionalProperty :rdf/Property],
    :rdfs/comment
@@ -1100,7 +1101,7 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def old-homepage
-  "URL of a project's past homepage,   associated with exactly one project."
+  "URL of a project's past homepage, associated with exactly one project."
   {:db/ident :doap/old-homepage,
    :rdf/type [:owl/InverseFunctionalProperty :rdf/Property],
    :rdfs/comment
@@ -1383,7 +1384,7 @@
                        :rdf/value    "capturas de pantalla"}]})
 
 (def security-contact
-  "The Agent that should be contacted  if security issues are found with the project."
+  "The Agent that should be contacted if security issues are found with the project."
   {:db/ident :doap/security-contact,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -1468,7 +1469,7 @@
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "supporting forum"},
-   :rdfs/range       "http://rdfs.org/sioc/ns#Container"})
+   :rdfs/range       :sioc/Container})
 
 (def tester
   "A tester or other quality control contributor."

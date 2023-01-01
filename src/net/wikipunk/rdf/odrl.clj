@@ -26,6 +26,7 @@
                        "vcard"   "http://www.w3.org/2006/vcard/ns#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/odrl/2/",
    :rdfa/prefix "odrl",
    :rdfa/uri "http://www.w3.org/ns/odrl/2/",
    :rdfs/comment {:rdf/language "en",
@@ -33,7 +34,7 @@
    :rdfs/isDefinedBy {:rdf/uri "https://www.w3.org/TR/odrl-vocab/"},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ODRL Version 2.2"}}
-  (:refer-clojure :exclude [and count read use format or derive print]))
+  (:refer-clojure :exclude [and count derive or print read use]))
 
 (def actionConcepts
   "Action"

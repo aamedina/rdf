@@ -19,6 +19,7 @@
                        "xml" "http://www.w3.org/XML/1998/namespace",
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "https://www.w3.org/2019/wot/json-schema#",
    :rdfa/prefix "jsonschema",
    :rdfa/uri "https://www.w3.org/2019/wot/json-schema#",
    :rdfs/comment

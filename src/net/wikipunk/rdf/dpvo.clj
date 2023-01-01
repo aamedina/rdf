@@ -43,11 +43,11 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "https://w3id.org/dpv/dpv-owl",
    :rdfa/prefix "dpvo",
    :rdfa/uri "https://w3id.org/dpv/dpv-owl#",
    :vann/preferredNamespacePrefix "dpvo",
-   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl#"}
-  (:refer-clojure :exclude [format]))
+   :vann/preferredNamespaceUri "https://w3id.org/dpv/dpv-owl#"})
 
 (def AcademicResearch
   "Purposes associated with conducting or assisting with research conducted in an academic context e.g. within universities"
@@ -2392,7 +2392,7 @@
                          :rdf/value    "accepted"}})
 
 (def Data
-  "A broad concept representing  'data' or 'information'"
+  "A broad concept representing 'data' or 'information'"
   {:db/ident :dpvo/Data,
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
@@ -10142,7 +10142,7 @@
                     :rdf/value    "accepted"}})
 
 (def hasContact
-  "Specifies contact details of a legal entity such as phone  or email"
+  "Specifies contact details of a legal entity such as phone or email"
   {:db/ident :dpvo/hasContact,
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator

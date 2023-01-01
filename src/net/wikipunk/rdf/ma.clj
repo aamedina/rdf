@@ -10,6 +10,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/ns/ma-ont",
    :rdfa/prefix "ma",
    :rdfa/uri "http://www.w3.org/ns/ma-ont#",
    :rdfs/comment
@@ -50,7 +51,7 @@
    :rdfs/comment     "Any group of media resource e.g. a series."})
 
 (def DataTrack
-  "Ancillary data track e.g. captioning  in addition to video and audio tracks. Specialisation is made through the use of appropriate object properties."
+  "Ancillary data track e.g. captioning in addition to video and audio tracks. Specialisation is made through the use of appropriate object properties."
   {:db/ident :ma/DataTrack,
    :owl/disjointWith :ma/VideoTrack,
    :rdf/type :owl/Class,
@@ -406,7 +407,7 @@
    :rdfs/domain :ma/MediaResource})
 
 (def hasLanguage
-  "Corresponds to 'language' in the Ontology for Media Resources. The language used in the resource. A controlled vocabulary such as defined in BCP 47 SHOULD be used. This property can also be used to identify the presence of sign language (RFC 5646). By inheritance, the hasLanguage property applies indifferently at the media resource / fragment / track levels.  Best practice recommends to use to best possible level of granularity fo describe the usage of language within a media resource including at fragment and track levels."
+  "Corresponds to 'language' in the Ontology for Media Resources. The language used in the resource. A controlled vocabulary such as defined in BCP 47 SHOULD be used. This property can also be used to identify the presence of sign language (RFC 5646). By inheritance, the hasLanguage property applies indifferently at the media resource / fragment / track levels. Best practice recommends to use to best possible level of granularity fo describe the usage of language within a media resource including at fragment and track levels."
   {:db/ident :ma/hasLanguage,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -435,7 +436,7 @@
    :rdfs/subPropertyOf :ma/hasFragment})
 
 (def hasPermissions
-  "Corresponds to 'policy' in the Ontology for Media Resources with a  'policy.type' meaning \"permissions\"."
+  "Corresponds to 'policy' in the Ontology for Media Resources with a 'policy.type' meaning \"permissions\"."
   {:db/ident :ma/hasPermissions,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment

@@ -7,11 +7,12 @@
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                        "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2001/XMLSchema#",
    :rdfa/prefix "xsd",
    :rdfa/uri "http://www.w3.org/2001/XMLSchema#",
    :rdfs/comment "XML Schema Datatypes",
    :rdfs/isDefinedBy {:rdf/uri "http://www.w3.org/TR/xmlschema-2/"}}
-  (:refer-clojure :exclude [boolean short byte float time double long int]))
+  (:refer-clojure :exclude [boolean byte double float int long short time]))
 
 (def anySimpleType
   "The base class of any primitive XSD dataype."

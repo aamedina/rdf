@@ -29,6 +29,7 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "https://w3id.org/dpv/dpv-owl/risk",
    :rdfa/prefix "dpvo-risk",
    :rdfa/uri "https://w3id.org/dpv/dpv-owl/risk#",
    :vann/preferredNamespacePrefix "dpvs-risk",

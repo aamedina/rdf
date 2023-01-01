@@ -17,6 +17,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"    "http://www.w3.org/2004/02/skos/core#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://www.w3.org/2004/02/skos/core",
    :rdfa/prefix "skos",
    :rdfa/uri "http://www.w3.org/2004/02/skos/core#",
    :rdfs/isDefinedBy {:rdf/uri

@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.bibo
-  "The Bibliographic Ontology describes bibliographic things on the semantic Web in RDF.  This ontology can be used as a citation ontology, as a document classification ontology, or simply as a way to describe any kind of document in RDF. It has been inspired by many existing document description metadata formats, and can be used as a common ground for converting other bibliographic data sources."
+  "The Bibliographic Ontology describes bibliographic things on the semantic Web in RDF. This ontology can be used as a citation ontology, as a document classification ontology, or simply as a way to describe any kind of document in RDF. It has been inspired by many existing document description metadata formats, and can be used as a common ground for converting other bibliographic data sources."
   {:dcterms/creator [:bibo/fgiasson :bibo/bdarcus],
    :dcterms/description
    {:rdf/language "en",
@@ -23,9 +23,9 @@
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://purl.org/ontology/bibo/",
    :rdfa/prefix "bibo",
-   :rdfa/uri "http://purl.org/ontology/bibo/"}
-  (:refer-clojure :exclude [time agent format name]))
+   :rdfa/uri "http://purl.org/ontology/bibo/"})
 
 (def AcademicArticle
   "A scholarly academic article, typically published in a journal."

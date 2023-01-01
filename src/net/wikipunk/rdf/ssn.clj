@@ -33,6 +33,7 @@
                        "voaf"    "http://purl.org/vocommons/voaf#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type [:voaf/Vocabulary :owl/Ontology],
+   :rdf/uri "http://www.w3.org/ns/ssn/",
    :rdfa/prefix "ssn",
    :rdfa/uri "http://www.w3.org/ns/ssn/",
    :rdfs/comment
@@ -44,8 +45,7 @@
    :rdfs/seeAlso
    "https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology",
    :vann/preferredNamespacePrefix "ssn",
-   :vann/preferredNamespaceUri "http://www.w3.org/ns/ssn/"}
-  (:refer-clojure :exclude [name]))
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/ssn/"})
 
 (def Deployment
   "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."
@@ -171,8 +171,8 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ssn/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "System"},
-   :rdfs/subClassOf [{:owl/allValuesFrom :ssn/Deployment,
-                      :owl/onProperty    :ssn/hasDeployment,
+   :rdfs/subClassOf [{:owl/allValuesFrom :ssn/System,
+                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :sosa/Procedure,
                       :owl/onProperty    :ssn/implements,
@@ -183,8 +183,8 @@
                      {:owl/allValuesFrom :ssn/System,
                       :owl/onProperty    :ssn/hasSubSystem,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :ssn/System,
-                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
+                     {:owl/allValuesFrom :ssn/Deployment,
+                      :owl/onProperty    :ssn/hasDeployment,
                       :rdf/type          :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",
