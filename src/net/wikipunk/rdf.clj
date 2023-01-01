@@ -185,7 +185,7 @@
     (when (isa? *classes* (peek supers) :rdf/Property)
       supers)))
 
-(defrecord UniversalTranslator [boot]
+(defrecord UniversalTranslator [ns-prefix target boot]
   com/Lifecycle
   (start [this]
     (alter-var-root #'reg/*registry* (constantly (make-boot-context)))
@@ -209,7 +209,9 @@
 
   NamespaceSpitter
   (emit [_ arg-map]
-    (emit boot arg-map)))
+    (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
+              *target*    (or target *target*)]
+      (emit boot arg-map))))
 
 ;; Make Apache Jena iterators reducible
 
