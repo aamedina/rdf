@@ -63,29 +63,25 @@
 
 (defn isa?
   ([child parent]
-   (or (clojure.core/isa? *classes* child parent)
-       (clojure.core/isa? *properties* child parent)))
+   (clojure.core/isa? *metaobjects* child parent))
   ([h child parent]
    (clojure.core/isa? h child parent)))
 
 (defn parents
   ([tag]
-   (or (clojure.core/parents *classes* tag)
-       (clojure.core/parents *properties* tag)))
+   (clojure.core/parents *metaobjects* tag))
   ([h tag]
    (clojure.core/parents h tag)))
 
 (defn ancestors
   ([tag]
-   (or (clojure.core/ancestors *classes* tag)
-       (clojure.core/ancestors *properties* tag)))
+   (clojure.core/ancestors *metaobjects* tag))
   ([h tag]
    (clojure.core/ancestors h tag)))
 
 (defn descendants
   ([tag]
-   (or (clojure.core/descendants *classes* tag)
-       (clojure.core/descendants *properties* tag)))
+   (clojure.core/descendants *metaobjects* tag))
   ([h tag]
    (clojure.core/descendants h tag)))
 
@@ -201,8 +197,8 @@
   ([h class-name]
    (let [supers (into [class-name]
                       (sort-by identity
-                               (comparator (partial isa? *classes*))
-                               (ancestors *classes* class-name)))]
+                               (comparator (partial isa? h))
+                               (ancestors h class-name)))]
      (when (identical? (peek supers) :rdfs/Class)
        supers))))
 
@@ -606,24 +602,6 @@
                                           :vector {:wrap? false}})))
         (zprint/zprint (unroll-forms model))))))
 
-(extend-protocol LinkedData
-  clojure.lang.IPersistentCollection
-  (sniff [coll]
-    (pmap #(sniff %) coll))
-
-  String
-  (sniff [s]
-    (sniff {:dcat/downloadURL s}))
-  
-  clojure.lang.IPersistentMap
-  (sniff [m]
-    (let [model (mem-parse m)]
-      (mem-unroll model)))
-
-  clojure.lang.Keyword
-  (sniff [k]
-    (namespace k)))
-
 (defn type-of
   [x]
   (or (:rdf/type x) (type x)))
@@ -646,3 +624,21 @@
                                     (str/replace #"^#" "")
                                     (symbol))))]
     @var))
+
+(extend-protocol LinkedData
+  clojure.lang.IPersistentCollection
+  (sniff [coll]
+    (pmap #(sniff %) coll))
+
+  String
+  (sniff [s]
+    (sniff {:dcat/downloadURL s}))
+  
+  clojure.lang.IPersistentMap
+  (sniff [m]
+    (let [model (mem-parse m)]
+      (mem-unroll model)))
+
+  clojure.lang.Keyword
+  (sniff [k]
+    (find-class k)))
