@@ -635,10 +635,10 @@
                                 (-> (name ident)
                                     (str/replace #"^#" "")
                                     (symbol))))]
-    (alter-meta! var assoc :type (type-of @var))
+    
     (with-meta @var {:var var :type (or (and (keyword? (type var))
                                              (type var))
-                                        (:rdf/type @var)
+                                        (:type (alter-meta! var assoc :type (type-of @var)))
                                         :rdfs/Resource)})))
 
 (extend-protocol LinkedData
