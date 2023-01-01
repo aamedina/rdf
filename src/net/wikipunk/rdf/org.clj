@@ -1,24 +1,24 @@
 (ns net.wikipunk.rdf.org
   "Core organization ontology"
-  {:dcterms/contributor [{:foaf/mbox "antonio.maccioni@agid.gov.it",
-                          :foaf/name "Antonio Maccioni"}
+  {:dcterms/contributor [{:foaf/mbox "emontiel@fi.upm.es",
+                          :foaf/name "Elena Montiel Ponsoda"}
+                         {:foaf/mbox "giorgia.lodi@agid.gov.it",
+                          :foaf/name "Giorgia Lodi"}
+                         {:foaf/mbox "lupe@fi.upm.es",
+                          :foaf/name "Guadalupe Aguado de Cea"}
+                         {:foaf/mbox "dguardiola@quinode.fr",
+                          :foaf/name "Dominique Guardiola"}
+                         {:foaf/mbox "ogiraldo@fi.upm.es",
+                          :foaf/name "Olga Ximena Giraldo"}
                          {:foaf/mbox "dave@epimorphics.com",
                           :foaf/name "Dave Reynolds"}
+                         {:foaf/mbox "mpoveda@fi.upm.es",
+                          :foaf/name "María Poveda Villalón"}
                          {:foaf/homepage
                           "http://www.asahi-net.or.jp/~ax2s-kmtn/",
                           :foaf/name "Shuji Kamitsuna"}
-                         {:foaf/mbox "giorgia.lodi@agid.gov.it",
-                          :foaf/name "Giorgia Lodi"}
-                         {:foaf/mbox "emontiel@fi.upm.es",
-                          :foaf/name "Elena Montiel Ponsoda"}
-                         {:foaf/mbox "dguardiola@quinode.fr",
-                          :foaf/name "Dominique Guardiola"}
-                         {:foaf/mbox "lupe@fi.upm.es",
-                          :foaf/name "Guadalupe Aguado de Cea"}
-                         {:foaf/mbox "mpoveda@fi.upm.es",
-                          :foaf/name "María Poveda Villalón"}
-                         {:foaf/mbox "ogiraldo@fi.upm.es",
-                          :foaf/name "Olga Ximena Giraldo"}],
+                         {:foaf/mbox "antonio.maccioni@agid.gov.it",
+                          :foaf/name "Antonio Maccioni"}],
    :dcterms/created #inst "2010-05-28T00:00:00.000-04:00",
    :dcterms/license "http://www.opendatacommons.org/licenses/pddl/1.0/",
    :dcterms/modified [#inst "2010-06-09T00:00:00.000-04:00"

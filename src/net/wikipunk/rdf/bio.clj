@@ -36,52 +36,52 @@
                       :rdf/value
                       "Batch of revisions based on community feedback"}
                      {:dcterms/creator "Ian Davis",
-                      :dcterms/date "2009-05-19",
-                      :rdf/value "Minor changes to improve publishing process"}
+                      :dcterms/date    "2004-03-05",
+                      :rdf/value       "Added Creative Commons license"}
                      {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2010-04-20",
                       :rdf/value       "Added change history"}
                      {:dcterms/creator "Ian Davis",
-                      :dcterms/date    "2004-03-05",
-                      :rdf/value       "Added Creative Commons license"}
+                      :dcterms/date "2011-06-14",
+                      :rdf/value "Expanded description and added diagrams"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date "2009-05-19",
+                      :rdf/value "Minor changes to improve publishing process"}
                      {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2005-04-01",
-                      :rdf/value       "Added examples"}
-                     {:dcterms/creator "Ian Davis",
-                      :dcterms/date "2011-06-14",
-                      :rdf/value "Expanded description and added diagrams"}],
+                      :rdf/value       "Added examples"}],
    :skos/historyNote
    [{:dcterms/creator "Ian Davis",
-     :dcterms/date    "2010-05-10",
-     :rdf/value       "Major expansion of properties and classes"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2010-06-05",
-     :rdf/value       "Added biography property"}
-    {:dcterms/creator "Alexandre Passant",
-     :dcterms/date "2011-06-14",
-     :rdf/value
-     "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
-    {:dcterms/creator "Ian Davis",
      :dcterms/date    "2011-06-10",
      :rdf/value       "Added bio:Formation and bio:Disbanding events"}
     {:dcterms/creator "Ian Davis",
      :dcterms/date    "2003-07-28",
      :rdf/value       "Added keywords property"}
     {:dcterms/creator "Ian Davis",
-     :dcterms/date "2010-06-06",
-     :rdf/value
-     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
+     :dcterms/date    "2011-06-14",
+     :rdf/value       "Added bio:Relationship class and properties"}
     {:dcterms/creator "Ian Davis",
      :dcterms/date    "2011-06-10",
      :rdf/value       "Added bio:Performance event"}
+    {:dcterms/creator "Alexandre Passant",
+     :dcterms/date "2011-06-14",
+     :rdf/value
+     "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
     {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-14",
-     :rdf/value       "Added bio:Relationship class and properties"}],
+     :dcterms/date    "2010-05-10",
+     :rdf/value       "Major expansion of properties and classes"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2010-06-05",
+     :rdf/value       "Added biography property"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date "2010-06-06",
+     :rdf/value
+     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}],
    :vann/example "http://purl.org/vocab/bio/examples/1",
    :vann/preferredNamespacePrefix "bio",
    :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
-   :vann/termGroup [:bio/termgroup5
-                    :bio/termgroup2
+   :vann/termGroup [:bio/termgroup2
+                    :bio/termgroup5
                     :bio/termgroup4
                     :bio/termgroup1
                     :bio/termgroup3]}
@@ -419,11 +419,12 @@
                       :dcterms/date    "2010-05-04",
                       :rdf/value       "Marked as a stable term"}],
    :skos/historyNote [{:dcterms/creator "Ian Davis",
-                       :dcterms/date "2010-05-20",
-                       :rdf/value "Removed subclass of owl-time ProperInteval"}
-                      {:dcterms/creator "Ian Davis",
                        :dcterms/date    "2010-05-04",
-                       :rdf/value       "Made equivalent to cyc:Event"}],
+                       :rdf/value       "Made equivalent to cyc:Event"}
+                      {:dcterms/creator "Ian Davis",
+                       :dcterms/date "2010-05-20",
+                       :rdf/value
+                       "Removed subclass of owl-time ProperInteval"}],
    :st/term_status "testing",
    :vann/usageNote
    {:rdf/language "en",

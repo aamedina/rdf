@@ -514,13 +514,13 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov#",
    :rdfs/label "Insertion",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :prov/dictionary,
-                      :rdf/type        :owl/Restriction}
-                     :prov/Derivation
-                     {:owl/minCardinality 1,
+   :rdfs/subClassOf [{:owl/minCardinality 1,
                       :owl/onProperty     :prov/insertedKeyEntityPair,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :prov/Derivation
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :prov/dictionary,
+                      :rdf/type        :owl/Restriction}]})
 
 (def InstantaneousEvent
   "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."
@@ -580,10 +580,10 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov#",
    :rdfs/label "Key-Entity Pair",
    :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :prov/pairEntity,
+                      :owl/onProperty  :prov/pairKey,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  :prov/pairKey,
+                      :owl/onProperty  :prov/pairEntity,
                       :rdf/type        :owl/Restriction}]})
 
 (def Location
@@ -746,10 +746,10 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov#",
    :rdfs/label "Removal",
-   :rdfs/subClassOf [:prov/Derivation
-                     {:owl/cardinality 1,
+   :rdfs/subClassOf [{:owl/cardinality 1,
                       :owl/onProperty  :prov/dictionary,
                       :rdf/type        :owl/Restriction}
+                     :prov/Derivation
                      {:owl/minCardinality 1,
                       :owl/onProperty     :prov/removedKey,
                       :rdf/type           :owl/Restriction}]})

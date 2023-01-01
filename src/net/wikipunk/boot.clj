@@ -6,16 +6,6 @@
 (def initial-context
   {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"})
 
-(def acl
-  {:rdfa/uri    "http://www.w3.org/ns/auth/acl#"
-   :rdfa/prefix "acl"
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def adms
-  {:rdfa/uri    "http://www.w3.org/ns/adms#"
-   :rdfa/prefix "adms"
-   :rdf/type    :rdfa/PrefixMapping})
-
 (def as
   "Activity Vocabulary"
   {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/activitystreams/master/vocabulary/activitystreams2.owl"   
@@ -23,17 +13,6 @@
    :rdfa/prefix      "as",
    :rdfs/isDefinedBy {:rdf/uri
                       "https://www.w3.org/TR/activitystreams-vocabulary/"},
-   :rdf/type         :rdfa/PrefixMapping})
-
-(def bibo
-  {:rdfa/uri    "http://purl.org/ontology/bibo/"
-   :rdfa/prefix "bibo"
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def bio
-  {:dcat/downloadURL "https://vocab.org/bio/schema.rdf"
-   :rdfa/uri         "http://purl.org/vocab/bio/0.1/"
-   :rdfa/prefix      "bio"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def cc
@@ -44,11 +23,6 @@
    :rdfs/isDefinedBy
    {:rdf/uri "http://www.w3.org/Submission/2008/SUBM-ccREL-20080501/"},
    :rdf/type         :rdfa/PrefixMapping})
-
-(def cnt
-  {:rdfa/uri    "http://www.w3.org/2011/content#"
-   :rdfa/prefix "cnt"
-   :rdf/type    :rdfa/PrefixMapping})
 
 (def csvw
   "Metadata for Tabular Data"
@@ -78,62 +52,13 @@
    :rdfs/isDefinedBy {:rdf/uri "http://www.w3.org/TR/vocab-dcat/"},
    :rdf/type         :rdfa/PrefixMapping})
 
-(def dcam
-  "DCMI Metadata Terms"
-  {:dcat/downloadURL "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_abstract_model.ttl"
-   :rdfa/uri         "http://purl.org/dc/dcam/"
-   :rdfa/prefix      "dcam",
-   :rdf/type         :rdfa/PrefixMapping})
-
 (def dcterms
   "Dublin Core Metadata Terms"
-  {:dcat/downloadURL #_ "https://gitlab.com/lv2/lv2/-/raw/master/schemas.lv2/dcterms.ttl"
-   "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl"
+  {:dcat/downloadURL "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl"
    :rdfa/uri         "http://purl.org/dc/terms/",
    :rdfa/prefix      "dcterms",
    :rdfs/isDefinedBy {:rdf/uri
                       "http://dublincore.org/documents/dcmi-terms/#H2"},
-   :rdf/type         :rdfa/PrefixMapping})
-
-(def dcmitype
-  {:dcat/downloadURL "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_type.ttl"
-   :rdfa/uri         "http://purl.org/dc/dcmitype/",
-   :rdfa/prefix      "dcmitype",,
-   :rdf/type         :rdfa/PrefixMapping})
-
-(def disco
-  {:rdfa/uri    "http://rdf-vocabulary.ddialliance.org/discovery#"
-   :rdfa/prefix "disco",
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def dpvo
-  "Data Privacy Vocabulary OWL"
-  {:rdfa/uri         "https://w3id.org/dpv/dpv-owl#"
-   :rdfa/prefix      "dpvo",
-   :rdf/type         :rdfa/PrefixMapping})
-
-(def dpvo-pd
-  {:rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-pd#"
-   :rdfa/prefix "dpvo-pd",
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def dpvo-gdpr
-  {:rdfa/uri    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#"
-   :rdfa/prefix "dpvo-gdpr",
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def dpvo-risk
-  {:rdfa/uri    "https://w3id.org/dpv/dpv-owl/risk#"
-   :rdfa/prefix "dpvo-risk",
-   :rdf/type    :rdfa/PrefixMapping})
-
-;; https://github.com/w3c/dpv/issues/47
-
-(def doap
-  "Description of a Project"
-  {:dcat/downloadURL "https://raw.githubusercontent.com/ewilderj/doap/master/schema/doap.rdf"
-   :rdfa/prefix      "doap",
-   :rdfa/uri         "http://usefulinc.com/ns/doap#"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def dqv
@@ -150,17 +75,6 @@
    :rdfs/isDefinedBy {:rdf/uri "https://www.w3.org/TR/vocab-duv/"},
    :rdf/type         :rdfa/PrefixMapping})
 
-(def exif
-  {:rdfa/uri    "http://www.w3.org/2003/12/exif/ns#"
-   :rdfa/prefix "exif"
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def frbr
-  {:dcat/downloadURL "https://vocab.org/frbr/frbr-core-20050810.rdf"
-   :rdfa/uri         "http://purl.org/vocab/frbr/core#"
-   :rdfa/prefix      "frbr"
-   :rdf/type         :rdfa/PrefixMapping})
-
 (def foaf
   "FOAF"
   {:dcat/downloadURL "https://gitlab.com/lv2/lv2/-/raw/master/schemas.lv2/foaf.ttl"
@@ -168,16 +82,6 @@
    :rdfa/prefix      "foaf",
    :rdfs/isDefinedBy {:rdf/uri "http://xmlns.com/foaf/spec/"},
    :rdf/type         :rdfa/PrefixMapping})
-
-(def gen
-  {:rdfa/uri    "http://www.w3.org/2006/gen/ont#"
-   :rdfa/prefix "gen"
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def geo
-  {:rdfa/uri    "http://www.w3.org/2003/01/geo/wgs84_pos#"
-   :rdfa/prefix "geo"
-   :rdf/type    :rdfa/PrefixMapping})
 
 (def gr
   "GoodRelations Ontology"
@@ -187,21 +91,12 @@
                       "http://www.heppnetz.de/ontologies/goodrelations/v1"},
    :rdf/type         :rdfa/PrefixMapping})
 
-(def greg
-  "Gregorian months"
-  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/time-gregorian.ttl"
-   :rdfa/uri         "http://www.w3.org/ns/time/gregorian/",
-   :rdfa/prefix      "greg",
-   :rdf/type         :rdfa/PrefixMapping})
-
 (def grddl
   "GRDDL"
   {:rdfa/uri         "http://www.w3.org/2003/g/data-view#",
    :rdfa/prefix      "grddl",
    :rdfs/isDefinedBy {:rdf/uri "http://www.w3.org/TR/2007/REC-grddl-20070911/"},
    :rdf/type         :rdfa/PrefixMapping})
-
-;; http://www.iana.org/assignments/relation/"
 
 (def ical
   "iCalendar terms in RDF"
@@ -218,12 +113,6 @@
    :rdfs/isDefinedBy {:rdf/uri "https://www.w3.org/TR/json-ld/"},
    :rdf/type         :rdfa/PrefixMapping})
 
-(def jsonschema
-  "JSON Schema in RDF"
-  {:rdfa/uri    "https://www.w3.org/2019/wot/json-schema#"
-   :rdfa/prefix "jsonschema",
-   :rdf/type    :rdfa/PrefixMapping})
-
 (def ldp
   "Linked Data Platform Vocabulary"
   {:rdfa/uri         "http://www.w3.org/ns/ldp#",
@@ -238,12 +127,6 @@
    :rdfs/isDefinedBy {:rdf/uri
                       "http://www.w3.org/TR/2012/REC-mediaont-10-20120209/"},
    :rdf/type         :rdfa/PrefixMapping})
-
-(def mo
-  "Music Ontology"
-  {:rdfa/uri    "http://purl.org/ontology/mo/"
-   :rdfa/prefix "mo"
-   :rdf/type    :rdfa/PrefixMapping})
 
 (def oa
   "Web Annotation Vocabulary"
@@ -267,11 +150,6 @@
    :rdfs/isDefinedBy {:rdf/uri "http://ogp.me/"},
    :rdf/type         :rdfa/PrefixMapping})
 
-(def ore
-  {:rdfa/uri    "http://www.openarchives.org/ore/terms/"
-   :rdfa/prefix "ore"
-   :rdf/type    :rdfa/PrefixMapping})
-
 (def org
   "Organizations"
   {:rdfa/uri         "http://www.w3.org/ns/org#",
@@ -286,12 +164,6 @@
    :rdfs/isDefinedBy
    {:rdf/uri "http://www.w3.org/TR/2009/REC-owl2-overview-20091027/"},
    :rdf/type    :rdfa/PrefixMapping})
-
-(def pav
-  {:dcat/downloadURL "https://pav-ontology.github.io/pav/pav.rdf"
-   :rdfa/uri         "http://purl.org/pav/"
-   :rdfa/prefix      "pav"
-   :rdf/type         :rdfa/PrefixMapping})
 
 (def prov
   "Provenance Vocabulary"
@@ -402,28 +274,12 @@
                       "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
    :rdf/type         :rdfa/PrefixMapping})
 
-(def spin
-  {:rdfa/uri    "http://spinrdf.org/spin#"
-   :rdfa/prefix "spin"
-   :rdf/type    :rdfa/PrefixMapping})
-
 (def ssn
   "Semantic Sensor Network Ontology"
   {:rdfa/uri         "http://www.w3.org/ns/ssn/",
    :rdfa/prefix      "ssn",
    :rdfs/isDefinedBy {:rdf/uri
                       "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
-   :rdf/type         :rdfa/PrefixMapping})
-
-(def svcs
-  {:rdfa/uri         "http://rdfs.org/sioc/services#"
-   :rdfa/prefix      "svcs"
-   :rdf/type         :rdfa/PrefixMapping})
-
-(def swrl
-  {:dcat/downloadURL "http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.rdf"
-   :rdfa/uri         "http://www.w3.org/2003/11/swrl#"
-   :rdfa/prefix      "swrl"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def time
@@ -435,11 +291,6 @@
                       "https://www.w3.org/TR/2017/REC-owl-time-20171019/"},
    :rdf/type         :rdfa/PrefixMapping})
 
-(def rdfg
-  {:rdfa/uri    "http://www.w3.org/2004/03/trix/rdfg-1/"
-   :rdfa/prefix "rdfg"
-   :rdf/type    :rdfa/PrefixMapping})
-
 (def v
   "Google Rich Snippets' Vocabularies"
   {:rdfa/uri    "http://rdf.data-vocabulary.org/#",
@@ -448,29 +299,6 @@
    {:rdf/uri
     "http://www.google.com/support/webmasters/bin/answer.py?answer=99170"},
    :rdf/type    :rdfa/PrefixMapping})
-
-(def voaf
-  {:dcat/downloadURL "https://lov.linkeddata.es/vocommons/voaf/v2.3/voaf_v2.3.rdf"
-   :rdfa/uri         "http://purl.org/vocommons/voaf#"
-   :rdfa/prefix      "voaf"
-   :rdf/type         :rdfa/PrefixMapping})
-
-(def vs
-  {:rdfa/uri    "http://www.w3.org/2003/06/sw-vocab-status/ns#"
-   :rdfa/prefix "vs",
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def vaem
-  {:rdfa/uri    "http://www.linkedmodel.org/schema/vaem#"
-   :rdfa/prefix "vaem",
-   :rdf/type    :rdfa/PrefixMapping})
-
-(def vann
-  "A vocabulary for annotating vocabulary descriptions"
-  {:rdfa/prefix      "vann"
-   :rdfa/uri         "http://purl.org/vocab/vann/"
-   :rdf/type         :rdfa/PrefixMapping
-   :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
 
 (def vcard
   "vCard in RDF"
@@ -524,4 +352,3 @@
    :rdfa/prefix      "xsd",
    :rdfs/isDefinedBy {:rdf/uri "http://www.w3.org/TR/xmlschema-2/"},
    :rdf/type         :rdfa/PrefixMapping})
-

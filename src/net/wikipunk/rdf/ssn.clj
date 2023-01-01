@@ -171,13 +171,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ssn/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "System"},
-   :rdfs/subClassOf [{:owl/allValuesFrom :ssn/System,
-                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :sosa/Procedure,
-                      :owl/onProperty    :ssn/implements,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :sosa/Platform,
+   :rdfs/subClassOf [{:owl/allValuesFrom :sosa/Platform,
                       :owl/onProperty    :sosa/isHostedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :ssn/System,
@@ -185,6 +179,12 @@
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :ssn/Deployment,
                       :owl/onProperty    :ssn/hasDeployment,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :sosa/Procedure,
+                      :owl/onProperty    :ssn/implements,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :ssn/System,
+                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
                       :rdf/type          :owl/Restriction}],
    :skos/definition
    {:rdf/language "en",

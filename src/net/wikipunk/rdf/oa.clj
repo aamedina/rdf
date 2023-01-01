@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.oa
   "Web Annotation Ontology"
-  {:dcterms/creator [{:foaf/name "Paolo Ciccarese",
-                      :rdf/type  :foaf/Person}
-                     {:foaf/name "Robert Sanderson",
+  {:dcterms/creator [{:foaf/name "Robert Sanderson",
                       :rdf/type  :foaf/Person}
                      {:foaf/name "Benjamin Young",
+                      :rdf/type  :foaf/Person}
+                     {:foaf/name "Paolo Ciccarese",
                       :rdf/type  :foaf/Person}],
    :dcterms/modified "2016-11-12T21:28:11Z",
    :dcterms/title "Web Annotation Ontology",

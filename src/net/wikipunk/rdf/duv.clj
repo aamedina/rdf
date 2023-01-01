@@ -1,9 +1,9 @@
 (ns net.wikipunk.rdf.duv
   "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."
   {:dcterms/created #inst "2015-12-17T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name "Eric G. Stephan"}
+   :dcterms/creator [{:foaf/name "Sumit Purohit"}
                      {:foaf/name "Bernadette Farias Lóscio"}
-                     {:foaf/name "Sumit Purohit"}],
+                     {:foaf/name "Eric G. Stephan"}],
    :dcterms/description
    {:rdf/language "en",
     :rdf/value

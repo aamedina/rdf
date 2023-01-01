@@ -4,31 +4,31 @@
                         net.wikipunk.boot/rdfa
                         net.wikipunk.boot/owl
                         net.wikipunk.boot/jsonld
-                        net.wikipunk.boot/jsonschema
+                        net.wikipunk.ext/jsonschema
                         net.wikipunk.boot/xsd
                         net.wikipunk.boot/skos
                         net.wikipunk.boot/dcterms
-                        net.wikipunk.boot/dcam
+                        net.wikipunk.ext/dcam
                         net.wikipunk.boot/foaf
-                        net.wikipunk.boot/doap
+                        net.wikipunk.ext/doap
                         net.wikipunk.boot/schema
-                        net.wikipunk.boot/vann
-                        net.wikipunk.boot/vs
+                        net.wikipunk.ext/vann
+                        net.wikipunk.ext/vs
                         net.wikipunk.boot/prov
                         net.wikipunk.boot/as
                         net.wikipunk.boot/ldp
                         net.wikipunk.boot/rr
-                        net.wikipunk.boot/mo
+                        net.wikipunk.ext/mo
                         net.wikipunk.boot/time
-                        net.wikipunk.boot/greg
+                        net.wikipunk.ext/greg
                         net.wikipunk.boot/sioc
                         net.wikipunk.boot/cc
                         net.wikipunk.boot/sosa
                         net.wikipunk.boot/ssn
                         net.wikipunk.boot/vcard
                         net.wikipunk.boot/ma
-                        net.wikipunk.boot/geo
-                        net.wikipunk.boot/swrl
+                        net.wikipunk.ext/geo
+                        net.wikipunk.ext/swrl
                         net.wikipunk.boot/dcat
                         net.wikipunk.boot/dqv
                         net.wikipunk.boot/duv
@@ -39,23 +39,23 @@
                         net.wikipunk.boot/rev
                         net.wikipunk.boot/sd
                         net.wikipunk.boot/skosxl
-                        net.wikipunk.boot/voaf
+                        net.wikipunk.ext/voaf
                         net.wikipunk.boot/void
-                        net.wikipunk.boot/adms
-                        net.wikipunk.boot/exif
-                        net.wikipunk.boot/acl
-                        net.wikipunk.boot/bibo
+                        net.wikipunk.ext/adms
+                        net.wikipunk.ext/exif
+                        net.wikipunk.ext/acl
+                        net.wikipunk.ext/bibo
                         net.wikipunk.boot/csvw
-                        net.wikipunk.boot/dpvo
-                        net.wikipunk.boot/dpvo-pd
-                        net.wikipunk.boot/dpvo-gdpr
-                        net.wikipunk.boot/dpvo-risk
-                        net.wikipunk.boot/bio
-                        net.wikipunk.boot/cnt
-                        net.wikipunk.boot/dcmitype
-                        net.wikipunk.boot/frbr
-                        net.wikipunk.boot/ore
-                        net.wikipunk.boot/pav
-                        net.wikipunk.boot/spin
-                        net.wikipunk.boot/svcs
-                        net.wikipunk.boot/rdfg]}}
+                        net.wikipunk.ext/dpvo
+                        net.wikipunk.ext/dpvo-pd
+                        net.wikipunk.ext/dpvo-gdpr
+                        net.wikipunk.ext/dpvo-risk
+                        net.wikipunk.ext/bio
+                        net.wikipunk.ext/cnt
+                        net.wikipunk.ext/dcmitype
+                        net.wikipunk.ext/frbr
+                        net.wikipunk.ext/ore
+                        net.wikipunk.ext/pav
+                        net.wikipunk.ext/spin
+                        net.wikipunk.ext/svcs
+                        net.wikipunk.ext/rdfg]}}
