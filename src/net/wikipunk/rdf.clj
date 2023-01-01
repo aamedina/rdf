@@ -593,9 +593,30 @@
                                           :vector {:wrap? false}})))
         (zprint/zprint (unroll-forms model))))))
 
-(defn type-of
-  [x]
-  (or (:rdf/type x) (type x)))
+(defmulti type-of
+  type)
+
+(defmethod type-of :default
+  [obj]
+  (type obj))
+
+(defmethod type-of clojure.lang.IPersistentMap
+  [m]
+  (let [rdf-type (:rdf/type m)]
+    (if (coll? rdf-type)
+      (first (sort-by identity (comparator (partial isa? *classes*)) rdf-type))
+      rdf-type)))
+
+(defmethod type-of clojure.lang.Keyword
+  [obj]
+  (cond
+    (isa? *classes* obj :rdfs/Class)
+    :rdfs/Class
+
+    (isa? *classes* obj :rdf/Property)
+    :rdf/Property
+
+    :else :rdfs/Resource))
 
 (defn find-metaobject
   [ident]
@@ -614,7 +635,11 @@
                                 (-> (name ident)
                                     (str/replace #"^#" "")
                                     (symbol))))]
-    (with-meta @var {:var var})))
+    (alter-meta! var assoc :type (type-of @var))
+    (with-meta @var {:var var :type (or (and (keyword? (type var))
+                                             (type var))
+                                        (:rdf/type @var)
+                                        :rdfs/Resource)})))
 
 (extend-protocol LinkedData
   clojure.lang.IPersistentCollection
