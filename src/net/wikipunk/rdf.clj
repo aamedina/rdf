@@ -83,7 +83,7 @@
 
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
-(defn make-initial-context
+(defn make-boot-context
   []
   (transduce (comp
                (filter #(= (:rdf/type (meta %)) :jsonld/Context))
@@ -217,7 +217,7 @@
 (defrecord UniversalTranslator [boot]
   com/Lifecycle
   (start [this]
-    (alter-var-root #'reg/*registry* (constantly (make-initial-context)))
+    (alter-var-root #'reg/*registry* (constantly (make-boot-context)))
     (alter-var-root #'*ns-aliases*
                     (constantly
                       (reduce (fn [ns-aliases prefix]
@@ -614,7 +614,7 @@
                                 (-> (name ident)
                                     (str/replace #"^#" "")
                                     (symbol))))]
-    @var))
+    (with-meta @var {:var var})))
 
 (extend-protocol LinkedData
   clojure.lang.IPersistentCollection
