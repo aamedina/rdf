@@ -36,20 +36,12 @@
 (defprotocol NamespaceSpitter
   (emit [x arg-map]))
 
-(def ^:dynamic *terms*
-  #{:rdf/type
-    :rdfs/subClassOf
-    :rdfs/subPropertyOf
-    :owl/equivalentClass
-    :owl/equivalentProperty})
-
-(def ^:dynamic *metaobjects*
-  (make-hierarchy))
-
 (def ^:dynamic *classes*
+  "rdfs:Class|owl:Class|rdfs:Datatype"
   (make-hierarchy))
 
 (def ^:dynamic *properties*
+  "rdf:Property"
   (make-hierarchy))
 
 (def ^:dynamic *things*
@@ -63,25 +55,29 @@
 
 (defn isa?
   ([child parent]
-   (clojure.core/isa? *metaobjects* child parent))
+   (or (clojure.core/isa? *classes* child parent)
+       (clojure.core/isa? *properties* child parent)))
   ([h child parent]
    (clojure.core/isa? h child parent)))
 
 (defn parents
   ([tag]
-   (clojure.core/parents *metaobjects* tag))
+   (or (clojure.core/parents *classes* tag)
+       (clojure.core/parents *properties* tag)))
   ([h tag]
    (clojure.core/parents h tag)))
 
 (defn ancestors
   ([tag]
-   (clojure.core/ancestors *metaobjects* tag))
+   (or (clojure.core/ancestors *classes* tag)
+       (clojure.core/ancestors *properties* tag)))
   ([h tag]
    (clojure.core/ancestors h tag)))
 
 (defn descendants
   ([tag]
-   (clojure.core/descendants *metaobjects* tag))
+   (or (clojure.core/descendants *classes* tag)
+       (clojure.core/descendants *properties* tag)))
   ([h tag]
    (clojure.core/descendants h tag)))
 
@@ -119,88 +115,97 @@
                 h)))
           h xs))
 
-(defn make-hierarchies
+(def cat-rdf-idents
+  (comp
+    (filter (comp :rdf/type meta))
+    (map ns-publics)
+    (mapcat vals)
+    (map deref)
+    (filter :rdf/type)
+    (filter (comp qualified-keyword? :db/ident))
+    (map (fn [entity]
+           (reduce (fn [entity term]
+                     (update entity term #(if (coll? %) % [%])))
+                   entity #{:rdf/type
+                            :rdfs/subClassOf
+                            :rdfs/subPropertyOf
+                            :owl/equivalentClass
+                            :owl/equivalentProperty})))))
+
+(defn make-class-hierarchy
   []
   (transduce
-    (comp
-      (filter (comp :rdf/type meta))
-      (map ns-publics)
-      (mapcat vals)
-      (map deref)
-      (filter :rdf/type)
-      (filter (comp qualified-keyword? :db/ident))
-      (map (fn [entity]
-             (reduce (fn [entity term]
-                       (update entity term #(if (coll? %) (set %) #{%})))
-                     entity *terms*))))
+    cat-rdf-idents
     (completing
-      (fn [m {:db/keys   [ident]
+      (fn [h {:db/keys   [ident]
               :rdf/keys  [type]
-              :rdfs/keys [subClassOf subPropertyOf
-                          equivalentClass equivalentProperty]
+              :rdfs/keys [subClassOf equivalentClass]
               :as        entity}]
-        (cond-> m
-          (and (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
-          (update :classes deriving entity
-                  (concat (remove #{:owl/NamedIndividual}
-                                  (filter keyword? type))
-                          (filter keyword? subClassOf)
-                          (filter keyword? equivalentClass)))
-
-          (or (some #{:rdf/Property
-                      :rdf/DatatypeProperty
-                      :owl/ObjectProperty
-                      :owl/DatatypeProperty}
-                    type)
-              (some #(isa? (:classes m) % :rdf/Property) type))
-          (update :properties deriving entity
-                  (concat (remove #{:owl/NamedIndividual}
-                                  (filter keyword? type))
-                          (filter keyword? subPropertyOf)
-                          (filter keyword? equivalentProperty)))
-
-          (some #{:owl/NamedIndividual :owl/Thing} type)
-          (update :things conj ident)
-
-          
-          (or (isa? (:classes m) ident :rdfs/Class)
-              (isa? (:properties m) ident :rdf/Property)
-              (some #{:rdf/Property
-                      :rdf/DatatypeProperty
-                      :owl/ObjectProperty
-                      :owl/DatatypeProperty
-                      :rdfs/Class
-                      :owl/Class
-                      :rdfs/Datatype}
-                    type))
-          (update :metaobjects deriving entity
-                  (concat (remove #{:owl/NamedIndividual}
-                                  (filter keyword? type))
-                          (filter keyword? subClassOf)
-                          (filter keyword? subPropertyOf)
-                          (filter keyword? equivalentClass)
-                          (filter keyword? equivalentProperty))))))
-    {:metaobjects (derive *metaobjects* :rdfs/Resource :rdfs/Class)
-     :classes     (derive *classes* :rdfs/Resource :rdfs/Class)
-     :properties  *properties*
-     :things      *things*}
+        (if (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
+          (deriving h entity (concat (filter #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
+                                     (filter keyword? subClassOf)
+                                     (filter keyword? equivalentClass)))
+          h)))
+    (derive (make-hierarchy) :rdfs/Resource :rdfs/Class)
     (all-ns)))
 
+(defn make-property-hierarchy
+  [classes]
+  (transduce
+    cat-rdf-idents
+    (completing
+      (fn [h {:db/keys   [ident]
+              :rdf/keys  [type]
+              :rdfs/keys [subPropertyOf equivalentProperty]
+              :as        entity}]
+        (if (some #(isa? classes % :rdf/Property) type)
+          (deriving h entity (concat (filter #(isa? classes % :rdf/Property)
+                                             type)
+                                     (filter keyword? subPropertyOf)
+                                     (filter keyword? equivalentProperty)))
+          h)))
+    (make-hierarchy)
+    (all-ns)))
+
+(defn make-things
+  [classes]
+  (transduce
+    cat-rdf-idents
+    (completing
+      (fn [h {:db/keys   [ident]
+              :rdf/keys  [type]
+              :as        entity}]
+        (if (some #{:owl/NamedIndividual} type)
+          (conj h ident)
+          h)))
+    #{}
+    (all-ns)))
+
+(defn make-hierarchies
+  []
+  (let [classes    (make-class-hierarchy)
+        properties (make-property-hierarchy classes)]
+    {:classes     classes
+     :properties  properties
+     :things      (make-things classes)}))
+
 (defn compute-class-precedence-list
-  ([class-name]
-   (let [supers (into [class-name]
-                      (sort-by identity
-                               (comparator isa?)
-                               (ancestors class-name)))]
-     (when (identical? (peek supers) :rdfs/Class)
-       supers)))
-  ([h class-name]
-   (let [supers (into [class-name]
-                      (sort-by identity
-                               (comparator (partial isa? h))
-                               (ancestors h class-name)))]
-     (when (identical? (peek supers) :rdfs/Class)
-       supers))))
+  [tag]
+  (let [supers (into [tag]
+                     (sort-by identity
+                              (comparator (partial isa? *classes*))
+                              (ancestors *classes* tag)))]
+    (when (identical? (peek supers) :rdfs/Class)
+      supers)))
+
+(defn compute-property-precedence-list
+  [tag]
+  (let [supers (into [tag]
+                     (sort-by identity
+                              (comparator (partial isa? *properties*))
+                              (ancestors *properties* tag)))]
+    (when (isa? *classes* (peek supers) :rdf/Property)
+      supers)))
 
 (defrecord UniversalTranslator [boot]
   com/Lifecycle
@@ -212,14 +217,13 @@
                                 (assoc ns-aliases prefix (find-ns (symbol (str *ns-prefix* prefix)))))
                               {}
                               (keys (:prefixes reg/*registry*)))))
-    (let [{:keys [metaobjects classes properties things]} (make-hierarchies)]
-      (alter-var-root #'*metaobjects* (constantly metaobjects))
+    (let [{:keys [classes properties things]}
+          (make-hierarchies)]
       (alter-var-root #'*classes* (constantly classes))
       (alter-var-root #'*properties* (constantly properties))
       (alter-var-root #'*things* (constantly things)))
     this)
   (stop [this]
-    (alter-var-root #'*metaobjects* (constantly (make-hierarchy)))
     (alter-var-root #'*classes* (constantly (make-hierarchy)))
     (alter-var-root #'*properties* (constantly (make-hierarchy)))
     (alter-var-root #'*things* (constantly #{}))
@@ -449,57 +453,19 @@
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
   [model]
-  (let [index      (-> (group-by :db/ident model)
-                       (update-vals first)
-                       (update-vals #(dissoc % :db/ident)))
-        index'     (->> (walk/prewalk (partial walk-blanks index) index)
-                        (walk/postwalk walk-dcterms))
-        types      (group-by :rdf/type model)
-        ontologies (walk/prewalk (fn [form]
-                                   (if-some [node (:rdf/blank form)]
-                                     (get index form)
-                                     form))
-                                 (or (get types :owl/Ontology)
-                                     (get types :lv2/Feature)
-                                     (get types :voaf/Vocabulary)
-                                     (get types :adms/SemanticAsset)
-                                     (get types [:adms/SemanticAsset :owl/Ontology])
-                                     (get types [:voaf/Vocabulary :owl/Ontology])
-                                     (get types [:owl/Ontology :cc/Work])))
-        md         (walk/prewalk (fn [form]
-                                   (if (and (keyword? form) (or (= (namespace form) "dc")
-                                                                (= (namespace form) "dct")))
-                                     (keyword "dcterms" (name form))
-                                     form))
-                                 (meta model))
-        seeAlso    (:rdfs/seeAlso md)
-        seeAlso    (when (and seeAlso (str/ends-with? seeAlso "ttl"))
-                     (update-vals (group-by :db/ident (parse seeAlso)) first))
-        project    (when seeAlso
-                     (get seeAlso (:db/ident md)))
-        index'     (reduce-kv (fn [index k v]
-                                (update index k merge v))
-                              index' (dissoc seeAlso (:db/ident md)))
-        md         (cond-> md
-                     project (assoc :lv2/project project))
-        exclusions (->> (keys (filter (comp qualified-keyword? key) index'))
-                        (map name)
-                        (filter #(var? (ns-resolve 'clojure.core (symbol %))))
-                        (map symbol)
+  (let [forms      (unroll-forms model)
+        md         (meta forms)
+        exclusions (->> forms
+                        (filter (comp qualified-keyword? :db/ident))
+                        (map (comp symbol name :db/ident))
+                        (filter #(var? (ns-resolve 'clojure.core %)))
                         (into []))
         prefix     (or (:rdfa/prefix md)
-                       (:vann/preferredNamespacePrefix md))
-        forms      (->> (if prefix
-                          (->> index'
-                               (filter (comp qualified-keyword? key))
-                               (filter (comp (partial = prefix) namespace key)))
-
-                          index')
-                        (sort-by #(if (map-entry? %) (key %) %))
-                        (map (fn [form]
-                               (walk/postwalk walk-rdf-list form)))
-                        (map (fn [[k v]]
-                               (let [sym (symbol (name k))
+                       (:vann/preferredNamespacePrefix md))        
+        forms      (->> forms
+                        (map (fn [v]
+                               (let [k   (:db/ident v)
+                                     sym (symbol (name k))
                                      sym (cond
                                            (= (name sym) "Class")
                                            'T
@@ -533,8 +499,7 @@
                                      v         (assoc v :db/ident k)]
                                  (if docstring
                                    (list 'def sym docstring (dissoc v :lv2/documentation))
-                                   (list 'def sym v)))))
-                        (map (fn [form] (walk/postwalk walk-bytes form))))]
+                                   (list 'def sym v))))))]
     (if prefix
       (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
               ~@(let [docstring (or (get-in md [:lv2/project :lv2/documentation])
