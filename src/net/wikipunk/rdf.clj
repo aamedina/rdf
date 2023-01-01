@@ -20,8 +20,7 @@
    (org.apache.jena.rdf.model Model)
    (org.apache.jena.query ResultSet)
    (org.apache.jena.util.iterator ClosableIterator)
-   (org.apache.jena.shared PrefixMapping))
-  (:refer-clojure :exclude [isa? descendants ancestors parents]))
+   (org.apache.jena.shared PrefixMapping)))
 
 (defprotocol LinkedData
   (sniff [x] "Follow your nose."))
@@ -52,34 +51,6 @@
 
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *target* "src/net/wikipunk/rdf/")
-
-(defn isa?
-  ([child parent]
-   (or (clojure.core/isa? *classes* child parent)
-       (clojure.core/isa? *properties* child parent)))
-  ([h child parent]
-   (clojure.core/isa? h child parent)))
-
-(defn parents
-  ([tag]
-   (or (clojure.core/parents *classes* tag)
-       (clojure.core/parents *properties* tag)))
-  ([h tag]
-   (clojure.core/parents h tag)))
-
-(defn ancestors
-  ([tag]
-   (or (clojure.core/ancestors *classes* tag)
-       (clojure.core/ancestors *properties* tag)))
-  ([h tag]
-   (clojure.core/ancestors h tag)))
-
-(defn descendants
-  ([tag]
-   (or (clojure.core/descendants *classes* tag)
-       (clojure.core/descendants *properties* tag)))
-  ([h tag]
-   (clojure.core/descendants h tag)))
 
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
