@@ -445,9 +445,15 @@
 
                                      :else v)))
                             (map (fn [form] (walk/postwalk walk-rdf-list form))))
-        public?        (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))]
+        public?        (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
+        mappings (->> (remove public? forms)
+                      (filter #(some #{:rdfa/PrefixMapping
+                                       :rdfa/TermMapping}
+                                     [(:rdf/type %)]))
+                      (into []))]
     (with-meta (sort-by :db/ident (filter public? forms))
-      (merge md (first (get (group-by :rdf/type (filter :rdf/uri forms)) :owl/Ontology))))))
+      (assoc (merge md (first (get (group-by :rdf/type (filter :rdf/uri forms)) :owl/Ontology)))
+             :rdfa/PrefixOrTermMapping mappings))))
 
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes

@@ -16,8 +16,6 @@
    :rdfa/prefix "adms"
    :rdf/type    :rdfa/PrefixMapping})
 
-#_"https://www.w3.org/ns/activitystreams-owl"
-
 (def as
   "Activity Vocabulary"
   {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/activitystreams/master/vocabulary/activitystreams2.owl"   
