@@ -195,8 +195,7 @@
                                 (assoc ns-aliases prefix (find-ns (symbol (str *ns-prefix* prefix)))))
                               {}
                               (keys (:prefixes reg/*registry*)))))
-    (let [{:keys [classes properties things]}
-          (make-hierarchies)]
+    (let [{:keys [classes properties things]} (make-hierarchies)]
       (alter-var-root #'*classes* (constantly classes))
       (alter-var-root #'*properties* (constantly properties))
       (alter-var-root #'*things* (constantly things)))
@@ -424,7 +423,7 @@
 
                                      :else v)))
                             (map (fn [form] (walk/postwalk walk-rdf-list form))))
-        public?  (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
+        public?    (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
         ontologies (->> (remove public? forms)
                         (filter :rdf/type)
                         (filter (fn [form]
@@ -433,8 +432,8 @@
                                         (if (coll? (:rdf/type form))
                                           (:rdf/type form)
                                           [(:rdf/type form)])))))
-        the-ont (or (first ontologies)
-                    (first (filter :rdf/uri (remove public? forms))))]
+        the-ont    (or (first ontologies)
+                       (first (filter :rdf/uri (remove public? forms))))]
     (with-meta (sort-by :db/ident (filter public? forms))
       (merge md the-ont))))
 
@@ -467,6 +466,7 @@
 
                                            :else (symbol (str/replace (name sym) #"^#" "")))
                                      docstring (or (some-> (:lv2/documentation v))
+                                                   (:dcterms/abstract v)
                                                    (:dcterms/description v)
                                                    (:skos/definition v)
                                                    (:prov/definition v)
@@ -626,7 +626,7 @@
   clojure.lang.IPersistentMap
   (sniff [m]
     (let [model (mem-parse m)]
-      (mem-unroll model)))
+      (unroll-forms model)))
 
   clojure.lang.Keyword
   (sniff [k]
