@@ -611,3 +611,37 @@
   clojure.lang.Keyword
   (sniff [k]
     (find-metaobject k)))
+
+(defn- print-doc
+  [ident]
+  (let [metaobject (find-metaobject ident)]
+    (println "-------------------------")
+    (println (:db/ident metaobject))
+    (when-some [doc (:doc (meta (:var (meta metaobject))))]
+      (println "  " doc))
+    (when-some [supers (next (if (isa? *classes* (type metaobject) :rdf/Property)
+                               (compute-property-precedence-list (:db/ident metaobject))
+                               (compute-class-precedence-list (:db/ident metaobject))))]
+      (println "  isa?")
+      (reduce (fn [cnt class]
+                (println (str (apply str (repeat cnt \space)) class))
+                (inc cnt))
+              2 supers))
+    nil))
+
+(defmacro doc
+  "Prints documentation for a var or special form given its name, or
+  for a RDF term if given a keyword.
+  
+  Adapted from #'clojure.repl/doc"
+  [name]
+  (require 'clojure.repl)
+  (if-let [special-name ('{& fn catch try finally try} name)]
+    `(#'clojure.repl/print-doc (#'clojure.repl/special-doc '~special-name))
+    (cond
+      (@#'clojure.repl/special-doc-map name) `(#'clojure.repl/print-doc (#'clojure.repl/special-doc '~name))
+      (qualified-keyword? name) `(#'print-doc ~name)
+      (keyword? name) `(#'clojure.repl/print-doc (#'clojure.repl/namespace-doc (get *ns-aliases* ~(clojure.core/name name))))
+      (find-ns name) `(#'clojure.repl/print-doc (#'clojure.repl/namespace-doc (find-ns '~name)))
+      (resolve name) `(#'clojure.repl/print-doc (meta (var ~name)))
+      :else nil)))
