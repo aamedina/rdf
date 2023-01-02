@@ -43,9 +43,6 @@
   "rdf:Property"
   (make-hierarchy))
 
-(def ^:dynamic *things*
-  #{})
-
 (def ^:dynamic *ns-aliases*
   {})
 
@@ -145,27 +142,12 @@
     (make-hierarchy)
     (all-ns)))
 
-(defn make-things
-  [classes]
-  (transduce
-    cat-rdf-idents
-    (completing
-      (fn [h {:db/keys  [ident]
-              :rdf/keys [type]
-              :as       entity}]
-        (if (some #{:owl/NamedIndividual} type)
-          (conj h ident)
-          h)))
-    #{}
-    (all-ns)))
-
 (defn make-hierarchies
   []
   (let [classes    (make-class-hierarchy)
         properties (make-property-hierarchy classes)]
     {:classes    classes
-     :properties properties
-     :things     (make-things classes)}))
+     :properties properties}))
 
 (defn compute-class-precedence-list
   [tag]
@@ -195,15 +177,13 @@
                                 (assoc ns-aliases prefix (find-ns (symbol (str *ns-prefix* prefix)))))
                               {}
                               (keys (:prefixes reg/*registry*)))))
-    (let [{:keys [classes properties things]} (make-hierarchies)]
+    (let [{:keys [classes properties]} (make-hierarchies)]
       (alter-var-root #'*classes* (constantly classes))
-      (alter-var-root #'*properties* (constantly properties))
-      (alter-var-root #'*things* (constantly things)))
+      (alter-var-root #'*properties* (constantly properties)))
     this)
   (stop [this]
     (alter-var-root #'*classes* (constantly (make-hierarchy)))
     (alter-var-root #'*properties* (constantly (make-hierarchy)))
-    (alter-var-root #'*things* (constantly #{}))
     this)
 
   NamespaceSpitter
