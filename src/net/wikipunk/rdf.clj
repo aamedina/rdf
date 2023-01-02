@@ -612,7 +612,7 @@
   (sniff [k]
     (find-metaobject k)))
 
-(defn- print-doc
+(defn print-doc
   [ident]
   (let [metaobject (find-metaobject ident)]
     (println "-------------------------")
