@@ -180,3 +180,8 @@
    :rdfa/uri         "http://purl.org/vocab/vann/"
    :rdf/type         :rdfa/PrefixMapping
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
+
+(def sm
+  {:rdfa/uri    "http://www.omg.org/techprocess/ab/SpecificationMetadata/"
+   :rdfa/prefix "sm"
+   :rdf/type    :rdfa/PrefixMapping})
