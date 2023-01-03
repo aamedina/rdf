@@ -173,12 +173,18 @@
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]      
       (alter-var-root #'reg/*registry* (constantly (make-boot-context)))
-      (alter-var-root #'*ns-aliases*
-                      (constantly
-                        (reduce (fn [ns-aliases prefix]
-                                  (assoc ns-aliases prefix (find-ns (symbol (str *ns-prefix* prefix)))))
+      (let [ns-prefixes (->> (all-ns)
+                             (filter #(= (:rdf/type (meta %)) :jsonld/Context))
+                             (map #(str/replace % #"boot$" "rdf")))
+            ns-aliases  (reduce (fn [ns-aliases prefix]
+                                 (assoc ns-aliases
+                                        prefix
+                                        (some #(when-some [ns (find-ns (symbol (str % "." prefix)))]
+                                                 ns)
+                                              ns-prefixes)))
                                 {}
-                                (keys (:prefixes reg/*registry*)))))
+                                (keys (:prefixes reg/*registry*)))]
+        (alter-var-root #'*ns-aliases* (constantly ns-aliases)))
       (let [{:keys [classes properties]} (make-hierarchies)]
         (alter-var-root #'*classes* (constantly classes))
         (alter-var-root #'*properties* (constantly properties)))

@@ -16,7 +16,7 @@
    [clojure.java.shell :as sh :refer [sh]]
    [clojure.pprint :refer [pprint pp]]
    [clojure.reflect :refer [reflect]]
-   [clojure.repl :refer [apropos dir doc find-doc pst source]]
+   [clojure.repl :refer [apropos dir find-doc pst source]]
    [clojure.set :as set]
    [clojure.string :as str]
    [clojure.tools.namespace.repl :refer [refresh refresh-all clear]]
@@ -25,7 +25,7 @@
    [com.walmartlabs.schematic :as sc]
    [net.wikipunk.boot :as boot]
    [net.wikipunk.ext :as ext]
-   [net.wikipunk.rdf :as rdf]))
+   [net.wikipunk.rdf :as rdf :refer [doc]]))
 
 (set-init
   (fn [_]
