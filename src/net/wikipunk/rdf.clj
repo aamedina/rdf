@@ -581,26 +581,27 @@
 
 (defn find-metaobject
   [ident]
-  (when-some [var (ns-resolve (get *ns-aliases* (namespace ident))
-                              (cond
-                                (= (name ident) "Class")
-                                'T
-                                
-                                (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
-                                (symbol (str (name ident) "Class"))
+  (when (qualified-keyword? ident)
+    (when-some [var (ns-resolve (get *ns-aliases* (namespace ident))
+                                (cond
+                                  (= (name ident) "Class")
+                                  'T
+                                  
+                                  (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
+                                  (symbol (str (name ident) "Class"))
 
-                                (= (name ident) "nil")
-                                'null
+                                  (= (name ident) "nil")
+                                  'null
 
-                                :else
-                                (-> (name ident)
-                                    (str/replace #"^#" "")
-                                    (symbol))))]
-    
-    (with-meta @var {:var var :type (or (and (keyword? (type var))
-                                             (type var))
-                                        (:type (alter-meta! var assoc :type (type-of @var)))
-                                        :rdfs/Resource)})))
+                                  :else
+                                  (-> (name ident)
+                                      (str/replace #"^#" "")
+                                      (symbol))))]
+      
+      (with-meta @var {:var var :type (or (and (keyword? (type var))
+                                               (type var))
+                                          (:type (alter-meta! var assoc :type (type-of @var)))
+                                          :rdfs/Resource)}))))
 
 (extend-protocol LinkedData
   clojure.lang.IPersistentCollection
@@ -618,11 +619,14 @@
 
   clojure.lang.Keyword
   (sniff [k]
-    (find-metaobject k)))
+    (find-metaobject k))
+
+  nil
+  (sniff [_] nil))
 
 (defn print-doc
   [ident]
-  (let [metaobject (find-metaobject ident)]
+  (when-some [metaobject (find-metaobject ident)]
     (println "-------------------------")
     (println (:db/ident metaobject))
     (when-some [doc (:doc (meta (:var (meta metaobject))))]
