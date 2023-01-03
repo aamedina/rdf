@@ -653,7 +653,8 @@
     (cond
       (@#'clojure.repl/special-doc-map name) `(#'clojure.repl/print-doc (#'clojure.repl/special-doc '~name))
       (qualified-keyword? name) `(#'print-doc ~name)
-      (keyword? name) `(#'clojure.repl/print-doc (#'clojure.repl/namespace-doc (get *ns-aliases* ~(clojure.core/name name))))
+      (keyword? name) `(when-some [ns# (get *ns-aliases* (clojure.core/name ~name))]
+                         (#'clojure.repl/print-doc (#'clojure.repl/namespace-doc ns#)))
       (find-ns name) `(#'clojure.repl/print-doc (#'clojure.repl/namespace-doc (find-ns '~name)))
       (resolve name) `(#'clojure.repl/print-doc (meta (var ~name)))
       :else nil)))
