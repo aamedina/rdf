@@ -170,17 +170,19 @@
 (defrecord UniversalTranslator [ns-prefix target boot]
   com/Lifecycle
   (start [this]
-    (alter-var-root #'reg/*registry* (constantly (make-boot-context)))
-    (alter-var-root #'*ns-aliases*
-                    (constantly
-                      (reduce (fn [ns-aliases prefix]
-                                (assoc ns-aliases prefix (find-ns (symbol (str *ns-prefix* prefix)))))
-                              {}
-                              (keys (:prefixes reg/*registry*)))))
-    (let [{:keys [classes properties]} (make-hierarchies)]
-      (alter-var-root #'*classes* (constantly classes))
-      (alter-var-root #'*properties* (constantly properties)))
-    this)
+    (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
+              *target*    (or target *target*)]      
+      (alter-var-root #'reg/*registry* (constantly (make-boot-context)))
+      (alter-var-root #'*ns-aliases*
+                      (constantly
+                        (reduce (fn [ns-aliases prefix]
+                                  (assoc ns-aliases prefix (find-ns (symbol (str *ns-prefix* prefix)))))
+                                {}
+                                (keys (:prefixes reg/*registry*)))))
+      (let [{:keys [classes properties]} (make-hierarchies)]
+        (alter-var-root #'*classes* (constantly classes))
+        (alter-var-root #'*properties* (constantly properties)))
+      this))
   (stop [this]
     (alter-var-root #'*classes* (constantly (make-hierarchy)))
     (alter-var-root #'*properties* (constantly (make-hierarchy)))
