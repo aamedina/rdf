@@ -97,6 +97,7 @@
    :rdfs/subClassOf  :d3fend/AccessControlConfiguration})
 
 (def AccessModeling
+  "Access modeling identifies and records the access permissions granted to administrators, users, groups, and systems."
   {:d3fend/d3fend-id "D3-AM",
    :d3fend/definition
    "Access modeling identifies and records the access permissions granted to administrators, users, groups, and systems.",
@@ -108,10 +109,10 @@
    [:owl/NamedIndividual :owl/Class :d3fend/OperationalActivityMapping],
    :rdfs/label "Access Modeling",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/UserAccount,
+                      :owl/someValuesFrom :d3fend/AccessControlConfiguration,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/AccessControlConfiguration,
+                      :owl/someValuesFrom :d3fend/UserAccount,
                       :rdf/type           :owl/Restriction}
                      :d3fend/OperationalActivityMapping]})
 
@@ -127,6 +128,7 @@
    :skos/altLabel ["Token" "Ticket"]})
 
 (def AccountLocking
+  "The process of temporarily disabling user accounts on a system or domain."
   {:d3fend/created #inst "2020-08-05T04:00:00.000-00:00",
    :d3fend/d3fend-id "D3-AL",
    :d3fend/definition
@@ -146,6 +148,7 @@
                      :d3fend/CredentialEviction]})
 
 (def ActiveCertificateAnalysis
+  "Actively collecting PKI certificates by connecting to the server and downloading its server certificates for analysis."
   {:d3fend/created #inst "2020-08-05T04:00:00.000-00:00",
    :d3fend/d3fend-id "D3-ACA",
    :d3fend/definition
@@ -162,6 +165,7 @@
    :rdfs/subClassOf :d3fend/CertificateAnalysis})
 
 (def ActiveLogicalLinkMapping
+  "Active logical link mapping sends and receives network traffic as a means to map the whole data link layer, where the links represent logical data flows rather than physical connection"
   {:d3fend/d3fend-id "D3-ALLM",
    :d3fend/definition
    "Active logical link mapping sends and receives network traffic as a means to map the whole data link layer, where the links represent logical data flows rather than physical connection",
@@ -174,12 +178,13 @@
    :db/ident :d3fend/ActiveLogicalLinkMapping,
    :rdf/type [:d3fend/LogicalLinkMapping :owl/Class :owl/NamedIndividual],
    :rdfs/label "Active Logical Link Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-query,
+   :rdfs/subClassOf [:d3fend/LogicalLinkMapping
+                     {:owl/onProperty     :d3fend/may-query,
                       :owl/someValuesFrom :d3fend/CollectorAgent,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/LogicalLinkMapping]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ActivePhysicalLinkMapping
+  "Active physical link mapping sends and receives network traffic as a means to map the physical layer."
   {:d3fend/d3fend-id "D3-APLM",
    :d3fend/definition
    "Active physical link mapping sends and receives network traffic as a means to map the physical layer.",
@@ -198,6 +203,7 @@
                      :d3fend/PhysicalLinkMapping]})
 
 (def Activity
+  "An activity is a specific behavior representing a set of actions that may be accomplished by an agent."
   {:d3fend/definition
    "An activity is a specific behavior representing a set of actions that may be accomplished by an agent.",
    :db/ident :d3fend/Activity,
@@ -211,6 +217,7 @@
    :rdfs/subClassOf :d3fend/D3FENDThing})
 
 (def ActivityDependency
+  "An activity dependency is a dependency that indicates an activity has an activity or agent which relies on it in order to be functional."
   {:d3fend/definition
    "An activity dependency is a dependency that indicates an activity has an activity or agent which relies on it in order to be functional.",
    :db/ident :d3fend/ActivityDependency,
@@ -250,6 +257,7 @@
    :skos/altLabel   "Administrative Capability"})
 
 (def AdministrativeNetworkActivityAnalysis
+  "Detection of unauthorized use of administrative network protocols by analyzing network activity against a baseline."
   {:d3fend/analyzes :d3fend/IntranetAdministrativeNetworkTraffic,
    :d3fend/created #inst "2020-08-05T04:00:00.000-00:00",
    :d3fend/d3fend-id "D3-ANAA",
@@ -337,11 +345,11 @@
    :rdfs/label "Application",
    :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/06582286-n"
                   "http://dbpedia.org/resource/Application_software"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/ApplicationConfiguration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/uses,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/uses,
                       :owl/someValuesFrom :d3fend/Resource,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/ApplicationConfiguration,
                       :rdf/type           :owl/Restriction}
                      :d3fend/Software]})
 
@@ -392,6 +400,7 @@
                      :d3fend/ConfigurationFile]})
 
 (def ApplicationConfigurationHardening
+  "Modifying an application's configuration to reduce its attack surface."
   {:d3fend/d3fend-id "D3-ACH",
    :d3fend/definition
    "Modifying an application's configuration to reduce its attack surface.",
@@ -404,12 +413,13 @@
    :db/ident :d3fend/ApplicationConfigurationHardening,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/ApplicationHardening],
    :rdfs/label "Application Configuration Hardening",
-   :rdfs/subClassOf [:d3fend/ApplicationHardening
-                     {:owl/onProperty     :d3fend/hardens,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/hardens,
                       :owl/someValuesFrom :d3fend/ApplicationConfiguration,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/ApplicationHardening]})
 
 (def ApplicationHardening
+  "Application Hardening makes an executable application more resilient to a class of exploits which either introduce new code or execute unwanted existing code. These techniques may be applied at compile-time or on an application binary."
   {:d3fend/d3fend-id "D3-AH",
    :d3fend/definition
    "Application Hardening makes an executable application more resilient to a class of exploits which either introduce new code or execute unwanted existing code. These techniques may be applied at compile-time or on an application binary.",
@@ -552,6 +562,7 @@
                      :d3fend/D3FENDCatalogThing]})
 
 (def AssetInventory
+  "Asset inventorying identifies and records the organization's assets and enriches each inventory item with knowledge about their vulnerabilities."
   {:d3fend/d3fend-id "D3-AI",
    :d3fend/definition
    "Asset inventorying identifies and records the organization's assets and enriches each inventory item with knowledge about their vulnerabilities.",
@@ -561,12 +572,13 @@
    :db/ident :d3fend/AssetInventory,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/DefensiveTechnique],
    :rdfs/label "Asset Inventory",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [:d3fend/DefensiveTechnique
+                     {:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Model,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def AssetVulnerabilityEnumeration
+  "Asset vulnerability enumeration enriches inventory items with knowledge identifying their vulnerabilities."
   {:d3fend/d3fend-id "D3-AVE",
    :d3fend/definition
    "Asset vulnerability enumeration enriches inventory items with knowledge identifying their vulnerabilities.",
@@ -582,10 +594,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
                       :owl/someValuesFrom :d3fend/Vulnerability,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/AssetInventory
                      {:owl/onProperty     :d3fend/evaluates,
                       :owl/someValuesFrom :d3fend/DigitalArtifact,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/AssetInventory]})
 
 (def AsymmetricKey
   "Asymmetric keys are public and private keys, paired such that asymmetric (public-key) cryptography algorithms can be implemented using them. Public-key cryptography, or asymmetric cryptography, is any cryptographic system that uses pairs of keys: public keys that may be disseminated widely paired with private keys which are known only to the owner. There are two functions that can be achieved: using a public key to authenticate that a message originated with a holder of the paired private key; or encrypting a message with a public key to ensure that only the holder of the paired private key can decrypt it."
@@ -626,18 +638,19 @@
    :rdfs/label "Authentication",
    :rdfs/seeAlso ["http://dbpedia.org/resource/Authentication"
                   "http://wordnet-rdf.princeton.edu/id/00155053-n"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-create,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/originates-from,
+                      :owl/someValuesFrom :d3fend/PhysicalLocation,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/may-create,
                       :owl/someValuesFrom :d3fend/IntranetNetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/User,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/originates-from,
-                      :owl/someValuesFrom :d3fend/PhysicalLocation,
-                      :rdf/type           :owl/Restriction}
                      :d3fend/UserAction]})
 
 (def AuthenticationCacheInvalidation
+  "Removing tokens or credentials from an authentication cache to prevent further user associated account accesses."
   {:d3fend/d3fend-id "D3-ANCI",
    :d3fend/definition
    "Removing tokens or credentials from an authentication cache to prevent further user associated account accesses.",
@@ -650,12 +663,13 @@
    :db/ident :d3fend/AuthenticationCacheInvalidation,
    :rdf/type [:owl/NamedIndividual :d3fend/CredentialEviction :owl/Class],
    :rdfs/label "Authentication Cache Invalidation",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/deletes,
+   :rdfs/subClassOf [:d3fend/CredentialEviction
+                     {:owl/onProperty     :d3fend/deletes,
                       :owl/someValuesFrom :d3fend/Credential,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/CredentialEviction]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def AuthenticationEventThresholding
+  "Collecting authentication events, creating a baseline user profile, and determining whether authentication events are consistent with the baseline profile."
   {:d3fend/analyzes :d3fend/Authentication,
    :d3fend/created #inst "2020-08-05T04:00:00.000-00:00",
    :d3fend/d3fend-id "D3-ANET",
@@ -672,10 +686,10 @@
    :db/ident :d3fend/AuthenticationEventThresholding,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/UserBehaviorAnalysis],
    :rdfs/label "Authentication Event Thresholding",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Authentication,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def AuthenticationLog
   "A log of authentication events."
@@ -728,6 +742,7 @@
                      :d3fend/UserAction]})
 
 (def AuthorizationEventThresholding
+  "Collecting authorization events, creating a baseline user profile, and determining whether authorization events are consistent with the baseline profile."
   {:d3fend/analyzes :d3fend/Authorization,
    :d3fend/created #inst "2020-08-05T04:00:00.000-00:00",
    :d3fend/d3fend-id "D3-AZET",
@@ -816,6 +831,7 @@
    :rdfs/subClassOf :d3fend/DigitalArtifact})
 
 (def BiometricAuthentication
+  "Using biological measures in order to authenticate a user."
   {:d3fend/authenticates :d3fend/UserAccount,
    :d3fend/d3fend-id "D3-BAN",
    :d3fend/definition
@@ -827,10 +843,10 @@
    :db/ident :d3fend/BiometricAuthentication,
    :rdf/type [:d3fend/CredentialHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Biometric Authentication",
-   :rdfs/subClassOf [:d3fend/CredentialHardening
-                     {:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/UserAccount,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/CredentialHardening]})
 
 (def Blob
   "A binary large object (BLOB) is a collection of binary data stored as a single entity. Blobs are typically images, audio or other multimedia objects, though sometimes binary executable code is stored as a blob. They can exist as persistent values inside some databases, or exist at runtime as program variables in some languages. The term is used in NoSQL databases, especially in key-value store databases such as Redis. The term is also used by languages that allow runtime manipulation of Blobs, like JavaScript. (en)"
@@ -855,11 +871,11 @@
    :rdfs/label "Block Device",
    :rdfs/seeAlso
    "https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_79",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/Volume,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/Partition,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/Volume,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/BootSector,
@@ -913,6 +929,7 @@
    :rdfs/subClassOf :d3fend/BootRecord})
 
 (def BootloaderAuthentication
+  "Cryptographically authenticating the bootloader software before system boot."
   {:d3fend/authenticates :d3fend/BootLoader,
    :d3fend/d3fend-id "D3-BA",
    :d3fend/definition
@@ -929,6 +946,7 @@
                      :d3fend/PlatformHardening]})
 
 (def BroadcastDomainIsolation
+  "Broadcast isolation restricts the number of computers a host can contact on their LAN."
   {:d3fend/d3fend-id "D3-BDI",
    :d3fend/definition
    "Broadcast isolation restricts the number of computers a host can contact on their LAN.",
@@ -998,6 +1016,7 @@
    :rdfs/subClassOf :d3fend/CollaborativeSoftware})
 
 (def ByteSequenceEmulation
+  "Analyzing sequences of bytes and determining if they likely represent malicious shellcode."
   {:d3fend/d3fend-id "D3-BSE",
    :d3fend/definition
    "Analyzing sequences of bytes and determining if they likely represent malicious shellcode.",
@@ -1024,6 +1043,7 @@
    :rdfs/subClassOf :d3fend/CertificateFile})
 
 (def CCI-000015_v2022-04-05
+  "The organization employs automated mechanisms to support the information system account management functions."
   {:d3fend/broader [:d3fend/AccountLocking
                     :d3fend/LocalAccountMonitoring
                     :d3fend/DomainAccountMonitoring],
@@ -1037,6 +1057,7 @@
    :rdfs/label "CCI-000015"})
 
 (def CCI-000016_v2022-04-05
+  "The information system automatically removes or disables temporary accounts after an organization-defined time period for each type of account."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically removes or disables temporary accounts after an organization-defined time period for each type of account.",
@@ -1048,6 +1069,7 @@
    :rdfs/label "CCI-000016"})
 
 (def CCI-000017_v2022-04-05
+  "The information system automatically disables inactive accounts after an organization-defined time period."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically disables inactive accounts after an organization-defined time period.",
@@ -1059,6 +1081,7 @@
    :rdfs/label "CCI-000017"})
 
 (def CCI-000018_v2022-04-05
+  "The information system automatically audits account creation actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically audits account creation actions.",
@@ -1070,6 +1093,7 @@
    :rdfs/label "CCI-000018"})
 
 (def CCI-000020_v2022-04-05
+  "The information system dynamically manages user privileges and associated access authorizations."
   {:d3fend/broader :d3fend/MandatoryAccessControl,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1081,6 +1105,7 @@
    :rdfs/label "CCI-000020"})
 
 (def CCI-000022_v2022-04-05
+  "The information system enforces one or more organization-defined nondiscretionary access control policies over an organization-defined set of users and resources."
   {:d3fend/broader :d3fend/MandatoryAccessControl,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1092,6 +1117,7 @@
    :rdfs/label "CCI-000022"})
 
 (def CCI-000025_v2022-04-05
+  "The information system enforces information flow control using explicit security attributes on information, source, and destination objects as a basis for flow control decisions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces information flow control using explicit security attributes on information, source, and destination objects as a basis for flow control decisions.",
@@ -1104,6 +1130,7 @@
    :rdfs/label "CCI-000025"})
 
 (def CCI-000027_v2022-04-05
+  "The information system enforces dynamic information flow control based on organization-defined policies."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces dynamic information flow control based on organization-defined policies.",
@@ -1116,6 +1143,7 @@
    :rdfs/label "CCI-000027"})
 
 (def CCI-000029_v2022-04-05
+  "The information system enforces organization-defined limitations on the embedding of data types within other data types."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces organization-defined limitations on the embedding of data types within other data types.",
@@ -1128,6 +1156,7 @@
    :rdfs/label "CCI-000029"})
 
 (def CCI-000030_v2022-04-05
+  "The information system enforces information flow control based on organization-defined metadata."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces information flow control based on organization-defined metadata.",
@@ -1140,6 +1169,7 @@
    :rdfs/label "CCI-000030"})
 
 (def CCI-000032_v2022-04-05
+  "The information system enforces information flow control using organization-defined security policy filters as a basis for flow control decisions for organization-defined information flows."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces information flow control using organization-defined security policy filters as a basis for flow control decisions for organization-defined information flows.",
@@ -1152,6 +1182,7 @@
    :rdfs/label "CCI-000032"})
 
 (def CCI-000034_v2022-04-05
+  "The information system provides the capability for a privileged administrator to enable/disable organization-defined security policy filters under organization-defined conditions."
   {:d3fend/broader [:d3fend/OutboundTrafficFiltering
                     :d3fend/InboundTrafficFiltering],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -1164,6 +1195,7 @@
    :rdfs/label "CCI-000034"})
 
 (def CCI-000035_v2022-04-05
+  "The information system provides the capability for privileged administrators to configure the organization-defined security policy filters to support different security policies."
   {:d3fend/broader [:d3fend/OutboundTrafficFiltering
                     :d3fend/InboundTrafficFiltering],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -1176,6 +1208,7 @@
    :rdfs/label "CCI-000035"})
 
 (def CCI-000037_v2022-04-05
+  "The organization implements separation of duties through assigned information system access authorizations."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl
                     :d3fend/LocalFilePermissions],
@@ -1189,6 +1222,7 @@
    :rdfs/label "CCI-000037"})
 
 (def CCI-000040_v2022-04-05
+  "The organization audits any use of privileged accounts, or roles, with access to organization-defined security functions or security-relevant information, when accessing other system functions."
   {:d3fend/broader [:d3fend/LocalAccountMonitoring
                     :d3fend/AuthorizationEventThresholding],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -1201,6 +1235,7 @@
    :rdfs/label "CCI-000040"})
 
 (def CCI-000044_v2022-04-05
+  "The information system enforces the organization-defined limit of consecutive invalid logon attempts by a user during the organization-defined time period."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces the organization-defined limit of consecutive invalid logon attempts by a user during the organization-defined time period.",
@@ -1212,6 +1247,7 @@
    :rdfs/label "CCI-000044"})
 
 (def CCI-000047_v2022-04-05
+  "The information system delays next login prompt according to the organization-defined delay algorithm, when the maximum number of unsuccessful attempts is exceeded, automatically locks the account/node for an organization-defined time period or locks the account/node until released by an Administrator IAW organizational policy."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system delays next login prompt according to the organization-defined delay algorithm, when the maximum number of unsuccessful attempts is exceeded, automatically locks the account/node for an organization-defined time period or locks the account/node until released by an Administrator IAW organizational policy.",
@@ -1223,6 +1259,7 @@
    :rdfs/label "CCI-000047"})
 
 (def CCI-000056_v2022-04-05
+  "The information system retains the session lock until the user reestablishes access using established identification and authentication procedures."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system retains the session lock until the user reestablishes access using established identification and authentication procedures.",
@@ -1234,6 +1271,7 @@
    :rdfs/label "CCI-000056"})
 
 (def CCI-000057_v2022-04-05
+  "The information system initiates a session lock after the organization-defined time period of inactivity."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system initiates a session lock after the organization-defined time period of inactivity.",
@@ -1245,6 +1283,7 @@
    :rdfs/label "CCI-000057"})
 
 (def CCI-000058_v2022-04-05
+  "The information system provides the capability for users to directly initiate session lock mechanisms."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides the capability for users to directly initiate session lock mechanisms.",
@@ -1256,6 +1295,7 @@
    :rdfs/label "CCI-000058"})
 
 (def CCI-000060_v2022-04-05
+  "The information system conceals, via the session lock, information previously visible on the display with a publicly viewable image."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system conceals, via the session lock, information previously visible on the display with a publicly viewable image.",
@@ -1267,6 +1307,7 @@
    :rdfs/label "CCI-000060"})
 
 (def CCI-000066_v2022-04-05
+  "The organization enforces requirements for remote connections to the information system."
   {:d3fend/broader :d3fend/RemoteTerminalSessionDetection,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1278,6 +1319,7 @@
    :rdfs/label "CCI-000066"})
 
 (def CCI-000067_v2022-04-05
+  "The information system monitors remote access methods."
   {:d3fend/broader     :d3fend/RemoteTerminalSessionDetection,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition  "The information system monitors remote access methods.",
@@ -1288,6 +1330,7 @@
    :rdfs/label         "CCI-000067"})
 
 (def CCI-000068_v2022-04-05
+  "The information system implements cryptographic mechanisms to protect the confidentiality of remote access sessions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to protect the confidentiality of remote access sessions.",
@@ -1299,6 +1342,7 @@
    :rdfs/label "CCI-000068"})
 
 (def CCI-000071_v2022-04-05
+  "The organization monitors for unauthorized remote connections to the information system on an organization-defined frequency."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization monitors for unauthorized remote connections to the information system on an organization-defined frequency.",
@@ -1310,6 +1354,7 @@
    :rdfs/label "CCI-000071"})
 
 (def CCI-000139_v2022-04-05
+  "The information system alerts designated organization-defined personnel or roles in the event of an audit processing failure."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system alerts designated organization-defined personnel or roles in the event of an audit processing failure.",
@@ -1321,6 +1366,7 @@
    :rdfs/label "CCI-000139"})
 
 (def CCI-000143_v2022-04-05
+  "The information system provides a warning when allocated audit record storage volume reaches an organization-defined percentage of maximum audit record storage capacity."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides a warning when allocated audit record storage volume reaches an organization-defined percentage of maximum audit record storage capacity.",
@@ -1332,6 +1378,7 @@
    :rdfs/label "CCI-000143"})
 
 (def CCI-000144_v2022-04-05
+  "The information system provides a real-time alert when organization-defined audit failure events occur."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides a real-time alert when organization-defined audit failure events occur.",
@@ -1343,6 +1390,7 @@
    :rdfs/label "CCI-000144"})
 
 (def CCI-000162_v2022-04-05
+  "The information system protects audit information from unauthorized access."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects audit information from unauthorized access.",
@@ -1354,6 +1402,7 @@
    :rdfs/label "CCI-000162"})
 
 (def CCI-000163_v2022-04-05
+  "The information system protects audit information from unauthorized modification."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects audit information from unauthorized modification.",
@@ -1366,6 +1415,7 @@
    :rdfs/label "CCI-000163"})
 
 (def CCI-000164_v2022-04-05
+  "The information system protects audit information from unauthorized deletion."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects audit information from unauthorized deletion.",
@@ -1377,6 +1427,7 @@
    :rdfs/label "CCI-000164"})
 
 (def CCI-000185_v2022-04-05
+  "The information system, for PKI-based authentication, validates certifications by constructing and verifying a certification path to an accepted trust anchor including checking certificate status information."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for PKI-based authentication, validates certifications by constructing and verifying a certification path to an accepted trust anchor including checking certificate status information.",
@@ -1388,6 +1439,7 @@
    :rdfs/label "CCI-000185"})
 
 (def CCI-000186_v2022-04-05
+  "The information system, for PKI-based authentication, enforces authorized access to the corresponding private key."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for PKI-based authentication, enforces authorized access to the corresponding private key.",
@@ -1399,6 +1451,7 @@
    :rdfs/label "CCI-000186"})
 
 (def CCI-000187_v2022-04-05
+  "The information system, for PKI-based authentication, maps the authenticated identity to the account of the individual or group."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for PKI-based authentication, maps the authenticated identity to the account of the individual or group.",
@@ -1410,6 +1463,7 @@
    :rdfs/label "CCI-000187"})
 
 (def CCI-000192_v2022-04-05
+  "The information system enforces password complexity by the minimum number of upper case characters used."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces password complexity by the minimum number of upper case characters used.",
@@ -1421,6 +1475,7 @@
    :rdfs/label "CCI-000192"})
 
 (def CCI-000193_v2022-04-05
+  "The information system enforces password complexity by the minimum number of lower case characters used."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces password complexity by the minimum number of lower case characters used.",
@@ -1432,6 +1487,7 @@
    :rdfs/label "CCI-000193"})
 
 (def CCI-000194_v2022-04-05
+  "The information system enforces password complexity by the minimum number of numeric characters used."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces password complexity by the minimum number of numeric characters used.",
@@ -1443,6 +1499,7 @@
    :rdfs/label "CCI-000194"})
 
 (def CCI-000195_v2022-04-05
+  "The information system, for password-based authentication, when new passwords are created, enforces that at least an organization-defined number of characters are changed."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for password-based authentication, when new passwords are created, enforces that at least an organization-defined number of characters are changed.",
@@ -1454,6 +1511,7 @@
    :rdfs/label "CCI-000195"})
 
 (def CCI-000196_v2022-04-05
+  "The information system, for password-based authentication, stores only cryptographically-protected passwords."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for password-based authentication, stores only cryptographically-protected passwords.",
@@ -1465,6 +1523,7 @@
    :rdfs/label "CCI-000196"})
 
 (def CCI-000197_v2022-04-05
+  "The information system, for password-based authentication, transmits only cryptographically-protected passwords."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for password-based authentication, transmits only cryptographically-protected passwords.",
@@ -1476,6 +1535,7 @@
    :rdfs/label "CCI-000197"})
 
 (def CCI-000198_v2022-04-05
+  "The information system enforces minimum password lifetime restrictions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces minimum password lifetime restrictions.",
@@ -1487,6 +1547,7 @@
    :rdfs/label "CCI-000198"})
 
 (def CCI-000199_v2022-04-05
+  "The information system enforces maximum password lifetime restrictions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces maximum password lifetime restrictions.",
@@ -1498,6 +1559,7 @@
    :rdfs/label "CCI-000199"})
 
 (def CCI-000200_v2022-04-05
+  "The information system prohibits password reuse for the organization-defined number of generations."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prohibits password reuse for the organization-defined number of generations.",
@@ -1509,6 +1571,7 @@
    :rdfs/label "CCI-000200"})
 
 (def CCI-000205_v2022-04-05
+  "The information system enforces minimum password length."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces minimum password length.",
@@ -1520,6 +1583,7 @@
    :rdfs/label "CCI-000205"})
 
 (def CCI-000213_v2022-04-05
+  "The information system enforces approved authorizations for logical access to information and system resources in accordance with applicable access control policies."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/Certificate-basedAuthentication
                     :d3fend/BiometricAuthentication
@@ -1534,6 +1598,7 @@
    :rdfs/label "CCI-000213"})
 
 (def CCI-000218_v2022-04-05
+  "The information system, when transferring information between different security domains, identifies information flows by data type specification and usage."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, when transferring information between different security domains, identifies information flows by data type specification and usage.",
@@ -1546,6 +1611,7 @@
    :rdfs/label "CCI-000218"})
 
 (def CCI-000219_v2022-04-05
+  "The information system, when transferring information between different security domains, decomposes information into organization-defined policy-relevant subcomponents for submission to policy enforcement mechanisms."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, when transferring information between different security domains, decomposes information into organization-defined policy-relevant subcomponents for submission to policy enforcement mechanisms.",
@@ -1558,6 +1624,7 @@
    :rdfs/label "CCI-000219"})
 
 (def CCI-000226_v2022-04-05
+  "The information system provides the capability for a privileged administrator to configure organization-defined security policy filters to support different security policies."
   {:d3fend/broader :d3fend/ExecutionIsolation,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1569,6 +1636,7 @@
    :rdfs/label "CCI-000226"})
 
 (def CCI-000346_v2022-04-05
+  "The organization employs automated mechanisms to enforce access restrictions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs automated mechanisms to enforce access restrictions.",
@@ -1582,6 +1650,7 @@
    :rdfs/label "CCI-000346"})
 
 (def CCI-000352_v2022-04-05
+  "The information system prevents the installation of organization-defined critical software programs that are not signed with a certificate that is recognized and approved by the organization."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents the installation of organization-defined critical software programs that are not signed with a certificate that is recognized and approved by the organization.",
@@ -1594,6 +1663,7 @@
    :rdfs/label "CCI-000352"})
 
 (def CCI-000374_v2022-04-05
+  "The organization employs automated mechanisms to respond to unauthorized changes to organization-defined configuration settings."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs automated mechanisms to respond to unauthorized changes to organization-defined configuration settings.",
@@ -1605,6 +1675,7 @@
    :rdfs/label "CCI-000374"})
 
 (def CCI-000381_v2022-04-05
+  "The organization configures the information system to provide only essential capabilities."
   {:d3fend/broader :d3fend/PlatformHardening,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1616,6 +1687,7 @@
    :rdfs/label "CCI-000381"})
 
 (def CCI-000382_v2022-04-05
+  "The organization configures the information system to prohibit or restrict the use of organization-defined functions, ports, protocols, and/or services."
   {:d3fend/broader :d3fend/PlatformHardening,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1627,6 +1699,7 @@
    :rdfs/label "CCI-000382"})
 
 (def CCI-000386_v2022-04-05
+  "The organization employs automated mechanisms to prevent program execution on the information system in accordance with the organization-defined specifications."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs automated mechanisms to prevent program execution on the information system in accordance with the organization-defined specifications.",
@@ -1638,6 +1711,7 @@
    :rdfs/label "CCI-000386"})
 
 (def CCI-000417_v2022-04-05
+  "The organization disables network access by unauthorized components/devices or notifies designated organizational officials."
   {:d3fend/broader [:d3fend/NetworkIsolation :d3fend/ExecutionIsolation],
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1649,6 +1723,7 @@
    :rdfs/label "CCI-000417"})
 
 (def CCI-000663_v2022-04-05
+  "The organization (or information system) enforces explicit rules governing the installation of software by users."
   {:d3fend/broader :d3fend/ExecutionIsolation,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1660,6 +1735,7 @@
    :rdfs/label "CCI-000663"})
 
 (def CCI-000764_v2022-04-05
+  "The information system uniquely identifies and authenticates organizational users (or processes acting on behalf of organizational users)."
   {:d3fend/broader [:d3fend/Certificate-basedAuthentication
                     :d3fend/One-timePassword
                     :d3fend/BiometricAuthentication
@@ -1674,6 +1750,7 @@
    :rdfs/label "CCI-000764"})
 
 (def CCI-000765_v2022-04-05
+  "The information system implements multifactor authentication for network access to privileged accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements multifactor authentication for network access to privileged accounts.",
@@ -1685,6 +1762,7 @@
    :rdfs/label "CCI-000765"})
 
 (def CCI-000766_v2022-04-05
+  "The information system implements multifactor authentication for network access to non-privileged accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements multifactor authentication for network access to non-privileged accounts.",
@@ -1696,6 +1774,7 @@
    :rdfs/label "CCI-000766"})
 
 (def CCI-000767_v2022-04-05
+  "The information system implements multifactor authentication for local access to privileged accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements multifactor authentication for local access to privileged accounts.",
@@ -1707,6 +1786,7 @@
    :rdfs/label "CCI-000767"})
 
 (def CCI-000768_v2022-04-05
+  "The information system implements multifactor authentication for local access to non-privileged accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements multifactor authentication for local access to non-privileged accounts.",
@@ -1718,6 +1798,7 @@
    :rdfs/label "CCI-000768"})
 
 (def CCI-000771_v2022-04-05
+  "The information system uses multifactor authentication for network access to privileged accounts where one of the factors is provided by a device separate from the information system being accessed."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uses multifactor authentication for network access to privileged accounts where one of the factors is provided by a device separate from the information system being accessed.",
@@ -1729,6 +1810,7 @@
    :rdfs/label "CCI-000771"})
 
 (def CCI-000772_v2022-04-05
+  "The information system uses multifactor authentication for network access to non-privileged accounts where one of the factors is provided by a device separate from the information system being accessed."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uses multifactor authentication for network access to non-privileged accounts where one of the factors is provided by a device separate from the information system being accessed.",
@@ -1740,6 +1822,7 @@
    :rdfs/label "CCI-000772"})
 
 (def CCI-000774_v2022-04-05
+  "The information system uses organization-defined replay-resistant authentication mechanisms for network access to privileged accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uses organization-defined replay-resistant authentication mechanisms for network access to privileged accounts.",
@@ -1751,6 +1834,7 @@
    :rdfs/label "CCI-000774"})
 
 (def CCI-000776_v2022-04-05
+  "The information system uses organization-defined replay-resistant authentication mechanisms for network access to non-privileged accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uses organization-defined replay-resistant authentication mechanisms for network access to non-privileged accounts.",
@@ -1762,6 +1846,7 @@
    :rdfs/label "CCI-000776"})
 
 (def CCI-000804_v2022-04-05
+  "The information system uniquely identifies and authenticates non-organizational users (or processes acting on behalf of non-organizational users)."
   {:d3fend/broader [:d3fend/Multi-factorAuthentication
                     :d3fend/BiometricAuthentication
                     :d3fend/Certificate-basedAuthentication
@@ -1776,6 +1861,7 @@
    :rdfs/label "CCI-000804"})
 
 (def CCI-000831_v2022-04-05
+  "The organization implements a configurable capability to automatically disable the information system if organization-defined security violations are detected."
   {:d3fend/broader [:d3fend/ProcessEviction :d3fend/CredentialEviction],
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1787,6 +1873,7 @@
    :rdfs/label "CCI-000831"})
 
 (def CCI-000877_v2022-04-05
+  "The organization employs strong authenticators in the establishment of nonlocal maintenance and diagnostic sessions."
   {:d3fend/broader [:d3fend/BiometricAuthentication
                     :d3fend/Certificate-basedAuthentication
                     :d3fend/Multi-factorAuthentication],
@@ -1800,6 +1887,7 @@
    :rdfs/label "CCI-000877"})
 
 (def CCI-000880_v2022-04-05
+  "The organization audits non-local maintenance and diagnostic sessions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization audits non-local maintenance and diagnostic sessions.",
@@ -1811,6 +1899,7 @@
    :rdfs/label "CCI-000880"})
 
 (def CCI-000884_v2022-04-05
+  "The organization protects nonlocal maintenance sessions by employing organization-defined authenticators that are replay resistant."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization protects nonlocal maintenance sessions by employing organization-defined authenticators that are replay resistant.",
@@ -1822,6 +1911,7 @@
    :rdfs/label "CCI-000884"})
 
 (def CCI-000888_v2022-04-05
+  "The organization employs cryptographic mechanisms to protect the integrity and confidentiality of non-local maintenance and diagnostic communications."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs cryptographic mechanisms to protect the integrity and confidentiality of non-local maintenance and diagnostic communications.",
@@ -1833,6 +1923,7 @@
    :rdfs/label "CCI-000888"})
 
 (def CCI-001009_v2022-04-05
+  "The information system uses cryptographic mechanisms to protect and restrict access to information on portable digital media."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uses cryptographic mechanisms to protect and restrict access to information on portable digital media.",
@@ -1844,6 +1935,7 @@
    :rdfs/label "CCI-001009"})
 
 (def CCI-001019_v2022-04-05
+  "The organization employs cryptographic mechanisms to protect information in storage."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs cryptographic mechanisms to protect information in storage.",
@@ -1855,6 +1947,7 @@
    :rdfs/label "CCI-001019"})
 
 (def CCI-001067_v2022-04-05
+  "The information system implements privileged access authorization to organization-identified information system components for selected organization-defined vulnerability scanning activities."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements privileged access authorization to organization-identified information system components for selected organization-defined vulnerability scanning activities.",
@@ -1866,6 +1959,7 @@
    :rdfs/label "CCI-001067"})
 
 (def CCI-001069_v2022-04-05
+  "The organization employs automated mechanisms to detect the presence of unauthorized software on organizational information systems and notify designated organizational officials in accordance with the organization-defined frequency."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs automated mechanisms to detect the presence of unauthorized software on organizational information systems and notify designated organizational officials in accordance with the organization-defined frequency.",
@@ -1878,6 +1972,7 @@
    :rdfs/label "CCI-001069"})
 
 (def CCI-001082_v2022-04-05
+  "The information system separates user functionality (including user interface services) from information system management functionality."
   {:d3fend/broader [:d3fend/SystemConfigurationPermissions
                     :d3fend/LocalFilePermissions
                     :d3fend/MandatoryAccessControl],
@@ -1891,6 +1986,7 @@
    :rdfs/label "CCI-001082"})
 
 (def CCI-001083_v2022-04-05
+  "The information system prevents the presentation of information system management-related functionality at an interface for non-privileged users."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents the presentation of information system management-related functionality at an interface for non-privileged users.",
@@ -1904,6 +2000,7 @@
    :rdfs/label "CCI-001083"})
 
 (def CCI-001084_v2022-04-05
+  "The information system isolates security functions from nonsecurity functions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system isolates security functions from nonsecurity functions.",
@@ -1915,6 +2012,7 @@
    :rdfs/label "CCI-001084"})
 
 (def CCI-001085_v2022-04-05
+  "The information system utilizes underlying hardware separation mechanisms to implement security function isolation."
   {:d3fend/broader :d3fend/Hardware-basedProcessIsolation,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -1926,6 +2024,7 @@
    :rdfs/label "CCI-001085"})
 
 (def CCI-001086_v2022-04-05
+  "The information system isolates security functions enforcing access and information flow control from both nonsecurity functions and from other security functions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system isolates security functions enforcing access and information flow control from both nonsecurity functions and from other security functions.",
@@ -1937,6 +2036,7 @@
    :rdfs/label "CCI-001086"})
 
 (def CCI-001087_v2022-04-05
+  "The organization implements an information system isolation boundary to minimize the number of nonsecurity functions included within the boundary containing security functions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization implements an information system isolation boundary to minimize the number of nonsecurity functions included within the boundary containing security functions.",
@@ -1948,6 +2048,7 @@
    :rdfs/label "CCI-001087"})
 
 (def CCI-001089_v2022-04-05
+  "The organization implements security functions as a layered structure minimizing interactions between layers of the design and avoiding any dependence by lower layers on the functionality or correctness of higher layers."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization implements security functions as a layered structure minimizing interactions between layers of the design and avoiding any dependence by lower layers on the functionality or correctness of higher layers.",
@@ -1959,6 +2060,7 @@
    :rdfs/label "CCI-001089"})
 
 (def CCI-001090_v2022-04-05
+  "The information system prevents unauthorized and unintended information transfer via shared system resources."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents unauthorized and unintended information transfer via shared system resources.",
@@ -1970,6 +2072,7 @@
    :rdfs/label "CCI-001090"})
 
 (def CCI-001092_v2022-04-05
+  "The information system protects against or limits the effects of the organization-defined or referenced types of denial of service attacks."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects against or limits the effects of the organization-defined or referenced types of denial of service attacks.",
@@ -1982,6 +2085,7 @@
    :rdfs/label "CCI-001092"})
 
 (def CCI-001094_v2022-04-05
+  "The information system restricts the ability of individuals to launch organization-defined denial of service attacks against other information systems."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system restricts the ability of individuals to launch organization-defined denial of service attacks against other information systems.",
@@ -1994,6 +2098,7 @@
    :rdfs/label "CCI-001094"})
 
 (def CCI-001096_v2022-04-05
+  "The information system limits the use of resources by priority."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system limits the use of resources by priority.",
@@ -2006,6 +2111,7 @@
    :rdfs/label "CCI-001096"})
 
 (def CCI-001100_v2022-04-05
+  "The information system prevents public access into the organization's internal networks except as appropriately mediated by managed interfaces employing boundary protection devices."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents public access into the organization's internal networks except as appropriately mediated by managed interfaces employing boundary protection devices.",
@@ -2017,6 +2123,7 @@
    :rdfs/label "CCI-001100"})
 
 (def CCI-001109_v2022-04-05
+  "The information system at managed interfaces denies network communications traffic by default and allows network communications traffic by exception (i.e., deny all, permit by exception)."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system at managed interfaces denies network communications traffic by default and allows network communications traffic by exception (i.e., deny all, permit by exception).",
@@ -2029,6 +2136,7 @@
    :rdfs/label "CCI-001109"})
 
 (def CCI-001111_v2022-04-05
+  "The information system prevents remote devices that have established a non-remote connection with the system from communicating outside of that communications path with resources in external networks."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents remote devices that have established a non-remote connection with the system from communicating outside of that communications path with resources in external networks.",
@@ -2041,6 +2149,7 @@
    :rdfs/label "CCI-001111"})
 
 (def CCI-001115_v2022-04-05
+  "The information system, at managed interfaces, denies network traffic and audits internal users (or malicious code) posing a threat to external information systems."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, at managed interfaces, denies network traffic and audits internal users (or malicious code) posing a threat to external information systems.",
@@ -2053,6 +2162,7 @@
    :rdfs/label "CCI-001115"})
 
 (def CCI-001117_v2022-04-05
+  "The information system checks incoming communications to ensure the communications are coming from an authorized source and routed to an authorized destination."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system checks incoming communications to ensure the communications are coming from an authorized source and routed to an authorized destination.",
@@ -2065,6 +2175,7 @@
    :rdfs/label "CCI-001117"})
 
 (def CCI-001118_v2022-04-05
+  "The information system implements host-based boundary protection mechanisms for servers, workstations, and mobile devices."
   {:d3fend/broader :d3fend/NetworkIsolation,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -2076,6 +2187,7 @@
    :rdfs/label "CCI-001118"})
 
 (def CCI-001124_v2022-04-05
+  "The information system prevents discovery of specific system components composing a managed interface."
   {:d3fend/broader :d3fend/BroadcastDomainIsolation,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -2087,6 +2199,7 @@
    :rdfs/label "CCI-001124"})
 
 (def CCI-001125_v2022-04-05
+  "The information system enforces adherence to protocol format."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces adherence to protocol format.",
@@ -2099,6 +2212,7 @@
    :rdfs/label "CCI-001125"})
 
 (def CCI-001127_v2022-04-05
+  "The information system protects the integrity of transmitted information."
   {:d3fend/broader :d3fend/EncryptedTunnels,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -2110,6 +2224,7 @@
    :rdfs/label "CCI-001127"})
 
 (def CCI-001128_v2022-04-05
+  "The organization employs cryptographic mechanisms to recognize changes to information during transmission unless otherwise protected by alternative physical measures."
   {:d3fend/broader :d3fend/EncryptedTunnels,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -2121,6 +2236,7 @@
    :rdfs/label "CCI-001128"})
 
 (def CCI-001133_v2022-04-05
+  "The information system terminates the network connection associated with a communications session at the end of the session or after an organization-defined time period of inactivity."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system terminates the network connection associated with a communications session at the end of the session or after an organization-defined time period of inactivity.",
@@ -2132,6 +2248,7 @@
    :rdfs/label "CCI-001133"})
 
 (def CCI-001144_v2022-04-05
+  "The information system implements required cryptographic protections using cryptographic modules that comply with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements required cryptographic protections using cryptographic modules that comply with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.",
@@ -2143,6 +2260,7 @@
    :rdfs/label "CCI-001144"})
 
 (def CCI-001145_v2022-04-05
+  "The organization employs, at a minimum, FIPS-validated cryptography to protect unclassified information."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs, at a minimum, FIPS-validated cryptography to protect unclassified information.",
@@ -2154,6 +2272,7 @@
    :rdfs/label "CCI-001145"})
 
 (def CCI-001146_v2022-04-05
+  "The organization employs NSA-approved cryptography to protect classified information."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs NSA-approved cryptography to protect classified information.",
@@ -2165,6 +2284,7 @@
    :rdfs/label "CCI-001146"})
 
 (def CCI-001147_v2022-04-05
+  "The organization employs, at a minimum, FIPS-validated cryptography to protect information when such information must be separated from individuals who have the necessary clearances yet lack the necessary access approvals."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs, at a minimum, FIPS-validated cryptography to protect information when such information must be separated from individuals who have the necessary clearances yet lack the necessary access approvals.",
@@ -2176,6 +2296,7 @@
    :rdfs/label "CCI-001147"})
 
 (def CCI-001150_v2022-04-05
+  "The information system prohibits remote activation of collaborative computing devices, excluding the organization-defined exceptions where remote activation is to be allowed."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prohibits remote activation of collaborative computing devices, excluding the organization-defined exceptions where remote activation is to be allowed.",
@@ -2187,6 +2308,7 @@
    :rdfs/label "CCI-001150"})
 
 (def CCI-001166_v2022-04-05
+  "The information system identifies organization-defined unacceptable mobile code."
   {:d3fend/broader [:d3fend/FileContentRules
                     :d3fend/DynamicAnalysis
                     :d3fend/EmulatedFileAnalysis],
@@ -2200,6 +2322,7 @@
    :rdfs/label "CCI-001166"})
 
 (def CCI-001169_v2022-04-05
+  "The information system prevents the download of organization-defined unacceptable mobile code."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents the download of organization-defined unacceptable mobile code.",
@@ -2211,6 +2334,7 @@
    :rdfs/label "CCI-001169"})
 
 (def CCI-001170_v2022-04-05
+  "The information system prevents the automatic execution of mobile code in organization-defined software applications."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents the automatic execution of mobile code in organization-defined software applications.",
@@ -2222,6 +2346,7 @@
    :rdfs/label "CCI-001170"})
 
 (def CCI-001178_v2022-04-05
+  "The information system provides additional data origin authentication artifacts along with the authoritative name resolution data the system returns in response to external name/address resolution queries."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides additional data origin authentication artifacts along with the authoritative name resolution data the system returns in response to external name/address resolution queries.",
@@ -2233,6 +2358,7 @@
    :rdfs/label "CCI-001178"})
 
 (def CCI-001185_v2022-04-05
+  "The information system invalidates session identifiers upon user logout or other session termination."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system invalidates session identifiers upon user logout or other session termination.",
@@ -2244,6 +2370,7 @@
    :rdfs/label "CCI-001185"})
 
 (def CCI-001199_v2022-04-05
+  "The information system protects the confidentiality and/or integrity of organization-defined information at rest."
   {:d3fend/broader [:d3fend/FileHashing
                     :d3fend/FileEncryption
                     :d3fend/LocalFilePermissions
@@ -2259,6 +2386,7 @@
    :rdfs/label "CCI-001199"})
 
 (def CCI-001200_v2022-04-05
+  "The organization employs cryptographic mechanisms to prevent unauthorized disclosure of information at rest unless otherwise protected by alternative physical measures."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs cryptographic mechanisms to prevent unauthorized disclosure of information at rest unless otherwise protected by alternative physical measures.",
@@ -2270,6 +2398,7 @@
    :rdfs/label "CCI-001200"})
 
 (def CCI-001210_v2022-04-05
+  "The information system, at organization-defined information system components, loads and executes the operating environment from hardware-enforced, read-only media."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, at organization-defined information system components, loads and executes the operating environment from hardware-enforced, read-only media.",
@@ -2281,6 +2410,7 @@
    :rdfs/label "CCI-001210"})
 
 (def CCI-001211_v2022-04-05
+  "The information system, at organization-defined information system components, loads and executes organization-defined applications from hardware-enforced, read-only media."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, at organization-defined information system components, loads and executes organization-defined applications from hardware-enforced, read-only media.",
@@ -2292,6 +2422,7 @@
    :rdfs/label "CCI-001211"})
 
 (def CCI-001233_v2022-04-05
+  "The organization employs automated mechanisms on an organization-defined frequency to determine the state of information system components with regard to flaw remediation."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs automated mechanisms on an organization-defined frequency to determine the state of information system components with regard to flaw remediation.",
@@ -2303,6 +2434,7 @@
    :rdfs/label "CCI-001233"})
 
 (def CCI-001237_v2022-04-05
+  "The organization employs automated patch management tools to facilitate flaw remediation to organization-defined information system components."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs automated patch management tools to facilitate flaw remediation to organization-defined information system components.",
@@ -2314,6 +2446,7 @@
    :rdfs/label "CCI-001237"})
 
 (def CCI-001239_v2022-04-05
+  "The organization employs malicious code protection mechanisms at information system entry and exit points to detect and eradicate malicious code transported by electronic mail, electronic mail attachments, web accesses, removable media, or other common means or inserted through the exploitation of information system vulnerabilities."
   {:d3fend/broader [:d3fend/PlatformMonitoring
                     :d3fend/NetworkTrafficAnalysis
                     :d3fend/ProcessAnalysis
@@ -2328,6 +2461,7 @@
    :rdfs/label "CCI-001239"})
 
 (def CCI-001242_v2022-04-05
+  "The organization configures malicious code protection mechanisms to perform real-time scans of files from external sources at endpoints as the files are downloaded, opened, or executed in accordance with organizational security policy."
   {:d3fend/broader [:d3fend/EmulatedFileAnalysis
                     :d3fend/FileContentRules
                     :d3fend/DynamicAnalysis],
@@ -2341,6 +2475,7 @@
    :rdfs/label "CCI-001242"})
 
 (def CCI-001262_v2022-04-05
+  "The information system monitors inbound and outbound communications for unusual or unauthorized activities or conditions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system monitors inbound and outbound communications for unusual or unauthorized activities or conditions.",
@@ -2353,6 +2488,7 @@
    :rdfs/label "CCI-001262"})
 
 (def CCI-001297_v2022-04-05
+  "The information system detects unauthorized changes to software and information."
   {:d3fend/broader [:d3fend/TPMBootIntegrity
                     :d3fend/DriverLoadIntegrityChecking
                     :d3fend/FileHashing
@@ -2367,6 +2503,7 @@
    :rdfs/label "CCI-001297"})
 
 (def CCI-001305_v2022-04-05
+  "The organization employs spam protection mechanisms at information system entry and exit points to detect and take action on unsolicited messages transported by electronic mail, electronic mail attachments, web accesses, removable media, or other common means."
   {:d3fend/broader [:d3fend/SenderMTAReputationAnalysis
                     :d3fend/MessageAuthentication
                     :d3fend/TransferAgentAuthentication
@@ -2381,6 +2518,7 @@
    :rdfs/label "CCI-001305"})
 
 (def CCI-001310_v2022-04-05
+  "The information system checks the validity of organization-defined inputs."
   {:d3fend/broader :d3fend/DatabaseQueryStringAnalysis,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -2392,6 +2530,7 @@
    :rdfs/label "CCI-001310"})
 
 (def CCI-001350_v2022-04-05
+  "The information system implements cryptographic mechanisms to protect the integrity of audit information."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to protect the integrity of audit information.",
@@ -2403,6 +2542,7 @@
    :rdfs/label "CCI-001350"})
 
 (def CCI-001352_v2022-04-05
+  "The organization protects the audit records of non-local accesses to privileged accounts and the execution of privileged functions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization protects the audit records of non-local accesses to privileged accounts and the execution of privileged functions.",
@@ -2414,6 +2554,7 @@
    :rdfs/label "CCI-001352"})
 
 (def CCI-001356_v2022-04-05
+  "The organization monitors for atypical usage of information system accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization monitors for atypical usage of information system accounts.",
@@ -2426,6 +2567,7 @@
    :rdfs/label "CCI-001356"})
 
 (def CCI-001368_v2022-04-05
+  "The information system enforces approved authorizations for controlling the flow of information within the system based on organization-defined information flow control policies."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces approved authorizations for controlling the flow of information within the system based on organization-defined information flow control policies.",
@@ -2438,6 +2580,7 @@
    :rdfs/label "CCI-001368"})
 
 (def CCI-001372_v2022-04-05
+  "The information system, when transferring information between different security domains, implements organization-defined security policy filters requiring fully enumerated formats that restrict data structure and content."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, when transferring information between different security domains, implements organization-defined security policy filters requiring fully enumerated formats that restrict data structure and content.",
@@ -2450,6 +2593,7 @@
    :rdfs/label "CCI-001372"})
 
 (def CCI-001373_v2022-04-05
+  "The information system, when transferring information between different security domains, examines the information for the presence of organization-defined unsanctioned information."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, when transferring information between different security domains, examines the information for the presence of organization-defined unsanctioned information.",
@@ -2462,6 +2606,7 @@
    :rdfs/label "CCI-001373"})
 
 (def CCI-001374_v2022-04-05
+  "The information system, when transferring information between different security domains, prohibits the transfer of organization-defined unsanctioned information in accordance with the organization-defined security policy."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, when transferring information between different security domains, prohibits the transfer of organization-defined unsanctioned information in accordance with the organization-defined security policy.",
@@ -2474,6 +2619,7 @@
    :rdfs/label "CCI-001374"})
 
 (def CCI-001376_v2022-04-05
+  "The information system uniquely identifies source domains for information transfer."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uniquely identifies source domains for information transfer.",
@@ -2485,6 +2631,7 @@
    :rdfs/label "CCI-001376"})
 
 (def CCI-001377_v2022-04-05
+  "The information system uniquely authenticates source domains for information transfer."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uniquely authenticates source domains for information transfer.",
@@ -2496,6 +2643,7 @@
    :rdfs/label "CCI-001377"})
 
 (def CCI-001399_v2022-04-05
+  "The information system supports and maintains the binding of organization-defined security attributes to information in storage."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2508,6 +2656,7 @@
    :rdfs/label "CCI-001399"})
 
 (def CCI-001400_v2022-04-05
+  "The information system supports and maintains the binding of organization-defined security attributes to information in process."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2520,6 +2669,7 @@
    :rdfs/label "CCI-001400"})
 
 (def CCI-001401_v2022-04-05
+  "The information system supports and maintains the binding of organization-defined security attributes to information in transmission."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2532,6 +2682,7 @@
    :rdfs/label "CCI-001401"})
 
 (def CCI-001403_v2022-04-05
+  "The information system automatically audits account modification actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically audits account modification actions.",
@@ -2543,6 +2694,7 @@
    :rdfs/label "CCI-001403"})
 
 (def CCI-001404_v2022-04-05
+  "The information system automatically audits account disabling actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically audits account disabling actions.",
@@ -2554,6 +2706,7 @@
    :rdfs/label "CCI-001404"})
 
 (def CCI-001405_v2022-04-05
+  "The information system automatically audits account removal actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically audits account removal actions.",
@@ -2565,6 +2718,7 @@
    :rdfs/label "CCI-001405"})
 
 (def CCI-001414_v2022-04-05
+  "The information system enforces approved authorizations for controlling the flow of information between interconnected systems based on organization-defined information flow control policies."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces approved authorizations for controlling the flow of information between interconnected systems based on organization-defined information flow control policies.",
@@ -2577,6 +2731,7 @@
    :rdfs/label "CCI-001414"})
 
 (def CCI-001424_v2022-04-05
+  "The information system dynamically associates security attributes with organization-defined subjects in accordance with organization-defined security policies as information is created and combined."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2589,6 +2744,7 @@
    :rdfs/label "CCI-001424"})
 
 (def CCI-001425_v2022-04-05
+  "The information system provides authorized individuals (or processes acting on behalf of individuals) the capability to change the value of associated security attributes."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2601,6 +2757,7 @@
    :rdfs/label "CCI-001425"})
 
 (def CCI-001426_v2022-04-05
+  "The information system maintains the binding of security attributes to information with sufficient assurance that the information--attribute association can be used as the basis for automated policy actions."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2613,6 +2770,7 @@
    :rdfs/label "CCI-001426"})
 
 (def CCI-001427_v2022-04-05
+  "The information system allows authorized users to associate security attributes with information."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2625,6 +2783,7 @@
    :rdfs/label "CCI-001427"})
 
 (def CCI-001428_v2022-04-05
+  "The information system displays security attributes in human-readable form on each object that the system transmits to output devices to identify organization-identified special dissemination, handling, or distribution instructions using organization-identified human-readable, standard naming conventions."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2637,6 +2796,7 @@
    :rdfs/label "CCI-001428"})
 
 (def CCI-001436_v2022-04-05
+  "The organization disables organization-defined networking protocols within the information system deemed to be nonsecure except for explicitly identified components in support of specific operational requirements."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization disables organization-defined networking protocols within the information system deemed to be nonsecure except for explicitly identified components in support of specific operational requirements.",
@@ -2649,6 +2809,7 @@
    :rdfs/label "CCI-001436"})
 
 (def CCI-001452_v2022-04-05
+  "The information system enforces the organization-defined time period during which the limit of consecutive invalid access attempts by a user is counted."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces the organization-defined time period during which the limit of consecutive invalid access attempts by a user is counted.",
@@ -2660,6 +2821,7 @@
    :rdfs/label "CCI-001452"})
 
 (def CCI-001453_v2022-04-05
+  "The information system implements cryptographic mechanisms to protect the integrity of remote access sessions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to protect the integrity of remote access sessions.",
@@ -2671,6 +2833,7 @@
    :rdfs/label "CCI-001453"})
 
 (def CCI-001454_v2022-04-05
+  "The organization ensures that remote sessions for accessing an organization-defined list of security functions and security-relevant information are audited."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization ensures that remote sessions for accessing an organization-defined list of security functions and security-relevant information are audited.",
@@ -2682,6 +2845,7 @@
    :rdfs/label "CCI-001454"})
 
 (def CCI-001493_v2022-04-05
+  "The information system protects audit tools from unauthorized access."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects audit tools from unauthorized access.",
@@ -2693,6 +2857,7 @@
    :rdfs/label "CCI-001493"})
 
 (def CCI-001494_v2022-04-05
+  "The information system protects audit tools from unauthorized modification."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects audit tools from unauthorized modification.",
@@ -2705,6 +2870,7 @@
    :rdfs/label "CCI-001494"})
 
 (def CCI-001495_v2022-04-05
+  "The information system protects audit tools from unauthorized deletion."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects audit tools from unauthorized deletion.",
@@ -2716,6 +2882,7 @@
    :rdfs/label "CCI-001495"})
 
 (def CCI-001496_v2022-04-05
+  "The information system implements cryptographic mechanisms to protect the integrity of audit tools."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to protect the integrity of audit tools.",
@@ -2727,6 +2894,7 @@
    :rdfs/label "CCI-001496"})
 
 (def CCI-001499_v2022-04-05
+  "The organization limits privileges to change software resident within software libraries."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization limits privileges to change software resident within software libraries.",
@@ -2739,6 +2907,7 @@
    :rdfs/label "CCI-001499"})
 
 (def CCI-001555_v2022-04-05
+  "The information system uniquely identifies destination domains for information transfer."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uniquely identifies destination domains for information transfer.",
@@ -2750,6 +2919,7 @@
    :rdfs/label "CCI-001555"})
 
 (def CCI-001556_v2022-04-05
+  "The information system uniquely authenticates destination domains for information transfer."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uniquely authenticates destination domains for information transfer.",
@@ -2761,6 +2931,7 @@
    :rdfs/label "CCI-001556"})
 
 (def CCI-001557_v2022-04-05
+  "The information system tracks problems associated with the information transfer."
   {:d3fend/broader :d3fend/NetworkTrafficAnalysis,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -2772,6 +2943,7 @@
    :rdfs/label "CCI-001557"})
 
 (def CCI-001574_v2022-04-05
+  "The information system rejects or delays, as defined by the organization, network traffic which exceed the organization-defined thresholds."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system rejects or delays, as defined by the organization, network traffic which exceed the organization-defined thresholds.",
@@ -2784,6 +2956,7 @@
    :rdfs/label "CCI-001574"})
 
 (def CCI-001589_v2022-04-05
+  "The organization incorporates detection of unauthorized, security-relevant configuration changes into the organization‚Äôs incident response capability to ensure they are tracked."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization incorporates detection of unauthorized, security-relevant configuration changes into the organization‚Äôs incident response capability to ensure they are tracked.",
@@ -2795,6 +2968,7 @@
    :rdfs/label "CCI-001589"})
 
 (def CCI-001619_v2022-04-05
+  "The information system enforces password complexity by the minimum number of special characters used."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces password complexity by the minimum number of special characters used.",
@@ -2806,6 +2980,7 @@
    :rdfs/label "CCI-001619"})
 
 (def CCI-001632_v2022-04-05
+  "The organization protects nonlocal maintenance sessions by separating the maintenance session from other network sessions with the information system by either physically separated communications paths or logically separated communications paths based upon encryption."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization protects nonlocal maintenance sessions by separating the maintenance session from other network sessions with the information system by either physically separated communications paths or logically separated communications paths based upon encryption.",
@@ -2817,6 +2992,7 @@
    :rdfs/label "CCI-001632"})
 
 (def CCI-001662_v2022-04-05
+  "The information system takes organization-defined corrective action when organization-defined unacceptable mobile code is identified."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system takes organization-defined corrective action when organization-defined unacceptable mobile code is identified.",
@@ -2830,6 +3006,7 @@
    :rdfs/label "CCI-001662"})
 
 (def CCI-001668_v2022-04-05
+  "The organization employs malicious code protection mechanisms at workstations, servers, or mobile computing devices on the network to detect and eradicate malicious code transported by electronic mail, electronic mail attachments, web accesses, removable media, or other common means or inserted through the exploitation of information system vulnerabilities."
   {:d3fend/broader [:d3fend/FileAnalysis
                     :d3fend/NetworkTrafficAnalysis
                     :d3fend/PlatformMonitoring
@@ -2844,6 +3021,7 @@
    :rdfs/label "CCI-001668"})
 
 (def CCI-001677_v2022-04-05
+  "The organization employs spam protection mechanisms at workstations, servers, or mobile computing devices on the network to detect and take action on unsolicited messages transported by electronic mail, electronic mail attachments, web accesses, removable media, or other common means."
   {:d3fend/broader [:d3fend/MessageAuthentication
                     :d3fend/SenderMTAReputationAnalysis
                     :d3fend/TransferAgentAuthentication
@@ -2858,6 +3036,7 @@
    :rdfs/label "CCI-001677"})
 
 (def CCI-001682_v2022-04-05
+  "The information system automatically removes or disables emergency accounts after an organization-defined time period for each type of account."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically removes or disables emergency accounts after an organization-defined time period for each type of account.",
@@ -2869,6 +3048,7 @@
    :rdfs/label "CCI-001682"})
 
 (def CCI-001683_v2022-04-05
+  "The information system notifies organization-defined personnel or roles for account creation actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system notifies organization-defined personnel or roles for account creation actions.",
@@ -2880,6 +3060,7 @@
    :rdfs/label "CCI-001683"})
 
 (def CCI-001684_v2022-04-05
+  "The information system notifies organization-defined personnel or roles for account modification actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system notifies organization-defined personnel or roles for account modification actions.",
@@ -2891,6 +3072,7 @@
    :rdfs/label "CCI-001684"})
 
 (def CCI-001685_v2022-04-05
+  "The information system notifies organization-defined personnel or roles for account disabling actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system notifies organization-defined personnel or roles for account disabling actions.",
@@ -2902,6 +3084,7 @@
    :rdfs/label "CCI-001685"})
 
 (def CCI-001686_v2022-04-05
+  "The information system notifies organization-defined personnel or roles for account removal actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system notifies organization-defined personnel or roles for account removal actions.",
@@ -2913,6 +3096,7 @@
    :rdfs/label "CCI-001686"})
 
 (def CCI-001695_v2022-04-05
+  "The information system prevents the execution of organization-defined unacceptable mobile code."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents the execution of organization-defined unacceptable mobile code.",
@@ -2924,6 +3108,7 @@
    :rdfs/label "CCI-001695"})
 
 (def CCI-001744_v2022-04-05
+  "The information system implements organization-defined security responses automatically if baseline configurations are changed in an unauthorized manner."
   {:d3fend/broader :d3fend/OperatingSystemMonitoring,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -2935,6 +3120,7 @@
    :rdfs/label "CCI-001744"})
 
 (def CCI-001749_v2022-04-05
+  "The information system prevents the installation of organization-defined software components without verification the software component has been digitally signed using a certificate that is recognized and approved by the organization."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents the installation of organization-defined software components without verification the software component has been digitally signed using a certificate that is recognized and approved by the organization.",
@@ -2947,6 +3133,7 @@
    :rdfs/label "CCI-001749"})
 
 (def CCI-001762_v2022-04-05
+  "The organization disables organization-defined functions, ports, protocols, and services within the information system deemed to be unnecessary and/or nonsecure."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization disables organization-defined functions, ports, protocols, and services within the information system deemed to be unnecessary and/or nonsecure.",
@@ -2958,6 +3145,7 @@
    :rdfs/label "CCI-001762"})
 
 (def CCI-001764_v2022-04-05
+  "The information system prevents program execution in accordance with organization-defined policies regarding software program usage and restrictions, and/or rules authorizing the terms and conditions of software program usage."
   {:d3fend/broader [:d3fend/ExecutableDenylisting
                     :d3fend/ExecutableAllowlisting],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -2970,6 +3158,7 @@
    :rdfs/label "CCI-001764"})
 
 (def CCI-001767_v2022-04-05
+  "The organization employs an allow-all, deny-by-exception policy to prohibit the execution of unauthorized software programs on the information system."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs an allow-all, deny-by-exception policy to prohibit the execution of unauthorized software programs on the information system.",
@@ -2981,6 +3170,7 @@
    :rdfs/label "CCI-001767"})
 
 (def CCI-001774_v2022-04-05
+  "The organization employs a deny-all, permit-by-exception policy to allow the execution of authorized software programs on the information system."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization employs a deny-all, permit-by-exception policy to allow the execution of authorized software programs on the information system.",
@@ -2992,6 +3182,7 @@
    :rdfs/label "CCI-001774"})
 
 (def CCI-001811_v2022-04-05
+  "The information system alerts organization-defined personnel or roles when the unauthorized installation of software is detected."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system alerts organization-defined personnel or roles when the unauthorized installation of software is detected.",
@@ -3003,6 +3194,7 @@
    :rdfs/label "CCI-001811"})
 
 (def CCI-001812_v2022-04-05
+  "The information system prohibits user installation of software without explicit privileged status."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prohibits user installation of software without explicit privileged status.",
@@ -3015,6 +3207,7 @@
    :rdfs/label "CCI-001812"})
 
 (def CCI-001813_v2022-04-05
+  "The information system enforces access restrictions."
   {:d3fend/broader     [:d3fend/UserAccountPermissions
                         :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3026,6 +3219,7 @@
    :rdfs/label         "CCI-001813"})
 
 (def CCI-001855_v2022-04-05
+  "The information system provides a warning to organization-defined personnel, roles, and/or locations within an organization-defined time period when allocated audit record storage volume reaches an organization-defined percentage of repository maximum audit record storage capacity."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides a warning to organization-defined personnel, roles, and/or locations within an organization-defined time period when allocated audit record storage volume reaches an organization-defined percentage of repository maximum audit record storage capacity.",
@@ -3037,6 +3231,7 @@
    :rdfs/label "CCI-001855"})
 
 (def CCI-001858_v2022-04-05
+  "The information system provides a real-time alert in an organization-defined real-time period to organization-defined personnel, roles, and/or locations when organization-defined audit failure events requiring real-time alerts occur."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides a real-time alert in an organization-defined real-time period to organization-defined personnel, roles, and/or locations when organization-defined audit failure events requiring real-time alerts occur.",
@@ -3048,6 +3243,7 @@
    :rdfs/label "CCI-001858"})
 
 (def CCI-001936_v2022-04-05
+  "The information system implements multifactor authentication for network access to privileged accounts such that one of the factors is provided by a device separate from the system gaining access."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements multifactor authentication for network access to privileged accounts such that one of the factors is provided by a device separate from the system gaining access.",
@@ -3059,6 +3255,7 @@
    :rdfs/label "CCI-001936"})
 
 (def CCI-001937_v2022-04-05
+  "The device used in the information system implementation of multifactor authentication for network access to privileged accounts meets organization-defined strength of mechanism requirements."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The device used in the information system implementation of multifactor authentication for network access to privileged accounts meets organization-defined strength of mechanism requirements.",
@@ -3070,6 +3267,7 @@
    :rdfs/label "CCI-001937"})
 
 (def CCI-001941_v2022-04-05
+  "The information system implements replay-resistant authentication mechanisms for network access to privileged accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements replay-resistant authentication mechanisms for network access to privileged accounts.",
@@ -3081,6 +3279,7 @@
    :rdfs/label "CCI-001941"})
 
 (def CCI-001953_v2022-04-05
+  "The information system accepts Personal Identity Verification (PIV) credentials."
   {:d3fend/broader [:d3fend/Certificate-basedAuthentication
                     :d3fend/BiometricAuthentication],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3093,6 +3292,7 @@
    :rdfs/label "CCI-001953"})
 
 (def CCI-001954_v2022-04-05
+  "The information system electronically verifies Personal Identity Verification (PIV) credentials."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system electronically verifies Personal Identity Verification (PIV) credentials.",
@@ -3105,6 +3305,7 @@
    :rdfs/label "CCI-001954"})
 
 (def CCI-001957_v2022-04-05
+  "The information system implements organization-defined out-of-band authentication under organization-defined conditions."
   {:d3fend/broader :d3fend/One-timePassword,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -3116,6 +3317,7 @@
    :rdfs/label "CCI-001957"})
 
 (def CCI-001991_v2022-04-05
+  "The information system, for PKI-based authentication, implements a local cache of revocation data to support path discovery and validation in case of inability to access revocation information via the network."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for PKI-based authentication, implements a local cache of revocation data to support path discovery and validation in case of inability to access revocation information via the network.",
@@ -3127,6 +3329,7 @@
    :rdfs/label "CCI-001991"})
 
 (def CCI-002005_v2022-04-05
+  "The information system, for biometric-based authentication, employs mechanisms that satisfy organization-defined biometric quality requirements."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, for biometric-based authentication, employs mechanisms that satisfy organization-defined biometric quality requirements.",
@@ -3138,6 +3341,7 @@
    :rdfs/label "CCI-002005"})
 
 (def CCI-002009_v2022-04-05
+  "The information system accepts Personal Identity Verification (PIV) credentials from other federal agencies."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system accepts Personal Identity Verification (PIV) credentials from other federal agencies.",
@@ -3150,6 +3354,7 @@
    :rdfs/label "CCI-002009"})
 
 (def CCI-002010_v2022-04-05
+  "The information system electronically verifies Personal Identity Verification (PIV) credentials from other federal agencies."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system electronically verifies Personal Identity Verification (PIV) credentials from other federal agencies.",
@@ -3162,6 +3367,7 @@
    :rdfs/label "CCI-002010"})
 
 (def CCI-002015_v2022-04-05
+  "The information system accepts Personal Identity Verification-I (PIV-I) credentials."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system accepts Personal Identity Verification-I (PIV-I) credentials.",
@@ -3174,6 +3380,7 @@
    :rdfs/label "CCI-002015"})
 
 (def CCI-002016_v2022-04-05
+  "The information system electronically verifies Personal Identity Verification-I (PIV-I) credentials."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system electronically verifies Personal Identity Verification-I (PIV-I) credentials.",
@@ -3186,6 +3393,7 @@
    :rdfs/label "CCI-002016"})
 
 (def CCI-002041_v2022-04-05
+  "The information system allows the use of a temporary password for system logons with an immediate change to a permanent password."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system allows the use of a temporary password for system logons with an immediate change to a permanent password.",
@@ -3197,6 +3405,7 @@
    :rdfs/label "CCI-002041"})
 
 (def CCI-002145_v2022-04-05
+  "The information system enforces organization-defined circumstances and/or usage conditions for organization-defined information system accounts."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces organization-defined circumstances and/or usage conditions for organization-defined information system accounts.",
@@ -3208,6 +3417,7 @@
    :rdfs/label "CCI-002145"})
 
 (def CCI-002165_v2022-04-05
+  "The information system enforces organization-defined discretionary access control policies over defined subjects and objects."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces organization-defined discretionary access control policies over defined subjects and objects.",
@@ -3219,6 +3429,7 @@
    :rdfs/label "CCI-002165"})
 
 (def CCI-002169_v2022-04-05
+  "The information system enforces a role-based access control policy over defined subjects and objects."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces a role-based access control policy over defined subjects and objects.",
@@ -3230,6 +3441,7 @@
    :rdfs/label "CCI-002169"})
 
 (def CCI-002178_v2022-04-05
+  "The information system enforces the revocation of access authorizations resulting from changes to the security attributes of subjects based on organization-defined rules governing the timing of revocations of access authorizations."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces the revocation of access authorizations resulting from changes to the security attributes of subjects based on organization-defined rules governing the timing of revocations of access authorizations.",
@@ -3242,6 +3454,7 @@
    :rdfs/label "CCI-002178"})
 
 (def CCI-002179_v2022-04-05
+  "The information system enforces the revocation of access authorizations resulting from changes to the security attributes of objects based on organization-defined rules governing the timing of revocations of access authorizations."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces the revocation of access authorizations resulting from changes to the security attributes of objects based on organization-defined rules governing the timing of revocations of access authorizations.",
@@ -3254,6 +3467,7 @@
    :rdfs/label "CCI-002179"})
 
 (def CCI-002201_v2022-04-05
+  "The information system, when transferring information between different security domains, uses organization-defined data type identifiers to validate data essential for information flow decisions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, when transferring information between different security domains, uses organization-defined data type identifiers to validate data essential for information flow decisions.",
@@ -3265,6 +3479,7 @@
    :rdfs/label "CCI-002201"})
 
 (def CCI-002205_v2022-04-05
+  "The information system uniquely identifies and authenticates source by organization, system, application, and/or individual for information transfer."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uniquely identifies and authenticates source by organization, system, application, and/or individual for information transfer.",
@@ -3276,6 +3491,7 @@
    :rdfs/label "CCI-002205"})
 
 (def CCI-002207_v2022-04-05
+  "The information system uniquely identifies and authenticates destination by organization, system, application, and/or individual for information transfer."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system uniquely identifies and authenticates destination by organization, system, application, and/or individual for information transfer.",
@@ -3287,6 +3503,7 @@
    :rdfs/label "CCI-002207"})
 
 (def CCI-002211_v2022-04-05
+  "The information system, when transferring information between different security domains, applies the same security policy filtering to metadata as it applies to data payloads."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, when transferring information between different security domains, applies the same security policy filtering to metadata as it applies to data payloads.",
@@ -3299,6 +3516,7 @@
    :rdfs/label "CCI-002211"})
 
 (def CCI-002218_v2022-04-05
+  "The information system provides access from a single device to computing platforms, applications, or data residing on multiple different security domains, while preventing any information flow between the different security domains."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides access from a single device to computing platforms, applications, or data residing on multiple different security domains, while preventing any information flow between the different security domains.",
@@ -3310,6 +3528,7 @@
    :rdfs/label "CCI-002218"})
 
 (def CCI-002233_v2022-04-05
+  "The information system prevents organization-defined software from executing at higher privilege levels than users executing the software."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents organization-defined software from executing at higher privilege levels than users executing the software.",
@@ -3321,6 +3540,7 @@
    :rdfs/label "CCI-002233"})
 
 (def CCI-002235_v2022-04-05
+  "The information system prevents non-privileged users from executing privileged functions to include disabling, circumventing, or altering implemented security safeguards/countermeasures."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents non-privileged users from executing privileged functions to include disabling, circumventing, or altering implemented security safeguards/countermeasures.",
@@ -3333,6 +3553,7 @@
    :rdfs/label "CCI-002235"})
 
 (def CCI-002238_v2022-04-05
+  "The information system automatically locks the account or node for either an organization-defined time period, until the locked account or node is released by an administrator, or delays the next logon prompt according to the organization-defined delay algorithm when the maximum number of unsuccessful logon attempts is exceeded."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically locks the account or node for either an organization-defined time period, until the locked account or node is released by an administrator, or delays the next logon prompt according to the organization-defined delay algorithm when the maximum number of unsuccessful logon attempts is exceeded.",
@@ -3344,6 +3565,7 @@
    :rdfs/label "CCI-002238"})
 
 (def CCI-002262_v2022-04-05
+  "The organization provides the means to associate organization-defined types of security attributes having organization-defined security attribute values with information in storage."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3356,6 +3578,7 @@
    :rdfs/label "CCI-002262"})
 
 (def CCI-002263_v2022-04-05
+  "The organization provides the means to associate organization-defined types of security attributes having organization-defined security attribute values with information in process."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3368,6 +3591,7 @@
    :rdfs/label "CCI-002263"})
 
 (def CCI-002264_v2022-04-05
+  "The organization provides the means to associate organization-defined types of security attributes having organization-defined security attribute values with information in transmission."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3380,6 +3604,7 @@
    :rdfs/label "CCI-002264"})
 
 (def CCI-002272_v2022-04-05
+  "The information system dynamically associates security attributes with organization-defined objects in accordance with organization-defined security policies as information is created and combined."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3392,6 +3617,7 @@
    :rdfs/label "CCI-002272"})
 
 (def CCI-002277_v2022-04-05
+  "The information system provides authorized individuals (or processes acting on behalf of individuals) the capability to define the value of associated security attributes."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3404,6 +3630,7 @@
    :rdfs/label "CCI-002277"})
 
 (def CCI-002281_v2022-04-05
+  "The information system maintains the association of organization-defined security attributes to organization-defined subjects."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3416,6 +3643,7 @@
    :rdfs/label "CCI-002281"})
 
 (def CCI-002282_v2022-04-05
+  "The information system maintains the association of organization-defined security attributes to organization-defined objects."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3428,6 +3656,7 @@
    :rdfs/label "CCI-002282"})
 
 (def CCI-002283_v2022-04-05
+  "The information system maintains the integrity of organization-defined security attributes associated with organization-defined subjects."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3440,6 +3669,7 @@
    :rdfs/label "CCI-002283"})
 
 (def CCI-002284_v2022-04-05
+  "The information system maintains the integrity of organization-defined security attributes associated with organization-defined objects."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3452,6 +3682,7 @@
    :rdfs/label "CCI-002284"})
 
 (def CCI-002289_v2022-04-05
+  "The information system supports the association of organization-defined security attributes with organization-defined subjects by authorized individuals (or processes acting on behalf of individuals)."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3464,6 +3695,7 @@
    :rdfs/label "CCI-002289"})
 
 (def CCI-002290_v2022-04-05
+  "The information system supports the association of organization-defined security attributes with organization-defined objects by authorized individuals (or processes acting on behalf of individuals)."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3476,6 +3708,7 @@
    :rdfs/label "CCI-002290"})
 
 (def CCI-002302_v2022-04-05
+  "The information system implements organization-defined techniques or technologies with an organization-defined level of assurance in associating security attributes to information."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3488,6 +3721,7 @@
    :rdfs/label "CCI-002302"})
 
 (def CCI-002306_v2022-04-05
+  "The information system provides authorized individuals the capability to define or change the type of security attributes available for association with subjects."
   {:d3fend/broader [:d3fend/MandatoryAccessControl
                     :d3fend/UserAccountPermissions
                     :d3fend/SystemConfigurationPermissions],
@@ -3501,6 +3735,7 @@
    :rdfs/label "CCI-002306"})
 
 (def CCI-002307_v2022-04-05
+  "The information system provides authorized individuals the capability to define or change the value of security attributes available for association with subjects."
   {:d3fend/broader [:d3fend/MandatoryAccessControl
                     :d3fend/UserAccountPermissions
                     :d3fend/SystemConfigurationPermissions],
@@ -3514,6 +3749,7 @@
    :rdfs/label "CCI-002307"})
 
 (def CCI-002308_v2022-04-05
+  "The information system provides authorized individuals the capability to define or change the type of security attributes available for association with objects."
   {:d3fend/broader [:d3fend/SystemConfigurationPermissions
                     :d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
@@ -3527,6 +3763,7 @@
    :rdfs/label "CCI-002308"})
 
 (def CCI-002309_v2022-04-05
+  "The information system provides authorized individuals the capability to define or change the value of security attributes available for association with objects."
   {:d3fend/broader [:d3fend/SystemConfigurationPermissions
                     :d3fend/MandatoryAccessControl
                     :d3fend/UserAccountPermissions],
@@ -3540,6 +3777,7 @@
    :rdfs/label "CCI-002309"})
 
 (def CCI-002322_v2022-04-05
+  "The organization provides the capability to expeditiously disconnect or disable remote access to the information system within the organization-defined time period."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization provides the capability to expeditiously disconnect or disable remote access to the information system within the organization-defined time period.",
@@ -3551,6 +3789,7 @@
    :rdfs/label "CCI-002322"})
 
 (def CCI-002346_v2022-04-05
+  "The organization employs organization-defined data mining prevention techniques for organization-defined data storage objects to adequately protect against data mining."
   {:d3fend/broader [:d3fend/DiskEncryption
                     :d3fend/FileEncryption
                     :d3fend/DatabaseQueryStringAnalysis],
@@ -3564,6 +3803,7 @@
    :rdfs/label "CCI-002346"})
 
 (def CCI-002347_v2022-04-05
+  "The organization employs organization-defined data mining detection techniques for organization-defined data storage objects to adequately detect data mining attempts."
   {:d3fend/broader [:d3fend/InputDeviceAnalysis
                     :d3fend/FileAccessPatternAnalysis
                     :d3fend/ResourceAccessPatternAnalysis
@@ -3578,6 +3818,7 @@
    :rdfs/label "CCI-002347"})
 
 (def CCI-002353_v2022-04-05
+  "The information system transmits organization-defined access authorization information using organization-defined security safeguards to organization-defined information systems which enforce access control decisions."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3590,6 +3831,7 @@
    :rdfs/label "CCI-002353"})
 
 (def CCI-002355_v2022-04-05
+  "The information system enforces access control decisions based on organization-defined security attributes that do not include the identity of the user or process acting on behalf of the user."
   {:d3fend/broader [:d3fend/UserAccountPermissions
                     :d3fend/MandatoryAccessControl],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3602,6 +3844,7 @@
    :rdfs/label "CCI-002355"})
 
 (def CCI-002357_v2022-04-05
+  "The information system implements a reference monitor for organization-defined access control policies that is tamperproof."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements a reference monitor for organization-defined access control policies that is tamperproof.",
@@ -3614,6 +3857,7 @@
    :rdfs/label "CCI-002357"})
 
 (def CCI-002358_v2022-04-05
+  "The information system implements a reference monitor for organization-defined access control policies that is always invoked."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements a reference monitor for organization-defined access control policies that is always invoked.",
@@ -3626,6 +3870,7 @@
    :rdfs/label "CCI-002358"})
 
 (def CCI-002359_v2022-04-05
+  "The information system implements a reference monitor for organization-defined access control policies that is small enough to be subject to analysis and testing, the completeness of which can be assured."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements a reference monitor for organization-defined access control policies that is small enough to be subject to analysis and testing, the completeness of which can be assured.",
@@ -3638,6 +3883,7 @@
    :rdfs/label "CCI-002359"})
 
 (def CCI-002361_v2022-04-05
+  "The information system automatically terminates a user session after organization-defined conditions or trigger events requiring session disconnect."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically terminates a user session after organization-defined conditions or trigger events requiring session disconnect.",
@@ -3649,6 +3895,7 @@
    :rdfs/label "CCI-002361"})
 
 (def CCI-002363_v2022-04-05
+  "The information system provides a logout capability for user-initiated communications sessions whenever authentication is used to gain access to organization-defined information resources."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides a logout capability for user-initiated communications sessions whenever authentication is used to gain access to organization-defined information resources.",
@@ -3660,6 +3907,7 @@
    :rdfs/label "CCI-002363"})
 
 (def CCI-002364_v2022-04-05
+  "The information system displays an explicit logout message to users indicating the reliable termination of authenticated communications sessions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system displays an explicit logout message to users indicating the reliable termination of authenticated communications sessions.",
@@ -3671,6 +3919,7 @@
    :rdfs/label "CCI-002364"})
 
 (def CCI-002381_v2022-04-05
+  "The organization minimizes the number of nonsecurity functions included within the isolation boundary containing security functions."
   {:d3fend/broader [:d3fend/Kernel-basedProcessIsolation
                     :d3fend/Hardware-basedProcessIsolation],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3683,6 +3932,7 @@
    :rdfs/label "CCI-002381"})
 
 (def CCI-002382_v2022-04-05
+  "The organization implements security functions as largely independent modules that maximize internal cohesiveness within modules and minimize coupling between modules."
   {:d3fend/broader [:d3fend/Kernel-basedProcessIsolation
                     :d3fend/Hardware-basedProcessIsolation],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3695,6 +3945,7 @@
    :rdfs/label "CCI-002382"})
 
 (def CCI-002384_v2022-04-05
+  "The information system prevents unauthorized information transfer via shared resources in accordance with organization-defined procedures when system processing explicitly switches between different information classification levels or security categories."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system prevents unauthorized information transfer via shared resources in accordance with organization-defined procedures when system processing explicitly switches between different information classification levels or security categories.",
@@ -3706,6 +3957,7 @@
    :rdfs/label "CCI-002384"})
 
 (def CCI-002385_v2022-04-05
+  "The information system protects against or limits the effects of organization-defined types of denial of service attacks by employing organization-defined security safeguards."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects against or limits the effects of organization-defined types of denial of service attacks by employing organization-defined security safeguards.",
@@ -3718,6 +3970,7 @@
    :rdfs/label "CCI-002385"})
 
 (def CCI-002394_v2022-04-05
+  "The information system protects the availability of resources by allocating organization-defined resources based on priority, quota, and/or organization-defined security safeguards."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system protects the availability of resources by allocating organization-defined resources based on priority, quota, and/or organization-defined security safeguards.",
@@ -3729,6 +3982,7 @@
    :rdfs/label "CCI-002394"})
 
 (def CCI-002397_v2022-04-05
+  "The information system, in conjunction with a remote device, prevents the device from simultaneously establishing non-remote connections with the system and communicating via some other connection to resources in external networks."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, in conjunction with a remote device, prevents the device from simultaneously establishing non-remote connections with the system and communicating via some other connection to resources in external networks.",
@@ -3741,6 +3995,7 @@
    :rdfs/label "CCI-002397"})
 
 (def CCI-002400_v2022-04-05
+  "The information system audits the identity of internal users associated with denied outgoing communications traffic posing a threat to external information systems."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system audits the identity of internal users associated with denied outgoing communications traffic posing a threat to external information systems.",
@@ -3752,6 +4007,7 @@
    :rdfs/label "CCI-002400"})
 
 (def CCI-002403_v2022-04-05
+  "The information system only allows incoming communications from organization-defined authorized sources routed to organization-defined authorized destinations."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system only allows incoming communications from organization-defined authorized sources routed to organization-defined authorized destinations.",
@@ -3764,6 +4020,7 @@
    :rdfs/label "CCI-002403"})
 
 (def CCI-002409_v2022-04-05
+  "The information system blocks both inbound and outbound communications traffic between organization-defined communication clients that are independently configured by end users and external service providers."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system blocks both inbound and outbound communications traffic between organization-defined communication clients that are independently configured by end users and external service providers.",
@@ -3776,6 +4033,7 @@
    :rdfs/label "CCI-002409"})
 
 (def CCI-002411_v2022-04-05
+  "The information system provides the capability to dynamically isolate/segregate organization-defined information system components from other components of the system."
   {:d3fend/broader [:d3fend/IOPortRestriction
                     :d3fend/Hardware-basedProcessIsolation
                     :d3fend/Kernel-basedProcessIsolation],
@@ -3789,6 +4047,7 @@
    :rdfs/label "CCI-002411"})
 
 (def CCI-002420_v2022-04-05
+  "The information system maintains the confidentiality and/or integrity of information during preparation for transmission."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system maintains the confidentiality and/or integrity of information during preparation for transmission.",
@@ -3800,6 +4059,7 @@
    :rdfs/label "CCI-002420"})
 
 (def CCI-002421_v2022-04-05
+  "The information system implements cryptographic mechanisms to prevent unauthorized disclosure of information and/or detect changes to information during transmission unless otherwise protected by organization-defined alternative physical safeguards."
   {:d3fend/broader :d3fend/EncryptedTunnels,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -3811,6 +4071,7 @@
    :rdfs/label "CCI-002421"})
 
 (def CCI-002422_v2022-04-05
+  "The information system maintains the confidentiality and/or integrity of information during reception."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system maintains the confidentiality and/or integrity of information during reception.",
@@ -3822,6 +4083,7 @@
    :rdfs/label "CCI-002422"})
 
 (def CCI-002423_v2022-04-05
+  "The information system implements cryptographic mechanisms to protect message externals (e.g., message headers and routing information) unless otherwise protected by organization-defined alternative physical safeguards."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to protect message externals (e.g., message headers and routing information) unless otherwise protected by organization-defined alternative physical safeguards.",
@@ -3833,6 +4095,7 @@
    :rdfs/label "CCI-002423"})
 
 (def CCI-002425_v2022-04-05
+  "The information system implements cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by organization-defined alternative physical safeguards."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to conceal or randomize communication patterns unless otherwise protected by organization-defined alternative physical safeguards.",
@@ -3844,6 +4107,7 @@
    :rdfs/label "CCI-002425"})
 
 (def CCI-002426_v2022-04-05
+  "The information system provides a trusted communications path that is logically isolated and distinguishable from other paths."
   {:d3fend/broader :d3fend/EncryptedTunnels,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -3855,6 +4119,7 @@
    :rdfs/label "CCI-002426"})
 
 (def CCI-002460_v2022-04-05
+  "The information system enforces organization-defined actions prior to executing mobile code."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces organization-defined actions prior to executing mobile code.",
@@ -3866,6 +4131,7 @@
    :rdfs/label "CCI-002460"})
 
 (def CCI-002462_v2022-04-05
+  "The information system provides additional data integrity verification artifacts along with the authoritative name resolution data the system returns in response to external name/address resolution queries."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides additional data integrity verification artifacts along with the authoritative name resolution data the system returns in response to external name/address resolution queries.",
@@ -3877,6 +4143,7 @@
    :rdfs/label "CCI-002462"})
 
 (def CCI-002463_v2022-04-05
+  "The information system provides data origin artifacts for internal name/address resolution queries."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides data origin artifacts for internal name/address resolution queries.",
@@ -3888,6 +4155,7 @@
    :rdfs/label "CCI-002463"})
 
 (def CCI-002464_v2022-04-05
+  "The information system provides data integrity protection artifacts for internal name/address resolution queries."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides data integrity protection artifacts for internal name/address resolution queries.",
@@ -3899,6 +4167,7 @@
    :rdfs/label "CCI-002464"})
 
 (def CCI-002465_v2022-04-05
+  "The information system requests data origin authentication verification on the name/address resolution responses the system receives from authoritative sources."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system requests data origin authentication verification on the name/address resolution responses the system receives from authoritative sources.",
@@ -3910,6 +4179,7 @@
    :rdfs/label "CCI-002465"})
 
 (def CCI-002466_v2022-04-05
+  "The information system requests data integrity verification on the name/address resolution responses the system receives from authoritative sources."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system requests data integrity verification on the name/address resolution responses the system receives from authoritative sources.",
@@ -3921,6 +4191,7 @@
    :rdfs/label "CCI-002466"})
 
 (def CCI-002467_v2022-04-05
+  "The information system performs data integrity verification on the name/address resolution responses the system receives from authoritative sources."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system performs data integrity verification on the name/address resolution responses the system receives from authoritative sources.",
@@ -3932,6 +4203,7 @@
    :rdfs/label "CCI-002467"})
 
 (def CCI-002468_v2022-04-05
+  "The information system performs data origin verification authentication on the name/address resolution responses the system receives from authoritative sources."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system performs data origin verification authentication on the name/address resolution responses the system receives from authoritative sources.",
@@ -3943,6 +4215,7 @@
    :rdfs/label "CCI-002468"})
 
 (def CCI-002470_v2022-04-05
+  "The information system only allows the use of organization-defined certificate authorities for verification of the establishment of protected sessions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system only allows the use of organization-defined certificate authorities for verification of the establishment of protected sessions.",
@@ -3955,6 +4228,7 @@
    :rdfs/label "CCI-002470"})
 
 (def CCI-002475_v2022-04-05
+  "The information system implements cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest on organization-defined information system components."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest on organization-defined information system components.",
@@ -3966,6 +4240,7 @@
    :rdfs/label "CCI-002475"})
 
 (def CCI-002476_v2022-04-05
+  "The information system implements cryptographic mechanisms to prevent unauthorized disclosure of organization-defined information at rest on organization-defined information system components."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to prevent unauthorized disclosure of organization-defined information at rest on organization-defined information system components.",
@@ -3977,6 +4252,7 @@
    :rdfs/label "CCI-002476"})
 
 (def CCI-002530_v2022-04-05
+  "The information system maintains a separate execution domain for each executing process."
   {:d3fend/broader [:d3fend/Kernel-basedProcessIsolation
                     :d3fend/Hardware-basedProcessIsolation],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -3989,6 +4265,7 @@
    :rdfs/label "CCI-002530"})
 
 (def CCI-002531_v2022-04-05
+  "The information system implements underlying hardware separation mechanisms to facilitate process separation."
   {:d3fend/broader :d3fend/Hardware-basedProcessIsolation,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4000,6 +4277,7 @@
    :rdfs/label "CCI-002531"})
 
 (def CCI-002533_v2022-04-05
+  "The information system maintains a separate execution domain for each thread in organization-defined multi-threaded processing."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system maintains a separate execution domain for each thread in organization-defined multi-threaded processing.",
@@ -4011,6 +4289,7 @@
    :rdfs/label "CCI-002533"})
 
 (def CCI-002536_v2022-04-05
+  "The information system protects organization-defined external and internal wireless links from organization-defined types of signal parameter attacks or references to sources for such attacks."
   {:d3fend/broader :d3fend/RFShielding,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4022,6 +4301,7 @@
    :rdfs/label "CCI-002536"})
 
 (def CCI-002546_v2022-04-05
+  "The organization physically disables or removes organization-defined connection ports or input/output devices on organization-defined information systems or information system components."
   {:d3fend/broader :d3fend/IOPortRestriction,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4033,6 +4313,7 @@
    :rdfs/label "CCI-002546"})
 
 (def CCI-002605_v2022-04-05
+  "The organization installs security-relevant software updates within an organization-defined time period of the release of the updates."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization installs security-relevant software updates within an organization-defined time period of the release of the updates.",
@@ -4044,6 +4325,7 @@
    :rdfs/label "CCI-002605"})
 
 (def CCI-002607_v2022-04-05
+  "The organization installs security-relevant firmware updates within an organization-defined time period of the release of the updates."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization installs security-relevant firmware updates within an organization-defined time period of the release of the updates.",
@@ -4055,6 +4337,7 @@
    :rdfs/label "CCI-002607"})
 
 (def CCI-002613_v2022-04-05
+  "The organization installs organization-defined security-relevant software updates automatically to organization-defined information system components."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization installs organization-defined security-relevant software updates automatically to organization-defined information system components.",
@@ -4066,6 +4349,7 @@
    :rdfs/label "CCI-002613"})
 
 (def CCI-002614_v2022-04-05
+  "The organization installs organization-defined security-relevant firmware updates automatically to organization-defined information system components."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization installs organization-defined security-relevant firmware updates automatically to organization-defined information system components.",
@@ -4077,6 +4361,7 @@
    :rdfs/label "CCI-002614"})
 
 (def CCI-002617_v2022-04-05
+  "The organization removes organization-defined software components (e.g., previous versions) after updated versions have been installed."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization removes organization-defined software components (e.g., previous versions) after updated versions have been installed.",
@@ -4088,6 +4373,7 @@
    :rdfs/label "CCI-002617"})
 
 (def CCI-002618_v2022-04-05
+  "The organization removes organization-defined firmware components (e.g., previous versions) after updated versions have been installed."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The organization removes organization-defined firmware components (e.g., previous versions) after updated versions have been installed.",
@@ -4099,6 +4385,7 @@
    :rdfs/label "CCI-002618"})
 
 (def CCI-002630_v2022-04-05
+  "The information system detects organization-defined unauthorized operating system commands through the kernel application programming interface at organization-defined information system hardware components."
   {:d3fend/broader :d3fend/ScriptExecutionAnalysis,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4110,6 +4397,7 @@
    :rdfs/label "CCI-002630"})
 
 (def CCI-002631_v2022-04-05
+  "The information system issues a warning, audits the command execution, or prevents the execution of the command when organization-defined unauthorized operating system commands are detected."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system issues a warning, audits the command execution, or prevents the execution of the command when organization-defined unauthorized operating system commands are detected.",
@@ -4121,6 +4409,7 @@
    :rdfs/label "CCI-002631"})
 
 (def CCI-002661_v2022-04-05
+  "The information system monitors inbound communications traffic per organization-defined frequency for unusual or unauthorized activities or conditions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system monitors inbound communications traffic per organization-defined frequency for unusual or unauthorized activities or conditions.",
@@ -4132,6 +4421,7 @@
    :rdfs/label "CCI-002661"})
 
 (def CCI-002662_v2022-04-05
+  "The information system monitors outbound communications traffic per organization-defined frequency for unusual or unauthorized activities or conditions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system monitors outbound communications traffic per organization-defined frequency for unusual or unauthorized activities or conditions.",
@@ -4143,6 +4433,7 @@
    :rdfs/label "CCI-002662"})
 
 (def CCI-002684_v2022-04-05
+  "The information system audits and/or alerts organization-defined personnel when unauthorized network services are detected."
   {:d3fend/broader [:d3fend/PlatformMonitoring :d3fend/NetworkTrafficAnalysis],
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4154,6 +4445,7 @@
    :rdfs/label "CCI-002684"})
 
 (def CCI-002688_v2022-04-05
+  "The information system discovers indicators of compromise."
   {:d3fend/broader :d3fend/FileContentRules,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4165,6 +4457,7 @@
    :rdfs/label "CCI-002688"})
 
 (def CCI-002689_v2022-04-05
+  "The information system collects indicators of compromise."
   {:d3fend/broader :d3fend/FileContentRules,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4176,6 +4469,7 @@
    :rdfs/label "CCI-002689"})
 
 (def CCI-002690_v2022-04-05
+  "The information system distributes indicators of compromise."
   {:d3fend/broader :d3fend/FileContentRules,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4187,6 +4481,7 @@
    :rdfs/label "CCI-002690"})
 
 (def CCI-002691_v2022-04-05
+  "The information system uses indicators of compromise."
   {:d3fend/broader     :d3fend/FileContentRules,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition  "The information system uses indicators of compromise.",
@@ -4197,6 +4492,7 @@
    :rdfs/label         "CCI-002691"})
 
 (def CCI-002710_v2022-04-05
+  "The information system performs an integrity check of organization-defined software at startup, at organization-defined transitional states or security-relevant events, or on an organization-defined frequency."
   {:d3fend/broader [:d3fend/DriverLoadIntegrityChecking
                     :d3fend/TPMBootIntegrity
                     :d3fend/PointerAuthentication
@@ -4211,6 +4507,7 @@
    :rdfs/label "CCI-002710"})
 
 (def CCI-002711_v2022-04-05
+  "The information system performs an integrity check of organization-defined firmware at startup, at organization-defined transitional states or security-relevant events, or on an organization-defined frequency."
   {:d3fend/broader :d3fend/TPMBootIntegrity,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4222,6 +4519,7 @@
    :rdfs/label "CCI-002711"})
 
 (def CCI-002712_v2022-04-05
+  "The information system performs an integrity check of organization-defined information at startup, at organization-defined transitional states or security-relevant events, or on an organization-defined frequency."
   {:d3fend/broader [:d3fend/PointerAuthentication
                     :d3fend/TPMBootIntegrity
                     :d3fend/FileHashing
@@ -4236,6 +4534,7 @@
    :rdfs/label "CCI-002712"})
 
 (def CCI-002715_v2022-04-05
+  "The information system automatically shuts the information system down, restarts the information system, and/or implements organization-defined security safeguards when integrity violations are discovered."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system automatically shuts the information system down, restarts the information system, and/or implements organization-defined security safeguards when integrity violations are discovered.",
@@ -4250,6 +4549,7 @@
    :rdfs/label "CCI-002715"})
 
 (def CCI-002716_v2022-04-05
+  "The information system implements cryptographic mechanisms to detect unauthorized changes to software."
   {:d3fend/broader :d3fend/FileHashing,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4261,6 +4561,7 @@
    :rdfs/label "CCI-002716"})
 
 (def CCI-002717_v2022-04-05
+  "The information system implements cryptographic mechanisms to detect unauthorized changes to firmware."
   {:d3fend/broader :d3fend/FileHashing,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4272,6 +4573,7 @@
    :rdfs/label "CCI-002717"})
 
 (def CCI-002718_v2022-04-05
+  "The information system implements cryptographic mechanisms to detect unauthorized changes to information."
   {:d3fend/broader :d3fend/FileHashing,
    :d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
@@ -4283,6 +4585,7 @@
    :rdfs/label "CCI-002718"})
 
 (def CCI-002723_v2022-04-05
+  "The information system, upon detection of a potential integrity violation, provides the capability to audit the event."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, upon detection of a potential integrity violation, provides the capability to audit the event.",
@@ -4297,6 +4600,7 @@
    :rdfs/label "CCI-002723"})
 
 (def CCI-002724_v2022-04-05
+  "The information system, upon detection of a potential integrity violation, initiates one or more of the following actions: generates an audit record; alerts the current user; alerts organization-defined personnel or roles; and/or organization-defined other actions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system, upon detection of a potential integrity violation, initiates one or more of the following actions: generates an audit record; alerts the current user; alerts organization-defined personnel or roles; and/or organization-defined other actions.",
@@ -4311,6 +4615,7 @@
    :rdfs/label "CCI-002724"})
 
 (def CCI-002726_v2022-04-05
+  "The information system verifies the integrity of the boot process of organization-defined devices."
   {:d3fend/broader [:d3fend/TPMBootIntegrity
                     :d3fend/DriverLoadIntegrityChecking],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -4323,6 +4628,7 @@
    :rdfs/label "CCI-002726"})
 
 (def CCI-002729_v2022-04-05
+  "The information system implements organization-defined security safeguards to protect the integrity of boot firmware in organization-defined devices."
   {:d3fend/broader [:d3fend/TPMBootIntegrity
                     :d3fend/DriverLoadIntegrityChecking],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -4335,6 +4641,7 @@
    :rdfs/label "CCI-002729"})
 
 (def CCI-002740_v2022-04-05
+  "The information system implements cryptographic mechanisms to authenticate organization-defined software or firmware components prior to installation."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to authenticate organization-defined software or firmware components prior to installation.",
@@ -4346,6 +4653,7 @@
    :rdfs/label "CCI-002740"})
 
 (def CCI-002743_v2022-04-05
+  "The information system implements spam protection mechanisms with a learning capability to more effectively identify legitimate communications traffic."
   {:d3fend/broader [:d3fend/SenderReputationAnalysis
                     :d3fend/SenderMTAReputationAnalysis],
    :d3fend/contributor :d3fend/DISA_FSO,
@@ -4358,6 +4666,7 @@
    :rdfs/label "CCI-002743"})
 
 (def CCI-002746_v2022-04-05
+  "The information system provides a manual override capability for input validation of organization-defined inputs."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system provides a manual override capability for input validation of organization-defined inputs.",
@@ -4369,6 +4678,7 @@
    :rdfs/label "CCI-002746"})
 
 (def CCI-002748_v2022-04-05
+  "The information system restricts the use of the manual override capability to only organization-defined authorized individuals."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system restricts the use of the manual override capability to only organization-defined authorized individuals.",
@@ -4380,6 +4690,7 @@
    :rdfs/label "CCI-002748"})
 
 (def CCI-002749_v2022-04-05
+  "The information system audits the use of the manual override capability."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system audits the use of the manual override capability.",
@@ -4391,6 +4702,7 @@
    :rdfs/label "CCI-002749"})
 
 (def CCI-002771_v2022-04-05
+  "The information system validates information output from organization-defined software programs and/or applications to ensure that the information is consistent with the expected content."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system validates information output from organization-defined software programs and/or applications to ensure that the information is consistent with the expected content.",
@@ -4402,6 +4714,7 @@
    :rdfs/label "CCI-002771"})
 
 (def CCI-002824_v2022-04-05
+  "The information system implements organization-defined security safeguards to protect its memory from unauthorized code execution."
   {:d3fend/broader [:d3fend/StackFrameCanaryValidation
                     :d3fend/DeadCodeElimination
                     :d3fend/ProcessSegmentExecutionPrevention
@@ -4416,6 +4729,7 @@
    :rdfs/label "CCI-002824"})
 
 (def CCI-002883_v2022-04-05
+  "The information system restricts the use of maintenance tools to authorized personnel only."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system restricts the use of maintenance tools to authorized personnel only.",
@@ -4427,6 +4741,7 @@
    :rdfs/label "CCI-002883"})
 
 (def CCI-002890_v2022-04-05
+  "The information system implements cryptographic mechanisms to protect the integrity of nonlocal maintenance and diagnostic communications."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to protect the integrity of nonlocal maintenance and diagnostic communications.",
@@ -4438,6 +4753,7 @@
    :rdfs/label "CCI-002890"})
 
 (def CCI-002891_v2022-04-05
+  "The information system implements remote disconnect verification at the termination of nonlocal maintenance and diagnostic sessions."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements remote disconnect verification at the termination of nonlocal maintenance and diagnostic sessions.",
@@ -4449,6 +4765,7 @@
    :rdfs/label "CCI-002891"})
 
 (def CCI-003014_v2022-04-05
+  "The information system enforces organization-defined mandatory access control policies over all subjects and objects."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system enforces organization-defined mandatory access control policies over all subjects and objects.",
@@ -4460,6 +4777,7 @@
    :rdfs/label "CCI-003014"})
 
 (def CCI-003123_v2022-04-05
+  "The information system implements cryptographic mechanisms to protect the confidentiality of nonlocal maintenance and diagnostic communications."
   {:d3fend/contributor :d3fend/DISA_FSO,
    :d3fend/definition
    "The information system implements cryptographic mechanisms to protect the confidentiality of nonlocal maintenance and diagnostic communications.",
@@ -4855,24 +5173,24 @@
   {:db/ident        :d3fend/CapabilityFeatureClaim,
    :rdf/type        :owl/Class,
    :rdfs/label      "Capability Feature Claim",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/implemented-by,
-                      :owl/someValuesFrom :d3fend/CapabilityImplementation,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/author,
+                      :owl/someValuesFrom :d3fend/Agent,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/assessed-by,
+                      :owl/someValuesFrom :d3fend/DefensiveTechniqueAssessment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/comments,
+                      :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
                      :d3fend/Statement
                      {:owl/onProperty     :d3fend/created,
                       :owl/someValuesFrom :xsd/dateTime,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/author,
-                      :owl/someValuesFrom :d3fend/Agent,
+                     {:owl/onProperty     :d3fend/implemented-by,
+                      :owl/someValuesFrom :d3fend/CapabilityImplementation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/modified,
                       :owl/someValuesFrom :xsd/dateTime,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/comments,
-                      :owl/someValuesFrom :xsd/string,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/assessed-by,
-                      :owl/someValuesFrom :d3fend/DefensiveTechniqueAssessment,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel   "Provider Claim"})
 
@@ -4895,6 +5213,7 @@
                      :d3fend/D3FENDCatalogThing]})
 
 (def Catalog
+  "A catalog is a complete list of things; usually arranged systematically."
   {:d3fend/definition
    "A catalog is a complete list of things; usually arranged systematically.",
    :db/ident :d3fend/Catalog,
@@ -4913,15 +5232,16 @@
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Public_key_certificate",
    :rdfs/label "Certificate",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/Identifier,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/PublicKey,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact],
+                     :d3fend/DigitalArtifact
+                     {:owl/onProperty     :d3fend/contains,
+                      :owl/someValuesFrom :d3fend/Identifier,
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel "Public Key Certificate"})
 
 (def Certificate-basedAuthentication
+  "Requiring a digital certificate in order to authenticate a user."
   {:d3fend/d3fend-id "D3-CBAN",
    :d3fend/definition
    "Requiring a digital certificate in order to authenticate a user.",
@@ -4933,6 +5253,7 @@
    :rdfs/subClassOf :d3fend/CredentialHardening})
 
 (def CertificateAnalysis
+  "Analyzing Public Key Infrastructure certificates to detect if they have been misconfigured or spoofed using both network traffic, certificate fields and third-party logs."
   {:d3fend/analyzes :d3fend/CertificateFile,
    :d3fend/d3fend-id "D3-CA",
    :d3fend/definition
@@ -4966,6 +5287,7 @@
                      :d3fend/File]})
 
 (def CertificatePinning
+  "Persisting either a server's X509 certificate or their public key and comparing that to server's presented identity to allow for greater client confidence in the remote server's identity for SSL connections."
   {:d3fend/authenticates :d3fend/PublicKey,
    :d3fend/d3fend-id "D3-CP",
    :d3fend/definition
@@ -4977,10 +5299,10 @@
    :db/ident :d3fend/CertificatePinning,
    :rdf/type [:owl/Class :d3fend/CredentialHardening :owl/NamedIndividual],
    :rdfs/label "Certificate Pinning",
-   :rdfs/subClassOf [:d3fend/CredentialHardening
-                     {:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/PublicKey,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/CredentialHardening]})
 
 (def CertificateTrustStore
   "A certificate truststore is used to store public certificates used to authenticate clients by the server for an SSL connection."
@@ -5020,6 +5342,7 @@
    :rdfs/subClassOf :d3fend/Process})
 
 (def Client-serverPayloadProfiling
+  "Comparing client-server request and response payloads to a baseline profile to identify outliers."
   {:d3fend/analyzes :d3fend/NetworkTraffic,
    :d3fend/d3fend-id "D3-CSPP",
    :d3fend/definition
@@ -5031,10 +5354,10 @@
    :db/ident :d3fend/Client-serverPayloadProfiling,
    :rdf/type [:d3fend/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label "Client-server Payload Profiling",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkTrafficAnalysis]})
 
 (def ClientApplication
   "A client application is software that accesses a service made available by a server. The server is often (but not always) on another computer system, in which case the client accesses the service by way of a network. The term applies to the role that programs or devices play in the client-server model"
@@ -5195,6 +5518,7 @@
                      :d3fend/OffensiveTechnique]})
 
 (def CollectorAgent
+  "A network agent is software installed on a network node or device that transmits information back to a collector agent or management system. Kinds of network agents include SNMP Agent, IPMI agents, WBEM agents, and many proprietary agents capturing network monitoring and management information."
   {:d3fend/definition
    "A network agent is software installed on a network node or device that transmits information back to a collector agent or management system.  Kinds of network agents include SNMP Agent, IPMI agents, WBEM agents, and many proprietary agents capturing network monitoring and management information.",
    :d3fend/synonym "Exporter",
@@ -5343,6 +5667,7 @@
    :skos/altLabel "Settings File"})
 
 (def ConfigurationInventory
+  "Configuration inventory identifies and records the configuration of software and hardware and their components throughout the organization."
   {:d3fend/d3fend-id "D3-CI",
    :d3fend/definition
    "Configuration inventory identifies and records the configuration of software and hardware and their components throughout the organization.",
@@ -5355,12 +5680,13 @@
    :db/ident :d3fend/ConfigurationInventory,
    :rdf/type [:d3fend/AssetInventory :owl/NamedIndividual :owl/Class],
    :rdfs/label "Configuration Inventory",
-   :rdfs/subClassOf [:d3fend/AssetInventory
-                     {:owl/onProperty     :d3fend/inventories,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/inventories,
                       :owl/someValuesFrom :d3fend/ConfigurationResource,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/AssetInventory]})
 
 (def ConfigurationManagementDatabase
+  "A database used to store configuration records throughout their lifecycle. The Configuration Management System (CMS) maintains one or more CMDBs, and each CMDB stores attributes of configuration items (CIs), and relationships with other CIs."
   {:d3fend/definition
    "A database used to store configuration records throughout their lifecycle. The Configuration Management System (CMS) maintains one or more CMDBs, and each CMDB stores attributes of configuration items (CIs), and relationships with other CIs.",
    :db/ident :d3fend/ConfigurationManagementDatabase,
@@ -5394,6 +5720,7 @@
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def ConnectedHoneynet
+  "A decoy service, system, or environment, that is connected to the enterprise network, and simulates or emulates certain functionality to the network, without exposing full access to a production system."
   {:d3fend/d3fend-id "D3-CHN",
    :d3fend/definition
    "A decoy service, system, or environment, that is connected to the enterprise network, and simulates or emulates certain functionality to the network, without exposing full access to a production system.",
@@ -5411,6 +5738,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def ConnectionAttemptAnalysis
+  "Analyzing failed connections in a network to detect unauthorized activity."
   {:d3fend/analyzes :d3fend/IntranetNetworkTraffic,
    :d3fend/d3fend-id "D3-CAA",
    :d3fend/definition
@@ -5423,10 +5751,10 @@
    :db/ident :d3fend/ConnectionAttemptAnalysis,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/NetworkTrafficAnalysis],
    :rdfs/label "Connection Attempt Analysis",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/IntranetNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkTrafficAnalysis]})
 
 (def ContainerBuildTool
   "A software build tool that creates a container (e.g., Docker container) for deployment."
@@ -5489,6 +5817,7 @@
                      :d3fend/D3FENDThing]})
 
 (def ControlCatalog
+  "A control catalog is a complete list of protective measures for systems, organizations, or individuals for subject domains (e.g., security and privacy.)"
   {:d3fend/definition
    "A control catalog is a complete list of protective measures for systems, organizations, or individuals for subject domains (e.g., security and privacy.)",
    :db/ident :d3fend/ControlCatalog,
@@ -5503,6 +5832,7 @@
                      :d3fend/Catalog]})
 
 (def ControlCorrelationIdentifierCatalog
+  "A control correlation identifier (CCI) catalog provides a catalog of CCIs for a given release date."
   {:d3fend/definition
    "A control correlation identifier (CCI) catalog provides a catalog of CCIs for a given release date.",
    :db/ident :d3fend/ControlCorrelationIdentifierCatalog,
@@ -5533,10 +5863,10 @@
     "https://linux.die.net/man/2/creat"
     "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfile2"
     "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew"],
-   :rdfs/subClassOf [:d3fend/SystemCall
-                     {:owl/onProperty     :d3fend/creates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/creates,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/SystemCall]})
 
 (def CreateProcess
   "A process spawn refers to a function that loads and executes a new child process.The current process may wait for the child to terminate or may continue to execute asynchronously. Creating a new subprocess requires enough memory in which both the child process and the current program can execute. There is a family of spawn functions in DOS, inherited by Microsoft Windows. There is also a different family of spawn functions in an optional extension of the POSIX standards. Fork-exec is another technique combining two Unix system calls, which can effect a process spawn."
@@ -5604,21 +5934,22 @@
    :db/ident          :d3fend/CredentialAccessTechnique,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Credential Access Technique",
-   :rdfs/subClassOf   [:d3fend/OffensiveTechnique
-                       {:owl/onProperty     :d3fend/may-access,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/PasswordFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/accesses,
                         :owl/someValuesFrom :d3fend/Credential,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-invoke,
-                        :owl/someValuesFrom :d3fend/CreateProcess,
-                        :rdf/type           :owl/Restriction}
+                       :d3fend/OffensiveTechnique
                        {:owl/onProperty     :d3fend/enables,
                         :owl/someValuesFrom :d3fend/CredentialAccess,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-invoke,
+                        :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}]})
 
 (def CredentialCompromiseScopeAnalysis
+  "Determining which credentials may have been compromised by analyzing the user logon history of a particular system."
   {:d3fend/analyzes :d3fend/Credential,
    :d3fend/d3fend-id "D3-CCSA",
    :d3fend/definition
@@ -5637,6 +5968,7 @@
                      :d3fend/UserBehaviorAnalysis]})
 
 (def CredentialEviction
+  "Credential Eviction techniques disable or remove compromised credentials from a computer network."
   {:d3fend/d3fend-id "D3-CE",
    :d3fend/definition
    "Credential Eviction techniques disable or remove compromised credentials from a computer network.",
@@ -5650,6 +5982,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def CredentialHardening
+  "Credential Hardening techniques modify system or network properties in order to protect system or network/domain credentials."
   {:d3fend/d3fend-id "D3-CH",
    :d3fend/definition
    "Credential Hardening techniques modify system or network properties in order to protect system or network/domain credentials.",
@@ -5673,6 +6006,7 @@
    :rdfs/subClassOf :d3fend/ServiceApplication})
 
 (def CredentialTransmissionScoping
+  "Limiting the transmission of a credential to a scoped set of relying parties."
   {:d3fend/d3fend-id "D3-CTS",
    :d3fend/definition
    "Limiting the transmission of a credential to a scoped set of relying parties.",
@@ -5757,6 +6091,7 @@
    :rdfs/label "DISA FSO"})
 
 (def DNSAllowlisting
+  "Permitting only approved domains and their subdomains to be resolved."
   {:d3fend/blocks :d3fend/OutboundInternetDNSLookupTraffic,
    :d3fend/d3fend-id "D3-DNSAL",
    :d3fend/definition
@@ -5774,6 +6109,7 @@
                       :rdf/type :owl/Restriction}]})
 
 (def DNSDenylisting
+  "Blocking DNS Network Traffic based on criteria such as IP address, domain name, or DNS query type."
   {:d3fend/blocks :d3fend/DNSNetworkTraffic,
    :d3fend/d3fend-id "D3-DNSDL",
    :d3fend/definition
@@ -5786,10 +6122,10 @@
    :db/ident :d3fend/DNSDenylisting,
    :rdf/type [:owl/NamedIndividual :d3fend/NetworkIsolation :owl/Class],
    :rdfs/label "DNS Denylisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/blocks,
+   :rdfs/subClassOf [:d3fend/NetworkIsolation
+                     {:owl/onProperty     :d3fend/blocks,
                       :owl/someValuesFrom :d3fend/DNSNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DNSLookup
   "A Domain Name System (DNS) lookup is a record returned from a DNS resolver after querying a DNS name server. Typically considered an A or AAAA record, where a domain name is resolved to an IPv4 or IPv6 address, respectively."
@@ -5833,6 +6169,7 @@
    :rdfs/subClassOf :d3fend/Server})
 
 (def DNSTrafficAnalysis
+  "Analysis of domain name metadata, including name and DNS records, to determine whether the domain is likely to resolve to an undesirable host."
   {:d3fend/analyzes :d3fend/OutboundInternetDNSLookupTraffic,
    :d3fend/d3fend-id "D3-DNSTA",
    :d3fend/definition
@@ -5850,14 +6187,14 @@
    :db/ident :d3fend/DNSTrafficAnalysis,
    :rdf/type [:owl/NamedIndividual :d3fend/NetworkTrafficAnalysis :owl/Class],
    :rdfs/label "DNS Traffic Analysis",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/DNSLookup,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3fend/analyzes,
                       :owl/someValuesFrom
                       :d3fend/OutboundInternetDNSLookupTraffic,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/DNSLookup,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3fend/NetworkTrafficAnalysis]})
 
 (def DataArtifactServer
   "A data artifact server provides access services to content in a content repository. The content repository or content store is a database of digital content with an associated set of data management, search and access methods allowing application-independent access to the content, rather like a digital library, but with the ability to store and modify content in addition to searching and retrieving. The content repository acts as the storage engine for a larger application such as a content management system or a document management system, which adds a user interface on top of the repository's application programming interface."
@@ -5877,6 +6214,7 @@
    :rdfs/subClassOf :d3fend/Dependency})
 
 (def DataExchangeMapping
+  "Data exchange mapping identifies and models the organization's intended design for the flows of the data types, formats, and volumes between systems at the application layer."
   {:d3fend/d3fend-id "D3-DEM",
    :d3fend/definition
    "Data exchange mapping identifies and models the organization's intended design for the flows of the data types, formats, and volumes between systems at the application layer.",
@@ -5895,6 +6233,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def DataInventory
+  "Data inventorying identifies and records the schemas, formats, volumes, and locations of data stored and used on the organization's architecture."
   {:d3fend/d3fend-id "D3-DI",
    :d3fend/definition
    "Data inventorying identifies and records the schemas, formats, volumes, and locations of data stored and used on the organization's architecture.",
@@ -5910,19 +6249,20 @@
    :rdfs/label "Data Inventory",
    :rdfs/subClassOf [:d3fend/AssetInventory
                      {:owl/onProperty     :d3fend/inventories,
-                      :owl/someValuesFrom :d3fend/MultimediaDocumentFile,
+                      :owl/someValuesFrom :d3fend/DocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/inventories,
                       :owl/someValuesFrom :d3fend/Email,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/inventories,
-                      :owl/someValuesFrom :d3fend/DocumentFile,
+                      :owl/someValuesFrom :d3fend/MultimediaDocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/inventories,
                       :owl/someValuesFrom :d3fend/Database,
                       :rdf/type           :owl/Restriction}]})
 
 (def DataLinkLink
+  "A communication link between two network devices connected directly at the physical layer and on the same network segment; i.e., an OSI Layer 2 link."
   {:d3fend/definition
    "A communication link between two network devices connected directly at the physical layer and on the same network segment; i.e., an OSI Layer 2 link.",
    :d3fend/synonym ["Link Layer Link" "Layer-2 Link" "Data Link Layer Link"],
@@ -5959,6 +6299,7 @@
    :rdfs/subClassOf :d3fend/Command})
 
 (def DatabaseQueryStringAnalysis
+  "Analyzing database queries to detect [SQL Injection](https://capec.mitre.org/data/definitions/66.html)."
   {:d3fend/analyzes :d3fend/DatabaseQuery,
    :d3fend/d3fend-id "D3-DQSA",
    :d3fend/definition
@@ -5991,6 +6332,7 @@
    :skos/altLabel "Network Database Resource"})
 
 (def DeadCodeElimination
+  "Removing unreachable or \"dead code\" from compiled source code."
   {:d3fend/d3fend-id "D3-DCE",
    :d3fend/definition
    "Removing unreachable or \"dead code\" from compiled source code.",
@@ -6003,6 +6345,7 @@
    :rdfs/subClassOf :d3fend/ApplicationHardening})
 
 (def Deceive
+  "The deceive tactic is used to advertise, entice, and allow potential attackers access to an observed or controlled environment."
   {:d3fend/definition
    "The deceive tactic is used to advertise, entice, and allow potential attackers access to an observed or controlled environment.",
    :d3fend/display-order 3,
@@ -6023,13 +6366,14 @@
    :rdfs/seeAlso ["https://shield.mitre.org/"
                   "https://doi.org/10.1007/978-3-319-25133-2"
                   "http://dbpedia.org/resource/Deception_technology"],
-   :rdfs/subClassOf [:d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/may-contain,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/DigitalArtifact,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DigitalArtifact],
    :skos/altLabel ["Lure" "Trap" "Decoy Object" "Decoy"]})
 
 (def DecoyEnvironment
+  "A Decoy Environment comprises hosts and networks for the purposes of deceiving an attacker."
   {:d3fend/d3fend-id "D3-DE",
    :d3fend/definition
    "A Decoy Environment comprises hosts and networks for the purposes of deceiving an attacker.",
@@ -6041,15 +6385,16 @@
    :db/ident :d3fend/DecoyEnvironment,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/DefensiveTechnique],
    :rdfs/label "Decoy Environment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
-                      :owl/someValuesFrom :d3fend/Deceive,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/manages,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/manages,
                       :owl/someValuesFrom :d3fend/DecoyArtifact,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/enables,
+                      :owl/someValuesFrom :d3fend/Deceive,
                       :rdf/type           :owl/Restriction}
                      :d3fend/DefensiveTechnique]})
 
 (def DecoyFile
+  "A file created for the purposes of deceiving an adversary."
   {:d3fend/d3fend-id "D3-DF",
    :d3fend/definition
    "A file created for the purposes of deceiving an adversary.",
@@ -6064,12 +6409,13 @@
    :db/ident :d3fend/DecoyFile,
    :rdf/type [:d3fend/DecoyObject :owl/Class :owl/NamedIndividual],
    :rdfs/label "Decoy File",
-   :rdfs/subClassOf [:d3fend/DecoyObject
-                     {:owl/onProperty     :d3fend/spoofs,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/spoofs,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DecoyObject]})
 
 (def DecoyNetworkResource
+  "Deploying a network resource for the purposes of deceiving an adversary."
   {:d3fend/d3fend-id "D3-DNR",
    :d3fend/definition
    "Deploying a network resource for the purposes of deceiving an adversary.",
@@ -6090,6 +6436,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def DecoyObject
+  "A Decoy Object is created and deployed for the purposes of deceiving attackers."
   {:d3fend/d3fend-id "D3-DO",
    :d3fend/definition
    "A Decoy Object is created and deployed for the purposes of deceiving attackers.",
@@ -6106,6 +6453,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def DecoyPersona
+  "Establishing a fake online identity to misdirect, deceive, and or interact with adversaries."
   {:d3fend/d3fend-id "D3-DP",
    :d3fend/definition
    "Establishing a fake online identity to misdirect, deceive, and or interact with adversaries.",
@@ -6124,6 +6472,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def DecoyPublicRelease
+  "Issuing publicly released media to deceive adversaries."
   {:d3fend/d3fend-id "D3-DPR",
    :d3fend/definition "Issuing publicly released media to deceive adversaries.",
    :d3fend/kb-article
@@ -6136,6 +6485,7 @@
    :rdfs/subClassOf :d3fend/DecoyObject})
 
 (def DecoySessionToken
+  "An authentication token created for the purposes of deceiving an adversary."
   {:d3fend/d3fend-id "D3-DST",
    :d3fend/definition
    "An authentication token created for the purposes of deceiving an adversary.",
@@ -6153,6 +6503,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def DecoyUserCredential
+  "A Credential created for the purpose of deceiving an adversary."
   {:d3fend/d3fend-id "D3-DUC",
    :d3fend/definition
    "A Credential created for the purpose of deceiving an adversary.",
@@ -6166,10 +6517,10 @@
    :db/ident :d3fend/DecoyUserCredential,
    :rdf/type [:owl/NamedIndividual :d3fend/DecoyObject :owl/Class],
    :rdfs/label "Decoy User Credential",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/spoofs,
+   :rdfs/subClassOf [:d3fend/DecoyObject
+                     {:owl/onProperty     :d3fend/spoofs,
                       :owl/someValuesFrom :d3fend/Credential,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DecoyObject]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DefaultUserAccount
   "Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems or default factory/provider set accounts on other types of systems, software, or devices."
@@ -6215,6 +6566,7 @@
                       :d3fend/D3FENDThing]})
 
 (def DefensiveTechnique
+  "A method which makes a computer system more difficult to attack."
   {:d3fend/definition
    "A method which makes a computer system more difficult to attack.",
    :d3fend/synonym ["Countermeasure Technique"
@@ -6226,21 +6578,21 @@
    :rdfs/seeAlso "https://csrc.nist.gov/glossary/term/security_control",
    :rdfs/subClassOf [:d3fend/CapabilityFeature
                      :d3fend/D3FENDThing
-                     {:owl/onProperty     :d3fend/date,
-                      :owl/someValuesFrom :xsd/dateTime,
+                     {:owl/onProperty     :d3fend/kb-reference,
+                      :owl/someValuesFrom :d3fend/TechniqueReference,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/Technique
                      {:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/DefensiveTactic,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/display-order,
-                      :owl/someValuesFrom :xsd/integer,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/d3fend-id,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/kb-reference,
-                      :owl/someValuesFrom :d3fend/TechniqueReference,
+                     {:owl/onProperty     :d3fend/date,
+                      :owl/someValuesFrom :xsd/dateTime,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/Technique
+                     {:owl/onProperty     :d3fend/display-order,
+                      :owl/someValuesFrom :xsd/integer,
                       :rdf/type           :owl/Restriction}]})
 
 (def DefensiveTechniqueAssessment
@@ -6251,32 +6603,32 @@
    "Assessing how well a capability implementation's capability feature functions as a countermeasure.",
    :rdfs/label "Defensive Technique Assessment",
    :rdfs/subClassOf
-   [{:owl/onDataRange :xsd/string,
-     :owl/onProperty  :d3fend/stage,
-     :owl/qualifiedCardinality 1,
-     :rdf/type        :owl/Restriction}
+   [{:owl/allValuesFrom {:owl/oneOf ["0" "1" "2" "3"],
+                         :rdf/type  :rdfs/Datatype},
+     :owl/onProperty    :d3fend/rating,
+     :rdf/type          :owl/Restriction}
     {:owl/allValuesFrom {:owl/oneOf
                          ["Deceive" "Detect" "Evict" "Harden" "Isolate"],
                          :rdf/type :rdfs/Datatype},
      :owl/onProperty    :d3fend/stage,
      :rdf/type          :owl/Restriction}
+    {:owl/onProperty     :d3fend/counters,
+     :owl/someValuesFrom :d3fend/OffensiveTechnique,
+     :rdf/type           :owl/Restriction}
+    {:owl/onDataRange :xsd/string,
+     :owl/onProperty  :d3fend/stage,
+     :owl/qualifiedCardinality 1,
+     :rdf/type        :owl/Restriction}
     {:owl/onProperty     :d3fend/assesses,
      :owl/someValuesFrom :d3fend/DefensiveTechniqueClaim,
      :rdf/type           :owl/Restriction}
     :d3fend/FeatureAssessment
-    {:owl/onProperty     :d3fend/counters,
-     :owl/someValuesFrom :d3fend/OffensiveTechnique,
+    {:owl/onProperty     :d3fend/confidence,
+     :owl/someValuesFrom :xsd/integer,
      :rdf/type           :owl/Restriction}
     {:owl/cardinality 1,
      :owl/onProperty  :d3fend/rating,
-     :rdf/type        :owl/Restriction}
-    {:owl/allValuesFrom {:owl/oneOf ["0" "1" "2" "3"],
-                         :rdf/type  :rdfs/Datatype},
-     :owl/onProperty    :d3fend/rating,
-     :rdf/type          :owl/Restriction}
-    {:owl/onProperty     :d3fend/confidence,
-     :owl/someValuesFrom :xsd/integer,
-     :rdf/type           :owl/Restriction}]})
+     :rdf/type        :owl/Restriction}]})
 
 (def DefensiveTechniqueClaim
   {:db/ident        :d3fend/DefensiveTechniqueClaim,
@@ -6321,6 +6673,7 @@
    :rdfs/subClassOf :d3fend/PersonalComputer})
 
 (def Detect
+  "The detect tactic is used to identify adversary access to or unauthorized activity on computer networks."
   {:d3fend/definition
    "The detect tactic is used to identify adversary access to or unauthorized activity on computer networks.",
    :d3fend/display-order 1,
@@ -6434,6 +6787,7 @@
                      :d3fend/OffensiveTechnique]})
 
 (def DiskEncryption
+  "Encrypting a hard disk partition to prevent cleartext access to a file system."
   {:d3fend/d3fend-id "D3-DENCR",
    :d3fend/definition
    "Encrypting a hard disk partition to prevent cleartext access to a file system.",
@@ -6508,6 +6862,7 @@
                      :d3fend/File]})
 
 (def DomainAccountMonitoring
+  "Monitoring the existence of or changes to Domain User Accounts."
   {:d3fend/d3fend-id "D3-DAM",
    :d3fend/definition
    "Monitoring the existence of or changes to Domain User Accounts.",
@@ -6535,6 +6890,7 @@
                      :d3fend/Identifier]})
 
 (def DomainNameReputationAnalysis
+  "Analyzing the reputation of a domain name."
   {:d3fend/analyzes :d3fend/DomainName,
    :d3fend/d3fend-id "D3-DNRA",
    :d3fend/definition "Analyzing the reputation of a domain name.",
@@ -6567,6 +6923,7 @@
    :skos/altLabel "Domain Name Registration Data"})
 
 (def DomainTrustPolicy
+  "Restricting inter-domain trust by modifying domain configuration."
   {:d3fend/d3fend-id "D3-DTP",
    :d3fend/definition
    "Restricting inter-domain trust by modifying domain configuration.",
@@ -6577,11 +6934,11 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/CredentialHardening],
    :rdfs/label "Domain Trust Policy",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/T1087.002,
+                      :owl/someValuesFrom :d3fend/DirectoryService,
                       :rdf/type           :owl/Restriction}
                      :d3fend/CredentialHardening
                      {:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/DirectoryService,
+                      :owl/someValuesFrom :d3fend/T1087.002,
                       :rdf/type           :owl/Restriction}]})
 
 (def DomainUserAccount
@@ -6595,6 +6952,7 @@
    :rdfs/subClassOf :d3fend/UserAccount})
 
 (def DriverLoadIntegrityChecking
+  "Ensuring the integrity of drivers loaded during initialization of the operating system."
   {:d3fend/authenticates :d3fend/HardwareDriver,
    :d3fend/d3fend-id "D3-DLIC",
    :d3fend/definition
@@ -6607,12 +6965,13 @@
    :db/ident :d3fend/DriverLoadIntegrityChecking,
    :rdf/type [:d3fend/PlatformHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label "Driver Load Integrity Checking",
-   :rdfs/subClassOf [:d3fend/PlatformHardening
-                     {:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/HardwareDriver,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/PlatformHardening]})
 
 (def DynamicAnalysis
+  "Executing or opening a file in a synthetic \"sandbox\" environment to determine if the file is a malicious program or if the file exploits another program such as a document reader."
   {:d3fend/analyzes [:d3fend/ExecutableFile :d3fend/DocumentFile],
    :d3fend/d3fend-id "D3-DA",
    :d3fend/definition
@@ -6626,10 +6985,10 @@
    :db/ident :d3fend/DynamicAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/FileAnalysis],
    :rdfs/label "Dynamic Analysis",
-   :rdfs/subClassOf [:d3fend/FileAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/DocumentFile,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/FileAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/ExecutableFile,
                       :rdf/type           :owl/Restriction}]})
@@ -6653,13 +7012,13 @@
    "An email, or email message, is a document that is sent between computer users across computer networks.",
    :rdfs/label "Email",
    :rdfs/seeAlso "http://dbpedia.org/resource/Email",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/URL,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3fend/DocumentFile
                      {:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/File,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DocumentFile]})
+                     {:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/URL,
+                      :rdf/type           :owl/Restriction}]})
 
 (def EmailAttachment
   "An email attachment is a computer file sent along with an email message. One or more files can be attached to any email message, and be sent along with it to the recipient. This is typically used as a simple method to share documents and images."
@@ -6696,6 +7055,7 @@
    :skos/altLabel "Embedded System"})
 
 (def EmulatedFileAnalysis
+  "Emulating instructions in a file looking for specific patterns."
   {:d3fend/analyzes [:d3fend/ExecutableFile :d3fend/DocumentFile],
    :d3fend/d3fend-id "D3-EFA",
    :d3fend/definition
@@ -6706,11 +7066,11 @@
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/FileAnalysis],
    :rdfs/label "Emulated File Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/ExecutableFile,
+                      :owl/someValuesFrom :d3fend/DocumentFile,
                       :rdf/type           :owl/Restriction}
                      :d3fend/FileAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/DocumentFile,
+                      :owl/someValuesFrom :d3fend/ExecutableFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def Enclave
@@ -6743,6 +7103,7 @@
    :rdfs/subClassOf [:d3fend/Password :d3fend/EncryptedCredential]})
 
 (def EncryptedTunnels
+  "Encrypted encapsulation of routable network traffic."
   {:d3fend/d3fend-id "D3-ET",
    :d3fend/definition "Encrypted encapsulation of routable network traffic.",
    :d3fend/isolates :d3fend/IntranetNetwork,
@@ -6751,12 +7112,13 @@
    :db/ident :d3fend/EncryptedTunnels,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/NetworkIsolation],
    :rdfs/label "Encrypted Tunnels",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/isolates,
+   :rdfs/subClassOf [:d3fend/NetworkIsolation
+                     {:owl/onProperty     :d3fend/isolates,
                       :owl/someValuesFrom :d3fend/IntranetNetwork,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def EndpointHealthBeacon
+  "Monitoring the security status of an endpoint by sending periodic messages with health status, where absence of a response may indicate that the endpoint has been compromised."
   {:d3fend/d3fend-id "D3-EHB",
    :d3fend/definition
    "Monitoring the security status of an endpoint by sending periodic messages with health status, where absence of a response may indicate that the endpoint has been compromised.",
@@ -6788,6 +7150,7 @@
    :rdfs/subClassOf :d3fend/Log})
 
 (def Evict
+  "The eviction tactic is used to remove an adversary from a computer network."
   {:d3fend/definition
    "The eviction tactic is used to remove an adversary from a computer network.",
    :d3fend/display-order 4,
@@ -6814,6 +7177,7 @@
    :rdfs/subClassOf :d3fend/Subroutine})
 
 (def ExceptionHandlerPointerValidation
+  "Validates that a referenced exception handler pointer is a valid exception handler."
   {:d3fend/d3fend-id "D3-EHPV",
    :d3fend/definition
    "Validates that a referenced exception handler pointer is a valid exception handler.",
@@ -6832,6 +7196,7 @@
                      :d3fend/ApplicationHardening]})
 
 (def ExecutableAllowlisting
+  "Using a digital signature to authenticate a file before opening."
   {:d3fend/blocks :d3fend/ExecutableFile,
    :d3fend/d3fend-id "D3-EAL",
    :d3fend/definition
@@ -6849,10 +7214,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/blocks,
                       :owl/someValuesFrom :d3fend/ExecutableFile,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/ExecutionIsolation
                      {:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/CreateProcess,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/ExecutionIsolation]})
 
 (def ExecutableBinary
   "An executable binary contains machine code instructions for a physical CPU. D3FEND also considers byte code for a virtual machine to be binary code. This is in contrast to executable scripts written in a scripting language."
@@ -6876,6 +7241,7 @@
                      :d3fend/ExecutableFile]})
 
 (def ExecutableDenylisting
+  "Blocking the execution of files on a host in accordance with defined application policy rules."
   {:d3fend/blocks :d3fend/ExecutableFile,
    :d3fend/d3fend-id "D3-EDL",
    :d3fend/definition
@@ -6890,11 +7256,11 @@
    :db/ident :d3fend/ExecutableDenylisting,
    :rdf/type [:owl/NamedIndividual :d3fend/ExecutionIsolation :owl/Class],
    :rdfs/label "Executable Denylisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/blocks,
-                      :owl/someValuesFrom :d3fend/ExecutableFile,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/restricts,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/CreateProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/blocks,
+                      :owl/someValuesFrom :d3fend/ExecutableFile,
                       :rdf/type           :owl/Restriction}
                      :d3fend/ExecutionIsolation]})
 
@@ -6927,6 +7293,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def ExecutionIsolation
+  "Execution Isolation techniques prevent application processes from accessing non-essential system resources, such as memory, devices, or files."
   {:d3fend/d3fend-id "D3-EI",
    :d3fend/definition
    "Execution Isolation techniques prevent application processes from accessing non-essential system resources, such as memory, devices, or files.",
@@ -7022,17 +7389,18 @@
    :rdfs/label         "File",
    :rdfs/seeAlso       "http://wordnet-rdf.princeton.edu/id/06521201-n",
    :rdfs/subClassOf    [{:owl/onProperty     :d3fend/may-contain,
+                         :owl/someValuesFrom :d3fend/File,
+                         :rdf/type           :owl/Restriction}
+                        {:owl/onProperty     :d3fend/may-contain,
                          :owl/someValuesFrom :d3fend/URL,
                          :rdf/type           :owl/Restriction}
                         :d3fend/Resource
-                        {:owl/onProperty     :d3fend/may-contain,
-                         :owl/someValuesFrom :d3fend/File,
-                         :rdf/type           :owl/Restriction}
                         {:owl/onProperty     :d3fend/contains,
                          :owl/someValuesFrom :d3fend/FileSection,
                          :rdf/type           :owl/Restriction}]})
 
 (def FileAccessPatternAnalysis
+  "Analyzing the files accessed by a process to identify unauthorized activity."
   {:d3fend/analyzes :d3fend/LocalResourceAccess,
    :d3fend/d3fend-id "D3-FAPA",
    :d3fend/definition
@@ -7050,6 +7418,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def FileAnalysis
+  "File Analysis is an analytic process to determine a file's status. For example: virus, trojan, benign, malicious, trusted, unauthorized, sensitive, etc."
   {:d3fend/analyzes :d3fend/File,
    :d3fend/d3fend-id "D3-FA",
    :d3fend/definition
@@ -7060,15 +7429,16 @@
    :db/ident :d3fend/FileAnalysis,
    :rdf/type [:d3fend/DefensiveTechnique :owl/NamedIndividual :owl/Class],
    :rdfs/label "File Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Detect,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DefensiveTechnique]})
+                     :d3fend/DefensiveTechnique
+                     {:owl/onProperty     :d3fend/analyzes,
+                      :owl/someValuesFrom :d3fend/File,
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileCarving
+  "Identifying and extracting files from network application protocols through the use of network stream reassembly software."
   {:d3fend/analyzes :d3fend/FileTransferNetworkTraffic,
    :d3fend/d3fend-id "D3-FC",
    :d3fend/definition
@@ -7086,6 +7456,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def FileContentRules
+  "Employing a pattern matching rule language to analyze files."
   {:d3fend/d3fend-id "D3-FCR",
    :d3fend/definition
    "Employing a pattern matching rule language to analyze files.",
@@ -7103,6 +7474,7 @@
    :rdfs/subClassOf :d3fend/FileAnalysis})
 
 (def FileCreationAnalysis
+  "Analyzing the properties of file create system call invocations."
   {:d3fend/analyzes :d3fend/CreateFile,
    :d3fend/d3fend-id "D3-FCA",
    :d3fend/definition
@@ -7119,6 +7491,7 @@
                      :d3fend/SystemCallAnalysis]})
 
 (def FileEncryption
+  "Encrypting a file using a cryptographic key."
   {:d3fend/d3fend-id "D3-FE",
    :d3fend/definition "Encrypting a file using a cryptographic key.",
    :d3fend/encrypts :d3fend/File,
@@ -7128,10 +7501,10 @@
    :db/ident :d3fend/FileEncryption,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/PlatformHardening],
    :rdfs/label "File Encryption",
-   :rdfs/subClassOf [:d3fend/PlatformHardening
-                     {:owl/onProperty     :d3fend/encrypts,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/encrypts,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/PlatformHardening]})
 
 (def FileHash
   {:d3fend/identifies :d3fend/File,
@@ -7144,6 +7517,7 @@
                        :d3fend/Identifier]})
 
 (def FileHashReputationAnalysis
+  "Analyzing the reputation of a file hash."
   {:d3fend/analyzes :d3fend/FileHash,
    :d3fend/d3fend-id "D3-FHRA",
    :d3fend/definition "Analyzing the reputation of a file hash.",
@@ -7159,6 +7533,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def FileHashing
+  "Employing file hash comparisons to detect known malware."
   {:d3fend/d3fend-id "D3-FH",
    :d3fend/definition
    "Employing file hash comparisons to detect known malware.",
@@ -7214,7 +7589,7 @@
    :rdfs/isDefinedBy "http://dbpedia.org/resource/File_system",
    :rdfs/label "File System",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/File,
+                      :owl/someValuesFrom :d3fend/FileSystemLink,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/FileSystemMetadata,
@@ -7223,7 +7598,7 @@
                       :owl/someValuesFrom :d3fend/Directory,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/FileSystemLink,
+                      :owl/someValuesFrom :d3fend/File,
                       :rdf/type           :owl/Restriction}
                      :d3fend/DigitalArtifact]})
 
@@ -7299,6 +7674,7 @@
    :rdfs/subClassOf :d3fend/Software})
 
 (def FirmwareBehaviorAnalysis
+  "Analyzing the behavior of embedded code in firmware and looking for anomalous behavior and suspicious activity."
   {:d3fend/analyzes :d3fend/Firmware,
    :d3fend/d3fend-id "D3-FBA",
    :d3fend/definition
@@ -7311,12 +7687,13 @@
    :db/ident :d3fend/FirmwareBehaviorAnalysis,
    :rdf/type [:d3fend/PlatformMonitoring :owl/Class :owl/NamedIndividual],
    :rdfs/label "Firmware Behavior Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/PlatformMonitoring
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Firmware,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/PlatformMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FirmwareEmbeddedMonitoringCode
+  "Monitoring code is injected into firmware for integrity monitoring of firmware and firmware data."
   {:d3fend/analyzes :d3fend/Firmware,
    :d3fend/d3fend-id "D3-FEMC",
    :d3fend/definition
@@ -7344,6 +7721,7 @@
                      :d3fend/EndpointSensor]})
 
 (def FirmwareVerification
+  "Cryptographically verifying firmware integrity."
   {:d3fend/d3fend-id "D3-FV",
    :d3fend/definition "Cryptographically verifying firmware integrity.",
    :d3fend/kb-article
@@ -7356,10 +7734,10 @@
    :db/ident :d3fend/FirmwareVerification,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/PlatformMonitoring],
    :rdfs/label "Firmware Verification",
-   :rdfs/subClassOf [:d3fend/PlatformMonitoring
-                     {:owl/onProperty     :d3fend/verifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/verifies,
                       :owl/someValuesFrom :d3fend/Firmware,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/PlatformMonitoring]})
 
 (def First-stageBootLoader
   "The very first routine run in order to load the operating system."
@@ -7381,6 +7759,7 @@
    :rdfs/subClassOf :d3fend/ProxyServer})
 
 (def ForwardResolutionDomainDenylisting
+  "Blocking a lookup based on the query's domain name value."
   {:d3fend/blocks :d3fend/OutboundInternetDNSLookupTraffic,
    :d3fend/d3fend-id "D3-FRDDL",
    :d3fend/definition
@@ -7400,6 +7779,7 @@
                      :d3fend/DNSDenylisting]})
 
 (def ForwardResolutionIPDenylisting
+  "Blocking a DNS lookup's answer's IP address value."
   {:d3fend/blocks :d3fend/InboundInternetDNSResponseTraffic,
    :d3fend/d3fend-id "D3-FRIDL",
    :d3fend/definition "Blocking a DNS lookup's answer's IP address value.",
@@ -7571,6 +7951,7 @@
    :rdfs/subClassOf :d3fend/FileSystemLink})
 
 (def Harden
+  "The harden tactic is used to increase the opportunity cost of computer network exploitation. Hardening differs from Detection in that it generally is conducted before a system is online and operational."
   {:d3fend/definition
    "The harden tactic is used to increase the opportunity cost of computer network exploitation. Hardening differs from Detection in that it generally is conducted before a system is online and operational.",
    :d3fend/display-order 0,
@@ -7581,6 +7962,7 @@
    :rdfs/subClassOf :d3fend/DefensiveTactic})
 
 (def Hardware-basedProcessIsolation
+  "Preventing one process from writing to the memory space of another process through hardware based address manager implementations."
   {:d3fend/d3fend-id "D3-HBPI",
    :d3fend/definition
    "Preventing one process from writing to the memory space of another process through hardware based address manager implementations.",
@@ -7596,15 +7978,16 @@
    :db/ident :d3fend/Hardware-basedProcessIsolation,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/ExecutionIsolation],
    :rdfs/label "Hardware-based Process Isolation",
-   :rdfs/subClassOf [:d3fend/ExecutionIsolation
-                     {:owl/onProperty     :d3fend/isolates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/isolates,
                       :owl/someValuesFrom :d3fend/Process,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/ExecutionIsolation
                      {:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/CreateProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def HardwareComponentInventory
+  "Hardware component inventorying identifies and records the hardware items in the organization's architecture."
   {:d3fend/d3fend-id "D3-HCI",
    :d3fend/definition
    "Hardware component inventorying identifies and records the hardware items in the organization's architecture.",
@@ -7658,6 +8041,7 @@
    :rdfs/subClassOf :d3fend/ProcessSegment})
 
 (def HierarchicalDomainDenylisting
+  "Blocking the resolution of any subdomain of a specified domain name."
   {:d3fend/d3fend-id "D3-HDDL",
    :d3fend/definition
    "Blocking the resolution of any subdomain of a specified domain name.",
@@ -7673,6 +8057,7 @@
    :rdfs/subClassOf :d3fend/ForwardResolutionDomainDenylisting})
 
 (def HomoglyphDenylisting
+  "Blocking DNS queries that are deceptively similar to legitimate domain names."
   {:d3fend/d3fend-id "D3-HDL",
    :d3fend/definition
    "Blocking DNS queries that are deceptively similar to legitimate domain names.",
@@ -7688,6 +8073,7 @@
    :rdfs/subClassOf :d3fend/ForwardResolutionDomainDenylisting})
 
 (def HomoglyphDetection
+  "Comparing strings using a variety of techniques to determine if a deceptive or malicious string is being presented to a user."
   {:d3fend/analyzes [:d3fend/URL :d3fend/Email],
    :d3fend/d3fend-id "D3-HD",
    :d3fend/definition
@@ -7701,11 +8087,11 @@
    :rdf/type [:owl/NamedIndividual :d3fend/IdentifierAnalysis :owl/Class],
    :rdfs/label "Homoglyph Detection",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/URL,
+                      :owl/someValuesFrom :d3fend/Email,
                       :rdf/type           :owl/Restriction}
                      :d3fend/IdentifierAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Email,
+                      :owl/someValuesFrom :d3fend/URL,
                       :rdf/type           :owl/Restriction}]})
 
 (def Host
@@ -7718,15 +8104,15 @@
    "A host is a computer or other device, typically connected to a computer network. A network host may offer information resources, services, and applications to users or other nodes on the network. A network host is a network node that is assigned a network layer host address. Network hosts that participate in applications that use the client-server model of computing, are classified as server or client systems. Network hosts may also function as nodes in peer-to-peer applications, in which all nodes share and consume resources in an equipotent manner.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Host_(network)",
    :rdfs/label "Host",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/runs,
                       :owl/someValuesFrom :d3fend/OperatingSystem,
                       :rdf/type           :owl/Restriction}
                      :d3fend/NetworkNode
-                     {:owl/onProperty     :d3fend/runs,
-                      :owl/someValuesFrom :d3fend/OperatingSystem,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/Application,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/contains,
+                      :owl/someValuesFrom :d3fend/OperatingSystem,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel "Network Host"})
 
@@ -7760,10 +8146,10 @@
    "In computer networking, a hostname (archaically nodename) is a label that is assigned to a device connected to a computer network and that is used to identify the device in various forms of electronic communication, such as the World Wide Web. Hostnames may be simple names consisting of a single word or phrase, or they may be structured.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Hostname",
    :rdfs/label "Hostname",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
+   :rdfs/subClassOf [:d3fend/Identifier
+                     {:owl/onProperty     :d3fend/identifies,
                       :owl/someValuesFrom :d3fend/Host,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/Identifier],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel "Nodename"})
 
 (def HumanInputDeviceFirmware
@@ -7778,6 +8164,7 @@
    :rdfs/subClassOf :d3fend/PeripheralFirmware})
 
 (def IOPortRestriction
+  "Limiting access to computer input/output (IO) ports to restrict unauthorized devices."
   {:d3fend/d3fend-id "D3-IOPR",
    :d3fend/definition
    "Limiting access to computer input/output (IO) ports to restrict unauthorized devices.",
@@ -7823,6 +8210,7 @@
    :rdfs/subClassOf :d3fend/NetworkTraffic})
 
 (def IPCTrafficAnalysis
+  "Analyzing standard inter process communication (IPC) protocols to detect deviations from normal protocol activity."
   {:d3fend/analyzes :d3fend/IntranetIPCNetworkTraffic,
    :d3fend/d3fend-id "D3-IPCTA",
    :d3fend/definition
@@ -7858,6 +8246,7 @@
    :skos/altLabel "VoIP Phone"})
 
 (def IPReputationAnalysis
+  "Analyzing the reputation of an IP address."
   {:d3fend/analyzes :d3fend/IPAddress,
    :d3fend/d3fend-id "D3-IPRA",
    :d3fend/definition "Analyzing the reputation of an IP address.",
@@ -7885,6 +8274,7 @@
    :skos/altLabel "ID"})
 
 (def IdentifierAnalysis
+  "Analyzing identifier artifacts such as IP address, domain names, or URL(I)s."
   {:d3fend/d3fend-id "D3-ID",
    :d3fend/definition
    "Analyzing identifier artifacts such as IP address, domain names, or URL(I)s.",
@@ -7898,6 +8288,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def IdentifierReputationAnalysis
+  "Analyzing the reputation of an identifier."
   {:d3fend/d3fend-id    "D3-IRA",
    :d3fend/definition   "Analyzing the reputation of an identifier.",
    :d3fend/kb-reference :d3fend/Reference-Finding_phishing_sites,
@@ -8032,6 +8423,7 @@
    :rdfs/subClassOf :d3fend/NetworkTraffic})
 
 (def InboundSessionVolumeAnalysis
+  "Analyzing inbound network session or connection attempt volume."
   {:d3fend/analyzes :d3fend/InboundInternetNetworkTraffic,
    :d3fend/d3fend-id "D3-ISVA",
    :d3fend/definition
@@ -8053,6 +8445,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def InboundTrafficFiltering
+  "Restricting network traffic originating from untrusted networks destined towards a private host or enclave."
   {:d3fend/d3fend-id "D3-ITF",
    :d3fend/definition
    "Restricting network traffic originating from untrusted networks destined towards a private host or enclave.",
@@ -8072,12 +8465,13 @@
    :db/ident :d3fend/InboundTrafficFiltering,
    :rdf/type [:d3fend/NetworkTrafficFiltering :owl/Class :owl/NamedIndividual],
    :rdfs/label "Inbound Traffic Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/filters,
+   :rdfs/subClassOf [:d3fend/NetworkTrafficFiltering
+                     {:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/InboundNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkTrafficFiltering]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def IndirectBranchCallAnalysis
+  "Analyzing vendor specific branch call recording in order to detect ROP style attacks."
   {:d3fend/d3fend-id "D3-IBCA",
    :d3fend/definition
    "Analyzing vendor specific branch call recording in order to detect ROP style attacks.",
@@ -8140,6 +8534,7 @@
    :rdfs/subClassOf [:d3fend/LocalResource :d3fend/HardwareDevice]})
 
 (def InputDeviceAnalysis
+  "Operating system level mechanisms to prevent abusive input device exploitation."
   {:d3fend/analyzes :d3fend/InputDevice,
    :d3fend/d3fend-id "D3-IDA",
    :d3fend/definition
@@ -8153,10 +8548,10 @@
    :rdf/type
    [:owl/NamedIndividual :d3fend/OperatingSystemMonitoring :owl/Class],
    :rdfs/label "Input Device Analysis",
-   :rdfs/subClassOf [:d3fend/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/InputDevice,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/OperatingSystemMonitoring]})
 
 (def InstantMessagingClient
   "Client software used to engage in Instant Messaging, a type of online chat that offers real-time text transmission over the Internet. A LAN messenger operates in a similar way over a local area network. Short messages are typically transmitted between two parties, when each user chooses to complete a thought and select \"send\". Some IM applications can use push technology to provide real-time text, which transmits messages character by character, as they are composed. More advanced instant messaging can add file transfer, clickable hyperlinks, Voice over IP, or video chat."
@@ -8169,6 +8564,7 @@
    :rdfs/subClassOf :d3fend/CollaborativeSoftware})
 
 (def IntegratedHoneynet
+  "The practice of setting decoys in a production environment to entice interaction from attackers."
   {:d3fend/d3fend-id "D3-IHN",
    :d3fend/definition
    "The practice of setting decoys in a production environment to entice interaction from attackers.",
@@ -8395,6 +8791,7 @@
    :skos/altLabel ["Intrusion Detection and Prevention System" "IPS" "IDPS"]})
 
 (def Isolate
+  "The isolate tactic creates logical or physical barriers in a system which reduces opportunities for adversaries to create further accesses."
   {:d3fend/definition
    "The isolate tactic creates logical or physical barriers in a system which reduces opportunities for adversaries to create further accesses.",
    :d3fend/display-order 2,
@@ -8419,6 +8816,7 @@
    :rdfs/label "Javascript File"})
 
 (def JobFunctionAccessPatternAnalysis
+  "Detecting anomalies in user access patterns by comparing user access activity to behavioral profiles that categorize users by role such as job title, function, department."
   {:d3fend/analyzes :d3fend/Authorization,
    :d3fend/d3fend-id "D3-JFAPA",
    :d3fend/definition
@@ -8430,10 +8828,10 @@
    :db/ident :d3fend/JobFunctionAccessPatternAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/UserBehaviorAnalysis],
    :rdfs/label "Job Function Access Pattern Analysis",
-   :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Authorization,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/UserBehaviorAnalysis]})
 
 (def JournalArticle
   {:db/ident        :d3fend/JournalArticle,
@@ -8481,27 +8879,28 @@
    "The kernel is a computer program that constitutes the central core of a computer's operating system. It has complete control over everything that occurs in the system. As such, it is the first program loaded on startup, and then manages the remainder of the startup, as well as input/output requests from software, translating them into data processing instructions for the central processing unit. It is also responsible for managing memory, and for managing and communicating with computing peripherals, like printers, speakers, etc. The kernel is a fundamental part of a modern computer's operating system.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Kernel_(operating_system)",
    :rdfs/label "Kernel",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/manages,
-                      :owl/someValuesFrom :d3fend/UserProcess,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/loads,
+                      :owl/someValuesFrom :d3fend/Application,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/HardwareDriver,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/manages,
-                      :owl/someValuesFrom :d3fend/OperatingSystemProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/loads,
-                      :owl/someValuesFrom :d3fend/Application,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/KernelProcessTable,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/manages,
+                      :owl/someValuesFrom :d3fend/UserProcess,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/SystemSoftware
                      {:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/KernelModule,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/SystemSoftware]})
+                     {:owl/onProperty     :d3fend/manages,
+                      :owl/someValuesFrom :d3fend/OperatingSystemProcess,
+                      :rdf/type           :owl/Restriction}]})
 
 (def Kernel-basedProcessIsolation
+  "Using kernel-level capabilities to isolate processes."
   {:d3fend/d3fend-id    "D3-KBPI",
    :d3fend/definition   "Using kernel-level capabilities to isolate processes.",
    :d3fend/kb-reference :d3fend/Reference-OverviewOfTheSeccompSandbox,
@@ -8655,6 +9054,7 @@
    :rdfs/label "Linux Process"})
 
 (def LocalAccountMonitoring
+  "Analyzing local user accounts to detect unauthorized activity."
   {:d3fend/analyzes :d3fend/LocalUserAccount,
    :d3fend/d3fend-id "D3-LAM",
    :d3fend/definition
@@ -8717,6 +9117,7 @@
                      :d3fend/AuthorizationService]})
 
 (def LocalFilePermissions
+  "Restricting access to a local file by configuring operating system functionality."
   {:d3fend/d3fend-id "D3-LFP",
    :d3fend/definition
    "Restricting access to a local file by configuring operating system functionality.",
@@ -8726,10 +9127,10 @@
    :rdf/type [:owl/Class :d3fend/PlatformHardening :owl/NamedIndividual],
    :rdfs/label "Local File Permissions",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/Directory,
+                      :owl/someValuesFrom :d3fend/File,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/File,
+                      :owl/someValuesFrom :d3fend/Directory,
                       :rdf/type           :owl/Restriction}
                      :d3fend/PlatformHardening]})
 
@@ -8800,6 +9201,7 @@
    :rdfs/subClassOf :d3fend/Link})
 
 (def LogicalLinkMapping
+  "Logical link mapping creates a model of existing or previous node-to-node connections using network-layer data or metadata."
   {:d3fend/d3fend-id "D3-LLM",
    :d3fend/definition
    "Logical link mapping creates a model of existing or previous node-to-node connections using network-layer data or metadata.",
@@ -8809,14 +9211,14 @@
    :rdf/type [:owl/NamedIndividual :d3fend/NetworkMapping :owl/Class],
    :rdfs/label "Logical Link Mapping",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
+                      :owl/someValuesFrom :d3fend/NetworkNode,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkMapping
+                     {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/Network,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/LogicalLink,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkMapping
-                     {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/NetworkNode,
                       :rdf/type           :owl/Restriction}]})
 
 (def LoginSession
@@ -8841,6 +9243,7 @@
    :rdfs/label "Lua Script File"})
 
 (def M1013
+  "A future release of D3FEND will define a taxonomy of Source Code Hardening Techniques."
   {:d3fend/d3fend-comment
    "A future release of D3FEND will define a taxonomy of Source Code Hardening Techniques.",
    :db/ident   :d3fend/M1013,
@@ -8848,6 +9251,7 @@
    :rdfs/label "Application Developer Guidance"})
 
 (def M1015
+  "M1015 scope is broad, touches on an wide variety of techniques in D3FEND."
   {:d3fend/d3fend-comment
    "M1015 scope is broad, touches on an wide variety of techniques in D3FEND.",
    :d3fend/related [:d3fend/UserAccountPermissions
@@ -8858,6 +9262,7 @@
    :rdfs/label     "Active Directory Configuration"})
 
 (def M1016
+  "Future D3FEND releases will model the scanning and inventory domains."
   {:d3fend/d3fend-comment
    "Future D3FEND releases will model the scanning and inventory domains.",
    :db/ident   :d3fend/M1016,
@@ -8865,6 +9270,7 @@
    :rdfs/label "Vulnerability Scanning"})
 
 (def M1017
+  "Modeling user training is outside the scope of D3FEND."
   {:d3fend/d3fend-comment
    "Modeling user training is  outside the scope of D3FEND.",
    :db/ident   :d3fend/M1017,
@@ -8880,6 +9286,7 @@
    :rdfs/label     "User Account Management"})
 
 (def M1019
+  "Establishing and running a Threat Intelligence Program is outside the scope of D3FEND."
   {:d3fend/d3fend-comment
    "Establishing and running a Threat Intelligence Program is outside the scope of D3FEND.",
    :db/ident   :d3fend/M1019,
@@ -8887,6 +9294,7 @@
    :rdfs/label "Threat Intelligence Program"})
 
 (def M1020
+  "D3FEND models this as an infrastructure dependency to support D3-NTA."
   {:d3fend/d3fend-comment
    "D3FEND models this as an infrastructure dependency to support D3-NTA.",
    :d3fend/related :d3fend/NetworkTrafficAnalysis,
@@ -8895,6 +9303,7 @@
    :rdfs/label     "SSL/TLS Inspection"})
 
 (def M1021
+  "M1021 scope is broad, touches on an wide variety of techniques in d3fend."
   {:d3fend/d3fend-comment
    "M1021 scope is broad, touches on an wide variety of techniques in d3fend.",
    :d3fend/related [:d3fend/FileAnalysis
@@ -8950,6 +9359,7 @@
    :rdfs/label     "Operating System Configuration"})
 
 (def M1029
+  "IT disaster recovery plans are outside the current scope of D3FEND."
   {:d3fend/d3fend-comment
    "IT disaster recovery plans are outside the current scope of D3FEND.",
    :db/ident   :d3fend/M1029,
@@ -8999,6 +9409,7 @@
    :rdfs/label     "Limit Access to Resource Over Network"})
 
 (def M1036
+  "D3-AZET may be related (is potentially related though not called out in ATT&CK definition.)"
   {:d3fend/d3fend-comment
    "D3-AZET may be related (is potentially related though not called out in ATT&CK definition.)",
    :d3fend/related [:d3fend/AuthenticationEventThresholding
@@ -9067,6 +9478,7 @@
    :rdfs/label     "Credential Access Protection"})
 
 (def M1044
+  "D3-SCF is one possible way to filter library loading."
   {:d3fend/d3fend-comment
    "D3-SCF is one possible way to filter library loading.",
    :d3fend/related :d3fend/SystemCallFiltering,
@@ -9089,6 +9501,7 @@
    :rdfs/label     "Boot Integrity"})
 
 (def M1047
+  "M1047 scope is broad, touches on an wide variety of techniques in d3fend."
   {:d3fend/d3fend-comment
    "M1047 scope is broad, touches on an wide variety of techniques in d3fend.",
    :d3fend/related [:d3fend/SystemFileAnalysis
@@ -9099,6 +9512,7 @@
    :rdfs/label     "Audit"})
 
 (def M1048
+  "\"Sandboxing\" is often used to describe a detection environment which includes some forms of analysis (see D3-DA.)\" Many forms of isolation (e.g., quarantining) are more static in nature and simply limit software's access to system resources."
   {:d3fend/d3fend-comment
    "\"Sandboxing\" is often used to describe a detection environment which includes some forms of analysis (see D3-DA.)\"  Many forms of isolation (e.g., quarantining) are more static in nature and simply limit software's access to system resources.",
    :d3fend/related [:d3fend/SystemCallFiltering
@@ -9110,6 +9524,7 @@
    :rdfs/label     "Application Isolation and Sandboxing"})
 
 (def M1049
+  "Process Analysis and subclasses."
   {:d3fend/d3fend-comment "Process Analysis and subclasses.",
    :d3fend/related [:d3fend/ProcessAnalysis
                     :d3fend/FileHashing
@@ -9140,6 +9555,7 @@
    :rdfs/label     "User Account Control"})
 
 (def M1053
+  "Comprehensive IT disaster recovery plans are outside the current scope of D3FEND."
   {:d3fend/d3fend-comment
    "Comprehensive IT disaster recovery plans are outside the current scope of D3FEND.",
    :db/ident   :d3fend/M1053,
@@ -9222,6 +9638,7 @@
    :skos/altLabel "Email Service"})
 
 (def MandatoryAccessControl
+  "Controlling access to local computer system resources with kernel-level capabilities."
   {:d3fend/d3fend-id "D3-MAC",
    :d3fend/definition
    "Controlling access to local computer system resources with kernel-level capabilities.",
@@ -9260,6 +9677,7 @@
    :rdfs/subClassOf :d3fend/Server})
 
 (def MemoryBoundaryTracking
+  "Analyzing a call stack for return addresses which point to unexpected memory locations."
   {:d3fend/analyzes :d3fend/ProcessCodeSegment,
    :d3fend/d3fend-id "D3-MBT",
    :d3fend/definition
@@ -9272,12 +9690,13 @@
    :rdf/type
    [:owl/Class :d3fend/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label "Memory Boundary Tracking",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/OperatingSystemMonitoring
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/OperatingSystemMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def MessageAnalysis
+  "Analyzing email or instant message content to detect unauthorized activity."
   {:d3fend/d3fend-id "D3-MA",
    :d3fend/definition
    "Analyzing email or instant message content to detect unauthorized activity.",
@@ -9295,6 +9714,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def MessageAuthentication
+  "Authenticating the sender of a message and ensuring message integrity."
   {:d3fend/authenticates :d3fend/UserToUserMessage,
    :d3fend/d3fend-id "D3-MAN",
    :d3fend/definition
@@ -9307,12 +9727,13 @@
    :db/ident :d3fend/MessageAuthentication,
    :rdf/type [:d3fend/MessageHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Message Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [:d3fend/MessageHardening
+                     {:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/UserToUserMessage,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/MessageHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def MessageEncryption
+  "Encrypting a message body using a cryptographic key."
   {:d3fend/d3fend-id "D3-MENCR",
    :d3fend/definition "Encrypting a message body using a cryptographic key.",
    :d3fend/encrypts :d3fend/UserToUserMessage,
@@ -9329,6 +9750,7 @@
                      :d3fend/MessageHardening]})
 
 (def MessageHardening
+  "Email or Messaging Hardening includes measures taken to ensure the confidentiality and integrity of user to user computer messages."
   {:d3fend/d3fend-id "D3-MH",
    :d3fend/definition
    "Email or Messaging Hardening includes measures taken to ensure the confidentiality and integrity of user to user computer messages.",
@@ -9430,6 +9852,7 @@
    :skos/altLabel ["Cellular Phone" "Cellphone"]})
 
 (def Model
+  "The model tactic is used to apply security engineering, vulnerability, threat, and risk analyses to digital systems. This is accomplished by creating and maintaining a common understanding of the systems being defended, the operations on those systems, actors using the systems, and the relationships and interactions between these elements."
   {:d3fend/definition
    "The model tactic is used to apply security engineering, vulnerability, threat, and risk analyses to digital systems. This is accomplished by creating and maintaining a common understanding of the systems being defended, the operations on those systems, actors using the systems, and the relationships and interactions between these elements.",
    :d3fend/display-order -1,
@@ -9487,6 +9910,7 @@
    :skos/altLabel "Rename File"})
 
 (def Multi-factorAuthentication
+  "Requiring proof of two or more pieces of evidence in order to authenticate a user."
   {:d3fend/authenticates :d3fend/UserAccount,
    :d3fend/d3fend-id "D3-MFA",
    :d3fend/definition
@@ -9522,6 +9946,7 @@
                      :d3fend/ExternalControl]})
 
 (def NISTSP800-53ControlCatalog
+  "A NIST SP 800-53 control catalog provides the entire set of security and privacy controls for a version of NIST SP 800-53."
   {:d3fend/definition
    "A NIST SP 800-53 control catalog provides the entire set of security and privacy controls for a version of NIST SP 800-53.",
    :db/ident :d3fend/NISTSP800-53ControlCatalog,
@@ -10887,6 +11312,7 @@
    :rdfs/subClassOf [:d3fend/NetworkFileResource :d3fend/InitScript]})
 
 (def NetworkIsolation
+  "Network Isolation techniques prevent network hosts from accessing non-essential system network resources."
   {:d3fend/d3fend-id "D3-NI",
    :d3fend/definition
    "Network Isolation techniques prevent network hosts from accessing non-essential system network resources.",
@@ -10900,6 +11326,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def NetworkLink
+  "A network link is a link within the network layer, which is responsible for packet forwarding including routing through intermediate routers."
   {:d3fend/definition
    "A network link is a link within the network layer, which is responsible for packet forwarding including routing through intermediate routers.",
    :d3fend/synonym ["Network Layer Link" "Layer-3 Link"],
@@ -10912,6 +11339,7 @@
    :rdfs/subClassOf :d3fend/LogicalLink})
 
 (def NetworkMapping
+  "Network mapping encompasses the techniques to identify and model the physical layer, network layer, and data exchange layers of the organization's network and their physical location, and determine allowed pathways through that network."
   {:d3fend/d3fend-id "D3-NM",
    :d3fend/definition
    "Network mapping encompasses the techniques to identify and model the physical layer, network layer, and data exchange layers of the organization's network and their physical location, and determine allowed pathways through that network.",
@@ -10920,10 +11348,10 @@
    :db/ident :d3fend/NetworkMapping,
    :rdf/type [:owl/NamedIndividual :d3fend/DefensiveTechnique :owl/Class],
    :rdfs/label "Network Mapping",
-   :rdfs/subClassOf [:d3fend/DefensiveTechnique
-                     {:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Model,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DefensiveTechnique]})
 
 (def NetworkNode
   "In telecommunications networks, a node (Latin nodus, 'knot') is either a redistribution point or a communication endpoint. The definition of a node depends on the network and protocol layer referred to. A physical network node is an electronic device that is attached to a network, and is capable of creating, receiving, or transmitting information over a communications channel. A passive distribution point such as a distribution frame or patch panel is consequently not a node."
@@ -10940,6 +11368,7 @@
                      :d3fend/DigitalArtifact]})
 
 (def NetworkNodeInventory
+  "Network node inventorying identifies and records all the network nodes (hosts, routers, switches, firewalls, etc.) in the organization's architecture."
   {:d3fend/d3fend-id "D3-NNI",
    :d3fend/definition
    "Network node inventorying identifies and records all the network nodes (hosts, routers, switches, firewalls, etc.) in the organization's architecture.",
@@ -11059,16 +11488,17 @@
    "Network traffic or data traffic is the data, or alternatively the amount of data, moving across a network at a given point of time.  Network data in computer networks is mostly encapsulated in network packets, which provide the load in the network.",
    :rdfs/label "Network Traffic",
    :rdfs/seeAlso "http://dbpedia.org/resource/Network_traffic",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/originates-from,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/DomainName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/originates-from,
                       :owl/someValuesFrom :d3fend/PhysicalLocation,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/DomainName,
-                      :rdf/type           :owl/Restriction}],
+                     :d3fend/DigitalArtifact],
    :skos/altLabel "Data Traffic"})
 
 (def NetworkTrafficAnalysis
+  "Analyzing intercepted or summarized computer network traffic to detect unauthorized activity."
   {:d3fend/d3fend-id "D3-NTA",
    :d3fend/definition
    "Analyzing intercepted or summarized computer network traffic to detect unauthorized activity.",
@@ -11082,6 +11512,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def NetworkTrafficCommunityDeviation
+  "Establishing baseline communities of network hosts and identifying statistically divergent inter-community communication."
   {:d3fend/analyzes :d3fend/NetworkTraffic,
    :d3fend/d3fend-id "D3-NTCD",
    :d3fend/definition
@@ -11099,6 +11530,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def NetworkTrafficFiltering
+  "Restricting network traffic originating from any location."
   {:d3fend/d3fend-id "D3-NTF",
    :d3fend/definition
    "Restricting network traffic originating from any location.",
@@ -11122,6 +11554,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def NetworkTrafficPolicyMapping
+  "Network traffic policy mapping identifies and models the allowed pathways of data at the network, tranport, and/or application levels."
   {:d3fend/d3fend-id "D3-NTPM",
    :d3fend/definition
    "Network traffic policy mapping identifies and models the allowed pathways of data at the network, tranport, and/or application levels.",
@@ -11135,15 +11568,16 @@
    :db/ident :d3fend/NetworkTrafficPolicyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/NetworkMapping],
    :rdfs/label "Network Traffic Policy Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/AccessControlConfiguration,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/queries,
+                      :owl/someValuesFrom :d3fend/CollectorAgent,
                       :rdf/type           :owl/Restriction}
                      :d3fend/NetworkMapping
-                     {:owl/onProperty     :d3fend/queries,
-                      :owl/someValuesFrom :d3fend/CollectorAgent,
+                     {:owl/onProperty     :d3fend/maps,
+                      :owl/someValuesFrom :d3fend/AccessControlConfiguration,
                       :rdf/type           :owl/Restriction}]})
 
 (def NetworkVulnerabilityAssessment
+  "Network vulnerability assessment relates all the vulnerabilities of a network's components in the context of their configuration and interdependencies and can also include assessing risk emerging from the network's design as a whole, not just the sum of individual network node or network segment vulnerabilities."
   {:d3fend/d3fend-id "D3-NVA",
    :d3fend/definition
    "Network vulnerability assessment relates all the vulnerabilities of a network's components in the context of their configuration and interdependencies and can also include assessing risk emerging from the network's design as a whole, not just the sum of individual network node or network segment vulnerabilities.",
@@ -11152,10 +11586,10 @@
    :db/ident :d3fend/NetworkVulnerabilityAssessment,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/NetworkMapping],
    :rdfs/label "Network Vulnerability Assessment",
-   :rdfs/subClassOf [:d3fend/NetworkMapping
-                     {:owl/onProperty     :d3fend/identifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
                       :owl/someValuesFrom :d3fend/Vulnerability,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkMapping
                      {:owl/onProperty     :d3fend/evaluates,
                       :owl/someValuesFrom :d3fend/Network,
                       :rdf/type           :owl/Restriction}]})
@@ -11227,6 +11661,7 @@
    :rdfs/subClassOf :d3fend/DocumentFile})
 
 (def One-timePassword
+  "A one-time password is valid for only one user authentication."
   {:d3fend/authenticates :d3fend/UserAccount,
    :d3fend/d3fend-id "D3-OTP",
    :d3fend/definition
@@ -11280,17 +11715,17 @@
    "An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs. All computer programs, excluding firmware, require an operating system to function. Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.",
    :rdfs/label "Operating System",
    :rdfs/seeAlso "http://dbpedia.org/resource/Operating_system",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [:d3fend/DigitalArtifact
+                     {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/Kernel,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/contains,
+                      :owl/someValuesFrom :d3fend/SystemServiceSoftware,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3fend/may-contain,
                       :owl/someValuesFrom
                       :d3fend/OperatingSystemConfigurationComponent,
-                      :rdf/type :owl/Restriction}
-                     :d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/SystemServiceSoftware,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}]})
 
 (def OperatingSystemConfiguration
   "Information used to configure the services, parameters, and initial settings for an operating system."
@@ -11359,6 +11794,7 @@
    :rdfs/subClassOf [:d3fend/OperatingSystemFile :d3fend/LogFile]})
 
 (def OperatingSystemMonitoring
+  "The operating system software, for D3FEND's purposes, includes the kernel and its process management functions, hardware drivers, initialization or boot logic. It also includes and other key system daemons and their configuration. The monitoring or analysis of these components for unauthorized activity constitute **Operating System Monitoring**."
   {:d3fend/d3fend-id "D3-OSM",
    :d3fend/definition
    "The operating system software, for D3FEND's purposes, includes the kernel and its process management functions, hardware drivers, initialization or boot logic. It also includes and other key system daemons and their configuration. The monitoring or analysis of these components for unauthorized activity constitute **Operating System Monitoring**.",
@@ -11424,6 +11860,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def OperationalDependencyMapping
+  "Operational dependency mapping identifies and models the dependencies of the organization's activities on each other and on the organization's performers (people, systems, and services.) This may include modeling the higher- and lower-level activities of an organization forming a hierarchy, or layering, of the dependencies in an organization's activities."
   {:d3fend/d3fend-id "D3-ODM",
    :d3fend/definition
    "Operational dependency mapping identifies and models the dependencies of the organization's activities on each other and on the organization's performers (people, systems, and services.)  This may include modeling the higher- and lower-level activities of an organization forming a hierarchy, or layering, of the dependencies in an organization's activities.",
@@ -11441,13 +11878,14 @@
    :rdfs/label "Operational Dependency Mapping",
    :rdfs/subClassOf [:d3fend/OperationalActivityMapping
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/Dependency,
+                      :owl/someValuesFrom :d3fend/OrganizationalActivity,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/OrganizationalActivity,
+                      :owl/someValuesFrom :d3fend/Dependency,
                       :rdf/type           :owl/Restriction}]})
 
 (def OperationalRiskAssessment
+  "Operational risk assessment identifies and models the vulnerabilities of, and risks to, an organization's activities individually and as a whole."
   {:d3fend/d3fend-id "D3-ORA",
    :d3fend/definition
    "Operational risk assessment identifies and models the vulnerabilities of, and risks to, an organization's activities individually and as a whole.",
@@ -11465,10 +11903,10 @@
    :rdf/type
    [:owl/Class :owl/NamedIndividual :d3fend/OperationalActivityMapping],
    :rdfs/label "Operational Risk Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
+   :rdfs/subClassOf [:d3fend/OperationalActivityMapping
+                     {:owl/onProperty     :d3fend/identifies,
                       :owl/someValuesFrom :d3fend/Vulnerability,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/OperationalActivityMapping
                      {:owl/onProperty     :d3fend/evaluates,
                       :owl/someValuesFrom :d3fend/Organization,
                       :rdf/type           :owl/Restriction}]})
@@ -11539,6 +11977,7 @@
                      :d3fend/Agent]})
 
 (def OrganizationMapping
+  "Organization mapping identifies and models the people, roles, and groups with an organization and the relations between them."
   {:d3fend/d3fend-id "D3-OM",
    :d3fend/definition
    "Organization mapping identifies and models the people, roles, and groups with an organization and the relations between them.",
@@ -11553,14 +11992,14 @@
    [:owl/Class :d3fend/OperationalActivityMapping :owl/NamedIndividual],
    :rdfs/label "Organization Mapping",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
+                      :owl/someValuesFrom :d3fend/Person,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/OperationalActivityMapping
+                     {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/Dependency,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/may-map,
                       :owl/someValuesFrom :d3fend/OrganizationalActivity,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/OperationalActivityMapping
-                     {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/Person,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/Organization,
@@ -11581,11 +12020,11 @@
    "Outbound internet DNS lookup traffic is network traffic using the DNS protocol on an outgoing connection initiated from a host within a network to a host outside the network.",
    :rdfs/label "Outbound Internet DNS Lookup Traffic",
    :rdfs/seeAlso "http://dbpedia.org/resource/Internetworking",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
+   :rdfs/subClassOf [:d3fend/OutboundNetworkTraffic
+                     :d3fend/DNSNetworkTraffic
+                     {:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/DNSLookup,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/OutboundNetworkTraffic
-                     :d3fend/DNSNetworkTraffic
                      :d3fend/OutboundInternetNetworkTraffic]})
 
 (def OutboundInternetEncryptedRemoteTerminalTraffic
@@ -11631,11 +12070,11 @@
    :rdfs/seeAlso ["http://dbpedia.org/resource/File_transfer"
                   "http://dbpedia.org/resource/Internetworking"],
    :rdfs/subClassOf [:d3fend/OutboundNetworkTraffic
-                     :d3fend/FileTransferNetworkTraffic
-                     :d3fend/OutboundInternetNetworkTraffic
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/FileTransferNetworkTraffic
+                     :d3fend/OutboundInternetNetworkTraffic]})
 
 (def OutboundInternetMailTraffic
   "Outbound internet DNS lookup traffic is network traffic using a standard email protocol on an outgoing connection initiated from a host within a network to a host outside the network."
@@ -11697,6 +12136,7 @@
    :rdfs/subClassOf :d3fend/NetworkTraffic})
 
 (def OutboundTrafficFiltering
+  "Restricting network traffic originating from a private host or enclave destined towards untrusted networks."
   {:d3fend/d3fend-id "D3-OTF",
    :d3fend/definition
    "Restricting network traffic originating from a private host or enclave destined towards untrusted networks.",
@@ -11708,10 +12148,10 @@
    :db/ident :d3fend/OutboundTrafficFiltering,
    :rdf/type [:owl/NamedIndividual :d3fend/NetworkTrafficFiltering :owl/Class],
    :rdfs/label "Outbound Traffic Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/filters,
+   :rdfs/subClassOf [:d3fend/NetworkTrafficFiltering
+                     {:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/OutboundNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkTrafficFiltering]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def OutputDevice
   "An output device is any piece of computer hardware equipment which converts information into human-readable form. It can be text, graphics, tactile, audio, and video. Some of the output devices are Visual Display Units (VDU) i.e. a Monitor, Printer, Graphic Output devices, Plotters, Speakers etc. A new type of Output device is been developed these days, known as Speech synthesizer, a mechanism attached to the computer which produces verbal output sounding almost like human speeches."
@@ -11815,6 +12255,7 @@
    :rdfs/subClassOf :d3fend/CertificateAnalysis})
 
 (def PassiveLogicalLinkMapping
+  "Passive logical link mapping only listens to network traffic as a means to map the the whole data link layer, where the links represent logical data flows rather than physical connections."
   {:d3fend/d3fend-id "D3-PLLM",
    :d3fend/definition
    "Passive logical link mapping only listens to network traffic as a means to map the the whole data link layer, where the links represent logical data flows rather than physical connections.",
@@ -11826,6 +12267,7 @@
    :rdfs/subClassOf :d3fend/LogicalLinkMapping})
 
 (def PassivePhysicalLinkMapping
+  "Passive physical link mapping only listens to network traffic as a means to map the physical layer."
   {:d3fend/d3fend-id "D3-PPLM",
    :d3fend/definition
    "Passive physical link mapping only listens to network traffic as a means to map the physical layer.",
@@ -11898,6 +12340,7 @@
    :rdfs/subClassOf   :d3fend/TechniqueReference})
 
 (def PerHostDownload-UploadRatioAnalysis
+  "Detecting anomalies that indicate malicious activity by comparing the amount of data downloaded versus data uploaded by a host."
   {:d3fend/analyzes :d3fend/NetworkTraffic,
    :d3fend/d3fend-id "D3-PHDURA",
    :d3fend/definition
@@ -11924,6 +12367,7 @@
    :rdfs/subClassOf :d3fend/Firmware})
 
 (def PeripheralFirmwareVerification
+  "Cryptographically verifying peripheral firmware integrity."
   {:d3fend/d3fend-id "D3-PFV",
    :d3fend/definition
    "Cryptographically verifying peripheral firmware integrity.",
@@ -11935,10 +12379,10 @@
    :db/ident :d3fend/PeripheralFirmwareVerification,
    :rdf/type [:owl/NamedIndividual :d3fend/FirmwareVerification :owl/Class],
    :rdfs/label "Peripheral Firmware Verification",
-   :rdfs/subClassOf [:d3fend/FirmwareVerification
-                     {:owl/onProperty     :d3fend/verifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/verifies,
                       :owl/someValuesFrom :d3fend/PeripheralFirmware,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/FirmwareVerification]})
 
 (def PeripheralHubFirmware
   "Firmware that is installed on peripheral hub device such as a USB or Firewire hub."
@@ -11994,6 +12438,7 @@
    :rdfs/subClassOf [:d3fend/PhysicalObject :d3fend/Artifact]})
 
 (def PhysicalLink
+  "A physical link is a dedicated connection for communication that uses some physical media (electrical, electromagnetic, optical, to include clear spaces or vacuums.) A physical link represents only a single hop (link) in any larger communcations path, circuit, or network. NOTE: not synonymous with data link as a data link can be over a telecommunications circuit, which may be a virtual circuit composed of multiple phyical links."
   {:d3fend/definition
    "A physical link is a dedicated connection for communication that uses some physical media (electrical, electromagnetic, optical, to include clear spaces or vacuums.)  A physical link represents only a single hop (link) in any larger communcations path, circuit, or network.\n\nNOTE: not synonymous with data link as a data link can be over a telecommunications circuit, which may be a virtual circuit composed of multiple phyical links.",
    :d3fend/synonym "Layer-1 Link",
@@ -12004,6 +12449,7 @@
    :rdfs/subClassOf :d3fend/Link})
 
 (def PhysicalLinkMapping
+  "Physical link mapping identifies and models the link connectivity of the network devices within a physical network."
   {:d3fend/d3fend-id "D3-PLM",
    :d3fend/definition
    "Physical link mapping identifies and models the link connectivity of the network devices within a physical network.",
@@ -12062,10 +12508,10 @@
    "Platform includes the hardware and OS. The term computing platform can refer to different abstraction levels, including a certain hardware architecture, an operating system (OS), and runtime libraries. In total it can be said to be the stage on which computer programs can run.",
    :rdfs/label "Platform",
    :rdfs/seeAlso "http://dbpedia.org/resource/Computing_platform",
-   :rdfs/subClassOf [:d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/HardwareDevice,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/DigitalArtifact
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/OperatingSystem,
                       :rdf/type           :owl/Restriction}
@@ -12075,6 +12521,7 @@
    :skos/altLabel "Computer Platform"})
 
 (def PlatformHardening
+  "Hardening components of a Platform with the intention of making them more difficult to exploit. Platforms includes components such as: * BIOS UEFI Subsystems * Hardware security devices such as Trusted Platform Modules * Boot process logic or code * Kernel software components"
   {:d3fend/d3fend-id "D3-PH",
    :d3fend/definition
    "Hardening components of a Platform with the intention of making them more difficult to exploit.\n\nPlatforms includes components such as:\n* BIOS UEFI Subsystems\n* Hardware security devices such as Trusted Platform Modules\n* Boot process logic or code\n* Kernel software components",
@@ -12089,6 +12536,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def PlatformMonitoring
+  "Monitoring platform components such as operating systems software, hardware devices, or firmware."
   {:d3fend/d3fend-id "D3-PM",
    :d3fend/definition
    "Monitoring platform components such as operating systems software, hardware devices, or firmware.",
@@ -12115,6 +12563,7 @@
    :rdfs/subClassOf :d3fend/DigitalArtifact})
 
 (def PointerAuthentication
+  "Comparing the cryptographic hash or derivative of a pointer's value to an expected value."
   {:d3fend/authenticates :d3fend/Pointer,
    :d3fend/d3fend-id "D3-PAN",
    :d3fend/definition
@@ -12126,10 +12575,10 @@
    :db/ident :d3fend/PointerAuthentication,
    :rdf/type [:d3fend/ApplicationHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Pointer Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [:d3fend/ApplicationHardening
+                     {:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/Pointer,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/ApplicationHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Policy
   {:db/ident        :d3fend/Policy,
@@ -12240,30 +12689,31 @@
    "A process is an instance of a computer program that is being executed. It contains the program code and its current activity. Depending on the operating system (OS), a process may be made up of multiple threads of execution that execute instructions concurrently. A computer program is a passive collection of instructions, while a process is the actual execution of those instructions. Several processes may be associated with the same program; for example, opening up several instances of the same program often means more than one process is being executed.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Process_(computing)",
    :rdfs/label "Process",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/process-identifier,
-                      :owl/someValuesFrom :xsd/integer,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [{:owl/onProperty :d3fend/process-environmental-variables,
+                      :owl/someValuesFrom :xsd/string,
+                      :rdf/type :owl/Restriction}
                      :d3fend/DigitalArtifact
                      {:owl/onProperty     :d3fend/process-image-path,
                       :owl/someValuesFrom :d3fend/ExecutableBinary,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty :d3fend/process-environmental-variables,
+                     {:owl/onProperty     :d3fend/process-user,
+                      :owl/someValuesFrom :d3fend/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3fend/process-command-line-arguments,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type :owl/Restriction}
                      {:owl/onProperty     :d3fend/process-security-context,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/process-identifier,
+                      :owl/someValuesFrom :xsd/integer,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/ProcessImage,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty :d3fend/process-command-line-arguments,
-                      :owl/someValuesFrom :xsd/string,
-                      :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3fend/process-user,
-                      :owl/someValuesFrom :d3fend/UserAccount,
                       :rdf/type           :owl/Restriction}]})
 
 (def ProcessAnalysis
+  "Process Analysis consists of observing a running application process and analyzing it to watch for certain behaviors or conditions which may indicate adversary activity. Analysis can occur inside of the process or through a third-party monitoring application. Examples include monitoring system and privileged calls, monitoring process initiation chains, and memory boundary allocations."
   {:d3fend/d3fend-id "D3-PA",
    :d3fend/definition
    "Process Analysis consists of observing a running application process and analyzing it to watch for certain behaviors or conditions which may indicate adversary activity. Analysis can occur inside of the process or through a third-party monitoring application. Examples include monitoring system and privileged calls, monitoring process initiation chains, and memory boundary allocations.",
@@ -12293,6 +12743,7 @@
    :skos/altLabel "Process Text Segment"})
 
 (def ProcessCodeSegmentVerification
+  "Comparing the \"text\" or \"code\" memory segments to a source of truth."
   {:d3fend/d3fend-id "D3-PCSV",
    :d3fend/definition
    "Comparing the \"text\" or \"code\" memory segments to a source of truth.",
@@ -12309,10 +12760,10 @@
    :db/ident :d3fend/ProcessCodeSegmentVerification,
    :rdf/type [:owl/Class :d3fend/ProcessAnalysis :owl/NamedIndividual],
    :rdfs/label "Process Code Segment Verification",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/verifies,
+   :rdfs/subClassOf [:d3fend/ProcessAnalysis
+                     {:owl/onProperty     :d3fend/verifies,
                       :owl/someValuesFrom :d3fend/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/ProcessAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ProcessDataSegment
   "A process data segment, is a portion of the program's virtual address space that contains executable instructions and corresponds to the loaded image data segment."
@@ -12337,6 +12788,7 @@
    :skos/altLabel "Environment Variable"})
 
 (def ProcessEviction
+  "Process eviction techniques terminate or remove running process."
   {:d3fend/d3fend-id "D3-PE",
    :d3fend/definition
    "Process eviction techniques terminate or remove running process.",
@@ -12364,6 +12816,7 @@
                      :d3fend/DigitalArtifact]})
 
 (def ProcessLineageAnalysis
+  "Identification of suspicious processes executing on an end-point device by examining the ancestry and siblings of a process, and the associated metadata of each node on the tree, such as process execution, duration, and order relative to siblings and ancestors."
   {:d3fend/analyzes [:d3fend/ProcessTree :d3fend/Process],
    :d3fend/d3fend-id "D3-PLA",
    :d3fend/definition
@@ -12411,6 +12864,7 @@
    :rdfs/subClassOf :d3fend/BinarySegment})
 
 (def ProcessSegmentExecutionPrevention
+  "Preventing execution of any address in a memory region other than the code segment."
   {:d3fend/d3fend-id "D3-PSEP",
    :d3fend/definition
    "Preventing execution of any address in a memory region other than the code segment.",
@@ -12429,6 +12883,7 @@
                      :d3fend/ApplicationHardening]})
 
 (def ProcessSelf-ModificationDetection
+  "Detects processes that modify, change, or replace their own code at runtime."
   {:d3fend/analyzes :d3fend/Process,
    :d3fend/d3fend-id "D3-PSMD",
    :d3fend/definition
@@ -12446,6 +12901,7 @@
                      :d3fend/ProcessAnalysis]})
 
 (def ProcessSpawnAnalysis
+  "Analyzing spawn arguments or attributes of a process to detect processes that are unauthorized."
   {:d3fend/analyzes [:d3fend/Process :d3fend/CreateProcess],
    :d3fend/d3fend-id "D3-PSA",
    :d3fend/definition
@@ -12507,6 +12963,7 @@
                      :d3fend/ProcessAnalysis]})
 
 (def ProcessTermination
+  "Terminating a running application process on a computer system."
   {:d3fend/d3fend-id "D3-PT",
    :d3fend/definition
    "Terminating a running application process on a computer system.",
@@ -12580,6 +13037,7 @@
    :rdfs/subClassOf :d3fend/License})
 
 (def ProtocolMetadataAnomalyDetection
+  "Collecting network communication protocol metadata and identifying statistical outliers."
   {:d3fend/analyzes :d3fend/NetworkTraffic,
    :d3fend/d3fend-id "D3-PMAD",
    :d3fend/definition
@@ -12593,10 +13051,10 @@
    :db/ident :d3fend/ProtocolMetadataAnomalyDetection,
    :rdf/type [:d3fend/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label "Protocol Metadata Anomaly Detection",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkTrafficAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Provider
   {:db/ident        :d3fend/Provider,
@@ -12645,6 +13103,7 @@
    :skos/altLabel ["Terminal Services" "Remote Desktop Session"]})
 
 (def RFShielding
+  "Adding physical barriers to a platform to prevent undesired radio interference."
   {:d3fend/d3fend-id "D3-RFS",
    :d3fend/definition
    "Adding physical barriers to a platform to prevent undesired radio interference.",
@@ -12666,6 +13125,7 @@
    :rdfs/subClassOf :d3fend/NetworkTraffic})
 
 (def RPCTrafficAnalysis
+  "Monitoring the activity of remote procedure calls in communication traffic to establish standard protocol operations and potential attacker activities."
   {:d3fend/analyzes :d3fend/RPCNetworkTraffic,
    :d3fend/d3fend-id "D3-RTA",
    :d3fend/definition
@@ -17063,6 +17523,7 @@
    "Reference - Tokenless biometric transaction authorization method and system"})
 
 (def Reference-TrustedAttestationProtocolUseCases
+  "## Document Abstract This specification defines the Trusted Platform Module (TPM) a device that enables trust in computing platforms in general. It is broken into parts to make the role of each part clear. All parts are required in order to constitute a complete standard. For a complete definition of all requirements necessary to build a TPM, the designer will need to use the appropriate platform-specific specification to understand all of the requirements for a TPM in a specific application or make appropriate choices as an implementer. Those wishing to create a TPM need to be aware that this specification does not provide a complete picture of the options and commands necessary to implement a TPM. To implement a TPM the designer needs to refer to the relevant platform-specific specification to understand the options and settings required for a TPM in a specific type of platform or make appropriate choices as an implementer."
   {:d3fend/has-link
    "https://trustedcomputinggroup.org/wp-content/uploads/TCG_TNC_TAP_Use_Cases_v1r0p35_published.pdf",
    :d3fend/kb-article
@@ -17429,6 +17890,7 @@
    :rdf/type [:d3fend/SetSystemConfigValue :owl/NamedIndividual]})
 
 (def RelayPatternAnalysis
+  "The detection of an internal host relaying traffic between the internal network and the external network."
   {:d3fend/analyzes :d3fend/OutboundInternetNetworkTraffic,
    :d3fend/d3fend-id "D3-RPA",
    :d3fend/definition
@@ -17522,6 +17984,7 @@
    :rdfs/subClassOf :d3fend/NetworkSession})
 
 (def RemoteTerminalSessionDetection
+  "Detection of an unauthorized remote live terminal console session by examining network traffic to a network host."
   {:d3fend/analyzes :d3fend/NetworkTraffic,
    :d3fend/d3fend-id "D3-RTSD",
    :d3fend/definition
@@ -17535,10 +17998,10 @@
    :db/ident :d3fend/RemoteTerminalSessionDetection,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/NetworkTrafficAnalysis],
    :rdfs/label "Remote Terminal Session Detection",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkTrafficAnalysis]})
 
 (def RemovableMediaDevice
   "A removable media device is a hardware device used for computer storage and that is designed to be inserted and removed from the system. It is distinct from other removable media in that all the hardware required to read the data are built into the device. So USB flash drives and external hard drives are removable media devices, whereas tapes and disks are not, as they require additional hardware to perform read/write operations."
@@ -17571,6 +18034,7 @@
    :rdfs/subClassOf [:d3fend/UserAction :d3fend/DigitalEvent]})
 
 (def ResourceAccessPatternAnalysis
+  "Analyzing the resources accessed by a user to identify unauthorized activity."
   {:d3fend/analyzes [:d3fend/Authorization :d3fend/Authentication],
    :d3fend/d3fend-id "D3-RAPA",
    :d3fend/definition
@@ -17587,10 +18051,10 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/UserBehaviorAnalysis],
    :rdfs/label "Resource Access Pattern Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Authorization,
+                      :owl/someValuesFrom :d3fend/Authentication,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Authentication,
+                      :owl/someValuesFrom :d3fend/Authorization,
                       :rdf/type           :owl/Restriction}
                      :d3fend/UserBehaviorAnalysis]})
 
@@ -17621,6 +18085,7 @@
    :rdfs/subClassOf :d3fend/ProxyServer})
 
 (def ReverseResolutionDomainDenylisting
+  "Blocking a reverse DNS lookup's answer's domain name value."
   {:d3fend/blocks :d3fend/InboundInternetDNSResponseTraffic,
    :d3fend/d3fend-id "D3-RRDD",
    :d3fend/definition
@@ -17638,6 +18103,7 @@
                      :d3fend/DNSDenylisting]})
 
 (def ReverseResolutionIPDenylisting
+  "Blocking a reverse lookup based on the query's IP address value."
   {:d3fend/blocks :d3fend/OutboundInternetDNSLookupTraffic,
    :d3fend/d3fend-id "D3-RRID",
    :d3fend/definition
@@ -17692,6 +18158,7 @@
    :rdfs/subClassOf [:d3fend/StackComponent :d3fend/Pointer]})
 
 (def ScheduledJobAnalysis
+  "Analysis of source files, processes, destination files, or destination servers associated with a scheduled job to detect unauthorized use of job scheduling."
   {:d3fend/analyzes :d3fend/TaskSchedule,
    :d3fend/d3fend-id "D3-SJA",
    :d3fend/definition
@@ -17707,10 +18174,10 @@
    :rdf/type
    [:owl/Class :d3fend/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label "Scheduled Job Analysis",
-   :rdfs/subClassOf [:d3fend/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/TaskSchedule,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/OperatingSystemMonitoring]})
 
 (def ScriptApplicationProcess
   "A script application process is an application process interpreting an executable script."
@@ -17727,6 +18194,7 @@
    :skos/altLabel "Script Process"})
 
 (def ScriptExecutionAnalysis
+  "Analyzing the execution of a script to detect unauthorized user activity."
   {:d3fend/analyzes :d3fend/ScriptApplicationProcess,
    :d3fend/d3fend-id "D3-SEA",
    :d3fend/definition
@@ -17767,6 +18235,7 @@
                      :d3fend/HardwareDevice]})
 
 (def SegmentAddressOffsetRandomization
+  "Randomizing the base (start) address of one or more segments of memory during the initialization of a process."
   {:d3fend/d3fend-id "D3-SAOR",
    :d3fend/definition
    "Randomizing the base (start) address of one or more segments of memory during the initialization of a process.",
@@ -17780,12 +18249,13 @@
    :db/ident :d3fend/SegmentAddressOffsetRandomization,
    :rdf/type [:d3fend/ApplicationHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Segment Address Offset Randomization",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/obfuscates,
+   :rdfs/subClassOf [:d3fend/ApplicationHardening
+                     {:owl/onProperty     :d3fend/obfuscates,
                       :owl/someValuesFrom :d3fend/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/ApplicationHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SenderMTAReputationAnalysis
+  "Characterizing the reputation of mail transfer agents (MTA) to determine the security risk in emails."
   {:d3fend/analyzes :d3fend/Email,
    :d3fend/d3fend-id "D3-SMRA",
    :d3fend/definition
@@ -17797,12 +18267,13 @@
    :db/ident :d3fend/SenderMTAReputationAnalysis,
    :rdf/type [:d3fend/MessageAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label "Sender MTA Reputation Analysis",
-   :rdfs/subClassOf [:d3fend/MessageAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Email,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/MessageAnalysis]})
 
 (def SenderReputationAnalysis
+  "Ascertaining sender reputation based on information associated with a message (e.g. email/instant messaging)."
   {:d3fend/analyzes :d3fend/Email,
    :d3fend/d3fend-id "D3-SRA",
    :d3fend/definition
@@ -17853,6 +18324,7 @@
    :rdfs/subClassOf :d3fend/Application})
 
 (def ServiceBinaryVerification
+  "Analyzing changes in service binary files by comparing to a source of truth."
   {:d3fend/d3fend-id "D3-SBV",
    :d3fend/definition
    "Analyzing changes in service binary files by comparing to a source of truth.",
@@ -17863,12 +18335,13 @@
    :db/ident :d3fend/ServiceBinaryVerification,
    :rdf/type [:d3fend/SystemFileAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label "Service Binary Verification",
-   :rdfs/subClassOf [:d3fend/SystemFileAnalysis
-                     {:owl/onProperty     :d3fend/verifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/verifies,
                       :owl/someValuesFrom :d3fend/ServiceApplication,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/SystemFileAnalysis]})
 
 (def ServiceDependency
+  "A service dependency indicates a service has an activity, agent, or another service which relies on it in order to be functional."
   {:d3fend/definition
    "A service dependency indicates a service has an activity, agent, or another service which relies on it in order to be functional.",
    :db/ident :d3fend/ServiceDependency,
@@ -17877,6 +18350,7 @@
    :rdfs/subClassOf :d3fend/Dependency})
 
 (def ServiceDependencyMapping
+  "Service dependency mapping determines the services on which each given service relies."
   {:d3fend/d3fend-id "D3-SVCDM",
    :d3fend/definition
    "Service dependency mapping determines the services on which each given service relies.",
@@ -17891,10 +18365,10 @@
    :db/ident :d3fend/ServiceDependencyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/SystemMapping],
    :rdfs/label "Service Dependency Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
+   :rdfs/subClassOf [:d3fend/SystemMapping
+                     {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/ServiceDependency,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/SystemMapping]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ServiceProvider
   {:db/ident        :d3fend/ServiceProvider,
@@ -17931,6 +18405,7 @@
                    "Non-persistent Cookie"]})
 
 (def SessionDurationAnalysis
+  "Analyzing the duration of user sessions in order to detect unauthorized activity."
   {:d3fend/analyzes [:d3fend/Authentication :d3fend/Authorization],
    :d3fend/d3fend-id "D3-SDA",
    :d3fend/definition
@@ -17943,10 +18418,10 @@
    :db/ident :d3fend/SessionDurationAnalysis,
    :rdf/type [:owl/Class :d3fend/UserBehaviorAnalysis :owl/NamedIndividual],
    :rdfs/label "Session Duration Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Authentication,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/UserBehaviorAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Authorization,
                       :rdf/type           :owl/Restriction}]})
@@ -17960,6 +18435,7 @@
    :rdfs/subClassOf :d3fend/SystemConfigSystemCall})
 
 (def ShadowStackComparisons
+  "Comparing a call stack in system memory with a shadow call stack maintained by the processor to determine unauthorized shellcode activity."
   {:d3fend/analyzes :d3fend/StackFrame,
    :d3fend/d3fend-id "D3-SSC",
    :d3fend/definition
@@ -18074,6 +18550,7 @@
    :rdfs/subClassOf :d3fend/ServiceApplication})
 
 (def SoftwareInventory
+  "Software inventorying identifies and records the software items in the organization's architecture."
   {:d3fend/d3fend-id "D3-SWI",
    :d3fend/definition
    "Software inventorying identifies and records the software items in the organization's architecture.",
@@ -18087,10 +18564,10 @@
    :db/ident :d3fend/SoftwareInventory,
    :rdf/type [:d3fend/AssetInventory :owl/NamedIndividual :owl/Class],
    :rdfs/label "Software Inventory",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/inventories,
+   :rdfs/subClassOf [:d3fend/AssetInventory
+                     {:owl/onProperty     :d3fend/inventories,
                       :owl/someValuesFrom :d3fend/Software,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/AssetInventory]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SoftwarePackagingTool
   "A tool that automates the process of packaging either or both binary code and source code for use on one or more target platforms."
@@ -18129,6 +18606,7 @@
    :skos/altLabel   "SaaS"})
 
 (def SoftwareUpdate
+  "Replacing old software on a computer system component."
   {:d3fend/d3fend-id "D3-SU",
    :d3fend/definition "Replacing old software on a computer system component.",
    :d3fend/kb-reference
@@ -18220,6 +18698,7 @@
    :skos/altLabel "Stack Canary"})
 
 (def StackFrameCanaryValidation
+  "Comparing a value stored in a stack frame with a known good value in order to prevent or detect a memory segment overwrite."
   {:d3fend/d3fend-id "D3-SFCV",
    :d3fend/definition
    "Comparing a value stored in a stack frame with a known good value in order to prevent or detect a memory segment overwrite.",
@@ -18253,6 +18732,7 @@
                      :d3fend/ProcessSegment]})
 
 (def StandaloneHoneynet
+  "An environment created for the purpose of attracting attackers and eliciting their behaviors that is not connected to any production enterprise systems."
   {:d3fend/d3fend-id "D3-SHN",
    :d3fend/definition
    "An environment created for the purpose of attracting attackers and eliciting their behaviors that is not connected to any production enterprise systems.",
@@ -18264,10 +18744,10 @@
    :db/ident :d3fend/StandaloneHoneynet,
    :rdf/type [:owl/Class :d3fend/DecoyEnvironment :owl/NamedIndividual],
    :rdfs/label "Standalone Honeynet",
-   :rdfs/subClassOf [:d3fend/DecoyEnvironment
-                     {:owl/onProperty     :d3fend/spoofs,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/spoofs,
                       :owl/someValuesFrom :d3fend/IntranetNetwork,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DecoyEnvironment]})
 
 (def StartupDirectory
   "A startup directory is a directory containing executable files or links to executable files which are run when a user logs in or when a system component or service is started."
@@ -18344,6 +18824,7 @@
    :rdfs/subClassOf :d3fend/Subroutine})
 
 (def StrongPasswordPolicy
+  "Modifying system configuration to increase password strength."
   {:d3fend/d3fend-id "D3-SPP",
    :d3fend/definition
    "Modifying system configuration to increase password strength.",
@@ -18359,10 +18840,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/strengthens,
                       :owl/someValuesFrom :d3fend/Password,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/CredentialHardening
                      {:owl/onProperty     :d3fend/strengthens,
                       :owl/someValuesFrom :d3fend/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Subroutine
   "In different programming languages, a subroutine may be called a procedure, a function, a routine, a method, or a subprogram. The generic term callable unit is sometimes used."
@@ -18396,10 +18877,10 @@
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Symbolic_link",
    :rdfs/label "Symbolic Link",
    :rdfs/subClassOf [:d3fend/FileSystemLink
+                     :d3fend/File
                      {:owl/onProperty     :d3fend/addresses,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/File],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel ["Soft Link" "Symlink" "Softlink"]})
 
 (def SymmetricKey
@@ -18439,6 +18920,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def SystemCallAnalysis
+  "Analyzing system calls to determine whether a process is exhibiting unauthorized behavior."
   {:d3fend/analyzes :d3fend/SystemCall,
    :d3fend/d3fend-id "D3-SCA",
    :d3fend/definition
@@ -18463,6 +18945,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def SystemCallFiltering
+  "Configuring a kernel to use an allow or deny list to filter kernel api calls."
   {:d3fend/d3fend-id "D3-SCF",
    :d3fend/definition
    "Configuring a kernel to use an allow or deny list to filter kernel api calls.",
@@ -18472,10 +18955,10 @@
    :rdf/type
    [:owl/NamedIndividual :owl/Class :d3fend/Kernel-basedProcessIsolation],
    :rdfs/label "System Call Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/filters,
+   :rdfs/subClassOf [:d3fend/Kernel-basedProcessIsolation
+                     {:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/SystemCall,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/Kernel-basedProcessIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SystemConfigSystemCall
   {:db/ident        :d3fend/SystemConfigSystemCall,
@@ -18529,6 +19012,7 @@
    :skos/altLabel "System Init Resource"})
 
 (def SystemConfigurationPermissions
+  "Restricting system configuration modifications to a specific user or group of users."
   {:d3fend/d3fend-id "D3-SCP",
    :d3fend/definition
    "Restricting system configuration modifications to a specific user or group of users.",
@@ -18538,15 +19022,16 @@
    :db/ident :d3fend/SystemConfigurationPermissions,
    :rdf/type [:owl/Class :d3fend/PlatformHardening :owl/NamedIndividual],
    :rdfs/label "System Configuration Permissions",
-   :rdfs/subClassOf [{:owl/hasValue   :d3fend/M1028,
+   :rdfs/subClassOf [:d3fend/PlatformHardening
+                     {:owl/hasValue   :d3fend/M1028,
                       :owl/onProperty :d3fend/restricts,
                       :rdf/type       :owl/Restriction}
-                     :d3fend/PlatformHardening
                      {:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}]})
 
 (def SystemDaemonMonitoring
+  "Tracking changes to the state or configuration of critical system level processes."
   {:d3fend/d3fend-id "D3-SDM",
    :d3fend/definition
    "Tracking changes to the state or configuration of critical system level processes.",
@@ -18567,6 +19052,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def SystemDependency
+  "A system dependency indicates a system has an activity, agent, or another system which relies on it in order to be functional."
   {:d3fend/definition
    "A system dependency indicates a system has an activity, agent, or another system which relies on it in order to be functional.",
    :db/ident :d3fend/SystemDependency,
@@ -18579,6 +19065,7 @@
    :rdfs/subClassOf :d3fend/Dependency})
 
 (def SystemDependencyMapping
+  "System dependency mapping identifies and models the dependencies of system components on each other to carry out their function."
   {:d3fend/d3fend-id "D3-SYSDM",
    :d3fend/definition
    "System dependency mapping identifies and models the dependencies of system components on each other to carry out their function.",
@@ -18593,12 +19080,13 @@
    :db/ident :d3fend/SystemDependencyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/SystemMapping],
    :rdfs/label "System Dependency Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
+   :rdfs/subClassOf [:d3fend/SystemMapping
+                     {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/SystemDependency,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/SystemMapping]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SystemFileAnalysis
+  "Monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering."
   {:d3fend/analyzes :d3fend/OperatingSystemFile,
    :d3fend/d3fend-id "D3-SFA",
    :d3fend/definition
@@ -18613,10 +19101,10 @@
    :rdf/type
    [:owl/NamedIndividual :owl/Class :d3fend/OperatingSystemMonitoring],
    :rdfs/label "System File Analysis",
-   :rdfs/subClassOf [:d3fend/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/OperatingSystemFile,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/OperatingSystemMonitoring]})
 
 (def SystemFirewallConfiguration
   "The configuration for a individual host operating system's firewall."
@@ -18643,6 +19131,7 @@
    :skos/altLabel ["UEFI Firmware" "BIOS Firmware"]})
 
 (def SystemFirmwareVerification
+  "Cryptographically verifying installed system firmware integrity."
   {:d3fend/d3fend-id "D3-SFV",
    :d3fend/definition
    "Cryptographically verifying installed system firmware integrity.",
@@ -18661,6 +19150,7 @@
                      :d3fend/FirmwareVerification]})
 
 (def SystemInitConfigAnalysis
+  "Analysis of any system process startup configuration."
   {:d3fend/analyzes :d3fend/SystemInitConfiguration,
    :d3fend/d3fend-id "D3-SICA",
    :d3fend/definition "Analysis of any system process startup configuration.",
@@ -18714,6 +19204,7 @@
                      :d3fend/ExecutableScript]})
 
 (def SystemMapping
+  "System mapping encompasses the techniques to identify the organization's systems, how they are configured and decomposed into subsystems and components, how they are dependent on one another, and where they are physically located."
   {:d3fend/d3fend-id "D3-SYSM",
    :d3fend/definition
    "System mapping encompasses the techniques to identify the organization's systems, how they are configured and decomposed into subsystems and components, how they are dependent on one another, and where they are physically located.",
@@ -18722,10 +19213,10 @@
    :db/ident :d3fend/SystemMapping,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/DefensiveTechnique],
    :rdfs/label "System Mapping",
-   :rdfs/subClassOf [:d3fend/DefensiveTechnique
-                     {:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Model,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DefensiveTechnique]})
 
 (def SystemPasswordDatabase
   "A password database used by a system service or process to authenticate users (e.g., Security Account Manager)"
@@ -18789,6 +19280,7 @@
    :rdfs/subClassOf :d3fend/Record})
 
 (def SystemVulnerabilityAssessment
+  "System vulnerability assessment relates all the vulnerabilities of a system's components in the context of their configuration and internal dependencies and can also include assessing risk emerging from the system's design as a whole, not just the sum of individual component vulnerabilities."
   {:d3fend/d3fend-id "D3-SYSVA",
    :d3fend/definition
    "System vulnerability assessment relates all the vulnerabilities of a system's components in the context of their configuration and internal dependencies and can also include assessing risk emerging from the system's design as a whole, not just the sum of individual component vulnerabilities.",
@@ -18798,10 +19290,10 @@
    :db/ident :d3fend/SystemVulnerabilityAssessment,
    :rdf/type [:owl/NamedIndividual :d3fend/SystemMapping :owl/Class],
    :rdfs/label "System Vulnerability Assessment",
-   :rdfs/subClassOf [:d3fend/SystemMapping
-                     {:owl/onProperty     :d3fend/identifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
                       :owl/someValuesFrom :d3fend/Vulnerability,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/SystemMapping
                      {:owl/onProperty     :d3fend/evaluates,
                       :owl/someValuesFrom :d3fend/DigitalSystem,
                       :rdf/type           :owl/Restriction}]})
@@ -18879,10 +19371,10 @@
    :db/ident          :d3fend/T1003.002,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Security Account Manager",
-   :rdfs/subClassOf   [:d3fend/T1003
-                       {:owl/onProperty     :d3fend/may-access,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/SystemPasswordDatabase,
                         :rdf/type           :owl/Restriction}
+                       :d3fend/T1003
                        {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/Process,
                         :rdf/type           :owl/Restriction}
@@ -19105,20 +19597,20 @@
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Rootkit",
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/KernelModule,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/Firmware,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/SharedLibraryFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/Kernel,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/KernelModule,
+                        :owl/someValuesFrom :d3fend/BootSector,
                         :rdf/type           :owl/Restriction}
                        :d3fend/DefenseEvasionTechnique
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/BootSector,
+                        :owl/someValuesFrom :d3fend/Kernel,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1015
@@ -19140,14 +19632,14 @@
    :rdfs/subClassOf    [{:owl/onProperty     :d3fend/may-execute,
                          :owl/someValuesFrom :d3fend/ExecutableScript,
                          :rdf/type           :owl/Restriction}
-                        :d3fend/DiscoveryTechnique
+                        {:owl/onProperty     :d3fend/may-invoke,
+                         :owl/someValuesFrom :d3fend/CreateProcess,
+                         :rdf/type           :owl/Restriction}
                         {:owl/onProperty :d3fend/may-invoke,
                          :owl/someValuesFrom
                          :d3fend/GetSystemNetworkConfigValue,
                          :rdf/type :owl/Restriction}
-                        {:owl/onProperty     :d3fend/may-invoke,
-                         :owl/someValuesFrom :d3fend/CreateProcess,
-                         :rdf/type           :owl/Restriction}]})
+                        :d3fend/DiscoveryTechnique]})
 
 (def T1016.001
   {:d3fend/attack-id "T1016.001",
@@ -19171,20 +19663,20 @@
    :db/ident          :d3fend/T1018,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Remote System Discovery",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/produces,
+   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-access,
+                        :owl/someValuesFrom
+                        :d3fend/OperatingSystemConfigurationFile,
+                        :rdf/type :owl/Restriction}
+                       {:owl/onProperty     :d3fend/produces,
                         :owl/someValuesFrom :d3fend/NetworkTraffic,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/DiscoveryTechnique
-                       {:owl/onProperty :d3fend/may-access,
-                        :owl/someValuesFrom
-                        :d3fend/OperatingSystemConfigurationFile,
-                        :rdf/type :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/CreateSocket,
-                        :rdf/type           :owl/Restriction}]})
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/DiscoveryTechnique]})
 
 (def T1019
   {:d3fend/attack-id "T1019",
@@ -19435,7 +19927,10 @@
    :db/ident          :d3fend/T1033,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "System Owner/User Discovery",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-invoke,
+                        :owl/someValuesFrom :d3fend/CopyToken,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/PasswordFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-access,
@@ -19444,15 +19939,12 @@
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-invoke,
-                        :owl/someValuesFrom :d3fend/CopyToken,
-                        :rdf/type           :owl/Restriction}
                        :d3fend/DiscoveryTechnique
                        {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/ProcessSegment,
+                        :owl/someValuesFrom :d3fend/DirectoryService,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/DirectoryService,
+                        :owl/someValuesFrom :d3fend/ProcessSegment,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1035
@@ -19811,14 +20303,14 @@
    :rdfs/comment
    "The sub-techniques of this are specific software implementations of scheduling capabilities",
    :rdfs/label "Scheduled Task/Job Execution",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/modifies,
-                      :owl/someValuesFrom :d3fend/TaskSchedule,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/PrivilegeEscalationTechnique
+   :rdfs/subClassOf [:d3fend/PrivilegeEscalationTechnique
                      :d3fend/PersistenceTechnique
-                     :d3fend/ExecutionTechnique
                      {:owl/onProperty     :d3fend/invokes,
                       :owl/someValuesFrom :d3fend/CreateProcess,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/ExecutionTechnique
+                     {:owl/onProperty     :d3fend/modifies,
+                      :owl/someValuesFrom :d3fend/TaskSchedule,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1053.001
@@ -19903,13 +20395,13 @@
    :rdfs/subClassOf  [{:owl/onProperty     :d3fend/invokes,
                        :owl/someValuesFrom :d3fend/SystemCall,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/T1055
                       {:owl/onProperty     :d3fend/loads,
                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/adds,
                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
-                       :rdf/type           :owl/Restriction}]})
+                       :rdf/type           :owl/Restriction}
+                      :d3fend/T1055]})
 
 (def T1055.002
   {:d3fend/attack-id "T1055.002",
@@ -20221,13 +20713,13 @@
    :db/ident          :d3fend/T1068,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Exploitation for Privilege Escalation",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/StackFrame,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/ProcessCodeSegment,
                         :rdf/type           :owl/Restriction}
                        :d3fend/PrivilegeEscalationTechnique
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/StackFrame,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/enables,
                         :owl/someValuesFrom :d3fend/PrivilegeEscalation,
                         :rdf/type           :owl/Restriction}]})
@@ -20349,10 +20841,10 @@
                           :owl/someValuesFrom
                           :d3fend/OutboundInternetNetworkTraffic,
                           :rdf/type :owl/Restriction}
+                         :d3fend/CommandAndControlTechnique
                          {:owl/onProperty     :d3fend/may-transfer,
                           :owl/someValuesFrom :d3fend/CertificateFile,
-                          :rdf/type           :owl/Restriction}
-                         :d3fend/CommandAndControlTechnique]})
+                          :rdf/type           :owl/Restriction}]})
 
 (def T1071.001
   {:d3fend/attack-id    "T1071.001",
@@ -20413,16 +20905,16 @@
    :db/ident         :d3fend/T1072,
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Software Deployment Tools Execution",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/adds,
-                       :owl/someValuesFrom :d3fend/File,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/executes,
+                       :owl/someValuesFrom :d3fend/SoftwareDeploymentTool,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/installs,
                        :owl/someValuesFrom :d3fend/Software,
                        :rdf/type           :owl/Restriction}
                       :d3fend/ExecutionTechnique
                       :d3fend/LateralMovementTechnique
-                      {:owl/onProperty     :d3fend/executes,
-                       :owl/someValuesFrom :d3fend/SoftwareDeploymentTool,
+                      {:owl/onProperty     :d3fend/adds,
+                       :owl/someValuesFrom :d3fend/File,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1073
@@ -20498,18 +20990,18 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Valid Accounts",
    :rdfs/subClassOf  [:d3fend/InitialAccessTechnique
-                      {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/Authentication,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/Authorization,
-                       :rdf/type           :owl/Restriction}
-                      :d3fend/DefenseEvasionTechnique
-                      :d3fend/PersistenceTechnique
                       {:owl/onProperty     :d3fend/uses,
                        :owl/someValuesFrom :d3fend/UserAccount,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/PrivilegeEscalationTechnique]})
+                      :d3fend/DefenseEvasionTechnique
+                      :d3fend/PersistenceTechnique
+                      {:owl/onProperty     :d3fend/produces,
+                       :owl/someValuesFrom :d3fend/Authentication,
+                       :rdf/type           :owl/Restriction}
+                      :d3fend/PrivilegeEscalationTechnique
+                      {:owl/onProperty     :d3fend/produces,
+                       :owl/someValuesFrom :d3fend/Authorization,
+                       :rdf/type           :owl/Restriction}]})
 
 (def T1078.001
   {:d3fend/attack-id "T1078.001",
@@ -21003,15 +21495,15 @@
    :db/ident         :d3fend/T1110.001,
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Password Guessing",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/modifies,
-                       :owl/someValuesFrom :d3fend/AuthenticationLog,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/accesses,
+                       :owl/someValuesFrom :d3fend/Password,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/Authentication,
                        :rdf/type           :owl/Restriction}
                       :d3fend/T1110
-                      {:owl/onProperty     :d3fend/accesses,
-                       :owl/someValuesFrom :d3fend/Password,
+                      {:owl/onProperty     :d3fend/modifies,
+                       :owl/someValuesFrom :d3fend/AuthenticationLog,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1110.002
@@ -21034,20 +21526,20 @@
    :db/ident          :d3fend/T1110.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Password Spraying",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
+   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-create,
+                        :owl/someValuesFrom
+                        :d3fend/IntranetAdministrativeNetworkTraffic,
+                        :rdf/type :owl/Restriction}
+                       {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/AuthenticationLog,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/accesses,
-                        :owl/someValuesFrom :d3fend/Password,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/produces,
                         :owl/someValuesFrom :d3fend/Authentication,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1110
-                       {:owl/onProperty :d3fend/may-create,
-                        :owl/someValuesFrom
-                        :d3fend/IntranetAdministrativeNetworkTraffic,
-                        :rdf/type :owl/Restriction}]})
+                       {:owl/onProperty     :d3fend/accesses,
+                        :owl/someValuesFrom :d3fend/Password,
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1110.004
   {:d3fend/attack-id  "T1110.004",
@@ -21057,17 +21549,17 @@
    :db/ident          :d3fend/T1110.004,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Credential Stuffing",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/AuthenticationLog,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty :d3fend/may-create,
+   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-create,
                         :owl/someValuesFrom
                         :d3fend/IntranetAdministrativeNetworkTraffic,
                         :rdf/type :owl/Restriction}
                        {:owl/onProperty     :d3fend/produces,
                         :owl/someValuesFrom :d3fend/Authentication,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/T1110]})
+                       :d3fend/T1110
+                       {:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/AuthenticationLog,
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1111
   {:d3fend/attack-id  "T1111",
@@ -21352,10 +21844,10 @@
                        :owl/someValuesFrom :d3fend/NetworkSession,
                        :rdf/type           :owl/Restriction}
                       :d3fend/InitialAccessTechnique
+                      :d3fend/PersistenceTechnique
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/Authentication,
-                       :rdf/type           :owl/Restriction}
-                      :d3fend/PersistenceTechnique]})
+                       :rdf/type           :owl/Restriction}]})
 
 (def T1134
   {:d3fend/attack-id "T1134",
@@ -21399,12 +21891,12 @@
    :db/ident          :d3fend/T1134.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Make and Impersonate Token",
-   :rdfs/subClassOf   [:d3fend/T1134
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/EventLog,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1134
                        {:owl/onProperty     :d3fend/copies,
                         :owl/someValuesFrom :d3fend/AccessToken,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/EventLog,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/creates,
                         :owl/someValuesFrom :d3fend/LoginSession,
@@ -21487,17 +21979,17 @@
    :db/ident          :d3fend/T1137.001,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Office Template Macros",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-add,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1137
+                       {:owl/onProperty     :d3fend/may-add,
+                        :owl/someValuesFrom :d3fend/ExecutableScript,
+                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty :d3fend/may-modify,
                         :owl/someValuesFrom
                         :d3fend/SystemConfigurationDatabaseRecord,
-                        :rdf/type :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/ExecutableScript,
-                        :rdf/type           :owl/Restriction}]})
+                        :rdf/type :owl/Restriction}]})
 
 (def T1137.002
   {:d3fend/attack-id "T1137.002",
@@ -21554,14 +22046,14 @@
    :db/ident          :d3fend/T1137.006,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Add-ins",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/OfficeApplication,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/adds,
                         :owl/someValuesFrom :d3fend/Software,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/OfficeApplication,
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1137]})
 
@@ -21588,15 +22080,15 @@
    :db/ident          :d3fend/T1140,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Deobfuscate/Decode Files or Information",
-   :rdfs/subClassOf   [:d3fend/DefenseEvasionTechnique
-                       {:owl/onProperty     :d3fend/may-add,
-                        :owl/someValuesFrom :d3fend/ExecutableFile,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/invokes,
+                        :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/EventLog,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/invokes,
-                        :owl/someValuesFrom :d3fend/CreateProcess,
+                       :d3fend/DefenseEvasionTechnique
+                       {:owl/onProperty     :d3fend/may-add,
+                        :owl/someValuesFrom :d3fend/ExecutableFile,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1141
@@ -21937,16 +22429,16 @@
    :db/ident          :d3fend/T1187,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Forced Authentication",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/AuthenticationLog,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/produces,
-                        :owl/someValuesFrom :d3fend/Authentication,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/WindowsShortcutFile,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/CredentialAccessTechnique]})
+                       {:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/AuthenticationLog,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/CredentialAccessTechnique
+                       {:owl/onProperty     :d3fend/produces,
+                        :owl/someValuesFrom :d3fend/Authentication,
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1188
   {:d3fend/attack-id "T1188",
@@ -21982,17 +22474,17 @@
    :db/ident         :d3fend/T1190,
    :rdf/type         [:owl/Class :owl/NamedIndividual],
    :rdfs/label       "Exploit Public-Facing Application",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/modifies,
-                       :owl/someValuesFrom :d3fend/ProcessSegment,
-                       :rdf/type           :owl/Restriction}
-                      :d3fend/InitialAccessTechnique
-                      {:owl/onProperty     :d3fend/injects,
-                       :owl/someValuesFrom :d3fend/DatabaseQuery,
-                       :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf  [:d3fend/InitialAccessTechnique
                       {:owl/onProperty :d3fend/produces,
                        :owl/someValuesFrom
                        :d3fend/InboundInternetNetworkTraffic,
-                       :rdf/type :owl/Restriction}]})
+                       :rdf/type :owl/Restriction}
+                      {:owl/onProperty     :d3fend/injects,
+                       :owl/someValuesFrom :d3fend/DatabaseQuery,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3fend/modifies,
+                       :owl/someValuesFrom :d3fend/ProcessSegment,
+                       :rdf/type           :owl/Restriction}]})
 
 (def T1191
   {:d3fend/attack-id "T1191",
@@ -22083,16 +22575,16 @@
    :db/ident           :d3fend/T1197,
    :rdf/type           [:owl/Class :owl/NamedIndividual],
    :rdfs/label         "BITS Jobs",
-   :rdfs/subClassOf    [{:owl/onProperty     :d3fend/may-produce,
-                         :owl/someValuesFrom :d3fend/IntranetIPCNetworkTraffic,
+   :rdfs/subClassOf    [:d3fend/DefenseEvasionTechnique
+                        {:owl/onProperty     :d3fend/may-produce,
+                         :owl/someValuesFrom :d3fend/IntranetWebNetworkTraffic,
                          :rdf/type           :owl/Restriction}
-                        :d3fend/DefenseEvasionTechnique
                         {:owl/onProperty     :d3fend/may-produce,
                          :owl/someValuesFrom :d3fend/OutboundInternetWebTraffic,
                          :rdf/type           :owl/Restriction}
                         :d3fend/PersistenceTechnique
                         {:owl/onProperty     :d3fend/may-produce,
-                         :owl/someValuesFrom :d3fend/IntranetWebNetworkTraffic,
+                         :owl/someValuesFrom :d3fend/IntranetIPCNetworkTraffic,
                          :rdf/type           :owl/Restriction}]})
 
 (def T1198
@@ -22205,10 +22697,10 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/comment     "used all over so its not just internet traffic",
    :rdfs/label       "Traffic Signaling",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/produces,
+   :rdfs/subClassOf  [:d3fend/PersistenceTechnique
+                      {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/NetworkTraffic,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/PersistenceTechnique
                       :d3fend/DefenseEvasionTechnique
                       :d3fend/CommandAndControlTechnique]})
 
@@ -22269,19 +22761,19 @@
    :db/ident          :d3fend/T1210,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Exploitation of Remote Services",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/produces,
+                        :owl/someValuesFrom :d3fend/IntranetNetworkTraffic,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/ProcessCodeSegment,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/ProcessSegment,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/StackFrame,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/produces,
-                        :owl/someValuesFrom :d3fend/IntranetNetworkTraffic,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/LateralMovementTechnique
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/ProcessCodeSegment,
-                        :rdf/type           :owl/Restriction}]})
+                       :d3fend/LateralMovementTechnique]})
 
 (def T1211
   {:d3fend/attack-id  "T1211",
@@ -22307,13 +22799,13 @@
    :rdfs/label        "Exploitation for Credential Access",
    :rdfs/subClassOf   [:d3fend/CredentialAccessTechnique
                        {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/CredentialManagementSystem,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/AuthenticationService,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/ProcessCodeSegment,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/CredentialManagementSystem,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/StackFrame,
@@ -22543,14 +23035,14 @@
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "MMC",
    :rdfs/subClassOf   [:d3fend/T1218
-                       {:owl/onProperty     :d3fend/executes,
-                        :owl/someValuesFrom :d3fend/Command,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-add,
                         :owl/someValuesFrom :d3fend/Software,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/executes,
+                        :owl/someValuesFrom :d3fend/Command,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1219
@@ -22576,10 +23068,10 @@
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/adds,
                         :owl/someValuesFrom :d3fend/File,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/DefenseEvasionTechnique
                        {:owl/onProperty     :d3fend/invokes,
                         :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
+                       :d3fend/DefenseEvasionTechnique
                        {:owl/onProperty     :d3fend/interprets,
                         :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}]})
@@ -22976,10 +23468,10 @@
    :rdfs/subClassOf  [{:owl/onProperty     :d3fend/adds,
                        :owl/someValuesFrom :d3fend/WebScriptFile,
                        :rdf/type           :owl/Restriction}
+                      :d3fend/T1505
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/Process,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/T1505
                       {:owl/onProperty     :d3fend/modifies,
                        :owl/someValuesFrom :d3fend/WebServer,
                        :rdf/type           :owl/Restriction}]})
@@ -23034,22 +23526,22 @@
    :db/ident          :d3fend/T1518.001,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Security Software Discovery",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
+   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-access,
+                        :owl/someValuesFrom
+                        :d3fend/SystemConfigurationDatabaseRecord,
+                        :rdf/type :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/FileSystemMetadata,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/KernelProcessTable,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty :d3fend/may-access,
-                        :owl/someValuesFrom
-                        :d3fend/SystemConfigurationDatabaseRecord,
-                        :rdf/type :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-invoke,
+                        :owl/someValuesFrom :d3fend/GetRunningProcesses,
+                        :rdf/type           :owl/Restriction}
                        :d3fend/T1518
                        {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/SystemFirewallConfiguration,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-invoke,
-                        :owl/someValuesFrom :d3fend/GetRunningProcesses,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1519
@@ -23225,15 +23717,15 @@
    :db/ident          :d3fend/T1542.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Bootkit",
-   :rdfs/subClassOf   [:d3fend/T1542
-                       {:owl/onProperty     :d3fend/may-modify,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/BootLoader,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1542
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/VolumeBootRecord,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/BootSector,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/VolumeBootRecord,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1542.004
@@ -23381,17 +23873,17 @@
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Trap",
    :rdfs/subClassOf   [:d3fend/T1546
-                       {:owl/onProperty     :d3fend/may-create,
+                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/executes,
                         :owl/someValuesFrom :d3fend/Command,
                         :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-create,
+                        :owl/someValuesFrom :d3fend/ExecutableScript,
+                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/EventLog,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1546.006
@@ -23429,18 +23921,18 @@
    :db/ident          :d3fend/T1546.008,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Accessibility Features",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/ExecutableBinary,
-                        :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-modify,
+                        :owl/someValuesFrom
+                        :d3fend/SystemConfigurationDatabaseRecord,
+                        :rdf/type :owl/Restriction}
                        :d3fend/T1546
                        {:owl/onProperty :d3fend/may-create,
                         :owl/someValuesFrom
                         :d3fend/IntranetAdministrativeNetworkTraffic,
                         :rdf/type :owl/Restriction}
-                       {:owl/onProperty :d3fend/may-modify,
-                        :owl/someValuesFrom
-                        :d3fend/SystemConfigurationDatabaseRecord,
-                        :rdf/type :owl/Restriction}]})
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/ExecutableBinary,
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1546.009
   {:d3fend/attack-id "T1546.009",
@@ -23450,17 +23942,17 @@
    :db/ident         :d3fend/T1546.009,
    :rdf/type         [:owl/Class :owl/NamedIndividual],
    :rdfs/label       "AppCert DLLs",
-   :rdfs/subClassOf  [{:owl/onProperty :d3fend/modifies,
-                       :owl/someValuesFrom
-                       :d3fend/SystemConfigurationDatabaseRecord,
-                       :rdf/type :owl/Restriction}
-                      {:owl/onProperty     :d3fend/loads,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/loads,
                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/T1546
                       {:owl/onProperty     :d3fend/invokes,
                        :owl/someValuesFrom :d3fend/CreateProcess,
-                       :rdf/type           :owl/Restriction}]})
+                       :rdf/type           :owl/Restriction}
+                      :d3fend/T1546
+                      {:owl/onProperty :d3fend/modifies,
+                       :owl/someValuesFrom
+                       :d3fend/SystemConfigurationDatabaseRecord,
+                       :rdf/type :owl/Restriction}]})
 
 (def T1546.010
   {:d3fend/attack-id "T1546.010",
@@ -23470,16 +23962,16 @@
    :db/ident         :d3fend/T1546.010,
    :rdf/type         [:owl/Class :owl/NamedIndividual],
    :rdfs/label       "AppInit DLLs",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/invokes,
-                       :owl/someValuesFrom :d3fend/CreateProcess,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty :d3fend/modifies,
+   :rdfs/subClassOf  [{:owl/onProperty :d3fend/modifies,
                        :owl/someValuesFrom
                        :d3fend/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction}
                       :d3fend/T1546
                       {:owl/onProperty     :d3fend/loads,
                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3fend/invokes,
+                       :owl/someValuesFrom :d3fend/CreateProcess,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1546.011
@@ -23527,16 +24019,16 @@
    :db/ident          :d3fend/T1546.014,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Emond",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/ConfigurationResource,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-create,
+                        :owl/someValuesFrom :d3fend/PropertyListFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/PropertyListFile,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/T1546
-                       {:owl/onProperty     :d3fend/may-create,
-                        :owl/someValuesFrom :d3fend/PropertyListFile,
-                        :rdf/type           :owl/Restriction}]})
+                       {:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/ConfigurationResource,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1546]})
 
 (def T1546.015
   {:d3fend/attack-id "T1546.015",
@@ -23549,10 +24041,10 @@
    :rdfs/subClassOf  [{:owl/onProperty     :d3fend/loads,
                        :owl/someValuesFrom :d3fend/ExecutableBinary,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/T1546
                       {:owl/onProperty     :d3fend/modifies,
                        :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
-                       :rdf/type           :owl/Restriction}]})
+                       :rdf/type           :owl/Restriction}
+                      :d3fend/T1546]})
 
 (def T1547
   {:d3fend/attack-id "T1547",
@@ -23759,17 +24251,17 @@
    :db/ident          :d3fend/T1548.002,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Bypass User Access Control",
-   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-modify,
-                        :owl/someValuesFrom
-                        :d3fend/SystemConfigurationDatabaseRecord,
-                        :rdf/type :owl/Restriction}
-                       {:owl/onProperty     :d3fend/executes,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/executes,
                         :owl/someValuesFrom :d3fend/ExecutableFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/invokes,
                         :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/T1548]})
+                       :d3fend/T1548
+                       {:owl/onProperty :d3fend/may-modify,
+                        :owl/someValuesFrom
+                        :d3fend/SystemConfigurationDatabaseRecord,
+                        :rdf/type :owl/Restriction}]})
 
 (def T1548.003
   {:d3fend/attack-id  "T1548.003",
@@ -24072,16 +24564,16 @@
    :db/ident          :d3fend/T1555.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Credentials from Web Browsers",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/accesses,
-                        :owl/someValuesFrom :d3fend/DatabaseFile,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1555
-                       {:owl/onProperty     :d3fend/may-access,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/In-memoryPasswordStore,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/accesses,
+                        :owl/someValuesFrom :d3fend/DatabaseFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/ReadFile,
-                        :rdf/type           :owl/Restriction}]})
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1555]})
 
 (def T1555.004
   {:d3fend/attack-id "T1555.004",
@@ -24353,18 +24845,18 @@
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/PartitionTable,
                         :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/Partition,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/BootSector,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1561
                        {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/BlockDevice,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/Partition,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1561
-                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/Volume,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/BootSector,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1561.002
@@ -24426,10 +24918,10 @@
                         :owl/someValuesFrom :d3fend/ProcessEnvironmentVariable,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/UserInitScript,
+                        :owl/someValuesFrom :d3fend/WindowsRegistryKey,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/WindowsRegistryKey,
+                        :owl/someValuesFrom :d3fend/UserInitScript,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1562]})
 
@@ -24478,11 +24970,11 @@
                         :owl/someValuesFrom
                         :d3fend/SystemConfigurationInitDatabaseRecord,
                         :rdf/type :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/EndpointHealthBeacon,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/disables,
                         :owl/someValuesFrom :d3fend/EndpointSensor,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/EndpointHealthBeacon,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1562.010
@@ -24612,18 +25104,18 @@
    :db/ident          :d3fend/T1564.006,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Run Virtual Instance",
-   :rdfs/subClassOf   [:d3fend/T1564
-                       {:owl/onProperty     :d3fend/creates,
-                        :owl/someValuesFrom :d3fend/File,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/executes,
+                        :owl/someValuesFrom :d3fend/VirtualizationSoftware,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-add,
                         :owl/someValuesFrom :d3fend/VirtualizationSoftware,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/executes,
-                        :owl/someValuesFrom :d3fend/VirtualizationSoftware,
-                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1564
                        {:owl/onProperty     :d3fend/may-create,
                         :owl/someValuesFrom :d3fend/Directory,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/creates,
+                        :owl/someValuesFrom :d3fend/File,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1564.007
@@ -24645,14 +25137,14 @@
    :db/ident          :d3fend/T1564.008,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Email Hiding Rules",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/ApplicationConfiguration,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1564
-                       {:owl/onProperty     :d3fend/may-modify,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-create,
                         :owl/someValuesFrom :d3fend/EmailRule,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-create,
+                       :d3fend/T1564
+                       {:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/ApplicationConfiguration,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/EmailRule,
                         :rdf/type           :owl/Restriction}]})
 
@@ -24748,11 +25240,11 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Spearphishing Link",
    :rdfs/subClassOf  [{:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/InboundInternetMailTraffic,
+                       :owl/someValuesFrom :d3fend/URL,
                        :rdf/type           :owl/Restriction}
                       :d3fend/T1566
                       {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/URL,
+                       :owl/someValuesFrom :d3fend/InboundInternetMailTraffic,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/Email,
@@ -24909,11 +25401,11 @@
    :db/ident         :d3fend/T1573,
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Encrypted Channel",
-   :rdfs/subClassOf  [{:owl/onProperty :d3fend/produces,
+   :rdfs/subClassOf  [:d3fend/CommandAndControlTechnique
+                      {:owl/onProperty :d3fend/produces,
                        :owl/someValuesFrom
                        :d3fend/OutboundInternetEncryptedTraffic,
-                       :rdf/type :owl/Restriction}
-                      :d3fend/CommandAndControlTechnique],
+                       :rdf/type :owl/Restriction}],
    :skos/altLabel    ["Custom Cryptographic Protocol"
                       "Multilayer Encryption"
                       "Custom Command and Control Protocol"]})
@@ -25913,6 +26405,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def TPMBootIntegrity
+  "Assuring the integrity of a platform by demonstrating that the boot process starts from a trusted combination of hardware and software and continues until the operating system has fully booted and applications are running. Sometimes called Static Root of Trust Measurement (STRM)."
   {:d3fend/d3fend-id "D3-TBI",
    :d3fend/definition
    "Assuring the integrity of a platform by demonstrating that the boot process starts from a trusted combination of hardware and software and continues until the operating system has fully booted and applications are running.  Sometimes called Static Root of Trust Measurement (STRM).",
@@ -26063,6 +26556,7 @@
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def TransferAgentAuthentication
+  "Validating that server components of a messaging infrastructure are authorized to send a particular message."
   {:d3fend/d3fend-id "D3-TAAN",
    :d3fend/definition
    "Validating that server components of a messaging infrastructure are authorized to send a particular message.",
@@ -26110,6 +26604,7 @@
    :skos/altLabel "Uniform Resource Locator"})
 
 (def URLAnalysis
+  "Determining if a URL is benign or malicious by analyzing the URL or its components."
   {:d3fend/analyzes :d3fend/URL,
    :d3fend/d3fend-id "D3-UA",
    :d3fend/definition
@@ -26122,12 +26617,13 @@
    :db/ident :d3fend/URLAnalysis,
    :rdf/type [:d3fend/IdentifierAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label "URL Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/IdentifierAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/URL,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/IdentifierAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def URLReputationAnalysis
+  "Analyzing the reputation of a URL."
   {:d3fend/analyzes     :d3fend/URL,
    :d3fend/d3fend-id    "D3-URA",
    :d3fend/definition   "Analyzing the reputation of a URL.",
@@ -26222,6 +26718,7 @@
    :rdfs/subClassOf :d3fend/DigitalArtifact})
 
 (def UserAccountPermissions
+  "Restricting a user account's access to resources."
   {:d3fend/d3fend-id "D3-UAP",
    :d3fend/definition "Restricting a user account's access to resources.",
    :d3fend/kb-reference
@@ -26230,10 +26727,10 @@
    :db/ident :d3fend/UserAccountPermissions,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/CredentialHardening],
    :rdfs/label "User Account Permissions",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
+   :rdfs/subClassOf [:d3fend/CredentialHardening
+                     {:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def UserAction
   "An action performed by a user. Executing commands, granting permissions, and accessing resources are examples of user actions."
@@ -26289,6 +26786,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def UserDataTransferAnalysis
+  "Analyzing the amount of data transferred by a user."
   {:d3fend/analyzes :d3fend/ResourceAccess,
    :d3fend/d3fend-id "D3-UDTA",
    :d3fend/definition "Analyzing the amount of data transferred by a user.",
@@ -26306,6 +26804,7 @@
                      :d3fend/UserBehaviorAnalysis]})
 
 (def UserGeolocationLogonPatternAnalysis
+  "Monitoring geolocation data of user logon attempts and comparing it to a baseline user behavior profile to identify anomalies in logon location."
   {:d3fend/analyzes :d3fend/NetworkTraffic,
    :d3fend/d3fend-id "D3-UGLPA",
    :d3fend/definition
@@ -26386,6 +26885,7 @@
    :rdfs/subClassOf :d3fend/Process})
 
 (def UserSessionInitConfigAnalysis
+  "Analyzing modifications to user session config files such as .bashrc or .bash_profile."
   {:d3fend/analyzes :d3fend/UserInitConfigurationFile,
    :d3fend/d3fend-id "D3-USICA",
    :d3fend/definition
@@ -26641,6 +27141,7 @@
    :skos/altLabel ["Web App" "Web Application"]})
 
 (def WebSessionActivityAnalysis
+  "Monitoring changes in user web session behavior by comparing current web session activity to a baseline behavior profile or a catalog of predetermined malicious behavior."
   {:d3fend/analyzes :d3fend/WebResourceAccess,
    :d3fend/d3fend-id "D3-WSAA",
    :d3fend/definition
@@ -27325,6 +27826,7 @@
    :rdfs/subPropertyOf [:d3fend/modifies :d3fend/evicts]})
 
 (def dependent
+  "x dependent y: A dependent y is an entity that requires the fulfillment of the requirements specified in dependency x."
   {:d3fend/definition
    "x dependent y: A dependent y is an entity that requires the fulfillment of the requirements specified in dependency x.",
    :db/ident :d3fend/dependent,
@@ -28525,6 +29027,7 @@
    :skos/altLabel "outputs"})
 
 (def provider
+  "x provider y: A provider y is an entity that supplies a service, system, or data resources to a dependent entity x."
   {:d3fend/definition
    "x provider y: A provider y is an entity that supplies a service, system, or data resources to a dependent entity x.",
    :db/ident :d3fend/provider,
