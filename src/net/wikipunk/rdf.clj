@@ -283,6 +283,9 @@
               (Character/isDigit (first (name k)))
               (keyword (namespace k) (str \| (name k) \|))
 
+              (re-find #"," (name k))
+              (keyword (namespace k) (str/replace (name k) #"," ""))
+
               :else k))
           uri)))
 
