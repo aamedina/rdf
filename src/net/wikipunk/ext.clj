@@ -188,6 +188,6 @@
 
 (def d3fend
   {:dcat/downloadURL "https://d3fend.mitre.org/ontologies/d3fend.owl"
-   :rdfa/uri    "http://d3fend.mitre.org/ontologies/d3fend.owl/"
+   :rdfa/uri    "http://d3fend.mitre.org/ontologies/d3fend.owl#"
    :rdfa/prefix "d3fend"
    :rdf/type    :rdfa/PrefixMapping})
