@@ -466,6 +466,7 @@
                                                    (:d3fend/definition v)
                                                    (:d3fend/d3fend-comment v)
                                                    (:d3fend/kb-article v)
+                                                   (:d3fend/control-name v)
                                                    (:skos/prefLabel v)
                                                    (:rdfs/label v))
                                      docstring (if (vector? docstring)
