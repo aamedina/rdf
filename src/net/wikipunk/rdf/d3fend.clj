@@ -27,6 +27,7 @@
   (:refer-clojure :exclude [name next]))
 
 (def AMD64CodeSegment
+  "AMD64 Code Segment"
   {:db/ident   :d3fend/AMD64CodeSegment,
    :rdf/type   [:d3fend/ProcessCodeSegment
                 :d3fend/ImageCodeSegment
@@ -34,6 +35,7 @@
    :rdfs/label "AMD64 Code Segment"})
 
 (def ARM32CodeSegment
+  "ARM32 Code Segment"
   {:db/ident   :d3fend/ARM32CodeSegment,
    :rdf/type   [:d3fend/ProcessCodeSegment
                 :d3fend/ImageCodeSegment
@@ -41,11 +43,13 @@
    :rdfs/label "ARM32 Code Segment"})
 
 (def ASCIIDomainName
+  "ASCII Domain Name"
   {:db/ident   :d3fend/ASCIIDomainName,
    :rdf/type   [:d3fend/DomainName :owl/NamedIndividual],
    :rdfs/label "ASCII Domain Name"})
 
 (def ATTACKMitigation
+  "ATTACK Mitigation"
   {:db/ident        :d3fend/ATTACKMitigation,
    :rdf/type        :owl/Class,
    :rdfs/label      "ATTACK Mitigation",
@@ -65,12 +69,14 @@
    :rdfs/label   "ATTACK Thing"})
 
 (def AcademicArticle
+  "Academic Article"
   {:db/ident        :d3fend/AcademicArticle,
    :rdf/type        :owl/Class,
    :rdfs/label      "Academic Article",
    :rdfs/subClassOf :d3fend/Article})
 
 (def AcademicPaperReference
+  "Academic Paper Reference"
   {:d3fend/pref-label "Academic Paper",
    :db/ident          :d3fend/AcademicPaperReference,
    :rdf/type          :owl/Class,
@@ -178,10 +184,10 @@
    :db/ident :d3fend/ActiveLogicalLinkMapping,
    :rdf/type [:d3fend/LogicalLinkMapping :owl/Class :owl/NamedIndividual],
    :rdfs/label "Active Logical Link Mapping",
-   :rdfs/subClassOf [:d3fend/LogicalLinkMapping
-                     {:owl/onProperty     :d3fend/may-query,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-query,
                       :owl/someValuesFrom :d3fend/CollectorAgent,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/LogicalLinkMapping]})
 
 (def ActivePhysicalLinkMapping
   "Active physical link mapping sends and receives network traffic as a means to map the physical layer."
@@ -226,6 +232,7 @@
    :rdfs/subClassOf :d3fend/Dependency})
 
 (def AdminFeatureAssessment
+  "Admin Feature Assessment"
   {:db/ident        :d3fend/AdminFeatureAssessment,
    :rdf/type        :owl/Class,
    :rdfs/label      "Admin Feature Assessment",
@@ -235,6 +242,7 @@
                      :d3fend/FeatureAssessment]})
 
 (def AdminFeatureClaim
+  "Admin Feature Claim"
   {:db/ident        :d3fend/AdminFeatureClaim,
    :rdf/type        :owl/Class,
    :rdfs/label      "Admin Feature Claim",
@@ -250,6 +258,7 @@
                      :d3fend/CapabilityFeatureClaim]})
 
 (def AdministrativeFeature
+  "Administrative Feature"
   {:db/ident        :d3fend/AdministrativeFeature,
    :rdf/type        :owl/Class,
    :rdfs/label      "Administrative Feature",
@@ -272,11 +281,11 @@
    :db/ident :d3fend/AdministrativeNetworkActivityAnalysis,
    :rdf/type [:d3fend/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label "Administrative Network Activity Analysis",
-   :rdfs/subClassOf [{:owl/onProperty :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
+                     {:owl/onProperty :d3fend/analyzes,
                       :owl/someValuesFrom
                       :d3fend/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}
-                     :d3fend/NetworkTrafficAnalysis]})
+                      :rdf/type :owl/Restriction}]})
 
 (def AdministrativeNetworkTraffic
   "Administrative network traffic is network traffic related to the remote administration or control of hosts or devices through a standard remote administrative protocol. Remote shells, terminals, RDP, and VNC are examples of these protocols, which are typically only used by administrators."
@@ -289,12 +298,14 @@
    :rdfs/subClassOf :d3fend/NetworkTraffic})
 
 (def AdobePDFFile1.3
+  "Adobe PDF File 1.3"
   {:d3fend/may-contain :d3fend/JavascriptFile,
    :db/ident           :d3fend/AdobePDFFile1.3,
    :rdf/type           [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label         "Adobe PDF File 1.3"})
 
 (def Agent
+  "Agent"
   {:db/ident        :d3fend/Agent,
    :rdf/type        :owl/Class,
    :rdfs/label      "Agent",
@@ -311,6 +322,7 @@
    :rdfs/subClassOf :d3fend/SlowSymbolicLink})
 
 (def AnalysisOfAlternatives
+  "Analysis of Alternatives"
   {:db/ident        :d3fend/AnalysisOfAlternatives,
    :rdf/type        :owl/Class,
    :rdfs/label      "Analysis of Alternatives",
@@ -323,12 +335,14 @@
                      :d3fend/D3FENDCatalogThing]})
 
 (def AnalyticLatency
+  "Analytic Latency"
   {:db/ident        :d3fend/AnalyticLatency,
    :rdf/type        :owl/Class,
    :rdfs/label      "Analytic Latency",
    :rdfs/subClassOf :d3fend/Latency})
 
 (def Appliance
+  "Appliance"
   {:db/ident        :d3fend/Appliance,
    :rdf/type        :owl/Class,
    :rdfs/label      "Appliance",
@@ -345,11 +359,11 @@
    :rdfs/label "Application",
    :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/06582286-n"
                   "http://dbpedia.org/resource/Application_software"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/uses,
-                      :owl/someValuesFrom :d3fend/Resource,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/may-contain,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/ApplicationConfiguration,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/uses,
+                      :owl/someValuesFrom :d3fend/Resource,
                       :rdf/type           :owl/Restriction}
                      :d3fend/Software]})
 
@@ -413,10 +427,10 @@
    :db/ident :d3fend/ApplicationConfigurationHardening,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/ApplicationHardening],
    :rdfs/label "Application Configuration Hardening",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/hardens,
+   :rdfs/subClassOf [:d3fend/ApplicationHardening
+                     {:owl/onProperty     :d3fend/hardens,
                       :owl/someValuesFrom :d3fend/ApplicationConfiguration,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/ApplicationHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ApplicationHardening
   "Application Hardening makes an executable application more resilient to a class of exploits which either introduce new code or execute unwanted existing code. These techniques may be applied at compile-time or on an application binary."
@@ -436,6 +450,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def ApplicationInventorySensor
+  "Application Inventory Sensor"
   {:db/ident        :d3fend/ApplicationInventorySensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Application Inventory Sensor",
@@ -456,6 +471,7 @@
    :skos/altLabel "Application Firewall"})
 
 (def ApplicationLayerLink
+  "Application Layer Link"
   {:db/ident        :d3fend/ApplicationLayerLink,
    :rdf/type        :owl/Class,
    :rdfs/label      "Application Layer Link",
@@ -515,6 +531,7 @@
    :rdfs/subClassOf :d3fend/File})
 
 (def Article
+  "Article"
   {:db/ident        :d3fend/Article,
    :rdf/type        :owl/Class,
    :rdfs/label      "Article",
@@ -594,10 +611,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
                       :owl/someValuesFrom :d3fend/Vulnerability,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/AssetInventory
                      {:owl/onProperty     :d3fend/evaluates,
                       :owl/someValuesFrom :d3fend/DigitalArtifact,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/AssetInventory]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def AsymmetricKey
   "Asymmetric keys are public and private keys, paired such that asymmetric (public-key) cryptography algorithms can be implemented using them. Public-key cryptography, or asymmetric cryptography, is any cryptographic system that uses pairs of keys: public keys that may be disseminated widely paired with private keys which are known only to the owner. There are two functions that can be achieved: using a public key to authenticate that a message originated with a holder of the paired private key; or encrypting a message with a public key to ensure that only the holder of the paired private key can decrypt it."
@@ -621,6 +638,7 @@
    :rdfs/subClassOf :d3fend/InputDevice})
 
 (def AuthenticateUser
+  "Authenticate User"
   {:db/ident        :d3fend/AuthenticateUser,
    :rdf/type        :owl/Class,
    :rdfs/label      "Authenticate User",
@@ -638,11 +656,11 @@
    :rdfs/label "Authentication",
    :rdfs/seeAlso ["http://dbpedia.org/resource/Authentication"
                   "http://wordnet-rdf.princeton.edu/id/00155053-n"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/originates-from,
-                      :owl/someValuesFrom :d3fend/PhysicalLocation,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/may-create,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-create,
                       :owl/someValuesFrom :d3fend/IntranetNetworkTraffic,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/originates-from,
+                      :owl/someValuesFrom :d3fend/PhysicalLocation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/User,
@@ -790,6 +808,7 @@
    :rdfs/subClassOf :d3fend/ServiceApplication})
 
 (def BSDProcess
+  "BSD Process"
   {:db/ident   :d3fend/BSDProcess,
    :rdf/type   [:d3fend/Process :owl/NamedIndividual],
    :rdfs/label "BSD Process"})
@@ -806,6 +825,7 @@
    :skos/altLabel "Barcode Reader"})
 
 (def BashScriptFile
+  "Bash Script File"
   {:db/ident   :d3fend/BashScriptFile,
    :rdf/type   [:d3fend/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Bash Script File"})
@@ -874,24 +894,26 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/Partition,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/Volume,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/BootSector,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/PartitionTable,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DigitalArtifact
+                     {:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/Volume,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel "Block Special File"})
 
 (def Book
+  "Book"
   {:db/ident   :d3fend/Book,
    :rdf/type   [:d3fend/ReferenceType :owl/NamedIndividual],
    :rdfs/label "Book"})
 
 (def BookReference
+  "Book Reference"
   {:d3fend/pref-label "Book",
    :db/ident          :d3fend/BookReference,
    :rdf/type          :owl/Class,
@@ -960,10 +982,10 @@
    :db/ident :d3fend/BroadcastDomainIsolation,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/NetworkIsolation],
    :rdfs/label "Broadcast Domain Isolation",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/filters,
+   :rdfs/subClassOf [:d3fend/NetworkIsolation
+                     {:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/LocalAreaNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Browser
   "A web browser (commonly referred to as a browser) is a software application for retrieving, presenting, and traversing information resources on the World Wide Web. An information resource is identified by a Uniform Resource Identifier (URI/URL) and may be a web page, image, video or other piece of content. Hyperlinks present in resources enable users easily to navigate their browsers to related resources. Although browsers are primarily intended to use the World Wide Web, they can also be used to access information provided by web servers in private networks or files in file systems."
@@ -4789,6 +4811,7 @@
    :rdfs/label "CCI-003123"})
 
 (def CCICatalog_v2022-04-05
+  "CCI Catalog v2022-04-05"
   {:d3fend/archived-at "https://public.cyber.mil/stigs/cci/",
    :d3fend/has-member  [:d3fend/CCI-000197_v2022-04-05
                         :d3fend/CCI-000139_v2022-04-05
@@ -5097,6 +5120,7 @@
    :rdfs/seeAlso       "https://public.cyber.mil/stigs/cci/"})
 
 (def CCIControl
+  "CCI Control"
   {:db/ident        :d3fend/CCIControl,
    :rdf/type        :owl/Class,
    :rdfs/label      "CCI Control",
@@ -5127,6 +5151,7 @@
                      :d3fend/DigitalArtifact]})
 
 (def Capability
+  "Capability"
   {:db/ident :d3fend/Capability,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -5143,6 +5168,7 @@
                      :d3fend/D3FENDThing]})
 
 (def CapabilityAssessment
+  "Capability Assessment"
   {:db/ident        :d3fend/CapabilityAssessment,
    :rdf/type        :owl/Class,
    :rdfs/label      "Capability Assessment",
@@ -5170,31 +5196,33 @@
    :rdfs/subClassOf :d3fend/D3FENDCatalogThing})
 
 (def CapabilityFeatureClaim
+  "Capability Feature Claim"
   {:db/ident        :d3fend/CapabilityFeatureClaim,
    :rdf/type        :owl/Class,
    :rdfs/label      "Capability Feature Claim",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/author,
-                      :owl/someValuesFrom :d3fend/Agent,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/assessed-by,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/assessed-by,
                       :owl/someValuesFrom :d3fend/DefensiveTechniqueAssessment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/comments,
-                      :owl/someValuesFrom :xsd/string,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/Statement
-                     {:owl/onProperty     :d3fend/created,
-                      :owl/someValuesFrom :xsd/dateTime,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/implemented-by,
-                      :owl/someValuesFrom :d3fend/CapabilityImplementation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/modified,
                       :owl/someValuesFrom :xsd/dateTime,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/Statement
+                     {:owl/onProperty     :d3fend/implemented-by,
+                      :owl/someValuesFrom :d3fend/CapabilityImplementation,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/author,
+                      :owl/someValuesFrom :d3fend/Agent,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/created,
+                      :owl/someValuesFrom :xsd/dateTime,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/comments,
+                      :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel   "Provider Claim"})
 
 (def CapabilityImplementation
+  "Capability Implementation"
   {:db/ident        :d3fend/CapabilityImplementation,
    :rdf/type        :owl/Class,
    :rdfs/label      "Capability Implementation",
@@ -5232,12 +5260,12 @@
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Public_key_certificate",
    :rdfs/label "Certificate",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
+                      :owl/someValuesFrom :d3fend/Identifier,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/PublicKey,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/Identifier,
-                      :rdf/type           :owl/Restriction}],
+                     :d3fend/DigitalArtifact],
    :skos/altLabel "Public Key Certificate"})
 
 (def Certificate-basedAuthentication
@@ -5299,10 +5327,10 @@
    :db/ident :d3fend/CertificatePinning,
    :rdf/type [:owl/Class :d3fend/CredentialHardening :owl/NamedIndividual],
    :rdfs/label "Certificate Pinning",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [:d3fend/CredentialHardening
+                     {:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/PublicKey,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CertificateTrustStore
   "A certificate truststore is used to store public certificates used to authenticate clients by the server for an SSL connection."
@@ -5431,6 +5459,7 @@
    :rdfs/subClassOf :d3fend/Authorization})
 
 (def CloudServiceSensor
+  "Cloud Service Sensor"
   {:db/ident        :d3fend/CloudServiceSensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Cloud Service Sensor",
@@ -5481,10 +5510,10 @@
    "A code repository is a form of database where code, typically source code, is stored and managed.  In revision control systems, a repository is a data structure that stores metadata for a set of files or directory structure. Depending on whether the version control system in use is distributed like (Git or Mercurial) or centralized like (Subversion, CVS, or Perforce), the whole set of information in the repository may be duplicated on every user's system or may be maintained on a single server.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Repository_(version_control)",
    :rdfs/label "Code Repository",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [:d3fend/Database
+                     {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/SourceCode,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/Database],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel ["Version Control Repository" "Repository"]})
 
 (def CollaborativeSoftware
@@ -5498,6 +5527,7 @@
    :rdfs/subClassOf :d3fend/UserApplication})
 
 (def Collection
+  "Collection"
   {:d3fend/display-order 9,
    :db/ident        :d3fend/Collection,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -5508,6 +5538,7 @@
                      :d3fend/OffensiveTactic]})
 
 (def CollectionTechnique
+  "Collection Technique"
   {:d3fend/enables  :d3fend/Collection,
    :db/ident        :d3fend/CollectionTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -5538,6 +5569,7 @@
    :rdfs/subClassOf [:d3fend/DigitalEvent :d3fend/DigitalArtifact]})
 
 (def CommandAndControl
+  "Command And Control"
   {:d3fend/display-order 10,
    :db/ident        :d3fend/CommandAndControl,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -5545,6 +5577,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def CommandAndControlTechnique
+  "Command and Control Technique"
   {:d3fend/enables  :d3fend/CommandAndControl,
    :db/ident        :d3fend/CommandAndControlTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -5633,12 +5666,14 @@
    :rdfs/subClassOf :d3fend/Server})
 
 (def ConferencePaper
+  "Conference Paper"
   {:db/ident        :d3fend/ConferencePaper,
    :rdf/type        :owl/Class,
    :rdfs/label      "Conference Paper",
    :rdfs/subClassOf :d3fend/AcademicArticle})
 
 (def ConfigurationDatabase
+  "Configuration Database"
   {:d3fend/contains :d3fend/ConfigurationDatabaseRecord,
    :db/ident        :d3fend/ConfigurationDatabase,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -5649,6 +5684,7 @@
                      :d3fend/ConfigurationResource]})
 
 (def ConfigurationDatabaseRecord
+  "Configuration Database Record"
   {:d3fend/synonym  "Configuration Record",
    :db/ident        :d3fend/ConfigurationDatabaseRecord,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -5845,6 +5881,7 @@
                      :d3fend/ControlCatalog]})
 
 (def CopyToken
+  "Copy Token"
   {:db/ident        :d3fend/CopyToken,
    :rdf/type        [:d3fend/CopyToken :owl/NamedIndividual :owl/Class],
    :rdfs/label      "Copy Token",
@@ -5863,10 +5900,10 @@
     "https://linux.die.net/man/2/creat"
     "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfile2"
     "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/creates,
+   :rdfs/subClassOf [:d3fend/SystemCall
+                     {:owl/onProperty     :d3fend/creates,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/SystemCall]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CreateProcess
   "A process spawn refers to a function that loads and executes a new child process.The current process may wait for the child to terminate or may continue to execute asynchronously. Creating a new subprocess requires enough memory in which both the child process and the current program can execute. There is a family of spawn functions in DOS, inherited by Microsoft Windows. There is also a different family of spawn functions in an optional extension of the POSIX standards. Fork-exec is another technique combining two Unix system calls, which can effect a process spawn."
@@ -5920,6 +5957,7 @@
                      :d3fend/DigitalArtifact]})
 
 (def CredentialAccess
+  "Credential Access"
   {:d3fend/display-order 6,
    :db/ident        :d3fend/CredentialAccess,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -5927,6 +5965,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def CredentialAccessTechnique
+  "Credential Access Technique"
   {:d3fend/accesses   :d3fend/Credential,
    :d3fend/enables    :d3fend/CredentialAccess,
    :d3fend/may-access :d3fend/PasswordFile,
@@ -5934,18 +5973,18 @@
    :db/ident          :d3fend/CredentialAccessTechnique,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Credential Access Technique",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/PasswordFile,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-invoke,
+                        :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/accesses,
                         :owl/someValuesFrom :d3fend/Credential,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/OffensiveTechnique
                        {:owl/onProperty     :d3fend/enables,
                         :owl/someValuesFrom :d3fend/CredentialAccess,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-invoke,
-                        :owl/someValuesFrom :d3fend/CreateProcess,
+                       :d3fend/OffensiveTechnique
+                       {:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/PasswordFile,
                         :rdf/type           :owl/Restriction}]})
 
 (def CredentialCompromiseScopeAnalysis
@@ -5962,10 +6001,10 @@
    :db/ident :d3fend/CredentialCompromiseScopeAnalysis,
    :rdf/type [:d3fend/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label "Credential Compromise Scope Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Credential,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CredentialEviction
   "Credential Eviction techniques disable or remove compromised credentials from a computer network."
@@ -6019,10 +6058,10 @@
    :rdfs/label "Credential Transmission Scoping",
    :rdfs/seeAlso ["https://pages.nist.gov/TIG-Stage/sp800-63c.html"
                   "https://www.w3.org/TR/webauthn-2/"],
-   :rdfs/subClassOf [:d3fend/CredentialHardening
-                     {:owl/onProperty     :d3fend/restricts,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/Credential,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/CredentialHardening]})
 
 (def CryptographicKey
   "In cryptography, a key is a piece of information (a parameter) that determines the functional output of a cryptographic algorithm. For encryption algorithms, a key specifies the transformation of plaintext into ciphertext, and vice versa for decryption algorithms. Keys also specify transformations in other cryptographic algorithms, such as digital signature schemes and message authentication codes."
@@ -6044,6 +6083,7 @@
    :rdfs/subClassOf :d3fend/ArchiveFile})
 
 (def D3FENDCatalogThing
+  "D3FEND Catalog Thing"
   {:db/ident        :d3fend/D3FENDCatalogThing,
    :rdf/type        :owl/Class,
    :rdfs/label      "D3FEND Catalog Thing",
@@ -6059,6 +6099,7 @@
    :rdfs/label "D3FEND Thing"})
 
 (def D3FENDUseCase
+  "D3FEND Use Case"
   {:db/ident        :d3fend/D3FENDUseCase,
    :rdf/type        :owl/Class,
    :rdfs/label      "D3FEND Use Case",
@@ -6077,6 +6118,7 @@
                      :d3fend/D3FENDUseCaseThing]})
 
 (def D3FENDUseCaseThing
+  "D3FEND Use Case Thing"
   {:db/ident        :d3fend/D3FENDUseCaseThing,
    :rdf/type        :owl/Class,
    :rdfs/label      "D3FEND Use Case Thing",
@@ -6187,14 +6229,14 @@
    :db/ident :d3fend/DNSTrafficAnalysis,
    :rdf/type [:owl/NamedIndividual :d3fend/NetworkTrafficAnalysis :owl/Class],
    :rdfs/label "DNS Traffic Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/DNSLookup,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
                      {:owl/onProperty :d3fend/analyzes,
                       :owl/someValuesFrom
                       :d3fend/OutboundInternetDNSLookupTraffic,
                       :rdf/type :owl/Restriction}
-                     :d3fend/NetworkTrafficAnalysis]})
+                     {:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/DNSLookup,
+                      :rdf/type           :owl/Restriction}]})
 
 (def DataArtifactServer
   "A data artifact server provides access services to content in a content repository. The content repository or content store is a database of digital content with an associated set of data management, search and access methods allowing application-independent access to the content, rather like a digital library, but with the ability to store and modify content in addition to searching and retrieving. The content repository acts as the storage engine for a larger application such as a content management system or a document management system, which adds a user interface on top of the repository's application programming interface."
@@ -6207,6 +6249,7 @@
    :rdfs/subClassOf :d3fend/ArtifactServer})
 
 (def DataDependency
+  "Data Dependency"
   {:d3fend/synonym  "Transactional Dependency",
    :db/ident        :d3fend/DataDependency,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -6252,10 +6295,10 @@
                       :owl/someValuesFrom :d3fend/DocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/inventories,
-                      :owl/someValuesFrom :d3fend/Email,
+                      :owl/someValuesFrom :d3fend/MultimediaDocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/inventories,
-                      :owl/someValuesFrom :d3fend/MultimediaDocumentFile,
+                      :owl/someValuesFrom :d3fend/Email,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/inventories,
                       :owl/someValuesFrom :d3fend/Database,
@@ -6284,6 +6327,7 @@
    :rdfs/subClassOf :d3fend/DigitalArtifact})
 
 (def DatabaseFile
+  "Database File"
   {:db/ident        :d3fend/DatabaseFile,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Database File",
@@ -6385,13 +6429,13 @@
    :db/ident :d3fend/DecoyEnvironment,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/DefensiveTechnique],
    :rdfs/label "Decoy Environment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/manages,
-                      :owl/someValuesFrom :d3fend/DecoyArtifact,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Deceive,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DefensiveTechnique]})
+                     :d3fend/DefensiveTechnique
+                     {:owl/onProperty     :d3fend/manages,
+                      :owl/someValuesFrom :d3fend/DecoyArtifact,
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyFile
   "A file created for the purposes of deceiving an adversary."
@@ -6409,10 +6453,10 @@
    :db/ident :d3fend/DecoyFile,
    :rdf/type [:d3fend/DecoyObject :owl/Class :owl/NamedIndividual],
    :rdfs/label "Decoy File",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/spoofs,
+   :rdfs/subClassOf [:d3fend/DecoyObject
+                     {:owl/onProperty     :d3fend/spoofs,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DecoyObject]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyNetworkResource
   "Deploying a network resource for the purposes of deceiving an adversary."
@@ -6517,10 +6561,10 @@
    :db/ident :d3fend/DecoyUserCredential,
    :rdf/type [:owl/NamedIndividual :d3fend/DecoyObject :owl/Class],
    :rdfs/label "Decoy User Credential",
-   :rdfs/subClassOf [:d3fend/DecoyObject
-                     {:owl/onProperty     :d3fend/spoofs,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/spoofs,
                       :owl/someValuesFrom :d3fend/Credential,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DecoyObject]})
 
 (def DefaultUserAccount
   "Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems or default factory/provider set accounts on other types of systems, software, or devices."
@@ -6534,6 +6578,7 @@
    :rdfs/subClassOf :d3fend/UserAccount})
 
 (def DefenseEvasion
+  "Defense Evasion"
   {:d3fend/display-order 5,
    :db/ident        :d3fend/DefenseEvasion,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -6541,6 +6586,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def DefenseEvasionTechnique
+  "Defense Evasion Technique"
   {:d3fend/enables  :d3fend/DefenseEvasion,
    :db/ident        :d3fend/DefenseEvasionTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -6576,21 +6622,21 @@
    :rdf/type [:d3fend/Technique :owl/Class :owl/NamedIndividual],
    :rdfs/label "Defensive Technique",
    :rdfs/seeAlso "https://csrc.nist.gov/glossary/term/security_control",
-   :rdfs/subClassOf [:d3fend/CapabilityFeature
-                     :d3fend/D3FENDThing
-                     {:owl/onProperty     :d3fend/kb-reference,
-                      :owl/someValuesFrom :d3fend/TechniqueReference,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/enables,
-                      :owl/someValuesFrom :d3fend/DefensiveTactic,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/d3fend-id,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/d3fend-id,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/CapabilityFeature
+                     :d3fend/D3FENDThing
                      {:owl/onProperty     :d3fend/date,
                       :owl/someValuesFrom :xsd/dateTime,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/kb-reference,
+                      :owl/someValuesFrom :d3fend/TechniqueReference,
+                      :rdf/type           :owl/Restriction}
                      :d3fend/Technique
+                     {:owl/onProperty     :d3fend/enables,
+                      :owl/someValuesFrom :d3fend/DefensiveTactic,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/display-order,
                       :owl/someValuesFrom :xsd/integer,
                       :rdf/type           :owl/Restriction}]})
@@ -6603,34 +6649,35 @@
    "Assessing how well a capability implementation's capability feature functions as a countermeasure.",
    :rdfs/label "Defensive Technique Assessment",
    :rdfs/subClassOf
-   [{:owl/allValuesFrom {:owl/oneOf ["0" "1" "2" "3"],
+   [{:owl/onProperty     :d3fend/assesses,
+     :owl/someValuesFrom :d3fend/DefensiveTechniqueClaim,
+     :rdf/type           :owl/Restriction}
+    {:owl/onProperty     :d3fend/counters,
+     :owl/someValuesFrom :d3fend/OffensiveTechnique,
+     :rdf/type           :owl/Restriction}
+    :d3fend/FeatureAssessment
+    {:owl/allValuesFrom {:owl/oneOf ["0" "1" "2" "3"],
                          :rdf/type  :rdfs/Datatype},
      :owl/onProperty    :d3fend/rating,
      :rdf/type          :owl/Restriction}
+    {:owl/cardinality 1,
+     :owl/onProperty  :d3fend/rating,
+     :rdf/type        :owl/Restriction}
     {:owl/allValuesFrom {:owl/oneOf
                          ["Deceive" "Detect" "Evict" "Harden" "Isolate"],
                          :rdf/type :rdfs/Datatype},
      :owl/onProperty    :d3fend/stage,
      :rdf/type          :owl/Restriction}
-    {:owl/onProperty     :d3fend/counters,
-     :owl/someValuesFrom :d3fend/OffensiveTechnique,
-     :rdf/type           :owl/Restriction}
     {:owl/onDataRange :xsd/string,
      :owl/onProperty  :d3fend/stage,
      :owl/qualifiedCardinality 1,
      :rdf/type        :owl/Restriction}
-    {:owl/onProperty     :d3fend/assesses,
-     :owl/someValuesFrom :d3fend/DefensiveTechniqueClaim,
-     :rdf/type           :owl/Restriction}
-    :d3fend/FeatureAssessment
     {:owl/onProperty     :d3fend/confidence,
      :owl/someValuesFrom :xsd/integer,
-     :rdf/type           :owl/Restriction}
-    {:owl/cardinality 1,
-     :owl/onProperty  :d3fend/rating,
-     :rdf/type        :owl/Restriction}]})
+     :rdf/type           :owl/Restriction}]})
 
 (def DefensiveTechniqueClaim
+  "Defensive Technique Claim"
   {:db/ident        :d3fend/DefensiveTechniqueClaim,
    :rdf/type        :owl/Class,
    :rdfs/label      "Defensive Technique Claim",
@@ -6719,6 +6766,7 @@
    :rdfs/subClassOf [:d3fend/DigitalObject :d3fend/Artifact]})
 
 (def DigitalEvent
+  "Digital Event"
   {:db/ident        :d3fend/DigitalEvent,
    :rdf/type        :owl/Class,
    :rdfs/label      "Digital Event",
@@ -6770,6 +6818,7 @@
    :rdfs/subClassOf :d3fend/NetworkService})
 
 (def Discovery
+  "Discovery"
   {:d3fend/display-order 7,
    :db/ident        :d3fend/Discovery,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -6777,6 +6826,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def DiscoveryTechnique
+  "Discovery Technique"
   {:d3fend/enables  :d3fend/Discovery,
    :db/ident        :d3fend/DiscoveryTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -6934,11 +6984,11 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/CredentialHardening],
    :rdfs/label "Domain Trust Policy",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/DirectoryService,
+                      :owl/someValuesFrom :d3fend/T1087.002,
                       :rdf/type           :owl/Restriction}
                      :d3fend/CredentialHardening
                      {:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/T1087.002,
+                      :owl/someValuesFrom :d3fend/DirectoryService,
                       :rdf/type           :owl/Restriction}]})
 
 (def DomainUserAccount
@@ -6965,10 +7015,10 @@
    :db/ident :d3fend/DriverLoadIntegrityChecking,
    :rdf/type [:d3fend/PlatformHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label "Driver Load Integrity Checking",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [:d3fend/PlatformHardening
+                     {:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/HardwareDriver,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/PlatformHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DynamicAnalysis
   "Executing or opening a file in a synthetic \"sandbox\" environment to determine if the file is a malicious program or if the file exploits another program such as a document reader."
@@ -6985,12 +7035,12 @@
    :db/ident :d3fend/DynamicAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/FileAnalysis],
    :rdfs/label "Dynamic Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/DocumentFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/FileAnalysis
+   :rdfs/subClassOf [:d3fend/FileAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/analyzes,
+                      :owl/someValuesFrom :d3fend/DocumentFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def DynamicAnalysisTool
@@ -7065,10 +7115,10 @@
    :db/ident :d3fend/EmulatedFileAnalysis,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/FileAnalysis],
    :rdfs/label "Emulated File Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/FileAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/DocumentFile,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/FileAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/ExecutableFile,
                       :rdf/type           :owl/Restriction}]})
@@ -7097,6 +7147,7 @@
    :rdfs/subClassOf :d3fend/Credential})
 
 (def EncryptedPassword
+  "Encrypted Password"
   {:db/ident        :d3fend/EncryptedPassword,
    :rdf/type        :owl/Class,
    :rdfs/label      "Encrypted Password",
@@ -7112,10 +7163,10 @@
    :db/ident :d3fend/EncryptedTunnels,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/NetworkIsolation],
    :rdfs/label "Encrypted Tunnels",
-   :rdfs/subClassOf [:d3fend/NetworkIsolation
-                     {:owl/onProperty     :d3fend/isolates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/isolates,
                       :owl/someValuesFrom :d3fend/IntranetNetwork,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkIsolation]})
 
 (def EndpointHealthBeacon
   "Monitoring the security status of an endpoint by sending periodic messages with health status, where absence of a response may indicate that the endpoint has been compromised."
@@ -7134,6 +7185,7 @@
    :rdfs/subClassOf :d3fend/OperatingSystemMonitoring})
 
 (def EndpointSensor
+  "Endpoint Sensor"
   {:db/ident        :d3fend/EndpointSensor,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Endpoint Sensor",
@@ -7161,6 +7213,7 @@
    :rdfs/subClassOf :d3fend/DefensiveTactic})
 
 (def EvictionLatency
+  "Eviction Latency"
   {:db/ident        :d3fend/EvictionLatency,
    :rdf/type        :owl/Class,
    :rdfs/label      "Eviction Latency",
@@ -7211,11 +7264,11 @@
    :db/ident :d3fend/ExecutableAllowlisting,
    :rdf/type [:owl/Class :d3fend/PlatformHardening :owl/NamedIndividual],
    :rdfs/label "Executable Allowlisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/blocks,
-                      :owl/someValuesFrom :d3fend/ExecutableFile,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/restricts,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/CreateProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/blocks,
+                      :owl/someValuesFrom :d3fend/ExecutableFile,
                       :rdf/type           :owl/Restriction}
                      :d3fend/ExecutionIsolation]})
 
@@ -7229,14 +7282,14 @@
    "An executable binary contains machine code instructions for a physical CPU. D3FEND also considers byte code for a virtual machine to be binary code.  This is in contrast to executable scripts written in a scripting language.",
    :rdfs/label "Executable Binary",
    :rdfs/seeAlso "http://dbpedia.org/resource/Executable",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/ImageCodeSegment,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-interpret,
+                      :owl/someValuesFrom :d3fend/ExecutableScript,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/ImageDataSegment,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/may-interpret,
-                      :owl/someValuesFrom :d3fend/ExecutableScript,
+                     {:owl/onProperty     :d3fend/contains,
+                      :owl/someValuesFrom :d3fend/ImageCodeSegment,
                       :rdf/type           :owl/Restriction}
                      :d3fend/ExecutableFile]})
 
@@ -7259,10 +7312,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/CreateProcess,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/ExecutionIsolation
                      {:owl/onProperty     :d3fend/blocks,
                       :owl/someValuesFrom :d3fend/ExecutableFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/ExecutionIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ExecutableFile
   "In computing, executable code or an executable file or executable program, sometimes simply an executable, causes a computer \"to perform indicated tasks according to encoded instructions,\" as opposed to a data file that must be parsed by a program to be meaningful. These instructions are traditionally machine code instructions for a physical CPU. However, in a more general sense, a file containing instructions (such as bytecode) for a software interpreter may also be considered executable; even a scripting language source file may therefore be considered executable in this sense. The exact interpretation depends upon the use; while the term often refers only to machine code files, in the context of protection against computer viruses all files which cause potentially hazardous instruction"
@@ -7286,6 +7339,7 @@
    :rdfs/subClassOf :d3fend/ExecutableFile})
 
 (def Execution
+  "Execution"
   {:d3fend/display-order 2,
    :db/ident        :d3fend/Execution,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -7307,6 +7361,7 @@
                      :d3fend/DefensiveTechnique]})
 
 (def ExecutionTechnique
+  "Execution Technique"
   {:d3fend/enables  :d3fend/Execution,
    :db/ident        :d3fend/ExecutionTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -7317,6 +7372,7 @@
                      :d3fend/OffensiveTechnique]})
 
 (def Exfiltration
+  "Exfiltration"
   {:d3fend/display-order 11,
    :db/ident        :d3fend/Exfiltration,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -7324,6 +7380,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def ExfiltrationTechnique
+  "Exfiltration Technique"
   {:d3fend/enables  :d3fend/Exfiltration,
    :db/ident        :d3fend/ExfiltrationTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -7334,6 +7391,7 @@
                      :d3fend/OffensiveTechnique]})
 
 (def ExternalControl
+  "External Control"
   {:db/ident        :d3fend/ExternalControl,
    :rdf/type        :owl/Class,
    :rdfs/label      "External Control",
@@ -7346,6 +7404,7 @@
                      :d3fend/D3FENDThing]})
 
 (def ExternalKnowledgeBase
+  "External Knowledge Base"
   {:d3fend/pref-label "External Knowledge Base",
    :db/ident          :d3fend/ExternalKnowledgeBase,
    :rdf/type          :owl/Class,
@@ -7354,6 +7413,7 @@
                        :d3fend/InformationContentEntity]})
 
 (def FQDNDomainName
+  "FQDN Domain Name"
   {:db/ident   :d3fend/FQDNDomainName,
    :rdf/type   [:d3fend/DomainName :owl/NamedIndividual],
    :rdfs/label "FQDN Domain Name"})
@@ -7374,6 +7434,7 @@
    :skos/altLabel "Fast Symlink"})
 
 (def FeatureAssessment
+  "Feature Assessment"
   {:db/ident        :d3fend/FeatureAssessment,
    :rdf/type        :owl/Class,
    :rdfs/label      "Feature Assessment",
@@ -7388,15 +7449,15 @@
    :rdfs/comment       "A file maintained in computer-readable form.",
    :rdfs/label         "File",
    :rdfs/seeAlso       "http://wordnet-rdf.princeton.edu/id/06521201-n",
-   :rdfs/subClassOf    [{:owl/onProperty     :d3fend/may-contain,
-                         :owl/someValuesFrom :d3fend/File,
+   :rdfs/subClassOf    [{:owl/onProperty     :d3fend/contains,
+                         :owl/someValuesFrom :d3fend/FileSection,
                          :rdf/type           :owl/Restriction}
                         {:owl/onProperty     :d3fend/may-contain,
                          :owl/someValuesFrom :d3fend/URL,
                          :rdf/type           :owl/Restriction}
                         :d3fend/Resource
-                        {:owl/onProperty     :d3fend/contains,
-                         :owl/someValuesFrom :d3fend/FileSection,
+                        {:owl/onProperty     :d3fend/may-contain,
+                         :owl/someValuesFrom :d3fend/File,
                          :rdf/type           :owl/Restriction}]})
 
 (def FileAccessPatternAnalysis
@@ -7450,10 +7511,10 @@
    :db/ident :d3fend/FileCarving,
    :rdf/type [:owl/Class :d3fend/NetworkTrafficAnalysis :owl/NamedIndividual],
    :rdfs/label "File Carving",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/FileTransferNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkTrafficAnalysis]})
 
 (def FileContentRules
   "Employing a pattern matching rule language to analyze files."
@@ -7501,12 +7562,13 @@
    :db/ident :d3fend/FileEncryption,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/PlatformHardening],
    :rdfs/label "File Encryption",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/encrypts,
+   :rdfs/subClassOf [:d3fend/PlatformHardening
+                     {:owl/onProperty     :d3fend/encrypts,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/PlatformHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileHash
+  "File Hash"
   {:d3fend/identifies :d3fend/File,
    :db/ident          :d3fend/FileHash,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
@@ -7589,16 +7651,16 @@
    :rdfs/isDefinedBy "http://dbpedia.org/resource/File_system",
    :rdfs/label "File System",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/FileSystemLink,
+                      :owl/someValuesFrom :d3fend/Directory,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/contains,
+                      :owl/someValuesFrom :d3fend/File,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/FileSystemMetadata,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/Directory,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/File,
+                      :owl/someValuesFrom :d3fend/FileSystemLink,
                       :rdf/type           :owl/Restriction}
                      :d3fend/DigitalArtifact]})
 
@@ -7623,6 +7685,7 @@
    :rdfs/subClassOf :d3fend/Metadata})
 
 (def FileSystemSensor
+  "File System Sensor"
   {:db/ident        :d3fend/FileSystemSensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "File System Sensor",
@@ -7687,10 +7750,10 @@
    :db/ident :d3fend/FirmwareBehaviorAnalysis,
    :rdf/type [:d3fend/PlatformMonitoring :owl/Class :owl/NamedIndividual],
    :rdfs/label "Firmware Behavior Analysis",
-   :rdfs/subClassOf [:d3fend/PlatformMonitoring
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Firmware,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/PlatformMonitoring]})
 
 (def FirmwareEmbeddedMonitoringCode
   "Monitoring code is injected into firmware for integrity monitoring of firmware and firmware data."
@@ -7712,6 +7775,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def FirmwareSensor
+  "Firmware Sensor"
   {:db/ident        :d3fend/FirmwareSensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Firmware Sensor",
@@ -7734,10 +7798,10 @@
    :db/ident :d3fend/FirmwareVerification,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/PlatformMonitoring],
    :rdfs/label "Firmware Verification",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/verifies,
+   :rdfs/subClassOf [:d3fend/PlatformMonitoring
+                     {:owl/onProperty     :d3fend/verifies,
                       :owl/someValuesFrom :d3fend/Firmware,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/PlatformMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def First-stageBootLoader
   "The very first routine run in order to load the operating system."
@@ -7798,6 +7862,7 @@
                       :rdf/type :owl/Restriction}]})
 
 (def GNUGCCStackGuard
+  "GNU GCC StackGuard"
   {:db/ident   :d3fend/GNUGCCStackGuard,
    :rdf/type   [:d3fend/StackFrameCanaryValidation :owl/NamedIndividual],
    :rdfs/label "GNU GCC StackGuard"})
@@ -7809,30 +7874,35 @@
    "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getforegroundwindow"})
 
 (def GetOpenSockets
+  "Get Open Sockets"
   {:db/ident        :d3fend/GetOpenSockets,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Get Open Sockets",
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def GetOpenWindows
+  "Get Open Windows"
   {:db/ident        :d3fend/GetOpenWindows,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Get Open Windows",
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def GetRunningProcesses
+  "Get Running Processes"
   {:db/ident        :d3fend/GetRunningProcesses,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Get Running Processes",
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def GetScreenCapture
+  "Get Screen Capture"
   {:db/ident        :d3fend/GetScreenCapture,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Get Screen Capture",
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def GetSystemConfigValue
+  "Get System Config Value"
   {:db/ident :d3fend/GetSystemConfigValue,
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Get System Config Value",
@@ -7841,6 +7911,7 @@
    :rdfs/subClassOf :d3fend/SystemConfigSystemCall})
 
 (def GetSystemNetworkConfigValue
+  "Get System Network Config Value"
   {:db/ident        :d3fend/GetSystemNetworkConfigValue,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Get System Network Config Value",
@@ -7897,12 +7968,14 @@
    :rdfs/subClassOf :d3fend/AccessControlConfiguration})
 
 (def Guidance
+  "Guidance"
   {:db/ident        :d3fend/Guidance,
    :rdf/type        :owl/Class,
    :rdfs/label      "Guidance",
    :rdfs/subClassOf :d3fend/Policy})
 
 (def GuidelineReference
+  "Guideline Reference"
   {:d3fend/pref-label "Guideline",
    :db/ident          :d3fend/GuidelineReference,
    :rdf/type          :owl/Class,
@@ -7921,11 +7994,13 @@
    :skos/altLabel "HTML File"})
 
 (def HTTPSURL
+  "HTTPS URL"
   {:db/ident   :d3fend/HTTPSURL,
    :rdf/type   [:d3fend/URL :owl/NamedIndividual],
    :rdfs/label "HTTPS URL"})
 
 (def HTTPURL
+  "HTTP URL"
   {:db/ident   :d3fend/HTTPURL,
    :rdf/type   [:d3fend/URL :owl/NamedIndividual],
    :rdfs/label "HTTP URL"})
@@ -8104,16 +8179,16 @@
    "A host is a computer or other device, typically connected to a computer network. A network host may offer information resources, services, and applications to users or other nodes on the network. A network host is a network node that is assigned a network layer host address. Network hosts that participate in applications that use the client-server model of computing, are classified as server or client systems. Network hosts may also function as nodes in peer-to-peer applications, in which all nodes share and consume resources in an equipotent manner.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Host_(network)",
    :rdfs/label "Host",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/runs,
-                      :owl/someValuesFrom :d3fend/OperatingSystem,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkNode
-                     {:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/Application,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/OperatingSystem,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/runs,
+                      :owl/someValuesFrom :d3fend/OperatingSystem,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkNode],
    :skos/altLabel "Network Host"})
 
 (def Host-basedFirewall
@@ -8126,6 +8201,7 @@
    :rdfs/subClassOf :d3fend/SystemSoftware})
 
 (def HostConfigurationSensor
+  "Host Configuration Sensor"
   {:db/ident        :d3fend/HostConfigurationSensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Host Configuration Sensor",
@@ -8146,10 +8222,10 @@
    "In computer networking, a hostname (archaically nodename) is a label that is assigned to a device connected to a computer network and that is used to identify the device in various forms of electronic communication, such as the World Wide Web. Hostnames may be simple names consisting of a single word or phrase, or they may be structured.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Hostname",
    :rdfs/label "Hostname",
-   :rdfs/subClassOf [:d3fend/Identifier
-                     {:owl/onProperty     :d3fend/identifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
                       :owl/someValuesFrom :d3fend/Host,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/Identifier],
    :skos/altLabel "Nodename"})
 
 (def HumanInputDeviceFirmware
@@ -8181,10 +8257,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/InputDevice,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/ExecutionIsolation
                      {:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/RemovableMediaDevice,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/ExecutionIsolation]})
 
 (def IPAddress
   "An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.An IP address serves two main functions: host or network interface identification and location addressing. Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. IPv6 deployment has been ongoing since the mid-2000s."
@@ -8347,6 +8423,7 @@
    :rdfs/subClassOf [:d3fend/FileSection :d3fend/BinarySegment]})
 
 (def Impact
+  "Impact"
   {:d3fend/display-order 12,
    :db/ident        :d3fend/Impact,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -8354,6 +8431,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def ImpactTechnique
+  "Impact Technique"
   {:d3fend/enables  :d3fend/Impact,
    :db/ident        :d3fend/ImpactTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -8364,6 +8442,7 @@
                      :d3fend/OffensiveTechnique]})
 
 (def ImpersonateUser
+  "Impersonate User"
   {:db/ident        :d3fend/ImpersonateUser,
    :rdf/type        [:d3fend/ImpersonateUser :owl/NamedIndividual :owl/Class],
    :rdfs/label      "Impersonate User",
@@ -8465,10 +8544,10 @@
    :db/ident :d3fend/InboundTrafficFiltering,
    :rdf/type [:d3fend/NetworkTrafficFiltering :owl/Class :owl/NamedIndividual],
    :rdfs/label "Inbound Traffic Filtering",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficFiltering
-                     {:owl/onProperty     :d3fend/filters,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/InboundNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkTrafficFiltering]})
 
 (def IndirectBranchCallAnalysis
   "Analyzing vendor specific branch call recording in order to detect ROP style attacks."
@@ -8484,6 +8563,7 @@
    :rdfs/subClassOf :d3fend/ProcessAnalysis})
 
 (def InformationContentEntity
+  "Information Content Entity"
   {:db/ident         :d3fend/InformationContentEntity,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "BFO, Cyc equiv, SUMO equiv, [Ontology Works] equiv",
@@ -8507,6 +8587,7 @@
    :skos/altLabel "Initialization Script"})
 
 (def InitialAccess
+  "Initial Access"
   {:d3fend/display-order 1,
    :db/ident        :d3fend/InitialAccess,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -8514,6 +8595,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def InitialAccessTechnique
+  "Initial Access Technique"
   {:d3fend/enables  :d3fend/InitialAccess,
    :db/ident        :d3fend/InitialAccessTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -8548,10 +8630,10 @@
    :rdf/type
    [:owl/NamedIndividual :d3fend/OperatingSystemMonitoring :owl/Class],
    :rdfs/label "Input Device Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/OperatingSystemMonitoring
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/InputDevice,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/OperatingSystemMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def InstantMessagingClient
   "Client software used to engage in Instant Messaging, a type of online chat that offers real-time text transmission over the Internet. A LAN messenger operates in a similar way over a local area network. Short messages are typically transmitted between two parties, when each user chooses to complete a thought and select \"send\". Some IM applications can use push technology to provide real-time text, which transmits messages character by character, as they are composed. More advanced instant messaging can add file transfer, clickable hyperlinks, Voice over IP, or video chat."
@@ -8592,17 +8674,20 @@
    :rdfs/subClassOf :d3fend/TestExecutionTool})
 
 (def InternationalizedDomainName
+  "Internationalized Domain Name"
   {:db/ident   :d3fend/InternationalizedDomainName,
    :rdf/type   [:d3fend/DomainName :owl/NamedIndividual],
    :rdfs/label "Internationalized Domain Name"})
 
 (def InternetArticle
+  "Internet Article"
   {:db/ident        :d3fend/InternetArticle,
    :rdf/type        [:d3fend/ReferenceType :owl/NamedIndividual :owl/Class],
    :rdfs/label      "Internet Article",
    :rdfs/subClassOf :d3fend/NewsArticle})
 
 (def InternetArticleReference
+  "Internet Article Reference"
   {:d3fend/pref-label "Internet Article",
    :db/ident          :d3fend/InternetArticleReference,
    :rdf/type          :owl/Class,
@@ -8704,10 +8789,10 @@
    :rdfs/label "Intranet IPC Network Traffic",
    :rdfs/seeAlso ["http://dbpedia.org/resource/Inter-process_communication"
                   "http://dbpedia.org/resource/Intranet"],
-   :rdfs/subClassOf [:d3fend/IntranetNetworkTraffic
-                     {:owl/onProperty     :d3fend/may-contain,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/File,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/IntranetNetworkTraffic
                      :d3fend/IPCNetworkTraffic]})
 
 (def IntranetMulticastNetworkTraffic
@@ -8811,6 +8896,7 @@
    :rdfs/subClassOf :d3fend/BinaryLargeObject})
 
 (def JavascriptFile
+  "Javascript File"
   {:db/ident   :d3fend/JavascriptFile,
    :rdf/type   [:d3fend/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Javascript File"})
@@ -8828,12 +8914,13 @@
    :db/ident :d3fend/JobFunctionAccessPatternAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/UserBehaviorAnalysis],
    :rdfs/label "Job Function Access Pattern Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Authorization,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def JournalArticle
+  "Journal Article"
   {:db/ident        :d3fend/JournalArticle,
    :rdf/type        :owl/Class,
    :rdfs/label      "Journal Article",
@@ -8879,8 +8966,8 @@
    "The kernel is a computer program that constitutes the central core of a computer's operating system. It has complete control over everything that occurs in the system. As such, it is the first program loaded on startup, and then manages the remainder of the startup, as well as input/output requests from software, translating them into data processing instructions for the central processing unit. It is also responsible for managing memory, and for managing and communicating with computing peripherals, like printers, speakers, etc. The kernel is a fundamental part of a modern computer's operating system.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Kernel_(operating_system)",
    :rdfs/label "Kernel",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/loads,
-                      :owl/someValuesFrom :d3fend/Application,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/KernelModule,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/HardwareDriver,
@@ -8891,13 +8978,13 @@
                      {:owl/onProperty     :d3fend/manages,
                       :owl/someValuesFrom :d3fend/UserProcess,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/SystemSoftware
-                     {:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/KernelModule,
+                     {:owl/onProperty     :d3fend/loads,
+                      :owl/someValuesFrom :d3fend/Application,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/manages,
                       :owl/someValuesFrom :d3fend/OperatingSystemProcess,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/SystemSoftware]})
 
 (def Kernel-basedProcessIsolation
   "Using kernel-level capabilities to isolate processes."
@@ -8912,6 +8999,7 @@
    :rdfs/subClassOf     :d3fend/ExecutionIsolation})
 
 (def KernelAPISensor
+  "Kernel API Sensor"
   {:db/ident        :d3fend/KernelAPISensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Kernel API Sensor",
@@ -8968,6 +9056,7 @@
    :skos/altLabel "Interactive Kiosk"})
 
 (def LDIFRecord
+  "LDIF Record"
   {:db/ident   :d3fend/LDIFRecord,
    :rdf/type   [:d3fend/UserAccount :owl/NamedIndividual],
    :rdfs/label "LDIF Record"})
@@ -8984,12 +9073,14 @@
    :skos/altLabel ["Notebook" "Laptop"]})
 
 (def Latency
+  "Latency"
   {:db/ident        :d3fend/Latency,
    :rdf/type        :owl/Class,
    :rdfs/label      "Latency",
    :rdfs/subClassOf :d3fend/D3FENDThing})
 
 (def LateralMovement
+  "Lateral Movement"
   {:d3fend/display-order 8,
    :db/ident        :d3fend/LateralMovement,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -8997,6 +9088,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def LateralMovementTechnique
+  "Lateral Movement Technique"
   {:d3fend/enables  :d3fend/LateralMovement,
    :db/ident        :d3fend/LateralMovementTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -9018,6 +9110,7 @@
    :rdfs/subClassOf :d3fend/DigitalSystem})
 
 (def License
+  "License"
   {:db/ident        :d3fend/License,
    :rdf/type        :owl/Class,
    :rdfs/label      "License",
@@ -9025,6 +9118,7 @@
    :rdfs/subClassOf :d3fend/InformationContentEntity})
 
 (def Link
+  "Link"
   {:db/ident        :d3fend/Link,
    :rdf/type        :owl/Class,
    :rdfs/label      "Link",
@@ -9039,16 +9133,19 @@
    :rdfs/label   "Linux ELF File 32bit"})
 
 (def LinuxELFFile64bit
+  "Linux ELF File 64bit"
   {:db/ident   :d3fend/LinuxELFFile64bit,
    :rdf/type   [:d3fend/ExecutableBinary :owl/NamedIndividual],
    :rdfs/label "Linux ELF File 64bit"})
 
 (def LinuxExec
+  "Linux Exec"
   {:db/ident   :d3fend/LinuxExec,
    :rdf/type   [:d3fend/CreateProcess :owl/NamedIndividual],
    :rdfs/label "Linux Exec"})
 
 (def LinuxProcess
+  "Linux Process"
   {:db/ident   :d3fend/LinuxProcess,
    :rdf/type   [:d3fend/Process :owl/NamedIndividual],
    :rdfs/label "Linux Process"})
@@ -9195,6 +9292,7 @@
                      :d3fend/File]})
 
 (def LogicalLink
+  "Logical Link"
   {:db/ident        :d3fend/LogicalLink,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Logical Link",
@@ -9210,15 +9308,15 @@
    :db/ident :d3fend/LogicalLinkMapping,
    :rdf/type [:owl/NamedIndividual :d3fend/NetworkMapping :owl/Class],
    :rdfs/label "Logical Link Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/NetworkNode,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkMapping
+   :rdfs/subClassOf [:d3fend/NetworkMapping
                      {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/Network,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/LogicalLink,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/maps,
+                      :owl/someValuesFrom :d3fend/NetworkNode,
                       :rdf/type           :owl/Restriction}]})
 
 (def LoginSession
@@ -9232,12 +9330,14 @@
    :rdfs/subClassOf :d3fend/Session})
 
 (def LogonUser
+  "Logon User"
   {:db/ident        :d3fend/LogonUser,
    :rdf/type        :owl/Class,
    :rdfs/label      "Logon User",
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def LuaScriptFile
+  "Lua Script File"
   {:db/ident   :d3fend/LuaScriptFile,
    :rdf/type   [:d3fend/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Lua Script File"})
@@ -9278,6 +9378,7 @@
    :rdfs/label "User Training"})
 
 (def M1018
+  "User Account Management"
   {:d3fend/related [:d3fend/SystemConfigurationPermissions
                     :d3fend/MandatoryAccessControl
                     :d3fend/LocalFilePermissions],
@@ -9318,18 +9419,21 @@
    :rdfs/label     "Restrict Web-Based Content"})
 
 (def M1022
+  "Restrict File and Directory Permissions"
   {:d3fend/related :d3fend/LocalFilePermissions,
    :db/ident       :d3fend/M1022,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Restrict File and Directory Permissions"})
 
 (def M1024
+  "Restrict Registry Permission"
   {:d3fend/related :d3fend/SystemConfigurationPermissions,
    :db/ident       :d3fend/M1024,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Restrict Registry Permission"})
 
 (def M1025
+  "Privileged Process Integrity"
   {:d3fend/related [:d3fend/ProcessSegmentExecutionPrevention
                     :d3fend/MandatoryAccessControl
                     :d3fend/DriverLoadIntegrityChecking
@@ -9339,6 +9443,7 @@
    :rdfs/label     "Privileged Process Integrity"})
 
 (def M1026
+  "Privileged Account Management"
   {:d3fend/related [:d3fend/StrongPasswordPolicy
                     :d3fend/LocalAccountMonitoring
                     :d3fend/DomainAccountMonitoring],
@@ -9347,12 +9452,14 @@
    :rdfs/label     "Privileged Account Management"})
 
 (def M1027
+  "Password Policies"
   {:d3fend/related [:d3fend/StrongPasswordPolicy :d3fend/One-timePassword],
    :db/ident       :d3fend/M1027,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Password Policies"})
 
 (def M1028
+  "Operating System Configuration"
   {:d3fend/related :d3fend/PlatformHardening,
    :db/ident       :d3fend/M1028,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
@@ -9367,6 +9474,7 @@
    :rdfs/label "Remote Data Storage"})
 
 (def M1030
+  "Network Segmentation"
   {:d3fend/related [:d3fend/InboundTrafficFiltering
                     :d3fend/InboundSessionVolumeAnalysis
                     :d3fend/EncryptedTunnels
@@ -9376,6 +9484,7 @@
    :rdfs/label     "Network Segmentation"})
 
 (def M1031
+  "Network Intrusion Prevention"
   {:d3fend/related [:d3fend/OutboundTrafficFiltering
                     :d3fend/NetworkTrafficAnalysis
                     :d3fend/InboundTrafficFiltering],
@@ -9384,12 +9493,14 @@
    :rdfs/label     "Network Intrusion Prevention"})
 
 (def M1032
+  "Multi-factor Authentication"
   {:d3fend/related :d3fend/Multi-factorAuthentication,
    :db/ident       :d3fend/M1032,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Multi-factor Authentication"})
 
 (def M1033
+  "Limit Software Installation"
   {:d3fend/related [:d3fend/ExecutableDenylisting
                     :d3fend/ExecutableAllowlisting],
    :db/ident       :d3fend/M1033,
@@ -9397,12 +9508,14 @@
    :rdfs/label     "Limit Software Installation"})
 
 (def M1034
+  "Limit Hardware Installation"
   {:d3fend/related :d3fend/IOPortRestriction,
    :db/ident       :d3fend/M1034,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Limit Hardware Installation"})
 
 (def M1035
+  "Limit Access to Resource Over Network"
   {:d3fend/related :d3fend/NetworkIsolation,
    :db/ident       :d3fend/M1035,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
@@ -9420,12 +9533,14 @@
    :rdfs/label     "Account Use Policies"})
 
 (def M1037
+  "Filter Network Traffic"
   {:d3fend/related :d3fend/NetworkIsolation,
    :db/ident       :d3fend/M1037,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Filter Network Traffic"})
 
 (def M1038
+  "Execution Prevention"
   {:d3fend/related [:d3fend/ProcessSegmentExecutionPrevention
                     :d3fend/ExecutableDenylisting
                     :d3fend/ExecutableAllowlisting
@@ -9435,6 +9550,7 @@
    :rdfs/label     "Execution Prevention"})
 
 (def M1039
+  "Environment Variable Permissions"
   {:d3fend/related [:d3fend/SystemFileAnalysis
                     :d3fend/ApplicationConfigurationHardening],
    :db/ident       :d3fend/M1039,
@@ -9442,6 +9558,7 @@
    :rdfs/label     "Environment Variable Permissions"})
 
 (def M1040
+  "Behavior Prevention on Endpoint"
   {:d3fend/related [:d3fend/ResourceAccessPatternAnalysis
                     :d3fend/UserGeolocationLogonPatternAnalysis
                     :d3fend/JobFunctionAccessPatternAnalysis
@@ -9455,6 +9572,7 @@
    :rdfs/label     "Behavior Prevention on Endpoint"})
 
 (def M1041
+  "Encrypt Sensitive Information"
   {:d3fend/related [:d3fend/MessageEncryption
                     :d3fend/FileEncryption
                     :d3fend/EncryptedTunnels
@@ -9464,6 +9582,7 @@
    :rdfs/label     "Encrypt Sensitive Information"})
 
 (def M1042
+  "Disable or Remove Feature or Program"
   {:d3fend/related [:d3fend/MandatoryAccessControl
                     :d3fend/ExecutableDenylisting
                     :d3fend/ApplicationConfigurationHardening],
@@ -9472,6 +9591,7 @@
    :rdfs/label     "Disable or Remove Feature or Program"})
 
 (def M1043
+  "Credential Access Protection"
   {:d3fend/related :d3fend/Hardware-basedProcessIsolation,
    :db/ident       :d3fend/M1043,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
@@ -9487,6 +9607,7 @@
    :rdfs/label     "Restrict Library Loading"})
 
 (def M1045
+  "Code Signing"
   {:d3fend/related [:d3fend/ServiceBinaryVerification
                     :d3fend/ExecutableAllowlisting
                     :d3fend/DriverLoadIntegrityChecking],
@@ -9495,6 +9616,7 @@
    :rdfs/label     "Code Signing"})
 
 (def M1046
+  "Boot Integrity"
   {:d3fend/related [:d3fend/TPMBootIntegrity :d3fend/BootloaderAuthentication],
    :db/ident       :d3fend/M1046,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
@@ -9534,6 +9656,7 @@
    :rdfs/label     "Antivirus/Antimalware"})
 
 (def M1050
+  "Exploit Protection"
   {:d3fend/related [:d3fend/ShadowStackComparisons
                     :d3fend/InboundTrafficFiltering
                     :d3fend/ExceptionHandlerPointerValidation
@@ -9543,12 +9666,14 @@
    :rdfs/label     "Exploit Protection"})
 
 (def M1051
+  "Update Software"
   {:d3fend/related :d3fend/SoftwareUpdate,
    :db/ident       :d3fend/M1051,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Update Software"})
 
 (def M1052
+  "User Account Control"
   {:d3fend/related :d3fend/MandatoryAccessControl,
    :db/ident       :d3fend/M1052,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
@@ -9563,6 +9688,7 @@
    :rdfs/label "Data Backup"})
 
 (def M1054
+  "Software Configuration"
   {:d3fend/related [:d3fend/CertificatePinning
                     :d3fend/ApplicationConfigurationHardening],
    :db/ident       :d3fend/M1054,
@@ -9570,17 +9696,20 @@
    :rdfs/label     "Software Configuration"})
 
 (def M1055
+  "Do Not Mitigate"
   {:db/ident   :d3fend/M1055,
    :rdf/type   [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label "Do Not Mitigate"})
 
 (def M1056
+  "Pre-compromise"
   {:d3fend/related [:d3fend/DecoyObject :d3fend/DecoyEnvironment],
    :db/ident       :d3fend/M1056,
    :rdf/type       [:d3fend/ATTACKMitigation :owl/NamedIndividual],
    :rdfs/label     "Pre-compromise"})
 
 (def MSGEmailFile
+  "MSG Email File"
   {:db/ident   :d3fend/MSGEmailFile,
    :rdf/type   [:d3fend/Email :owl/NamedIndividual],
    :rdfs/label "MSG Email File"})
@@ -9653,15 +9782,16 @@
    :rdf/type
    [:d3fend/Kernel-basedProcessIsolation :owl/NamedIndividual :owl/Class],
    :rdfs/label "Mandatory Access Control",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/isolates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
+                      :owl/someValuesFrom :d3fend/CreateProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/isolates,
                       :owl/someValuesFrom :d3fend/Process,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/Kernel-basedProcessIsolation
-                     {:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/CreateProcess,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3fend/Kernel-basedProcessIsolation]})
 
 (def MarketingMaterial
+  "Marketing Material"
   {:db/ident   :d3fend/MarketingMaterial,
    :rdf/type   [:d3fend/ReferenceType :owl/NamedIndividual],
    :rdfs/label "Marketing Material"})
@@ -9690,10 +9820,10 @@
    :rdf/type
    [:owl/Class :d3fend/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label "Memory Boundary Tracking",
-   :rdfs/subClassOf [:d3fend/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/OperatingSystemMonitoring]})
 
 (def MessageAnalysis
   "Analyzing email or instant message content to detect unauthorized activity."
@@ -9727,10 +9857,10 @@
    :db/ident :d3fend/MessageAuthentication,
    :rdf/type [:d3fend/MessageHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Message Authentication",
-   :rdfs/subClassOf [:d3fend/MessageHardening
-                     {:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/UserToUserMessage,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/MessageHardening]})
 
 (def MessageEncryption
   "Encrypting a message body using a cryptographic key."
@@ -9759,10 +9889,10 @@
    :db/ident :d3fend/MessageHardening,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/DefensiveTechnique],
    :rdfs/label "Message Hardening",
-   :rdfs/subClassOf [:d3fend/DefensiveTechnique
-                     {:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Harden,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DefensiveTechnique]})
 
 (def MessageTransferAgent
   "A message transfer agent or mail transfer agent (MTA) or mail relay is software that transfers electronic mail messages from one computer to another using a client-server application architecture. An MTA implements both the client (sending) and server (receiving) portions of the Simple Mail Transfer Protocol."
@@ -9796,46 +9926,55 @@
    :rdfs/subClassOf :d3fend/Firmware})
 
 (def MicrosoftVCCLCompilerToolBufferSecurityCheck
+  "Microsoft VCCLCompilerTool BufferSecurityCheck"
   {:db/ident   :d3fend/MicrosoftVCCLCompilerToolBufferSecurityCheck,
    :rdf/type   [:d3fend/StackFrameCanaryValidation :owl/NamedIndividual],
    :rdfs/label "Microsoft VCCLCompilerTool BufferSecurityCheck"})
 
 (def MicrosoftWordDOCBFile
+  "Microsoft Word DOCB File"
   {:db/ident   :d3fend/MicrosoftWordDOCBFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word DOCB File"})
 
 (def MicrosoftWordDOCFile
+  "Microsoft Word DOC File"
   {:db/ident   :d3fend/MicrosoftWordDOCFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word DOC File"})
 
 (def MicrosoftWordDOCMFile
+  "Microsoft Word DOCM File"
   {:db/ident   :d3fend/MicrosoftWordDOCMFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word DOCM File"})
 
 (def MicrosoftWordDOCXFile
+  "Microsoft Word DOCX File"
   {:db/ident   :d3fend/MicrosoftWordDOCXFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word DOCX File"})
 
 (def MicrosoftWordDOTFile
+  "Microsoft Word DOT File"
   {:db/ident   :d3fend/MicrosoftWordDOTFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word DOT File"})
 
 (def MicrosoftWordDOTMFile
+  "Microsoft Word DOTM File"
   {:db/ident   :d3fend/MicrosoftWordDOTMFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word DOTM File"})
 
 (def MicrosoftWordDOTXFile
+  "Microsoft Word DOTX File"
   {:db/ident   :d3fend/MicrosoftWordDOTXFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word DOTX File"})
 
 (def MicrosoftWordWBKFile
+  "Microsoft Word WBK File"
   {:db/ident   :d3fend/MicrosoftWordWBKFile,
    :rdf/type   [:d3fend/DocumentFile :owl/NamedIndividual],
    :rdfs/label "Microsoft Word WBK File"})
@@ -9937,6 +10076,7 @@
    :rdfs/subClassOf :d3fend/DocumentFile})
 
 (def NISTControl
+  "NIST Control"
   {:db/ident        :d3fend/NISTControl,
    :rdf/type        :owl/Class,
    :rdfs/label      "NIST Control",
@@ -9959,6 +10099,7 @@
                      :d3fend/ControlCatalog]})
 
 (def NIST_SP_800-53_R3
+  "NIST SP 800-53 R3"
   {:d3fend/archived-at
    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30",
    :d3fend/version 3,
@@ -9969,6 +10110,7 @@
    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30"})
 
 (def NIST_SP_800-53_R4
+  "NIST SP 800-53 R4"
   {:d3fend/archived-at
    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30",
    :d3fend/version 4,
@@ -9979,6 +10121,7 @@
    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2015-01-22"})
 
 (def NIST_SP_800-53_R5
+  "NIST SP 800-53 R5"
   {:d3fend/archived-at
    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
    :d3fend/has-member [:d3fend/NIST_SP_800-53_R5_AC-4_17
@@ -10106,6 +10249,7 @@
    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"})
 
 (def NIST_SP_800-53_R5_AC-17_8
+  "AC-17(8)"
   {:d3fend/broader      :d3fend/ExecutableDenylisting,
    :d3fend/control-name "Remote Access | Disable Nonsecure Network Protocols",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10114,6 +10258,7 @@
    :rdfs/label          "AC-17(8)"})
 
 (def NIST_SP_800-53_R5_AC-23
+  "AC-23"
   {:d3fend/control-name "Data Mining Protection",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/UserDataTransferAnalysis
@@ -10125,6 +10270,7 @@
    :rdfs/label          "AC-23"})
 
 (def NIST_SP_800-53_R5_AC-24
+  "AC-24"
   {:d3fend/control-name "Access Control Decisions",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/MandatoryAccessControl,
@@ -10133,6 +10279,7 @@
    :rdfs/label          "AC-24"})
 
 (def NIST_SP_800-53_R5_AC-24_1
+  "AC-24(1)"
   {:d3fend/control-name
    "Access Control Decisions | Transmit Access Authorization Information",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10143,6 +10290,7 @@
    :rdfs/label "AC-24(1)"})
 
 (def NIST_SP_800-53_R5_AC-24_2
+  "AC-24(2)"
   {:d3fend/control-name
    "Access Control Decisions | No User or Process Identity",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10153,6 +10301,7 @@
    :rdfs/label "AC-24(2)"})
 
 (def NIST_SP_800-53_R5_AC-2_1
+  "AC-2(1)"
   {:d3fend/broader [:d3fend/Multi-factorAuthentication :d3fend/AccountLocking],
    :d3fend/control-name
    "Account Management | Automated System Account Management",
@@ -10162,6 +10311,7 @@
    :rdfs/label "AC-2(1)"})
 
 (def NIST_SP_800-53_R5_AC-2_13
+  "AC-2(13)"
   {:d3fend/control-name
    "Account Management | Disable Accounts for High-risk Individuals",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10171,6 +10321,7 @@
    :rdfs/label "AC-2(13)"})
 
 (def NIST_SP_800-53_R5_AC-2_2
+  "AC-2(2)"
   {:d3fend/broader :d3fend/AccountLocking,
    :d3fend/control-name
    "Account Management | Automated Temporary and Emergency Account Management",
@@ -10180,6 +10331,7 @@
    :rdfs/label "AC-2(2)"})
 
 (def NIST_SP_800-53_R5_AC-2_3
+  "AC-2(3)"
   {:d3fend/broader      :d3fend/AccountLocking,
    :d3fend/control-name "Account Management | Disable Accounts",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10188,6 +10340,7 @@
    :rdfs/label          "AC-2(3)"})
 
 (def NIST_SP_800-53_R5_AC-2_4
+  "AC-2(4)"
   {:d3fend/control-name "Account Management | Automated Audit Actions",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/related      :d3fend/DomainAccountMonitoring,
@@ -10196,6 +10349,7 @@
    :rdfs/label          "AC-2(4)"})
 
 (def NIST_SP_800-53_R5_AC-2_5
+  "AC-2(5)"
   {:d3fend/control-name "Account Management | Inactivity Logout",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/related      :d3fend/AccountLocking,
@@ -10204,6 +10358,7 @@
    :rdfs/label          "AC-2(5)"})
 
 (def NIST_SP_800-53_R5_AC-2_6
+  "AC-2(6)"
   {:d3fend/broader      :d3fend/MandatoryAccessControl,
    :d3fend/control-name "Account Management | Dynamic Privilege Management",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10212,6 +10367,7 @@
    :rdfs/label          "AC-2(6)"})
 
 (def NIST_SP_800-53_R5_AC-2_7
+  "AC-2(7)"
   {:d3fend/control-name "Account Management | Privileged User Accounts",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/UserAccountPermissions,
@@ -10220,6 +10376,7 @@
    :rdfs/label          "AC-2(7)"})
 
 (def NIST_SP_800-53_R5_AC-2_9
+  "AC-2(9)"
   {:d3fend/control-name
    "Account Management | Restrictions on Use of Shared and Group Accounts",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10230,6 +10387,7 @@
    :rdfs/label "AC-2(9)"})
 
 (def NIST_SP_800-53_R5_AC-3
+  "AC-3"
   {:d3fend/control-name "Access Enforcement",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/MandatoryAccessControl
@@ -10240,6 +10398,7 @@
    :rdfs/label          "AC-3"})
 
 (def NIST_SP_800-53_R5_AC-3_11
+  "AC-3(11)"
   {:d3fend/control-name
    "Access Enforcement | Restrict Access to Specific Information Types",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10249,6 +10408,7 @@
    :rdfs/label "AC-3(11)"})
 
 (def NIST_SP_800-53_R5_AC-3_13
+  "AC-3(13)"
   {:d3fend/control-name "Access Enforcement | Attribute-based Access Control",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/MandatoryAccessControl,
@@ -10257,6 +10417,7 @@
    :rdfs/label          "AC-3(13)"})
 
 (def NIST_SP_800-53_R5_AC-3_3
+  "AC-3(3)"
   {:d3fend/control-name "Access Enforcement | Mandatory Access Control",
    :d3fend/exactly      :d3fend/MandatoryAccessControl,
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10265,6 +10426,7 @@
    :rdfs/label          "AC-3(3)"})
 
 (def NIST_SP_800-53_R5_AC-3_7
+  "AC-3(7)"
   {:d3fend/control-name "Access Enforcement | Role-based Access Control",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/MandatoryAccessControl,
@@ -10273,6 +10435,7 @@
    :rdfs/label          "AC-3(7)"})
 
 (def NIST_SP_800-53_R5_AC-3_8
+  "AC-3(8)"
   {:d3fend/control-name
    "Access Enforcement | Revocation of Access Authorizations",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10283,6 +10446,7 @@
    :rdfs/label "AC-3(8)"})
 
 (def NIST_SP_800-53_R5_AC-4
+  "AC-4"
   {:d3fend/control-name "Information Flow Enforcement",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/OutboundTrafficFiltering
@@ -10292,6 +10456,7 @@
    :rdfs/label          "AC-4"})
 
 (def NIST_SP_800-53_R5_AC-4_1
+  "AC-4(1)"
   {:d3fend/control-name
    "Information Flow Enforcement | Object Security and Privacy Attributes",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10302,6 +10467,7 @@
    :rdfs/label "AC-4(1)"})
 
 (def NIST_SP_800-53_R5_AC-4_10
+  "AC-4(10)"
   {:d3fend/broader [:d3fend/OutboundTrafficFiltering
                     :d3fend/InboundTrafficFiltering],
    :d3fend/control-name
@@ -10312,6 +10478,7 @@
    :rdfs/label "AC-4(10)"})
 
 (def NIST_SP_800-53_R5_AC-4_11
+  "AC-4(11)"
   {:d3fend/broader [:d3fend/OutboundTrafficFiltering
                     :d3fend/InboundTrafficFiltering],
    :d3fend/control-name
@@ -10322,6 +10489,7 @@
    :rdfs/label "AC-4(11)"})
 
 (def NIST_SP_800-53_R5_AC-4_12
+  "AC-4(12)"
   {:d3fend/control-name "Information Flow Enforcement | Data Type Identifiers",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/OutboundTrafficFiltering
@@ -10331,6 +10499,7 @@
    :rdfs/label          "AC-4(12)"})
 
 (def NIST_SP_800-53_R5_AC-4_13
+  "AC-4(13)"
   {:d3fend/control-name
    "Information Flow Enforcement | Decomposition into Policy-relevant Subcomponents",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10341,6 +10510,7 @@
    :rdfs/label "AC-4(13)"})
 
 (def NIST_SP_800-53_R5_AC-4_14
+  "AC-4(14)"
   {:d3fend/control-name
    "Information Flow Enforcement | Security or Privacy Policy Filter Constraints",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10351,6 +10521,7 @@
    :rdfs/label "AC-4(14)"})
 
 (def NIST_SP_800-53_R5_AC-4_15
+  "AC-4(15)"
   {:d3fend/control-name
    "Information Flow Enforcement | Detection of Unsanctioned Information",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10361,6 +10532,7 @@
    :rdfs/label "AC-4(15)"})
 
 (def NIST_SP_800-53_R5_AC-4_17
+  "AC-4(17)"
   {:d3fend/control-name "Information Flow Enforcement | Domain Authentication",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/DomainTrustPolicy,
@@ -10369,6 +10541,7 @@
    :rdfs/label          "AC-4(17)"})
 
 (def NIST_SP_800-53_R5_AC-4_19
+  "AC-4(19)"
   {:d3fend/control-name "Information Flow Enforcement | Validation of Metadata",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/OutboundTrafficFiltering
@@ -10378,6 +10551,7 @@
    :rdfs/label          "AC-4(19)"})
 
 (def NIST_SP_800-53_R5_AC-4_20
+  "AC-4(20)"
   {:d3fend/control-name "Information Flow Enforcement | Approved Solutions",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/OutboundTrafficFiltering
@@ -10387,6 +10561,7 @@
    :rdfs/label          "AC-4(20)"})
 
 (def NIST_SP_800-53_R5_AC-4_21
+  "AC-4(21)"
   {:d3fend/control-name
    "Information Flow Enforcement | Physical or Logical Separation of Information Flows",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10397,6 +10572,7 @@
    :rdfs/label "AC-4(21)"})
 
 (def NIST_SP_800-53_R5_AC-4_26
+  "AC-4(26)"
   {:d3fend/control-name
    "Information Flow Enforcement | Audit Filtering Actions",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10406,6 +10582,7 @@
    :rdfs/label "AC-4(26)"})
 
 (def NIST_SP_800-53_R5_AC-4_27
+  "AC-4(27)"
   {:d3fend/control-name
    "Information Flow Enforcement | Redundant/independent Filtering Mechanisms",
    :d3fend/exactly [:d3fend/OutboundTrafficFiltering
@@ -10416,6 +10593,7 @@
    :rdfs/label "AC-4(27)"})
 
 (def NIST_SP_800-53_R5_AC-4_28
+  "AC-4(28)"
   {:d3fend/control-name
    "Information Flow Enforcement | Linear Filter Pipelines",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10426,6 +10604,7 @@
    :rdfs/label "AC-4(28)"})
 
 (def NIST_SP_800-53_R5_AC-4_29
+  "AC-4(29)"
   {:d3fend/control-name
    "Information Flow Enforcement | Filter Orchestration Engines",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10436,6 +10615,7 @@
    :rdfs/label "AC-4(29)"})
 
 (def NIST_SP_800-53_R5_AC-4_3
+  "AC-4(3)"
   {:d3fend/control-name
    "Information Flow Enforcement | Dynamic Information Flow Control",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10446,6 +10626,7 @@
    :rdfs/label "AC-4(3)"})
 
 (def NIST_SP_800-53_R5_AC-4_30
+  "AC-4(30)"
   {:d3fend/control-name
    "Information Flow Enforcement | Filter Mechanisms Using Multiple Processes",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10456,6 +10637,7 @@
    :rdfs/label "AC-4(30)"})
 
 (def NIST_SP_800-53_R5_AC-4_32
+  "AC-4(32)"
   {:d3fend/control-name
    "Information Flow Enforcement | Process Requirements for Information Transfer",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10466,6 +10648,7 @@
    :rdfs/label "AC-4(32)"})
 
 (def NIST_SP_800-53_R5_AC-4_4
+  "AC-4(4)"
   {:d3fend/control-name
    "Information Flow Enforcement | Flow Control of Encrypted Information",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10476,6 +10659,7 @@
    :rdfs/label "AC-4(4)"})
 
 (def NIST_SP_800-53_R5_AC-4_5
+  "AC-4(5)"
   {:d3fend/control-name "Information Flow Enforcement | Embedded Data Types",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/OutboundTrafficFiltering
@@ -10485,6 +10669,7 @@
    :rdfs/label          "AC-4(5)"})
 
 (def NIST_SP_800-53_R5_AC-4_6
+  "AC-4(6)"
   {:d3fend/control-name "Information Flow Enforcement | Metadata",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/OutboundTrafficFiltering
@@ -10494,6 +10679,7 @@
    :rdfs/label          "AC-4(6)"})
 
 (def NIST_SP_800-53_R5_AC-4_8
+  "AC-4(8)"
   {:d3fend/control-name
    "Information Flow Enforcement | Security and Privacy Policy Filters",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10504,6 +10690,7 @@
    :rdfs/label "AC-4(8)"})
 
 (def NIST_SP_800-53_R5_AC-5
+  "AC-5"
   {:d3fend/broader      [:d3fend/UserAccountPermissions
                          :d3fend/MandatoryAccessControl
                          :d3fend/LocalFilePermissions],
@@ -10514,6 +10701,7 @@
    :rdfs/label          "AC-5"})
 
 (def NIST_SP_800-53_R5_AC-6
+  "AC-6"
   {:d3fend/broader      [:d3fend/UserAccountPermissions
                          :d3fend/MandatoryAccessControl
                          :d3fend/LocalFilePermissions],
@@ -10524,6 +10712,7 @@
    :rdfs/label          "AC-6"})
 
 (def NIST_SP_800-53_R5_AC-6_1
+  "AC-6(1)"
   {:d3fend/control-name
    "Least Privilege | Authorize Access to Security Functions",
    :d3fend/exactly :d3fend/SystemConfigurationPermissions,
@@ -10533,6 +10722,7 @@
    :rdfs/label "AC-6(1)"})
 
 (def NIST_SP_800-53_R5_AC-6_10
+  "AC-6(10)"
   {:d3fend/control-name
    "Least Privilege | Prohibit Non-privileged Users from Executing Privileged Functions",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10544,6 +10734,7 @@
    :rdfs/label "AC-6(10)"})
 
 (def NIST_SP_800-53_R5_AC-6_3
+  "AC-6(3)"
   {:d3fend/control-name
    "Least Privilege | Network Access to Privileged Commands",
    :d3fend/exactly :d3fend/SystemConfigurationPermissions,
@@ -10553,6 +10744,7 @@
    :rdfs/label "AC-6(3)"})
 
 (def NIST_SP_800-53_R5_AC-6_4
+  "AC-6(4)"
   {:d3fend/control-name "Least Privilege | Separate Processing Domains",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/Hardware-basedProcessIsolation,
@@ -10561,6 +10753,7 @@
    :rdfs/label          "AC-6(4)"})
 
 (def NIST_SP_800-53_R5_AC-6_5
+  "AC-6(5)"
   {:d3fend/control-name "Least Privilege | Privileged Accounts",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/SystemConfigurationPermissions
@@ -10571,6 +10764,7 @@
    :rdfs/label          "AC-6(5)"})
 
 (def NIST_SP_800-53_R5_AC-6_6
+  "AC-6(6)"
   {:d3fend/control-name
    "Least Privilege | Privileged Access by Non-organizational Users",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10582,6 +10776,7 @@
    :rdfs/label "AC-6(6)"})
 
 (def NIST_SP_800-53_R5_AC-6_9
+  "AC-6(9)"
   {:d3fend/broader      [:d3fend/UserBehaviorAnalysis
                          :d3fend/LocalAccountMonitoring],
    :d3fend/control-name "Least Privilege | Log Use of Privileged Functions",
@@ -10591,6 +10786,7 @@
    :rdfs/label          "AC-6(9)"})
 
 (def NIST_SP_800-53_R5_AC-7
+  "AC-7"
   {:d3fend/control-name "Unsuccessful Logon Attempts",
    :d3fend/exactly      :d3fend/AccountLocking,
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10599,6 +10795,7 @@
    :rdfs/label          "AC-7"})
 
 (def NIST_SP_800-53_R5_AC-7_3
+  "AC-7(3)"
   {:d3fend/control-name
    "Unsuccessful Logon Attempts | Biometric Attempt Limiting",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10608,6 +10805,7 @@
    :rdfs/label "AC-7(3)"})
 
 (def NIST_SP_800-53_R5_AC-7_4
+  "AC-7(4)"
   {:d3fend/broader :d3fend/AccountLocking,
    :d3fend/control-name
    "Unsuccessful Logon Attempts | Use of Alternate Authentication Factor",
@@ -10617,6 +10815,7 @@
    :rdfs/label "AC-7(4)"})
 
 (def NIST_SP_800-53_R5_AU-10_5
+  "AU-10(5)"
   {:d3fend/broader      :d3fend/DriverLoadIntegrityChecking,
    :d3fend/control-name "Non-repudiation | Digital Signatures",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10625,6 +10824,7 @@
    :rdfs/label          "AU-10(5)"})
 
 (def NIST_SP_800-53_R5_AU-14_2
+  "AU-14(2)"
   {:d3fend/control-name "Session Audit | Capture and Record Content",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/LocalAccountMonitoring,
@@ -10633,6 +10833,7 @@
    :rdfs/label          "AU-14(2)"})
 
 (def NIST_SP_800-53_R5_AU-15
+  "AU-15"
   {:d3fend/control-name "Alternate Audit Logging Capability",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/LocalAccountMonitoring,
@@ -10641,6 +10842,7 @@
    :rdfs/label          "AU-15"})
 
 (def NIST_SP_800-53_R5_AU-2
+  "AU-2"
   {:d3fend/control-name "Event Logging",
    :d3fend/exactly      :d3fend/LocalAccountMonitoring,
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10649,6 +10851,7 @@
    :rdfs/label          "AU-2"})
 
 (def NIST_SP_800-53_R5_AU-2_1
+  "AU-2(1)"
   {:d3fend/control-name
    "Event Logging | Compilation of Audit Records from Multiple Sources",
    :d3fend/exactly :d3fend/LocalAccountMonitoring,
@@ -10658,6 +10861,7 @@
    :rdfs/label "AU-2(1)"})
 
 (def NIST_SP_800-53_R5_AU-2_2
+  "AU-2(2)"
   {:d3fend/control-name
    "Event Logging | Selection of Audit Events by Component",
    :d3fend/exactly :d3fend/LocalAccountMonitoring,
@@ -10667,6 +10871,7 @@
    :rdfs/label "AU-2(2)"})
 
 (def NIST_SP_800-53_R5_AU-3
+  "AU-3"
   {:d3fend/control-name "Content of Audit Records",
    :d3fend/exactly      :d3fend/LocalAccountMonitoring,
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10675,6 +10880,7 @@
    :rdfs/label          "AU-3"})
 
 (def NIST_SP_800-53_R5_AU-4
+  "AU-4"
   {:d3fend/control-name "Audit Log Storage Capacity",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/LocalAccountMonitoring,
@@ -10683,6 +10889,7 @@
    :rdfs/label          "AU-4"})
 
 (def NIST_SP_800-53_R5_CM-14
+  "CM-14"
   {:d3fend/control-name "Signed Components",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/related      [:d3fend/MessageAuthentication
@@ -10692,6 +10899,7 @@
    :rdfs/label          "CM-14"})
 
 (def NIST_SP_800-53_R5_CM-5
+  "CM-5"
   {:d3fend/control-name "Access Restrictions for Change",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/MandatoryAccessControl
@@ -10703,6 +10911,7 @@
    :rdfs/label          "CM-5"})
 
 (def NIST_SP_800-53_R5_CM-5_1
+  "CM-5(1)"
   {:d3fend/control-name
    "Access Restrictions for Change | Automated Access Enforcement and Audit Records",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10712,6 +10921,7 @@
    :rdfs/label "CM-5(1)"})
 
 (def NIST_SP_800-53_R5_CM-5_3
+  "CM-5(3)"
   {:d3fend/control-name "Access Restrictions for Change | Signed Components",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/SystemConfigurationPermissions
@@ -10721,6 +10931,7 @@
    :rdfs/label          "CM-5(3)"})
 
 (def NIST_SP_800-53_R5_CM-5_5
+  "CM-5(5)"
   {:d3fend/control-name
    "Access Restrictions for Change | Privilege Limitation for Production and Operation",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10731,6 +10942,7 @@
    :rdfs/label "CM-5(5)"})
 
 (def NIST_SP_800-53_R5_CM-5_6
+  "CM-5(6)"
   {:d3fend/control-name
    "Access Restrictions for Change | Limit Library Privileges",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10741,6 +10953,7 @@
    :rdfs/label "CM-5(6)"})
 
 (def NIST_SP_800-53_R5_CM-6_3
+  "CM-6(3)"
   {:d3fend/broader :d3fend/ApplicationConfigurationHardening,
    :d3fend/control-name
    "Configuration Settings | Unauthorized Change Detection",
@@ -10750,6 +10963,7 @@
    :rdfs/label "CM-6(3)"})
 
 (def NIST_SP_800-53_R5_IA-2_1
+  "IA-2(1)"
   {:d3fend/control-name
    "Identification and Authentication (organizational Users) | Multi-factor Authentication to Privileged Accounts",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10759,6 +10973,7 @@
    :rdfs/label "IA-2(1)"})
 
 (def NIST_SP_800-53_R5_IA-2_2
+  "IA-2(2)"
   {:d3fend/control-name
    "Identification and Authentication (organizational Users) | Multi-factor Authentication to Non-privileged Accounts",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10768,6 +10983,7 @@
    :rdfs/label "IA-2(2)"})
 
 (def NIST_SP_800-53_R5_IA-2_4
+  "IA-2(4)"
   {:d3fend/control-name
    "Identification and Authentication (organizational Users) | Local Access to Non-privileged Accounts",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10777,6 +10993,7 @@
    :rdfs/label "IA-2(4)"})
 
 (def NIST_SP_800-53_R5_IA-2_6
+  "IA-2(6)"
   {:d3fend/control-name
    "Identification and Authentication (organizational Users) | Access to Accounts —separate Device",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10786,6 +11003,7 @@
    :rdfs/label "IA-2(6)"})
 
 (def NIST_SP_800-53_R5_IR-4_12
+  "IR-4(12)"
   {:d3fend/control-name
    "Incident Handling | Malicious Code and Forensic Analysis",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10795,6 +11013,7 @@
    :rdfs/label "IR-4(12)"})
 
 (def NIST_SP_800-53_R5_IR-4_13
+  "IR-4(13)"
   {:d3fend/control-name "Incident Handling | Behavior Analysis",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/related      [:d3fend/DecoyObject :d3fend/DecoyEnvironment],
@@ -10803,6 +11022,7 @@
    :rdfs/label          "IR-4(13)"})
 
 (def NIST_SP_800-53_R5_MA-3_3
+  "MA-3(3)"
   {:d3fend/control-name "Maintenance Tools | Prevent Unauthorized Removal",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/UserAccountPermissions,
@@ -10811,6 +11031,7 @@
    :rdfs/label          "MA-3(3)"})
 
 (def NIST_SP_800-53_R5_MA-3_4
+  "MA-3(4)"
   {:d3fend/control-name "Maintenance Tools | Restricted Tool Use",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/UserAccountPermissions,
@@ -10819,6 +11040,7 @@
    :rdfs/label          "MA-3(4)"})
 
 (def NIST_SP_800-53_R5_MA-3_5
+  "MA-3(5)"
   {:d3fend/control-name "Maintenance Tools | Execution with Privilege",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/UserAccountPermissions,
@@ -10827,6 +11049,7 @@
    :rdfs/label          "MA-3(5)"})
 
 (def NIST_SP_800-53_R5_MA-3_6
+  "MA-3(6)"
   {:d3fend/control-name "Maintenance Tools | Software Updates and Patches",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/SoftwareUpdate,
@@ -10835,6 +11058,7 @@
    :rdfs/label          "MA-3(6)"})
 
 (def NIST_SP_800-53_R5_MA-4_1
+  "MA-4(1)"
   {:d3fend/control-name "Nonlocal Maintenance | Logging and Review",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/LocalAccountMonitoring,
@@ -10843,6 +11067,7 @@
    :rdfs/label          "MA-4(1)"})
 
 (def NIST_SP_800-53_R5_MA-6
+  "MA-6"
   {:d3fend/control-name "Timely Maintenance",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/SoftwareUpdate,
@@ -10851,6 +11076,7 @@
    :rdfs/label          "MA-6"})
 
 (def NIST_SP_800-53_R5_MA-6_1
+  "MA-6(1)"
   {:d3fend/control-name "Timely Maintenance | Preventive Maintenance",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/SoftwareUpdate,
@@ -10859,6 +11085,7 @@
    :rdfs/label          "MA-6(1)"})
 
 (def NIST_SP_800-53_R5_MA-6_2
+  "MA-6(2)"
   {:d3fend/control-name "Timely Maintenance | Predictive Maintenance",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/SoftwareUpdate,
@@ -10867,6 +11094,7 @@
    :rdfs/label          "MA-6(2)"})
 
 (def NIST_SP_800-53_R5_MA-6_3
+  "MA-6(3)"
   {:d3fend/control-name
    "Timely Maintenance | Automated Support for Predictive Maintenance",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10876,6 +11104,7 @@
    :rdfs/label "MA-6(3)"})
 
 (def NIST_SP_800-53_R5_RA-3_3
+  "RA-3(3)"
   {:d3fend/broader      [:d3fend/UserBehaviorAnalysis
                          :d3fend/ProcessAnalysis
                          :d3fend/NetworkTrafficAnalysis
@@ -10890,6 +11119,7 @@
    :rdfs/label          "RA-3(3)"})
 
 (def NIST_SP_800-53_R5_RA-3_4
+  "RA-3(4)"
   {:d3fend/control-name "Risk Assessment | Predictive Cyber Analytics",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     [:d3fend/FileAnalysis
@@ -10904,6 +11134,7 @@
    :rdfs/label          "RA-3(4)"})
 
 (def NIST_SP_800-53_R5_RA-5
+  "RA-5"
   {:d3fend/broader      :d3fend/NetworkTrafficAnalysis,
    :d3fend/control-name "Vulnerability Monitoring and Scanning",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -10912,6 +11143,7 @@
    :rdfs/label          "RA-5"})
 
 (def NIST_SP_800-53_R5_RA-5_2
+  "RA-5(2)"
   {:d3fend/control-name
    "Vulnerability Monitoring and Scanning | Update Vulnerabilities to Be Scanned",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10921,6 +11153,7 @@
    :rdfs/label "RA-5(2)"})
 
 (def NIST_SP_800-53_R5_RA-5_3
+  "RA-5(3)"
   {:d3fend/control-name
    "Vulnerability Monitoring and Scanning | Breadth and Depth of Coverage",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10930,6 +11163,7 @@
    :rdfs/label "RA-5(3)"})
 
 (def NIST_SP_800-53_R5_RA-5_4
+  "RA-5(4)"
   {:d3fend/control-name
    "Vulnerability Monitoring and Scanning | Discoverable Information",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10939,6 +11173,7 @@
    :rdfs/label "RA-5(4)"})
 
 (def NIST_SP_800-53_R5_RA-5_5
+  "RA-5(5)"
   {:d3fend/control-name
    "Vulnerability Monitoring and Scanning | Privileged Access",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10948,6 +11183,7 @@
    :rdfs/label "RA-5(5)"})
 
 (def NIST_SP_800-53_R5_RA-5_6
+  "RA-5(6)"
   {:d3fend/control-name
    "Vulnerability Monitoring and Scanning | Automated Trend Analyses",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10957,6 +11193,7 @@
    :rdfs/label "RA-5(6)"})
 
 (def NIST_SP_800-53_R5_RA-5_7
+  "RA-5(7)"
   {:d3fend/control-name
    "Vulnerability Monitoring and Scanning | Automated Detection and Notification of Unauthorized Components",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10967,6 +11204,7 @@
    :rdfs/label "RA-5(7)"})
 
 (def NIST_SP_800-53_R5_SA-10_1
+  "SA-10(1)"
   {:d3fend/control-name
    "Developer Configuration Management | Software and Firmware Integrity Verification",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10976,6 +11214,7 @@
    :rdfs/label "SA-10(1)"})
 
 (def NIST_SP_800-53_R5_SA-10_3
+  "SA-10(3)"
   {:d3fend/control-name
    "Developer Configuration Management | Hardware Integrity Verification",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10985,6 +11224,7 @@
    :rdfs/label "SA-10(3)"})
 
 (def NIST_SP_800-53_R5_SA-10_4
+  "SA-10(4)"
   {:d3fend/control-name
    "Developer Configuration Management | Trusted Generation",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -10994,6 +11234,7 @@
    :rdfs/label "SA-10(4)"})
 
 (def NIST_SP_800-53_R5_SA-10_5
+  "SA-10(5)"
   {:d3fend/control-name
    "Developer Configuration Management | Mapping Integrity for Version Control",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11003,6 +11244,7 @@
    :rdfs/label "SA-10(5)"})
 
 (def NIST_SP_800-53_R5_SA-10_6
+  "SA-10(6)"
   {:d3fend/control-name
    "Developer Configuration Management | Trusted Distribution",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11012,6 +11254,7 @@
    :rdfs/label "SA-10(6)"})
 
 (def NIST_SP_800-53_R5_SA-11_1
+  "SA-11(1)"
   {:d3fend/control-name
    "Developer Testing and Evaluation | Static Code Analysis",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11021,6 +11264,7 @@
    :rdfs/label "SA-11(1)"})
 
 (def NIST_SP_800-53_R5_SA-11_8
+  "SA-11(8)"
   {:d3fend/control-name
    "Developer Testing and Evaluation | Dynamic Code Analysis",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11030,6 +11274,7 @@
    :rdfs/label "SA-11(8)"})
 
 (def NIST_SP_800-53_R5_SA-8_18
+  "SA-8(18)"
   {:d3fend/control-name
    "Security and Privacy Engineering Principles | Trusted Communications Channels",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11039,6 +11284,7 @@
    :rdfs/label "SA-8(18)"})
 
 (def NIST_SP_800-53_R5_SA-8_22
+  "SA-8(22)"
   {:d3fend/control-name
    "Security and Privacy Engineering Principles | Accountability and Traceability",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11048,6 +11294,7 @@
    :rdfs/label "SA-8(22)"})
 
 (def NIST_SP_800-53_R5_SC-2
+  "SC-2"
   {:d3fend/broader      [:d3fend/SystemConfigurationPermissions
                          :d3fend/MandatoryAccessControl
                          :d3fend/LocalFilePermissions],
@@ -11058,6 +11305,7 @@
    :rdfs/label          "SC-2"})
 
 (def NIST_SP_800-53_R5_SC-2_1
+  "SC-2(1)"
   {:d3fend/control-name
    "Separation of System and User Functionality | Interfaces for Non-privileged Users",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11069,6 +11317,7 @@
    :rdfs/label "SC-2(1)"})
 
 (def NIST_SP_800-53_R5_SC-3
+  "SC-3"
   {:d3fend/broader      [:d3fend/NetworkIsolation :d3fend/ExecutionIsolation],
    :d3fend/control-name "Security Function Isolation",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -11077,6 +11326,7 @@
    :rdfs/label          "SC-3"})
 
 (def NIST_SP_800-53_R5_SC-3_1
+  "SC-3(1)"
   {:d3fend/control-name "Security Function Isolation | Hardware Separation",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/ExecutionIsolation,
@@ -11085,6 +11335,7 @@
    :rdfs/label          "SC-3(1)"})
 
 (def NIST_SP_800-53_R5_SI-2_4
+  "SI-2(4)"
   {:d3fend/control-name "Flaw Remediation | Automated Patch Management Tools",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
    :d3fend/narrower     :d3fend/SoftwareUpdate,
@@ -11093,6 +11344,7 @@
    :rdfs/label          "SI-2(4)"})
 
 (def NIST_SP_800-53_R5_SI-2_5
+  "SI-2(5)"
   {:d3fend/control-name
    "Flaw Remediation | Automatic Software and Firmware Updates",
    :d3fend/exactly [:d3fend/SystemFirmwareVerification
@@ -11105,6 +11357,7 @@
    :rdfs/label "SI-2(5)"})
 
 (def NIST_SP_800-53_R5_SI-2_6
+  "SI-2(6)"
   {:d3fend/control-name
    "Flaw Remediation | Removal of Previous Versions of Software and Firmware",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11117,6 +11370,7 @@
    :rdfs/label "SI-2(6)"})
 
 (def NIST_SP_800-53_R5_SI-3
+  "SI-3"
   {:d3fend/broader      [:d3fend/ProcessAnalysis
                          :d3fend/PlatformMonitoring
                          :d3fend/NetworkTrafficAnalysis
@@ -11128,6 +11382,7 @@
    :rdfs/label          "SI-3"})
 
 (def NIST_SP_800-53_R5_SI-3_10
+  "SI-3(10)"
   {:d3fend/control-name "Malicious Code Protection | Malicious Code Analysis",
    :d3fend/exactly      :d3fend/DynamicAnalysis,
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -11136,6 +11391,7 @@
    :rdfs/label          "SI-3(10)"})
 
 (def NIST_SP_800-53_R5_SI-3_4
+  "SI-3(4)"
   {:d3fend/control-name
    "Malicious Code Protection | Updates Only by Privileged Users",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11147,6 +11403,7 @@
    :rdfs/label "SI-3(4)"})
 
 (def NIST_SP_800-53_R5_SI-3_8
+  "SI-3(8)"
   {:d3fend/control-name
    "Malicious Code Protection | Detect Unauthorized Commands",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11156,6 +11413,7 @@
    :rdfs/label "SI-3(8)"})
 
 (def NIST_SP_800-53_R5_SI-4
+  "SI-4"
   {:d3fend/broader      :d3fend/OperatingSystemMonitoring,
    :d3fend/control-name "System Monitoring",
    :d3fend/member-of    :d3fend/NIST_SP_800-53_R5,
@@ -11164,6 +11422,7 @@
    :rdfs/label          "SI-4"})
 
 (def NIST_SP_800-53_R5_SI-4_2
+  "SI-4(2)"
   {:d3fend/control-name
    "System Monitoring | Automated Tools and Mechanisms for Real-time Analysis",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11173,6 +11432,7 @@
    :rdfs/label "SI-4(2)"})
 
 (def NIST_SP_800-53_R5_SI-4_4
+  "SI-4(4)"
   {:d3fend/control-name
    "System Monitoring | Inbound and Outbound Communications Traffic",
    :d3fend/member-of :d3fend/NIST_SP_800-53_R5,
@@ -11294,6 +11554,7 @@
                      :d3fend/DigitalArtifact]})
 
 (def NetworkFlowSensor
+  "Network Flow Sensor"
   {:db/ident        :d3fend/NetworkFlowSensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Network Flow Sensor",
@@ -11348,10 +11609,10 @@
    :db/ident :d3fend/NetworkMapping,
    :rdf/type [:owl/NamedIndividual :d3fend/DefensiveTechnique :owl/Class],
    :rdfs/label "Network Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [:d3fend/DefensiveTechnique
+                     {:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Model,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def NetworkNode
   "In telecommunications networks, a node (Latin nodus, 'knot') is either a redistribution point or a communication endpoint. The definition of a node depends on the network and protocol layer referred to. A physical network node is an electronic device that is attached to a network, and is capable of creating, receiving, or transmitting information over a communications channel. A passive distribution point such as a distribution frame or patch panel is consequently not a node."
@@ -11386,10 +11647,10 @@
    :db/ident :d3fend/NetworkNodeInventory,
    :rdf/type [:owl/NamedIndividual :d3fend/AssetInventory :owl/Class],
    :rdfs/label "Network Node Inventory",
-   :rdfs/subClassOf [:d3fend/AssetInventory
-                     {:owl/onProperty     :d3fend/inventories,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/inventories,
                       :owl/someValuesFrom :d3fend/NetworkNode,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/AssetInventory]})
 
 (def NetworkPackets
   "A network packet is a formatted unit of data carried by a packet-switched network. Computer communications links that do not support packets, such as traditional point-to-point telecommunications links, simply transmit data as a bit stream. When data is formatted into packets, packet switching is possible and the bandwidth of the communication medium can be better shared among users than with circuit switching."
@@ -11412,6 +11673,7 @@
    :rdfs/subClassOf :d3fend/SharedComputer})
 
 (def NetworkProtocolAnalyzer
+  "Network Protocol Analyzer"
   {:db/ident        :d3fend/NetworkProtocolAnalyzer,
    :rdf/type        :owl/Class,
    :rdfs/label      "Network Protocol Analyzer",
@@ -11448,6 +11710,7 @@
                      :d3fend/ResourceAccess]})
 
 (def NetworkSensor
+  "Network Sensor"
   {:db/ident        :d3fend/NetworkSensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Network Sensor",
@@ -11491,10 +11754,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/DomainName,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/DigitalArtifact
                      {:owl/onProperty     :d3fend/originates-from,
                       :owl/someValuesFrom :d3fend/PhysicalLocation,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel "Data Traffic"})
 
 (def NetworkTrafficAnalysis
@@ -11568,12 +11831,12 @@
    :db/ident :d3fend/NetworkTrafficPolicyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/NetworkMapping],
    :rdfs/label "Network Traffic Policy Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/queries,
-                      :owl/someValuesFrom :d3fend/CollectorAgent,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
+                      :owl/someValuesFrom :d3fend/AccessControlConfiguration,
                       :rdf/type           :owl/Restriction}
                      :d3fend/NetworkMapping
-                     {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/AccessControlConfiguration,
+                     {:owl/onProperty     :d3fend/queries,
+                      :owl/someValuesFrom :d3fend/CollectorAgent,
                       :rdf/type           :owl/Restriction}]})
 
 (def NetworkVulnerabilityAssessment
@@ -11595,6 +11858,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def NewsArticle
+  "News Article"
   {:db/ident        :d3fend/NewsArticle,
    :rdf/type        :owl/Class,
    :rdfs/label      "News Article",
@@ -11627,6 +11891,7 @@
                      :d3fend/ATTACKThing]})
 
 (def OffensiveTechnique
+  "Offensive Technique"
   {:db/ident :d3fend/OffensiveTechnique,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
@@ -11678,12 +11943,13 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/UserAccount,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/CredentialHardening
                      {:owl/onProperty     :d3fend/use-limits,
                       :owl/someValuesFrom :d3fend/Password,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Open-sourceDeveloper
+  "Open-source Developer"
   {:db/ident        :d3fend/Open-sourceDeveloper,
    :rdf/type        :owl/Class,
    :rdfs/label      "Open-source Developer",
@@ -11700,6 +11966,7 @@
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def OpenSourceLicense
+  "Open Source License"
   {:db/ident        :d3fend/OpenSourceLicense,
    :rdf/type        :owl/Class,
    :rdfs/label      "Open Source License",
@@ -11715,13 +11982,13 @@
    "An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs. All computer programs, excluding firmware, require an operating system to function. Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.",
    :rdfs/label "Operating System",
    :rdfs/seeAlso "http://dbpedia.org/resource/Operating_system",
-   :rdfs/subClassOf [:d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/Kernel,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/SystemServiceSoftware,
                       :rdf/type           :owl/Restriction}
+                     :d3fend/DigitalArtifact
                      {:owl/onProperty :d3fend/may-contain,
                       :owl/someValuesFrom
                       :d3fend/OperatingSystemConfigurationComponent,
@@ -11878,10 +12145,10 @@
    :rdfs/label "Operational Dependency Mapping",
    :rdfs/subClassOf [:d3fend/OperationalActivityMapping
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/OrganizationalActivity,
+                      :owl/someValuesFrom :d3fend/Dependency,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/Dependency,
+                      :owl/someValuesFrom :d3fend/OrganizationalActivity,
                       :rdf/type           :owl/Restriction}]})
 
 (def OperationalRiskAssessment
@@ -11968,6 +12235,7 @@
    :rdfs/subClassOf :d3fend/OrchestrationServer})
 
 (def Organization
+  "Organization"
   {:db/ident        :d3fend/Organization,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Organization",
@@ -11992,20 +12260,21 @@
    [:owl/Class :d3fend/OperationalActivityMapping :owl/NamedIndividual],
    :rdfs/label "Organization Mapping",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/Person,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/OperationalActivityMapping
-                     {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/Dependency,
+                      :owl/someValuesFrom :d3fend/Organization,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/may-map,
                       :owl/someValuesFrom :d3fend/OrganizationalActivity,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/Organization,
+                      :owl/someValuesFrom :d3fend/Person,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/OperationalActivityMapping
+                     {:owl/onProperty     :d3fend/maps,
+                      :owl/someValuesFrom :d3fend/Dependency,
                       :rdf/type           :owl/Restriction}]})
 
 (def OrganizationalActivity
+  "Organizational Activity"
   {:db/ident        :d3fend/OrganizationalActivity,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Organizational Activity",
@@ -12148,10 +12417,10 @@
    :db/ident :d3fend/OutboundTrafficFiltering,
    :rdf/type [:owl/NamedIndividual :d3fend/NetworkTrafficFiltering :owl/Class],
    :rdfs/label "Outbound Traffic Filtering",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficFiltering
-                     {:owl/onProperty     :d3fend/filters,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/filters,
                       :owl/someValuesFrom :d3fend/OutboundNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkTrafficFiltering]})
 
 (def OutputDevice
   "An output device is any piece of computer hardware equipment which converts information into human-readable form. It can be text, graphics, tactile, audio, and video. Some of the output devices are Visual Display Units (VDU) i.e. a Monitor, Printer, Graphic Output devices, Plotters, Speakers etc. A new type of Output device is been developed these days, known as Speech synthesizer, a mechanism attached to the computer which produces verbal output sounding almost like human speeches."
@@ -12164,11 +12433,13 @@
    :rdfs/subClassOf :d3fend/HardwareDevice})
 
 (def PE32ExecutableFile
+  "PE32 Executable File"
   {:db/ident   :d3fend/PE32ExecutableFile,
    :rdf/type   [:d3fend/ExecutableBinary :owl/NamedIndividual],
    :rdfs/label "PE32 Executable File"})
 
 (def PE32PLUSExecutableFile
+  "PE32+ Executable File"
   {:db/ident   :d3fend/PE32PLUSExecutableFile,
    :rdf/type   [:d3fend/ExecutableBinary :owl/NamedIndividual],
    :rdfs/label "PE32+ Executable File"})
@@ -12327,12 +12598,14 @@
    :rdfs/subClassOf :d3fend/PasswordDatabase})
 
 (def Patent
+  "Patent"
   {:db/ident        :d3fend/Patent,
    :rdf/type        [:d3fend/ReferenceType :owl/NamedIndividual :owl/Class],
    :rdfs/label      "Patent",
    :rdfs/subClassOf :d3fend/Document})
 
 (def PatentReference
+  "Patent Reference"
   {:d3fend/pref-label "Patent",
    :db/ident          :d3fend/PatentReference,
    :rdf/type          :owl/Class,
@@ -12396,6 +12669,7 @@
    :skos/altLabel "USB Hub Firmware"})
 
 (def Persistence
+  "Persistence"
   {:d3fend/display-order 3,
    :db/ident        :d3fend/Persistence,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -12403,6 +12677,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def PersistenceTechnique
+  "Persistence Technique"
   {:d3fend/enables  :d3fend/Persistence,
    :db/ident        :d3fend/PersistenceTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -12413,6 +12688,7 @@
                      :d3fend/OffensiveTechnique]})
 
 (def Person
+  "Person"
   {:db/ident        :d3fend/Person,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
    :rdfs/label      "Person",
@@ -12432,6 +12708,7 @@
    :rdfs/subClassOf :d3fend/ClientComputer})
 
 (def PhysicalArtifact
+  "Physical Artifact"
   {:db/ident        :d3fend/PhysicalArtifact,
    :rdf/type        :owl/Class,
    :rdfs/label      "Physical Artifact",
@@ -12461,10 +12738,10 @@
    :rdfs/label "Physical Link Mapping",
    :rdfs/subClassOf [:d3fend/NetworkMapping
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/PhysicalLink,
+                      :owl/someValuesFrom :d3fend/NetworkNode,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/maps,
-                      :owl/someValuesFrom :d3fend/NetworkNode,
+                      :owl/someValuesFrom :d3fend/PhysicalLink,
                       :rdf/type           :owl/Restriction}]})
 
 (def PhysicalLocation
@@ -12478,6 +12755,7 @@
    :rdfs/subClassOf :d3fend/DigitalArtifact})
 
 (def PhysicalObject
+  "Physical Object"
   {:db/ident        :d3fend/PhysicalObject,
    :rdf/type        :owl/Class,
    :rdfs/label      "Physical Object",
@@ -12508,10 +12786,10 @@
    "Platform includes the hardware and OS. The term computing platform can refer to different abstraction levels, including a certain hardware architecture, an operating system (OS), and runtime libraries. In total it can be said to be the stage on which computer programs can run.",
    :rdfs/label "Platform",
    :rdfs/seeAlso "http://dbpedia.org/resource/Computing_platform",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [:d3fend/DigitalArtifact
+                     {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/HardwareDevice,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact
                      {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/OperatingSystem,
                       :rdf/type           :owl/Restriction}
@@ -12546,10 +12824,10 @@
    :db/ident :d3fend/PlatformMonitoring,
    :rdf/type [:d3fend/DefensiveTechnique :owl/NamedIndividual :owl/Class],
    :rdfs/label "Platform Monitoring",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [:d3fend/DefensiveTechnique
+                     {:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Detect,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Pointer
   "In computer science, a pointer is a programming language object, whose value refers to (or \"points to\") another value stored elsewhere in the computer memory using its memory address. A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer. As an analogy, a page number in a book's index could be considered a pointer to the corresponding page; dereferencing such a pointer would be done by flipping to the page with the given page number."
@@ -12575,18 +12853,20 @@
    :db/ident :d3fend/PointerAuthentication,
    :rdf/type [:d3fend/ApplicationHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Pointer Authentication",
-   :rdfs/subClassOf [:d3fend/ApplicationHardening
-                     {:owl/onProperty     :d3fend/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/authenticates,
                       :owl/someValuesFrom :d3fend/Pointer,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/ApplicationHardening]})
 
 (def Policy
+  "Policy"
   {:db/ident        :d3fend/Policy,
    :rdf/type        :owl/Class,
    :rdfs/label      "Policy",
    :rdfs/subClassOf :d3fend/Document})
 
 (def PolicyReference
+  "Policy Reference"
   {:d3fend/pref-label "Policy",
    :db/ident          :d3fend/PolicyReference,
    :rdf/type          :owl/Class,
@@ -12594,6 +12874,7 @@
    :rdfs/subClassOf   :d3fend/TechniqueReference})
 
 (def PortfolioAssessment
+  "Portfolio Assessment"
   {:db/ident        :d3fend/PortfolioAssessment,
    :rdf/type        :owl/Class,
    :rdfs/label      "Portfolio Assessment",
@@ -12614,6 +12895,7 @@
    :rdfs/subClassOf :d3fend/UserInitScript})
 
 (def PowershellScriptFile
+  "Powershell Script File"
   {:db/ident   :d3fend/PowershellScriptFile,
    :rdf/type   [:d3fend/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Powershell Script File"})
@@ -12639,6 +12921,7 @@
    :rdfs/subClassOf :d3fend/AsymmetricKey})
 
 (def PrivilegeEscalation
+  "Privilege Escalation"
   {:d3fend/display-order 4,
    :db/ident        :d3fend/PrivilegeEscalation,
    :rdf/type        [:d3fend/OffensiveTactic :owl/NamedIndividual :owl/Class],
@@ -12646,6 +12929,7 @@
    :rdfs/subClassOf :d3fend/OffensiveTactic})
 
 (def PrivilegeEscalationTechnique
+  "Privilege Escalation Technique"
   {:d3fend/enables  :d3fend/PrivilegeEscalation,
    :db/ident        :d3fend/PrivilegeEscalationTechnique,
    :rdf/type        [:owl/NamedIndividual :owl/Class],
@@ -12689,27 +12973,27 @@
    "A process is an instance of a computer program that is being executed. It contains the program code and its current activity. Depending on the operating system (OS), a process may be made up of multiple threads of execution that execute instructions concurrently. A computer program is a passive collection of instructions, while a process is the actual execution of those instructions. Several processes may be associated with the same program; for example, opening up several instances of the same program often means more than one process is being executed.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Process_(computing)",
    :rdfs/label "Process",
-   :rdfs/subClassOf [{:owl/onProperty :d3fend/process-environmental-variables,
-                      :owl/someValuesFrom :xsd/string,
-                      :rdf/type :owl/Restriction}
-                     :d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/process-image-path,
-                      :owl/someValuesFrom :d3fend/ExecutableBinary,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3fend/DigitalArtifact
                      {:owl/onProperty     :d3fend/process-user,
                       :owl/someValuesFrom :d3fend/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3fend/process-environmental-variables,
+                      :owl/someValuesFrom :xsd/string,
+                      :rdf/type :owl/Restriction}
+                     {:owl/onProperty     :d3fend/process-identifier,
+                      :owl/someValuesFrom :xsd/integer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/process-security-context,
+                      :owl/someValuesFrom :xsd/string,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/contains,
+                      :owl/someValuesFrom :d3fend/ProcessImage,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3fend/process-command-line-arguments,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3fend/process-security-context,
-                      :owl/someValuesFrom :xsd/string,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/process-identifier,
-                      :owl/someValuesFrom :xsd/integer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/contains,
-                      :owl/someValuesFrom :d3fend/ProcessImage,
+                     {:owl/onProperty     :d3fend/process-image-path,
+                      :owl/someValuesFrom :d3fend/ExecutableBinary,
                       :rdf/type           :owl/Restriction}]})
 
 (def ProcessAnalysis
@@ -12760,10 +13044,10 @@
    :db/ident :d3fend/ProcessCodeSegmentVerification,
    :rdf/type [:owl/Class :d3fend/ProcessAnalysis :owl/NamedIndividual],
    :rdfs/label "Process Code Segment Verification",
-   :rdfs/subClassOf [:d3fend/ProcessAnalysis
-                     {:owl/onProperty     :d3fend/verifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/verifies,
                       :owl/someValuesFrom :d3fend/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/ProcessAnalysis]})
 
 (def ProcessDataSegment
   "A process data segment, is a portion of the program's virtual address space that contains executable instructions and corresponds to the loaded image data segment."
@@ -12848,10 +13132,10 @@
    :rdfs/label "Process Lineage Analysis",
    :rdfs/subClassOf [:d3fend/ProcessSpawnAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Process,
+                      :owl/someValuesFrom :d3fend/ProcessTree,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/ProcessTree,
+                      :owl/someValuesFrom :d3fend/Process,
                       :rdf/type           :owl/Restriction}]})
 
 (def ProcessSegment
@@ -12877,10 +13161,10 @@
    :db/ident :d3fend/ProcessSegmentExecutionPrevention,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/ApplicationHardening],
    :rdfs/label "Process Segment Execution Prevention",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/neutralizes,
+   :rdfs/subClassOf [:d3fend/ApplicationHardening
+                     {:owl/onProperty     :d3fend/neutralizes,
                       :owl/someValuesFrom :d3fend/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/ApplicationHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ProcessSelf-ModificationDetection
   "Detects processes that modify, change, or replace their own code at runtime."
@@ -12976,10 +13260,10 @@
    :db/ident :d3fend/ProcessTermination,
    :rdf/type [:d3fend/ProcessEviction :owl/NamedIndividual :owl/Class],
    :rdfs/label "Process Termination",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/terminates,
+   :rdfs/subClassOf [:d3fend/ProcessEviction
+                     {:owl/onProperty     :d3fend/terminates,
                       :owl/someValuesFrom :d3fend/Process,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/ProcessEviction]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ProcessTree
   "A process tree is a tree structure representation of parent-child relationships established via process spawn operations."
@@ -12992,18 +13276,20 @@
    :rdfs/seeAlso ["Process Spawn"
                   "http://dbpedia.org/resource/Parent_process"
                   "http://dbpedia.org/resource/Child_process"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/contains,
+   :rdfs/subClassOf [:d3fend/DigitalArtifact
+                     {:owl/onProperty     :d3fend/contains,
                       :owl/someValuesFrom :d3fend/Process,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Product
+  "Product"
   {:db/ident        :d3fend/Product,
    :rdf/type        :owl/Class,
    :rdfs/label      "Product",
    :rdfs/subClassOf :d3fend/CapabilityImplementation})
 
 (def ProductDeveloper
+  "Product Developer"
   {:db/ident        :d3fend/ProductDeveloper,
    :rdf/type        :owl/Class,
    :rdfs/label      "Product Developer",
@@ -13024,6 +13310,7 @@
    :skos/altLabel "Plist File"})
 
 (def Proposition
+  "Proposition"
   {:db/ident         :d3fend/Proposition,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://semanticscience.org/resource/SIO_000256",
@@ -13031,6 +13318,7 @@
    :rdfs/subClassOf  :d3fend/D3FENDCatalogThing})
 
 (def ProprietaryLicense
+  "Proprietary License"
   {:db/ident        :d3fend/ProprietaryLicense,
    :rdf/type        :owl/Class,
    :rdfs/label      "Proprietary License",
@@ -13051,12 +13339,13 @@
    :db/ident :d3fend/ProtocolMetadataAnomalyDetection,
    :rdf/type [:d3fend/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label "Protocol Metadata Anomaly Detection",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/NetworkTrafficAnalysis]})
 
 (def Provider
+  "Provider"
   {:db/ident        :d3fend/Provider,
    :rdf/type        :owl/Class,
    :rdfs/label      "Provider",
@@ -13086,6 +13375,7 @@
    :rdfs/subClassOf :d3fend/AsymmetricKey})
 
 (def PythonScriptFile
+  "Python Script File"
   {:db/ident   :d3fend/PythonScriptFile,
    :rdf/type   [:d3fend/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Python Script File"})
@@ -13171,6 +13461,7 @@
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def ReconnaissanceTechnique
+  "Reconnaissance Technique"
   {:db/ident        :d3fend/ReconnaissanceTechnique,
    :rdf/type        :owl/Class,
    :rdfs/label      "Reconnaissance Technique",
@@ -13187,12 +13478,14 @@
    :rdfs/subClassOf :d3fend/DigitalArtifact})
 
 (def Reference
+  "Reference"
   {:db/ident        :d3fend/Reference,
    :rdf/type        :owl/Class,
    :rdfs/label      "Reference",
    :rdfs/subClassOf :d3fend/D3FENDThing})
 
 (def Reference-AccessPermissionModification_MITRE
+  "Reference - CAR-2019-07-001: Access Permission Modification - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-07-001/",
    :d3fend/kb-abstract
    "Adversaries sometimes modify object access rights at the operating system level. There are varying motivations behind this action - they may not want some files/objects to be changed on systems for persistence reasons and therefore provide admin only rights; also, they may want files to be accessible with lower levels of permissions.",
@@ -13207,6 +13500,7 @@
    "Reference - CAR-2019-07-001: Access Permission Modification - MITRE"})
 
 (def Reference-AccountMonitoring_ForescoutTechnologies
+  "Reference - Account monitoring - Forescout Technologies"
   {:d3fend/has-link "https://patents.google.com/patent/US20190205511A1",
    :d3fend/kb-abstract
    "Systems, methods, and related technologies for account access monitoring are described. In certain aspects, a login request associated with a device can be analyzed and a score determined. The score and a threshold can be used to determine whether to initiate an action.",
@@ -13220,6 +13514,7 @@
    :rdfs/label "Reference - Account monitoring - Forescout Technologies"})
 
 (def Reference-ActiveDirectoryDumpingViaNTDSUtil_MITRE
+  "Reference - CAR-2019-08-002: Active Directory Dumping via NTDSUtil - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-08-002/",
    :d3fend/kb-abstract
    "The NTDSUtil tool may be used to dump a Microsoft Active Directory database to disk for processing with a credential access tool such as Mimikatz. This is performed by launching ntdsutil.exe as a privileged user with command line arguments indicating that media should be created for offline Active Directory installation and specifying a folder path. This process will create a copy of the Active Directory database, ntds.dit, to the specified folder path.",
@@ -13235,6 +13530,7 @@
    "Reference - CAR-2019-08-002: Active Directory Dumping via NTDSUtil - MITRE"})
 
 (def Reference-ActiveFirewallSystemAndMethodology_McAfeeLLC
+  "Reference - Active firewall system and methodology - McAfee LLC"
   {:d3fend/has-link "https://patents.google.com/patent/US6550012B1",
    :d3fend/kb-abstract
    "System and methodology providing automated or \"proactive\" network security (\"active\" firewall) are described. The system implements methodology for verifying or authenticating communications, especially between network security components thereby allowing those components to share information. In one embodiment, a system implementing an active firewall is provided which includes methodology for verifying or authenticating communications between network components (e.g., sensor(s), arbiter, and actor(s)), using cryptographic keys or digital certificates. Certificates may be used to digitally sign a message or file and, in a complementary manner, to verify a digital signature. At the outset, particular software components that may participate in authenticated communication are specified, including creating a digital certificate for each such software component. Upon detection by a sensor that an event of interest that has occurred in the computer network system, the system may initiate authenticated communication between the sensor component and a central arbiter (e.g., \"event orchestrator\") component, so that the sensor may report the event to the arbiter or \"brain.\" Thereafter, the arbiter (if it chooses to act on that information) initiates authenticated communication between itself and a third software component, an \"actor\" component (e.g., \"firewall\"). The arbiter may indicate to the actor how it should handle the event. The actor or firewall, upon receiving the information, may now undertake appropriate action, such as dynamically creating or modifying rules for appropriately handling the event, or it may choose to simply ignore the information.",
@@ -13250,6 +13546,7 @@
    "Reference - Active firewall system and methodology - McAfee LLC"})
 
 (def Reference-AdvancedDeviceMatchingSystem
+  "Reference - Advanced device matching system"
   {:d3fend/has-link "https://patents.google.com/patent/US10892951B2/",
    :d3fend/kb-abstract
    "Disclosed is a device management system for discovery and management of components added to computer systems and sub-systems. The device management system provides for recognizing a newly added component, and determining if the newly added component is already a part of the system inventory. The newly added component is matched with a component currently on the system, based on at least one matching attribute. A point total is calculated for each match level and a final match score is provided. The match score is compared with an aggressiveness level to determine if a match does indeed exist.",
@@ -13262,6 +13559,7 @@
    :rdfs/label "Reference - Advanced device matching system"})
 
 (def Reference-AllLoginsSinceLastBoot_MITRE
+  "Reference - CAR-2015-07-001: All Logins Since Last Boot - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2015-07-001/",
    :d3fend/kb-abstract
    "Once a credential dumper like mimikatz runs, every user logged on since boot is potentially compromised, because the credentials were accessed via the memory of lsass.exe. When such an event occurs, this analytic will give the forensic context to identify compromised users. Those users could potentially be used in later events for additional logons.\n\nThe time field indicates the first and last time a system reported a user logged into a given system. This means that activity could be intermittent between the times given and should not be considered a duration.",
@@ -13276,6 +13574,7 @@
    "Reference - CAR-2015-07-001: All Logins Since Last Boot - MITRE"})
 
 (def Reference-AnalysisOfTheWindowsVistaSecurityModel_SymantecCorporation
+  "Reference - Analysis of the Windows Vista Security Model - Symantec Corporation"
   {:d3fend/has-link
    "https://web.archive.org/web/20140407025337/http://www.symantec.com/avcenter/reference/Windows_Vista_Security_Model_Analysis.pdf",
    :d3fend/kb-abstract
@@ -13292,6 +13591,7 @@
    "Reference - Analysis of the Windows Vista Security Model - Symantec Corporation"})
 
 (def Reference-AnomalyDetectionUsingAdaptiveBehavioralProfiles_SecuronixInc
+  "Reference - Anomaly Detection Using Adaptive Behavioral Profiles - Securonix Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160226901A1",
    :d3fend/kb-abstract
    "The invention provides a system and method for automatic creation of adaptive behavioral profiles for observables associated with resource states and events in a computer network (IT) infrastructure of an enterprise and for detecting anomalies that represent potential malicious activity and threats as deviations from normal behavior. Separate profiles may be created for each behavioral indicator, as well as for each time series of measurements, and aggregated to create an overall behavioral profile. An anomaly probability is determined from the behavioral profile and used to evaluate the data values of observables. Outlier data values which deviate from normal behavior by more than a predetermined probability threshold are identified for risk analysis as possible threats while inliers within the range of normal behavior are used to update the behavioral profile. Behavioral profiles are created for behavioral indicators based upon observables measured over predetermined time periods using algorithms employing statistical analysis approaches that work for any type of data distribution, and profiles are adapted over time using data aging to more closely represent current behavior. Algorithm parameters for creating profiles are based on the type of data, i.e., its metadata.",
@@ -13310,6 +13610,7 @@
    "Reference - Anomaly Detection Using Adaptive Behavioral Profiles - Securonix Inc"})
 
 (def Reference-Anti-tamperSystemWithSelf-adjustingGuards_ARXANTECHNOLOGIESInc
+  "Reference - Anti-tamper system with self-adjusting guards - ARXAN TECHNOLOGIES Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20150052603A1",
    :d3fend/kb-abstract
    "An anti-tamper system is disclosed that includes self-adjusting guards inserted in software. Self-adjusting guards include invocation criteria and guard function. During run-time, each time the self-adjusting guard is invoked, the invocation criteria is evaluated and the guard function is only executed if the invocation criteria is satisfied. The invocation criteria can be static or dynamic, satisfied randomly with fixed or varying probability, a monotonically or exponentially decreasing function or most any other type of function. The invocation criteria can be satisfied based on elapsed inter-guard invocation time (time since last guard function execution), target inter-guard invocation time, and/or guard execution time. A method is disclosed of inserting self-adjusting guards into software, and executing the software. Evaluating the invocation criteria can include adjusting the invocation criteria when satisfied. The self-adjusting guards can be inserted into the software at a source or object code level.",
@@ -13326,6 +13627,7 @@
 
 (def
   Reference-ApparatusForToProvideContentToAndQueryAReverseDomainNameSystemServer
+  "Reference - Apparatus for to provide content to and query a reverse domain name system server - Barrracuda Networks"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20100174829A1/en?oq=20100174829",
    :d3fend/kb-abstract
@@ -13344,6 +13646,7 @@
 
 (def
   Reference-ApproachesForSecuringAnInternetEndpointUsingFine-grainedOperatingSystemVirtualization_BromiumInc.
+  "Reference - Approaches for securing an internet endpoint using fine-grained operating system virtualization - Bromium, Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US20110296412A1",
    :d3fend/kb-abstract
    "Approaches for executing untrusted software on a client without compromising the client using micro-virtualization to execute untrusted software in isolated contexts. A template for instantiating a virtual machine on a client is identified in response to receiving a request to execute an application. After the template is identified, without human intervention, a virtual machine is instantiated, using the template, in which the application is to be executed. The template may be selected from a plurality of templates based on the nature of the request, as each template describe characteristics of a virtual machine suitable for a different type of activity. Selected resources such as files are displayed to the virtual machines according to user and organization policies and controls. When the client determines that the application has ceased to execute, the client ceases execution of the virtual machine without human intervention.",
@@ -13362,6 +13665,7 @@
 
 (def
   Reference-ArchitectureOfTransparentNetworkSecurityForApplicationContainers_NeuvectorInc
+  "Reference - Architecture of transparent network security for application containers - Neuvector Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170093922A1",
    :d3fend/kb-abstract
    "A system comprises one or more application containers, each application container including computer-readable instructions and initiated via a container service and isolated using operating system-level virtualization. The system also comprises one or more virtual switches configured to route traffic from the application containers. The system further comprises one or more security containers, each security container configured to transparently intercept traffic from the one or more application containers for analysis of network security. The system further comprises a user interface (UI) container configured to receive configuration settings from a user. The system also comprises an analytics container configured to perform analysis on data received from the one or more security containers. The system also comprises a management container configured to configure settings for the one or more security containers and the analytics container.",
@@ -13378,6 +13682,7 @@
    "Reference - Architecture of transparent network security for application containers - Neuvector Inc"})
 
 (def Reference-AuditUserAccountManagement
+  "Reference - Audit User Account Management"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-user-account-management",
    :d3fend/kb-abstract
@@ -13391,6 +13696,7 @@
    :rdfs/label "Reference - Audit User Account Management"})
 
 (def Reference-AutomatedComputerVulnerabilityResolutionSystem
+  "Reference - Automated computer vulnerability resolution system"
   {:d3fend/has-link "https://patents.google.com/patent/US7308712B2",
    :d3fend/kb-abstract
    "A system and process for addressing computer security vulnerabilities. The system and process generally comprise aggregating vulnerability information on a plurality of computer vulnerabilities; constructing a remediation database of said plurality of computer vulnerabilities; constructing a remediation signature to address the computer vulnerabilities; and deploying said remediation signature to a client computer. The remediation signature essentially comprises a sequence of actions to address a corresponding vulnerability. A managed automated approach to the process is contemplated in which the system is capable of selective deployment of remediation signatures; selective resolution of vulnerabilities; scheduled deployment of remediation signatures; and scheduled scanning of client computers for vulnerabilities.",
@@ -13406,6 +13712,7 @@
 
 (def
   Reference-AutomaticallyGeneratingNetworkResourceGroupsAndAssigningCustomizedDecoyPoliciesThereto_IllusiveNetworksLtd
+  "Reference - Automatically generating network resource groups and assigning customized decoy policies thereto - Illusive Networks Ltd"
   {:d3fend/has-link "https://patents.google.com/patent/US20170310689A1",
    :d3fend/kb-abstract
    "A cyber security system comprising circuitry of a decoy deployer planting one or more decoy lateral attack vectors in each of a first and a second group of resources within a common enterprise network of resources, the first and second groups of resources having different characteristics in terms of subnets, naming conventions, DNS aliases, listening ports, users and their privileges, and installed applications, wherein a lateral attack vector is an object of a first resource within the network that has a potential to be used by an attacker who discovered the first resource to further discover information regarding a second resource within the network, the second resource being previously undiscovered by the attacker, and wherein the decoy lateral attack vectors in the first group conform to the characteristics of the first group, and the decoy lateral attack vectors in the second group conform to the characteristics of the second group.",
@@ -13423,6 +13730,7 @@
    "Reference - Automatically generating network resource groups and assigning customized decoy policies thereto - Illusive Networks Ltd"})
 
 (def Reference-AutomaticallyGeneratingRulesForConnectionSecurity_Microsoft
+  "Reference - Automatically generating rules for connection security - Microsoft"
   {:d3fend/has-link "https://patents.google.com/patent/US20120054825",
    :d3fend/kb-abstract
    "A method and system for creating security policies for firewall and connection policies in an integrated manner is provided. The security system provides a user interface through which a user can define a security rule that specifies both a firewall policy and a connection policy. After the security rule is specified, the security system automatically generates a firewall rule and a connection rule to implement the security rule. The security system provides the firewall rule to a firewall engine that is responsible for enforcing the firewall rules and provides the connection rule to an IPsec engine that is responsible for enforcing the connection rules",
@@ -13441,6 +13749,7 @@
    "Reference - Automatically generating rules for connection security - Microsoft"})
 
 (def Reference-AutorunDifferences_MITRE
+  "Reference - CAR-2013-01-002: Autorun Differences - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-01-002/",
    :d3fend/kb-abstract
    "The Sysinternals tool Autoruns checks the registry and file system for known identify persistence mechanisms. It will output any tools identified, including built-in or added-on Microsoft functionality and third party software. Many of these locations are known by adversaries and used to obtain Persistence. Running Autoruns periodically in an environment makes it possible to collect and monitor its output for differences, which may include the removal or addition of persistent tools. Depending on the persistence mechanism and location, legitimate software may be more likely to make changes than an adversary tool. Thus, this analytic may result in significant noise in a highly dynamic environment. While Autoruns is a convenient method to scan for programs using persistence mechanisms its scanning nature does not conform well to streaming based analytics. This analytic could be replaced with one that draws from sensors that collect registry and file information if streaming analytics are desired.\n\nUtilizes the Sysinternals autoruns tool (ignoring validated Microsoft entries). Primarily not a detection analytic by itself but through analysis of results by an analyst can be used for such. Building another analytic on top of this one identifying unusual entries would likely be a beneficial alternative.",
@@ -13454,6 +13763,7 @@
    :rdfs/label "Reference - CAR-2013-01-002: Autorun Differences - MITRE"})
 
 (def Reference-BiometricChallenge-ResponseAuthentication-Accenture
+  "Reference - Biometric Challenge-Response Authentication - Accenture"
   {:d3fend/has-link "https://www.patentguru.com/US2021110015A1",
    :d3fend/kb-abstract
    "Secret biometric responses to authentication challenges for MFA.\n\nMethods, systems, and apparatus, including computer programs encoded on computer storage media, for authenticating users based on a sequence of biometric authentication challenges. In one aspect, a process includes receiving a first image of the face of the user and processing the first image according to a first authentication process to determine whether the face of the user shown in the first image matches the face of an authorized user. A second authentication process including a sequence of biometric authentication challenges is identified. The sequence includes at least one facial expression challenge. The user is authenticated in response to determining that the first authentication process is satisfied based on the face of the user shown in the first image matching the face of the authorized user and the second authentication process is satisfied based on the user providing a valid biometric response to each biometric authentication challenge.",
@@ -13470,6 +13780,7 @@
 
 (def
   Reference-BroadcastIsolationAndLevel3NetworkSwitch_HewlettPackardEnterpriseDevelopmentLP
+  "Reference - Broadcast isolation and level 3 network switch - Hewlett Packard Enterprise Development LP"
   {:d3fend/has-link "https://patents.google.com/patent/US5920699A",
    :d3fend/kb-abstract
    "A network switch comprising a switching Application Specific Integrated Circuit (ASIC) and a Virtual Switching Engine (VSE) connected to a plurality of ports. The switching ASIC has a high-speed memory table which enables it to look up addresses that it has previously obtained and to forward unicast packets to said addresses. The VSE is a CPU that makes switching decisions outside of the ASIC and keeps track of any unknown addresses, forwarding the packets out the appropriate ports and answers broadcast packets by proxy for all known addresses without forwarding any of the packets down the VLANs, thereby freeing the VLAN bandwidth from excessive traffic. The system requires no user configuration because the switching methodology is self-adaptive to the network in which it is inserted and has the ability to perform router functions such as level 2 and 3 switching, spanning tree protocols and compatibility with Internetwork Packet and Internetwork Packet Exchange networks.",
@@ -13485,6 +13796,7 @@
    "Reference - Broadcast isolation and level 3 network switch - Hewlett Packard Enterprise Development LP"})
 
 (def Reference-CAR-2014-05-001%3ARPCActivity_MITRE
+  "Reference - CAR-2014-05-001: RPC Activity - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-05-001/",
    :d3fend/kb-abstract
    "Microsoft Windows uses its implementation of Distributed Computing Environment/Remote Procedure Call (DCE/RPC), which it calls Microsoft RPC, to call certain APIs remotely.\n\nA Remote Procedure Call is initiated by communicating to the RPC Endpoint Mapper, which exists as the Windows service RpcEptMapper and listens on the port 135/tcp. The endpoint mapper resolves a requested endpoint/interface and responds to the client with the port that the service is listening on. Since the RPC endpoints are assigned ports when the services start, these ports are dynamically assigned from 49152 to 65535. The connection to the endpoint mapper then terminates and the client program can communicate directly with the requested service.\n\nRPC is a legitimate functionality of Windows that allows remote interaction with a variety of services. For a Windows environment to be properly configured, several programs use RPC to communicate legitimately with servers. The background and benign RPC activity may be enormous, but must be learned, especially peer-to-peer RPC between workstations, which is often indicative of Lateral Movement.",
@@ -13498,6 +13810,7 @@
 
 (def
   Reference-CAR-2014-11-007-RemoteWindowsManagementInstrumentation_WMI_OverRPC_MITRE
+  "Reference - CAR-2014-11-007: Remote Windows Management Instrumentation (WMI) over RPC - MITRE"
   {:d3fend/has-link "",
    :d3fend/kb-abstract
    "As described in ATT&CK, an adversary can use Windows Management Instrumentation (WMI) to view or manipulate objects on a remote host. It can be used to remotely edit configuration, start services, query files, and anything that can be done with a WMI class. When remote WMI requests are over RPC (CAR-2014-05-001), it connects to a DCOM interface within the RPC group netsvcs. To detect this activity, a sensor is needed at the network level that can decode RPC traffic or on the host where the communication can be detected more natively, such as Event Tracing for Windows. Using wireshark/tshark decoders, the WMI interfaces can be extracted so that WMI activity over RPC can be detected.\n\nAlthough the description details how to detect remote WMI precisely, a decent estimate has been to look for the string RPCSS within the initial RPC connection on 135/tcp. It returns a superset of this activity, and will trigger on all DCOM-related services running within RPC, which is likely to also be activity that should be detected between hosts. More about RPCSS at : rpcss_dcom_interfaces.html",
@@ -13514,6 +13827,7 @@
    "Reference - CAR-2014-11-007: Remote Windows Management Instrumentation (WMI) over RPC - MITRE"})
 
 (def Reference-CAR-2015-04-001%3ARemotelyScheduledTasksViaAT_MITRE
+  "Reference - CAR-2015-04-001: Remotely Scheduled Tasks via AT - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2015-04-001/",
    :d3fend/kb-abstract
    "When AT.exe is used to remotely schedule tasks, Windows uses named pipes over SMB to communicate with the API on the remote machine. After authentication over SMB, the Named Pipe “ATSVC” is opened, over which the JobAdd function is called. On the remote host, the job files are created by the Task Scheduler and follow the convention C:\\Windows\\System32\\AT<job\\_id>. Unlike CAR-2013-05-004, this analytic specifically focuses on uses of AT that can be detected between hosts, indicating remotely gained execution.\n\nThis pipe activity could be discovered with a network decoder, such as that in wireshark, that can inspect SMB traffic to identify the use of pipes. It could also be detected by looking for raw packet capture streams or from a custom sensor on the host that hooks the appropriate API functions. If no network or API level of visibility is possible, this traffic may inferred by looking at SMB connections over 445/tcp followed by the creation of files matching the pattern C:\\Windows\\System32\\AT\\<job_id\\>.",
@@ -13529,6 +13843,7 @@
    "Reference - CAR-2015-04-001: Remotely Scheduled Tasks via AT - MITRE"})
 
 (def Reference-CAR-2016-04-004_SuccessfulLocalAccountLogin
+  "Reference - CAR-2016-04-004: Successful Local Account Login"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2016-04-004/",
    :d3fend/kb-reference-of :d3fend/LocalAccountMonitoring,
    :d3fend/kb-reference-title
@@ -13538,6 +13853,7 @@
    :rdfs/label "Reference - CAR-2016-04-004: Successful Local Account Login"})
 
 (def Reference-CAR-2020-04-001%3AShadowCopyDeletion_MITRE
+  "Reference - CAR-2020-04-001: Shadow Copy Deletion - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-04-001/",
    :d3fend/kb-abstract
    "The Windows Volume Shadow Copy Service is a built-in OS feature that can be used to create backup copies of files and volumes.\n\nAdversaries may delete these shadow copies, typically through the usage of system utilities such as vssadmin.exe or wmic.exe, in order prevent file and data recovery. This technique is commonly employed for this purpose by ransomware.",
@@ -13550,6 +13866,7 @@
    :rdfs/label "Reference - CAR-2020-04-001: Shadow Copy Deletion - MITRE"})
 
 (def Reference-CAR-2020-05-001%3AMiniDumpOfLSASS_MITRE
+  "Reference - CAR-2020-05-001: MiniDump of LSASS - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-05-001/",
    :d3fend/kb-abstract
    "This analytic detects the minidump variant of credential dumping where a process opens lsass.exe in order to extract credentials using the Win32 API call MiniDumpWriteDump. Tools like SafetyKatz, SafetyDump, and Outflank-Dumpert default to this variant and may be detected by this analytic, though keep in mind that not all options for using those tools will result in this specific behavior.\n\nThe analytic is based on a Sigma analytic contributed by Samir Bousseaden and written up in a blog on MENASEC. It looks for a call trace that includes either dbghelp.dll or dbgcore.dll, which export the relevant functions/permissions to perform the dump. It also detects using the Windows Task Manager (taskmgr.exe) to dump lsass, which is described in CAR-2019-08-001. In this iteration of the Sigma analytic, the GrantedAccess filter isn’t included because it didn’t seem to filter out any false positives and introduces the potential for evasion.\n\nThis analytic was tested both in a lab and in a production environment with a very low false-positive rate. werfault.exe and tasklist.exe, both standard Windows processes, showed up multiple times as false positives.",
@@ -13562,6 +13879,7 @@
    :rdfs/label "Reference - CAR-2020-05-001: MiniDump of LSASS - MITRE"})
 
 (def Reference-CAR-2020-05-003%3ARareLolBASCommandLines_MITRE
+  "Reference - CAR-2020-05-003: Rare LolBAS Command Lines - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-05-003/",
    :d3fend/kb-abstract
    "LoLBAS are binaries and scripts that are built in to Windows, frequently are signed by Microsoft, and may be used by an attacker. Some LoLBAS are used very rarely and it might be possible to alert every time they’re used (this would depend on your environment), but many others are very common and can’t be simply alerted on.\n\nThis analytic takes all instances of LoLBAS execution and then looks for instances of command lines that are not normal in the environment. This can detect attackers (which will tend to need the binaries for something different than normal usage) but will also tend to have false positives.\n\nThe analytic needs to be tuned. The 1.5 in the query is the number of standard deviations away to look. It can be tuned up to filter out more noise and tuned down to get more results. This means it is probably best as a hunting analytic when you have analysts looking at the screen and able to tune the analytic up and down, because the threshold may not be stable for very long.",
@@ -13576,6 +13894,7 @@
 
 (def
   Reference-CAR-2020-08-001%3ANTFSAlternateDataStreamExecution-SystemUtilities_MITRE
+  "Reference - CAR-2020-08-001: NTFS Alternate Data Stream Execution - System Utilities - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-08-001/",
    :d3fend/kb-abstract
    "NTFS Alternate Data Streams (ADSs) may be used by adversaries as a means of evading security tools by storing malicious data or binaries in file attribute metadata. ADSs are also powerful because they can be directly executed by various Windows tools; accordingly, this analytic looks at common ways of executing ADSs using system utilities such as powershell.",
@@ -13591,6 +13910,7 @@
    "Reference - CAR-2020-08-001: NTFS Alternate Data Stream Execution - System Utilities - MITRE"})
 
 (def Reference-CAR-2020-09-001%3AScheduledTask-FileAccess_MITRE
+  "Reference - CAR-2020-09-001: Scheduled Task - FileAccess - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-09-001/",
    :d3fend/kb-abstract
    "In order to gain persistence, privilege escalation, or remote execution, an adversary may use the Windows Task Scheduler to schedule a command to be run at a specified time, date, and even host. Task Scheduler stores tasks as files in two locations - C:\\Windows\\Tasks (legacy) or C:\\Windows\\System32\\Tasks. Accordingly, this analytic looks for the creation of task files in these two locations.",
@@ -13604,6 +13924,7 @@
    "Reference - CAR-2020-09-001: Scheduled Task - FileAccess - MITRE"})
 
 (def Reference-CAR-2020-09-002%3AComponentObjectModelHijacking_MITRE
+  "Reference - CAR-2020-09-002: Component Object Model Hijacking - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-09-002/",
    :d3fend/kb-abstract
    "Adversaries may establish persistence or escalate privileges by executing malicious content triggered by hijacked references to Component Object Model (COM) objects. This is typically done by replacing COM object registry entries under the HKEY_CURRENT_USER\\Software\\Classes\\CLSID or HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\CLSID keys. Accordingly, this analytic looks for any changes under these keys.",
@@ -13619,6 +13940,7 @@
    "Reference - CAR-2020-09-002:  Component Object Model Hijacking - MITRE"})
 
 (def Reference-CAR-2020-09-003%3AIndicatorBlocking-DriverUnloaded_MITRE
+  "Reference - CAR-2020-09-003: Indicator Blocking - Driver Unloaded - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-09-003/",
    :d3fend/kb-abstract
    "Adversaries may attempt to evade system defenses by unloading minifilter drivers used by host-based sensors such as Sysmon through the use of the fltmc command-line utility. Accordingly, this analytic looks for command-line invocations of this utility when used to unload minifilter drivers.",
@@ -13634,6 +13956,7 @@
    "Reference - CAR-2020-09-003: Indicator Blocking - Driver Unloaded - MITRE"})
 
 (def Reference-CAR-2020-09-004%3ACredentialsInFiles%26Registry_MITRE
+  "Reference - CAR-2020-09-004: Credentials in Files & Registry - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-09-004/",
    :d3fend/kb-abstract
    "Adversaries may search the Windows Registry on compromised systems for insecurely stored credentials for credential access. This can be accomplished using the query functionality of the reg.exe system utility, by looking for keys and values that contain strings such as “password”. In addition, adversaries may use toolkits such as PowerSploit in order to dump credentials from various applications such as IIS.Accordingly, this analytic looks for invocations of reg.exe in this capacity as well as that of several powersploit modules with similar functionality.",
@@ -13649,6 +13972,7 @@
    "Reference - CAR-2020-09-004: Credentials in Files & Registry - MITRE"})
 
 (def Reference-CAR-2020-09-005%3AAppInitDLLs_MITRE
+  "Reference - CAR-2020-09-005: AppInit DLLs - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-09-005/",
    :d3fend/kb-abstract
    "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppInit DLLs loaded into processes. Dynamic-link libraries (DLLs) that are specified in the AppInit_DLLs value in the Registry keys HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows or HKEY_LOCAL_MACHINE\\Software\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Windows are loaded by user32.dll into every process that loads user32.dll. These values can be abused to obtain elevated privileges by causing a malicious DLL to be loaded and run in the context of separate processes. Accordingly, this analytic looks for modifications to these registry keys that may be indicative of this type of abuse.",
@@ -13661,6 +13985,7 @@
    :rdfs/label "Reference - CAR-2020-09-005: AppInit DLLs - MITRE"})
 
 (def Reference-CAR-2020-11-001%3ABootOrLogonInitializationScripts_MITRE
+  "Reference - CAR-2020-11-001: Boot or Logon Initialization Scripts - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-001/",
    :d3fend/kb-abstract
    "Adversaries may schedule software to run whenever a user logs into the system; this is done to establish persistence and sometimes for lateral movement. This trigger is established through the registry key HKEY_CURRENT_USER\\EnvironmentUserInitMprLogonScript. This signature looks edits to existing keys or creation of new keys in that path. Users purposefully adding benign scripts to this path will result in false positives; that case is rare, however. There are other ways of running a script at startup or login that are not covered in this signature. Note that this signature overlaps with the Windows Sysinternals Autoruns tool, which would also show changes to this registry path.",
@@ -13676,6 +14001,7 @@
    "Reference - CAR-2020-11-001: Boot or Logon Initialization Scripts - MITRE"})
 
 (def Reference-CAR-2020-11-002%3ALocalNetworkSniffing_MITRE
+  "Reference - CAR-2020-11-002: Local Network Sniffing - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-002/",
    :d3fend/kb-abstract
    "Adversaries may use a variety of tools to gain visibility on the current status of things on the network: which processes are listening on which ports, which services are running on other hosts, etc. This analytic looks for the names of the most common network sniffing tools. While this may be noisy on networks where sysadmins are using any of these tools on a regular basis, in most networks their use is noteworthy.",
@@ -13688,6 +14014,7 @@
    :rdfs/label "Reference - CAR-2020-11-002: Local Network Sniffing - MITRE"})
 
 (def Reference-CAR-2020-11-003%3ADLLInjectionWithMavinject_MITRE
+  "Reference - CAR-2020-11-003: DLL Injection with Mavinject - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-003/",
    :d3fend/kb-abstract
    "Injecting a malicious DLL into a process is a common adversary TTP. Although the ways of doing this are numerous, mavinject.exe is a commonly used tool for doing so because it roles up many of the necessary steps into one, and is available within Windows. Attackers may rename the executable, so we also use the common argument “INJECTRUNNING” as a related signature here. Whitelisting certain applications may be necessary to reduce noise for this analytic.",
@@ -13702,6 +14029,7 @@
    "Reference - CAR-2020-11-003: DLL Injection with Mavinject - MITRE"})
 
 (def Reference-CAR-2020-11-004%3AProcessesStartedFromIrregularParent_MITRE
+  "Reference - CAR-2020-11-004: Processes Started From Irregular Parent - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-004/",
    :d3fend/kb-abstract
    "Adversaries may start legitimate processes and then use their memory space to run malicious code. This analytic looks for common Windows processes that have been abused this way in the past; when the processes are started for this purpose they may not have the standard parent that we would expect. This list is not exhaustive, and it is possible for cyber actors to avoid this discepency. These signatures only work if Sysmon reports the parent process, which may not always be the case if the parent dies before sysmon processes the event.",
@@ -13717,6 +14045,7 @@
    "Reference - CAR-2020-11-004: Processes Started From Irregular Parent - MITRE"})
 
 (def Reference-CAR-2020-11-005%3AClearPowershellConsoleCommandHistory_MITRE
+  "Reference - CAR-2020-11-005: Clear Powershell Console Command History - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-005/",
    :d3fend/kb-abstract
    "Adversaries may attempt to conceal their tracks by deleting the history of commands run within the Powershell console, or turning off history saving to begin with. This analytic looks for several commands that would do this. This does not capture the event if it is done within the console itself; only commandline-based commands are detected. Note that the command to remove the history file directly may very a bit if the history file is not saved in the default path on a particular system.",
@@ -13732,6 +14061,7 @@
    "Reference - CAR-2020-11-005: Clear Powershell Console Command History - MITRE"})
 
 (def Reference-CAR-2020-11-006%3ALocalPermissionGroupDiscovery_MITRE
+  "Reference - CAR-2020-11-006: Local Permission Group Discovery - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-006/",
    :d3fend/kb-abstract
    "Cyber actors frequently enumerate local or domain permissions groups. The net utility is usually used for this purpose. This analytic looks for any instances of net.exe, which is not normally used for benign purposes, although system administrator actions may trigger false positives.",
@@ -13747,6 +14077,7 @@
    "Reference - CAR-2020-11-006: Local Permission Group Discovery - MITRE"})
 
 (def Reference-CAR-2020-11-007%3ANetworkShareConnectionRemoval_MITRE
+  "Reference - CAR-2020-11-007: Network Share Connection Removal - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-007/",
    :d3fend/kb-abstract
    "Adversaries may use network shares to exfliltrate date; they will then remove the shares to cover their tracks. This analytic looks for the removal of network shares via commandline, which is otherwise a rare event.",
@@ -13762,6 +14093,7 @@
    "Reference - CAR-2020-11-007: Network Share Connection Removal - MITRE"})
 
 (def Reference-CAR-2020-11-008%3AMSBuildAndMsxsl_MITRE
+  "Reference - CAR-2020-11-008: MSBuild and msxsl - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-008/",
    :d3fend/kb-abstract
    "Trusted developer utilities such as MSBuild may be leveraged to run malicious code with elevated privileges. This analytic looks for any instances of msbuild.exe, which will execute any C# code placed within a given XML document; and msxsl.exe, which processes xsl transformation specifications for XML files and will execute a variaty of scripting languages contained within the XSL file. Both of these executables are rarely used outside of Visual Studio.",
@@ -13774,6 +14106,7 @@
    :rdfs/label "Reference - CAR-2020-11-008: MSBuild and msxsl - MITRE"})
 
 (def Reference-CAR-2020-11-009%3ACompiledHTMLAccess_MITRE
+  "Reference - CAR-2020-11-009: Compiled HTML Access - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-009/",
    :d3fend/kb-abstract
    "Adversaries may hide malicious code in .chm compiled HTML files. When these files are read, Windows uses the HTML help executable named hh.exe, which is the signature for this analytic.",
@@ -13786,6 +14119,7 @@
    :rdfs/label "Reference - CAR-2020-11-009: Compiled HTML Access - MITRE"})
 
 (def Reference-CAR-2020-11-010%3ACMSTP_MITRE
+  "Reference - CAR-2020-11-010: CMSTP - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-010/",
    :d3fend/kb-abstract
    "CMSTP.exe is the Microsoft Connection Manager Profile Installer, which can be leveraged to setup listeners that will receive and install malware from remote sources in trusted fashion. When CMSTP.exe is seen in combination with an external connection, it is a good indication of this TTP.",
@@ -13798,6 +14132,7 @@
    :rdfs/label "Reference - CAR-2020-11-010: CMSTP - MITRE"})
 
 (def Reference-CAR-2020-11-011%3ARegistryEditFromScreensaver
+  "Reference - CAR-2020-11-011: Registry Edit from Screensaver"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2020-11-011/",
    :d3fend/kb-abstract
    "Adversaries may use screensaver files to run malicious code. This analytic triggers on suspicious edits to the screensaver registry keys, which dictate which .scr file the screensaver runs.",
@@ -13810,6 +14145,7 @@
    :rdfs/label "Reference - CAR-2020-11-011: Registry Edit from Screensaver"})
 
 (def Reference-CAR-2021-01-002%3AUnusuallyLongCommandLineStrings_MITRE
+  "Reference - CAR-2021-01-002: Unusually Long Command Line Strings - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-01-002/",
    :d3fend/kb-abstract
    "Often, after a threat actor gains access to a system, they will attempt to run some kind of malware to further infect the victim machine. These malware often have long command line strings, which could be a possible indicator of attack. Here, we use sysmon and Splunk to first find the average command string length and search for command strings that stretch over multiple lines, thus identifying anomalies and possibly malicious commands.",
@@ -13825,6 +14161,7 @@
    "Reference - CAR-2021-01-002: Unusually Long Command Line Strings - MITRE"})
 
 (def Reference-CAR-2021-01-003%3AClearingWindowsLogsWithWevtutil_MITRE
+  "Reference - CAR-2021-01-003: Clearing Windows Logs with Wevtutil - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-01-003/",
    :d3fend/kb-abstract
    "In an attempt to clear traces after compromising a machine, threat actors often try to clear Windows Event logs. This is often done using “wevtutil”, a legitimate tool provided by Microsoft. This action interferes with event collection and notification, and may lead to a security event going undetected, thereby potentially leading to further compromise of the network.",
@@ -13840,6 +14177,7 @@
 
 (def
   Reference-CAR-2021-01-004%3AUnusualChildProcessForSpoolsv.ExeOrConnhost.Exe_MITRE
+  "Reference - CAR-2021-01-004: Unusual Child Process for Spoolsv.Exe or Connhost.Exe - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-01-004/",
    :d3fend/kb-abstract
    "After gaining initial access to a system, threat actors attempt to escalate privileges as they may be operating within a lower privileged process which does not allow them to access protected information or carry out tasks which require higher permissions. A common way of escalating privileges in a system is by externally invoking and exploiting spoolsv or connhost executables, both of which are legitimate Windows applications. This query searches for an invocation of either of these executables by a user, thus alerting us of any potentially malicious activity.",
@@ -13855,6 +14193,7 @@
    "Reference - CAR-2021-01-004: Unusual Child Process for Spoolsv.Exe or Connhost.Exe - MITRE"})
 
 (def Reference-CAR-2021-01-006%3AUnusualChildProcessSpawnedUsingDDEExploit_MITRE
+  "Reference - CAR-2021-01-006: Unusual Child Process spawned using DDE exploit - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-01-006/",
    :d3fend/kb-abstract
    "Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary commands. DDE is a client-server protocol for one-time and/or continuous inter-process communication (IPC) between applications. Once a link is established, applications can autonomously exchange transactions consisting of strings, warm data links (notifications when a data item changes), hot data links (duplications of changes to a data item), and requests for command execution.",
@@ -13871,6 +14210,7 @@
 
 (def
   Reference-CAR-2021-01-007%3ADetectingTamperingOfWindowsDefenderCommandPrompt_MITRE
+  "Reference - CAR-2021-01-007: Detecting Tampering of Windows Defender Command Prompt - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-01-007/",
    :d3fend/kb-abstract
    "In an attempt to avoid detection after compromising a machine, threat actors often try to disable Windows Defender. This is often done using “sc” [service control], a legitimate tool provided by Microsoft for managing services. This action interferes with event detection and may lead to a security event going undetected, thereby potentially leading to further compromise of the network.",
@@ -13887,6 +14227,7 @@
    "Reference - CAR-2021-01-007: Detecting Tampering of Windows Defender Command Prompt - MITRE"})
 
 (def Reference-CAR-2021-01-008%3ADisableUAC_MITRE
+  "Reference - CAR-2021-01-008: Disable UAC - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-01-008/",
    :d3fend/kb-abstract
    "Threat actors often, after compromising a machine, try to disable User Access Control (UAC) to escalate privileges. This is often done by changing the registry key for system policies using “reg.exe”, a legitimate tool provided by Microsoft for modifying the registry via command prompt or scripts. This action interferes with UAC and may enable a threat actor to escalate privileges on the compromised system, thereby allowing further exploitation of the system.",
@@ -13900,6 +14241,7 @@
 
 (def
   Reference-CAR-2021-01-009%3ADetectingShadowCopyDeletionViaVssadmin.exe_MITRE
+  "Reference - CAR-2021-01-009: Detecting Shadow Copy Deletion via Vssadmin.exe - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-01-009/",
    :d3fend/kb-abstract
    "After compromising a network of systems, threat actors often try to delete Shadow Copy in an attempt to prevent administrators from restoring the systems to versions present before the attack. This is often done via vssadmin, a legitimate Windows tool to interact with shadow copies. This non-detection of this technique, which is often employed by ransomware strains such as “Olympic Destroyer”, may lead to a failure in recovering systems after an attack.",
@@ -13915,6 +14257,7 @@
    "Reference - CAR-2021-01-009: Detecting Shadow Copy Deletion via Vssadmin.exe - MITRE"})
 
 (def Reference-CAR-2021-02-001%3AWebshell-IndicativeProcessTree_MITRE
+  "Reference - CAR-2021-02-001: Webshell-Indicative Process Tree - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-02-001/",
    :d3fend/kb-abstract
    "A web shell is a web script placed on an openly accessible web server to allow an adversary to use the server as a gatway in a network. As the shell operates, commands will be issued from within the web application into the broader server operating system. This analytic looks for host enumeration executables initiated by any web service that would not normally be executed within that environment.",
@@ -13930,6 +14273,7 @@
    "Reference - CAR-2021-02-001: Webshell-Indicative Process Tree - MITRE"})
 
 (def Reference-CAR-2021-02-002%3AGetSystemElevation_MITRE
+  "Reference - CAR-2021-02-002: Get System Elevation - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-02-002/",
    :d3fend/kb-abstract
    "Cyber actors frequently escalate to the SYSTEM account after gaining entry to a Windows host, to enable them to carry out various attacks more effectively. Tools such as Meterpreter, Cobalt Strike, and Empire carry out automated steps to “Get System”, which is the same as switching over to the System user account. Most of these tools utilize multiple techniques to try and attain SYSTEM: in the first technique, they create a named pipe and connects an instance of cmd.exe to it, which allows them to impersonate the security context of cmd.exe, which is SYSTEM. In the second technique, a malicious DLL is injected into a process that is running as SYSTEM; the injected DLL steals the SYSTEM token and applies it where necessary to escalate privileges. This analytic looks for both of these techniques.",
@@ -13942,6 +14286,7 @@
    :rdfs/label "Reference - CAR-2021-02-002: Get System Elevation - MITRE"})
 
 (def Reference-CAR-2021-04-001%3ACommonWindowsProcessMasquerading_MITRE
+  "Reference - CAR-2021-04-001: Common Windows Process Masquerading - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-04-001/",
    :d3fend/kb-abstract
    "Masquerading (T1036) is defined by ATT&CK as follows:\n\n“Masquerading occurs when the name or location of an object, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation. This may include manipulating file metadata, tricking users into misidentifying the file type, and giving legitimate task or service names.”\n\nMalware authors often use this technique to hide malicious executables behind legitimate Windows executable names (e.g. lsass.exe, svchost.exe, etc).\n\nThere are several sub-techniques, but this analytic focuses on Match Legitimate Name or Location only.",
@@ -13957,6 +14302,7 @@
    "Reference - CAR-2021-04-001: Common Windows Process Masquerading - MITRE"})
 
 (def Reference-CAR-2021-05-001%3AAttemptToAddCertificateToUntrustedStore_MITRE
+  "Reference - CAR-2021-05-001: Attempt To Add Certificate To Untrusted Store - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-001/",
    :d3fend/kb-abstract
    "Adversaries may add their own root certificate to the certificate store, to cause the web browser to trust that certificate and not display a security warning when it encounters the previously unseen certificate. This action may be the precursor to malicious activity.",
@@ -13972,6 +14318,7 @@
    "Reference - CAR-2021-05-001: Attempt To Add Certificate To Untrusted Store - MITRE"})
 
 (def Reference-CAR-2021-05-002%3ABatchFileWriteToSystem32_MITRE
+  "Reference - CAR-2021-05-002: Batch File Write to System32 - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-002/",
    :d3fend/kb-abstract
    "While batch files are not inherently malicious, it is uncommon to see them created after OS installation, especially in the Windows directory. This analytic looks for the suspicious activity of a batch file being created within the C:\\Windows\\System32 directory tree. There will be only occasional false positives due to administrator actions.",
@@ -13985,6 +14332,7 @@
    "Reference - CAR-2021-05-002: Batch File Write to System32 - MITRE"})
 
 (def Reference-CAR-2021-05-003%3ABCDEditFailureRecoveryModification_MITRE
+  "Reference - CAR-2021-05-003: BCDEdit Failure Recovery Modification - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-003/",
    :d3fend/kb-abstract
    "This search looks for flags passed to bcdedit.exe modifications to the built-in Windows error recovery boot configurations. This is typically used by ransomware to prevent recovery.",
@@ -14000,6 +14348,7 @@
    "Reference - CAR-2021-05-003: BCDEdit Failure Recovery Modification - MITRE"})
 
 (def Reference-CAR-2021-05-004%3ABITSJobPersistence_MITRE
+  "Reference - CAR-2021-05-004: BITS Job Persistence - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-004/",
    :d3fend/kb-abstract
    "The following query identifies Microsoft Background Intelligent Transfer Service utility bitsadmin.exe scheduling a BITS job to persist on an endpoint. The query identifies the parameters used to create, resume or add a file to a BITS job. Typically seen combined in a oneliner or ran in sequence. If identified, review the BITS job created and capture any files written to disk. It is possible for BITS to be used to upload files and this may require further network data analysis to identify. You can use bitsadmin /list /verbose to list out the jobs during investigation.",
@@ -14012,6 +14361,7 @@
    :rdfs/label "Reference - CAR-2021-05-004: BITS Job Persistence - MITRE"})
 
 (def Reference-CAR-2021-05-005%3ABITSAdminDownloadFile_MITRE
+  "Reference - CAR-2021-05-005: BITSAdmin Download File - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-005/",
    :d3fend/kb-abstract
    "The following query identifies Microsoft Background Intelligent Transfer Service utility bitsadmin.exe using the transfer parameter to download a remote object. In addition, look for download or upload on the command-line, the switches are not required to perform a transfer. Capture any files downloaded. Review the reputation of the IP or domain used. Typically once executed, a follow on command will be used to execute the dropped file. Note that the network connection or file modification events related will not spawn or create from bitsadmin.exe, but the artifacts will appear in a parallel process of svchost.exe with a command-line similar to svchost.exe -k netsvcs -s BITS. It’s important to review all parallel and child processes to capture any behaviors and artifacts. In some suspicious and malicious instances, BITS jobs will be created. You can use bitsadmin /list /verbose to list out the jobs during investigation.",
@@ -14025,6 +14375,7 @@
 
 (def
   Reference-CAR-2021-05-006%3ACertUtilDownloadWithURLCacheAndSplitArguments_MITRE
+  "Reference - CAR-2021-05-006: CertUtil Download With URLCache and Split Arguments - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-006/",
    :d3fend/kb-abstract
    "Certutil.exe may download a file from a remote destination using -urlcache. This behavior does require a URL to be passed on the command-line. In addition, -f (force) and -split (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for certutil.exe to contact public IP space. However, it is uncommon for certutil.exe to write files to world writeable paths.\\ During triage, capture any files on disk and review. Review the reputation of the remote IP or domain in question.",
@@ -14041,6 +14392,7 @@
 
 (def
   Reference-CAR-2021-05-007%3ACertUtilDownloadWithVerifyCtlAndSplitArguments_MITRE
+  "Reference - CAR-2021-05-007: CertUtil Download With VerifyCtl and Split Arguments - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-007/",
    :d3fend/kb-abstract
    "Certutil.exe may download a file from a remote destination using -VerifyCtl. This behavior does require a URL to be passed on the command-line. In addition, -f (force) and -split (Split embedded ASN.1 elements, and save to files) will be used. It is not entirely common for certutil.exe to contact public IP space. \\ During triage, capture any files on disk and review. Review the reputation of the remote IP or domain in question. Using -VerifyCtl, the file will either be written to the current working directory or %APPDATA%\\..\\LocalLow\\Microsoft\\CryptnetUrlCache\\Content\\<hash>.",
@@ -14054,6 +14406,7 @@
    "Reference - CAR-2021-05-007: CertUtil Download With VerifyCtl and Split Arguments - MITRE"})
 
 (def Reference-CAR-2021-05-008%3ACertutilExeCertificateExtraction_MITRE
+  "Reference - CAR-2021-05-008: Certutil exe certificate extraction - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-008/",
    :d3fend/kb-abstract
    "This search looks for arguments to certutil.exe indicating the manipulation or extraction of Certificate. This certificate can then be used to sign new authentication tokens specially inside Federated environments such as Windows ADFS.",
@@ -14069,6 +14422,7 @@
    "Reference - CAR-2021-05-008: Certutil exe certificate extraction - MITRE"})
 
 (def Reference-CAR-2021-05-009%3ACertUtilWithDecodeArgument_MITRE
+  "Reference - CAR-2021-05-009: CertUtil With Decode Argument - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-009/",
    :d3fend/kb-abstract
    "CertUtil.exe may be used to encode and decode a file, including PE and script code. Encoding will convert a file to base64 with -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- tags. Malicious usage will include decoding a encoded file that was downloaded. Once decoded, it will be loaded by a parallel process. Note that there are two additional command switches that may be used - encodehex and decodehex. Similarly, the file will be encoded in HEX and later decoded for further execution. During triage, identify the source of the file being decoded. Review its contents or execution behavior for further analysis.",
@@ -14083,6 +14437,7 @@
    "Reference - CAR-2021-05-009: CertUtil With Decode Argument - MITRE"})
 
 (def Reference-CAR-2021-05-010%3ACreateLocalAdminAccountsUsingNetExe_MITRE
+  "Reference - CAR-2021-05-010: Create local admin accounts using net exe - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-010/",
    :d3fend/kb-abstract
    "This search looks for the creation of local administrator accounts using net.exe.",
@@ -14098,6 +14453,7 @@
    "Reference - CAR-2021-05-010: Create local admin accounts using net exe - MITRE"})
 
 (def Reference-CAR-2021-05-011%3ACreateRemoteThreadIntoLSASS_MITRE
+  "Reference - CAR-2021-05-011: Create Remote Thread into LSASS - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2021-05-011/",
    :d3fend/kb-abstract
    "Actors may create a remote thread into the LSASS service as part of a workflow to dump credentials.",
@@ -14113,6 +14469,7 @@
    "Reference - CAR-2021-05-011: Create Remote Thread into LSASS - MITRE"})
 
 (def Reference-CatiaUAFPlugin
+  "Reference - Catia UAF Plugin"
   {:d3fend/has-link
    "https://www.3ds.com/products-services/catia/products/no-magic/addons/uaf-plugin/",
    :d3fend/kb-abstract
@@ -14130,6 +14487,7 @@
    :rdfs/label "Reference - Catia UAF Plugin"})
 
 (def Reference-CertificateAndPublicKeyPinning
+  "Reference - Certificate and Public Key Pinning"
   {:d3fend/has-link
    "https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning",
    :d3fend/kb-abstract
@@ -14143,6 +14501,7 @@
    :rdfs/label "Reference - Certificate and Public Key Pinning"})
 
 (def Reference-CertificateTransparency
+  "Reference - Certificate Transparency"
   {:d3fend/has-link "https://www.certificate-transparency.org/",
    :d3fend/kb-abstract
    "Google's Certificate Transparency project fixes several structural flaws in the SSL certificate system, which is the main cryptographic system that underlies all HTTPS connections.\n\nThese flaws weaken the reliability and effectiveness of encrypted Internet connections and can compromise critical TLS/SSL mechanisms, including domain validation, end-to-end encryption, and the chains of trust set up by certificate authorities.",
@@ -14155,6 +14514,7 @@
    :rdfs/label "Reference - Certificate Transparency"})
 
 (def Reference-CiscoASR9000AccessListCommands
+  "Reference - Cisco ASR 9000 Series Aggregation Services Routers - Access List Commands"
   {:d3fend/has-link
    "https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/addr_serv/command/reference/ir40asrbook_chapter1.html",
    :d3fend/kb-abstract
@@ -14169,6 +14529,7 @@
    "Reference - Cisco ASR 9000 Series Aggregation Services Routers - Access List Commands"})
 
 (def Reference-CommandLaunchedFromWinLogon_MITRE
+  "Reference - CAR-2014-11-008: Command Launched from WinLogon - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-11-008/",
    :d3fend/kb-abstract
    "An adversary can use accessibility features (Ease of Access), such as StickyKeys or Utilman, to launch a command shell from the logon screen and gain SYSTEM access. Since an adversary does not have physical access to the machine, this technique must be run within Remote Desktop. To prevent an adversary from getting to the login screen without first authenticating, Network-Level Authentication (NLA) must be enabled. If a debugger is set up for one of the accessibility features, then it will intercept the process launch of the feature and instead execute a new command line. This analytic looks for instances of cmd.exe or powershell.exe launched directly from the logon process, winlogon.exe. It should be used in tandem with CAR-2014-11-003, which detects the accessibility programs in the command line.",
@@ -14183,6 +14544,7 @@
    "Reference - CAR-2014-11-008: Command Launched from WinLogon - MITRE"})
 
 (def Reference-CommandLineUsageOfArchivingSoftware_MITRE
+  "Reference - CAR-2013-07-005: Command Line Usage of Archiving Software - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-07-005/",
    :d3fend/kb-abstract
    "Before exfiltrating data that an adversary has collected, it is very likely that a compressed archive will be created, so that transfer times are minimized and fewer files are transmitted. There is variety between the tools used to compress data, but the command line usage and context of archiving tools, such as ZIP, RAR, and 7ZIP, should be monitored.\n\nIn addition to looking for RAR or 7z program names, command line usage of 7Zip or RAR can be detected with the flag usage of \"\\* a \\*\". This is helpful, as adversaries may change program names.",
@@ -14199,6 +14561,7 @@
 
 (def
   Reference-ComputationalModelingAndClassificationOfDataStreams_CrowdstrikeInc
+  "Reference - Computational modeling and classification of data streams - Crowdstrike Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20180197089A1/en?oq=US-2018197089-A1",
    :d3fend/kb-abstract
@@ -14219,6 +14582,7 @@
 
 (def
   Reference-Computer-implementedMethodsAndSystemsForIdentifyingVisuallySimilarTextCharacterStrings_GreathornInc
+  "Reference - Computer-implemented methods and systems for identifying visually similar text character strings - Greathorn Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US10320815B2/en?oq=US-10320815-B2",
    :d3fend/kb-abstract
@@ -14237,6 +14601,7 @@
    "Reference - Computer-implemented methods and systems for identifying visually similar text character strings - Greathorn Inc"})
 
 (def Reference-ComputerMotherboardHavingPeripheralSecurityFunctions
+  "Reference - Computer motherboard having peripheral security functions"
   {:d3fend/has-link "https://patents.google.com/patent/US8869308B2/en",
    :d3fend/kb-abstract
    "A secure motherboard for a computer, wherein each user accessible peripheral port is protected by hardware based peripheral protection circuitry soldered to the motherboard.",
@@ -14252,6 +14617,7 @@
    "Reference - Computer motherboard having peripheral security functions"})
 
 (def Reference-ComputerWormDefenseSystemAndMethod_FireEyeInc
+  "Reference - Computer Worm Defense System and Method - FireEye Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20130036472A1",
    :d3fend/kb-abstract
    "\"A computer worm defense system comprises multiple containment systems tied together by a management system. Each containment system is deployed on a separate communication network and contains a worm sensor and a blocking system. In various embodiments, the computer worm may be transported from a production network, where the computer worm is not readily identifiable, to an alternate network in the worm sensor where the computer worm may be readily identifiable. Computer worm identifiers generated by a worm sensor of one containment system can be provided not only to the blocking system of the same containment system, but can also be distributed by the management system to blocking systems of other containment systems.\"",
@@ -14268,6 +14634,7 @@
 
 (def
   Reference-ComputingApparatusWithAutomaticIntegrityReferenceGenerationAndMaintenance_TripwireInc.
+  "Reference - Computing apparatus with automatic integrity reference generation and maintenance - Tripwire, Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US20040060046A1",
    :d3fend/kb-abstract
    "An apparatus is equipped to automatically update one or more integrity references of a software entity, when the software entity is installed onto the apparatus. The apparatus is further equipped to periodically determine whether the integrity of the apparatus has been compromised based at least in part on the one or more integrity references of the software entity that are automatically updated during installation of the software entity.",
@@ -14284,6 +14651,7 @@
    "Reference - Computing apparatus with automatic integrity reference generation and maintenance - Tripwire, Inc."})
 
 (def Reference-ConfigureUserAccessControlAndPermissions
+  "Reference - Configure User Access Control and Permissions"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/configure/user-access-control",
    :d3fend/kb-abstract
@@ -14296,6 +14664,7 @@
    :rdfs/label "Reference - Configure User Access Control and Permissions"})
 
 (def Reference-ContentExtractorAndAnalysisSystem_Bit9IncCarbonBlackInc
+  "Reference - Content extractor and analysis system - Bit 9 Inc, Carbon Black Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20070028110A1",
    :d3fend/kb-abstract
    "A security system provides a defense from known and unknown viruses, worms, spyware, hackers, and unwanted software. The system can implement centralized policies that allow an administrator to approve, block, quarantine, and log file activities. The system can extract content of interest from a file container, repackage the content of interest as another valid file type, perform hashes on the content of interest, associate the hash of the container with the hash of the repackaged content, transfer the repackaged content, and store the hash with other security-related information.",
@@ -14312,6 +14681,7 @@
 
 (def
   Reference-ContinuousAuthenticationByAnalysisOfKeyboardTypingCharacteristics_BradfordUniv.UK
+  "Reference - Continuous authentication by analysis of keyboard typing characteristics - Bradford Univ., UK"
   {:d3fend/has-link
    "https://ieeexplore.ieee.org/document/491588?reload=true&arnumber=491588",
    :d3fend/kb-abstract
@@ -14329,6 +14699,7 @@
    "Reference - Continuous authentication by analysis of keyboard typing characteristics - Bradford Univ., UK"})
 
 (def Reference-CreateRemoteProcessViaWMIC_MITRE_Other
+  "Reference - CAR-2016-03-002: Create Remote Process via WMIC - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2016-03-002/",
    :d3fend/kb-abstract
    "Adversaries may use Windows Management Instrumentation (WMI) to move laterally, by launching executables remotely.The analytic CAR-2014-12-001 describes how to detect these processes with network traffic monitoring and process monitoring on the target host. However, if the command line utility wmic.exe is used on the source host, then it can additionally be detected on an analytic. The command line on the source host is constructed into something like wmic.exe /node:\"\\<hostname\\>\" process call create \"\\<command line\\>\". It is possible to also connect via IP address, in which case the string \"\\<hostname\\>\" would instead look like IP Address.\n\nAlthough this analytic was created after CAR-2014-12-001, it is a much simpler (although more limited) approach. Processes can be created remotely via WMI in a few other ways, such as more direct API access or the built-in utility PowerShell.",
@@ -14344,6 +14715,7 @@
    "Reference - CAR-2016-03-002: Create Remote Process via WMIC - MITRE"})
 
 (def Reference-CredentialDumpingViaMimikatz_MITRE
+  "Reference - CAR-2019-04-004: Credential Dumping via Mimikatz - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-04-004/",
    :d3fend/kb-abstract
    "Credential dumpers like Mimikatz can be loaded into memory and from there read data from another processes. This analytic looks for instances where processes are requesting specific permissions to read parts of the LSASS process in order to detect when credential dumping is occurring. One weakness is that all current implementations are \"overtuned\" to look for common access patterns used by Mimikatz.",
@@ -14359,6 +14731,7 @@
    "Reference - CAR-2019-04-004: Credential Dumping via Mimikatz - MITRE"})
 
 (def Reference-CredentialDumpingViaWindowsTaskManager_MITRE
+  "Reference - CAR-2019-08-001: Credential Dumping via Windows Task Manager - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-08-001/",
    :d3fend/kb-abstract
    "The Windows Task Manager may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching Task Manager as a privileged user, selecting lsass.exe, and clicking \"Create dump file\". This saves a dump file to disk with a deterministic name that includes the name of the process being dumped.\n\nThis requires filesystem data to determine whether files have been created.",
@@ -14374,6 +14747,7 @@
    "Reference - CAR-2019-08-001: Credential Dumping via Windows Task Manager - MITRE"})
 
 (def Reference-CyberCommandSystemCYCS
+  "Reference - Cyber Command System (CYCS)"
   {:d3fend/has-link
    "https://www.mitre.org/research/technology-transfer/technology-licensing/cyber-command-system-cycs",
    :d3fend/kb-abstract
@@ -14386,6 +14760,7 @@
    :rdfs/label "Reference - Cyber Command System (CYCS)"})
 
 (def Reference-DLLInjectionViaLoadLibrary_MITRE
+  "Reference - CAR-2013-10-002: DLL Injection via Load Library - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-10-002/",
    :d3fend/kb-abstract
    "Microsoft Windows allows for processes to remotely create threads within other processes of the same privilege level. This functionality is provided via the Windows API CreateRemoteThread. Both Windows and third-party software use this ability for legitimate purposes. For example, the Windows process csrss.exe creates threads in programs to send signals to registered callback routines. Both adversaries and host-based security software use this functionality to inject DLLs, but for very different purposes. An adversary is likely to inject into a program to evade defenses or bypass User Account Control, but a security program might do this to gain increased monitoring of API calls. One of the most common methods of DLL Injection is through the Windows API LoadLibrary.\n\nAllocate memory in the target program with VirtualAllocEx\nWrite the name of the DLL to inject into this program with WriteProcessMemory\nCreate a new thread and set its entry point to LoadLibrary using the API CreateRemoteThread.\nThis behavior can be detected by looking for thread creations across processes, and resolving the entry point to determine the function name. If the function is LoadLibraryA or LoadLibraryW, then the intent of the remote thread is clearly to inject a DLL. When this is the case, the source process must be examined so that it can be ignored when it is both expected and a trusted process.",
@@ -14400,6 +14775,7 @@
    "Reference - CAR-2013-10-002: DLL Injection via Load Library - MITRE"})
 
 (def Reference-DNSWhitelist-DNSWL-EmailAuthenticationMethodExtension
+  "Reference - DNS Whitelist (DNSWL) Email Authentication Method Extension"
   {:d3fend/has-link "https://datatracker.ietf.org/doc/html/rfc8904",
    :d3fend/kb-reference-of :d3fend/DNSAllowlisting,
    :d3fend/kb-reference-title
@@ -14411,6 +14787,7 @@
    "Reference - DNS Whitelist (DNSWL) Email Authentication Method Extension"})
 
 (def Reference-DYNAMICBASE_UseAddressSpaceLayoutRandomization_MicrosoftDocs
+  "Reference - /DYNAMICBASE (Use address space layout randomization) - Microsoft Docs"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/cpp/build/reference/dynamicbase-use-address-space-layout-randomization?view=vs-2019",
    :d3fend/kb-author "Microsoft",
@@ -14426,6 +14803,7 @@
    "Reference - /DYNAMICBASE (Use address space layout randomization) - Microsoft Docs"})
 
 (def Reference-DaggerFactSheet
+  "Reference - Dagger Fact Sheet"
   {:d3fend/has-link
    "https://www.jhuapl.edu/dagger/documents/DaggerFactSheet.pdf",
    :d3fend/kb-abstract
@@ -14440,6 +14818,7 @@
 
 (def
   Reference-DaggerModelingAndVisualizationForMissionImpactSituationalAwareness
+  "Reference - Dagger: Modeling and visualization for mission impact situational awareness"
   {:d3fend/has-link "https://ieeexplore.ieee.org/document/7795296",
    :d3fend/kb-abstract
    "Dagger is a modeling and visualization framework that addresses the challenge of representing knowledge and information for decision-makers, enabling them to better comprehend the operational context of network security data. It allows users to answer critical questions such as “Given that I care about mission X, is there any reason I should be worried about what is going on in cyberspace?” or “If this system fails, will I still be able to accomplish my mission?”.",
@@ -14455,6 +14834,7 @@
    "Reference - Dagger: Modeling and visualization for mission impact situational awareness"})
 
 (def Reference-DataExecutionPrevention_Microsoft
+  "Reference - Mitigate threats by using Windows 10 security features: Data Execution Prevention - Microsoft"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10#data-execution-prevention",
    :d3fend/kb-abstract
@@ -14473,6 +14853,7 @@
 
 (def
   Reference-DataProcessingAndScanningSystemsForGeneratingAndPopulatingADataInventory
+  "Reference - Data processing and scanning systems for generating and populating a data inventory"
   {:d3fend/has-link "https://patents.google.com/patent/US11240273B2/",
    :d3fend/kb-abstract
    "In particular embodiments, a data processing data inventory generation system is configured to: (1) generate a data model (e.g., a data inventory) for one or more data assets utilized by a particular organization; (2) generate a respective data inventory for each of the one or more data assets; and (3) map one or more relationships between one or more aspects of the data inventory, the one or more data assets, etc. within the data model. In particular embodiments, a data asset (e.g., data system, software application, etc.) may include, for example, any entity that collects, processes, contains, and/or transfers personal data (e.g., such as a software application, “internet of things” computerized device, database, website, data-center, server, etc.). The system may be configured to identify particular data assets and/or personal data in data repositories using any suitable intelligent identity scanning technique.",
@@ -14490,6 +14871,7 @@
 
 (def
   Reference-Database_for_receiving_storing_and_compiling_information_about_email_messages
+  "Reference - Database for receiving, storing and compiling information about email messages"
   {:d3fend/has-link "https://patents.google.com/patent/US20050091319A1/",
    :d3fend/kb-author "Steven Kirsch",
    :d3fend/kb-reference-of [:d3fend/IPReputationAnalysis
@@ -14503,6 +14885,7 @@
    "Reference - Database for receiving, storing and compiling information about email messages"})
 
 (def Reference-DeadCodeElimination
+  "Reference - Dead code elimination"
   {:d3fend/has-link "https://nebelwelt.net/files/15LangSec.pdf",
    :d3fend/kb-abstract
    "There is a significant body of work devoted to testing, verifying, and certifying the correctness of optimizing compilers. The focus of such work is to determine if source code and optimized code have the same functional semantics. In this paper, we introduce the correctness-security gap, which arises when a compiler optimization preserves the functionality of but violates a security guarantee made by source code. We show with concrete code examples that several standard optimizations, which have been formally proved correct, inhabit this correctness-security gap. We analyze this gap and conclude that it arises due to techniques that model the state of the program but not the state of the underlying machine. We propose a broad research program whose goal is to identify, understand, and mitigate the impact of security errors introduced by compiler optimizations. Our proposal includes research in testing, program analysis, theorem proving, and the development of new, accurate machine models for reasoning about the impact of compiler optimizations on security.",
@@ -14516,6 +14899,7 @@
    :rdfs/label "Reference - Dead code elimination"})
 
 (def Reference-DebuggersForAccessibilityApplications_MITRE
+  "Reference - CAR-2014-11-003: Debuggers for Accessibility Applications - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-11-006/",
    :d3fend/kb-abstract
    "The Windows Registry location HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options allows for parameters to be set for applications during execution. One feature used by malicious actors is the \"Debugger\" option. When a key has this value enabled, a Debugging command line can be specified. Windows will launch the Debugging command line, and pass the original command line in as an argument. Adversaries can set a Debugger for Accessibility Applications. The analytic looks for the original command line as an argument to the Debugger. When the strings \"sethc.exe\", \"utilman.exe\", \"osk.exe\", \"narrator.exe\", and \"Magnify.exe\" are detected in the arguments, but not as the main executable, it is very likely that a Debugger is set.\n\nThis analytic could depend on the possibility of the known strings used as arguments for other applications used in the day-to-day environment. Although the chance of the string \"sethc.exe\" being used as an argument for another application is unlikely, it still is a possibility.",
@@ -14531,6 +14915,7 @@
    "Reference - CAR-2014-11-003: Debuggers for Accessibility Applications - MITRE"})
 
 (def Reference-Deception-BasedResponsesToSecurityAttacks_CrowdstrikeInc
+  "Reference - Deception-Based Responses to Security Attacks - Crowdstrike Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20140250524A1/en?oq=US-2014250524-A1",
    :d3fend/kb-abstract
@@ -14548,6 +14933,7 @@
    "Reference - Deception-Based Responses to Security Attacks - Crowdstrike Inc"})
 
 (def Reference-DecoyAndDeceptiveDataObjectTechnology_CymmetriaInc
+  "Reference - Decoy and deceptive data object technology - Cymmetria Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170134423A1",
    :d3fend/kb-abstract
    "A computer implemented method of detecting unauthorized access to a protected network by monitoring a dynamically updated deception environment, comprising launching, on one or more decoy endpoints, one or more decoy operating system (OS) managing one or more of a plurality of deception applications mapping a plurality of applications executed in a protected network, updating dynamically a usage indication for a plurality of deception data objects deployed in the protected network to emulate usage of the plurality of deception data objects for accessing the deception application(s) wherein the plurality of deception data objects are configured to trigger an interaction with the deception application(s) when used, detecting usage of data contained in the deception data object(s) by monitoring the interaction and identifying one or more potential unauthorized operations based on analysis of the detection.",
@@ -14565,6 +14951,7 @@
    "Reference - Decoy and deceptive data object technology - Cymmetria Inc"})
 
 (def Reference-DecoyAndDeceptiveDataObjectTechnology_CymmetriaInc.
+  "Reference - Decoy and deceptive data object technology - Cymmetria, Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US20170134423A1",
    :d3fend/kb-abstract
    "A computer implemented method of detecting unauthorized access to a protected network by monitoring a dynamically updated deception environment, comprising launching, on one or more decoy endpoints, one or more decoy operating system (OS) managing one or more of a plurality of deception applications mapping a plurality of applications executed in a protected network, updating dynamically a usage indication for a plurality of deception data objects deployed in the protected network to emulate usage of the plurality of deception data objects for accessing the deception application(s) wherein the plurality of deception data objects are configured to trigger an interaction with the deception application(s) when used, detecting usage of data contained in the deception data object(s) by monitoring the interaction and identifying one or more potential unauthorized operations based on analysis of the detection.\n\nIn order to convince the potential attacker that the deception environment is the real (valid) processing environment and/or part thereof, the campaign manager may construct the false identity according to the public information of the certain user that may typically be available to the potential attacker. By exposing the real (public) information of the certain user to the potential attacker, the false identity may seem consistent and legitimate to the potential attacker. For example, the campaign manager may create a false account, for example, a Facebook account of the certain user that includes the same public information that is publicly available to other Facebook users from the real (genuine) Facebook account of the certain user. The fake company account may include information specific to the role and/or job title of certain user within the company, for example, a programmer, an accountant, an IT person and/or the like.",
@@ -14581,6 +14968,7 @@
    "Reference - Decoy and deceptive data object technology - Cymmetria, Inc."})
 
 (def Reference-DecoyNetwork-BasedServiceForDeceivingAttackers-AmazonTechnologies
+  "Reference - Decoy Network-Based Service for Deceiving Attackers - Amazon Technologies"
   {:d3fend/has-link "https://patents.google.com/patent/US10873601B1",
    :d3fend/kb-abstract
    "A decoy network-based service uses a decoy credential to lure an attacker to access the decoy network-based service, and monitors the attacker's activity with respect to the decoy network-based service to determine the attacker's motivation. In various examples, a decoy credential is published on an Internet-accessible site, and a system that provides a network-based service (e.g., a service provider network) subsequently receives an access request from a computing device that includes the decoy credential. Based on the decoy credential, the computing device may be provided access to a decoy network-based service, and application programming interface (API) calls made by the computing device may be routed through a decoy control plane. The data relating to the API calls may be stored and analyzed to determine a motivation of the attacker, which may be used in various downstream applications to improve security for customers of the network-based service.",
@@ -14597,6 +14985,7 @@
    "Reference - Decoy Network-Based Service for Deceiving Attackers - Amazon Technologies"})
 
 (def Reference-DecoyPersonasForSafeguardingOnlineIdentityUsingDeception_
+  "Reference - Decoy Personas for Safeguarding Online Identity Using Deception - MITRE"
   {:d3fend/has-link
    "https://web.archive.org/web/20180407204216/https://isc.sans.edu/diary/Decoy+Personas+for+Safeguarding+Online+Identity+Using+Deception/16159",
    :d3fend/kb-abstract
@@ -14614,6 +15003,7 @@
    "Reference - Decoy Personas for Safeguarding Online Identity Using Deception - MITRE"})
 
 (def Reference-DetectingDDoSAttackUsingSnort
+  "Reference - Detecting DDoS Attack Using Snort"
   {:d3fend/has-link
    "https://www.researchgate.net/publication/338660054_DETECTING_DDoS_ATTACK_USING_Snort",
    :d3fend/kb-abstract
@@ -14629,6 +15019,7 @@
 
 (def
   Reference-DetectingNetworkReconnaissanceByTrackingIntranetDark-netCommunications_VECTRANETWORKSInc
+  "Reference - Detecting network reconnaissance by tracking intranet dark-net communications - VECTRA NETWORKS Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20150264078A1",
    :d3fend/kb-abstract
    "A method and system for detecting network reconnaissance is disclosed wherein network traffic can be parsed into unidirectional flows that correspond to sessions. A learning module may categorize computing entities inside the network into assets and generate asset data to monitor the computing entities. If one or more computing entities address a flow to an address of a host that no longer exists, ghost asset data may be recorded and updated in the asset data. When a computing entity inside the network contacts an object in the dark-net, the computing entity may be recorded a potential mapper. When the computing entity tries to contact a number of objects in the dark-net, such that a computed threshold is exceeded, the computing entity is identified a malicious entity performing network reconnaissance.",
@@ -14646,6 +15037,7 @@
    "Reference - Detecting network reconnaissance by tracking intranet dark-net communications - VECTRA NETWORKS Inc"})
 
 (def Reference-DetectingScript-basedMalware_CrowdstrikeInc
+  "Reference - Detecting script-based malware - Crowdstrike Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20190188384A1",
    :d3fend/kb-abstract
    "Described herein are systems, techniques, and computer program products for preventing execution, by a scripting engine, of harmful commands that may be introduced by computer malware or other mechanisms. The system identifies certain host processes that may attempt to utilize a hosted scripting engine. An unmanaged interface module is injected into an identified host process. The unmanaged interface module is configured to detect certain conditions indicating the likelihood that a scripting engine will be instantiated, and in response to inject a managed interface module into the host process. The managed interface module hooks into certain methods of the scripting engine to intercept commands before they are executed by the scripting engine. The managed and unmanaged interface components then communicate with a kernel-mode threat detection component to determine whether any commands should be blocked.",
@@ -14661,6 +15053,7 @@
    :rdfs/label "Reference - Detecting script-based malware - Crowdstrike Inc"})
 
 (def Reference-DetectionOfMaliciousIDNHomoglyphDomains
+  "Reference - Detection of Malicious IDNHomoglyph Domains"
   {:d3fend/has-link "http://essay.utwente.nl/79263/1/Yazdani_MA_EEMCS.pdf",
    :d3fend/kb-abstract
    "At early stages of Internet development, users were only able to register or access domains with ASCII characters. The introduction of IDN (Internationalized Domain Name) which uses the larger Unicode character set, made it possible for regional users to deal with domain names using their local language alphabet. Beside the advantages provided by IDN, a new type of network threats has also emerged. The reason behind this is that there are many similar-looking characters in Unicode system, called homoglyphs. These characters could be used by an attacker to lure users by replacing one or more characters of a benign domain.",
@@ -14675,6 +15068,7 @@
 
 (def
   Reference-DeterministicMethodForDetectingAndBlockingOfExploitsOnInterpretedCode_K2CyberSecurityInc
+  "Reference - Deterministic method for detecting and blocking of exploits on interpreted code - K2 Cyber Security Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20190180036A1/en?oq=US-2019180036-A1",
    :d3fend/kb-abstract
@@ -14693,6 +15087,7 @@
    "Reference - Deterministic method for detecting and blocking of exploits on interpreted code - K2 Cyber Security Inc"})
 
 (def Reference-DigitalIdentityGuidelines800-63-3
+  "Reference - Digital Identity Guidelines 800-63-3"
   {:d3fend/has-link
    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf",
    :d3fend/kb-author "NIST",
@@ -14704,6 +15099,7 @@
    :rdfs/label "Reference - Digital Identity Guidelines 800-63-3"})
 
 (def Reference-DistributedMeta-informationQueryInANetwork_Bit9Inc
+  "Reference - Distributed meta-information query in a network - Bit 9 Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20070028302A1/en?oq=US-2007028302-A1",
    :d3fend/kb-abstract
@@ -14721,6 +15117,7 @@
    "Reference - Distributed meta-information query in a network - Bit 9 Inc"})
 
 (def Reference-DomainAgeRegistrationAlert_IncRapid7IncRAPID7Inc
+  "Reference - Domain age registration alert - Inc Rapid7 Inc RAPID7 Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170026400A1/",
    :d3fend/kb-abstract
    "Systems and methods of identifying a security risk by monitoring and generating alerts based on attempts to access web domains that have been registered within a short period of time and are therefore identified as \"high-risk,\" including identifying an attempt to access a domain; receiving a registration date of the domain; and detecting a security risk based on the registration date of the domain.",
@@ -14735,6 +15132,7 @@
    "Reference - Domain age registration alert - Inc Rapid7 Inc RAPID7 Inc"})
 
 (def Reference-DomainKeysIdentifiedMail-Signatures-IETF
+  "Reference - RFC 6376: DomainKeys Identified Mail (DKIM) Signatures - IETF"
   {:d3fend/has-link "https://tools.ietf.org/html/rfc6376",
    :d3fend/kb-abstract
    "DomainKeys Identified Mail (DKIM) permits a person, role, or organization that owns the signing domain to claim some responsibility for a message by associating the domain with the message.  This can be an author's organization, an operational relay, or one of their agents.  DKIM separates the question of the identity of the Signer of the message from the purported author of the message.  Assertion of responsibility is validated through a\ncryptographic signature and by querying the Signer's domain directly\nto retrieve the appropriate public key.  Message transit from author to recipient is through relays that typically make no substantive change to the message content and thus preserve the DKIM signature.",
@@ -14750,6 +15148,7 @@
 
 (def
   Reference-DynamicSelectionAndGenerationOfAVirtualCloneForDetonationOfSuspiciousContentWithinAHoneyNetwork_PaloAltoNetworksInc
+  "Reference - Dynamic selection and generation of a virtual clone for detonation of suspicious content within a honey network - Palo Alto Networks Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US9882929B1/en?oq=US-9882929-B1",
    :d3fend/kb-abstract
@@ -14769,6 +15168,7 @@
 
 (def
   Reference-EmbeddingContextsForOn-lineThreatsIntoResponsePolicyZones-VerisignInc
+  "Reference - Embedding contexts for on-line threats into response policy zones - Verisign Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US10440059B1",
    :d3fend/kb-abstract
    "Hierarchical threat intelligence embedded in subdomain CNAMEs of a DNS denylist.\n\nIn one embodiment, a response policy zone (RPZ) application generates an RPZ that includes contexts for the on-line threats that are associated with domain names. For a domain name that is associated with an on-line threat, the RPZ application determines a threat specification that describes a characteristic of the on-line threat. The RPZ application then generates an alias based on the domain name and the threat specification. Subsequently, the RPZ application generates a domain name system (DNS) resource record that maps the domain name to the alias, includes the resource record in the RPZ, and transmits the RPZ to a DNS name server that implements the RPZ. Upon receiving a DNS query associated with the domain name, the DNS name server generates a DNS response based on the alias. Because the domain name and the threat specification is reflected in the alias, the DNS response automatically provides a relevant context.",
@@ -14784,6 +15184,7 @@
    "Reference - Embedding contexts for on-line threats into response policy zones - Verisign Inc"})
 
 (def Reference-End-to-endCertificatePinning
+  "Reference - End-to-end certificate pinning"
   {:d3fend/has-link
    "https://patents.google.com/patent/US9847992B2/en?q=certificate+pinning&oq=certificate+pinning",
    :d3fend/kb-abstract
@@ -14798,6 +15199,7 @@
 
 (def
   Reference-EnhancingNetworkSecurityByPreventingUser-InitiatedMalwareExecution_
+  "Reference - Enhancing Network Security By Preventing User-Initiated Malware Execution - MITRE"
   {:d3fend/has-link "https://ieeexplore.ieee.org/document/1425209",
    :d3fend/kb-abstract
    "In this paper, we describe characteristics of the most widely used defense techniques for the blocking of user-initiated malware and why these techniques are insufficient. We then introduce a module verification strategy that will eliminate, or at least severely reduce, this problem by extending the classic \"defense in depth\" network security strategy. We then describe how the augmentation of a standard operating system loader to include references to a database of cryptographic hashes of module executables can be used to implement this strategy. Finally, we describe our efforts towards the creation of a prototype system that implements the module verification strategy.",
@@ -14815,6 +15217,7 @@
    "Reference - Enhancing Network Security By Preventing User-Initiated Malware Execution - MITRE"})
 
 (def Reference-ExecutionWithAT_MITRE
+  "Reference - CAR-2013-05-004: Execution with AT - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-05-004/",
    :d3fend/kb-abstract
    "In order to gain persistence, privilege escalation, or remote execution, an adversary may use the Windows built-in command AT (at.exe) to schedule a command to be run at a specified time, date, and even host. This method has been used by adversaries and administrators alike. Its use may lead to detection of compromised hosts and compromised users if it is used to move laterally. The built-in Windows tool schtasks.exe (CAR-2013-08-001) offers greater flexibility when creating, modifying, and enumerating tasks. For these reasons, schtasks.exe is more commonly used by administrators, tools/scripts, and power users.",
@@ -14828,6 +15231,7 @@
    :rdfs/label "Reference - CAR-2013-05-004: Execution with AT - MITRE"})
 
 (def Reference-ExecutionWithSchtasks_MITRE
+  "Reference - CAR-2013-08-001: Execution with schtasks - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-08-001/",
    :d3fend/kb-abstract
    "The Windows built-in tool schtasks.exe provides the creation, modification, and running of scheduled tasks on a local or remote computer. It is provided as a more flexible alternative to at.exe, described in CAR-2013-05-004. Although used by adversaries, the tool is also legitimately used by administrators, scripts, and software configurations. The scheduled tasks tool can be used to gain Persistence and can be used in combination with a Lateral Movement technique to remotely gain execution. Additionally, the command has parameters to specify the user and password responsible for creating the task, as well as the user and password combination that the task will run as. The /s flag will cause a task to run as the SYSTEM user, usually indicating privilege escalation.",
@@ -14841,6 +15245,7 @@
    :rdfs/label "Reference - CAR-2013-08-001: Execution with schtasks - MITRE"})
 
 (def Reference-FWTK-FirewallToolkit_
+  "Reference - FWTK - Firewall Toolkit"
   {:d3fend/has-link
    "https://blogs.gartner.com/john_pescatore/2008/10/02/this-week-in-network-security-history-the-firewall-toolkit/",
    :d3fend/kb-abstract "delivered to DARPA in ~1993",
@@ -14853,6 +15258,7 @@
    :rdfs/label "Reference - FWTK - Firewall Toolkit"})
 
 (def Reference-FWTKDocumentation-Fwtk.org
+  "Reference - FWTK Documentation - fwtk.org"
   {:d3fend/has-link
    "https://web.archive.org/web/20070510153306/http://www.fwtk.org/fwtk/docs/documentation.html#1.1",
    :d3fend/kb-abstract
@@ -14866,6 +15272,7 @@
    :rdfs/label "Reference - FWTK Documentation - fwtk.org"})
 
 (def Reference-File-modifyingMalwareDetection_CrowdstrikeInc
+  "Reference - File-modifying malware detection - Crowdstrike Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20180121650A1/en?oq=US-2018121650-A1",
    :d3fend/kb-abstract
@@ -14882,6 +15289,7 @@
    "Reference - File-modifying malware detection - Crowdstrike Inc"})
 
 (def Reference-FileAndFolderPermissions
+  "Reference - File and Folder Permissions"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/bb727008(v=technet.10)?redirectedfrom=MSDN",
    :d3fend/kb-organization "Microsoft",
@@ -14892,6 +15300,7 @@
    :rdfs/label "Reference - File and Folder Permissions"})
 
 (def Reference-Finding_phishing_sites
+  "Reference - Finding phishing sites"
   {:d3fend/has-link "https://patents.google.com/patent/US8839418B2/",
    :d3fend/kb-author
    "Geoffrey John Hulten, Paul Stephen Rehfuss, Robert Rounthwaite, Joshua Theodore Goodman, Gopalakrishnan Seshadrinathan, Anthony P. Penta, Manav Mishra, Roderic C. Deyo, Elliott Jeb Haber, David Aaron Ward Snelling",
@@ -14904,6 +15313,7 @@
    :rdfs/label "Reference - Finding phishing sites"})
 
 (def Reference-FirewallForInterentAccess_SecureComputingLLC
+  "Reference - Firewall for interent access - Secure Computing LLC"
   {:d3fend/has-link "https://patents.google.com/patent/GB2317539A",
    :d3fend/kb-abstract
    "Regulating the flow of internetwork connections through a firewall (10) having a network protocol stack (14,16,18) which includes an Internet Protocol (IP) layer (16). A determination is made of the parameters characteristic of a connection request, including a netelement parameter characteristic of where the connection request came from. A query is generated and a determination is made whether there is a rule corresponding to that query. If there is a rule corresponding to the query, a determination is made whether authentication is required by the rule. If authentication is required by the rule, an authentication protocol is activated and the connection is activated if the authentication protocol is completed successfully.",
@@ -14919,6 +15329,7 @@
 
 (def
   Reference-FirewallForProcessingAConnectionlessNetworkPacket_NationalSecurityAgency
+  "Reference - Firewall for processing a connectionless network packet - National Security Agency"
   {:d3fend/has-link "https://patents.google.com/patent/US7073196B1",
    :d3fend/kb-abstract
    "The present invention is a device for and method of accessing a network by initializing a database, an approved list, and a disapproved list; receiving an connectionless network packet; computing a flow tag based on the connectionless network packet; discarding the connectionless network packet and returning to the second step if the flow tag is on the disapproved list; allowing access to the network and returning to the second step if the flow tag is on the approved list; comparing the flow tag to the database if the flow tag is not on the approved list or the disapproved list; discarding the connectionless network packet, adding the flow tag to the disapproved list, and returning to the second step if the database rejects the flow tag; and allowing access to the network, adding the flow tag to the approved list, and returning to the second step if the database accepts the flow tag.",
@@ -14936,6 +15347,7 @@
 
 (def
   Reference-FirewallForProcessingConnection-orientedAndConnectionlessDatagramsOverAConnection-orientedNetwork_NationalSecurityAgency
+  "Reference - Firewall for processing connection-oriented and connectionless datagrams over a connection-oriented network - National Security Agency"
   {:d3fend/has-link "https://patents.google.com/patent/US6615358B1",
    :d3fend/kb-abstract
    "The present invention is a device for and method of accessing an information network by initializing a database, an ATM approved list, an IP approved list, and an IP disapproved list; receiving a datagram; discarding the datagram if it is not on the ATM approved list; determining the datagram's type; allowing access to the network and comparing the connection request, if any, to the database if the datagram is ATM signaling; discarding the datagram if the datagram is ATM signaling and the database denies the request; adding the request to the ATM approved list if the datagram is ATM signaling and the database allows the request; allowing access to the network if the datagram is ATM data that excludes IP data and the request is on the ATM approved list; computing a flow tag if the datagram is ATM data that includes IP data; discarding the datagram if the flow tag is on the IP disapproved list; allowing access to the network if the flow tag is on the IP approved list; comparing the flow tag to the database if the flow tag is neither on the IP approved list nor on the IP disapproved list; discarding the datagram and adding the flow tag to the IP disapproved list if the database rejects the flow tag; and allowing access to the network and adding the flow tag to the corresponding approved list if the database accepts the flow tag; and performing these steps on the next datagram",
@@ -14952,6 +15364,7 @@
    "Reference - Firewall for processing connection-oriented and connectionless datagrams over a connection-oriented network - National Security Agency"})
 
 (def Reference-FirewallsThatFilterBasedUponProtocolCommands_IntelCorp
+  "Reference - Firewalls that filter based upon protocol commands - Intel Corp"
   {:d3fend/has-link "https://patents.google.com/patent/US6832256B1",
    :d3fend/kb-abstract
    "Data transfer is controlled between a first network and a second network of computers by a firewall-proxy combination. Active interpretation of protocol commands exchanged between the first network and the second network is performed to determine specific actions concerning completion of the protocol request. This active firewall-proxy combination may exist on either the first or second network of computers. This method of control provides centralized control and administration for all potentially reachable resources within a network.",
@@ -14968,6 +15381,7 @@
    "Reference - Firewalls that filter based upon protocol commands - Intel Corp"})
 
 (def Reference-FirmwareBehaviorAnalysisConFirm
+  "Reference - Firmware Behavior Analysis ConFirm"
   {:d3fend/has-link "http://sites.nyuad.nyu.edu/moma/pdfs/pubs/C22.pdf",
    :d3fend/kb-abstract
    "The modernization of various critical infrastructure components has dictated the use of microprocessor-based\nembedded control systems in critical applications. It is often\ninfeasible, however, to employ the same level of security measures used in general purpose computing systems, due to the stringent\nperformance and resource constraints of embedded devices. Furthermore, as software relies on the firmware for proper operation,\nno software-level technique can detect malicious behavior of\nthe firmware. In this work, we propose ConFirm, a low-cost\ntechnique to detect malicious modifications in the firmware\nof embedded systems by measuring the number of low-level hardware events that occur during the execution of the firmware.",
@@ -14983,6 +15397,7 @@
    :rdfs/label "Reference - Firmware Behavior Analysis ConFirm"})
 
 (def Reference-FirmwareBehaviorAnalysisVIPER
+  "Reference - Firmware Behavior Analysis VIPER"
   {:d3fend/has-link "https://dl.acm.org/doi/pdf/10.1145/2046707.2046711",
    :d3fend/kb-abstract
    "Recent research demonstrates that malware can infect peripherals' firmware in a typical x86 computer system, e.g., by exploiting vulnerabilities in the firmware itself or in the firmware update tools. Verifying the integrity of peripherals' firmware is thus an important challenge. We propose software-only attestation protocols to verify the integrity of peripherals' firmware, and show that they can detect all known software-based attacks.",
@@ -14996,6 +15411,7 @@
    :rdfs/label "Reference - Firmware Behavior Analysis VIPER"})
 
 (def Reference-FirmwareEmbeddedMonitoringCodeRedBalloon
+  "Reference - Firmware Embedded Monitoring Code Red Balloon"
   {:d3fend/has-link "https://patents.google.com/patent/US10657262B1/en",
    :d3fend/kb-abstract
    "Systems and methods for securing embedded devices via both online and offline defensive strategies. One or more security software components may be injected into firmware binary to create a modified firmware binary, which is functionally- and size-equivalent to the original firmware binary. The security software components may retrieve live forensic information related to embedded devices for use in live hardening of the modified firmware binary while the embedded device is online, dynamically patching the firmware",
@@ -15009,6 +15425,7 @@
    :rdfs/label "Reference - Firmware Embedded Monitoring Code Red Balloon"})
 
 (def Reference-FirmwareEmbeddedMonitoringCodeSymbiotes
+  "Reference - Firmware Embedded Monitoring Code Symbiotes"
   {:d3fend/has-link
    "http://nsl.cs.columbia.edu/projects/minestrone/papers/Symbiotes.pdf",
    :d3fend/kb-abstract
@@ -15023,6 +15440,7 @@
    :rdfs/label "Reference - Firmware Embedded Monitoring Code Symbiotes"})
 
 (def Reference-FirmwareVerificationEclypsium
+  "Reference - Firmware Verification Eclypsium"
   {:d3fend/has-link "https://patents.google.com/patent/US20200074086A1/en",
    :d3fend/kb-abstract
    "Systems and methods are provided herein for monitoring and identifying potential security vulnerabilities in hardware and / or firmware of host devices .",
@@ -15036,6 +15454,7 @@
    :rdfs/label "Reference - Firmware Verification Eclypsium"})
 
 (def Reference-FirmwareVerificationTrapezoid
+  "Reference - Firmware Verification Trapezoid"
   {:d3fend/has-link "https://patents.google.com/patent/US9674183B2/en",
    :d3fend/kb-abstract
    "A trust control management method for security, operable on a computer system generates a unique Trust ID value by combining user-defined values with hardware-specific values associated with the user's computer system and storing the Trust ID value in a memory register physically associated with the hardware of the computer system.",
@@ -15050,6 +15469,7 @@
 
 (def
   Reference-FrameworkForNotifyingADirectoryServiceOfAuthenticationEventsProcessedOutsideTheDirectoryService_OracleInternationalCorp
+  "Reference - Framework for notifying a directory service of authentication events processed outside the directory service - Oracle International Corp"
   {:d3fend/has-link "https://patents.google.com/patent/US20090077645A1",
    :d3fend/kb-abstract
    "Methods, systems and machine-readable media for authenticating an end user for a client application are disclosed. According to one embodiment of the invention, a method of authenticating an end user for a client application using a directory service having an authentication control policy that tracks failed authentication attempts and allows lock out of an account after a predetermined number of failures comprises receiving end user identity information and security information at the client application; sending a search request to the directory service for an entry associated with the end user identity information and, if a match is found, receiving a authentication token from the directory service associated with the end user identity information; comparing the received authentication token with the security information; if the authentication token matches the security information, sending a request to update the directory service to indicate that successful authentication of the end user has occurred; and if the authentication token does not match the security information, sending a request to update the directory service to indicate that a failed attempt at authentication of the end user has occurred.",
@@ -15066,6 +15486,7 @@
    "Reference - Framework for notifying a directory service of authentication events processed outside the directory service - Oracle International Corp"})
 
 (def Reference-GS_BufferSecurityCheck_MicrosoftDocs
+  "Reference - /GS (Buffer Security Check) - Microsoft Docs"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/cpp/build/reference/gs-buffer-security-check?view=vs-2019",
    :d3fend/kb-abstract "",
@@ -15079,6 +15500,7 @@
    :rdfs/label "Reference - /GS (Buffer Security Check) - Microsoft Docs"})
 
 (def Reference-GenericRegsvr32_MITRE
+  "Reference - CAR-2019-04-002: Generic Regsvr32 - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-04-002/",
    :d3fend/kb-abstract
    "Regsvr32 can be used to execute arbitrary code in the context of a Windows signed binary, which can be used to bypass application whitelisting. This analytic looks for suspicious usage of the tool. It's not likely that you'll get millions of hits, but it does occur during normal activity so some form of baselining would be necessary for this to be an alerting analytic. Alternatively, it can be used for hunt by looking for new or anomalous DLLs manually.",
@@ -15093,6 +15515,7 @@
 
 (def
   Reference-GuardsForApplicationInSoftwareTamperproofing_PurdueResearchFoundation
+  "Reference - Guards for application in software tamperproofing - Purdue Research Foundation"
   {:d3fend/has-link
    "https://patents.google.com/patent/US7287166B1/en?oq=US-7287166-B1",
    :d3fend/kb-abstract
@@ -15111,6 +15534,7 @@
 
 (def
   Reference-Hardware-assistedSystemAndMethodForDetectingAndAnalyzingSystemCallsMadeToAnOpertingSystemKernel_EndgameInc
+  "Reference - Hardware-assisted system and method for detecting and analyzing system calls made to an operting system kernel - Endgame Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20180032728A1/en?oq=US20180032728-A1",
    :d3fend/kb-abstract
@@ -15129,6 +15553,7 @@
    "Reference - Hardware-assisted system and method for detecting and analyzing system calls made to an operting system kernel - Endgame Inc"})
 
 (def Reference-HeuristicBotnetDetection_PaloAltoNetworksInc
+  "Reference - Heuristic botnet detection - Palo Alto Networks Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160156644A1",
    :d3fend/kb-abstract
    "In some embodiments, heuristic botnet detection is provided. In some embodiments, heuristic botnet detection includes monitoring network traffic to identify suspicious network traffic; and detecting a bot based on a heuristic analysis of the suspicious network traffic behavior using a processor, in which the suspicious network traffic behavior includes command and control traffic associated with a bot master. In some embodiments, heuristic botnet detection further includes assigning a score to the monitored network traffic, in which the score corresponds to a botnet risk characterization of the monitored network traffic (e.g., based on one or more heuristic botnet detection techniques); increasing the score based on a correlation of additional suspicious behaviors associated with the monitored network traffic (e.g., based on one or more heuristic botnet detection techniques); and determining the suspicious behavior is associated with a botnet based on the score.",
@@ -15144,6 +15569,7 @@
    "Reference - Heuristic botnet detection - Palo Alto Networks Inc"})
 
 (def Reference-HostDiscoveryCommands_MITRE
+  "Reference - CAR-2016-03-001: Host Discovery Commands - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2016-03-001/",
    :d3fend/kb-abstract
    "When entering on a host for the first time, an adversary may try to discover information about the host. There are several built-in Windows commands that can be used to learn about the software configurations, active users, administrators, and networking configuration. These commands should be monitored to identify when an adversary is learning information about the system and environment. The information returned may impact choices an adversary can make when establishing persistence, escalating privileges, or moving laterally.\n\nBecause these commands are built in, they may be run frequently by power users or even by normal users. Thus, an analytic looking at this information should have well-defined white- or blacklists, and should consider looking at an anomaly detection approach, so that this information can be learned dynamically.",
@@ -15158,6 +15584,7 @@
 
 (def
   Reference-HostIntrusionPreventionSystemUsingSoftwareAndUserBehaviorAnalysis_SophosLtd
+  "Reference - Host intrusion prevention system using software and user behavior analysis - Sophos Ltd"
   {:d3fend/has-link "https://patents.google.com/patent/US20110023115A1",
    :d3fend/kb-abstract
    "In embodiments of the present invention improved capabilities are described for threat detection using a behavioral-based host-intrusion prevention method and system for monitoring a user interaction with a computer, software application, operating system, graphic user interface, or some other component or client of a computer network, and performing an action to protect the computer network based at least in part on the user interaction and a computer code process executing during or in association with a computer usage session.",
@@ -15177,6 +15604,7 @@
    "Reference - Host intrusion prevention system using software and user behavior analysis - Sophos Ltd"})
 
 (def Reference-HowASLRProtectsLinuxSystemsFromBufferOverflowAttacks_NetworkWorld
+  "Reference - How ASLR protects Linux systems from buffer overflow attacks - Network World"
   {:d3fend/has-link
    "https://www.networkworld.com/article/3331199/what-does-aslr-do-for-linux.html",
    :d3fend/kb-abstract
@@ -15194,6 +15622,7 @@
    "Reference - How ASLR protects Linux systems from buffer overflow attacks - Network World"})
 
 (def Reference-HowToChangeRegistryValuesOrPermissionsFromACommandLineOrAScript
+  "Reference - How to change registry values or permissions from a command line or a script"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/troubleshoot/windows-client/application-management/change-registry-values-permissions",
    :d3fend/kb-abstract
@@ -15209,6 +15638,7 @@
 
 (def
   Reference-HowTrustRelationshipsWorkForResourceForestsInAzureActiveDirectoryDomainServices
+  "Reference - How trust relationships work for resource forests in Azure Active Directory Domain Services"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/azure/active-directory-domain-services/concepts-forest-trust",
    :d3fend/kb-abstract
@@ -15224,6 +15654,7 @@
    "Reference - How trust relationships work for resource forests in Azure Active Directory Domain Services"})
 
 (def Reference-IEEE-802_1AB-2016
+  "Reference - IEEE Standard for Local and Metropolitan Area Networks - Station and Media Access Control Connectivity Discovery"
   {:d3fend/has-link "https://standards.ieee.org/ieee/802.1AB/6047/",
    :d3fend/kb-organization "IEEE",
    :d3fend/kb-reference-of :d3fend/HardwareComponentInventory,
@@ -15236,6 +15667,7 @@
 
 (def
   Reference-IdentificationAndExtractionOfKeyForensicsIndicatorsOfCompromiseUsingSubject-specificFilesystemViews
+  "Reference - Identification and extraction of key forensics indicators of compromise using subject-specific filesystem views"
   {:d3fend/has-link "https://patents.google.com/patent/US20200004962A1/en",
    :d3fend/kb-abstract
    "A stackable filesystem that transparently tracks process file writes for forensic analysis. The filesystem comprises a base filesystem, and an overlay filesystem. Processes see the union of the upper and lower filesystems, but process writes are only reflected in the overlay. By providing per-process views of the filesystem using this stackable approach, a forensic analyzer can record a process's file-based activity-i.e., file creation, deletion, modification. These activities are then analyzed to identify indicators of compromise (IoCs). These indicators are then fed into a forensics analysis engine, which then quickly decides whether a subject (e.g., process, user) is malicious. If so, the system takes some proactive action to alert a proper authority, to quarantine the potential attack, or to provide other remediation. The approach enables forensic analysis without requiring file access mediation, or conducting system event-level collection and analysis, making it a lightweight, and non-intrusive solution.",
@@ -15250,6 +15682,7 @@
    "Reference - Identification and extraction of key forensics indicators of compromise using subject-specific filesystem views"})
 
 (def Reference-IdentificationOfTracerouteNodesAndAssociatedDevices
+  "Reference - Identification of traceroute nodes and associated devices"
   {:d3fend/has-link "https://patents.google.com/patent/US10079749B2/en",
    :d3fend/kb-abstract
    "Various embodiments pertain to communication network systems. In particular, various embodiments relate to multi-path probing in communication network systems that can be used to estimate the complete topology of the network. A method includes receiving data at a source node from a tracerouting probe in a network. The data includes information about at least one network node. The method also includes determining an identification for the at least one network node based on information. In addition, the method includes using the identification of the at least one network node to determine an identification of at least one device.",
@@ -15266,6 +15699,7 @@
 
 (def
   Reference-IdentificationOfVisualInternationalDomainNameCollisions-VerisignInc
+  "Reference - Identification of visual international domain name collisions - Verisign Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US10599836B2/en",
    :d3fend/kb-abstract
    "Fuzzy OCR to detect domain name homoglyph attacks.\n\nVarious embodiments of the invention disclosed herein provide techniques for detecting a homograph attack. An IDN collision detection server retrieves a first domain name that includes a punycode element. The IDN collision detection server converts the first domain into a second domain name that includes a Unicode character corresponding to the punycode element. The IDN collision detection server converts the second domain name into an image. The IDN collision detection server performs one or more optical character recognition operations on the image to generate a textual string associated with the image. The IDN collision detection server determines that the textual string matches at least a portion of a third domain name.",
@@ -15283,6 +15717,7 @@
 
 (def
   Reference-IdentifyingADenial-of-serviceAttackInACloud-basedProxyService-CloudfareInc.
+  "Reference - Identifying a denial-of-service attack in a cloud-based proxy service - Cloudfare Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US8613089B1",
    :d3fend/kb-abstract
    "A cloud-based proxy service identifies a denial-of-service (DoS) attack including determining that there is a potential DoS attack being directed to an IP address of the cloud-based proxy service; and responsive to determining that there are a plurality of domains that resolve to that IP address, identifying the one of the plurality of domains that is the target of the DoS attack. The domain that is under attack is identified by scattering the plurality of domains to resolve to different IP addresses, where a result of the scattering is that each of those domains resolves to a different IP address, and identifying one of those plurality of domains as the target of the DoS attack by determining that there is an abnormally high amount of traffic being directed to the IP address in which that domain resolves.",
@@ -15299,6 +15734,7 @@
    "Reference - Identifying a denial-of-service attack in a cloud-based proxy service - Cloudfare Inc."})
 
 (def Reference-IndirectBranchingCalls
+  "Reference - Indirect Branching Calls"
   {:d3fend/has-link
    "https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1048.1241&rep=rep1&type=pdf",
    :d3fend/kb-abstract
@@ -15314,6 +15750,7 @@
    :rdfs/label "Reference - Indirect Branching Calls"})
 
 (def Reference-InferentialExploitAttemptDetection_CrowdstrikeInc
+  "Reference - Inferential exploit attempt detection - Crowdstrike Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US10216934B2/en?oq=US-10216934-B2",
    :d3fend/kb-abstract
@@ -15332,6 +15769,7 @@
 
 (def
   Reference-InstantProcessTerminationToolToRecoverControlOfAnInformationHandlingSystem_DellProductsLP
+  "Reference - Instant process termination tool to recover control of an information handling system - Dell Products LP"
   {:d3fend/has-link "https://patents.google.com/patent/US20060236108A1/en",
    :d3fend/kb-abstract
    "A method and system for automatic termination of unauthorized malevolent processes operating on an information handling system. A list of authenticated and essential process list is stored on the information handling system. Unauthorized processes not contained on the list can be automatically terminated by the user by invoking the present invention with a single click of a mouse or pointer device on an icon residing on the display screen of the information handling system. The offending processes are immediately terminated without generating a user prompt, which would ordinarily provide sufficient time for the malware to spawn additional offending processes. The present invention also provides significant means to recover control of a malware-infected information handling system in order to use repair tools and utilities. The present invention can be deployed at the time of manufacture of an information handling system or independently installed by a user.",
@@ -15349,6 +15787,7 @@
 
 (def
   Reference-IntegrityAssuranceThroughEarlyLoadingInTheBootPhase_CrowdstrikeInc
+  "Reference - Integrity assurance through early loading in the boot phase - Crowdstrike Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170061127A1",
    :d3fend/kb-abstract
    "Techniques utilizing library and pre-boot components to ensure that a driver associated with a kernel-mode component is initialized before other drivers during a boot phase are described herein. The library component is processed during a boot phase; the pre-boot component, which may be an alternative to the library component, is processed during a pre-boot phase. By ensuring that the driver is the first driver initialized, the components enable the driver to launch the kernel-mode component before other drivers are initialized. The library component may also determine whether another driver is to be initialized before the kernel-mode component driver, may ensure that kernel-mode component driver is initialized first, and may alert the kernel-mode component. Also, the library component may retrieve information that is to be deleted by the operating system before initialization of drivers and may provide that information to the kernel-mode component.",
@@ -15366,6 +15805,7 @@
    "Reference - Integrity assurance through early loading in the boot phase - Crowdstrike Inc"})
 
 (def Reference-IntrusionDetectionUsingAHeartbeat_SophosLtd
+  "Reference - Intrusion detection using a heartbeat - Sophos Ltd"
   {:d3fend/has-link "https://patents.google.com/patent/US20180191752A1",
    :d3fend/kb-abstract
    "A variety of techniques are disclosed for detection of advanced persistent threats and similar malware. In one aspect, the detection of certain network traffic at a gateway is used to trigger a query of an originating endpoint, which can use internal logs to identify a local process that is sourcing the network traffic. In another aspect, an endpoint is configured to periodically generate and transmit a secure heartbeat, so that an interruption of the heartbeat can be used to signal the possible presence of malware. In another aspect, other information such as local and global reputation information is used to provide context for more accurate malware detection.",
@@ -15381,6 +15821,7 @@
    "Reference - Intrusion detection using a heartbeat - Sophos Ltd"})
 
 (def Reference-IsolationOfApplicationsWithinAVirtualMachine_BromiumInc.
+  "Reference - Isolation of applications within a virtual machine - Bromium, Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US9921860B1",
    :d3fend/kb-abstract
    "Approaches for launching an application within a virtual machine. In response to receiving a request to launch an application, a device instantiates, without human intervention and based on a policy, a virtual machine in which the application is to be launched. The policy determines which resources of a device, such as a mobile device or computer system, are accessible to the virtual machine. The policy may, but need not, determine whether the virtual machine has access to a type of resource which obligates the user of the device to make a monetary payment for the user of the resource.",
@@ -15398,6 +15839,7 @@
    "Reference - Isolation of applications within a virtual machine - Bromium, Inc."})
 
 (def Reference-LUKS1On-DiskFormatSpecificationVersion1.2.3
+  "Reference - LUKS1 On-Disk Format SpecificationVersion 1.2.3"
   {:d3fend/has-link
    "https://mirrors.edge.kernel.org/pub/linux/utils/cryptsetup/LUKS_docs/on-disk-format.pdf",
    :d3fend/kb-abstract
@@ -15410,6 +15852,7 @@
    :rdfs/label "Reference - LUKS1 On-Disk Format SpecificationVersion 1.2.3"})
 
 (def Reference-LibreNMSDocsNetworkMapExtension
+  "Reference - Libre NMS - Network Map Extension"
   {:d3fend/has-link "https://docs.librenms.org/Extensions/Network-Map/",
    :d3fend/kb-abstract
    "LibreNMS has the ability to show you a network map based on:\n* xDP Discovery\n* MAC addresses",
@@ -15421,6 +15864,7 @@
    :rdfs/label "Reference - Libre NMS - Network Map Extension"})
 
 (def Reference-LibreNMSDocsOxidizedExtension
+  "Reference - Libre NMS - Oxidized Extension"
   {:d3fend/has-link "https://docs.librenms.org/Extensions/Oxidized/",
    :d3fend/kb-abstract
    "Integrating LibreNMS with Oxidized brings the following benefits:\n\n* Config viewing: Current, History, and Diffs all under the Configs tab of each device\n* Automatic addition of devices to Oxidized: Including filtering and grouping to ease credential management\n* Configuration searching",
@@ -15432,6 +15876,7 @@
    :rdfs/label "Reference - Libre NMS - Oxidized Extension"})
 
 (def Reference-LsassProcessDumpViaProcdump_MITRE
+  "Reference - CAR-2019-07-002: Lsass Process Dump via Procdump - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-07-002/",
    :d3fend/kb-abstract
    "ProcDump is a sysinternal command-line utility whose primary purpose is monitoring an application for CPU spikes and generating crash dumps during a spike that an administrator or developer can use to determine the cause of the spike.\n\nProcDump may be used to dump the memory space of lsass.exe to disk for processing with a credential access tool such as Mimikatz. This is performed by launching procdump.exe as a privileged user with command line options indicating that lsass.exe should be dumped to a file with an arbitrary name.",
@@ -15447,6 +15892,7 @@
    "Reference - CAR-2019-07-002: Lsass Process Dump via Procdump - MITRE"})
 
 (def Reference-MGT516ManagingSecurityVulnerabilitiesEnterpriseAndCloud
+  "Reference - MGT516: Managing Security Vulnerabilities: Enterprise and Cloud"
   {:d3fend/has-link
    "https://www.sans.org/cyber-security-courses/managing-enterprise-cloud-security-vulnerabilities/",
    :d3fend/kb-abstract
@@ -15463,6 +15909,7 @@
    "Reference - MGT516: Managing Security Vulnerabilities: Enterprise and Cloud"})
 
 (def Reference-MaliciousRelayDetectionOnNetworks_VECTRANETWORKSInc
+  "Reference - Malicious relay detection on networks - VECTRA NETWORKS Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20150264083A1",
    :d3fend/kb-abstract
    "A system and method for detecting malicious relay communications is disclosed. Network communications can be received and analyzed using such network components as a network switch. The received traffic can be parsed into sessions. Relay metadata can be extracted from the sessions and further be used to categorize the sessions into one or more types of relay metadata behaviors. Once a significant amount of sessions are detected an alarm may be triggered and/or alarm data may be generated for analysis by network security administrators.",
@@ -15480,6 +15927,7 @@
    "Reference - Malicious relay detection on networks - VECTRA NETWORKS Inc"})
 
 (def Reference-MalwareAnalysisSystem_PaloAltoNetworksInc
+  "Reference - Malware analysis system - Palo Alto Networks Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20150319136A1",
    :d3fend/kb-abstract
    "In some embodiments, a malware analysis system includes receiving a potential malware sample from a firewall; analyzing the potential malware sample using a virtual machine to determine if the potential malware sample is malware; and automatically generating a signature if the potential malware sample is determined to be malware. In some embodiments, the potential malware sample does not match a preexisting signature, and the malware is a zero-day attack.",
@@ -15494,6 +15942,7 @@
    :rdfs/label "Reference - Malware analysis system - Palo Alto Networks Inc"})
 
 (def Reference-MalwareDetectionInEventLoops_CrowdstrikeInc
+  "Reference - Malware detection in event loops - Crowdstrike Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20190205530A1",
    :d3fend/kb-abstract
    "Example techniques locate or identify malware based on events from or at monitored computing devices. A control unit can detect a sequence of events of various types. The control unit can locate a loop within the sequence of events based at least in part on relative frequencies of the event types. The control unit can determine a distribution of event types of the events within the loop, and determining that software running the sequence is associated with malware based at least in part on the distribution of event types within the loop. In some examples, the control unit can locate a point of commonality among a plurality of stack traces associated with respective events within the loop. The control unit can determine a malware module comprising the point of commonality.",
@@ -15509,6 +15958,7 @@
    "Reference - Malware detection in event loops - Crowdstrike Inc"})
 
 (def Reference-MalwareDetectionUsingLocalComputationalModels_CrowdstrikeInc
+  "Reference - Malware detection using local computational models - Crowdstrike Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20190026466A1",
    :d3fend/kb-abstract
    "Example techniques herein determine that a trial data stream is associated with malware (\"dirty\") using a local computational model (CM). The data stream can be represented by a feature vector. A control unit can receive a first, dirty feature vector (e.g., a false miss) and determine the local CM based on the first feature vector. The control unit can receive a trial feature vector representing the trial data stream. The control unit can determine that the trial data stream is dirty if a broad CM or the local CM determines that the trial feature vector is dirty. In some examples, the local CM can define a dirty region in a feature space. The control unit can determine the local CM based on the first feature vector and other clean or dirty feature vectors, e.g., a clean feature vector nearest to the first feature vector.",
@@ -15526,6 +15976,7 @@
    "Reference - Malware detection using local computational models - Crowdstrike Inc"})
 
 (def Reference-MethodAndApparatusForDetectingMaliciousWebsites_EndgameInc
+  "Reference - Method and Apparatus for Detecting Malicious Websites - Endgame Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20140331319A1",
    :d3fend/kb-abstract
    "A method and apparatus for detecting malicious websites is disclosed.",
@@ -15545,6 +15996,7 @@
 
 (def
   Reference-MethodAndApparatusForIncreasingTheSpeedAtWhichComputerVirusesAreDetected_McAfeeLLC
+  "Reference - Method and apparatus for increasing the speed at which computer viruses are detected - McAfee LLC"
   {:d3fend/has-link "https://patents.google.com/patent/US5502815A",
    :d3fend/kb-abstract
    "The method and apparatus for increasing the speed at which computer viruses are detected stores initial state information concerning the file or volume which is being examined for a virus. This information is stored in a cache in a non-volatile storage medium and when files are subsequently scanned for viruses, the current state information is compared to the initial state information stored in the cache. If the initial state information differs from the current state information then the file or volume is scanned for viruses which change the state information of the file or volume. If the initial state information and current state information is the same then the file or volume is scanned for a subset of viruses which do not change the state information.",
@@ -15562,6 +16014,7 @@
 
 (def
   Reference-MethodAndApparatusForNetworkFraudDetectionAndRemediationThroughAnalytics_IdaptiveLLC
+  "Reference - Method and Apparatus for Network Fraud Detection and Remediation Through Analytics - Idaptive LLC"
   {:d3fend/has-link "https://patents.google.com/patent/US20190081968A1/en",
    :d3fend/kb-abstract
    "A system and method for assessing the identity fraud risk of an entity's (a user's, computer process's, or device's) behavior within a computer network and then to take appropriate action. The system uses real-time machine learning for its assessment. It records the entity's log-in behavior (conditions at log-in) and behavior once logged in to create an entity profile that helps identify behavior patterns. The system compares new entity behavior with the entity profile to determine a risk score and a confidence level for the behavior. If the risk score and confidence level indicate a credible identity fraud risk at log-in, the system can require more factors of authentication before log-in succeeds. If the system detects risky behavior after log-in, it can take remedial action such as ending the entity's session, curtailing the entity's privileges, or notifying a human administrator.",
@@ -15584,6 +16037,7 @@
 
 (def
   Reference-MethodAndApparatusForUtilizingATokenForResourceAccess_RsaSecurityInc.
+  "Reference - Method and apparatus for utilizing a token for resource access - Rsa Security Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US5657388A/en",
    :d3fend/kb-abstract
    "A method and apparatus for utilizing a token which is preferably a \"dumb token\" to provide secure access by authorized users to a selected resource. The token stores a secret user code in machine readable form, which code is read by a token processor. The token processor also receives a time-varying value and an algorithm, both of which may be stored or generated at either the token or the token processor and preferably a secret personal identification code which may be inputted at the token, but is preferably inputted at the token processor. The secret user code, time-varying value and secret personal identification code are then algorithmically combined by the algorithm, preferably in the token processor, to generate a one-time nonpredictable code which is transmitted to a host processor. The host processor utilizes the received one-time nonpredictable code to determine if the user is authorized access to the resource and grants access to the resource if the user is determined to be authorized. The system may be modified to operate in query/response mode. The token processor may be any of a variety of available portable remote processors or may be a device such as a telephone which is equipped with card or other token reader and with processing capability.",
@@ -15600,6 +16054,7 @@
    "Reference - Method and apparatus for utilizing a token for resource access - Rsa Security Inc."})
 
 (def Reference-MethodAndSystemForControllingCommunicationPorts
+  "Reference - Method and system for controlling communication ports"
   {:d3fend/has-link "https://patents.google.com/patent/US8566924",
    :d3fend/kb-abstract
    "A method for limiting devices and controlling the applications executed from USB ports on personal computers (PCs).",
@@ -15615,6 +16070,7 @@
 
 (def
   Reference-MethodAndSystemForDetectingAlgorithm-generatedDomains_VECTRANETWORKSInc
+  "Reference - Method and system for detecting algorithm-generated domains - VECTRA NETWORKS Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20150264070A1",
    :d3fend/kb-abstract
    "A method and system for detecting algorithm-generated domains (AGDs) is disclosed wherein domain names requested by an internal host are categorized or classified using curated data sets, active services (e.g. Internet services), and certainty scores to match domain names to domain names or IP addresses used by command and control servers.",
@@ -15633,6 +16089,7 @@
 
 (def
   Reference-MethodAndSystemForDetectingExternalControlOfCompromisedHosts_VECTRANETWORKSInc
+  "Reference - Method and system for detecting external control of compromised hosts - VECTRA NETWORKS Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US9407647B2/en?oq=US-9407647-B2",
    :d3fend/kb-abstract
@@ -15651,6 +16108,7 @@
    "Reference - Method and system for detecting external control of compromised hosts - VECTRA NETWORKS Inc"})
 
 (def Reference-MethodAndSystemForDetectingMaliciousPayloads_VectraNetworksInc
+  "Reference - Method and system for detecting malicious payloads - Vectra Networks Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/EP3293937A1/en?oq=EP-3293937-A1",
    :d3fend/kb-abstract
@@ -15670,6 +16128,7 @@
 
 (def
   Reference-MethodAndSystemForDetectingRestrictedContentAssociatedWithRetrievedContent_SophosLtd
+  "Reference - Method and system for detecting restricted content associated with retrieved content - Sophos Ltd"
   {:d3fend/has-link "https://patents.google.com/patent/US20160359883A1",
    :d3fend/kb-abstract
    "In embodiments of the present invention improved capabilities are described for detecting restricted content associated with retrieved content. The method and system may include receiving a client request for content, saving contextual information from the client request, presenting retrieved content in response to the client request, and presenting the contextual information from the client request, and retrieved content, to a scanning facility. The scanning facility may utilize the contextual information from the client request to aid in the detection of restricted content associated with retrieved content.",
@@ -15689,6 +16148,7 @@
 
 (def
   Reference-MethodAndSystemForDetectingSuspiciousAdministrativeActivity_VectraNetworksInc
+  "Reference - Method and system for detecting suspicious administrative activity - Vectra Networks Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20180077186A1",
    :d3fend/kb-abstract
    "Disclosed is an improved approach for identifying suspicious administrative host activity within a network. Network traffic is examined to learn the behavior of hosts within a network. This provides an effective way of determining whether or not a host is performing suspicious activity over an administrative protocol.",
@@ -15707,6 +16167,7 @@
 
 (def
   Reference-MethodAndSystemForDetectingThreatsUsingMetadataVectors_VECTRANETWORKSInc
+  "Reference - Method and system for detecting threats using metadata vectors - VECTRA NETWORKS Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160191551A1",
    :d3fend/kb-abstract
    "An approach for detecting network attacks using metadata vectors may initially involve receiving network communications or packets, extracting metadata items from the packets. The metadata items describe the communications without requiring deep content inspection of the data payload or contents. The communications may be clustered into groups using the metadata items. If a cluster exceeds a threshold, an alarm may be generated.",
@@ -15725,6 +16186,7 @@
 
 (def
   Reference-MethodAndSystemForDetectingThreatsUsingPassiveClusterMapping_VectraNetworksInc
+  "Reference - Method and system for detecting threats using passive cluster mapping - Vectra Networks Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160149936A1",
    :d3fend/kb-abstract
    "An approach for detecting network threats is disclosed, that may involve receiving network traffic, plotting the network traffic in a n-dimensional feature space to form a network map, generating a client signature at least by placing new client points in the map, setting a threshold, and generating an alarm if one or more client activity points exceed the threshold. In some embodiments, the network map and the client signature are updated using sliding windows and distance calculations.",
@@ -15742,6 +16204,7 @@
    "Reference - Method and system for detecting threats using passive cluster mapping - Vectra Networks Inc"})
 
 (def Reference-MethodAndSystemForProvidingSoftwareUpdatesToLocalMachines
+  "Reference - Method and system for providing software updates to local machines"
   {:d3fend/has-link "https://patents.google.com/patent/US10474448B2/en",
    :d3fend/kb-author "John Melton Reynolds",
    :d3fend/kb-organization "Sophos Ltd",
@@ -15754,6 +16217,7 @@
    "Reference - Method and system for providing software updates to local machines"})
 
 (def Reference-MethodAndSystemForUDPFloodAttackDetection-RioreyLLC
+  "Reference - Method and system for UDP flood attack detection - Riorey LLC"
   {:d3fend/has-link "https://patents.google.com/patent/US8307430B1",
    :d3fend/kb-abstract
    "A system and method is provided to identify UDP attacks. A processor determines a spectral density of packet timing intervals, a natural distance between the spectral density and a uniform distribution, and a non-linear amplifier applying a non-linear amplification to the natural distance to detect a denial-of-service attack. It uses the concept of traffic statistics analysis, i.e., spectral densities of arrived-packet timing intervals, calculates the KL-distance measurement and makes decision based on the output of a non-linear Gaussian amplifier, with which one can easily adjust the amplifier via selecting different parameters of mean and variance to satisfy system requirements of false-positive and false-negative UDP attack detections.",
@@ -15769,6 +16233,7 @@
 
 (def
   Reference-MethodForControllingComputerNetworkSecurity_CheckpointSoftwareTechnologiesLtd
+  "Reference - Method for controlling computer network security - Checkpoint Software Technologies Ltd"
   {:d3fend/has-link "https://patents.google.com/patent/EP0658837B1/",
    :d3fend/kb-abstract
    "A method of operating a security system for a computer network in which data is passed in said network as data packets, said system controlling the passage of said data packets in the network according to a security rule, where each aspect of said network controlled by said security rule has been defined, said security rule has been defined in terms of said aspects and converted into a set of filter language instructions.",
@@ -15785,6 +16250,7 @@
    "Reference - Method for controlling computer network security - Checkpoint Software Technologies Ltd"})
 
 (def Reference-MethodForFileEncryption
+  "Reference - Method for file encryption"
   {:d3fend/has-link "https://patents.google.com/patent/US9521123B2/en",
    :d3fend/kb-abstract
    "A method for encryption and sealing of a plaintext file by hashing the plaintext file to produce a plaintext hash, encrypting the plaintext file to produce ciphertext, hashing the ciphertext to produce a ciphertext hash, hashing the plaintext hash and the ciphertext hash to produce a result hash, and sealing the ciphertext together with the result hash.",
@@ -15799,6 +16265,7 @@
 
 (def
   Reference-MethodUsingKernelModeAssistanceForTheDetectionAndRemovalOfThreatsWhichAreActivelyPreventingDetectionAndRemovalFromARunningSystem_SymantecCorporation
+  "Reference - Method using kernel mode assistance for the detection and removal of threats which are actively preventing detection and removal from a running system - Symantec Corporation"
   {:d3fend/has-link "https://patents.google.com/patent/US8239947B1",
    :d3fend/kb-abstract
    "A user mode application component invokes the assistance of a kernel mode driver component to detect and/or remediate malicious code on a computer system. The user mode application may include code that detects, for example, spyware and computer viruses, from user mode and when appropriate takes protective action when malicious code is detected. In one aspect, when the user mode application is unable to perform a selected operation in attempting to detect and/or take protective action, the user mode application invokes a kernel mode driver for assistance. The kernel mode driver assists user mode application in detecting malicious code and/or taking protective action by enabling or otherwise performing a selected operation for the user mode application.",
@@ -15816,6 +16283,7 @@
    "Reference - Method using kernel mode assistance for the detection and removal of threats which are actively preventing detection and removal from a running system - Symantec Corporation"})
 
 (def Reference-MissionDependencyModelingForCyberSituationalAwareness
+  "Reference - Mission Dependency Modeling for Cyber Situational Awareness"
   {:d3fend/has-link "https://csis.gmu.edu/noel/pubs/2016_NATO_IST_148.pdf",
    :d3fend/kb-abstract
    "This paper describes a hierarchical graph-based model that captures mission dependencies at various levels of abstraction, showing interdependencies among mission objectives, tasks, information, and cyber assets. For this work, we employ established tools within a structured methodology for cyber resiliency analysis. Our model is focused on a strategic-level military scenario defined in a formal Request for Information (RFI) to industry and research partners by the NATO Multinational Cyber Defense Capability Development (MN CD2) Work Package 2 (WP2). We enhance this scenario with additional mission and operational context, and then build a mission dependency model for the enhanced scenario. It is anticipated that our mission dependency model will be part of an upcoming demonstration of cyber defense situational awareness capabilities in a NATO Communications and Information (NCI) Agency test environment, integrated with data sources that represent the operational military environment.",
@@ -15832,6 +16300,7 @@
 
 (def
   Reference-MockAttackCybersecurityTrainingSystemAndMethods_WOMBATSECURITYTECHNOLOGIESInc
+  "Reference - Mock attack cybersecurity training system and methods - WOMBAT SECURITY TECHNOLOGIES Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US9558677B2/",
    :d3fend/kb-abstract
    "A training system senses a user action that may expose the user to a threat, such as a cybersecurity threat. The user action may be in response to a mock attack delivered via a messaging service, a wireless communication service, a fake malware application or another device, service, system or mechanism. The system selects a training action from a collection of available training actions and causes the training action to be delivered to the user.",
@@ -15849,6 +16318,7 @@
    "Reference - Mock attack cybersecurity training system and methods - WOMBAT SECURITY TECHNOLOGIES Inc"})
 
 (def Reference-ModelingUserAccessToComputerResources_DaedalusGroupLLC
+  "Reference - Modeling user access to computer resources - Daedalus Group LLC (formerly IBM)"
   {:d3fend/has-link "https://patents.google.com/patent/US8214364B2",
    :d3fend/kb-abstract
    "Embodiments of the invention provide a method for detecting changes in behavior of authorized users of computer resources and reporting the detected changes to the relevant individuals. The method includes evaluating actions performed by each user against user behavioral models and business rules. As a result of the analysis, a subset of users may be identified and reported as having unusual or suspicious behavior. In response, the management may provide feedback indicating that the user behavior is due to the normal expected business needs or that the behavior warrants further review. The management feedback is available for use by machine learning algorithms to improve the analysis of user actions over time. Consequently, investigation of user actions regarding computer resources is facilitated and data loss is prevented more efficiently relative to the prior art approaches with only minimal disruption to the ongoing business processes.",
@@ -15865,6 +16335,7 @@
 
 (def
   Reference-ModificationOfAServerToMimicADeceptionMechanism_AcalvioTechnologiesInc
+  "Reference - Modification of a Server to Mimic a Deception Mechanism - Acalvio Technologies Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170149825A1",
    :d3fend/kb-abstract
    "Provided are devices, computer-program products, and methods (e.g., methods implemented by a production system or security agent program or process) for providing services on a production system to mimic a deception mechanism. For example, a method can include determining a deception characteristic of a deception mechanism and determining a production characteristic of the production system. The method can further include determining an additional service or a modification of an existing service of the production system using the deception characteristic and the production characteristic. In some cases, the additional service and/or the modification can be a deterrent to potential attackers of the production system. The method can further include modifying the production system to mimic the deception mechanism, including adding the additional service to the production system or modifying the existing service using the modification.",
@@ -15881,6 +16352,7 @@
    "Reference - Modification of a Server to Mimic a Deception Mechanism - Acalvio Technologies Inc"})
 
 (def Reference-Munin
+  "Reference - Munin"
   {:d3fend/has-link  "https://github.com/Neo23x0/munin",
    :d3fend/kb-author "Florian Roth",
    :d3fend/kb-reference-title
@@ -15890,6 +16362,7 @@
    :rdfs/label       "Reference - Munin"})
 
 (def Reference-NIST-RMF-Quick-Start-Guide-Assess-Step-FAQ
+  "Reference - NIST RMF Quick Start Guide - Assess Step - Frequently Asked Questions (FAQ)"
   {:d3fend/has-link
    "https://csrc.nist.gov/CSRC/media/Projects/risk-management/documents/05-Assess%20Step/NIST%20RMF%20Assess%20Step-FAQs.pdf",
    :d3fend/kb-abstract
@@ -15904,6 +16377,7 @@
    "Reference - NIST RMF Quick Start Guide - Assess Step - Frequently Asked Questions (FAQ)"})
 
 (def Reference-NIST-Special-Publication-800-160-Volume-1
+  "Reference - NIST Special Publication 800-160 Volume 1 - System Security Engineering"
   {:d3fend/has-link "https://doi.org/10.6028/NIST.SP.800-160v1",
    :d3fend/kb-abstract
    "With the continuing frequency, intensity, and adverse consequences of cyber-attacks, disruptions, hazards, and other threats to federal, state, and local governments, the military, businesses, and the critical infrastructure, the need for trustworthy secure systems has never been more important to the long-term economic and national security interests of the United States. Engineering-based solutions are essential to managing the growing complexity, dynamicity, and interconnectedness of today’s systems, as exemplified by cyber-physical systems and systems-of-systems, including the Internet of Things. This publication addresses the engineering-driven perspective and actions necessary to develop more defensible and survivable systems, inclusive of the machine, physical, and human components that compose the systems and the capabilities and services delivered by those systems. It starts with and builds upon a set of well-established International Standards for systems and software engineering published by the International Organization for Standardization (ISO), the International Electrotechnical Commission (IEC), and the Institute of Electrical and Electronics Engineers (IEEE) and infuses systems security engineering methods, practices, and techniques into those systems and software engineering activities. The objective is to address security issues from a stakeholder protection needs, concerns, and requirements perspective and to use established engineering processes to ensure that such needs, concerns, and requirements are addressed with appropriate fidelity and rigor, early and in a sustainable manner throughout the life cycle of the system.",
@@ -15918,6 +16392,7 @@
    "Reference - NIST Special Publication 800-160 Volume 1 - System Security Engineering"})
 
 (def Reference-NIST-Special-Publication-800-37-Revision-2
+  "Reference - NIST Special Publication 800-37 Revision 2 - Risk Management Framework for Information Systems and Organizations"
   {:d3fend/has-link "https://doi.org/10.6028/NIST.SP.800-37r2",
    :d3fend/kb-abstract
    "This publication describes the Risk Management Framework (RMF) and provides guidelines for applying the RMF to information systems and organizations. The RMF provides a disciplined, structured, and flexible process for managing security and privacy risk that includes information security categorization; control selection, implementation, and assessment; system and common control authorizations; and continuous monitoring. The RMF includes activities to prepare organizations to execute the framework at appropriate risk management levels. The RMF also promotes near real-time risk management and ongoing information system and common control authorization through the implementation of continuous monitoring processes; provides senior leaders and executives with the necessary information to make efficient, cost-effective, risk management decisions about the systems supporting their missions and business functions; and incorporates security and privacy into the system development life cycle. Executing the RMF tasks links essential risk management processes at the system level to risk management processes at the organization level. In addition, it establishes responsibility and accountability for the controls implemented within an organization’s information systems and inherited by those systems.",
@@ -15931,6 +16406,7 @@
    "Reference - NIST Special Publication 800-37 Revision 2 - Risk Management Framework for Information Systems and Organizations"})
 
 (def Reference-NIST-Special-Publication-800-53A-Revision-5
+  "Reference - NIST Special Publication 800-53A Revision 5 - Assessing Security and Privacy Controls in Information Systems and Organizations"
   {:d3fend/has-link "https://doi.org/10.6028/NIST.SP.800-53Ar5",
    :d3fend/kb-abstract
    "This publication provides a methodology and set of procedures for conducting assessments of security and privacy controls employed within systems and organizations within an effective risk management framework. The assessment procedures, executed at various phases of the system development life cycle, are consistent with the security and privacy controls in NIST Special Publication 800-53, Revision 5. The procedures are customizable and can be easily tailored to provide organizations with the needed flexibility to conduct security and privacy control assessments that support organizational risk management processes and are aligned with the stated risk tolerance of the organization. Information on building effective security and privacy assessment plans is also provided with guidance on analyzing assessment results.",
@@ -15944,6 +16420,7 @@
    "Reference - NIST Special Publication 800-53A Revision 5 - Assessing Security and Privacy Controls in Information Systems and Organizations"})
 
 (def Reference-NISTIR-8011-Volume-1
+  "Reference - NISTIR 8011 Volume 1 - Automation Support for Security Control Assessments"
   {:d3fend/has-link "https://doi.org/10.6028/NIST.IR.8011-1",
    :d3fend/kb-abstract
    "This volume introduces concepts to support automated assessment of most of the security controls in NIST Special Publication (SP) 800-53. Referencing SP 800-53A, the controls are divided into more granular parts (determination statements) to be assessed. The parts of the control assessed by each determination statement are called control items. The control items are then grouped into the appropriate security capabilities. As suggested by SP 800-53 Revision 4, security capabilities are groups of controls that support a common purpose. For effective automated assessment, testable defect checks are defined that bridge the determination statements to the broader security capabilities to be achieved and to the SP 800-53 security control items themselves. The defect checks correspond to security sub-capabilities—called sub-capabilities because each is part of a larger capability. Capabilities and sub-capabilities are both designed with the purpose of addressing a series of attack steps. Automated assessments (in the form of defect checks) are performed using the test assessment method defined in SP 800-53A by comparing a desired and actual state (or behavior).",
@@ -15959,6 +16436,7 @@
 
 (def
   Reference-Network-BasedBufferOverflowDetectionByExploitCodeAnalysis_InformationSecurityResearchCentre
+  "Reference - Network-Based Buffer Overflow Detection by Exploit Code Analysis - Information Security Research Centre"
   {:d3fend/has-link "https://eprints.qut.edu.au/21172/1/21172.pdf",
    :d3fend/kb-abstract
    "Buffer overflow attacks continue to be a major security problem and detecting attacks of this nature\nis therefore crucial to network security. Signature based network based intrusion detection systems (NIDS)\ncompare network traffic to signatures modelling suspicious or attack traffic to detect network attacks. Since\ndetection is based on pattern matching, a signature modelling the attack must exist for the NIDS to detect it, and\nit is therefore only capable of detecting known attacks. This paper proposes a method to detect buffer overflow\nattacks by parsing the payload of network packets in search of shellcode which is the remotely executable\ncomponent of a buffer overflow attack. By analysing the shellcode it is possible to determine which system\ncalls the exploit uses, and hence the operation of the exploit. Current NIDS-based buffer overflow detection\ntechniques mainly rely upon specific signatures for each new attack. Our approach is able to detect previously\nunseen buffer overflow attacks, in addition to existing ones, without the need for specific signatures for each\nnew attack. The method has been implemented and tested for buffer overflow attacks on Linux on the Intel x86\narchitecture using the Snort NIDS.",
@@ -15975,6 +16453,7 @@
    "Reference - Network-Based Buffer Overflow Detection by Exploit Code Analysis - Information Security Research Centre"})
 
 (def Reference-Network-levelPolymorphicShellcodeDetectionUsingEmulation
+  "Reference - Network-level polymorphic shellcode detection using emulation"
   {:d3fend/has-link
    "https://www.cs.unc.edu/~fabian/course_papers/polymorphic-detect.pdf",
    :d3fend/kb-author "Michalis Polychronakis",
@@ -15988,6 +16467,7 @@
    "Reference - Network-level polymorphic shellcode detection using emulation"})
 
 (def Reference-NetworkFirewallWithProxy_SecureComputingLLC
+  "Reference - Network firewall with proxy - Secure Computing LLC"
   {:d3fend/has-link "https://patents.google.com/patent/GB2318031A",
    :d3fend/kb-abstract
    "A proxy which is part of a firewall controls exchanges of information between two application entities. The proxy interrogates attempts to establish a communication session by requesting entities with a server entity in lower layers in accordance with defined authentication procedures. The Proxy interfaces with networking software to direct a communication stack to monitor connection requests to any address on specific ports. The requestor's address, and the server's address are checked against a access control list. If either address is invalid, the proxy closes the connection. If both are valid, a new connection is setup such that both the requestor and server are transparently connected to the proxy with variable higher levels being connected in a relay mode. Protocol data units are interrogated for conformance to a protocol session, and optionally further decoded to add additional application specific filtering. In one embodiment, an OSI architecture comprises the levels.",
@@ -16002,6 +16482,7 @@
    "Reference - Network firewall with proxy - Secure Computing LLC"})
 
 (def Reference-OSQueryWindowsUserCollectionCode
+  "Reference - OS Query Windows User Collection Code"
   {:d3fend/has-link
    "https://github.com/osquery/osquery/blob/d2be385d71f401c85872f00d479df8f499164c5a/osquery/tables/system/windows/users.cpp",
    :d3fend/kb-reference-title "OS Query Windows User Collection Code",
@@ -16010,6 +16491,7 @@
    :rdfs/label "Reference - OS Query Windows User Collection Code"})
 
 (def Reference-OpenSourceIntelligenceDeceptions_IllusiveNetworksLtd
+  "Reference - Open source intelligence deceptions - Illusive Networks Ltd"
   {:d3fend/has-link
    "https://patents.google.com/patent/US10333976B1/en?assignee=Illusive+Networks+Ltd&oq=Illusive+Networks+Ltd+",
    :d3fend/kb-abstract
@@ -16028,6 +16510,7 @@
    "Reference - Open source intelligence deceptions - Illusive Networks Ltd"})
 
 (def Reference-OrganizationalManagementInSAPERPHCM
+  "Reference - Organizational Management in SAP ERP HCM"
   {:d3fend/has-link
    "https://www.sap-press.com/organizational-management-in-sap-erp-hcm_3996/",
    :d3fend/kb-author "Soham Ray",
@@ -16039,6 +16522,7 @@
    :rdfs/label "Reference - Organizational Management in SAP ERP HCM"})
 
 (def Reference-OutlierParentsOfCmd_MITRE
+  "Reference - CAR-2014-11-002: Outlier Parents of Cmd - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-11-002/",
    :d3fend/kb-abstract
    "Many programs create command prompts as part of their normal operation including malware used by attackers. This analytic attempts to identify suspicious programs spawning cmd.exe by looking for programs that do not normally create cmd.exe.\n\nWhile this analytic does not take the user into account, doing so could generate further interesting results. It is very common for some programs to spawn cmd.exe as a subprocess, for example to run batch files or windows commands. However many process don't routinely launch a command prompt - for example Microsoft Outlook. A command prompt being launched from a process that normally doesn't launch command prompts could be the result of malicious code being injected into that process, or of an attacker replacing a legitimate program with a malicious one.",
@@ -16052,6 +16536,7 @@
    :rdfs/label "Reference - CAR-2014-11-002: Outlier Parents of Cmd - MITRE"})
 
 (def Reference-OverviewOfTheSeccompSandbox
+  "Reference - Overview of the seccomp sandbox"
   {:d3fend/has-link
    "https://code.google.com/archive/p/seccompsandbox/wikis/overview.wiki",
    :d3fend/kb-reference-of :d3fend/SystemCallFiltering,
@@ -16061,6 +16546,7 @@
    :rdfs/label "Reference - Overview of the seccomp sandbox"})
 
 (def Reference-PlatformFirmwareResiliencyGuidelines_NIST
+  "Reference - Platform Firmware Resiliency Guidelines - NIST"
   {:d3fend/has-link
    "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-193.pdf",
    :d3fend/kb-abstract
@@ -16075,6 +16561,7 @@
    :rdfs/label "Reference - Platform Firmware Resiliency Guidelines - NIST"})
 
 (def Reference-PointerAuthenticationOnARMv8.3
+  "Reference - Pointer Authentication on ARMv8.3"
   {:d3fend/has-link
    "https://www.qualcomm.com/media/documents/files/whitepaper-pointer-authentication-on-armv8-3.pdf",
    :d3fend/kb-abstract
@@ -16088,6 +16575,7 @@
    :rdfs/label "Reference - Pointer Authentication on ARMv8.3"})
 
 (def Reference-PointerAuthenticationProjectZero
+  "Reference - Pointer Authentication Project Zero"
   {:d3fend/has-link
    "https://googleprojectzero.blogspot.com/2019/02/examining-pointer-authentication-on.html",
    :d3fend/kb-abstract
@@ -16103,6 +16591,7 @@
 
 (def
   Reference-PostSandboxMethodsAndSystemsForDetectingAndBlockingZero-dayExploitsViaApiCallValidation_K2CyberSecurityInc
+  "Reference - Post sandbox methods and systems for detecting and blocking zero-day exploits via api call validation - K2 Cyber Security Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20190138715A1/",
    :d3fend/kb-abstract
    "In one aspect, a method useful for monitoring and validating execution of executable binary code, includes the step of disassembling an executable binary code of an application. The method includes the step of detecting and obtaining location and type of an application programming interface (API) call, system call, and privileged instruction that is executed by the executable binary code. The method includes the step of detecting and obtaining return address from an Al call and system call. The method includes the step of validating location of the API call system call, and privileged instruction. The method includes the step of validating return from the API call and system call.",
@@ -16120,6 +16609,7 @@
    "Reference - Post sandbox methods and systems for detecting and blocking zero-day exploits via api call validation - K2 Cyber Security Inc"})
 
 (def Reference-PowershellExecution_MITRE
+  "Reference - CAR-2014-04-003: Powershell Execution - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-04-003/",
    :d3fend/kb-abstract
    "PowerShell is a scripting environment included with Windows that is used by both attackers and administrators. Execution of PowerShell scripts in most Windows versions is opaque and not typically secured by antivirus which makes using PowerShell an easy way to circumvent security measures. This analytic detects execution of PowerShell scripts.\n\nPowershell can be used to hide monitored command line execution such as:\n\n* net use\n* sc start",
@@ -16134,6 +16624,7 @@
 
 (def
   Reference-PredictingDomainGenerationAlgorithmsWithLongShort-TermMemoryNetworks_
+  "Reference - Predicting Domain Generation Algorithms with Long Short-Term Memory Networks"
   {:d3fend/has-link "https://arxiv.org/abs/1611.007911",
    :d3fend/kb-abstract
    "Various families of malware use domain generation algorithms (DGAs) to generate a large number of pseudo-random domain names to connect to a command and control (C&C) server. In order to block DGA C&C traffic, security organizations must first discover the algorithm by reverse engineering malware samples, then generating a list of domains for a given seed. The domains are then either preregistered or published in a DNS blacklist. This process is not only tedious, but can be readily circumvented by malware authors using a large number of seeds in algorithms with multivariate recurrence properties (e.g., banjori) or by using a dynamic list of seeds (e.g., bedep). Another technique to stop malware from using DGAs is to intercept DNS queries on a network and predict whether domains are DGA generated. Such a technique will alert network administrators to the presence of malware on their networks. In addition, if the predictor can also accurately predict the family of DGAs, then network administrators can also be alerted to the type of malware that is on their networks. This paper presents a DGA classifier that leverages long short-term memory (LSTM) networks to predict DGAs and their respective families without the need for a priori feature extraction. Results are significantly better than state-of-the-art techniques, providing 0.9993 area under the receiver operating characteristic curve for binary classification and a micro-averaged F1 score of 0.9906. In other terms, the LSTM technique can provide a 90% detection rate with a 1:10000 false positive (FP) rate---a twenty times FP improvement over comparable methods. Experiments in this paper are run on open datasets and code snippets are provided to reproduce the results.",
@@ -16151,6 +16642,7 @@
    "Reference - Predicting Domain Generation Algorithms with Long Short-Term Memory Networks"})
 
 (def Reference-PreventingExecutionOfTaskScheduledMalware_McAfeeLLC
+  "Reference - Preventing execution of task scheduled malware - McAfee LLC"
   {:d3fend/has-link "https://patents.google.com/patent/US20160105450A1",
    :d3fend/kb-abstract
    "A method for preventing malware attacks includes the steps of detecting an attempt on an electronic device to access a task scheduler, determining an entity associated with the attempt to access the task scheduler, determining a malware status of the entity, and, based on the malware status of the entity, allowing or denying the attempted access to the task scheduler. The task scheduler is configured to launch one or more applications at a specified time or interval.",
@@ -16168,6 +16660,7 @@
    "Reference - Preventing execution of task scheduled malware - McAfee LLC"})
 
 (def Reference-PrivacyAndSecuritySystemsAndMethodsOfUse
+  "Reference - Privacy and security systems and methods of use"
   {:d3fend/has-link "https://patents.google.com/patent/US10128890B2/en",
    :d3fend/kb-author "Teddy David Thomas",
    :d3fend/kb-reference-title "Privacy and security systems and methods of use",
@@ -16176,6 +16669,7 @@
    :rdfs/label "Reference - Privacy and security systems and methods of use"})
 
 (def Reference-PrivateVirtualLocalAreaNetworkIsolation_CiscoTechnologyInc
+  "Reference - Private virtual local area network isolation - Cisco Technology Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20120331142A1",
    :d3fend/kb-abstract
    "In one embodiment, a method includes obtaining addresses of end hosts at a switch, the switch configured with a primary virtual local area network and a secondary virtual local area network, creating a private virtual local area network access list comprising the addresses of end hosts permitted to communicate on the secondary virtual local area network, and applying the private virtual local area network access list to interfaces connected to the end hosts permitted to communicate on the secondary virtual local area network. An apparatus is also disclosed.",
@@ -16190,6 +16684,7 @@
    "Reference - Private virtual local area network isolation - Cisco Technology Inc"})
 
 (def Reference-ProcessesSpawningCmd.exe_MITRE
+  "Reference - CAR-2013-02-003: Processes Spawning cmd.exe - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-02-003/",
    :d3fend/kb-abstract
    "The Windows Command Prompt (cmd.exe) is a utility that provides a command line interface to Windows operating systems. It provides the ability to run additional programs and also has several built-in commands such as dir, copy, mkdir, and type, as well as batch scripts (.bat). Typically, when a user runs a command prompt, the parent process is explorer.exe or another instance of the prompt. There may be automated programs, logon scripts, or administrative tools that launch instances of the command prompt in order to run scripts or other built-in commands. Spawning the process cmd.exe from certain parents may be more indicative of malice. For example, if Adobe Reader or Outlook launches a command shell, this may suggest that a malicious document has been loaded and should be investigated. Thus, by looking for abnormal parent processes of cmd.exe, it may be possible to detect adversaries.",
@@ -16204,6 +16699,7 @@
    "Reference - CAR-2013-02-003: Processes Spawning cmd.exe - MITRE"})
 
 (def Reference-ProtectedComputingEnvironment_MicrosoftTechnologyLicensingLLC
+  "Reference - Protected computing environment - Microsoft Technology Licensing LLC"
   {:d3fend/has-link "https://patents.google.com/patent/US20060242406A1",
    :d3fend/kb-abstract
    "A method of establishing a protected environment within a computing device including validating a kernel component loaded into a kernel of the computing device, establishing a security state for the kernel based on the validation, creating a secure process and loading a software component into the secure process, periodically checking the security state of the kernel, and notifying the secure process when the security state of the kernel has changed.",
@@ -16221,6 +16717,7 @@
 
 (def
   Reference-ProtectingAgainstDistributedDenialOfServiceAttacks-CiscoTechnologyInc.
+  "Reference - Protecting against distributed denial of service attacks - Cisco Technology Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US7171683B2",
    :d3fend/kb-abstract
    "A method for authenticating packet communication traffic includes receiving a data packet sent over a network from a source address to a destination address and reading from the packet a value of a field that is indicative of a number of hops traversed by the packet since having been sent from the source address. The authenticity of the source address is assessed responsive to the value.",
@@ -16237,6 +16734,7 @@
 
 (def
   Reference-ProtectingAgainstDistributedNetworkFloodAttacks-JuniperNetworksInc.
+  "Reference - Protecting against distributed network flood attacks - Juniper Networks Inc."
   {:d3fend/has-link "https://patents.google.com/patent/US8789173B2",
    :d3fend/kb-abstract
    "A network security device performs a three-stage analysis of traffic to identify malicious clients. In one example, a device includes an attack detection module to, during a first stage, monitor network connections to a protected network device, during a second stage, to monitor a plurality of types of transactions for the plurality of network sessions when a parameter for the connections exceeds a connection threshold, and during a third stage, to monitor communications associated with network addresses from which transactions of the at least one of type of transactions originate when a parameter associated with the at least one type of transactions exceeds a transaction-type threshold. The device executes a programmed action with respect to at least one of the network addresses when the transactions of the at least one of the plurality of types of transactions originating from the at least one network address exceeds a client-transaction threshold.",
@@ -16253,6 +16751,7 @@
    "Reference - Protecting against distributed network flood attacks - Juniper Networks Inc."})
 
 (def Reference-QualysNetworkPassiveSensorGettingStartedGuide
+  "Reference - Qualys Network Passive Sensor Getting Started Guide"
   {:d3fend/has-link "https://www.qualys.com/passive-scanning-sensor/",
    :d3fend/kb-abstract
    "Qualys Passive Scanning Sensor (PS) continuously monitors all network traffic and flags any asset activity. It identifies and profiles devices the moment they connect to the network, including those difficult to scan, corporate owned, brought by employees, and rogue IT. The data is sent immediately to the Qualys Cloud Platform for centralized analysis.",
@@ -16267,6 +16766,7 @@
    "Reference - Qualys Network Passive Sensor Getting Started Guide"})
 
 (def Reference-QuickExecutionOfASeriesOfSuspiciousCommands_MITRE
+  "Reference - CAR-2013-04-002: Quick execution of a series of suspicious commands - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-04-002/",
    :d3fend/kb-abstract
    "Certain commands are frequently used by malicious actors and infrequently used by normal users. By looking for execution of these commands in short periods of time, we can not only see when a malicious user was on the system but also get an idea of what they were doing.",
@@ -16283,6 +16783,7 @@
    "Reference - CAR-2013-04-002: Quick execution of a series of suspicious commands - MITRE"})
 
 (def Reference-RDPConnectionDetection_MITRE
+  "Reference - CAR-2013-07-002: RDP Connection Detection - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-07-002",
    :d3fend/kb-abstract
    "The Remote Desktop Protocol (RDP), built in to Microsoft operating systems, allows a user to remotely log in to the desktop of another host. It allows for interactive access of the running windows, and forwards key presses, mouse clicks, etc. Network administrators, power users, and end-users may use RDP for day-to-day operations. From an adversary's perspective, RDP provides a means to laterally move to a new host. Determining which RDP connections correspond to adversary activity can be a difficult problem in highly dynamic environments, but will be useful in identifying the scope of a compromise.",
@@ -16296,6 +16797,7 @@
    :rdfs/label "Reference - CAR-2013-07-002: RDP Connection Detection - MITRE"})
 
 (def Reference-RFC2289-AOne-TimePasswordSystem
+  "Reference - RFC 2289 - A One-Time Password System"
   {:d3fend/has-link "https://tools.ietf.org/html/rfc2289",
    :d3fend/kb-organization "Internet Engineering Task Force (IETF)",
    :d3fend/kb-reference-of :d3fend/One-timePassword,
@@ -16306,6 +16808,7 @@
 
 (def
   Reference-RFC3411-AnArchitectureForDescribingSimpleNetworkManagementProtocolSNMPManagementFrameworks
+  "Reference - An Architecture for Describing Simple Network Management Protocol (SNMP) Management Frameworks"
   {:d3fend/has-link "https://https://datatracker.ietf.org/doc/html/rfc3411",
    :d3fend/kb-author "D. Harrington, R. Presuhn, B. Wijnen",
    :d3fend/kb-organization "Internet Engineering Task Force (IETF)",
@@ -16320,6 +16823,7 @@
 
 (def
   Reference-RFC7208-SenderPolicyFramework-SPF-ForAuthorizingUseOfDomainsInEmail-IETF
+  "Reference - RFC 7208: Sender Policy Framework (SPF) for Authorizing Use of Domains in Email - IETF"
   {:d3fend/has-link "https://tools.ietf.org/html/rfc7208",
    :d3fend/kb-abstract
    "Email on the Internet can be forged in a number of ways. In particular, existing protocols place no restriction on what a sending host can use as the \"MAIL FROM\" of a message or the domain given on the SMTP HELO/EHLO commands.  This document describes version 1 of the Sender Policy Framework (SPF) protocol, whereby Administrative Management Domains (ADMDs) can explicitly authorize the hosts that are allowed to use their domain names, and a receiving host can check such authorization.",
@@ -16336,6 +16840,7 @@
 
 (def
   Reference-RFC7489-Domain-basedMessageAuthentication-Reporting-AndConformance-DMARC
+  "Reference - RFC 7489: Domain-based Message Authentication, Reporting, and Conformance (DMARC) - IETF"
   {:d3fend/has-link "https://tools.ietf.org/html/rfc7489",
    :d3fend/kb-abstract
    "Domain-based Message Authentication, Reporting, and Conformance(DMARC) is a scalable mechanism by which a mail-originating organization can express domain-level policies and preferences for message validation, disposition, and reporting, that a mail-receiving organization can use to improve mail handling.\n\nOriginators of Internet Mail need to be able to associate reliable and authenticated domain identifiers with messages, communicate policies about messages that use those identifiers, and report about mail using those identifiers.  These abilities have several benefits: Receivers can provide feedback to Domain Owners about the use of their domains; this feedback can provide valuable insight about the management of internal operations and the presence of external domain name abuse.\n\nDMARC does not produce or encourage elevated delivery privilege of authenticated email. DMARC is a mechanism for policy distribution that enables increasingly strict handling of messages that fail authentication checks, ranging from no action, through altered\ndelivery, up to message rejection.",
@@ -16352,6 +16857,7 @@
 
 (def
   Reference-RFC7642SystemForCrossDomainIdentityManagementDefinitionsOverviewConceptsAndRequirements
+  "Reference - RFC 7642: System for Cross-domain Identity Management: Definitions, Overview, Concepts, and Requirements"
   {:d3fend/has-link "https://datatracker.ietf.org/doc/html/rfc7642",
    :d3fend/kb-abstract
    "The System for Cross-domain Identity Management (SCIM) specification is designed to manage user identity in cloud-based applications and services in a standardized way to enable interoperability, security, and scalability.  The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models.  The intent of the SCIM specification is to reduce the cost and complexity of user management operations by providing a common user schema and extension model, as well as binding documents to provide patterns for exchanging this schema using standard protocols.  In essence, make it fast, cheap, and easy to move users in to, out of, and around the cloud.",
@@ -16367,6 +16873,7 @@
    "Reference - RFC 7642: System for Cross-domain Identity Management: Definitions, Overview, Concepts, and Requirements"})
 
 (def Reference-RPCCallInterception_CrowdstrikeInc
+  "Reference - RPC call interception - Crowdstrike Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20150163109",
    :d3fend/kb-abstract
    "A service proxy is described herein. The service proxy is configured to act as an intermediary between a client and a service. The service proxy may observe communications, modify communications, log communications, or the like, particularly so as to enhance the security and reliability of the host device. In some implementations, the service proxy may cooperate with an operating system to take over a named port object. In some implementations, the service proxy may receive messages as an intermediary between the client and the server. In some implementations, the service proxy may attach to a shared memory to intercept communications. In some implementations, the service proxy may be injected into a client process to appear to be the client itself.",
@@ -16380,6 +16887,7 @@
    :rdfs/label "Reference - RPC call interception - Crowdstrike Inc"})
 
 (def Reference-RedHatEnterpriseLinux8SecurityTechnicalImplementationGuide
+  "Reference - Red Hat Enterprise Linux 8 Security Technical Implementation Guide"
   {:d3fend/has-link
    "https://www.stigviewer.com/stig/red_hat_enterprise_linux_8/",
    :d3fend/kb-abstract "Red Hat Enterprise Linux 8 Security Guidelines",
@@ -16393,6 +16901,7 @@
    "Reference - Red Hat Enterprise Linux 8 Security Technical Implementation Guide"})
 
 (def Reference-Reg.exeCalledFromCommandShell_MITRE
+  "Reference - CAR-2013-03-001: Reg.exe called from Command Shell - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-03-001/",
    :d3fend/kb-abstract
    "Registry modifications are often essential in establishing persistence via known Windows mechanisms. Many legitimate modifications are done graphically via regedit.exe or by using the corresponding channels, or even calling the Registry APIs directly. The built-in utility reg.exe provides a command-line interface to the registry, so that queries and modifications can be performed from a shell, such as cmd.exe. When a user is responsible for these actions, the parent of cmd.exe will likely be explorer.exe. Occasionally, power users and administrators write scripts that do this behavior as well, but likely from a different process tree. These background scripts must be learned so they can be tuned out accordingly.",
@@ -16409,6 +16918,7 @@
    "Reference - CAR-2013-03-001: Reg.exe called from Command Shell - MITRE"})
 
 (def Reference-RegistryKeySecurityAndAccessRights
+  "Reference - Registry Key Security and Access Rights"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-key-security-and-access-rights",
    :d3fend/kb-abstract
@@ -16421,6 +16931,7 @@
    :rdfs/label "Reference - Registry Key Security and Access Rights"})
 
 (def Reference-RemoteDesktopLogon_MITRE
+  "Reference - CAR-2016-04-005: Remote Desktop Logon - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2016-04-005/",
    :d3fend/kb-abstract
    "A remote desktop logon, through RDP, may be typical of a system administrator or IT support, but only from select workstations. Monitoring remote desktop logons and comparing to known/approved originating systems can detect lateral movement of an adversary.",
@@ -16434,6 +16945,7 @@
    :rdfs/label "Reference - CAR-2016-04-005: Remote Desktop Logon - MITRE"})
 
 (def Reference-RemoteRegistry_MITRE
+  "Reference - CAR-2014-11-005: Remote Registry - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-11-005/",
    :d3fend/kb-abstract
    "An adversary can remotely manipulate the registry of another machine if the RemoteRegistry service is enabled and valid credentials are obtained. While the registry is remotely accessed, it can be used to prepare a Lateral Movement technique, discover the configuration of a host, achieve Persistence, or anything that aids an adversary in achieving the mission. Like most ATT&CK techniques, this behavior can be used legitimately, and the reliability of an analytic depends on the proper identification of the pre-existing legitimate behaviors. Although this behavior is disabled in many Windows configurations, it is possible to remotely enable the RemoteRegistry service, which can be detected with CAR-2014-03-005.\n\nRemote access to the registry can be achieved via\n\n* Windows API function RegConnectRegistry\n* command line via reg.exe\n* graphically via regedit.exe\n\nAll of these behaviors call into the Windows API, which uses the NamedPipe WINREG over SMB to handle the protocol information. This network can be decoded with wireshark or a similar sensor, and can also be detected by hooking the API function.",
@@ -16447,6 +16959,7 @@
    :rdfs/label "Reference - CAR-2014-11-005: Remote Registry - MITRE"})
 
 (def Reference-RemotelyLaunchedExecutablesViaServices_MITRE
+  "Reference - CAR-2014-03-005: Remotely Launched Executables via Services - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-03-005/",
    :d3fend/kb-abstract
    "There are several ways to cause code to execute on a remote host. One of the most common methods is via the Windows Service Control Manager (SCM), which allows authorized users to remotely create and modify services. Several tools, such as PsExec, use this functionality.\n\nWhen a client remotely communicates with the Service Control Manager, there are two observable behaviors. First, the client connects to the RPC Endpoint Mapper over 135/tcp. This handles authentication, and tells the client what port the endpoint--in this case the SCM--is listening on. Then, the client connects directly to the listening port on services.exe. If the request is to start an existing service with a known command line, the the SCM process will run the corresponding command.\n\nThis compound behavior can be detected by looking for services.exe receiving a network connection and immediately spawning a child process.",
@@ -16462,6 +16975,7 @@
    "Reference - CAR-2014-03-005: Remotely Launched Executables via Services - MITRE"})
 
 (def Reference-RemotelyLaunchedExecutablesViaWMI_MITRE
+  "Reference - CAR-2014-12-001: Remotely Launched Executables via WMI - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-12-001/",
    :d3fend/kb-abstract
    "Adversaries can use Windows Management Instrumentation (WMI) to move laterally by launching executables remotely. For adversaries to achieve this, they must open a WMI connection to a remote host. This RPC activity is currently detected by CAR-2014-11-007. After the WMI connection has been initialized, a process can be remotely launched using the command: wmic /node:\"<hostname>\" process call create \"<command line>\", which is detected via CAR-2016-03-002.\n\nThis leaves artifacts at both a network (RPC) and process (command line) level. When wmic.exe (or the schtasks API) is used to remotely create processes, Windows uses RPC (135/tcp) to communicate with the the remote machine.\n\nAfter RPC authenticates, the RPC endpoint mapper opens a high port connection, through which the schtasks Remote Procedure Call is actually implemented. With the right packet decoders, or by looking for certain byte streams in raw data, these functions can be identified.\n\nWhen the command line is executed, it has the parent process of C:\\windows\\system32\\wbem\\WmiPrvSE.exe. This analytic looks for these two events happening in sequence, so that the network connection and target process are output.",
@@ -16478,6 +16992,7 @@
    "Reference - CAR-2014-12-001: Remotely Launched Executables via WMI - MITRE"})
 
 (def Reference-RemotelyScheduledTasksViaSchtasks_MITRE
+  "Reference - CAR-2015-04-002: Remotely Scheduled Tasks via Schtasks - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2015-04-002/",
    :d3fend/kb-abstract
    "An adversary can move laterally using the schtasks command to remotely schedule tasks. Although these events can be detected with command line analytics CAR-2013-08-001, it is possible for an adversary to use the API directly, via the Task Scheduler GUI or with a scripting language such as PowerShell. In this cases, an additional source of data becomes necessary to detect adversarial behavior. When scheduled tasks are created remotely, Windows uses RPC (135/tcp) to communicate with the Task Scheduler on the remote machine. Once an RPC connection is established (CAR-2014-05-001), the client communicates with the Scheduled Tasks endpoint, which runs within the service group netsvcs. With packet capture and the right packet decoders or byte-stream based signatures, remote invocations of these functions can be identified.\n\nCertain strings can be identifiers of the schtasks, by looking up the interface UUID of ITaskSchedulerService in different formats\n\n* UUID 86d35949-83c9-4044-b424-db363231fd0c (decoded)\n* Hex 49 59 d3 86 c9 83 44 40 b4 24 db 36 32 31 fd 0c (raw)\n* ASCII IYD@$621 (printable bytes only)\n\nThis identifier is present three times during the RPC request phase. Any sensor that has access to the byte code as raw, decoded, or ASCII could implement this analytic.",
@@ -16493,6 +17008,7 @@
    "Reference - CAR-2015-04-002: Remotely Scheduled Tasks via Schtasks - MITRE"})
 
 (def Reference-Reputation_of_an_entity_associated_with_a_content_item
+  "Reference - Reputation of an entity associated with a content item"
   {:d3fend/has-link "https://patents.google.com/patent/US20060253584A1",
    :d3fend/kb-author "Christopher Dixon, Thomas Pinckney",
    :d3fend/kb-reference-of :d3fend/FileHashReputationAnalysis,
@@ -16505,6 +17021,7 @@
    "Reference - Reputation of an entity associated with a content item"})
 
 (def Reference-ReverseDNSBlocking_BarracudaNetworks
+  "Reference - Reverse DNS Blocking - Barracuda Networks"
   {:d3fend/has-link
    "https://campus.barracuda.com/product/emailsecuritygateway/doc/39819732/reverse-dns-blocking/",
    :d3fend/kb-author "campus.barracuda.com",
@@ -16517,6 +17034,7 @@
    :rdfs/label "Reference - Reverse DNS Blocking - Barracuda Networks"})
 
 (def Reference-RunDLL32.exeMonitoring_MITRE
+  "Reference - CAR-2014-03-006: RunDLL32.exe monitoring - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-03-006/",
    :d3fend/kb-abstract
    "Adversaries may find it necessary to use Dyanamic-link Libraries (DLLs) to evade defenses. One way these DLLs can be \"executed\" is through the use of the built-in Windows utility RunDLL32, which allows a user to execute code in a DLL, providing the name and optional arguments to an exported entry point. Windows uses RunDll32 legitimately in its normal operation, but with a proper baseline and understanding of the environment, monitoring its usage could be fruitful.",
@@ -16530,6 +17048,7 @@
    :rdfs/label "Reference - CAR-2014-03-006: RunDLL32.exe monitoring - MITRE"})
 
 (def Reference-SAFESEH_ImageHasSafeExceptionHandlers_MicrosoftDocs
+  "Reference - /SAFESEH (Image has Safe Exception Handlers) - Microsoft Docs"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/cpp/build/reference/safeseh-image-has-safe-exception-handlers?view=msvc-160",
    :d3fend/kb-abstract
@@ -16547,6 +17066,7 @@
    "Reference - /SAFESEH (Image has Safe Exception Handlers) - Microsoft Docs"})
 
 (def Reference-SMBCopyAndExecution_MITRE
+  "Reference - CAR-2013-05-005: SMB Copy and Execution - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-05-005/",
    :d3fend/kb-abstract
    "An adversary needs to gain access to other hosts to move throughout an environment. In many cases, this is a twofold process. First, a file is remotely written to a host via an SMB share (detected by CAR-2013-05-003). Then, a variety of Execution techniques can be used to remotely establish execution of the file or script. To detect this behavior, look for files that are written to a host over SMB and then later run directly as a process or in the command line arguments. SMB File Writes and Remote Execution may happen normally in an environment, but the combination of the two behaviors is less frequent and more likely to indicate adversarial activity.\n\nThis can possibly extend to more copy protocols in order to widen its reach, or it could be tuned more finely to focus on specific program run locations (e.g. %SYSTEMROOT%\\system32) to gain a higher detection rate.",
@@ -16560,6 +17080,7 @@
    :rdfs/label "Reference - CAR-2013-05-005: SMB Copy and Execution - MITRE"})
 
 (def Reference-SMBEventsMonitoring_MITRE
+  "Reference - CAR-2013-01-003: SMB Events Monitoring - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-01-003/",
    :d3fend/kb-abstract
    "Server Message Block (SMB) is used by Windows to allow for file, pipe, and printer sharing over port 445/tcp. It allows for enumerating, and reading from and writing to file shares for a remote computer. Although it is heavily used by Windows servers for legitimate purposes and by users for file and printer sharing, many adversaries also use SMB to achieve Lateral Movement. Looking at this activity more closely to obtain an adequate sense of situational awareness may make it possible to detect adversaries moving between hosts in a way that deviates from normal activity. Because SMB traffic is heavy in many environments, this analytic may be difficult to turn into something that can be used to quickly detect an APT. In some cases, it may make more sense to run this analytic in a forensic fashion. Looking through and filtering its output after an intrusion has been discovered may be helpful in identifying the scope of compromise.\n\nOutput Description:\nThe source, destination, content, and time of each event.",
@@ -16573,6 +17094,7 @@
    :rdfs/label "Reference - CAR-2013-01-003: SMB Events Monitoring - MITRE"})
 
 (def Reference-SMBSessionSetups_MITRE
+  "Reference - CAR-2013-09-003: SMB Session Setups - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-09-003/",
    :d3fend/kb-abstract
    "Account usage within SMB can be used to identify compromised credentials, and the hosts accessed with them.\n\nThis analytic monitors SMB activity that deals with user activity rather than file activity.",
@@ -16587,6 +17109,7 @@
    :rdfs/label "Reference - CAR-2013-09-003: SMB Session Setups - MITRE"})
 
 (def Reference-SMBWriteRequest-NamedPipes_MITRE
+  "Reference - CAR-2014-03-001: SMB Write Request - NamedPipes - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-03-001/",
    :d3fend/kb-abstract
    "An SMB write can be an indicator of lateral movement, especially when combined with other information such as execution of that written file. Named pipes are a subset of SMB write requests. Named pipes such as msftewds may not be alarming; however others, such as lsarpc, may.\n\nMonitoring SMB write requests still creates some noise, particularly with named pipes. As a result, SMB is now split between writing named pipes and writing other files.",
@@ -16602,6 +17125,7 @@
    "Reference - CAR-2014-03-001: SMB Write Request - NamedPipes - MITRE"})
 
 (def Reference-SMBWriteRequest_MITRE
+  "Reference - CAR-2013-05-003: SMB Write Request - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-05-003/",
    :d3fend/kb-abstract
    "As described in CAR-2013-01-003, SMB provides a means of remotely managing a file system. Adversaries often use SMB to move laterally to a host. SMB is commonly used to upload files. It may be used for staging in Exfiltration or as a Lateral Movement technique. Unlike SMB Reads, SMB Write requests typically require an additional level of access, resulting in less activity. Focusing on SMB Write activity narrows the field to find techniques that actively change remote hosts, instead of passively reading files.",
@@ -16615,6 +17139,7 @@
    :rdfs/label "Reference - CAR-2013-05-003: SMB Write Request - MITRE"})
 
 (def Reference-SNMPNetworkAutoDiscovery
+  "Reference - SNMP - Network Auto-Discovery"
   {:d3fend/has-link
    "https://docs.device42.com/auto-discovery/network-auto-discovery/",
    :d3fend/kb-abstract
@@ -16627,6 +17152,7 @@
    :rdfs/label "Reference - SNMP - Network Auto-Discovery"})
 
 (def Reference-SecureCachingOfServerCredentials_DellProductsLP
+  "Reference - Secure caching of server credentials - Dell Products LP"
   {:d3fend/has-link "https://patents.google.com/patent/US20100107241A1",
    :d3fend/kb-abstract
    "A credential caching system includes receiving a set of authentication credentials, storing the set of authentication credentials in a credential cache memory, wherein the credential cache memory is coupled with a management controller, and supplying the set of authentication credentials for automatic authentication during a reset or reboot. In the event of a security breach, the credential caching system clears the set of authentication credentials from the credential cache memory so that the set of authentication credentials may no longer be used for a reset or reboot.",
@@ -16642,6 +17168,7 @@
    "Reference - Secure caching of server credentials - Dell Products LP"})
 
 (def Reference-SecureMultipurposeInternetMailExtensionsMIME-Version3.1
+  "Reference - Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1"
   {:d3fend/has-link "https://tools.ietf.org/html/rfc3851",
    :d3fend/kb-organization "Internet Engineering Task Force (IETF)",
    :d3fend/kb-reference-title
@@ -16653,6 +17180,7 @@
    "Reference - Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1"})
 
 (def Reference-SecuringWebTransactions
+  "Reference - Securing Web Transactions"
   {:d3fend/has-link
    "https://www.nccoe.nist.gov/sites/default/files/library/sp1800/tls-serv-cert-mgt-nist-sp1800-16b-final.pdf",
    :d3fend/kb-abstract
@@ -16668,6 +17196,7 @@
 
 (def
   Reference-Securing_Web_Transactions__TLS_Server_Certificate_Management_Appendix_A_Passive_Inspection
+  "Reference - Securing Web Transactions TLS Server Certificate Management - Appendix A Passive Inspection"
   {:d3fend/has-link
    "https://www.nccoe.nist.gov/publication/1800-16/VolD/vol-d-appendix.html",
    :d3fend/kb-abstract
@@ -16683,6 +17212,7 @@
    "Reference - Securing Web Transactions TLS Server Certificate Management - Appendix A Passive Inspection"})
 
 (def Reference-SecurityArchitectureForTheInternetProtocol
+  "Reference - Security Architecture for the Internet Protocol"
   {:d3fend/has-link "https://datatracker.ietf.org/doc/html/rfc1825",
    :d3fend/kb-abstract
    "This memo describes the security mechanisms for IP version 4 (IPv4)\n   and IP version 6 (IPv6) and the services that they provide.  Each\n   security mechanism is specified in a separate document.  This\n   document also describes key management requirements for systems\n   implementing those security mechanisms.  This document is not an\n   overall Security Architecture for the Internet and is instead focused\n   on IP-layer security.",
@@ -16695,6 +17225,7 @@
 
 (def
   Reference-SecuritySystemWithMethodologyForInterprocessCommunicationControl_CheckPointSoftwareTechInc
+  "Reference - Security System with Methodology for Interprocess Communication Control - Check Point Software Tech Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20040199763",
    :d3fend/kb-abstract
    "A security system with methodology for interprocess communication control is described. In one embodiment, a method for controlling interprocess communication is provided that includes steps of: defining rules indicating which system services a given application can invoke; trapping an attempt by a particular application to invoke a particular system service; identifying the particular application that is attempting to invoke the particular system service; and based on identity of the particular application and on the rules indicating which system services a given application can invoke, blocking the attempt when the rules indicate that the particular application cannot invoke the particular system service.",
@@ -16712,6 +17243,7 @@
    "Reference - Security System with Methodology for Interprocess Communication Control - Check Point Software Tech Inc"})
 
 (def Reference-SecurityVulnerabilityInformationAggregation
+  "Reference - Security vulnerability information aggregation"
   {:d3fend/has-link "https://patents.google.com/patent/US8544098B2",
    :d3fend/kb-abstract
    "Security vulnerability information aggregation techniques are disclosed. Vulnerability information associated with one or more security vulnerabilities is obtained from multiple sources and aggregated into respective unified vulnerability definitions for the one or more security vulnerabilities. Aggregation may involve format conversion, content aggregation, or both in some embodiments. Unified vulnerability definitions may be distributed to vulnerability information consumers in accordance with consumer-specific policies. Storage of vulnerability information received from the sources may allow the aggregation process to be performed on existing vulnerability information “retro-actively”. Related data structures and Graphical User Interfaces (GUIs) are also disclosed.",
@@ -16724,6 +17256,7 @@
    :rdfs/label "Reference - Security vulnerability information aggregation"})
 
 (def Reference-ServiceBinaryModifications_MITRE
+  "Reference - CAR-2014-02-001: Service Binary Modifications - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-02-001/",
    :d3fend/kb-abstract
    "Adversaries may modify the binary file for an existing service to achieve Persistence while potentially evading defenses. If a newly created or modified runs as a service, it may indicate APT activity. However, services are frequently installed by legitimate software. A well-tuned baseline is essential to differentiating between benign and malicious service modifications.",
@@ -16738,6 +17271,7 @@
    "Reference - CAR-2014-02-001: Service Binary Modifications - MITRE"})
 
 (def Reference-ServiceOutlierExecutables_MITRE
+  "Reference - CAR-2013-09-005: Service Outlier Executables - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-09-005/",
    :d3fend/kb-abstract
    "New executables that are started as a service are suspicious. This analytic looks for anomalous service executables.",
@@ -16752,6 +17286,7 @@
    "Reference - CAR-2013-09-005: Service Outlier Executables - MITRE"})
 
 (def Reference-ServiceSearchPathInterception_MITRE
+  "Reference - CAR-2014-07-001: Service Search Path Interception - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2014-07-001/",
    :d3fend/kb-abstract
    "According to ATT&CK, an adversary may escalate privileges by intercepting the search path for legitimately installed services. As a result, Windows will launch the target executable instead of the desired binary and command line. This can be done when there are spaces in the binary path and the path is unquoted. Search path interception should never happen legitimately and will likely be the result of an adversary abusing a system misconfiguration. With a few regular expressions, it is possible to identify the execution of services with intercepted search paths.",
@@ -16767,6 +17302,7 @@
    "Reference - CAR-2014-07-001: Service Search Path Interception - MITRE"})
 
 (def Reference-ServicesLaunchingCmd_MITRE
+  "Reference - CAR-2014-05-002: Services launching Cmd - MITRE"
   {:d3fend/has-link "",
    :d3fend/kb-abstract
    "Windows runs the Service Control Manager (SCM) within the process services.exe. Windows launches services as independent processes or DLL loads within a svchost.exe group. To be a legitimate service, a process (or DLL) must have the appropriate service entry point SvcMain. If an application does not have the entry point, then it will timeout (default is 30 seconds) and the process will be killed.\n\nTo survive the timeout, adversaries and red teams can create services that direct to cmd.exe with the flag /c, followed by the desired command. The /c flag causes the command shell to run a command and immediately exit. As a result, the desired program will remain running and it will report an error starting the service. This analytic will catch that command prompt instance that is used to launch the actual malicious executable. Additionally, the children and descendants of services.exe will run as a SYSTEM user by default. Thus, services are a convenient way for an adversary to gain Persistence and Privilege Escalation.",
@@ -16780,6 +17316,7 @@
    :rdfs/label "Reference - CAR-2014-05-002: Services launching Cmd - MITRE"})
 
 (def Reference-SimultaneousLoginsOnAHost_MITRE
+  "Reference - CAR-2013-02-008: Simultaneous Logins on a Host - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-02-008/",
    :d3fend/kb-abstract
    "Multiple users logged into a single machine at the same time, or even within the same hour, do not typically occur in networks we have observed.\n\nLogon events are Windows Event Code 4624 for Windows Vista and above, 518 for pre-Vista. Logoff events are 4634 for Windows Vista and above, 538 for pre-Vista. Logon types 2, 3, 9 and 10 are of interest. For more details see the Logon Types table on Microsoft's Audit Logon Events page.",
@@ -16793,6 +17330,7 @@
 
 (def
   Reference-SinkholingBadNetworkDomainsByRegisteringTheBadNetworkDomainsOnTheInternet_PaloAltoNetworksInc
+  "Reference - Sinkholing bad network domains by registering the bad network domains on the internet - Palo Alto Networks Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160381065A1",
    :d3fend/kb-abstract
    "Techniques for sinkholing bad network domains by registering the bad network domains on the Internet are provided. In some embodiments, sinkholing bad network domains by registering the bad network domains on the Internet includes determining a network domain is a bad network domain, in which the bad network domain is determined to be associated with an identified malware (e.g., malware that has been identified and has been determined to be associated with the bad domain), and the bad network domain is sinkholed by registering the bad network domain with a sinkholed IP address; and identifying a host that is infected with the identified malware based on an attempt by the host to connect to the sinkholed IP address.",
@@ -16810,6 +17348,7 @@
    "Reference - Sinkholing bad network domains by registering the bad network domains on the internet - Palo Alto Networks Inc"})
 
 (def Reference-SoftwareVulnerabilityGraphDatabase
+  "Reference - Software vulnerability graph database"
   {:d3fend/has-link "https://patents.google.com/patent/WO2020028535A1",
    :d3fend/kb-abstract
    "To analyze open-source code at a large scale, a security domain graph language (\"GL\") has been created that functions as a vulnerability description language and facilitates program analysis queries. The SGL facilitates building and maintaining a graph database to catalogue vulnerabilities found in open-source components. This graphical database can be accessed via a database interface directly or accessed by an agent that interacts with the database interface. To build the graph database, a database interface processes an open-source component and creates graph structures which represent relationships present in the open-source component. The database interface transforms a vulnerability description into a canonical form based on a schema for the graph database and updates the database based on a determination of whether the vulnerability is a duplicate. This ensures quality and consistency of the vulnerability dataset maintained in the graph database.",
@@ -16825,6 +17364,7 @@
    :rdfs/label "Reference - Software vulnerability graph database"})
 
 (def Reference-Squiblydoo_MITRE
+  "Reference - CAR-2019-04-003: Squiblydoo - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-04-003/",
    :d3fend/kb-abstract
    "Squiblydoo is a specific usage of regsvr32.dll to load a COM scriptlet directly from the internet and execute it in a way that bypasses application whitelisting. It can be seen by looking for regsvr32.exe executions that load the scrobj.dll (which execute the COM scriptlet) or, if that is too noisy, those that also load content directly via HTTP or HTTPS.",
@@ -16838,6 +17378,7 @@
    :rdfs/label "Reference - CAR-2019-04-003: Squiblydoo - MITRE"})
 
 (def Reference-StackSmashingProtection_StackGuard_RedHat
+  "Reference - Security Technologies: Stack Smashing Protection (StackGuard) - Red Hat"
   {:d3fend/has-link "https://access.redhat.com/blogs/766093/posts/3548631",
    :d3fend/kb-abstract
    "In our previous blog, we saw how arbitrary code execution resulting from stack-buffer overflows can be partly mitigated by marking segments of memory as non-executable, a technology known as Execshield. However stack-buffer overflow exploits can still effectively overwrite the function return address, which leads to several interesting exploitation techniques like ret2libc, ret2gets, and ret2plt. With all of these methods, the function return address is overwritten and attacker controlled code is executed when the program control transfers to overwritten address on the stack.",
@@ -16853,6 +17394,7 @@
    "Reference - Security Technologies: Stack Smashing Protection (StackGuard) - Red Hat"})
 
 (def Reference-StreamingPhish
+  "Reference - StreamingPhish"
   {:d3fend/has-link "https://github.com/wesleyraptor/streamingphish",
    :d3fend/kb-abstract
    "This is a utility that uses supervised machine learning to detect phishing domains from the Certificate Transparency log network.",
@@ -16865,6 +17407,7 @@
    :rdfs/label "Reference - StreamingPhish"})
 
 (def Reference-SupplyChainCyber-deception_CymmetriaInc.
+  "Reference - Supply chain cyber-deception - Cymmetria, Inc."
   {:d3fend/has-link "https://patents.google.com/patent/WO2017187379A1",
    :d3fend/kb-abstract
    "A computer implemented method of detecting unauthorized access to a protected network from external endpoints, comprising monitoring, at a protected network, communication with one or more external endpoints using one or more access clients to access one or more of a plurality of resources of the protected networked, where one or more deception resources created in the protected network map one or more of the plurality of resources, detecting usage of data contained in one or more of a plurality of deception data objects deployed in the one or more access clients by monitoring an interaction triggered by one or more of the deception data objects with the one or more deception resources when used and identifying one or more potential unauthorized operations based on analysis of the detection.",
@@ -16878,6 +17421,7 @@
    :rdfs/label "Reference - Supply chain cyber-deception - Cymmetria, Inc."})
 
 (def Reference-SuspiciousArguments_MITRE
+  "Reference - CAR-2013-07-001: Suspicious Arguments - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-07-001/",
    :d3fend/kb-abstract
    "Malicious actors may rename built-in commands or external tools, such as those provided by SysInternals, to better blend in with the environment. In those cases, the file path name is arbitrary and may blend in well with the background. If the arguments are closely inspected, it may be possible to infer what tools are running and understand what an adversary is doing. When any legitimate software shares the same command lines, it must be whitelisted according to the expected parameters.",
@@ -16891,6 +17435,7 @@
    :rdfs/label "Reference - CAR-2013-07-001: Suspicious Arguments - MITRE"})
 
 (def Reference-SuspiciousRunLocations_MITRE
+  "Reference - CAR-2013-05-002: Suspicious Run Locations - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-05-002/",
    :d3fend/kb-abstract
    "In Windows, files should never execute out of certain directory locations. Any of these locations may exist for a variety of reasons, and executables may be present in the directory but should not execute. As a result, some defenders make the mistake of ignoring these directories and assuming that a process will never run from one. There are known TTPs that have taken advantage of this fact to go undetected. This fact should inform defenders to monitor these directories more closely, knowing that they should never contain running processes.",
@@ -16905,6 +17450,7 @@
 
 (def
   Reference-SynchronizingAHoneyNetworkConfigurationToReflectATargetNetworkEnvironment_PaloAltoNetworksInc
+  "Reference - Synchronizing a honey network configuration to reflect a target network environment - Palo Alto Networks Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170019425A1",
    :d3fend/kb-abstract
    "Techniques for synchronizing a honey network configuration to reflect a target network environment are disclosed. In some embodiments, a system for synchronizing a honey network configuration to reflect a target network environment includes a device profile data store that includes a plurality of attributes of each of a plurality of devices in the target network environment; a virtual machine (VM) image library that includes one or more VM images; and a virtual clone manager executed on a processor that instantiates a virtual clone of one or more devices in the target enterprise network using a VM image selected from the VM image library that is customized based on one or more attributes for a target device in the device profile data store.",
@@ -16922,6 +17468,7 @@
 
 (def
   Reference-SystemAndAMethodForIdentifyingThePresenceOfMalwareAndRansomwareUsingMini-trapsSetAtNetworkEndpoints_FidelisCybersecuritySolutionsInc
+  "Reference - System and a method for identifying the presence of malware and ransomware using mini-traps set at network endpoints - Fidelis Cybersecurity Solutions Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US9807115B2/en?oq=US-9807115-B2",
    :d3fend/kb-abstract
@@ -16941,6 +17488,7 @@
 
 (def
   Reference-SystemAndMethodForDetectingHomoglyphAttacksWithASiameseConvolutionalNeuralNetwork_EndgameInc
+  "Reference - System and method for detecting homoglyph attacks with a siamese convolutional neural network - Endgame Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20190019058A1/",
    :d3fend/kb-abstract
    "The present invention utilizes computer vision technologies to identify potentially malicious URLs and executable files in a computing device. In one embodiment, a Siamese convolutional neural network is trained to identify the relative similarity between image versions of two strings of text. After the training process, a list of strings that are likely to be utilized in malicious attacks are provided (e.g., legitimate URLs for popular websites). When a new string is received, it is converted to an image and then compared against the image of list of strings. The relative similarity is determined, and if the similarity rating falls below a predetermined threshold, an alert is generated indicating that the string is potentially malicious.",
@@ -16959,6 +17507,7 @@
 
 (def
   Reference-SystemAndMethodForDetectingMalwareInjectedIntoMemoryOfAComputingDevice_EndgameInc
+  "Reference - System and method for detecting malware injected into memory of a computing device - Endgame Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20190018958A1/en?oq=US20190018958-A1",
    :d3fend/kb-abstract
@@ -16977,6 +17526,7 @@
 
 (def
   Reference-SystemAndMethodForDetectionOfAChangeInBehaviorInTheUseOfAWebsiteThroughVectorVelocityAnalysis_SilverTailSystems
+  "Reference - System and Method for Detection of a Change in Behavior in the Use of a Website Through Vector Velocity Analysis - Silver Tail Systems"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20100235909A1/en?oq=US+20100235909+A1",
    :d3fend/kb-abstract
@@ -16996,6 +17546,7 @@
 
 (def
   Reference-SystemAndMethodForIdentifyingThePresenceOfMalwareUsingMini-trapsSetAtNetworkEndpoints_FidelisCybersecuritySolutionsInc
+  "Reference - System and method for identifying the presence of malware using mini-traps set at network endpoints - Fidelis Cybersecurity Solutions Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US9807114B2/en?oq=US-9807114-B2",
    :d3fend/kb-abstract
@@ -17016,6 +17567,7 @@
    "Reference - System and method for identifying the presence of malware using mini-traps set at network endpoints - Fidelis Cybersecurity Solutions Inc"})
 
 (def Reference-SystemAndMethodForInternetSecurity_CylanceInc
+  "Reference - System and method for internet security - Cylance Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20120117644A1",
    :d3fend/kb-abstract
    "A computer implemented method for preventing SQL injection attacks comprises intercepting a web request associated with a web service at a first software hook in a first web service execution context, persisting at least a portion of the intercepted web request in a storage location associated with the first software hook and accessible to at least one additional execution context, intercepting a database query generated by at least one web service processing operation at a second software hook associated with the execution of the query, wherein the query is generated in response to the intercepted web request and the second hook retrieves the persisted portion of the intercepted web request, comparing a portion of the persisted portion of the intercepted web request with at least a portion of the intercepted database query, and determining, prior to the query being executed, whether the query corresponds to a potential SQL injection attack.",
@@ -17031,6 +17583,7 @@
    "Reference - System and method for internet security - Cylance Inc"})
 
 (def Reference-SystemAndMethodForManagedSecurityAssessmentAndMitigation
+  "Reference - System and method for managed security assessment and mitigation"
   {:d3fend/has-link "https://patents.google.com/patent/US9544324B2",
    :d3fend/kb-abstract
    "In an embodiment of the invention, a system for assessing vulnerabilities includes: a security management system; a network device in a system under test (SUT), wherein the network device is privy to traffic in the SUT; and wherein the SMS is privy to traffic that is known by the network device and/or to one or more traffic observations that is known by the network device.",
@@ -17047,6 +17600,7 @@
 
 (def
   Reference-SystemAndMethodForNetworkSecurityIncludingDetectionOfAttacksThroughPartnerWebsites_EMCIPHoldingCoLLC
+  "Reference - System and Method for Network Security Including Detection of Attacks Through Partner Websites - EMC IP Holding Co LLC"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20110302653A1/en?oq=US+20110302653+A1",
    :d3fend/kb-abstract
@@ -17066,6 +17620,7 @@
    "Reference - System and Method for Network Security Including Detection of Attacks Through Partner Websites - EMC IP Holding Co LLC"})
 
 (def Reference-SystemAndMethodForProcessHollowingDetection_CarbonBlackInc
+  "Reference - System and Method for Process Hollowing Detection - Carbon Black Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170272462A1",
    :d3fend/kb-abstract
    "A method and system for remediating a process hollowing intrusion on a user device comprising detecting a process starting on the user device, preparing the process to monitor Application Programming Interface (API) calls between the process and an operating system of the user device, determining whether the process is associated with a process hollowing intrusion based on information associated with the process and/or the API calls, and executing security policies against the process associated with the process hollowing intrusion. In examples, it is determined whether the child process is associated with a process hollowing intrusion in response to determining whether one or more API calls associated with known process hollowing intrusions modify executable memory of and/or modify an entry point address of the child process.",
@@ -17083,6 +17638,7 @@
 
 (def
   Reference-SystemAndMethodForProvidingAnActivelyInvalidatedClient-sideNetworkResourceCache_IMVU
+  "Reference - System and method for providing an actively invalidated client-side network resource cache - IMVU"
   {:d3fend/has-link "https://patents.google.com/patent/US9578081B2/en",
    :d3fend/kb-abstract
    "A system and method for providing an actively invalidated client-side network resource cache are disclosed. A particular embodiment includes: a client configured to request, for a client application, data associated with an identifier from a server; the server configured to provide the data associated with the identifier and to establish a queue associated with the identifier at a scalable message queuing system, the client being configured to subscribe to the queue at the scalable message queuing system to receive invalidation information associated with the data; the server being further configured to signal the queue of an invalidation event associated with the data; the scalable message queuing system being configured to convey information indicative of the invalidation event to the client; and the client being further configured to re-request the data associated with the identifier from the server upon receipt of the information indicative of the invalidation event.",
@@ -17100,6 +17656,7 @@
 
 (def
   Reference-SystemAndMethodForValidatingIn-memoryIntegrityOfExecutableFilesToIdentifyMaliciousActivity_EndgameInc
+  "Reference - System and method for validating in-memory integrity of executable files to identify malicious activity - Endgame Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20190018962A1/en?oq=15648887",
    :d3fend/kb-abstract
@@ -17117,6 +17674,7 @@
    "Reference - System and method for validating in-memory integrity of executable files to identify malicious activity - Endgame Inc"})
 
 (def Reference-SystemAndMethodForVulnerabilityRiskAssessment
+  "Reference - System and method for vulnerability risk analysis"
   {:d3fend/has-link "https://patents.google.com/patent/US9317692B2",
    :d3fend/kb-abstract
    "Embodiments of the present invention are directed to a method and system for automated risk analysis. The method includes accessing host configuration information of a host and querying a vulnerability database based on the host configuration information. The method further includes receiving a list of vulnerabilities and accessing a plurality of vulnerability scores. The list of vulnerabilities corresponds to vulnerabilities of the host. Vulnerabilities can be removed from the list based on checking for installed fixes corresponding to vulnerability. A composite risk score can then be determined for the host a nd each software product of the host based on the plurality of vulnerability scores. An aggregate risk score can then be determined for the host and each software product of the host based on the plurality of vulnerability scores.",
@@ -17132,6 +17690,7 @@
 
 (def
   Reference-SystemAndMethodThereofForIdentifyingAndRespondingToSecurityIncidentsBasedOnPreemptiveForensics_PaloAltoNetworksInc
+  "Reference - System and method thereof for identifying and responding to security incidents based on preemptive forensics - Palo Alto Networks Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160142424A1",
    :d3fend/kb-abstract
    "A system is connected to a plurality of user devices coupled to an enterprise's network. The system continuously collects, stores, and analyzes forensic data related to the enterprise's network. Based on the analysis, the system is able to determine normal behavior of the network and portions thereof and thereby identify abnormal behaviors within the network. Upon identification of an abnormal behavior, the system determines whether the abnormal behavior relates to a security incident. Upon determining a security incident in any portion of the enterprise's network, the system extracts forensic data respective of the security incident and enables further assessment of the security incident as well as identification of the source of the security incident. The system provides real-time damage assessment respective of the security incident as well as the security incident's attributions.",
@@ -17152,6 +17711,7 @@
 
 (def
   Reference-SystemAndMethodsThereofForCausalityIdentificationAndAttributionsDeterminationOfProcessesInANetwork_PaloAltoNetworksIncCyberSecdoLtd
+  "Reference - System and methods thereof for causality identification and attributions determination of processes in a network - Palo Alto Networks IncCyber Secdo Ltd"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20170195350A1/en?oq=US-2017195350-A1",
    :d3fend/kb-abstract
@@ -17171,6 +17731,7 @@
 
 (def
   Reference-SystemAndMethodsThereofForDetectionOfPersistentThreatsInAComputerizedEnvironmentBackground_PaloAltoNetworksIncCyberSecdoLtd
+  "Reference - System and methods thereof for detection of persistent threats in a computerized environment background - Palo Alto Networks IncCyber Secdo Ltd"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20170206358A1/en?oq=US-2017206358-A1",
    :d3fend/kb-abstract
@@ -17189,6 +17750,7 @@
 
 (def
   Reference-SystemAndMethodsThereofForIdentificationOfSuspiciousSystemProcesses_PaloAltoNetworksInc
+  "Reference - System and methods thereof for identification of suspicious system processes - Palo Alto Networks Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20170286683A1/en?oq=US-2017286683-A1",
    :d3fend/kb-abstract
@@ -17208,6 +17770,7 @@
 
 (def
   Reference-SystemAndMethodsThereofForLogicalIdentificationOfMaliciousThreatsAcrossAPluralityOfEnd-pointDevicesCommunicativelyConnectedByANetwork_PaloAltoNetworksIncCyberSecdoLtd
+  "Reference - System and methods thereof for logical identification of malicious threats across a plurality of end-point devices (epd) communicatively connected by a network - Palo Alto Networks IncCyber Secdo Ltd"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20180373870A1/en?oq=US-2018373870-A1",
    :d3fend/kb-abstract
@@ -17227,6 +17790,7 @@
 
 (def
   Reference-SystemAndMethodsThereofForPreventingRansomwareFromEncryptingDataElementsStoredInAMemoryOfAComputer-basedSystem_PaloAltoNetworksInc
+  "Reference - System and methods thereof for preventing ransomware from encrypting data elements stored in a memory of a computer-based system - Palo Alto Networks Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US20170308711A1/en?oq=US-2017308711-A1",
    :d3fend/kb-abstract
@@ -17245,6 +17809,7 @@
 
 (def
   Reference-SystemForDetectingThreatsUsingScenario-basedTrackingOfInternalAndExternalNetworkTraffic_VECTRANETWORKSInc
+  "Reference - System for detecting threats using scenario-based tracking of internal and external network traffic - VECTRA NETWORKS Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160191563A1",
    :d3fend/kb-abstract
    "Disclosed is an improved approach to implement a system and method for detecting insider threats, where models are constructed that is capable of defining what constitutes the normal behavior for any given hosts and quickly find anomalous behaviors that could constitute a potential threat to an organization. The disclosed approach provides a way to identify abnormal data transfers within and external to an organization without the need for individual monitoring software on each host, by leveraging metadata that describe the data exchange patterns observed in the network.",
@@ -17263,6 +17828,7 @@
 
 (def
   Reference-SystemForImplementingThreatDetectionUsingDailyNetworkTrafficCommunityOutliers_VECTRANETWORKSInc
+  "Reference - System for implementing threat detection using daily network traffic community outliers - VECTRA NETWORKS Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160191560A1",
    :d3fend/kb-abstract
    "A method and system for identifying insider threats within an organization is provided. The approach constructs an internal connectivity graph to identify communities of hosts/users, and checks for abnormal behavior relative to past behaviors.",
@@ -17282,6 +17848,7 @@
 
 (def
   Reference-SystemForImplementingThreatDetectionUsingThreatAndRiskAssessmentOfAsset-actorInteractions_VECTRANETWORKSInc
+  "Reference - System for implementing threat detection using threat and risk assessment of asset-actor interactions - VECTRA NETWORKS Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20160191559A1",
    :d3fend/kb-abstract
    "Disclosed is an approach to detect insider threats, by tracking unusual access activity for a specific user or computer with regard to accessing key assets over time. In this way, malicious activity and the different preparation phases of attacks can be identified.",
@@ -17300,6 +17867,7 @@
 
 (def
   Reference-SystemMethodAndComputerProgramProductForDetectingAndAssessingSecurityRisksInANetwork_ExabeamInc
+  "Reference - System, method, and computer program product for detecting and assessing security risks in a network - Exabeam Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20190034641A1",
    :d3fend/kb-abstract
    "The present disclosure is directed to a system, method, and computer program for detecting and assessing security risks in an enterprise's computer network. A behavior model is built for a user in the network based on the user's interactions with the network, wherein a behavior model for a user indicates client device(s), server(s), and resources used by the user. The user's behavior during a period of time is compared to the user's behavior model. A risk assessment is calculated for the period of time based at least in part on the comparison between the user's behavior and the user's behavior model, wherein any one of certain anomalies between the user's behavior and the user's behavior model increase the risk assessment.",
@@ -17323,6 +17891,7 @@
 
 (def
   Reference-SystemsAndMethodsForDetectingAnd_orHandlingTargetedAttacksInTheEmailChannel_GraphusInc
+  "Reference - Systems and methods for detecting and/or handling targeted attacks in the email channel - Graphus Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20170324767A1",
    :d3fend/kb-abstract
    "Techniques for detecting and/or handling target attacks in an enterprise's email channel are provided. The techniques include receiving aspects of an incoming email message addressed to a first email account holder, selecting a recipient interaction profile and/or a sender profile from a plurality of predetermined profiles stored in a memory based upon the received properties, determining a message trust rating associated with the incoming email message based upon the incoming email message and the selected recipient interaction profile and/or the sender profile; and generating an alert identifying the incoming email message as including a security risk based upon the determined message trust rating. The recipient interaction profile includes information associating the first email account holder and a plurality of email senders from whom email messages have previously been received for the first email account holder, and the sender profile includes information associating a sender of the incoming email message with characteristics determined from a plurality of email messages previously received from the sender.",
@@ -17341,6 +17910,7 @@
    "Reference - Systems and methods for detecting and/or handling targeted attacks in the email channel - Graphus Inc"})
 
 (def Reference-SystemsAndMethodsForDetectingCredentialTheft_SymantecCorp
+  "Reference - Systems and methods for detecting credential theft - Symantec Corp"
   {:d3fend/has-link "https://patents.google.com/patent/US10162962B1",
    :d3fend/kb-abstract
    "The disclosed computer-implemented method for detecting credential theft may include (i) monitoring a secured computing system's credential store that may include at least one sensitive credential that may be used to facilitate authentication of a user that is attempting to access the secured computing system, (ii) gathering, while monitoring the credential store, primary evidence of an attempted theft of the sensitive credential from the credential store, (iii) gathering corroborating evidence of the attempted theft of the sensitive credential, and (iv) performing a security action in response to gathering the primary evidence and the corroborating evidence of the attempted theft. The primary evidence of the attempted theft of the sensitive credential may include evidence of any suspicious access of the sensitive credential from the credential store that occurs outside of a procedure of authenticating the user. Various other methods, systems, and computer-readable media are also disclosed.",
@@ -17359,6 +17929,7 @@
 
 (def
   Reference-TCGTrustedAttestationProtocolUseCasesForTPMFamilies1.2And2.0AndDICE
+  "Reference - TCG Trusted Attestation Protocol Use Cases for TPM Families 1.2 and 2.0 and DICE"
   {:d3fend/has-link
    "https://trustedcomputinggroup.org/wp-content/uploads/TCG_TNC_TAP_Use_Cases_v1r0p35_published.pdf",
    :d3fend/kb-reference-title
@@ -17370,6 +17941,7 @@
    "Reference - TCG Trusted Attestation Protocol Use Cases for TPM Families 1.2 and 2.0 and DICE"})
 
 (def Reference-TPM2.0LibrarySpecification_TrustedComputingGroupIncorporated
+  "Reference - TPM 2.0 Library Specification - Trusted Computing Group, Incorporated"
   {:d3fend/has-link
    "https://trustedcomputinggroup.org/resource/tpm-library-specification/",
    :d3fend/kb-abstract
@@ -17386,6 +17958,7 @@
    "Reference - TPM 2.0 Library Specification - Trusted Computing Group, Incorporated"})
 
 (def Reference-TamperProofMutatingSoftware_ARXANTECHNOLOGIESInc
+  "Reference - Tamper proof mutating software - ARXAN TECHNOLOGIES Inc"
   {:d3fend/has-link
    "https://patents.google.com/patent/US9262600B2/en?oq=US9262600B2",
    :d3fend/kb-abstract
@@ -17402,6 +17975,7 @@
 
 (def
   Reference-Technical_Specifications_for_Construction_and_Management_of_Sensitive_Compartmented_Information_Facilities
+  "Reference - Technical Specifications for Construction and Management of Sensitive Compartmented Information Facilities"
   {:d3fend/has-link
    "https://www.dni.gov/files/Governance/IC-Tech-Specs-for-Const-and-Mgmt-of-SCIFs-v15.pdf",
    :d3fend/kb-author "National Counterintelligence and Security Center",
@@ -17415,6 +17989,7 @@
    "Reference - Technical Specifications for Construction and Management of Sensitive Compartmented Information Facilities"})
 
 (def Reference-TechniquesForImpedingAndDetectingNetworkThreats_VerisignInc
+  "Reference - Techniques for impeding and detecting network threats - Verisign Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US10904273B1/",
    :d3fend/kb-abstract
    "Infinite DNS decoy trap resource to catch threats scanning for network resources to attack.\n\nIn various embodiments, a name server transmits a canonical name as resolution to another canonical name. In operation, when a resource name is requested for resolution, a determination is made that the resource name corresponds to a trap resource name. A first canonical name is transmitted as resolution to the trap resource name. The first canonical name is requested for resolution, and a second canonical name is transmitted as resolution. By providing trap canonical names as resolutions to trap canonical names, unauthorized software making the resolution requests is kept occupied with requesting resolution of canonical name after canonical name, impeding the ability of the unauthorized software from traversing a network.",
@@ -17431,6 +18006,7 @@
    "Reference - Techniques for impeding and detecting network threats - Verisign Inc"})
 
 (def Reference-TenablePassiveNetworkMonitoring
+  "Reference - Tenable Passive Network Monitoring"
   {:d3fend/has-link
    "https://www.tenable.com/sites/default/files/solution-briefs/SB-Passive-Network-Monitoring.pdf",
    :d3fend/kb-abstract
@@ -17445,6 +18021,7 @@
 
 (def
   Reference-Testing_Metrics_for_Password_Creation_Policies_by_Attacking_Large_Sets_of_Revealed_Passwords
+  "Reference - Testing Metrics for Password Creation Policies by Attacking Large Sets of Revealed Passwords"
   {:d3fend/has-link
    "https://www.cs.umd.edu/~jkatz/security/downloads/passwords_revealed-weir.pdf",
    :d3fend/kb-author "Matt Weir, Sudhir Aggarwal, Michael Collins, Henry Stern",
@@ -17458,6 +18035,7 @@
    "Reference - Testing Metrics for Password Creation Policies by Attacking Large Sets of Revealed Passwords"})
 
 (def Reference-ThreatDetectionForReturnOrientedProgramming_CrowdstrikeInc
+  "Reference - Threat detection for return oriented programming - Crowdstrike Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20140075556A1",
    :d3fend/kb-abstract
    "This disclosure describes, in part, techniques for detecting security exploits associated with return-oriented programming. The techniques include determining that a retrieved count is indicative of malicious activity, such as return oriented programming. The count may be retrieved from a processor performance counter of prediction mismatches, the prediction mismatches resulting from comparisons of a call stack of a computing device and of a shadow call stack maintained by a processor of the computing device. The techniques further include performing at least one security response action in response to determining that the count indicates malicious activity.",
@@ -17476,6 +18054,7 @@
 
 (def
   Reference-ThreatDetectionThroughTheAccumulatedDetectionOfThreatCharacteristics_SophosLtd
+  "Reference - Threat detection through the accumulated detection of threat characteristics - Sophos Ltd"
   {:d3fend/has-link
    "https://patents.google.com/patent/US9104864B2/en?oq=US-9104864-B2",
    :d3fend/kb-abstract
@@ -17494,6 +18073,7 @@
 
 (def
   Reference-TivoliApplicationDependencyDiscoverManager7_3_0DependenciesBetweenResources
+  "Reference - Tivoli Application Dependency Discovery Manager 7.3.0 - Dependencies between resources"
   {:d3fend/has-link
    "https://www.ibm.com/docs/en/taddm/7.3.0?topic=model-dependencies-between-resources",
    :d3fend/kb-organization "IBM",
@@ -17509,6 +18089,7 @@
    "Reference - Tivoli Application Dependency Discovery Manager 7.3.0 - Dependencies between resources"})
 
 (def Reference-TokenlessBiometricTransactionAuthorizationMethodAndSystem
+  "Reference - Tokenless biometric transaction authorization method and system"
   {:d3fend/has-link "https://patents.google.com/patent/US5870723A/",
    :d3fend/kb-abstract
    "A method and system for tokenless authorization of commercial transactions between a buyer and a seller using a computer system. A transaction is proposed by a seller, and the buyer signals his acceptance by entering his personal authentication information comprising a PIN and at least one biometric sample, forming a commercial transaction message. The commercial transaction message is forwarded to the computer system, where the computer system compares the personal authentication information in the commercial transaction message with previously registered buyer biometric samples. If the computer system successfully identifies the buyer, a financial account of the buyer is debited and a financial account of the seller is credited, and the results of the transaction are presented to both buyer and seller. As a result of the invention, a buyer can conduct commercial transactions without having to use any tokens such as portable man-made memory devices such as smartcards or swipe cards. The invention allows buyers to quickly select one of a group of different financial accounts from which to transfer funds. The invention further indicates to the user that the authentic computer system was accessed by the use of a private code that is returned to the buyer after the identification is complete. The invention additionally permits an authorized buyer to alert authorities in the event of an emergency, such as when a transaction is coerced.",
@@ -17535,6 +18116,7 @@
 
 (def
   Reference-TrustedCommunicationsWithChildProcesses_MicrosoftTechnologyLicensingLLC
+  "Reference - Trusted Communications With Child Processes - Microsoft Technology Licensing LLC"
   {:d3fend/has-link "https://patents.google.com/patent/US20120174210A1",
    :d3fend/kb-abstract
    "A method to identify a child process to a parent process in an operating system includes obtaining a token and login identifier from the operating system. The parent process creates a remote procedure call communications endpoint to communicate with the child process. Thereafter, a child process is spawned by the parent process. A child-initiated request to communicate with the parent process is then received by the parent process. In order to verify the identity of the child-initiated request, the parent process impersonates the child process and receives as identifier that identifies the requestor child process. The requestor process identifier and the spawned child identifier are compared. Based on the comparison, the parent process responds to the child-initiated request. In another embodiment, process identifiers are used by the parent process to verify the identity of a child process the requests communication with the parent process.",
@@ -17551,6 +18133,7 @@
    "Reference - Trusted Communications With Child Processes - Microsoft Technology Licensing LLC"})
 
 (def Reference-UACBypass_MITRE
+  "Reference - CAR-2019-04-001: UAC Bypass - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2019-04-001/",
    :d3fend/kb-abstract
    "Bypassing user account control (UAC Bypass) is generally done by piggybacking on a system process that has auto-escalate privileges. This analytic looks to detect those cases as described by the open-source UACME tool.",
@@ -17564,6 +18147,7 @@
    :rdfs/label "Reference - CAR-2019-04-001: UAC Bypass - MITRE"})
 
 (def Reference-UEFIPlatformInitialization-Specification
+  "Reference - UEFI Platform Initialization (PI) Specification"
   {:d3fend/has-link
    "https://uefi.org/sites/default/files/resources/PI_Spec_1_7_A_final_May1.pdf",
    :d3fend/kb-reference-of :d3fend/BootloaderAuthentication,
@@ -17573,6 +18157,7 @@
    :rdfs/label "Reference - UEFI Platform Initialization (PI) Specification"})
 
 (def Reference-USBFilterForHubMaliciousCodePreventionSystem
+  "Reference - USB filter for hub malicious code prevention system"
   {:d3fend/has-link "https://patents.google.com/patent/US9990325B2/en",
    :d3fend/kb-abstract
    "The present invention relates generally to computer systems, and more specifically, to a universal serial bus (USB) filter hub for a computer system.",
@@ -17587,6 +18172,7 @@
    "Reference - USB filter for hub malicious code prevention system"})
 
 (def Reference-UnifiedArchitectureFrameworkUAF
+  "Reference - Unified Architecture Framework (UAF)"
   {:d3fend/has-link "https://www.omg.org/spec/UAF/",
    :d3fend/kb-abstract
    "UAF is an OMG standard that assists in development of architectural descriptions in commercial industry firms, federal government agencies and defense organizations. UAF has a variety of use cases from Enterprise and Mission architecting, to System of Systems (SoS) and Cyber-physical Systems engineering, as well as being an enabler for Digital Transformation efforts and for Department of Defense Architecture Framework (DoDAF) and NATO Architecture Framework (NAF) modeling. Architectural Descriptions in UAF are aligned with ISO/IEC/IEEE 42010:2011, Systems and software engineering -- Architecture description.",
@@ -17603,6 +18189,7 @@
    :rdfs/label "Reference - Unified Architecture Framework (UAF)"})
 
 (def Reference-UseDNSPolicyForApplyingFiltersOnDNSQueries
+  "Reference - Use DNS Policy for Applying Filters on DNS Queries"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/windows-server/networking/dns/deploy/apply-filters-on-dns-queries",
    :d3fend/kb-organization "Microsoft",
@@ -17615,6 +18202,7 @@
 
 (def
   Reference-UseOfAnApplicationControllerToMonitorAndControlSoftwareFileAndApplicationEnvironments_SophosLtd
+  "Reference - Use of an application controller to monitor and control software file and application environments - Sophos Ltd"
   {:d3fend/has-link "https://patents.google.com/patent/US20180032727A1",
    :d3fend/kb-abstract
    "In embodiments of the present invention, a framework for an extensible, file-based security system is described for determining an appropriate application, application environment, and/or access or security control measure based at least in part on a file's reputation. In response to the selection of a file, an application controller may be used to select a software application from two or more software applications to open the selected file, based at least in part on the selected file's reputation. If launched, a software application may be configured to open the file in an environment, such as a virtual machine, quarantined environment, and the like, that is appropriate for the file based at least in part on the reputation information. A software application may be a secure software application configured to manage secure files, or an insecure software application configured to manage insecure files. The selected file, and communications relating to the selected software application, may be managed according to the selected software application's secure or insecure configuration. Further, the selected software application may associate reputation information with all files that are modified and/or created by the selected software application, including at least in part, reputation information matching that of the selected file.",
@@ -17632,6 +18220,7 @@
    "Reference - Use of an application controller to monitor and control software file and application environments - Sophos Ltd"})
 
 (def Reference-UseRkillToStopMalwareProcesses-Ghacks.net
+  "Reference - Use Rkill to Stop Malware Processes - ghacks.net"
   {:d3fend/has-link
    "https://www.ghacks.net/2011/07/29/use-rkill-to-stop-malware-processes/",
    :d3fend/kb-author "Melanie Gross",
@@ -17643,6 +18232,7 @@
    :rdfs/label "Reference - Use Rkill to Stop Malware Processes - ghacks.net"})
 
 (def Reference-UserActivityFromClearingEventLogs_MITRE
+  "Reference - CAR-2016-04-002: User Activity from Clearing Event Logs - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2016-04-002/",
    :d3fend/kb-abstract
    "It is unlikely that event log data would be cleared during normal operations, and it is likely that malicious attackers may try to cover their tracks by clearing an event log. When an event log gets cleared, it is suspicious. Alerting when a \"Clear Event Log\" is generated could point to this intruder technique. Centrally collecting events has the added benefit of making it much harder for attackers to cover their tracks. Event Forwarding permits sources to forward multiple copies of a collected event to multiple collectors, thus enabling redundant event collection. Using a redundant event collection model can minimize the single point of failure risk.",
@@ -17658,6 +18248,7 @@
    "Reference - CAR-2016-04-002: User Activity from Clearing Event Logs - MITRE"})
 
 (def Reference-UserActivityFromStoppingWindowsDefensiveServices_MITRE
+  "Reference - CAR-2016-04-003: User Activity from Stopping Windows Defensive Services - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2016-04-003/",
    :d3fend/kb-abstract
    "Spyware and malware remain a serious problem and Microsoft developed security services, Windows Defender and Windows Firewall, to combat this threat. In the event Windows Defender or Windows Firewall is turned off, administrators should correct the issue immediately to prevent the possibility of infection or further infection and investigate to determine if caused by crash or user manipulation.",
@@ -17674,6 +18265,7 @@
    "Reference - CAR-2016-04-003: User Activity from Stopping Windows Defensive Services - MITRE"})
 
 (def Reference-UserLoggedInToMultipleHosts_MITRE
+  "Reference - CAR-2013-02-012: User Logged in to Multiple Hosts - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-02-012/",
    :d3fend/kb-abstract
    "Most users use only one or two machines during the normal course of business. User accounts that log in to multiple machines, especially over a short period of time, may be compromised. Remote logins among multiple machines may be an indicator of Lateral Movement.\n\nCertain users will likely appear as being logged into several machines and may need to be \"whitelisted.\" Such users would include network admins or user names that are common to many hosts.",
@@ -17690,6 +18282,7 @@
    "Reference - CAR-2013-02-012: User Logged in to Multiple Hosts - MITRE"})
 
 (def Reference-UserLoginActivityMonitoring_MITRE
+  "Reference - CAR-2013-10-001: User Login Activity Monitoring - MITRE"
   {:d3fend/has-link "https://car.mitre.org/analytics/CAR-2013-10-001/",
    :d3fend/kb-abstract
    "Monitoring logon and logoff events for hosts on the network is very important for situational awareness. This information can be used as an indicator of unusual activity as well as to corroborate activity seen elsewhere.\n\nCould be applied to a number of different types of monitoring depending on what information is desired. Some use cases include monitoring for all remote connections and building login timelines for users. Logon events are Windows Event Code 4624 for Windows Vista and above, 518 for pre-Vista. Logoff events are 4634 for Windows Vista and above, 538 for pre-Vista.",
@@ -17703,6 +18296,7 @@
    "Reference - CAR-2013-10-001: User Login Activity Monitoring - MITRE"})
 
 (def Reference-UsingSpanningTreeProtocolSTPToEnhanceLayer2NetworkTopologyMaps
+  "Reference - Using spanning tree protocol (STP) to enhance layer-2 topology maps"
   {:d3fend/has-link "https://",
    :d3fend/kb-abstract
    "Spanning Tree Protocol (STP) data is obtained via network switch (SNMP) queries to enhance identification of switch-to-switch links in Layer-2 mapping. In particular, by analyzing the STP data, ambiguity in determining switch uplink ports may be reduced. Specifically, the STP data can be used in conjunction with other topography data to provide Layer-2 connectivity for nodes on a network topology. Layer-2 address mapping tables are collected from a topology mapping, and STP data is collected, along with address translation tables (ARP) tables. Using this information, switches are identified using Layer-2 address tables. The STP data can be correlated by comparing data in switches, identifying switch ports directly connected to other switch ports, and eliminating direct switch-to-switch port connections from consideration for further Layer-2 node mappings.",
@@ -17718,6 +18312,7 @@
    "Reference - Using spanning tree protocol (STP) to enhance layer-2 topology maps"})
 
 (def Reference-VirtualizedProcessIsolation_AdvancedMicroDevicesInc
+  "Reference - Virtualized process isolation - Advanced Micro Devices Inc"
   {:d3fend/has-link "https://patents.google.com/patent/US20180081829A1",
    :d3fend/kb-abstract
    "Systems, apparatuses, and methods for implementing virtualized process isolation are disclosed. A system includes a kernel and multiple guest VMs executing on the system's processing hardware. Each guest VM includes a vShim layer for managing kernel accesses to user space and guest accesses to kernel space. The vShim layer also maintains a separate set of page tables from the kernel page tables. In one embodiment, data in the user space is encrypted and the kernel goes through the vShim layer to access user space data. When the kernel attempts to access a user space address, the kernel exits and the vShim layer is launched to process the request. If the kernel has permission to access the address, the vShim layer copies the data to a region in kernel space and then returns execution to the kernel.",
@@ -17733,6 +18328,7 @@
    "Reference - Virtualized process isolation - Advanced Micro Devices Inc"})
 
 (def Reference-Web-BasedEnterpriseManagement
+  "Reference - Web-Based Enterprise Management"
   {:d3fend/has-link "https://www.dmtf.org/standards/wbem",
    :d3fend/kb-organization "Distributed Management Task Force (DMTF)",
    :d3fend/kb-reference-of [:d3fend/HardwareComponentInventory
@@ -17745,6 +18341,7 @@
    :rdfs/label      "Reference - Web-Based Enterprise Management"})
 
 (def Reference-WebAuthentication_AnAPIForAccessingPublicKeyCredentials%0ALevel2
+  "Reference - Web Authentication: An API for accessing Public Key Credentials Level 2"
   {:d3fend/has-link "https://www.w3.org/TR/webauthn-2/",
    :d3fend/kb-abstract
    "This specification defines an API enabling the creation and use of strong, attested, scoped, public key-based credentials by web applications, for the purpose of strongly authenticating users. Conceptually, one or more public key credentials, each scoped to a given WebAuthn Relying Party, are created by and bound to authenticators as requested by the web application. The user agent mediates access to authenticators and their public key credentials in order to preserve user privacy. Authenticators are responsible for ensuring that no operation is performed without user consent. Authenticators provide cryptographic proof of their properties to Relying Parties via attestation. This specification also describes the functional model for WebAuthn conformant authenticators, including their signature and attestation functionality.",
@@ -17759,6 +18356,7 @@
    "Reference - Web Authentication: An API for accessing Public Key Credentials\nLevel 2"})
 
 (def Reference-WhatIsNX_XDFeature_RedHat
+  "Reference - What is NX/XD feature?"
   {:d3fend/has-link "https://access.redhat.com/solutions/2936741",
    :d3fend/kb-abstract
    "What is NX/XD feature ?\nHow to check whether NX/XD is enabled ?\nHow to enable or disable NX/XD?\n\nNX/XD is a hardware cpu feature which is provided in almost all the hardware. Some BIOS has advanced option of enabling or disabling it.\nNX stands for No eXecute and XD stands for eXecute Disable. Both are same and is a technology used in processors to prevent execution of certain types of code.",
@@ -17772,6 +18370,7 @@
    :rdfs/label "Reference - What is NX/XD feature?"})
 
 (def Reference-Windows-Management-Infrastructure
+  "Reference - Windows Management Infrastructure (MI)"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/previous-versions/windows/desktop/wmi_v2/windows-management-infrastructure",
    :d3fend/kb-organization "Microsoft",
@@ -17785,6 +18384,7 @@
    :rdfs/label "Reference - Windows Management Infrastructure (MI)"})
 
 (def Reference-Windows-Management-Instrumentation
+  "Reference - Windows Management Instrumentation (WMI)"
   {:d3fend/has-link
    "https://docs.microsoft.com/en-us/windows/win32/wmisdk/wmi-start-page",
    :d3fend/kb-organization "Microsoft",
@@ -17798,6 +18398,7 @@
    :rdfs/label "Reference - Windows Management Instrumentation (WMI)"})
 
 (def Reference-Windows10STIG
+  "Reference - Windows 10 STIG"
   {:d3fend/has-link    "https://www.stigviewer.com/stig/windows_10/",
    :d3fend/kb-abstract "Windows 10 STIG guidance.",
    :d3fend/kb-reference-of :d3fend/ApplicationConfigurationHardening,
@@ -17808,6 +18409,7 @@
    :rdfs/label         "Reference - Windows 10 STIG"})
 
 (def Reference-WindowsRemoteManagement_WinRM_MITRE
+  "Reference - CAR-2014-11-006: Windows Remote Management (WinRM) - MITRE"
   {:d3fend/has-link "",
    :d3fend/kb-abstract "",
    :d3fend/kb-author "MITRE",
@@ -17822,6 +18424,7 @@
    "Reference - CAR-2014-11-006: Windows Remote Management (WinRM) - MITRE"})
 
 (def Reference-www.biometric-solutions.com_keystroke-dynamics
+  "Reference - http://www.biometric-solutions.com/keystroke-dynamics.html - biometric-solutions.com"
   {:d3fend/has-link
    "http://www.biometric-solutions.com/keystroke-dynamics.html",
    :d3fend/kb-abstract
@@ -17836,6 +18439,7 @@
    "Reference - http://www.biometric-solutions.com/keystroke-dynamics.html - biometric-solutions.com"})
 
 (def ReferenceType
+  "Reference Type"
   {:db/ident        :d3fend/ReferenceType,
    :rdf/type        :owl/Class,
    :rdfs/label      "Reference Type",
@@ -17903,11 +18507,11 @@
    :db/ident :d3fend/RelayPatternAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/NetworkTrafficAnalysis],
    :rdfs/label "Relay Pattern Analysis",
-   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
-                     {:owl/onProperty :d3fend/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty :d3fend/analyzes,
                       :owl/someValuesFrom
                       :d3fend/OutboundInternetNetworkTraffic,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     :d3fend/NetworkTrafficAnalysis]})
 
 (def RemoteAuthenticationService
   "A remote authentication service provides for the authentication of a user across a network (i.e., remotely)."
@@ -17998,10 +18602,10 @@
    :db/ident :d3fend/RemoteTerminalSessionDetection,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/NetworkTrafficAnalysis],
    :rdfs/label "Remote Terminal Session Detection",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/NetworkTrafficAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/NetworkTrafficAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def RemovableMediaDevice
   "A removable media device is a hardware device used for computer storage and that is designed to be inserted and removed from the system. It is distinct from other removable media in that all the hardware required to read the data are built into the device. So USB flash drives and external hard drives are removable media devices, whereas tapes and disks are not, as they require additional hardware to perform read/write operations."
@@ -18051,14 +18655,15 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/UserBehaviorAnalysis],
    :rdfs/label "Resource Access Pattern Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Authentication,
+                      :owl/someValuesFrom :d3fend/Authorization,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Authorization,
+                      :owl/someValuesFrom :d3fend/Authentication,
                       :rdf/type           :owl/Restriction}
                      :d3fend/UserBehaviorAnalysis]})
 
 (def ResourceDevelopmentTechnique
+  "Resource Development Technique"
   {:db/ident        :d3fend/ResourceDevelopmentTechnique,
    :rdf/type        :owl/Class,
    :rdfs/label      "Resource Development Technique",
@@ -18133,6 +18738,7 @@
    :rdfs/subClassOf :d3fend/NetworkNode})
 
 (def RubyScriptFile
+  "Ruby Script File"
   {:db/ident   :d3fend/RubyScriptFile,
    :rdf/type   [:d3fend/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Ruby Script File"})
@@ -18249,10 +18855,10 @@
    :db/ident :d3fend/SegmentAddressOffsetRandomization,
    :rdf/type [:d3fend/ApplicationHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Segment Address Offset Randomization",
-   :rdfs/subClassOf [:d3fend/ApplicationHardening
-                     {:owl/onProperty     :d3fend/obfuscates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/obfuscates,
                       :owl/someValuesFrom :d3fend/ProcessSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/ApplicationHardening]})
 
 (def SenderMTAReputationAnalysis
   "Characterizing the reputation of mail transfer agents (MTA) to determine the security risk in emails."
@@ -18267,10 +18873,10 @@
    :db/ident :d3fend/SenderMTAReputationAnalysis,
    :rdf/type [:d3fend/MessageAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label "Sender MTA Reputation Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/MessageAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/Email,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/MessageAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SenderReputationAnalysis
   "Ascertaining sender reputation based on information associated with a message (e.g. email/instant messaging)."
@@ -18291,6 +18897,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def Sensor
+  "Sensor"
   {:db/ident        :d3fend/Sensor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Sensor",
@@ -18307,6 +18914,7 @@
    :rdfs/subClassOf [:d3fend/NetworkResource :d3fend/Host]})
 
 (def Service
+  "Service"
   {:db/ident        :d3fend/Service,
    :rdf/type        :owl/Class,
    :rdfs/label      "Service",
@@ -18371,6 +18979,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def ServiceProvider
+  "Service Provider"
   {:db/ident        :d3fend/ServiceProvider,
    :rdf/type        :owl/Class,
    :rdfs/label      "Service Provider",
@@ -18420,13 +19029,14 @@
    :rdfs/label "Session Duration Analysis",
    :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Authentication,
+                      :owl/someValuesFrom :d3fend/Authorization,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/analyzes,
-                      :owl/someValuesFrom :d3fend/Authorization,
+                      :owl/someValuesFrom :d3fend/Authentication,
                       :rdf/type           :owl/Restriction}]})
 
 (def SetSystemConfigValue
+  "Set System Config Value"
   {:db/ident :d3fend/SetSystemConfigValue,
    :rdf/type :owl/Class,
    :rdfs/label "Set System Config Value",
@@ -18564,10 +19174,10 @@
    :db/ident :d3fend/SoftwareInventory,
    :rdf/type [:d3fend/AssetInventory :owl/NamedIndividual :owl/Class],
    :rdfs/label "Software Inventory",
-   :rdfs/subClassOf [:d3fend/AssetInventory
-                     {:owl/onProperty     :d3fend/inventories,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/inventories,
                       :owl/someValuesFrom :d3fend/Software,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/AssetInventory]})
 
 (def SoftwarePackagingTool
   "A tool that automates the process of packaging either or both binary code and source code for use on one or more target platforms."
@@ -18592,6 +19202,7 @@
    :skos/altLabel "Patch"})
 
 (def SoftwareProduct
+  "Software Product"
   {:db/ident        :d3fend/SoftwareProduct,
    :rdf/type        :owl/Class,
    :rdfs/label      "Software Product",
@@ -18599,6 +19210,7 @@
    :skos/altLabel   "SaaP"})
 
 (def SoftwareService
+  "Software Service"
   {:db/ident        :d3fend/SoftwareService,
    :rdf/type        :owl/Class,
    :rdfs/label      "Software Service",
@@ -18621,6 +19233,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def SourceCode
+  "Source Code"
   {:db/ident        :d3fend/SourceCode,
    :rdf/type        [:d3fend/ReferenceType :owl/NamedIndividual :owl/Class],
    :rdfs/label      "Source Code",
@@ -18637,6 +19250,7 @@
    :rdfs/subClassOf :d3fend/StaticAnalysisTool})
 
 (def SourceCodeReference
+  "Source Code Reference"
   {:d3fend/pref-label "Source Code",
    :db/ident          :d3fend/SourceCodeReference,
    :rdf/type          :owl/Class,
@@ -18644,12 +19258,14 @@
    :rdfs/subClassOf   :d3fend/TechniqueReference})
 
 (def Specification
+  "Specification"
   {:db/ident        :d3fend/Specification,
    :rdf/type        :owl/Class,
    :rdfs/label      "Specification",
    :rdfs/subClassOf :d3fend/Document})
 
 (def SpecificationReference
+  "Specification Reference"
   {:d3fend/pref-label "Specification",
    :db/ident          :d3fend/SpecificationReference,
    :rdf/type          :owl/Class,
@@ -18677,12 +19293,12 @@
    :rdfs/label "Stack Frame",
    :rdfs/seeAlso "http://dbpedia.org/resource/Call_stack",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/may-contain,
-                      :owl/someValuesFrom :d3fend/Pointer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/may-contain,
                       :owl/someValuesFrom :d3fend/StackFrameCanary,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/StackComponent],
+                     :d3fend/StackComponent
+                     {:owl/onProperty     :d3fend/may-contain,
+                      :owl/someValuesFrom :d3fend/Pointer,
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel ["Activation Record" "Activation Frame"]})
 
 (def StackFrameCanary
@@ -18838,12 +19454,12 @@
    :rdf/type [:d3fend/CredentialHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label "Strong Password Policy",
    :rdfs/subClassOf [{:owl/onProperty     :d3fend/strengthens,
+                      :owl/someValuesFrom :d3fend/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/strengthens,
                       :owl/someValuesFrom :d3fend/Password,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/CredentialHardening
-                     {:owl/onProperty     :d3fend/strengthens,
-                      :owl/someValuesFrom :d3fend/UserAccount,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3fend/CredentialHardening]})
 
 (def Subroutine
   "In different programming languages, a subroutine may be called a procedure, a function, a routine, a method, or a subprogram. The generic term callable unit is sometimes used."
@@ -18877,10 +19493,10 @@
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Symbolic_link",
    :rdfs/label "Symbolic Link",
    :rdfs/subClassOf [:d3fend/FileSystemLink
-                     :d3fend/File
                      {:owl/onProperty     :d3fend/addresses,
                       :owl/someValuesFrom :d3fend/File,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/File],
    :skos/altLabel ["Soft Link" "Symlink" "Softlink"]})
 
 (def SymmetricKey
@@ -18913,11 +19529,11 @@
    "A system call is the programmatic way in which a computer program requests a service from the kernel of the operating system it is executed on. This may include hardware-related services (for example, accessing a hard disk drive), creation and execution of new processes, and communication with integral kernel services such as process scheduling. System calls provide an essential interface between a process and the operating system.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/System_call",
    :rdfs/label "System Call",
-   :rdfs/subClassOf [:d3fend/DigitalEvent
-                     :d3fend/DigitalArtifact
-                     {:owl/onProperty     :d3fend/executes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/executes,
                       :owl/someValuesFrom :d3fend/Subroutine,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/DigitalEvent
+                     :d3fend/DigitalArtifact]})
 
 (def SystemCallAnalysis
   "Analyzing system calls to determine whether a process is exhibiting unauthorized behavior."
@@ -18961,6 +19577,7 @@
                       :rdf/type           :owl/Restriction}]})
 
 (def SystemConfigSystemCall
+  "System Config System Call"
   {:db/ident        :d3fend/SystemConfigSystemCall,
    :rdf/type        :owl/Class,
    :rdfs/label      "System Config System Call",
@@ -19022,13 +19639,13 @@
    :db/ident :d3fend/SystemConfigurationPermissions,
    :rdf/type [:owl/Class :d3fend/PlatformHardening :owl/NamedIndividual],
    :rdfs/label "System Configuration Permissions",
-   :rdfs/subClassOf [:d3fend/PlatformHardening
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
+                      :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/PlatformHardening
                      {:owl/hasValue   :d3fend/M1028,
                       :owl/onProperty :d3fend/restricts,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onProperty     :d3fend/restricts,
-                      :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type       :owl/Restriction}]})
 
 (def SystemDaemonMonitoring
   "Tracking changes to the state or configuration of critical system level processes."
@@ -19080,10 +19697,10 @@
    :db/ident :d3fend/SystemDependencyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/SystemMapping],
    :rdfs/label "System Dependency Mapping",
-   :rdfs/subClassOf [:d3fend/SystemMapping
-                     {:owl/onProperty     :d3fend/maps,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/maps,
                       :owl/someValuesFrom :d3fend/SystemDependency,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/SystemMapping]})
 
 (def SystemFileAnalysis
   "Monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering."
@@ -19290,15 +19907,16 @@
    :db/ident :d3fend/SystemVulnerabilityAssessment,
    :rdf/type [:owl/NamedIndividual :d3fend/SystemMapping :owl/Class],
    :rdfs/label "System Vulnerability Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/identifies,
-                      :owl/someValuesFrom :d3fend/Vulnerability,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/evaluates,
+                      :owl/someValuesFrom :d3fend/DigitalSystem,
                       :rdf/type           :owl/Restriction}
                      :d3fend/SystemMapping
-                     {:owl/onProperty     :d3fend/evaluates,
-                      :owl/someValuesFrom :d3fend/DigitalSystem,
+                     {:owl/onProperty     :d3fend/identifies,
+                      :owl/someValuesFrom :d3fend/Vulnerability,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1001
+  "Data Obfuscation"
   {:d3fend/attack-id "T1001",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1001,
@@ -19311,6 +19929,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1001.001
+  "Junk Data"
   {:d3fend/attack-id "T1001.001",
    :db/ident         :d3fend/T1001.001,
    :rdf/type         :owl/Class,
@@ -19318,6 +19937,7 @@
    :rdfs/subClassOf  :d3fend/T1001})
 
 (def T1001.002
+  "Steganography"
   {:d3fend/attack-id "T1001.002",
    :db/ident         :d3fend/T1001.002,
    :rdf/type         :owl/Class,
@@ -19325,6 +19945,7 @@
    :rdfs/subClassOf  :d3fend/T1001})
 
 (def T1001.003
+  "Protocol Impersonation"
   {:d3fend/attack-id "T1001.003",
    :db/ident         :d3fend/T1001.003,
    :rdf/type         :owl/Class,
@@ -19332,6 +19953,7 @@
    :rdfs/subClassOf  :d3fend/T1001})
 
 (def T1002
+  "Data Compressed"
   {:d3fend/attack-id "T1002",
    :db/ident         :d3fend/T1002,
    :rdf/type         :owl/Class,
@@ -19339,6 +19961,7 @@
    :rdfs/subClassOf  :d3fend/ExfiltrationTechnique})
 
 (def T1003
+  "OS Credential Dumping"
   {:d3fend/accesses  :d3fend/Credential,
    :d3fend/attack-id "T1003",
    :db/ident         :d3fend/T1003,
@@ -19350,6 +19973,7 @@
                       :d3fend/CredentialAccessTechnique]})
 
 (def T1003.001
+  "LSASS Memory"
   {:d3fend/accesses  [:d3fend/Process :d3fend/AuthenticationService],
    :d3fend/attack-id "T1003.001",
    :db/ident         :d3fend/T1003.001,
@@ -19364,6 +19988,7 @@
                       :d3fend/T1003]})
 
 (def T1003.002
+  "Security Account Manager"
   {:d3fend/attack-id  "T1003.002",
    :d3fend/may-access [:d3fend/AuthenticationService
                        :d3fend/Process
@@ -19371,18 +19996,19 @@
    :db/ident          :d3fend/T1003.002,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Security Account Manager",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/SystemPasswordDatabase,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1003
+   :rdfs/subClassOf   [:d3fend/T1003
                        {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/Process,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/SystemPasswordDatabase,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/AuthenticationService,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1003.003
+  "NTDS"
   {:d3fend/accesses  :d3fend/EncryptedCredential,
    :d3fend/attack-id "T1003.003",
    :db/ident         :d3fend/T1003.003,
@@ -19394,6 +20020,7 @@
                       :d3fend/T1003]})
 
 (def T1003.004
+  "LSA Secrets"
   {:d3fend/attack-id  "T1003.004",
    :d3fend/may-access [:d3fend/SystemPasswordDatabase :d3fend/Process],
    :db/ident          :d3fend/T1003.004,
@@ -19408,6 +20035,7 @@
                        :d3fend/T1003]})
 
 (def T1003.005
+  "Cached Domain Credentials"
   {:d3fend/accesses   :d3fend/EncryptedCredential,
    :d3fend/attack-id  "T1003.005",
    :d3fend/may-modify :d3fend/Log,
@@ -19423,6 +20051,7 @@
                        :d3fend/T1003]})
 
 (def T1003.006
+  "DCSync"
   {:d3fend/attack-id  "T1003.006",
    :d3fend/may-modify :d3fend/EventLog,
    :d3fend/produces   :d3fend/IntranetAdministrativeNetworkTraffic,
@@ -19439,6 +20068,7 @@
                        :d3fend/T1003]})
 
 (def T1003.007
+  "Proc Filesystem"
   {:d3fend/accesses  [:d3fend/ProcessImage :d3fend/OperatingSystemFile],
    :d3fend/attack-id "T1003.007",
    :db/ident         :d3fend/T1003.007,
@@ -19453,6 +20083,7 @@
                       :d3fend/T1003]})
 
 (def T1003.008
+  "/etc/passwd and /etc/shadow"
   {:d3fend/accesses  [:d3fend/PasswordFile :d3fend/EncryptedCredential],
    :d3fend/attack-id "T1003.008",
    :db/ident         :d3fend/T1003.008,
@@ -19467,6 +20098,7 @@
                       :d3fend/T1003]})
 
 (def T1004
+  "Winlogon Helper DLL"
   {:d3fend/attack-id "T1004",
    :db/ident         :d3fend/T1004,
    :rdf/type         :owl/Class,
@@ -19474,6 +20106,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1005
+  "Data from Local System"
   {:d3fend/accesses  [:d3fend/LocalResource :d3fend/File],
    :d3fend/attack-id "T1005",
    :db/ident         :d3fend/T1005,
@@ -19488,6 +20121,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1006
+  "Direct Volume Access"
   {:d3fend/accesses  :d3fend/Volume,
    :d3fend/attack-id "T1006",
    :db/ident         :d3fend/T1006,
@@ -19499,6 +20133,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1007
+  "System Service Discovery"
   {:d3fend/attack-id  "T1007",
    :d3fend/may-invoke [:d3fend/GetRunningProcesses :d3fend/CreateProcess],
    :db/ident          :d3fend/T1007,
@@ -19513,6 +20148,7 @@
                        :d3fend/DiscoveryTechnique]})
 
 (def T1008
+  "Fallback Channels"
   {:d3fend/attack-id "T1008",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1008,
@@ -19525,6 +20161,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1009
+  "Binary Padding"
   {:d3fend/attack-id "T1009",
    :db/ident         :d3fend/T1009,
    :rdf/type         :owl/Class,
@@ -19532,6 +20169,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1010
+  "Application Window Discovery"
   {:d3fend/attack-id  "T1010",
    :d3fend/may-invoke [:d3fend/GetOpenWindows :d3fend/CreateProcess],
    :db/ident          :d3fend/T1010,
@@ -19546,6 +20184,7 @@
                        :d3fend/DiscoveryTechnique]})
 
 (def T1011
+  "Exfiltration Over Other Network Medium"
   {:d3fend/attack-id "T1011",
    :d3fend/produces  :d3fend/InternetNetworkTraffic,
    :db/ident         :d3fend/T1011,
@@ -19557,6 +20196,7 @@
                       :d3fend/ExfiltrationTechnique]})
 
 (def T1011.001
+  "Exfiltration Over Bluetooth"
   {:d3fend/attack-id "T1011.001",
    :db/ident         :d3fend/T1011.001,
    :rdf/type         :owl/Class,
@@ -19564,6 +20204,7 @@
    :rdfs/subClassOf  :d3fend/T1011})
 
 (def T1012
+  "Query Registry"
   {:d3fend/accesses   :d3fend/SystemConfigurationDatabase,
    :d3fend/attack-id  "T1012",
    :d3fend/may-invoke :d3fend/GetSystemConfigValue,
@@ -19579,6 +20220,7 @@
                        :d3fend/DiscoveryTechnique]})
 
 (def T1013
+  "Port Monitors"
   {:d3fend/attack-id "T1013",
    :db/ident         :d3fend/T1013,
    :rdf/type         :owl/Class,
@@ -19587,6 +20229,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1014
+  "Rootkit"
   {:d3fend/attack-id  "T1014",
    :d3fend/may-modify [:d3fend/KernelModule
                        :d3fend/BootSector
@@ -19597,23 +20240,24 @@
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Rootkit",
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/Kernel,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/DefenseEvasionTechnique
+                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/KernelModule,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/Firmware,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/BootSector,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/DefenseEvasionTechnique
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/Kernel,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1015
+  "Accessibility Features"
   {:d3fend/attack-id "T1015",
    :db/ident         :d3fend/T1015,
    :rdf/type         :owl/Class,
@@ -19622,6 +20266,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1016
+  "System Network Configuration Discovery"
   {:d3fend/attack-id   "T1016",
    :d3fend/may-execute :d3fend/ExecutableScript,
    :d3fend/may-invoke  [:d3fend/GetSystemNetworkConfigValue
@@ -19629,19 +20274,20 @@
    :db/ident           :d3fend/T1016,
    :rdf/type           [:owl/Class :owl/NamedIndividual],
    :rdfs/label         "System Network Configuration Discovery",
-   :rdfs/subClassOf    [{:owl/onProperty     :d3fend/may-execute,
-                         :owl/someValuesFrom :d3fend/ExecutableScript,
-                         :rdf/type           :owl/Restriction}
-                        {:owl/onProperty     :d3fend/may-invoke,
+   :rdfs/subClassOf    [{:owl/onProperty     :d3fend/may-invoke,
                          :owl/someValuesFrom :d3fend/CreateProcess,
                          :rdf/type           :owl/Restriction}
                         {:owl/onProperty :d3fend/may-invoke,
                          :owl/someValuesFrom
                          :d3fend/GetSystemNetworkConfigValue,
                          :rdf/type :owl/Restriction}
-                        :d3fend/DiscoveryTechnique]})
+                        :d3fend/DiscoveryTechnique
+                        {:owl/onProperty     :d3fend/may-execute,
+                         :owl/someValuesFrom :d3fend/ExecutableScript,
+                         :rdf/type           :owl/Restriction}]})
 
 (def T1016.001
+  "Internet Connection Discovery"
   {:d3fend/attack-id "T1016.001",
    :db/ident         :d3fend/T1016.001,
    :rdf/type         :owl/Class,
@@ -19649,6 +20295,7 @@
    :rdfs/subClassOf  :d3fend/T1016})
 
 (def T1017
+  "Application Deployment Software"
   {:d3fend/attack-id "T1017",
    :db/ident         :d3fend/T1017,
    :rdf/type         :owl/Class,
@@ -19656,6 +20303,7 @@
    :rdfs/subClassOf  :d3fend/LateralMovementTechnique})
 
 (def T1018
+  "Remote System Discovery"
   {:d3fend/attack-id  "T1018",
    :d3fend/may-access :d3fend/OperatingSystemConfigurationFile,
    :d3fend/may-invoke [:d3fend/CreateProcess :d3fend/CreateSocket],
@@ -19663,22 +20311,23 @@
    :db/ident          :d3fend/T1018,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Remote System Discovery",
-   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-access,
-                        :owl/someValuesFrom
-                        :d3fend/OperatingSystemConfigurationFile,
-                        :rdf/type :owl/Restriction}
-                       {:owl/onProperty     :d3fend/produces,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/produces,
                         :owl/someValuesFrom :d3fend/NetworkTraffic,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-invoke,
-                        :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/CreateSocket,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/DiscoveryTechnique]})
+                       :d3fend/DiscoveryTechnique
+                       {:owl/onProperty     :d3fend/may-invoke,
+                        :owl/someValuesFrom :d3fend/CreateProcess,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty :d3fend/may-access,
+                        :owl/someValuesFrom
+                        :d3fend/OperatingSystemConfigurationFile,
+                        :rdf/type :owl/Restriction}]})
 
 (def T1019
+  "System Firmware"
   {:d3fend/attack-id "T1019",
    :db/ident         :d3fend/T1019,
    :rdf/type         :owl/Class,
@@ -19686,6 +20335,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1020
+  "Automated Exfiltration"
   {:d3fend/attack-id "T1020",
    :d3fend/produces  :d3fend/InternetNetworkTraffic,
    :db/ident         :d3fend/T1020,
@@ -19697,6 +20347,7 @@
                       :d3fend/ExfiltrationTechnique]})
 
 (def T1020.001
+  "Traffic Duplication"
   {:d3fend/attack-id "T1020.001",
    :db/ident         :d3fend/T1020.001,
    :rdf/type         :owl/Class,
@@ -19704,6 +20355,7 @@
    :rdfs/subClassOf  :d3fend/T1020})
 
 (def T1021
+  "Remote Services"
   {:d3fend/attack-id "T1021",
    :d3fend/produces  :d3fend/IntranetNetworkTraffic,
    :db/ident         :d3fend/T1021,
@@ -19715,6 +20367,7 @@
                       :d3fend/LateralMovementTechnique]})
 
 (def T1021.001
+  "Remote Desktop Protocol"
   {:d3fend/attack-id "T1021.001",
    :d3fend/creates   :d3fend/RDPSession,
    :d3fend/produces  :d3fend/AdministrativeNetworkTraffic,
@@ -19730,6 +20383,7 @@
                       :d3fend/T1021]})
 
 (def T1021.002
+  "SMB/Windows Admin Shares"
   {:d3fend/attack-id "T1021.002",
    :db/ident         :d3fend/T1021.002,
    :rdf/type         :owl/Class,
@@ -19737,6 +20391,7 @@
    :rdfs/subClassOf  :d3fend/T1021})
 
 (def T1021.003
+  "Distributed Component Object Model"
   {:d3fend/attack-id "T1021.003",
    :db/ident         :d3fend/T1021.003,
    :rdf/type         :owl/Class,
@@ -19744,6 +20399,7 @@
    :rdfs/subClassOf  :d3fend/T1021})
 
 (def T1021.004
+  "SSH"
   {:d3fend/attack-id "T1021.004",
    :d3fend/creates   :d3fend/SSHSession,
    :d3fend/produces  :d3fend/AdministrativeNetworkTraffic,
@@ -19759,6 +20415,7 @@
                       :d3fend/T1021]})
 
 (def T1021.005
+  "VNC"
   {:d3fend/attack-id "T1021.005",
    :db/ident         :d3fend/T1021.005,
    :rdf/type         :owl/Class,
@@ -19766,6 +20423,7 @@
    :rdfs/subClassOf  :d3fend/T1021})
 
 (def T1021.006
+  "Windows Remote Management"
   {:d3fend/attack-id "T1021.006",
    :db/ident         :d3fend/T1021.006,
    :rdf/type         :owl/Class,
@@ -19773,6 +20431,7 @@
    :rdfs/subClassOf  :d3fend/T1021})
 
 (def T1022
+  "Data Encrypted"
   {:d3fend/attack-id "T1022",
    :db/ident         :d3fend/T1022,
    :rdf/type         :owl/Class,
@@ -19780,6 +20439,7 @@
    :rdfs/subClassOf  :d3fend/ExfiltrationTechnique})
 
 (def T1023
+  "Shortcut Modification"
   {:d3fend/attack-id "T1023",
    :db/ident         :d3fend/T1023,
    :rdf/type         :owl/Class,
@@ -19787,6 +20447,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1024
+  "Custom Cryptographic Protocol"
   {:d3fend/attack-id "T1024",
    :db/ident         :d3fend/T1024,
    :rdf/type         :owl/Class,
@@ -19794,6 +20455,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1025
+  "Data from Removable Media"
   {:d3fend/accesses  :d3fend/RemovableMediaDevice,
    :d3fend/attack-id "T1025",
    :db/ident         :d3fend/T1025,
@@ -19805,6 +20467,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1027
+  "Obfuscated Files or Information"
   {:d3fend/attack-id "T1027",
    :db/ident         :d3fend/T1027,
    :rdf/type         :owl/Class,
@@ -19812,6 +20475,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1027.001
+  "Binary Padding"
   {:d3fend/attack-id "T1027.001",
    :d3fend/modifies  :d3fend/ExecutableBinary,
    :db/ident         :d3fend/T1027.001,
@@ -19823,6 +20487,7 @@
                       :d3fend/T1027]})
 
 (def T1027.002
+  "Software Packing"
   {:d3fend/attack-id  "T1027.002",
    :d3fend/obfuscates :d3fend/ExecutableFile,
    :db/ident          :d3fend/T1027.002,
@@ -19834,6 +20499,7 @@
                        :d3fend/T1027]})
 
 (def T1027.003
+  "Steganography"
   {:d3fend/attack-id "T1027.003",
    :db/ident         :d3fend/T1027.003,
    :rdf/type         :owl/Class,
@@ -19841,6 +20507,7 @@
    :rdfs/subClassOf  :d3fend/T1027})
 
 (def T1027.004
+  "Compile After Delivery"
   {:d3fend/attack-id "T1027.004",
    :d3fend/creates   :d3fend/ExecutableFile,
    :db/ident         :d3fend/T1027.004,
@@ -19852,6 +20519,7 @@
                       :d3fend/T1027]})
 
 (def T1027.005
+  "Indicator Removal from Tools"
   {:d3fend/attack-id "T1027.005",
    :db/ident         :d3fend/T1027.005,
    :rdf/type         :owl/Class,
@@ -19859,6 +20527,7 @@
    :rdfs/subClassOf  :d3fend/T1027})
 
 (def T1027.006
+  "HTML Smuggling"
   {:d3fend/attack-id "T1027.006",
    :d3fend/creates   :d3fend/JavaScriptBlob,
    :d3fend/hides     :d3fend/DigitalArtifact,
@@ -19874,6 +20543,7 @@
                       :d3fend/T1027]})
 
 (def T1028
+  "Windows Remote Management"
   {:d3fend/attack-id "T1028",
    :db/ident         :d3fend/T1028,
    :rdf/type         :owl/Class,
@@ -19882,6 +20552,7 @@
                       :d3fend/ExecutionTechnique]})
 
 (def T1029
+  "Scheduled Transfer"
   {:d3fend/attack-id "T1029",
    :d3fend/produces  :d3fend/InternetNetworkTraffic,
    :db/ident         :d3fend/T1029,
@@ -19893,6 +20564,7 @@
                       :d3fend/ExfiltrationTechnique]})
 
 (def T1030
+  "Data Transfer Size Limits"
   {:d3fend/attack-id "T1030",
    :d3fend/produces  :d3fend/InternetNetworkTraffic,
    :db/ident         :d3fend/T1030,
@@ -19904,6 +20576,7 @@
                       :d3fend/ExfiltrationTechnique]})
 
 (def T1031
+  "Modify Existing Service"
   {:d3fend/attack-id "T1031",
    :db/ident         :d3fend/T1031,
    :rdf/type         :owl/Class,
@@ -19911,6 +20584,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1032
+  "Standard Cryptographic Protocol"
   {:d3fend/attack-id "T1032",
    :db/ident         :d3fend/T1032,
    :rdf/type         :owl/Class,
@@ -19918,6 +20592,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1033
+  "System Owner/User Discovery"
   {:d3fend/attack-id  "T1033",
    :d3fend/may-access [:d3fend/DirectoryService
                        :d3fend/PasswordFile
@@ -19927,27 +20602,28 @@
    :db/ident          :d3fend/T1033,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "System Owner/User Discovery",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-invoke,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/ProcessSegment,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/GetSystemConfigValue,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/DiscoveryTechnique
+                       {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/CopyToken,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/PasswordFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/GetSystemConfigValue,
+                        :owl/someValuesFrom :d3fend/DirectoryService,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/CreateProcess,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/DiscoveryTechnique
-                       {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/DirectoryService,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/ProcessSegment,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1035
+  "Service Execution"
   {:d3fend/attack-id "T1035",
    :db/ident         :d3fend/T1035,
    :rdf/type         :owl/Class,
@@ -19955,6 +20631,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1036
+  "Masquerading"
   {:d3fend/attack-id "T1036",
    :db/ident         :d3fend/T1036,
    :rdf/type         :owl/Class,
@@ -19962,6 +20639,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1036.001
+  "Invalid Code Signature"
   {:d3fend/attack-id "T1036.001",
    :d3fend/creates   :d3fend/ExecutableBinary,
    :db/ident         :d3fend/T1036.001,
@@ -19973,6 +20651,7 @@
                       :d3fend/T1036]})
 
 (def T1036.002
+  "Right-to-Left Override"
   {:d3fend/attack-id "T1036.002",
    :d3fend/modifies  :d3fend/FileSystemMetadata,
    :db/ident         :d3fend/T1036.002,
@@ -19984,6 +20663,7 @@
                       :d3fend/T1036]})
 
 (def T1036.003
+  "Rename System Utilities"
   {:d3fend/attack-id  "T1036.003",
    :d3fend/may-create :d3fend/ExecutableFile,
    :d3fend/may-modify :d3fend/OperatingSystemExecutableFile,
@@ -20000,6 +20680,7 @@
                        :d3fend/T1036]})
 
 (def T1036.004
+  "Masquerade Task or Service"
   {:d3fend/attack-id "T1036.004",
    :d3fend/modifies  :d3fend/TaskSchedule,
    :db/ident         :d3fend/T1036.004,
@@ -20011,6 +20692,7 @@
                       :d3fend/T1036]})
 
 (def T1036.005
+  "Match Legitimate Name or Location"
   {:d3fend/attack-id  "T1036.005",
    :d3fend/invokes    :d3fend/MoveFile,
    :d3fend/may-create :d3fend/File,
@@ -20026,6 +20708,7 @@
                        :d3fend/T1036]})
 
 (def T1036.006
+  "Space after Filename"
   {:d3fend/attack-id "T1036.006",
    :d3fend/creates   :d3fend/File,
    :db/ident         :d3fend/T1036.006,
@@ -20037,6 +20720,7 @@
                       :d3fend/T1036]})
 
 (def T1036.007
+  "Double File Extension"
   {:d3fend/attack-id "T1036.007",
    :d3fend/modifies  :d3fend/FileSystemMetadata,
    :db/ident         :d3fend/T1036.007,
@@ -20048,6 +20732,7 @@
                       :d3fend/T1036]})
 
 (def T1037
+  "Boot or Logon Initialization Scripts"
   {:d3fend/attack-id "T1037",
    :db/ident         :d3fend/T1037,
    :rdf/type         :owl/Class,
@@ -20056,6 +20741,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1037.001
+  "Logon Script (Windows)"
   {:d3fend/attack-id "T1037.001",
    :d3fend/modifies  :d3fend/UserInitScript,
    :db/ident         :d3fend/T1037.001,
@@ -20067,6 +20753,7 @@
                       :d3fend/T1037]})
 
 (def T1037.002
+  "Logon Script (Mac)"
   {:d3fend/attack-id "T1037.002",
    :d3fend/modifies  :d3fend/UserInitScript,
    :db/ident         :d3fend/T1037.002,
@@ -20092,6 +20779,7 @@
                      :d3fend/T1037]})
 
 (def T1037.004
+  "Rc.common"
   {:d3fend/attack-id "T1037.004",
    :d3fend/modifies  :d3fend/SystemInitScript,
    :db/ident         :d3fend/T1037.004,
@@ -20103,6 +20791,7 @@
                       :d3fend/T1037]})
 
 (def T1037.005
+  "Startup Items"
   {:d3fend/attack-id "T1037.005",
    :d3fend/modifies  :d3fend/SystemStartupDirectory,
    :db/ident         :d3fend/T1037.005,
@@ -20114,6 +20803,7 @@
                       :d3fend/T1037]})
 
 (def T1038
+  "DLL Search Order Hijacking"
   {:d3fend/attack-id "T1038",
    :db/ident         :d3fend/T1038,
    :rdf/type         :owl/Class,
@@ -20123,6 +20813,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1039
+  "Data from Network Shared Drive"
   {:d3fend/accesses  :d3fend/NetworkFileShareResource,
    :d3fend/attack-id "T1039",
    :db/ident         :d3fend/T1039,
@@ -20134,6 +20825,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1040
+  "Network Sniffing"
   {:d3fend/attack-id   "T1040",
    :d3fend/may-produce :d3fend/DNSLookup,
    :db/ident           :d3fend/T1040,
@@ -20146,6 +20838,7 @@
                         :d3fend/CredentialAccessTechnique]})
 
 (def T1041
+  "Exfiltration Over C2 Channel"
   {:d3fend/attack-id    "T1041",
    :d3fend/may-transfer :d3fend/CertificateFile,
    :d3fend/produces     :d3fend/InternetNetworkTraffic,
@@ -20161,6 +20854,7 @@
                          :d3fend/ExfiltrationTechnique]})
 
 (def T1042
+  "Change Default File Association"
   {:d3fend/attack-id "T1042",
    :db/ident         :d3fend/T1042,
    :rdf/type         :owl/Class,
@@ -20168,6 +20862,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1044
+  "File System Permissions Weakness"
   {:d3fend/attack-id "T1044",
    :db/ident         :d3fend/T1044,
    :rdf/type         :owl/Class,
@@ -20176,6 +20871,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1045
+  "Software Packing"
   {:d3fend/attack-id "T1045",
    :db/ident         :d3fend/T1045,
    :rdf/type         :owl/Class,
@@ -20183,6 +20879,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1046
+  "Network Service Scanning"
   {:d3fend/attack-id "T1046",
    :db/ident         :d3fend/T1046,
    :rdf/type         :owl/Class,
@@ -20190,6 +20887,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1047
+  "Windows Management Instrumentation Execution"
   {:d3fend/attack-id  "T1047",
    :d3fend/may-create :d3fend/IntranetAdministrativeNetworkTraffic,
    :d3fend/may-invoke :d3fend/CreateProcess,
@@ -20206,6 +20904,7 @@
                        :d3fend/ExecutionTechnique]})
 
 (def T1048
+  "Exfiltration Over Alternative Protocol"
   {:d3fend/attack-id "T1048",
    :d3fend/produces  :d3fend/InternetNetworkTraffic,
    :db/ident         :d3fend/T1048,
@@ -20217,6 +20916,7 @@
                       :d3fend/ExfiltrationTechnique]})
 
 (def T1048.001
+  "Exfiltration Over Symmetric Encrypted Non-C2 Protocol"
   {:d3fend/attack-id "T1048.001",
    :d3fend/produces  :d3fend/OutboundInternetEncryptedTraffic,
    :db/ident         :d3fend/T1048.001,
@@ -20229,6 +20929,7 @@
                       :d3fend/T1048]})
 
 (def T1048.002
+  "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol"
   {:d3fend/attack-id "T1048.002",
    :d3fend/may-transfer :d3fend/CertificateFile,
    :d3fend/produces :d3fend/OutboundInternetEncryptedTraffic,
@@ -20245,6 +20946,7 @@
                      :d3fend/T1048]})
 
 (def T1048.003
+  "Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol"
   {:d3fend/attack-id "T1048.003",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1048.003,
@@ -20257,6 +20959,7 @@
                       :d3fend/T1048]})
 
 (def T1049
+  "System Network Connections Discovery"
   {:d3fend/attack-id  "T1049",
    :d3fend/may-invoke :d3fend/GetOpenSockets,
    :db/ident          :d3fend/T1049,
@@ -20268,6 +20971,7 @@
                        :d3fend/DiscoveryTechnique]})
 
 (def T1050
+  "New Service"
   {:d3fend/attack-id "T1050",
    :db/ident         :d3fend/T1050,
    :rdf/type         :owl/Class,
@@ -20276,6 +20980,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1052
+  "Exfiltration Over Physical Medium"
   {:d3fend/attack-id "T1052",
    :db/ident         :d3fend/T1052,
    :rdf/type         :owl/Class,
@@ -20283,6 +20988,7 @@
    :rdfs/subClassOf  :d3fend/ExfiltrationTechnique})
 
 (def T1052.001
+  "Exfiltration over USB"
   {:d3fend/attack-id "T1052.001",
    :d3fend/modifies  :d3fend/RemovableMediaDevice,
    :db/ident         :d3fend/T1052.001,
@@ -20305,15 +21011,16 @@
    :rdfs/label "Scheduled Task/Job Execution",
    :rdfs/subClassOf [:d3fend/PrivilegeEscalationTechnique
                      :d3fend/PersistenceTechnique
+                     :d3fend/ExecutionTechnique
                      {:owl/onProperty     :d3fend/invokes,
                       :owl/someValuesFrom :d3fend/CreateProcess,
                       :rdf/type           :owl/Restriction}
-                     :d3fend/ExecutionTechnique
                      {:owl/onProperty     :d3fend/modifies,
                       :owl/someValuesFrom :d3fend/TaskSchedule,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1053.001
+  "At (Linux) Execution"
   {:d3fend/attack-id "T1053.001",
    :db/ident         :d3fend/T1053.001,
    :rdf/type         :owl/Class,
@@ -20321,6 +21028,7 @@
    :rdfs/subClassOf  :d3fend/T1053})
 
 (def T1053.002
+  "At (Windows) Execution"
   {:d3fend/attack-id "T1053.002",
    :db/ident         :d3fend/T1053.002,
    :rdf/type         :owl/Class,
@@ -20328,6 +21036,7 @@
    :rdfs/subClassOf  :d3fend/T1053})
 
 (def T1053.003
+  "Cron Execution"
   {:d3fend/attack-id "T1053.003",
    :db/ident         :d3fend/T1053.003,
    :rdf/type         :owl/Class,
@@ -20335,6 +21044,7 @@
    :rdfs/subClassOf  :d3fend/T1053})
 
 (def T1053.004
+  "Launchd"
   {:d3fend/attack-id "T1053.004",
    :d3fend/creates   :d3fend/PropertyListFile,
    :db/ident         :d3fend/T1053.004,
@@ -20356,6 +21066,7 @@
    :rdfs/subClassOf :d3fend/T1053})
 
 (def T1053.006
+  "Systemd Timers"
   {:d3fend/attack-id "T1053.006",
    :db/ident         :d3fend/T1053.006,
    :rdf/type         :owl/Class,
@@ -20363,6 +21074,7 @@
    :rdfs/subClassOf  :d3fend/T1053})
 
 (def T1053.007
+  "Container Orchestration Job"
   {:d3fend/attack-id "T1053.007",
    :db/ident         :d3fend/T1053.007,
    :rdf/type         :owl/Class,
@@ -20370,6 +21082,7 @@
    :rdfs/subClassOf  :d3fend/T1053})
 
 (def T1054
+  "Indicator Blocking"
   {:d3fend/attack-id "T1054",
    :db/ident         :d3fend/T1054,
    :rdf/type         :owl/Class,
@@ -20377,6 +21090,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1055
+  "Process Injection"
   {:d3fend/attack-id "T1055",
    :db/ident         :d3fend/T1055,
    :rdf/type         :owl/Class,
@@ -20385,6 +21099,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1055.001
+  "Dynamic-link Library Injection"
   {:d3fend/adds      :d3fend/SharedLibraryFile,
    :d3fend/attack-id "T1055.001",
    :d3fend/invokes   :d3fend/SystemCall,
@@ -20395,15 +21110,16 @@
    :rdfs/subClassOf  [{:owl/onProperty     :d3fend/invokes,
                        :owl/someValuesFrom :d3fend/SystemCall,
                        :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/loads,
-                       :owl/someValuesFrom :d3fend/SharedLibraryFile,
-                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/adds,
                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/T1055]})
+                      :d3fend/T1055
+                      {:owl/onProperty     :d3fend/loads,
+                       :owl/someValuesFrom :d3fend/SharedLibraryFile,
+                       :rdf/type           :owl/Restriction}]})
 
 (def T1055.002
+  "Portable Executable Injection"
   {:d3fend/attack-id "T1055.002",
    :d3fend/may-add   :d3fend/ObjectFile,
    :db/ident         :d3fend/T1055.002,
@@ -20415,6 +21131,7 @@
                       :d3fend/T1055]})
 
 (def T1055.003
+  "Thread Execution Hijacking"
   {:d3fend/attack-id "T1055.003",
    :d3fend/invokes   :d3fend/SystemCall,
    :d3fend/may-add   :d3fend/ExecutableBinary,
@@ -20430,6 +21147,7 @@
                       :d3fend/T1055]})
 
 (def T1055.004
+  "Asynchronous Procedure Call"
   {:d3fend/attack-id  "T1055.004",
    :d3fend/may-invoke :d3fend/CreateProcess,
    :db/ident          :d3fend/T1055.004,
@@ -20441,6 +21159,7 @@
                        :d3fend/T1055]})
 
 (def T1055.005
+  "Thread Local Storage"
   {:d3fend/attack-id "T1055.005",
    :d3fend/invokes   :d3fend/SystemCall,
    :db/ident         :d3fend/T1055.005,
@@ -20452,6 +21171,7 @@
                       :d3fend/T1055]})
 
 (def T1055.008
+  "Ptrace System Calls"
   {:d3fend/attack-id "T1055.008",
    :d3fend/invokes   :d3fend/SystemCall,
    :db/ident         :d3fend/T1055.008,
@@ -20463,6 +21183,7 @@
                       :d3fend/T1055]})
 
 (def T1055.009
+  "Proc Memory"
   {:d3fend/accesses   :d3fend/OperatingSystemFile,
    :d3fend/attack-id  "T1055.009",
    :d3fend/may-modify :d3fend/OperatingSystemFile,
@@ -20478,6 +21199,7 @@
                        :d3fend/T1055]})
 
 (def T1055.011
+  "Extra Window Memory Injection"
   {:d3fend/attack-id "T1055.011",
    :db/ident         :d3fend/T1055.011,
    :rdf/type         :owl/Class,
@@ -20485,6 +21207,7 @@
    :rdfs/subClassOf  :d3fend/T1055})
 
 (def T1055.012
+  "Process Hollowing"
   {:d3fend/attack-id "T1055.012",
    :d3fend/modifies  :d3fend/ProcessCodeSegment,
    :db/ident         :d3fend/T1055.012,
@@ -20496,6 +21219,7 @@
                       :d3fend/T1055]})
 
 (def T1055.013
+  "Process Doppelgänging"
   {:d3fend/attack-id "T1055.013",
    :d3fend/invokes   :d3fend/CreateProcess,
    :db/ident         :d3fend/T1055.013,
@@ -20507,6 +21231,7 @@
                       :d3fend/T1055]})
 
 (def T1055.014
+  "VDSO Hijacking"
   {:d3fend/accesses  :d3fend/SharedLibraryFile,
    :d3fend/attack-id "T1055.014",
    :d3fend/invokes   :d3fend/SystemCall,
@@ -20522,6 +21247,7 @@
                       :d3fend/T1055]})
 
 (def T1055.015
+  "ListPlanting"
   {:d3fend/attack-id "T1055.015",
    :db/ident         :d3fend/T1055.015,
    :rdf/type         :owl/Class,
@@ -20529,6 +21255,7 @@
    :rdfs/subClassOf  :d3fend/T1055})
 
 (def T1056
+  "Input Capture"
   {:d3fend/attack-id "T1056",
    :db/ident         :d3fend/T1056,
    :rdf/type         :owl/Class,
@@ -20537,6 +21264,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1056.001
+  "Keylogging"
   {:d3fend/accesses  :d3fend/KeyboardInputDevice,
    :d3fend/attack-id "T1056.001",
    :db/ident         :d3fend/T1056.001,
@@ -20548,6 +21276,7 @@
                       :d3fend/T1056]})
 
 (def T1056.002
+  "GUI Input Capture"
   {:d3fend/accesses  :d3fend/GraphicalUserInterface,
    :d3fend/attack-id "T1056.002",
    :db/ident         :d3fend/T1056.002,
@@ -20559,6 +21288,7 @@
                       :d3fend/T1056]})
 
 (def T1056.003
+  "Web Portal Capture"
   {:d3fend/attack-id "T1056.003",
    :d3fend/modifies  :d3fend/WebServerApplication,
    :db/ident         :d3fend/T1056.003,
@@ -20570,6 +21300,7 @@
                       :d3fend/T1056]})
 
 (def T1056.004
+  "Credential API Hooking"
   {:d3fend/attack-id  "T1056.004",
    :d3fend/may-modify :d3fend/ProcessCodeSegment,
    :db/ident          :d3fend/T1056.004,
@@ -20581,6 +21312,7 @@
                        :d3fend/T1056]})
 
 (def T1057
+  "Process Discovery"
   {:d3fend/attack-id  "T1057",
    :d3fend/may-invoke [:d3fend/GetRunningProcesses :d3fend/CreateProcess],
    :db/ident          :d3fend/T1057,
@@ -20595,6 +21327,7 @@
                        :d3fend/DiscoveryTechnique]})
 
 (def T1058
+  "Service Registry Permissions Weakness"
   {:d3fend/attack-id "T1058",
    :db/ident         :d3fend/T1058,
    :rdf/type         :owl/Class,
@@ -20603,6 +21336,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1059
+  "Command and Scripting Interpreter Execution"
   {:d3fend/attack-id "T1059",
    :d3fend/executes  :d3fend/ExecutableScript,
    :db/ident         :d3fend/T1059,
@@ -20614,6 +21348,7 @@
                       :d3fend/ExecutionTechnique]})
 
 (def T1059.001
+  "PowerShell Execution"
   {:d3fend/attack-id "T1059.001",
    :db/ident         :d3fend/T1059.001,
    :rdf/type         :owl/Class,
@@ -20621,6 +21356,7 @@
    :rdfs/subClassOf  :d3fend/T1059})
 
 (def T1059.002
+  "AppleScript Execution"
   {:d3fend/attack-id "T1059.002",
    :db/ident         :d3fend/T1059.002,
    :rdf/type         :owl/Class,
@@ -20628,6 +21364,7 @@
    :rdfs/subClassOf  :d3fend/T1059})
 
 (def T1059.003
+  "Windows Command Shell Execution"
   {:d3fend/attack-id "T1059.003",
    :db/ident         :d3fend/T1059.003,
    :rdf/type         :owl/Class,
@@ -20635,6 +21372,7 @@
    :rdfs/subClassOf  :d3fend/T1059})
 
 (def T1059.004
+  "Unix Shell Execution"
   {:d3fend/attack-id "T1059.004",
    :db/ident         :d3fend/T1059.004,
    :rdf/type         :owl/Class,
@@ -20643,6 +21381,7 @@
    :skos/altLabel    "Bash Execution"})
 
 (def T1059.005
+  "VBScript Execution"
   {:d3fend/attack-id "T1059.005",
    :db/ident         :d3fend/T1059.005,
    :rdf/type         :owl/Class,
@@ -20650,6 +21389,7 @@
    :rdfs/subClassOf  :d3fend/T1059})
 
 (def T1059.006
+  "Python Execution"
   {:d3fend/attack-id "T1059.006",
    :db/ident         :d3fend/T1059.006,
    :rdf/type         :owl/Class,
@@ -20657,6 +21397,7 @@
    :rdfs/subClassOf  :d3fend/T1059})
 
 (def T1059.007
+  "JavaScript/JScript"
   {:d3fend/attack-id "T1059.007",
    :db/ident         :d3fend/T1059.007,
    :rdf/type         :owl/Class,
@@ -20664,6 +21405,7 @@
    :rdfs/subClassOf  :d3fend/T1059})
 
 (def T1059.008
+  "Network Device CLI"
   {:d3fend/attack-id "T1059.008",
    :db/ident         :d3fend/T1059.008,
    :rdf/type         :owl/Class,
@@ -20671,6 +21413,7 @@
    :rdfs/subClassOf  :d3fend/T1059})
 
 (def T1060
+  "Registry Run Keys / Startup Folder"
   {:d3fend/attack-id "T1060",
    :db/ident         :d3fend/T1060,
    :rdf/type         :owl/Class,
@@ -20678,6 +21421,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1063
+  "Security Software Discovery"
   {:d3fend/attack-id "T1063",
    :db/ident         :d3fend/T1063,
    :rdf/type         :owl/Class,
@@ -20685,6 +21429,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1065
+  "Uncommonly Used Port"
   {:d3fend/attack-id "T1065",
    :db/ident         :d3fend/T1065,
    :rdf/type         :owl/Class,
@@ -20692,6 +21437,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1066
+  "Indicator Removal from Tools"
   {:d3fend/attack-id "T1066",
    :db/ident         :d3fend/T1066,
    :rdf/type         :owl/Class,
@@ -20699,6 +21445,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1067
+  "Bootkit"
   {:d3fend/attack-id "T1067",
    :db/ident         :d3fend/T1067,
    :rdf/type         :owl/Class,
@@ -20706,6 +21453,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1068
+  "Exploitation for Privilege Escalation"
   {:d3fend/attack-id  "T1068",
    :d3fend/enables    :d3fend/PrivilegeEscalation,
    :d3fend/may-modify :d3fend/StackFrame,
@@ -20713,18 +21461,19 @@
    :db/ident          :d3fend/T1068,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Exploitation for Privilege Escalation",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/StackFrame,
+   :rdfs/subClassOf   [:d3fend/PrivilegeEscalationTechnique
+                       {:owl/onProperty     :d3fend/enables,
+                        :owl/someValuesFrom :d3fend/PrivilegeEscalation,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/ProcessCodeSegment,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/PrivilegeEscalationTechnique
-                       {:owl/onProperty     :d3fend/enables,
-                        :owl/someValuesFrom :d3fend/PrivilegeEscalation,
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/StackFrame,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1069
+  "Permission Groups Discovery"
   {:d3fend/attack-id "T1069",
    :db/ident         :d3fend/T1069,
    :rdf/type         :owl/Class,
@@ -20732,6 +21481,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1069.001
+  "Local Groups"
   {:d3fend/attack-id "T1069.001",
    :db/ident         :d3fend/T1069.001,
    :rdf/type         :owl/Class,
@@ -20739,6 +21489,7 @@
    :rdfs/subClassOf  :d3fend/T1069})
 
 (def T1069.002
+  "Domain Groups"
   {:d3fend/attack-id "T1069.002",
    :db/ident         :d3fend/T1069.002,
    :rdf/type         :owl/Class,
@@ -20746,6 +21497,7 @@
    :rdfs/subClassOf  :d3fend/T1069})
 
 (def T1069.003
+  "Cloud Groups"
   {:d3fend/attack-id "T1069.003",
    :db/ident         :d3fend/T1069.003,
    :rdf/type         :owl/Class,
@@ -20753,6 +21505,7 @@
    :rdfs/subClassOf  :d3fend/T1069})
 
 (def T1070
+  "Indicator Removal on Host"
   {:d3fend/attack-id "T1070",
    :db/ident         :d3fend/T1070,
    :rdf/type         :owl/Class,
@@ -20760,6 +21513,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1070.001
+  "Clear Windows Event Logs"
   {:d3fend/attack-id "T1070.001",
    :d3fend/modifies  :d3fend/EventLog,
    :db/ident         :d3fend/T1070.001,
@@ -20771,6 +21525,7 @@
                       :d3fend/T1070]})
 
 (def T1070.002
+  "Clear Linux or Mac System Logs"
   {:d3fend/attack-id "T1070.002",
    :d3fend/modifies  :d3fend/OperatingSystemLogFile,
    :db/ident         :d3fend/T1070.002,
@@ -20782,6 +21537,7 @@
                       :d3fend/T1070]})
 
 (def T1070.003
+  "Clear Command History"
   {:d3fend/attack-id "T1070.003",
    :d3fend/modifies  :d3fend/CommandHistoryLog,
    :db/ident         :d3fend/T1070.003,
@@ -20793,6 +21549,7 @@
                       :d3fend/T1070]})
 
 (def T1070.004
+  "File Deletion"
   {:d3fend/attack-id  "T1070.004",
    :d3fend/deletes    :d3fend/File,
    :d3fend/may-modify :d3fend/File,
@@ -20808,6 +21565,7 @@
                        :d3fend/T1070]})
 
 (def T1070.005
+  "Network Share Connection Removal"
   {:d3fend/attack-id "T1070.005",
    :d3fend/unmounts  :d3fend/NetworkFileShareResource,
    :db/ident         :d3fend/T1070.005,
@@ -20819,6 +21577,7 @@
                       :d3fend/T1070]})
 
 (def T1070.006
+  "Timestomp"
   {:d3fend/attack-id "T1070.006",
    :d3fend/forges    :d3fend/FileSystemMetadata,
    :db/ident         :d3fend/T1070.006,
@@ -20830,6 +21589,7 @@
                       :d3fend/T1070]})
 
 (def T1071
+  "Application Layer Protocol"
   {:d3fend/attack-id    "T1071",
    :d3fend/may-transfer :d3fend/CertificateFile,
    :d3fend/pref-label   "Application Layer Protocol C2",
@@ -20837,16 +21597,17 @@
    :db/ident            :d3fend/T1071,
    :rdf/type            [:owl/Class :owl/NamedIndividual],
    :rdfs/label          "Application Layer Protocol",
-   :rdfs/subClassOf     [{:owl/onProperty :d3fend/produces,
+   :rdfs/subClassOf     [{:owl/onProperty     :d3fend/may-transfer,
+                          :owl/someValuesFrom :d3fend/CertificateFile,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/onProperty :d3fend/produces,
                           :owl/someValuesFrom
                           :d3fend/OutboundInternetNetworkTraffic,
                           :rdf/type :owl/Restriction}
-                         :d3fend/CommandAndControlTechnique
-                         {:owl/onProperty     :d3fend/may-transfer,
-                          :owl/someValuesFrom :d3fend/CertificateFile,
-                          :rdf/type           :owl/Restriction}]})
+                         :d3fend/CommandAndControlTechnique]})
 
 (def T1071.001
+  "Web Protocols"
   {:d3fend/attack-id    "T1071.001",
    :d3fend/may-transfer :d3fend/CertificateFile,
    :d3fend/produces     :d3fend/OutboundInternetWebTraffic,
@@ -20863,6 +21624,7 @@
                          :d3fend/T1071]})
 
 (def T1071.002
+  "File Transfer Protocols"
   {:d3fend/attack-id "T1071.002",
    :d3fend/produces  :d3fend/OutboundInternetFileTransferTraffic,
    :db/ident         :d3fend/T1071.002,
@@ -20875,6 +21637,7 @@
                       :d3fend/T1071]})
 
 (def T1071.003
+  "Mail Protocols"
   {:d3fend/attack-id "T1071.003",
    :d3fend/produces  :d3fend/OutboundInternetMailTraffic,
    :db/ident         :d3fend/T1071.003,
@@ -20886,6 +21649,7 @@
                       :d3fend/T1071]})
 
 (def T1071.004
+  "DNS"
   {:d3fend/attack-id "T1071.004",
    :d3fend/produces  :d3fend/OutboundInternetDNSLookupTraffic,
    :db/ident         :d3fend/T1071.004,
@@ -20898,6 +21662,7 @@
                       :d3fend/T1071]})
 
 (def T1072
+  "Software Deployment Tools Execution"
   {:d3fend/adds      :d3fend/File,
    :d3fend/attack-id "T1072",
    :d3fend/executes  :d3fend/SoftwareDeploymentTool,
@@ -20905,19 +21670,20 @@
    :db/ident         :d3fend/T1072,
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Software Deployment Tools Execution",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/executes,
-                       :owl/someValuesFrom :d3fend/SoftwareDeploymentTool,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/installs,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/installs,
                        :owl/someValuesFrom :d3fend/Software,
                        :rdf/type           :owl/Restriction}
                       :d3fend/ExecutionTechnique
+                      {:owl/onProperty     :d3fend/executes,
+                       :owl/someValuesFrom :d3fend/SoftwareDeploymentTool,
+                       :rdf/type           :owl/Restriction}
                       :d3fend/LateralMovementTechnique
                       {:owl/onProperty     :d3fend/adds,
                        :owl/someValuesFrom :d3fend/File,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1073
+  "DLL Side-Loading"
   {:d3fend/attack-id "T1073",
    :db/ident         :d3fend/T1073,
    :rdf/type         :owl/Class,
@@ -20925,6 +21691,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1074
+  "Data Staged"
   {:d3fend/attack-id "T1074",
    :d3fend/reads     :d3fend/Resource,
    :db/ident         :d3fend/T1074,
@@ -20936,6 +21703,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1074.001
+  "Local Data Staging"
   {:d3fend/attack-id  "T1074.001",
    :d3fend/may-create :d3fend/File,
    :d3fend/may-invoke :d3fend/CreateFile,
@@ -20951,6 +21719,7 @@
                        :d3fend/T1074]})
 
 (def T1074.002
+  "Remote Data Staging"
   {:d3fend/attack-id "T1074.002",
    :d3fend/modifies  :d3fend/NetworkResource,
    :db/ident         :d3fend/T1074.002,
@@ -20962,6 +21731,7 @@
                       :d3fend/T1074]})
 
 (def T1075
+  "Pass the Hash"
   {:d3fend/attack-id "T1075",
    :db/ident         :d3fend/T1075,
    :rdf/type         :owl/Class,
@@ -20969,6 +21739,7 @@
    :rdfs/subClassOf  :d3fend/LateralMovementTechnique})
 
 (def T1076
+  "Remote Desktop Protocol"
   {:d3fend/attack-id "T1076",
    :db/ident         :d3fend/T1076,
    :rdf/type         :owl/Class,
@@ -20976,6 +21747,7 @@
    :rdfs/subClassOf  :d3fend/LateralMovementTechnique})
 
 (def T1077
+  "Windows Admin Shares"
   {:d3fend/attack-id "T1077",
    :db/ident         :d3fend/T1077,
    :rdf/type         :owl/Class,
@@ -20983,6 +21755,7 @@
    :rdfs/subClassOf  :d3fend/LateralMovementTechnique})
 
 (def T1078
+  "Valid Accounts"
   {:d3fend/attack-id "T1078",
    :d3fend/produces  [:d3fend/Authentication :d3fend/Authorization],
    :d3fend/uses      :d3fend/UserAccount,
@@ -20990,6 +21763,9 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Valid Accounts",
    :rdfs/subClassOf  [:d3fend/InitialAccessTechnique
+                      {:owl/onProperty     :d3fend/produces,
+                       :owl/someValuesFrom :d3fend/Authorization,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/uses,
                        :owl/someValuesFrom :d3fend/UserAccount,
                        :rdf/type           :owl/Restriction}
@@ -20998,12 +21774,10 @@
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/Authentication,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/PrivilegeEscalationTechnique
-                      {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/Authorization,
-                       :rdf/type           :owl/Restriction}]})
+                      :d3fend/PrivilegeEscalationTechnique]})
 
 (def T1078.001
+  "Default Accounts"
   {:d3fend/attack-id "T1078.001",
    :d3fend/uses      :d3fend/DefaultUserAccount,
    :db/ident         :d3fend/T1078.001,
@@ -21015,6 +21789,7 @@
                       :d3fend/T1078]})
 
 (def T1078.002
+  "Domain Accounts"
   {:d3fend/attack-id "T1078.002",
    :d3fend/uses      :d3fend/DomainUserAccount,
    :db/ident         :d3fend/T1078.002,
@@ -21026,6 +21801,7 @@
                       :d3fend/T1078]})
 
 (def T1078.003
+  "Local Accounts"
   {:d3fend/attack-id "T1078.003",
    :d3fend/uses      :d3fend/LocalUserAccount,
    :db/ident         :d3fend/T1078.003,
@@ -21037,6 +21813,7 @@
                       :d3fend/T1078]})
 
 (def T1078.004
+  "Cloud Accounts"
   {:d3fend/attack-id "T1078.004",
    :d3fend/uses      :d3fend/CloudUserAccount,
    :db/ident         :d3fend/T1078.004,
@@ -21048,6 +21825,7 @@
                       :d3fend/T1078]})
 
 (def T1079
+  "Multilayer Encryption"
   {:d3fend/attack-id "T1079",
    :db/ident         :d3fend/T1079,
    :rdf/type         :owl/Class,
@@ -21055,6 +21833,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1080
+  "Taint Shared Content"
   {:d3fend/attack-id "T1080",
    :d3fend/modifies  :d3fend/NetworkResource,
    :db/ident         :d3fend/T1080,
@@ -21066,6 +21845,7 @@
                       :d3fend/LateralMovementTechnique]})
 
 (def T1081
+  "Credentials in Files"
   {:d3fend/attack-id "T1081",
    :db/ident         :d3fend/T1081,
    :rdf/type         :owl/Class,
@@ -21073,6 +21853,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1082
+  "System Information Discovery"
   {:d3fend/attack-id  "T1082",
    :d3fend/may-access :d3fend/DecoyArtifact,
    :d3fend/may-invoke :d3fend/CreateProcess,
@@ -21088,6 +21869,7 @@
                        :d3fend/DiscoveryTechnique]})
 
 (def T1083
+  "File and Directory Discovery"
   {:d3fend/accesses  [:d3fend/File :d3fend/Directory],
    :d3fend/attack-id "T1083",
    :db/ident         :d3fend/T1083,
@@ -21102,6 +21884,7 @@
                       :d3fend/DiscoveryTechnique]})
 
 (def T1084
+  "Windows Management Instrumentation Event Subscription"
   {:d3fend/attack-id "T1084",
    :db/ident         :d3fend/T1084,
    :rdf/type         :owl/Class,
@@ -21109,6 +21892,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1085
+  "Rundll32"
   {:d3fend/attack-id "T1085",
    :db/ident         :d3fend/T1085,
    :rdf/type         :owl/Class,
@@ -21117,6 +21901,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1086
+  "PowerShell"
   {:d3fend/attack-id "T1086",
    :db/ident         :d3fend/T1086,
    :rdf/type         :owl/Class,
@@ -21124,6 +21909,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1087
+  "Account Discovery"
   {:d3fend/attack-id "T1087",
    :db/ident         :d3fend/T1087,
    :rdf/type         :owl/Class,
@@ -21131,6 +21917,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1087.001
+  "Local Account"
   {:d3fend/attack-id "T1087.001",
    :d3fend/creates   :d3fend/LocalUserAccount,
    :db/ident         :d3fend/T1087.001,
@@ -21142,6 +21929,7 @@
                       :d3fend/T1136]})
 
 (def T1087.002
+  "Domain Account"
   {:d3fend/attack-id "T1087.002",
    :d3fend/creates   :d3fend/DomainUserAccount,
    :db/ident         :d3fend/T1087.002,
@@ -21153,6 +21941,7 @@
                       :d3fend/T1136]})
 
 (def T1087.003
+  "Email Account"
   {:d3fend/attack-id "T1087.003",
    :db/ident         :d3fend/T1087.003,
    :rdf/type         :owl/Class,
@@ -21160,6 +21949,7 @@
    :rdfs/subClassOf  :d3fend/T1087})
 
 (def T1087.004
+  "Cloud Account"
   {:d3fend/attack-id "T1087.004",
    :d3fend/creates   :d3fend/CloudUserAccount,
    :db/ident         :d3fend/T1087.004,
@@ -21171,6 +21961,7 @@
                       :d3fend/T1136]})
 
 (def T1088
+  "Bypass User Account Control"
   {:d3fend/attack-id "T1088",
    :db/ident         :d3fend/T1088,
    :rdf/type         :owl/Class,
@@ -21179,6 +21970,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1089
+  "Disabling Security Tools"
   {:d3fend/attack-id "T1089",
    :db/ident         :d3fend/T1089,
    :rdf/type         :owl/Class,
@@ -21186,6 +21978,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1090
+  "Proxy"
   {:d3fend/attack-id "T1090",
    :db/ident         :d3fend/T1090,
    :rdf/type         :owl/Class,
@@ -21193,6 +21986,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1090.001
+  "Internal Proxy"
   {:d3fend/attack-id "T1090.001",
    :d3fend/produces  :d3fend/IntranetNetworkTraffic,
    :db/ident         :d3fend/T1090.001,
@@ -21204,6 +21998,7 @@
                       :d3fend/T1090]})
 
 (def T1090.002
+  "External Proxy"
   {:d3fend/attack-id "T1090.002",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1090.002,
@@ -21216,6 +22011,7 @@
                       :d3fend/T1090]})
 
 (def T1090.003
+  "Multi-hop Proxy"
   {:d3fend/attack-id "T1090.003",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1090.003,
@@ -21228,6 +22024,7 @@
                       :d3fend/T1090]})
 
 (def T1090.004
+  "Domain Fronting"
   {:d3fend/attack-id "T1090.004",
    :d3fend/produces  :d3fend/OutboundInternetEncryptedWebTraffic,
    :db/ident         :d3fend/T1090.004,
@@ -21240,6 +22037,7 @@
                       :d3fend/T1090]})
 
 (def T1091
+  "Replication Through Removable Media"
   {:d3fend/attack-id "T1091",
    :d3fend/executes  :d3fend/RemovableMediaDevice,
    :db/ident         :d3fend/T1091,
@@ -21252,6 +22050,7 @@
                       :d3fend/InitialAccessTechnique]})
 
 (def T1092
+  "Communication Through Removable Media"
   {:d3fend/attack-id "T1092",
    :d3fend/modifies  :d3fend/RemovableMediaDevice,
    :db/ident         :d3fend/T1092,
@@ -21263,6 +22062,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1093
+  "Process Hollowing"
   {:d3fend/attack-id "T1093",
    :db/ident         :d3fend/T1093,
    :rdf/type         :owl/Class,
@@ -21270,6 +22070,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1094
+  "Custom Command and Control Protocol"
   {:d3fend/attack-id "T1094",
    :db/ident         :d3fend/T1094,
    :rdf/type         :owl/Class,
@@ -21277,6 +22078,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1095
+  "Non-Application Layer Protocol"
   {:d3fend/attack-id "T1095",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1095,
@@ -21289,6 +22091,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1096
+  "NTFS File Attributes"
   {:d3fend/attack-id "T1096",
    :db/ident         :d3fend/T1096,
    :rdf/type         :owl/Class,
@@ -21296,6 +22099,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1097
+  "Pass the Ticket"
   {:d3fend/attack-id "T1097",
    :db/ident         :d3fend/T1097,
    :rdf/type         :owl/Class,
@@ -21303,6 +22107,7 @@
    :rdfs/subClassOf  :d3fend/LateralMovementTechnique})
 
 (def T1098
+  "Account Manipulation"
   {:d3fend/attack-id "T1098",
    :d3fend/modifies  :d3fend/UserAccount,
    :db/ident         :d3fend/T1098,
@@ -21314,6 +22119,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1098.001
+  "Additional Azure Service Principal Credentials"
   {:d3fend/attack-id "T1098.001",
    :d3fend/creates   :d3fend/Credential,
    :d3fend/produces  :d3fend/IntranetAdministrativeNetworkTraffic,
@@ -21330,6 +22136,7 @@
                       :d3fend/T1098]})
 
 (def T1098.002
+  "Exchange Email Delegate Permissions"
   {:d3fend/attack-id "T1098.002",
    :d3fend/modifies  :d3fend/DomainUserAccount,
    :db/ident         :d3fend/T1098.002,
@@ -21341,6 +22148,7 @@
                       :d3fend/T1098]})
 
 (def T1098.003
+  "Add Office 365 Global Administrator Role"
   {:d3fend/attack-id "T1098.003",
    :d3fend/modifies  :d3fend/GlobalUserAccount,
    :db/ident         :d3fend/T1098.003,
@@ -21352,6 +22160,7 @@
                       :d3fend/T1098]})
 
 (def T1098.004
+  "SSH Authorized Keys"
   {:d3fend/attack-id "T1098.004",
    :db/ident         :d3fend/T1098.004,
    :rdf/type         :owl/Class,
@@ -21359,6 +22168,7 @@
    :rdfs/subClassOf  :d3fend/T1098})
 
 (def T1098.005
+  "Device Registration"
   {:d3fend/attack-id "T1098.005",
    :db/ident         :d3fend/T1098.005,
    :rdf/type         :owl/Class,
@@ -21366,6 +22176,7 @@
    :rdfs/subClassOf  :d3fend/T1098})
 
 (def T1099
+  "Timestomp"
   {:d3fend/attack-id "T1099",
    :db/ident         :d3fend/T1099,
    :rdf/type         :owl/Class,
@@ -21373,6 +22184,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1100
+  "Web Shell"
   {:d3fend/attack-id "T1100",
    :db/ident         :d3fend/T1100,
    :rdf/type         :owl/Class,
@@ -21381,6 +22193,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1101
+  "Security Support Provider"
   {:d3fend/attack-id "T1101",
    :db/ident         :d3fend/T1101,
    :rdf/type         :owl/Class,
@@ -21388,6 +22201,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1102
+  "Web Service"
   {:d3fend/attack-id "T1102",
    :d3fend/produces  :d3fend/OutboundInternetWebTraffic,
    :db/ident         :d3fend/T1102,
@@ -21399,6 +22213,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1102.001
+  "Dead Drop Resolver"
   {:d3fend/attack-id "T1102.001",
    :db/ident         :d3fend/T1102.001,
    :rdf/type         :owl/Class,
@@ -21406,6 +22221,7 @@
    :rdfs/subClassOf  :d3fend/T1102})
 
 (def T1102.002
+  "Bidirectional Communication"
   {:d3fend/attack-id "T1102.002",
    :db/ident         :d3fend/T1102.002,
    :rdf/type         :owl/Class,
@@ -21413,6 +22229,7 @@
    :rdfs/subClassOf  :d3fend/T1102})
 
 (def T1102.003
+  "One-Way Communication"
   {:d3fend/attack-id "T1102.003",
    :db/ident         :d3fend/T1102.003,
    :rdf/type         :owl/Class,
@@ -21420,6 +22237,7 @@
    :rdfs/subClassOf  :d3fend/T1102})
 
 (def T1103
+  "AppInit DLLs"
   {:d3fend/attack-id "T1103",
    :db/ident         :d3fend/T1103,
    :rdf/type         :owl/Class,
@@ -21428,6 +22246,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1104
+  "Multi-Stage Channels"
   {:d3fend/attack-id "T1104",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1104,
@@ -21455,6 +22274,7 @@
                      :d3fend/CommandAndControlTechnique]})
 
 (def T1106
+  "Native API Execution"
   {:d3fend/attack-id "T1106",
    :d3fend/invokes   :d3fend/SystemCall,
    :db/ident         :d3fend/T1106,
@@ -21466,6 +22286,7 @@
                       :d3fend/ExecutionTechnique]})
 
 (def T1107
+  "File Deletion"
   {:d3fend/attack-id "T1107",
    :db/ident         :d3fend/T1107,
    :rdf/type         :owl/Class,
@@ -21473,6 +22294,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1109
+  "Component Firmware"
   {:d3fend/attack-id "T1109",
    :db/ident         :d3fend/T1109,
    :rdf/type         :owl/Class,
@@ -21481,6 +22303,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1110
+  "Brute Force"
   {:d3fend/attack-id "T1110",
    :db/ident         :d3fend/T1110,
    :rdf/type         :owl/Class,
@@ -21488,6 +22311,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1110.001
+  "Password Guessing"
   {:d3fend/accesses  :d3fend/Password,
    :d3fend/attack-id "T1110.001",
    :d3fend/modifies  :d3fend/AuthenticationLog,
@@ -21498,15 +22322,16 @@
    :rdfs/subClassOf  [{:owl/onProperty     :d3fend/accesses,
                        :owl/someValuesFrom :d3fend/Password,
                        :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/Authentication,
-                       :rdf/type           :owl/Restriction}
-                      :d3fend/T1110
                       {:owl/onProperty     :d3fend/modifies,
                        :owl/someValuesFrom :d3fend/AuthenticationLog,
+                       :rdf/type           :owl/Restriction}
+                      :d3fend/T1110
+                      {:owl/onProperty     :d3fend/produces,
+                       :owl/someValuesFrom :d3fend/Authentication,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1110.002
+  "Password Cracking"
   {:d3fend/accesses  :d3fend/Password,
    :d3fend/attack-id "T1110.002",
    :db/ident         :d3fend/T1110.002,
@@ -21518,6 +22343,7 @@
                       :d3fend/T1110]})
 
 (def T1110.003
+  "Password Spraying"
   {:d3fend/accesses   :d3fend/Password,
    :d3fend/attack-id  "T1110.003",
    :d3fend/may-create :d3fend/IntranetAdministrativeNetworkTraffic,
@@ -21526,15 +22352,15 @@
    :db/ident          :d3fend/T1110.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Password Spraying",
-   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-create,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/produces,
+                        :owl/someValuesFrom :d3fend/Authentication,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty :d3fend/may-create,
                         :owl/someValuesFrom
                         :d3fend/IntranetAdministrativeNetworkTraffic,
                         :rdf/type :owl/Restriction}
                        {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/AuthenticationLog,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/produces,
-                        :owl/someValuesFrom :d3fend/Authentication,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1110
                        {:owl/onProperty     :d3fend/accesses,
@@ -21542,6 +22368,7 @@
                         :rdf/type           :owl/Restriction}]})
 
 (def T1110.004
+  "Credential Stuffing"
   {:d3fend/attack-id  "T1110.004",
    :d3fend/may-create :d3fend/IntranetAdministrativeNetworkTraffic,
    :d3fend/modifies   :d3fend/AuthenticationLog,
@@ -21549,19 +22376,20 @@
    :db/ident          :d3fend/T1110.004,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Credential Stuffing",
-   :rdfs/subClassOf   [{:owl/onProperty :d3fend/may-create,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/AuthenticationLog,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1110
+                       {:owl/onProperty :d3fend/may-create,
                         :owl/someValuesFrom
                         :d3fend/IntranetAdministrativeNetworkTraffic,
                         :rdf/type :owl/Restriction}
                        {:owl/onProperty     :d3fend/produces,
                         :owl/someValuesFrom :d3fend/Authentication,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1110
-                       {:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/AuthenticationLog,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1111
+  "Two-Factor Authentication Interception"
   {:d3fend/attack-id  "T1111",
    :d3fend/may-access :d3fend/SecurityToken,
    :db/ident          :d3fend/T1111,
@@ -21573,6 +22401,7 @@
                        :d3fend/CredentialAccessTechnique]})
 
 (def T1112
+  "Modify Registry"
   {:d3fend/attack-id "T1112",
    :d3fend/modifies  :d3fend/WindowsRegistry,
    :db/ident         :d3fend/T1112,
@@ -21584,6 +22413,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1113
+  "Screen Capture"
   {:d3fend/attack-id  "T1113",
    :d3fend/may-access :d3fend/DisplayServer,
    :d3fend/may-invoke :d3fend/GetScreenCapture,
@@ -21599,6 +22429,7 @@
                        :d3fend/CollectionTechnique]})
 
 (def T1114
+  "Email Collection"
   {:d3fend/accesses  :d3fend/Resource,
    :d3fend/attack-id "T1114",
    :db/ident         :d3fend/T1114,
@@ -21610,6 +22441,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1114.001
+  "Local Email Collection"
   {:d3fend/attack-id "T1114.001",
    :d3fend/reads     :d3fend/Email,
    :db/ident         :d3fend/T1114.001,
@@ -21621,6 +22453,7 @@
                       :d3fend/T1114]})
 
 (def T1114.002
+  "Remote Email Collection"
   {:d3fend/accesses  :d3fend/MailServer,
    :d3fend/attack-id "T1114.002",
    :db/ident         :d3fend/T1114.002,
@@ -21632,6 +22465,7 @@
                       :d3fend/T1114]})
 
 (def T1114.003
+  "Email Forwarding Rule"
   {:d3fend/attack-id "T1114.003",
    :d3fend/modifies  :d3fend/ApplicationConfiguration,
    :db/ident         :d3fend/T1114.003,
@@ -21643,6 +22477,7 @@
                       :d3fend/T1114]})
 
 (def T1115
+  "Clipboard Data"
   {:d3fend/attack-id "T1115",
    :d3fend/reads     :d3fend/Clipboard,
    :db/ident         :d3fend/T1115,
@@ -21654,6 +22489,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1116
+  "Code Signing"
   {:d3fend/attack-id "T1116",
    :db/ident         :d3fend/T1116,
    :rdf/type         :owl/Class,
@@ -21661,6 +22497,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1117
+  "Regsvr32"
   {:d3fend/attack-id "T1117",
    :db/ident         :d3fend/T1117,
    :rdf/type         :owl/Class,
@@ -21669,6 +22506,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1118
+  "InstallUtil"
   {:d3fend/attack-id "T1118",
    :db/ident         :d3fend/T1118,
    :rdf/type         :owl/Class,
@@ -21677,6 +22515,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1119
+  "Automated Collection"
   {:d3fend/accesses  :d3fend/File,
    :d3fend/attack-id "T1119",
    :db/ident         :d3fend/T1119,
@@ -21688,6 +22527,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1120
+  "Peripheral Device Discovery"
   {:d3fend/attack-id "T1120",
    :db/ident         :d3fend/T1120,
    :rdf/type         :owl/Class,
@@ -21695,6 +22535,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1121
+  "Regsvcs/Regasm"
   {:d3fend/attack-id "T1121",
    :db/ident         :d3fend/T1121,
    :rdf/type         :owl/Class,
@@ -21703,6 +22544,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1122
+  "Component Object Model Hijacking"
   {:d3fend/attack-id "T1122",
    :db/ident         :d3fend/T1122,
    :rdf/type         :owl/Class,
@@ -21711,6 +22553,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1123
+  "Audio Capture"
   {:d3fend/accesses  :d3fend/AudioInputDevice,
    :d3fend/attack-id "T1123",
    :db/ident         :d3fend/T1123,
@@ -21722,6 +22565,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1124
+  "System Time Discovery"
   {:d3fend/attack-id  "T1124",
    :d3fend/may-invoke [:d3fend/GetSystemTime :d3fend/CreateProcess],
    :db/ident          :d3fend/T1124,
@@ -21736,6 +22580,7 @@
                        :d3fend/DiscoveryTechnique]})
 
 (def T1125
+  "Video Capture"
   {:d3fend/accesses  :d3fend/VideoInputDevice,
    :d3fend/attack-id "T1125",
    :db/ident         :d3fend/T1125,
@@ -21747,6 +22592,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1126
+  "Network Share Connection Removal"
   {:d3fend/attack-id "T1126",
    :db/ident         :d3fend/T1126,
    :rdf/type         :owl/Class,
@@ -21754,6 +22600,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1127
+  "Trusted Developer Utilities Proxy Execution"
   {:d3fend/attack-id "T1127",
    :db/ident         :d3fend/T1127,
    :rdf/type         :owl/Class,
@@ -21761,6 +22608,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1127.001
+  "MSBuild"
   {:d3fend/attack-id "T1127.001",
    :d3fend/modifies  :d3fend/CompilerConfigurationFile,
    :d3fend/runs      :d3fend/Compiler,
@@ -21776,6 +22624,7 @@
                       :d3fend/T1127]})
 
 (def T1128
+  "Netsh Helper DLL"
   {:d3fend/attack-id "T1128",
    :db/ident         :d3fend/T1128,
    :rdf/type         :owl/Class,
@@ -21783,6 +22632,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1129
+  "Shared Modules Execution"
   {:d3fend/attack-id "T1129",
    :db/ident         :d3fend/T1129,
    :rdf/type         :owl/Class,
@@ -21790,6 +22640,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1130
+  "Install Root Certificate"
   {:d3fend/attack-id "T1130",
    :db/ident         :d3fend/T1130,
    :rdf/type         :owl/Class,
@@ -21797,6 +22648,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1131
+  "Authentication Package"
   {:d3fend/attack-id "T1131",
    :db/ident         :d3fend/T1131,
    :rdf/type         :owl/Class,
@@ -21804,6 +22656,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1132
+  "Data Encoding"
   {:d3fend/attack-id "T1132",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1132,
@@ -21816,6 +22669,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1132.001
+  "Standard Encoding"
   {:d3fend/attack-id "T1132.001",
    :db/ident         :d3fend/T1132.001,
    :rdf/type         :owl/Class,
@@ -21823,6 +22677,7 @@
    :rdfs/subClassOf  :d3fend/T1132})
 
 (def T1132.002
+  "Non-Standard Encoding"
   {:d3fend/attack-id "T1132.002",
    :db/ident         :d3fend/T1132.002,
    :rdf/type         :owl/Class,
@@ -21830,6 +22685,7 @@
    :rdfs/subClassOf  :d3fend/T1132})
 
 (def T1133
+  "External Remote Services"
   {:d3fend/attack-id "T1133",
    :d3fend/produces  [:d3fend/NetworkSession
                       :d3fend/Authentication
@@ -21841,15 +22697,16 @@
                        :owl/someValuesFrom :d3fend/Authorization,
                        :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/NetworkSession,
+                       :owl/someValuesFrom :d3fend/Authentication,
                        :rdf/type           :owl/Restriction}
                       :d3fend/InitialAccessTechnique
                       :d3fend/PersistenceTechnique
                       {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/Authentication,
+                       :owl/someValuesFrom :d3fend/NetworkSession,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1134
+  "Access Token Manipulation"
   {:d3fend/attack-id "T1134",
    :db/ident         :d3fend/T1134,
    :rdf/type         :owl/Class,
@@ -21858,6 +22715,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1134.001
+  "Token Impersonation/Theft"
   {:d3fend/attack-id "T1134.001",
    :d3fend/copies    :d3fend/AccessToken,
    :db/ident         :d3fend/T1134.001,
@@ -21869,6 +22727,7 @@
                       :d3fend/T1134]})
 
 (def T1134.002
+  "Create Process with Token"
   {:d3fend/attack-id  "T1134.002",
    :d3fend/copies     :d3fend/AccessToken,
    :d3fend/may-modify :d3fend/EventLog,
@@ -21884,6 +22743,7 @@
                        :d3fend/T1134]})
 
 (def T1134.003
+  "Make and Impersonate Token"
   {:d3fend/attack-id  "T1134.003",
    :d3fend/copies     :d3fend/AccessToken,
    :d3fend/creates    :d3fend/LoginSession,
@@ -21891,18 +22751,19 @@
    :db/ident          :d3fend/T1134.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Make and Impersonate Token",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/EventLog,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1134
-                       {:owl/onProperty     :d3fend/copies,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/copies,
                         :owl/someValuesFrom :d3fend/AccessToken,
                         :rdf/type           :owl/Restriction}
+                       :d3fend/T1134
                        {:owl/onProperty     :d3fend/creates,
                         :owl/someValuesFrom :d3fend/LoginSession,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/EventLog,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1134.004
+  "Parent PID Spoofing"
   {:d3fend/attack-id "T1134.004",
    :d3fend/invokes   :d3fend/CreateProcess,
    :db/ident         :d3fend/T1134.004,
@@ -21914,6 +22775,7 @@
                       :d3fend/T1134]})
 
 (def T1134.005
+  "SID-History Injection"
   {:d3fend/attack-id "T1134.005",
    :d3fend/modifies  :d3fend/AccessControlConfiguration,
    :db/ident         :d3fend/T1134.005,
@@ -21925,6 +22787,7 @@
                       :d3fend/T1134]})
 
 (def T1135
+  "Network Share Discovery"
   {:d3fend/attack-id "T1135",
    :db/ident         :d3fend/T1135,
    :rdf/type         :owl/Class,
@@ -21932,6 +22795,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1136
+  "Create Account"
   {:d3fend/attack-id "T1136",
    :d3fend/creates   :d3fend/UserAccount,
    :db/ident         :d3fend/T1136,
@@ -21944,6 +22808,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1136.001
+  "Local Account"
   {:d3fend/attack-id "T1136.001",
    :db/ident         :d3fend/T1136.001,
    :rdf/type         :owl/Class,
@@ -21951,6 +22816,7 @@
    :rdfs/subClassOf  :d3fend/T1136})
 
 (def T1136.002
+  "Domain Account"
   {:d3fend/attack-id "T1136.002",
    :db/ident         :d3fend/T1136.002,
    :rdf/type         :owl/Class,
@@ -21958,6 +22824,7 @@
    :rdfs/subClassOf  :d3fend/T1136})
 
 (def T1136.003
+  "Cloud Account"
   {:d3fend/attack-id "T1136.003",
    :db/ident         :d3fend/T1136.003,
    :rdf/type         :owl/Class,
@@ -21965,6 +22832,7 @@
    :rdfs/subClassOf  :d3fend/T1136})
 
 (def T1137
+  "Office Application Startup"
   {:d3fend/attack-id "T1137",
    :db/ident         :d3fend/T1137,
    :rdf/type         :owl/Class,
@@ -21972,6 +22840,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1137.001
+  "Office Template Macros"
   {:d3fend/attack-id  "T1137.001",
    :d3fend/may-add    :d3fend/ExecutableScript,
    :d3fend/may-modify [:d3fend/SystemConfigurationDatabaseRecord
@@ -21979,19 +22848,20 @@
    :db/ident          :d3fend/T1137.001,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Office Template Macros",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-add,
                         :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1137
-                       {:owl/onProperty     :d3fend/may-add,
-                        :owl/someValuesFrom :d3fend/ExecutableScript,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty :d3fend/may-modify,
                         :owl/someValuesFrom
                         :d3fend/SystemConfigurationDatabaseRecord,
-                        :rdf/type :owl/Restriction}]})
+                        :rdf/type :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/ExecutableScript,
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1137.002
+  "Office Test"
   {:d3fend/attack-id "T1137.002",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1137.002,
@@ -22004,6 +22874,7 @@
                       :d3fend/T1137]})
 
 (def T1137.003
+  "Outlook Forms"
   {:d3fend/adds      :d3fend/OfficeApplicationFile,
    :d3fend/attack-id "T1137.003",
    :db/ident         :d3fend/T1137.003,
@@ -22015,6 +22886,7 @@
                       :d3fend/T1137]})
 
 (def T1137.004
+  "Outlook Home Page"
   {:d3fend/attack-id "T1137.004",
    :d3fend/modifies  :d3fend/ApplicationConfigurationDatabase,
    :db/ident         :d3fend/T1137.004,
@@ -22027,6 +22899,7 @@
                       :d3fend/T1137]})
 
 (def T1137.005
+  "Outlook Rules"
   {:d3fend/attack-id "T1137.005",
    :d3fend/modifies  :d3fend/ApplicationConfigurationDatabase,
    :db/ident         :d3fend/T1137.005,
@@ -22039,6 +22912,7 @@
                       :d3fend/T1137]})
 
 (def T1137.006
+  "Add-ins"
   {:d3fend/adds       :d3fend/Software,
    :d3fend/attack-id  "T1137.006",
    :d3fend/may-modify :d3fend/SystemConfigurationDatabase,
@@ -22052,12 +22926,13 @@
                        {:owl/onProperty     :d3fend/adds,
                         :owl/someValuesFrom :d3fend/Software,
                         :rdf/type           :owl/Restriction}
+                       :d3fend/T1137
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1137]})
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1138
+  "Application Shimming"
   {:d3fend/attack-id "T1138",
    :db/ident         :d3fend/T1138,
    :rdf/type         :owl/Class,
@@ -22066,6 +22941,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1139
+  "Bash History"
   {:d3fend/attack-id "T1139",
    :db/ident         :d3fend/T1139,
    :rdf/type         :owl/Class,
@@ -22073,6 +22949,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1140
+  "Deobfuscate/Decode Files or Information"
   {:d3fend/attack-id  "T1140",
    :d3fend/invokes    :d3fend/CreateProcess,
    :d3fend/may-add    :d3fend/ExecutableFile,
@@ -22083,15 +22960,16 @@
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/invokes,
                         :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
+                       :d3fend/DefenseEvasionTechnique
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/EventLog,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/DefenseEvasionTechnique
                        {:owl/onProperty     :d3fend/may-add,
                         :owl/someValuesFrom :d3fend/ExecutableFile,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1141
+  "Input Prompt"
   {:d3fend/attack-id "T1141",
    :db/ident         :d3fend/T1141,
    :rdf/type         :owl/Class,
@@ -22099,6 +22977,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1142
+  "Keychain"
   {:d3fend/accesses  :d3fend/EncryptedCredential,
    :d3fend/attack-id "T1142",
    :db/ident         :d3fend/T1142,
@@ -22110,6 +22989,7 @@
                       :d3fend/CredentialAccessTechnique]})
 
 (def T1143
+  "Hidden Window"
   {:d3fend/attack-id "T1143",
    :db/ident         :d3fend/T1143,
    :rdf/type         :owl/Class,
@@ -22117,6 +22997,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1144
+  "Gatekeeper Bypass"
   {:d3fend/attack-id "T1144",
    :db/ident         :d3fend/T1144,
    :rdf/type         :owl/Class,
@@ -22124,6 +23005,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1145
+  "Private Keys"
   {:d3fend/attack-id "T1145",
    :db/ident         :d3fend/T1145,
    :rdf/type         :owl/Class,
@@ -22131,6 +23013,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1146
+  "Clear Command History"
   {:d3fend/attack-id "T1146",
    :db/ident         :d3fend/T1146,
    :rdf/type         :owl/Class,
@@ -22138,6 +23021,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1147
+  "Hidden Users"
   {:d3fend/attack-id "T1147",
    :db/ident         :d3fend/T1147,
    :rdf/type         :owl/Class,
@@ -22145,6 +23029,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1148
+  "HISTCONTROL"
   {:d3fend/attack-id "T1148",
    :db/ident         :d3fend/T1148,
    :rdf/type         :owl/Class,
@@ -22152,6 +23037,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1150
+  "Plist Modification"
   {:d3fend/attack-id "T1150",
    :db/ident         :d3fend/T1150,
    :rdf/type         :owl/Class,
@@ -22161,6 +23047,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1151
+  "Space after Filename"
   {:d3fend/attack-id "T1151",
    :db/ident         :d3fend/T1151,
    :rdf/type         :owl/Class,
@@ -22169,6 +23056,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1152
+  "Launchctl"
   {:d3fend/attack-id "T1152",
    :db/ident         :d3fend/T1152,
    :rdf/type         :owl/Class,
@@ -22178,6 +23066,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1154
+  "Trap"
   {:d3fend/attack-id "T1154",
    :db/ident         :d3fend/T1154,
    :rdf/type         :owl/Class,
@@ -22185,6 +23074,7 @@
    :rdfs/subClassOf  [:d3fend/PersistenceTechnique :d3fend/ExecutionTechnique]})
 
 (def T1155
+  "AppleScript"
   {:d3fend/attack-id "T1155",
    :db/ident         :d3fend/T1155,
    :rdf/type         :owl/Class,
@@ -22192,6 +23082,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1156
+  "Malicious Shell Modification"
   {:d3fend/attack-id "T1156",
    :db/ident         :d3fend/T1156,
    :rdf/type         :owl/Class,
@@ -22199,6 +23090,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1157
+  "Dylib Hijacking"
   {:d3fend/attack-id "T1157",
    :db/ident         :d3fend/T1157,
    :rdf/type         :owl/Class,
@@ -22207,6 +23099,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1158
+  "Hidden Files and Directories"
   {:d3fend/attack-id "T1158",
    :db/ident         :d3fend/T1158,
    :rdf/type         :owl/Class,
@@ -22215,6 +23108,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1159
+  "Launch Agent"
   {:d3fend/attack-id "T1159",
    :db/ident         :d3fend/T1159,
    :rdf/type         :owl/Class,
@@ -22222,6 +23116,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1160
+  "Launch Daemon"
   {:d3fend/attack-id "T1160",
    :db/ident         :d3fend/T1160,
    :rdf/type         :owl/Class,
@@ -22230,6 +23125,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1161
+  "LC_LOAD_DYLIB Addition"
   {:d3fend/attack-id "T1161",
    :db/ident         :d3fend/T1161,
    :rdf/type         :owl/Class,
@@ -22237,6 +23133,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1162
+  "Login Item"
   {:d3fend/attack-id "T1162",
    :db/ident         :d3fend/T1162,
    :rdf/type         :owl/Class,
@@ -22244,6 +23141,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1163
+  "Rc.common"
   {:d3fend/attack-id "T1163",
    :db/ident         :d3fend/T1163,
    :rdf/type         :owl/Class,
@@ -22251,6 +23149,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1164
+  "Re-opened Applications"
   {:d3fend/attack-id "T1164",
    :db/ident         :d3fend/T1164,
    :rdf/type         :owl/Class,
@@ -22258,6 +23157,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1165
+  "Startup Items"
   {:d3fend/attack-id "T1165",
    :db/ident         :d3fend/T1165,
    :rdf/type         :owl/Class,
@@ -22266,6 +23166,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1166
+  "Setuid and Setgid"
   {:d3fend/attack-id "T1166",
    :db/ident         :d3fend/T1166,
    :rdf/type         :owl/Class,
@@ -22274,6 +23175,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1167
+  "Securityd Memory"
   {:d3fend/attack-id "T1167",
    :db/ident         :d3fend/T1167,
    :rdf/type         :owl/Class,
@@ -22281,6 +23183,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1168
+  "Local Job Scheduling"
   {:d3fend/attack-id "T1168",
    :db/ident         :d3fend/T1168,
    :rdf/type         :owl/Class,
@@ -22288,6 +23191,7 @@
    :rdfs/subClassOf  [:d3fend/PersistenceTechnique :d3fend/ExecutionTechnique]})
 
 (def T1169
+  "Sudo"
   {:d3fend/attack-id "T1169",
    :db/ident         :d3fend/T1169,
    :rdf/type         :owl/Class,
@@ -22295,6 +23199,7 @@
    :rdfs/subClassOf  :d3fend/PrivilegeEscalationTechnique})
 
 (def T1170
+  "Mshta"
   {:d3fend/attack-id "T1170",
    :db/ident         :d3fend/T1170,
    :rdf/type         :owl/Class,
@@ -22303,6 +23208,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1171
+  "LLMNR/NBT-NS Poisoning and Relay"
   {:d3fend/attack-id "T1171",
    :db/ident         :d3fend/T1171,
    :rdf/type         :owl/Class,
@@ -22310,6 +23216,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1172
+  "Domain Fronting"
   {:d3fend/attack-id "T1172",
    :db/ident         :d3fend/T1172,
    :rdf/type         :owl/Class,
@@ -22317,6 +23224,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1173
+  "Dynamic Data Exchange"
   {:d3fend/attack-id "T1173",
    :db/ident         :d3fend/T1173,
    :rdf/type         :owl/Class,
@@ -22324,6 +23232,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1174
+  "Password Filter DLL"
   {:d3fend/attack-id "T1174",
    :db/ident         :d3fend/T1174,
    :rdf/type         :owl/Class,
@@ -22331,6 +23240,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1176
+  "Browser Extensions"
   {:d3fend/attack-id "T1176",
    :d3fend/modifies  :d3fend/BrowserExtension,
    :db/ident         :d3fend/T1176,
@@ -22342,6 +23252,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1177
+  "LSASS Driver"
   {:d3fend/attack-id "T1177",
    :db/ident         :d3fend/T1177,
    :rdf/type         :owl/Class,
@@ -22349,6 +23260,7 @@
    :rdfs/subClassOf  [:d3fend/PersistenceTechnique :d3fend/ExecutionTechnique]})
 
 (def T1178
+  "SID-History Injection"
   {:d3fend/attack-id "T1178",
    :db/ident         :d3fend/T1178,
    :rdf/type         :owl/Class,
@@ -22356,6 +23268,7 @@
    :rdfs/subClassOf  :d3fend/PrivilegeEscalationTechnique})
 
 (def T1179
+  "Hooking"
   {:d3fend/attack-id "T1179",
    :db/ident         :d3fend/T1179,
    :rdf/type         :owl/Class,
@@ -22365,6 +23278,7 @@
                       :d3fend/CredentialAccessTechnique]})
 
 (def T1180
+  "Screensaver"
   {:d3fend/attack-id "T1180",
    :db/ident         :d3fend/T1180,
    :rdf/type         :owl/Class,
@@ -22372,6 +23286,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1181
+  "Extra Window Memory Injection"
   {:d3fend/attack-id "T1181",
    :db/ident         :d3fend/T1181,
    :rdf/type         :owl/Class,
@@ -22380,6 +23295,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1182
+  "AppCert DLLs"
   {:d3fend/attack-id "T1182",
    :db/ident         :d3fend/T1182,
    :rdf/type         :owl/Class,
@@ -22388,6 +23304,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1183
+  "Image File Execution Options Injection"
   {:d3fend/attack-id "T1183",
    :db/ident         :d3fend/T1183,
    :rdf/type         :owl/Class,
@@ -22397,6 +23314,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1184
+  "SSH Hijacking"
   {:d3fend/attack-id "T1184",
    :db/ident         :d3fend/T1184,
    :rdf/type         :owl/Class,
@@ -22404,6 +23322,7 @@
    :rdfs/subClassOf  :d3fend/LateralMovementTechnique})
 
 (def T1185
+  "Man in the Browser"
   {:d3fend/attack-id "T1185",
    :d3fend/produces  :d3fend/WebNetworkTraffic,
    :db/ident         :d3fend/T1185,
@@ -22415,6 +23334,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1186
+  "Process Doppelgänging"
   {:d3fend/attack-id "T1186",
    :db/ident         :d3fend/T1186,
    :rdf/type         :owl/Class,
@@ -22422,6 +23342,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1187
+  "Forced Authentication"
   {:d3fend/attack-id  "T1187",
    :d3fend/may-modify :d3fend/WindowsShortcutFile,
    :d3fend/modifies   :d3fend/AuthenticationLog,
@@ -22429,18 +23350,19 @@
    :db/ident          :d3fend/T1187,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Forced Authentication",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/WindowsShortcutFile,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/modifies,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/AuthenticationLog,
                         :rdf/type           :owl/Restriction}
                        :d3fend/CredentialAccessTechnique
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/WindowsShortcutFile,
+                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/produces,
                         :owl/someValuesFrom :d3fend/Authentication,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1188
+  "Multi-hop Proxy"
   {:d3fend/attack-id "T1188",
    :db/ident         :d3fend/T1188,
    :rdf/type         :owl/Class,
@@ -22448,25 +23370,27 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1189
+  "Drive-by Compromise"
   {:d3fend/attack-id "T1189",
    :d3fend/modifies  :d3fend/ProcessSegment,
    :d3fend/produces  [:d3fend/URL :d3fend/OutboundInternetNetworkTraffic],
    :db/ident         :d3fend/T1189,
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Drive-by Compromise",
-   :rdfs/subClassOf  [{:owl/onProperty :d3fend/produces,
-                       :owl/someValuesFrom
-                       :d3fend/OutboundInternetNetworkTraffic,
-                       :rdf/type :owl/Restriction}
+   :rdfs/subClassOf  [:d3fend/InitialAccessTechnique
+                      {:owl/onProperty     :d3fend/modifies,
+                       :owl/someValuesFrom :d3fend/ProcessSegment,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/URL,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/InitialAccessTechnique
-                      {:owl/onProperty     :d3fend/modifies,
-                       :owl/someValuesFrom :d3fend/ProcessSegment,
-                       :rdf/type           :owl/Restriction}]})
+                      {:owl/onProperty :d3fend/produces,
+                       :owl/someValuesFrom
+                       :d3fend/OutboundInternetNetworkTraffic,
+                       :rdf/type :owl/Restriction}]})
 
 (def T1190
+  "Exploit Public-Facing Application"
   {:d3fend/attack-id "T1190",
    :d3fend/injects   :d3fend/DatabaseQuery,
    :d3fend/modifies  :d3fend/ProcessSegment,
@@ -22475,18 +23399,19 @@
    :rdf/type         [:owl/Class :owl/NamedIndividual],
    :rdfs/label       "Exploit Public-Facing Application",
    :rdfs/subClassOf  [:d3fend/InitialAccessTechnique
+                      {:owl/onProperty     :d3fend/injects,
+                       :owl/someValuesFrom :d3fend/DatabaseQuery,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty :d3fend/produces,
                        :owl/someValuesFrom
                        :d3fend/InboundInternetNetworkTraffic,
                        :rdf/type :owl/Restriction}
-                      {:owl/onProperty     :d3fend/injects,
-                       :owl/someValuesFrom :d3fend/DatabaseQuery,
-                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty     :d3fend/modifies,
                        :owl/someValuesFrom :d3fend/ProcessSegment,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1191
+  "CMSTP"
   {:d3fend/attack-id "T1191",
    :db/ident         :d3fend/T1191,
    :rdf/type         :owl/Class,
@@ -22495,6 +23420,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1192
+  "Spearphishing Link"
   {:d3fend/attack-id "T1192",
    :db/ident         :d3fend/T1192,
    :rdf/type         :owl/Class,
@@ -22502,6 +23428,7 @@
    :rdfs/subClassOf  :d3fend/InitialAccessTechnique})
 
 (def T1193
+  "Spearphishing Attachment"
   {:d3fend/attack-id "T1193",
    :db/ident         :d3fend/T1193,
    :rdf/type         :owl/Class,
@@ -22509,6 +23436,7 @@
    :rdfs/subClassOf  :d3fend/InitialAccessTechnique})
 
 (def T1194
+  "Spearphishing via Service"
   {:d3fend/attack-id "T1194",
    :db/ident         :d3fend/T1194,
    :rdf/type         :owl/Class,
@@ -22516,6 +23444,7 @@
    :rdfs/subClassOf  :d3fend/InitialAccessTechnique})
 
 (def T1195
+  "Supply Chain Compromise"
   {:d3fend/attack-id "T1195",
    :d3fend/modifies  :d3fend/DigitalArtifact,
    :db/ident         :d3fend/T1195,
@@ -22527,6 +23456,7 @@
                       :d3fend/InitialAccessTechnique]})
 
 (def T1195.001
+  "Compromise Software Dependencies and Development Tools"
   {:d3fend/attack-id "T1195.001",
    :d3fend/modifies  :d3fend/Software,
    :db/ident         :d3fend/T1195.001,
@@ -22538,6 +23468,7 @@
                       :d3fend/T1195]})
 
 (def T1195.002
+  "Compromise Software Supply Chain"
   {:d3fend/attack-id "T1195.002",
    :d3fend/modifies  :d3fend/Software,
    :db/ident         :d3fend/T1195.002,
@@ -22549,6 +23480,7 @@
                       :d3fend/T1195]})
 
 (def T1195.003
+  "Compromise Hardware Supply Chain"
   {:d3fend/attack-id "T1195.003",
    :d3fend/modifies  :d3fend/HardwareDevice,
    :db/ident         :d3fend/T1195.003,
@@ -22560,6 +23492,7 @@
                       :d3fend/T1195]})
 
 (def T1196
+  "Control Panel Items"
   {:d3fend/attack-id "T1196",
    :db/ident         :d3fend/T1196,
    :rdf/type         :owl/Class,
@@ -22568,6 +23501,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1197
+  "BITS Jobs"
   {:d3fend/attack-id   "T1197",
    :d3fend/may-produce [:d3fend/IntranetIPCNetworkTraffic
                         :d3fend/IntranetWebNetworkTraffic
@@ -22575,19 +23509,20 @@
    :db/ident           :d3fend/T1197,
    :rdf/type           [:owl/Class :owl/NamedIndividual],
    :rdfs/label         "BITS Jobs",
-   :rdfs/subClassOf    [:d3fend/DefenseEvasionTechnique
-                        {:owl/onProperty     :d3fend/may-produce,
+   :rdfs/subClassOf    [{:owl/onProperty     :d3fend/may-produce,
                          :owl/someValuesFrom :d3fend/IntranetWebNetworkTraffic,
                          :rdf/type           :owl/Restriction}
+                        :d3fend/DefenseEvasionTechnique
                         {:owl/onProperty     :d3fend/may-produce,
                          :owl/someValuesFrom :d3fend/OutboundInternetWebTraffic,
                          :rdf/type           :owl/Restriction}
-                        :d3fend/PersistenceTechnique
                         {:owl/onProperty     :d3fend/may-produce,
                          :owl/someValuesFrom :d3fend/IntranetIPCNetworkTraffic,
-                         :rdf/type           :owl/Restriction}]})
+                         :rdf/type           :owl/Restriction}
+                        :d3fend/PersistenceTechnique]})
 
 (def T1198
+  "SIP and Trust Provider Hijacking"
   {:d3fend/attack-id "T1198",
    :db/ident         :d3fend/T1198,
    :rdf/type         :owl/Class,
@@ -22596,6 +23531,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1199
+  "Trusted Relationship"
   {:d3fend/attack-id "T1199",
    :d3fend/creates   :d3fend/LoginSession,
    :d3fend/produces  :d3fend/IntranetNetworkTraffic,
@@ -22611,6 +23547,7 @@
                       :d3fend/InitialAccessTechnique]})
 
 (def T1200
+  "Hardware Additions"
   {:d3fend/attack-id "T1200",
    :d3fend/connects  :d3fend/HardwareDevice,
    :db/ident         :d3fend/T1200,
@@ -22622,6 +23559,7 @@
                       :d3fend/InitialAccessTechnique]})
 
 (def T1201
+  "Password Policy Discovery"
   {:d3fend/attack-id "T1201",
    :db/ident         :d3fend/T1201,
    :rdf/type         :owl/Class,
@@ -22629,6 +23567,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1202
+  "Indirect Command Execution"
   {:d3fend/attack-id "T1202",
    :db/ident         :d3fend/T1202,
    :rdf/type         :owl/Class,
@@ -22636,6 +23575,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1203
+  "Exploitation for Client Execution"
   {:d3fend/attack-id "T1203",
    :d3fend/modifies  [:d3fend/StackFrame :d3fend/ProcessCodeSegment],
    :db/ident         :d3fend/T1203,
@@ -22650,6 +23590,7 @@
                       :d3fend/ExecutionTechnique]})
 
 (def T1204
+  "User Execution"
   {:d3fend/attack-id "T1204",
    :db/ident         :d3fend/T1204,
    :rdf/type         :owl/Class,
@@ -22657,6 +23598,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1204.001
+  "Malicious Link Execution"
   {:d3fend/accesses  :d3fend/URL,
    :d3fend/attack-id "T1204.001",
    :d3fend/produces  :d3fend/OutboundInternetWebTraffic,
@@ -22672,6 +23614,7 @@
                       :d3fend/T1204]})
 
 (def T1204.002
+  "Malicious File Execution"
   {:d3fend/attack-id "T1204.002",
    :d3fend/executes  :d3fend/ExecutableFile,
    :db/ident         :d3fend/T1204.002,
@@ -22683,6 +23626,7 @@
                       :d3fend/T1204]})
 
 (def T1204.003
+  "Malicious Image"
   {:d3fend/attack-id "T1204.003",
    :db/ident         :d3fend/T1204.003,
    :rdf/type         :owl/Class,
@@ -22705,6 +23649,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1205.001
+  "Port Knocking"
   {:d3fend/attack-id "T1205.001",
    :d3fend/produces  :d3fend/NetworkTraffic,
    :db/ident         :d3fend/T1205.001,
@@ -22716,6 +23661,7 @@
                       :d3fend/T1205]})
 
 (def T1206
+  "Sudo Caching"
   {:d3fend/attack-id "T1206",
    :db/ident         :d3fend/T1206,
    :rdf/type         :owl/Class,
@@ -22723,6 +23669,7 @@
    :rdfs/subClassOf  :d3fend/PrivilegeEscalationTechnique})
 
 (def T1207
+  "Rogue Domain Controller"
   {:d3fend/attack-id "T1207",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabase,
    :d3fend/produces  :d3fend/IntranetAdministrativeNetworkTraffic,
@@ -22739,6 +23686,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1208
+  "Kerberoasting"
   {:d3fend/attack-id "T1208",
    :db/ident         :d3fend/T1208,
    :rdf/type         :owl/Class,
@@ -22746,6 +23694,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1209
+  "Time Providers"
   {:d3fend/attack-id "T1209",
    :db/ident         :d3fend/T1209,
    :rdf/type         :owl/Class,
@@ -22753,6 +23702,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1210
+  "Exploitation of Remote Services"
   {:d3fend/attack-id  "T1210",
    :d3fend/may-modify [:d3fend/ProcessCodeSegment
                        :d3fend/ProcessSegment
@@ -22761,21 +23711,22 @@
    :db/ident          :d3fend/T1210,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Exploitation of Remote Services",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/produces,
+   :rdfs/subClassOf   [:d3fend/LateralMovementTechnique
+                       {:owl/onProperty     :d3fend/produces,
                         :owl/someValuesFrom :d3fend/IntranetNetworkTraffic,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/StackFrame,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/ProcessCodeSegment,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/ProcessSegment,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/StackFrame,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/LateralMovementTechnique]})
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1211
+  "Exploitation for Defense Evasion"
   {:d3fend/attack-id  "T1211",
    :d3fend/may-modify [:d3fend/StackFrame :d3fend/ProcessCodeSegment],
    :db/ident          :d3fend/T1211,
@@ -22790,6 +23741,7 @@
                        :d3fend/DefenseEvasionTechnique]})
 
 (def T1212
+  "Exploitation for Credential Access"
   {:d3fend/attack-id  "T1212",
    :d3fend/may-access [:d3fend/CredentialManagementSystem
                        :d3fend/AuthenticationService],
@@ -22798,20 +23750,21 @@
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Exploitation for Credential Access",
    :rdfs/subClassOf   [:d3fend/CredentialAccessTechnique
-                       {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/AuthenticationService,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/ProcessCodeSegment,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/CredentialManagementSystem,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/StackFrame,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/AuthenticationService,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/CredentialManagementSystem,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1213
+  "Data from Information Repositories"
   {:d3fend/accesses  :d3fend/Resource,
    :d3fend/attack-id "T1213",
    :db/ident         :d3fend/T1213,
@@ -22824,6 +23777,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1213.001
+  "Confluence"
   {:d3fend/accesses  :d3fend/WebFileResource,
    :d3fend/attack-id "T1213.001",
    :db/ident         :d3fend/T1213.001,
@@ -22835,6 +23789,7 @@
                       :d3fend/T1213]})
 
 (def T1213.002
+  "Sharepoint"
   {:d3fend/accesses  :d3fend/WebFileResource,
    :d3fend/attack-id "T1213.002",
    :db/ident         :d3fend/T1213.002,
@@ -22846,6 +23801,7 @@
                       :d3fend/T1213]})
 
 (def T1213.003
+  "Code Repositories"
   {:d3fend/attack-id "T1213.003",
    :d3fend/reads     :d3fend/CodeRepository,
    :db/ident         :d3fend/T1213.003,
@@ -22857,6 +23813,7 @@
                       :d3fend/T1213]})
 
 (def T1214
+  "Credentials in Registry"
   {:d3fend/attack-id "T1214",
    :db/ident         :d3fend/T1214,
    :rdf/type         :owl/Class,
@@ -22864,6 +23821,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1215
+  "Kernel Modules and Extensions"
   {:d3fend/attack-id "T1215",
    :db/ident         :d3fend/T1215,
    :rdf/type         :owl/Class,
@@ -22871,6 +23829,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1216
+  "Signed Script Proxy Execution"
   {:d3fend/attack-id "T1216",
    :db/ident         :d3fend/T1216,
    :rdf/type         :owl/Class,
@@ -22879,6 +23838,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1216.001
+  "PubPrn Execution"
   {:d3fend/attack-id "T1216.001",
    :db/ident         :d3fend/T1216.001,
    :rdf/type         :owl/Class,
@@ -22886,6 +23846,7 @@
    :rdfs/subClassOf  :d3fend/T1216})
 
 (def T1217
+  "Browser Bookmark Discovery"
   {:d3fend/attack-id "T1217",
    :db/ident         :d3fend/T1217,
    :rdf/type         :owl/Class,
@@ -22893,6 +23854,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1218
+  "Signed Binary Proxy Execution"
   {:d3fend/attack-id "T1218",
    :db/ident         :d3fend/T1218,
    :rdf/type         :owl/Class,
@@ -22901,6 +23863,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1218.001
+  "Compiled HTML File"
   {:d3fend/attack-id "T1218.001",
    :d3fend/invokes   [:d3fend/CreateProcess :d3fend/CreateFile],
    :db/ident         :d3fend/T1218.001,
@@ -22915,6 +23878,7 @@
                       :d3fend/T1218]})
 
 (def T1218.002
+  "Control Panel Execution"
   {:d3fend/attack-id  "T1218.002",
    :d3fend/invokes    :d3fend/CreateProcess,
    :d3fend/may-modify :d3fend/SystemConfigurationDatabaseRecord,
@@ -22931,6 +23895,7 @@
                        :d3fend/T1218]})
 
 (def T1218.003
+  "CMSTP"
   {:d3fend/attack-id   "T1218.003",
    :d3fend/invokes     :d3fend/CreateProcess,
    :d3fend/may-produce :d3fend/NetworkTraffic,
@@ -22946,6 +23911,7 @@
                         :d3fend/T1218]})
 
 (def T1218.004
+  "InstallUtil Execution"
   {:d3fend/attack-id "T1218.004",
    :db/ident         :d3fend/T1218.004,
    :rdf/type         :owl/Class,
@@ -22953,6 +23919,7 @@
    :rdfs/subClassOf  :d3fend/T1218})
 
 (def T1218.005
+  "Mshta Execution"
   {:d3fend/attack-id "T1218.005",
    :db/ident         :d3fend/T1218.005,
    :rdf/type         :owl/Class,
@@ -22960,6 +23927,7 @@
    :rdfs/subClassOf  :d3fend/T1218})
 
 (def T1218.007
+  "Msiexec Execution"
   {:d3fend/attack-id "T1218.007",
    :db/ident         :d3fend/T1218.007,
    :rdf/type         :owl/Class,
@@ -22967,6 +23935,7 @@
    :rdfs/subClassOf  :d3fend/T1218})
 
 (def T1218.008
+  "Odbcconf Execution"
   {:d3fend/attack-id "T1218.008",
    :db/ident         :d3fend/T1218.008,
    :rdf/type         :owl/Class,
@@ -22974,6 +23943,7 @@
    :rdfs/subClassOf  :d3fend/T1218})
 
 (def T1218.009
+  "Regsvcs/Regasm Execution"
   {:d3fend/attack-id "T1218.009",
    :db/ident         :d3fend/T1218.009,
    :rdf/type         :owl/Class,
@@ -22981,6 +23951,7 @@
    :rdfs/subClassOf  :d3fend/T1218})
 
 (def T1218.010
+  "Regsvr32 Execution"
   {:d3fend/attack-id "T1218.010",
    :db/ident         :d3fend/T1218.010,
    :rdf/type         :owl/Class,
@@ -22988,6 +23959,7 @@
    :rdfs/subClassOf  :d3fend/T1218})
 
 (def T1218.011
+  "Rundll32 Execution"
   {:d3fend/attack-id "T1218.011",
    :d3fend/invokes   :d3fend/CreateProcess,
    :d3fend/loads     :d3fend/SharedLibraryFile,
@@ -23003,6 +23975,7 @@
                       :d3fend/T1218]})
 
 (def T1218.012
+  "Verclsid"
   {:d3fend/attack-id "T1218.012",
    :db/ident         :d3fend/T1218.012,
    :rdf/type         :owl/Class,
@@ -23010,6 +23983,7 @@
    :rdfs/subClassOf  :d3fend/T1218})
 
 (def T1218.013
+  "Mavinject"
   {:d3fend/attack-id "T1218.013",
    :d3fend/invokes :d3fend/CreateThread,
    :d3fend/modifies :d3fend/ProcessSegment,
@@ -23019,14 +23993,15 @@
    :rdfs/seeAlso
    "https://posts.specterops.io/mavinject-exe-functionality-deconstructed-c29ab2cf5c0e",
    :rdfs/subClassOf [:d3fend/T1218
-                     {:owl/onProperty     :d3fend/modifies,
-                      :owl/someValuesFrom :d3fend/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3fend/invokes,
                       :owl/someValuesFrom :d3fend/CreateThread,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3fend/modifies,
+                      :owl/someValuesFrom :d3fend/ProcessSegment,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1218.014
+  "MMC"
   {:d3fend/attack-id  "T1218.014",
    :d3fend/executes   :d3fend/Command,
    :d3fend/may-add    :d3fend/Software,
@@ -23034,18 +24009,19 @@
    :db/ident          :d3fend/T1218.014,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "MMC",
-   :rdfs/subClassOf   [:d3fend/T1218
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-add,
+                        :owl/someValuesFrom :d3fend/Software,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1218
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-add,
-                        :owl/someValuesFrom :d3fend/Software,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/executes,
                         :owl/someValuesFrom :d3fend/Command,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1219
+  "Remote Access Software"
   {:d3fend/attack-id "T1219",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1219,
@@ -23058,6 +24034,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1220
+  "XSL Script Processing"
   {:d3fend/adds       :d3fend/File,
    :d3fend/attack-id  "T1220",
    :d3fend/interprets :d3fend/ExecutableScript,
@@ -23068,15 +24045,16 @@
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/adds,
                         :owl/someValuesFrom :d3fend/File,
                         :rdf/type           :owl/Restriction}
+                       :d3fend/DefenseEvasionTechnique
                        {:owl/onProperty     :d3fend/invokes,
                         :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/DefenseEvasionTechnique
                        {:owl/onProperty     :d3fend/interprets,
                         :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1221
+  "Template Injection"
   {:d3fend/attack-id "T1221",
    :db/ident         :d3fend/T1221,
    :rdf/type         :owl/Class,
@@ -23084,6 +24062,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1222
+  "File and Directory Permissions Modification"
   {:d3fend/attack-id "T1222",
    :d3fend/modifies  :d3fend/AccessControlConfiguration,
    :db/ident         :d3fend/T1222,
@@ -23095,6 +24074,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1222.001
+  "Windows File and Directory Permissions Modification"
   {:d3fend/attack-id "T1222.001",
    :db/ident         :d3fend/T1222.001,
    :rdf/type         :owl/Class,
@@ -23102,6 +24082,7 @@
    :rdfs/subClassOf  :d3fend/T1222})
 
 (def T1222.002
+  "Linux and Mac File and Directory Permissions Modification"
   {:d3fend/attack-id "T1222.002",
    :db/ident :d3fend/T1222.002,
    :rdf/type :owl/Class,
@@ -23109,6 +24090,7 @@
    :rdfs/subClassOf :d3fend/T1222})
 
 (def T1223
+  "Compiled HTML File"
   {:d3fend/attack-id "T1223",
    :db/ident         :d3fend/T1223,
    :rdf/type         :owl/Class,
@@ -23117,6 +24099,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1480
+  "Execution Guardrails"
   {:d3fend/attack-id "T1480",
    :db/ident         :d3fend/T1480,
    :rdf/type         :owl/Class,
@@ -23124,6 +24107,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1480.001
+  "Environmental Keying"
   {:d3fend/attack-id "T1480.001",
    :db/ident         :d3fend/T1480.001,
    :rdf/type         :owl/Class,
@@ -23131,6 +24115,7 @@
    :rdfs/subClassOf  :d3fend/T1480})
 
 (def T1482
+  "Domain Trust Discovery"
   {:d3fend/attack-id "T1482",
    :db/ident         :d3fend/T1482,
    :rdf/type         :owl/Class,
@@ -23138,6 +24123,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1483
+  "Domain Generation Algorithms"
   {:d3fend/attack-id "T1483",
    :db/ident         :d3fend/T1483,
    :rdf/type         :owl/Class,
@@ -23145,6 +24131,7 @@
    :rdfs/subClassOf  :d3fend/CommandAndControlTechnique})
 
 (def T1484
+  "Group Policy Modification"
   {:d3fend/attack-id "T1484",
    :d3fend/modifies  :d3fend/GroupPolicy,
    :db/ident         :d3fend/T1484,
@@ -23157,6 +24144,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1484.001
+  "Group Policy Modification"
   {:d3fend/attack-id "T1484.001",
    :db/ident         :d3fend/T1484.001,
    :rdf/type         :owl/Class,
@@ -23164,6 +24152,7 @@
    :rdfs/subClassOf  :d3fend/T1484})
 
 (def T1484.002
+  "Domain Trust Modification"
   {:d3fend/attack-id "T1484.002",
    :db/ident         :d3fend/T1484.002,
    :rdf/type         :owl/Class,
@@ -23171,6 +24160,7 @@
    :rdfs/subClassOf  :d3fend/T1484})
 
 (def T1485
+  "Data Destruction"
   {:d3fend/attack-id "T1485",
    :db/ident         :d3fend/T1485,
    :rdf/type         :owl/Class,
@@ -23178,6 +24168,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1486
+  "Data Encrypted for Impact"
   {:d3fend/attack-id "T1486",
    :db/ident         :d3fend/T1486,
    :rdf/type         :owl/Class,
@@ -23185,6 +24176,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1487
+  "Disk Structure Wipe"
   {:d3fend/attack-id "T1487",
    :db/ident         :d3fend/T1487,
    :rdf/type         :owl/Class,
@@ -23192,6 +24184,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1488
+  "Disk Content Wipe"
   {:d3fend/attack-id "T1488",
    :db/ident         :d3fend/T1488,
    :rdf/type         :owl/Class,
@@ -23199,6 +24192,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1489
+  "Service Stop"
   {:d3fend/attack-id "T1489",
    :db/ident         :d3fend/T1489,
    :rdf/type         :owl/Class,
@@ -23206,6 +24200,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1490
+  "Inhibit System Recovery"
   {:d3fend/attack-id "T1490",
    :db/ident         :d3fend/T1490,
    :rdf/type         :owl/Class,
@@ -23213,6 +24208,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1491
+  "Defacement"
   {:d3fend/attack-id "T1491",
    :db/ident         :d3fend/T1491,
    :rdf/type         :owl/Class,
@@ -23220,6 +24216,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1491.001
+  "Internal Defacement"
   {:d3fend/attack-id "T1491.001",
    :d3fend/modifies  :d3fend/Resource,
    :db/ident         :d3fend/T1491.001,
@@ -23231,6 +24228,7 @@
                       :d3fend/T1491]})
 
 (def T1491.002
+  "External Defacement"
   {:d3fend/attack-id "T1491.002",
    :d3fend/modifies  :d3fend/NetworkResource,
    :db/ident         :d3fend/T1491.002,
@@ -23242,6 +24240,7 @@
                       :d3fend/T1491]})
 
 (def T1492
+  "Stored Data Manipulation"
   {:d3fend/attack-id "T1492",
    :db/ident         :d3fend/T1492,
    :rdf/type         :owl/Class,
@@ -23249,6 +24248,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1493
+  "Transmitted Data Manipulation"
   {:d3fend/attack-id "T1493",
    :db/ident         :d3fend/T1493,
    :rdf/type         :owl/Class,
@@ -23256,6 +24256,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1494
+  "Runtime Data Manipulation"
   {:d3fend/attack-id "T1494",
    :db/ident         :d3fend/T1494,
    :rdf/type         :owl/Class,
@@ -23263,6 +24264,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1495
+  "Firmware Corruption"
   {:d3fend/attack-id "T1495",
    :db/ident         :d3fend/T1495,
    :rdf/type         :owl/Class,
@@ -23270,6 +24272,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1496
+  "Resource Hijacking"
   {:d3fend/attack-id "T1496",
    :db/ident         :d3fend/T1496,
    :rdf/type         :owl/Class,
@@ -23277,6 +24280,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1497
+  "Virtualization/Sandbox Evasion"
   {:d3fend/attack-id "T1497",
    :db/ident         :d3fend/T1497,
    :rdf/type         :owl/Class,
@@ -23284,6 +24288,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1497.001
+  "System Checks"
   {:d3fend/attack-id "T1497.001",
    :db/ident         :d3fend/T1497.001,
    :rdf/type         :owl/Class,
@@ -23291,6 +24296,7 @@
    :rdfs/subClassOf  :d3fend/T1497})
 
 (def T1497.002
+  "User Activity Based Checks"
   {:d3fend/attack-id "T1497.002",
    :db/ident         :d3fend/T1497.002,
    :rdf/type         :owl/Class,
@@ -23298,6 +24304,7 @@
    :rdfs/subClassOf  :d3fend/T1497})
 
 (def T1497.003
+  "Time Based Evasion"
   {:d3fend/attack-id  "T1497.003",
    :d3fend/may-invoke :d3fend/GetSystemTime,
    :d3fend/may-run    :d3fend/SystemTimeApplication,
@@ -23313,6 +24320,7 @@
                        :d3fend/T1497]})
 
 (def T1498
+  "Network Denial of Service"
   {:d3fend/attack-id "T1498",
    :db/ident         :d3fend/T1498,
    :rdf/type         :owl/Class,
@@ -23320,6 +24328,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1498.001
+  "Direct Network Flood"
   {:d3fend/attack-id "T1498.001",
    :d3fend/creates   :d3fend/InboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1498.001,
@@ -23332,6 +24341,7 @@
                       :d3fend/T1498]})
 
 (def T1498.002
+  "Reflection Amplification"
   {:d3fend/attack-id "T1498.002",
    :d3fend/produces  :d3fend/InboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1498.002,
@@ -23344,6 +24354,7 @@
                       :d3fend/T1498]})
 
 (def T1499
+  "Endpoint Denial of Service"
   {:d3fend/attack-id "T1499",
    :db/ident         :d3fend/T1499,
    :rdf/type         :owl/Class,
@@ -23351,6 +24362,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1499.001
+  "OS Exhaustion Flood"
   {:d3fend/attack-id "T1499.001",
    :db/ident         :d3fend/T1499.001,
    :rdf/type         :owl/Class,
@@ -23358,6 +24370,7 @@
    :rdfs/subClassOf  :d3fend/T1499})
 
 (def T1499.002
+  "Service Exhaustion Flood"
   {:d3fend/attack-id "T1499.002",
    :d3fend/produces  :d3fend/InboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1499.002,
@@ -23370,6 +24383,7 @@
                       :d3fend/T1498]})
 
 (def T1499.003
+  "Application Exhaustion Flood"
   {:d3fend/attack-id "T1499.003",
    :db/ident         :d3fend/T1499.003,
    :rdf/type         :owl/Class,
@@ -23377,6 +24391,7 @@
    :rdfs/subClassOf  :d3fend/T1499})
 
 (def T1499.004
+  "Application or System Exploitation"
   {:d3fend/attack-id "T1499.004",
    :db/ident         :d3fend/T1499.004,
    :rdf/type         :owl/Class,
@@ -23384,6 +24399,7 @@
    :rdfs/subClassOf  :d3fend/T1499})
 
 (def T1500
+  "Compile After Delivery"
   {:d3fend/attack-id "T1500",
    :db/ident         :d3fend/T1500,
    :rdf/type         :owl/Class,
@@ -23391,6 +24407,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1501
+  "Systemd Service"
   {:d3fend/attack-id "T1501",
    :db/ident         :d3fend/T1501,
    :rdf/type         :owl/Class,
@@ -23398,6 +24415,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1502
+  "Parent PID Spoofing"
   {:d3fend/attack-id "T1502",
    :db/ident         :d3fend/T1502,
    :rdf/type         :owl/Class,
@@ -23406,6 +24424,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1503
+  "Credentials from Web Browsers"
   {:d3fend/attack-id "T1503",
    :db/ident         :d3fend/T1503,
    :rdf/type         :owl/Class,
@@ -23413,6 +24432,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1504
+  "PowerShell Profile"
   {:d3fend/attack-id "T1504",
    :db/ident         :d3fend/T1504,
    :rdf/type         :owl/Class,
@@ -23421,6 +24441,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1505
+  "Server Software Component"
   {:d3fend/attack-id "T1505",
    :db/ident         :d3fend/T1505,
    :rdf/type         :owl/Class,
@@ -23428,6 +24449,7 @@
    :rdfs/subClassOf  :d3fend/PersistenceTechnique})
 
 (def T1505.001
+  "SQL Stored Procedures"
   {:d3fend/attack-id "T1505.001",
    :d3fend/creates   :d3fend/StoredProcedure,
    :d3fend/invokes   :d3fend/CreateProcess,
@@ -23443,6 +24465,7 @@
                       :d3fend/T1505]})
 
 (def T1505.002
+  "Transport Agent"
   {:d3fend/adds      :d3fend/MessageTransferAgent,
    :d3fend/attack-id "T1505.002",
    :d3fend/modifies  :d3fend/MailServer,
@@ -23458,6 +24481,7 @@
                       :d3fend/T1505]})
 
 (def T1505.003
+  "Web Shell"
   {:d3fend/adds      :d3fend/WebScriptFile,
    :d3fend/attack-id "T1505.003",
    :d3fend/modifies  :d3fend/WebServer,
@@ -23465,18 +24489,19 @@
    :db/ident         :d3fend/T1505.003,
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Web Shell",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/adds,
-                       :owl/someValuesFrom :d3fend/WebScriptFile,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/modifies,
+                       :owl/someValuesFrom :d3fend/WebServer,
                        :rdf/type           :owl/Restriction}
                       :d3fend/T1505
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/Process,
                        :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/modifies,
-                       :owl/someValuesFrom :d3fend/WebServer,
+                      {:owl/onProperty     :d3fend/adds,
+                       :owl/someValuesFrom :d3fend/WebScriptFile,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1505.004
+  "IIS Components"
   {:d3fend/adds      :d3fend/Software,
    :d3fend/attack-id "T1505.004",
    :db/ident         :d3fend/T1505.004,
@@ -23488,6 +24513,7 @@
                       :d3fend/T1505]})
 
 (def T1505.005
+  "Terminal Services DLL"
   {:d3fend/attack-id "T1505.005",
    :db/ident         :d3fend/T1505.005,
    :rdf/type         :owl/Class,
@@ -23495,6 +24521,7 @@
    :rdfs/subClassOf  :d3fend/T1505})
 
 (def T1506
+  "Web Session Cookie"
   {:d3fend/attack-id "T1506",
    :db/ident         :d3fend/T1506,
    :rdf/type         :owl/Class,
@@ -23503,6 +24530,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1514
+  "Elevated Execution with Prompt"
   {:d3fend/attack-id "T1514",
    :db/ident         :d3fend/T1514,
    :rdf/type         :owl/Class,
@@ -23510,6 +24538,7 @@
    :rdfs/subClassOf  :d3fend/PrivilegeEscalationTechnique})
 
 (def T1518
+  "Software Discovery"
   {:d3fend/attack-id "T1518",
    :db/ident         :d3fend/T1518,
    :rdf/type         :owl/Class,
@@ -23517,6 +24546,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1518.001
+  "Security Software Discovery"
   {:d3fend/attack-id  "T1518.001",
    :d3fend/may-access [:d3fend/FileSystemMetadata
                        :d3fend/SystemConfigurationDatabaseRecord
@@ -23534,17 +24564,18 @@
                         :owl/someValuesFrom :d3fend/FileSystemMetadata,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-access,
+                        :owl/someValuesFrom :d3fend/SystemFirewallConfiguration,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1518
+                       {:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/KernelProcessTable,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/GetRunningProcesses,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1518
-                       {:owl/onProperty     :d3fend/may-access,
-                        :owl/someValuesFrom :d3fend/SystemFirewallConfiguration,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1519
+  "Emond"
   {:d3fend/attack-id "T1519",
    :db/ident         :d3fend/T1519,
    :rdf/type         :owl/Class,
@@ -23553,6 +24584,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1522
+  "Cloud Instance Metadata API"
   {:d3fend/attack-id "T1522",
    :db/ident         :d3fend/T1522,
    :rdf/type         :owl/Class,
@@ -23560,6 +24592,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1525
+  "Implant Container Image"
   {:d3fend/adds      :d3fend/ContainerImage,
    :d3fend/attack-id "T1525",
    :db/ident         :d3fend/T1525,
@@ -23571,6 +24604,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1526
+  "Cloud Service Discovery"
   {:d3fend/attack-id "T1526",
    :d3fend/reads     :d3fend/CloudConfiguration,
    :db/ident         :d3fend/T1526,
@@ -23582,6 +24616,7 @@
                       :d3fend/DiscoveryTechnique]})
 
 (def T1527
+  "Application Access Token"
   {:d3fend/attack-id "T1527",
    :db/ident         :d3fend/T1527,
    :rdf/type         :owl/Class,
@@ -23590,6 +24625,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1528
+  "Steal Application Access Token"
   {:d3fend/accesses  :d3fend/AccessToken,
    :d3fend/attack-id "T1528",
    :db/ident         :d3fend/T1528,
@@ -23601,6 +24637,7 @@
                       :d3fend/CredentialAccessTechnique]})
 
 (def T1529
+  "System Shutdown/Reboot"
   {:d3fend/attack-id "T1529",
    :db/ident         :d3fend/T1529,
    :rdf/type         :owl/Class,
@@ -23608,6 +24645,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1530
+  "Data from Cloud Storage Object"
   {:d3fend/attack-id "T1530",
    :db/ident         :d3fend/T1530,
    :rdf/type         :owl/Class,
@@ -23615,6 +24653,7 @@
    :rdfs/subClassOf  :d3fend/CollectionTechnique})
 
 (def T1531
+  "Account Access Removal"
   {:d3fend/attack-id "T1531",
    :d3fend/modifies  :d3fend/UserAccount,
    :db/ident         :d3fend/T1531,
@@ -23626,6 +24665,7 @@
                       :d3fend/ImpactTechnique]})
 
 (def T1534
+  "Internal Spearphishing"
   {:d3fend/attack-id "T1534",
    :d3fend/produces  :d3fend/Email,
    :db/ident         :d3fend/T1534,
@@ -23637,6 +24677,7 @@
                       :d3fend/LateralMovementTechnique]})
 
 (def T1535
+  "Unused/Unsupported Cloud Regions"
   {:d3fend/attack-id "T1535",
    :db/ident         :d3fend/T1535,
    :rdf/type         :owl/Class,
@@ -23644,6 +24685,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1536
+  "Revert Cloud Instance"
   {:d3fend/attack-id "T1536",
    :db/ident         :d3fend/T1536,
    :rdf/type         :owl/Class,
@@ -23651,6 +24693,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1537
+  "Transfer Data to Cloud Account"
   {:d3fend/attack-id "T1537",
    :db/ident         :d3fend/T1537,
    :rdf/type         :owl/Class,
@@ -23658,6 +24701,7 @@
    :rdfs/subClassOf  :d3fend/ExfiltrationTechnique})
 
 (def T1538
+  "Cloud Service Dashboard"
   {:d3fend/accesses  :d3fend/CloudConfiguration,
    :d3fend/attack-id "T1538",
    :db/ident         :d3fend/T1538,
@@ -23669,6 +24713,7 @@
                       :d3fend/DiscoveryTechnique]})
 
 (def T1539
+  "Steal Web Session Cookie"
   {:d3fend/accesses  :d3fend/SessionCookie,
    :d3fend/attack-id "T1539",
    :db/ident         :d3fend/T1539,
@@ -23680,6 +24725,7 @@
                       :d3fend/CredentialAccessTechnique]})
 
 (def T1542
+  "Pre-OS Boot"
   {:d3fend/attack-id "T1542",
    :db/ident         :d3fend/T1542,
    :rdf/type         :owl/Class,
@@ -23688,6 +24734,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1542.001
+  "System Firmware"
   {:d3fend/attack-id "T1542.001",
    :d3fend/modifies  :d3fend/SystemFirmware,
    :db/ident         :d3fend/T1542.001,
@@ -23699,6 +24746,7 @@
                       :d3fend/T1542]})
 
 (def T1542.002
+  "Component Firmware"
   {:d3fend/attack-id "T1542.002",
    :d3fend/modifies  :d3fend/Firmware,
    :db/ident         :d3fend/T1542.002,
@@ -23710,6 +24758,7 @@
                       :d3fend/T1542]})
 
 (def T1542.003
+  "Bootkit"
   {:d3fend/attack-id  "T1542.003",
    :d3fend/may-modify [:d3fend/BootSector
                        :d3fend/BootLoader
@@ -23717,10 +24766,10 @@
    :db/ident          :d3fend/T1542.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Bootkit",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+   :rdfs/subClassOf   [:d3fend/T1542
+                       {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/BootLoader,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/T1542
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/VolumeBootRecord,
                         :rdf/type           :owl/Restriction}
@@ -23729,6 +24778,7 @@
                         :rdf/type           :owl/Restriction}]})
 
 (def T1542.004
+  "ROMMONkit"
   {:d3fend/attack-id "T1542.004",
    :db/ident         :d3fend/T1542.004,
    :rdf/type         :owl/Class,
@@ -23736,6 +24786,7 @@
    :rdfs/subClassOf  :d3fend/T1542})
 
 (def T1542.005
+  "TFTP Boot"
   {:d3fend/attack-id "T1542.005",
    :db/ident         :d3fend/T1542.005,
    :rdf/type         :owl/Class,
@@ -23743,6 +24794,7 @@
    :rdfs/subClassOf  :d3fend/T1542})
 
 (def T1543
+  "Create or Modify System Process"
   {:d3fend/attack-id "T1543",
    :db/ident         :d3fend/T1543,
    :rdf/type         :owl/Class,
@@ -23751,6 +24803,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1543.001
+  "Launch Agent"
   {:d3fend/attack-id "T1543.001",
    :d3fend/creates   :d3fend/PropertyListFile,
    :db/ident         :d3fend/T1543.001,
@@ -23762,6 +24815,7 @@
                       :d3fend/T1543]})
 
 (def T1543.002
+  "Systemd Service"
   {:d3fend/attack-id  "T1543.002",
    :d3fend/may-create :d3fend/OperatingSystemConfigurationFile,
    :d3fend/may-modify :d3fend/OperatingSystemConfigurationFile,
@@ -23779,6 +24833,7 @@
                        :d3fend/T1543]})
 
 (def T1543.003
+  "Windows Service"
   {:d3fend/attack-id "T1543.003",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabase,
    :db/ident         :d3fend/T1543.003,
@@ -23790,6 +24845,7 @@
                       :d3fend/T1543]})
 
 (def T1543.004
+  "Launch Daemon"
   {:d3fend/attack-id "T1543.004",
    :d3fend/modifies  :d3fend/PropertyListFile,
    :db/ident         :d3fend/T1543.004,
@@ -23801,6 +24857,7 @@
                       :d3fend/T1543]})
 
 (def T1546
+  "Event Triggered Execution"
   {:d3fend/attack-id "T1546",
    :db/ident         :d3fend/T1546,
    :rdf/type         :owl/Class,
@@ -23809,6 +24866,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1546.001
+  "Change Default File Association"
   {:d3fend/attack-id "T1546.001",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1546.001,
@@ -23821,6 +24879,7 @@
                       :d3fend/T1546]})
 
 (def T1546.002
+  "Screensaver"
   {:d3fend/attack-id "T1546.002",
    :d3fend/creates   :d3fend/ExecutableFile,
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
@@ -23837,6 +24896,7 @@
                       :d3fend/T1546]})
 
 (def T1546.003
+  "Windows Management Instrumentation Event Subscription"
   {:d3fend/attack-id "T1546.003",
    :d3fend/modifies  :d3fend/EventLog,
    :d3fend/produces  :d3fend/IntranetAdministrativeNetworkTraffic,
@@ -23853,6 +24913,7 @@
                       :d3fend/T1546]})
 
 (def T1546.004
+  ".bash_profile and .bashrc"
   {:d3fend/attack-id "T1546.004",
    :d3fend/modifies  :d3fend/UserInitConfigurationFile,
    :db/ident         :d3fend/T1546.004,
@@ -23864,6 +24925,7 @@
                       :d3fend/T1546]})
 
 (def T1546.005
+  "Trap"
   {:d3fend/attack-id  "T1546.005",
    :d3fend/executes   :d3fend/Command,
    :d3fend/may-create :d3fend/ExecutableScript,
@@ -23873,20 +24935,21 @@
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Trap",
    :rdfs/subClassOf   [:d3fend/T1546
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/ExecutableScript,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/executes,
-                        :owl/someValuesFrom :d3fend/Command,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-create,
                         :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/EventLog,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/executes,
+                        :owl/someValuesFrom :d3fend/Command,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/ExecutableScript,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1546.006
+  "LC_LOAD_DYLIB Addition"
   {:d3fend/attack-id "T1546.006",
    :d3fend/modifies  :d3fend/ExecutableBinary,
    :db/ident         :d3fend/T1546.006,
@@ -23898,6 +24961,7 @@
                       :d3fend/T1546]})
 
 (def T1546.007
+  "Netsh Helper DLL"
   {:d3fend/attack-id "T1546.007",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :d3fend/produces  :d3fend/Process,
@@ -23914,6 +24978,7 @@
                       :d3fend/T1546]})
 
 (def T1546.008
+  "Accessibility Features"
   {:d3fend/attack-id  "T1546.008",
    :d3fend/may-create :d3fend/IntranetAdministrativeNetworkTraffic,
    :d3fend/may-modify [:d3fend/SystemConfigurationDatabaseRecord
@@ -23926,15 +24991,16 @@
                         :d3fend/SystemConfigurationDatabaseRecord,
                         :rdf/type :owl/Restriction}
                        :d3fend/T1546
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/ExecutableBinary,
+                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty :d3fend/may-create,
                         :owl/someValuesFrom
                         :d3fend/IntranetAdministrativeNetworkTraffic,
-                        :rdf/type :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/ExecutableBinary,
-                        :rdf/type           :owl/Restriction}]})
+                        :rdf/type :owl/Restriction}]})
 
 (def T1546.009
+  "AppCert DLLs"
   {:d3fend/attack-id "T1546.009",
    :d3fend/invokes   :d3fend/CreateProcess,
    :d3fend/loads     :d3fend/SharedLibraryFile,
@@ -23942,19 +25008,20 @@
    :db/ident         :d3fend/T1546.009,
    :rdf/type         [:owl/Class :owl/NamedIndividual],
    :rdfs/label       "AppCert DLLs",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/loads,
-                       :owl/someValuesFrom :d3fend/SharedLibraryFile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/invokes,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/invokes,
                        :owl/someValuesFrom :d3fend/CreateProcess,
                        :rdf/type           :owl/Restriction}
                       :d3fend/T1546
+                      {:owl/onProperty     :d3fend/loads,
+                       :owl/someValuesFrom :d3fend/SharedLibraryFile,
+                       :rdf/type           :owl/Restriction}
                       {:owl/onProperty :d3fend/modifies,
                        :owl/someValuesFrom
                        :d3fend/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction}]})
 
 (def T1546.010
+  "AppInit DLLs"
   {:d3fend/attack-id "T1546.010",
    :d3fend/invokes   :d3fend/CreateProcess,
    :d3fend/loads     :d3fend/SharedLibraryFile,
@@ -23962,19 +25029,20 @@
    :db/ident         :d3fend/T1546.010,
    :rdf/type         [:owl/Class :owl/NamedIndividual],
    :rdfs/label       "AppInit DLLs",
-   :rdfs/subClassOf  [{:owl/onProperty :d3fend/modifies,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/invokes,
+                       :owl/someValuesFrom :d3fend/CreateProcess,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty :d3fend/modifies,
                        :owl/someValuesFrom
                        :d3fend/SystemConfigurationDatabaseRecord,
                        :rdf/type :owl/Restriction}
                       :d3fend/T1546
                       {:owl/onProperty     :d3fend/loads,
                        :owl/someValuesFrom :d3fend/SharedLibraryFile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/invokes,
-                       :owl/someValuesFrom :d3fend/CreateProcess,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1546.011
+  "Application Shimming"
   {:d3fend/attack-id "T1546.011",
    :d3fend/creates   :d3fend/Shim,
    :d3fend/modifies  :d3fend/ShimDatabase,
@@ -23990,6 +25058,7 @@
                       :d3fend/T1546]})
 
 (def T1546.012
+  "Image File Execution Options Injection"
   {:d3fend/attack-id "T1546.012",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabase,
    :db/ident         :d3fend/T1546.012,
@@ -24001,6 +25070,7 @@
                       :d3fend/T1546]})
 
 (def T1546.013
+  "PowerShell Profile"
   {:d3fend/attack-id "T1546.013",
    :d3fend/modifies  :d3fend/PowerShellProfileScript,
    :db/ident         :d3fend/T1546.013,
@@ -24012,6 +25082,7 @@
                       :d3fend/T1546]})
 
 (def T1546.014
+  "Emond"
   {:d3fend/attack-id  "T1546.014",
    :d3fend/may-create :d3fend/PropertyListFile,
    :d3fend/may-modify :d3fend/PropertyListFile,
@@ -24022,15 +25093,16 @@
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-create,
                         :owl/someValuesFrom :d3fend/PropertyListFile,
                         :rdf/type           :owl/Restriction}
+                       :d3fend/T1546
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/PropertyListFile,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/modifies,
                         :owl/someValuesFrom :d3fend/ConfigurationResource,
-                        :rdf/type           :owl/Restriction}
-                       :d3fend/T1546]})
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1546.015
+  "Component Object Model Hijacking"
   {:d3fend/attack-id "T1546.015",
    :d3fend/loads     :d3fend/ExecutableBinary,
    :d3fend/modifies  :d3fend/SystemConfigurationDatabase,
@@ -24038,15 +25110,16 @@
    :rdf/type         [:owl/Class :owl/NamedIndividual],
    :rdfs/label       "Component Object Model Hijacking",
    :rdfs/seeAlso     "http://dbpedia.org/resource/Component_Object_Model",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/loads,
-                       :owl/someValuesFrom :d3fend/ExecutableBinary,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/onProperty     :d3fend/modifies,
+   :rdfs/subClassOf  [{:owl/onProperty     :d3fend/modifies,
                        :owl/someValuesFrom :d3fend/SystemConfigurationDatabase,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/onProperty     :d3fend/loads,
+                       :owl/someValuesFrom :d3fend/ExecutableBinary,
                        :rdf/type           :owl/Restriction}
                       :d3fend/T1546]})
 
 (def T1547
+  "Boot or Logon Autostart Execution"
   {:d3fend/attack-id "T1547",
    :db/ident         :d3fend/T1547,
    :rdf/type         :owl/Class,
@@ -24055,6 +25128,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1547.001
+  "Registry Run Keys / Startup Folder"
   {:d3fend/attack-id  "T1547.001",
    :d3fend/may-modify [:d3fend/UserStartupScriptFile
                        :d3fend/SystemConfigurationInitDatabaseRecord],
@@ -24071,6 +25145,7 @@
                        :d3fend/T1547]})
 
 (def T1547.002
+  "Authentication Package"
   {:d3fend/attack-id "T1547.002",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1547.002,
@@ -24083,6 +25158,7 @@
                       :d3fend/T1547]})
 
 (def T1547.003
+  "Time Providers"
   {:d3fend/attack-id "T1547.003",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1547.003,
@@ -24095,6 +25171,7 @@
                       :d3fend/T1547]})
 
 (def T1547.004
+  "Winlogon Helper DLL"
   {:d3fend/attack-id "T1547.004",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1547.004,
@@ -24107,6 +25184,7 @@
                       :d3fend/T1547]})
 
 (def T1547.005
+  "Security Support Provider"
   {:d3fend/attack-id "T1547.005",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1547.005,
@@ -24119,6 +25197,7 @@
                       :d3fend/T1547]})
 
 (def T1547.006
+  "Kernel Modules and Extensions"
   {:d3fend/attack-id "T1547.006",
    :d3fend/modifies  :d3fend/KernelModule,
    :db/ident         :d3fend/T1547.006,
@@ -24130,6 +25209,7 @@
                       :d3fend/T1547]})
 
 (def T1547.007
+  "Re-opened Applications"
   {:d3fend/attack-id "T1547.007",
    :d3fend/modifies  :d3fend/ApplicationConfigurationFile,
    :db/ident         :d3fend/T1547.007,
@@ -24141,6 +25221,7 @@
                       :d3fend/T1547]})
 
 (def T1547.008
+  "LSASS Driver"
   {:d3fend/attack-id  "T1547.008",
    :d3fend/may-create :d3fend/SharedLibraryFile,
    :d3fend/modifies   :d3fend/SystemServiceSoftware,
@@ -24156,6 +25237,7 @@
                        :d3fend/T1547]})
 
 (def T1547.009
+  "Shortcut Modification"
   {:d3fend/attack-id  "T1547.009",
    :d3fend/may-modify [:d3fend/UserStartupScriptFile :d3fend/SymbolicLink],
    :db/ident          :d3fend/T1547.009,
@@ -24170,6 +25252,7 @@
                        :d3fend/T1547]})
 
 (def T1547.010
+  "Port Monitors"
   {:d3fend/attack-id "T1547.010",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1547.010,
@@ -24182,6 +25265,7 @@
                       :d3fend/T1547]})
 
 (def T1547.011
+  "Plist Modification"
   {:d3fend/attack-id "T1547.011",
    :d3fend/modifies  :d3fend/ApplicationConfigurationFile,
    :db/ident         :d3fend/T1547.011,
@@ -24193,6 +25277,7 @@
                       :d3fend/T1547]})
 
 (def T1547.012
+  "Print Processors"
   {:d3fend/attack-id "T1547.012",
    :db/ident         :d3fend/T1547.012,
    :rdf/type         :owl/Class,
@@ -24200,6 +25285,7 @@
    :rdfs/subClassOf  :d3fend/T1547})
 
 (def T1547.013
+  "XDG Autostart Entries"
   {:d3fend/attack-id "T1547.013",
    :db/ident         :d3fend/T1547.013,
    :rdf/type         :owl/Class,
@@ -24207,6 +25293,7 @@
    :rdfs/subClassOf  :d3fend/T1547})
 
 (def T1547.014
+  "Active Setup"
   {:d3fend/attack-id "T1547.014",
    :db/ident         :d3fend/T1547.014,
    :rdf/type         :owl/Class,
@@ -24214,6 +25301,7 @@
    :rdfs/subClassOf  :d3fend/T1547})
 
 (def T1547.015
+  "Login Items"
   {:d3fend/attack-id "T1547.015",
    :d3fend/modifies  :d3fend/UserLogonInitResource,
    :db/ident         :d3fend/T1547.015,
@@ -24225,6 +25313,7 @@
                       :d3fend/T1547]})
 
 (def T1548
+  "Abuse Elevation Control Mechanism"
   {:d3fend/attack-id "T1548",
    :db/ident         :d3fend/T1548,
    :rdf/type         :owl/Class,
@@ -24233,6 +25322,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1548.001
+  "Setuid and Setgid"
   {:d3fend/attack-id "T1548.001",
    :d3fend/modifies  :d3fend/AccessControlConfiguration,
    :db/ident         :d3fend/T1548.001,
@@ -24244,6 +25334,7 @@
                       :d3fend/T1548]})
 
 (def T1548.002
+  "Bypass User Access Control"
   {:d3fend/attack-id  "T1548.002",
    :d3fend/executes   :d3fend/ExecutableFile,
    :d3fend/invokes    :d3fend/CreateProcess,
@@ -24251,19 +25342,20 @@
    :db/ident          :d3fend/T1548.002,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Bypass User Access Control",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/executes,
-                        :owl/someValuesFrom :d3fend/ExecutableFile,
-                        :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/invokes,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/invokes,
                         :owl/someValuesFrom :d3fend/CreateProcess,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/T1548
                        {:owl/onProperty :d3fend/may-modify,
                         :owl/someValuesFrom
                         :d3fend/SystemConfigurationDatabaseRecord,
-                        :rdf/type :owl/Restriction}]})
+                        :rdf/type :owl/Restriction}
+                       {:owl/onProperty     :d3fend/executes,
+                        :owl/someValuesFrom :d3fend/ExecutableFile,
+                        :rdf/type           :owl/Restriction}
+                       :d3fend/T1548]})
 
 (def T1548.003
+  "Sudo and Sudo Caching"
   {:d3fend/attack-id  "T1548.003",
    :d3fend/may-modify :d3fend/EventLog,
    :d3fend/modifies   :d3fend/OperatingSystemConfigurationFile,
@@ -24280,6 +25372,7 @@
                        :d3fend/T1548]})
 
 (def T1548.004
+  "Elevated Execution with Prompt"
   {:d3fend/attack-id "T1548.004",
    :d3fend/creates   :d3fend/SystemConfigurationDatabase,
    :d3fend/invokes   :d3fend/SystemCall,
@@ -24295,6 +25388,7 @@
                       :d3fend/T1548]})
 
 (def T1550
+  "Use Alternate Authentication Material"
   {:d3fend/accesses  :d3fend/AuthenticationService,
    :d3fend/attack-id "T1550",
    :db/ident         :d3fend/T1550,
@@ -24307,6 +25401,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1550.001
+  "Application Access Token"
   {:d3fend/attack-id   "T1550.001",
    :d3fend/may-produce :d3fend/NetworkTraffic,
    :d3fend/uses        :d3fend/AccessToken,
@@ -24322,6 +25417,7 @@
                         :d3fend/T1550]})
 
 (def T1550.002
+  "Pass The Hash"
   {:d3fend/attack-id "T1550.002",
    :d3fend/creates   :d3fend/Authentication,
    :db/ident         :d3fend/T1550.002,
@@ -24333,6 +25429,7 @@
                       :d3fend/T1550]})
 
 (def T1550.003
+  "Pass The Ticket"
   {:d3fend/attack-id "T1550.003",
    :d3fend/creates   :d3fend/Authentication,
    :db/ident         :d3fend/T1550.003,
@@ -24344,6 +25441,7 @@
                       :d3fend/T1550]})
 
 (def T1550.004
+  "Web Session Cookie"
   {:d3fend/adds      :d3fend/SessionCookie,
    :d3fend/attack-id "T1550.004",
    :d3fend/produces  :d3fend/WebNetworkTraffic,
@@ -24359,6 +25457,7 @@
                       :d3fend/T1550]})
 
 (def T1552
+  "Unsecured Credentials"
   {:d3fend/accesses  :d3fend/Credential,
    :d3fend/attack-id "T1552",
    :db/ident         :d3fend/T1552,
@@ -24370,6 +25469,7 @@
                       :d3fend/CredentialAccessTechnique]})
 
 (def T1552.001
+  "Credentials in Files"
   {:d3fend/accesses  :d3fend/File,
    :d3fend/attack-id "T1552.001",
    :db/ident         :d3fend/T1552.001,
@@ -24381,6 +25481,7 @@
                       :d3fend/T1552]})
 
 (def T1552.002
+  "Credentials in Registry"
   {:d3fend/accesses  :d3fend/SystemConfigurationDatabase,
    :d3fend/attack-id "T1552.002",
    :db/ident         :d3fend/T1552.002,
@@ -24392,6 +25493,7 @@
                       :d3fend/T1552]})
 
 (def T1552.003
+  "Bash History"
   {:d3fend/accesses  :d3fend/CommandHistoryLogFile,
    :d3fend/attack-id "T1552.003",
    :db/ident         :d3fend/T1552.003,
@@ -24403,6 +25505,7 @@
                       :d3fend/T1552]})
 
 (def T1552.004
+  "Private Keys"
   {:d3fend/accesses  :d3fend/PrivateKey,
    :d3fend/attack-id "T1552.004",
    :db/ident         :d3fend/T1552.004,
@@ -24414,6 +25517,7 @@
                       :d3fend/T1552]})
 
 (def T1552.005
+  "Cloud Instance Metadata API"
   {:d3fend/accesses  :d3fend/CloudInstanceMetadata,
    :d3fend/attack-id "T1552.005",
    :db/ident         :d3fend/T1552.005,
@@ -24425,6 +25529,7 @@
                       :d3fend/T1552]})
 
 (def T1552.006
+  "Group Policy Preferences"
   {:d3fend/accesses  :d3fend/GroupPolicy,
    :d3fend/attack-id "T1552.006",
    :db/ident         :d3fend/T1552.006,
@@ -24436,6 +25541,7 @@
                       :d3fend/T1552]})
 
 (def T1552.007
+  "Container API"
   {:d3fend/attack-id "T1552.007",
    :db/ident         :d3fend/T1552.007,
    :rdf/type         :owl/Class,
@@ -24443,6 +25549,7 @@
    :rdfs/subClassOf  :d3fend/T1552})
 
 (def T1553
+  "Subvert Trust Controls"
   {:d3fend/attack-id "T1553",
    :db/ident         :d3fend/T1553,
    :rdf/type         :owl/Class,
@@ -24450,6 +25557,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1553.001
+  "Gatekeeper Bypass"
   {:d3fend/attack-id "T1553.001",
    :d3fend/modifies  :d3fend/FileSystemMetadata,
    :db/ident         :d3fend/T1553.001,
@@ -24461,6 +25569,7 @@
                       :d3fend/T1553]})
 
 (def T1553.002
+  "Code Signing"
   {:d3fend/attack-id "T1553.002",
    :d3fend/enables   :d3fend/DefenseEvasion,
    :db/ident         :d3fend/T1553.002,
@@ -24472,6 +25581,7 @@
                       :d3fend/T1553]})
 
 (def T1553.003
+  "SIP and Trust Provider Hijacking"
   {:d3fend/attack-id "T1553.003",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
    :db/ident         :d3fend/T1553.003,
@@ -24484,6 +25594,7 @@
                       :d3fend/T1553]})
 
 (def T1553.004
+  "Install Root Certificate"
   {:d3fend/attack-id "T1553.004",
    :d3fend/modifies  :d3fend/CertificateTrustStore,
    :db/ident         :d3fend/T1553.004,
@@ -24495,6 +25606,7 @@
                       :d3fend/T1553]})
 
 (def T1553.005
+  "Mark-of-the-Web Bypass"
   {:d3fend/attack-id "T1553.005",
    :db/ident         :d3fend/T1553.005,
    :rdf/type         :owl/Class,
@@ -24502,6 +25614,7 @@
    :rdfs/subClassOf  :d3fend/T1553})
 
 (def T1553.006
+  "Code Signing Policy Modification"
   {:d3fend/attack-id "T1553.006",
    :db/ident         :d3fend/T1553.006,
    :rdf/type         :owl/Class,
@@ -24509,6 +25622,7 @@
    :rdfs/subClassOf  :d3fend/T1553})
 
 (def T1554
+  "Compromise Client Software Binary"
   {:d3fend/attack-id "T1554",
    :d3fend/modifies  :d3fend/ClientApplication,
    :db/ident         :d3fend/T1554,
@@ -24520,6 +25634,7 @@
                       :d3fend/PersistenceTechnique]})
 
 (def T1555
+  "Credentials from Password Stores"
   {:d3fend/accesses   :d3fend/PasswordStore,
    :d3fend/attack-id  "T1555",
    :d3fend/may-access :d3fend/DatabaseFile,
@@ -24535,6 +25650,7 @@
                        :d3fend/CredentialAccessTechnique]})
 
 (def T1555.001
+  "Keychain"
   {:d3fend/accesses  :d3fend/MacOSKeychain,
    :d3fend/attack-id "T1555.001",
    :db/ident         :d3fend/T1555.001,
@@ -24546,6 +25662,7 @@
                       :d3fend/T1555]})
 
 (def T1555.002
+  "Securityd Memory"
   {:d3fend/accesses  :d3fend/In-memoryPasswordStore,
    :d3fend/attack-id "T1555.002",
    :db/ident         :d3fend/T1555.002,
@@ -24557,6 +25674,7 @@
                       :d3fend/T1555]})
 
 (def T1555.003
+  "Credentials from Web Browsers"
   {:d3fend/accesses   :d3fend/DatabaseFile,
    :d3fend/attack-id  "T1555.003",
    :d3fend/may-access :d3fend/In-memoryPasswordStore,
@@ -24567,15 +25685,16 @@
    :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-access,
                         :owl/someValuesFrom :d3fend/In-memoryPasswordStore,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/accesses,
-                        :owl/someValuesFrom :d3fend/DatabaseFile,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-invoke,
                         :owl/someValuesFrom :d3fend/ReadFile,
                         :rdf/type           :owl/Restriction}
-                       :d3fend/T1555]})
+                       :d3fend/T1555
+                       {:owl/onProperty     :d3fend/accesses,
+                        :owl/someValuesFrom :d3fend/DatabaseFile,
+                        :rdf/type           :owl/Restriction}]})
 
 (def T1555.004
+  "Windows Credential Manager"
   {:d3fend/attack-id "T1555.004",
    :db/ident         :d3fend/T1555.004,
    :rdf/type         :owl/Class,
@@ -24583,6 +25702,7 @@
    :rdfs/subClassOf  :d3fend/T1555})
 
 (def T1555.005
+  "Password Managers"
   {:d3fend/attack-id "T1555.005",
    :db/ident         :d3fend/T1555.005,
    :rdf/type         :owl/Class,
@@ -24590,6 +25710,7 @@
    :rdfs/subClassOf  :d3fend/T1555})
 
 (def T1556
+  "Modify Authentication Process"
   {:d3fend/attack-id "T1556",
    :d3fend/modifies  :d3fend/AuthenticationService,
    :db/ident         :d3fend/T1556,
@@ -24602,6 +25723,7 @@
                       :d3fend/CredentialAccessTechnique]})
 
 (def T1556.001
+  "Domain Controller Authentication"
   {:d3fend/attack-id "T1556.001",
    :db/ident         :d3fend/T1556.001,
    :rdf/type         :owl/Class,
@@ -24609,6 +25731,7 @@
    :rdfs/subClassOf  :d3fend/T1556})
 
 (def T1556.002
+  "Password Filter DLL"
   {:d3fend/attack-id "T1556.002",
    :d3fend/creates   :d3fend/SharedLibraryFile,
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
@@ -24625,6 +25748,7 @@
                       :d3fend/T1556]})
 
 (def T1556.003
+  "Pluggable Authentication Modules"
   {:d3fend/attack-id  "T1556.003",
    :d3fend/may-modify [:d3fend/OperatingSystemSharedLibraryFile
                        :d3fend/OperatingSystemConfigurationFile],
@@ -24642,6 +25766,7 @@
                        :d3fend/T1556]})
 
 (def T1556.004
+  "Network Device Authentication"
   {:d3fend/attack-id "T1556.004",
    :db/ident         :d3fend/T1556.004,
    :rdf/type         :owl/Class,
@@ -24649,6 +25774,7 @@
    :rdfs/subClassOf  :d3fend/T1556})
 
 (def T1556.005
+  "Reversible Encryption"
   {:d3fend/attack-id "T1556.005",
    :db/ident         :d3fend/T1556.005,
    :rdf/type         :owl/Class,
@@ -24656,6 +25782,7 @@
    :rdfs/subClassOf  :d3fend/T1556})
 
 (def T1557
+  "Man-in-the-Middle"
   {:d3fend/attack-id "T1557",
    :d3fend/produces  :d3fend/NetworkTraffic,
    :db/ident         :d3fend/T1557,
@@ -24668,6 +25795,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1557.001
+  "LLMNR/NBT-NS Poisoning and SMB Relay"
   {:d3fend/attack-id "T1557.001",
    :d3fend/produces  :d3fend/IntranetMulticastNetworkTraffic,
    :db/ident         :d3fend/T1557.001,
@@ -24680,6 +25808,7 @@
                       :d3fend/T1557]})
 
 (def T1557.002
+  "ARP Cache Poisoning"
   {:d3fend/attack-id "T1557.002",
    :db/ident         :d3fend/T1557.002,
    :rdf/type         :owl/Class,
@@ -24687,6 +25816,7 @@
    :rdfs/subClassOf  :d3fend/T1557})
 
 (def T1557.003
+  "DHCP Spoofing"
   {:d3fend/attack-id "T1557.003",
    :db/ident         :d3fend/T1557.003,
    :rdf/type         :owl/Class,
@@ -24694,6 +25824,7 @@
    :rdfs/subClassOf  :d3fend/T1557})
 
 (def T1558
+  "Steal or Forge Kerberos Tickets"
   {:d3fend/attack-id  "T1558",
    :d3fend/may-access :d3fend/KerberosTicket,
    :d3fend/may-create :d3fend/KerberosTicket,
@@ -24709,6 +25840,7 @@
                        :d3fend/CredentialAccessTechnique]})
 
 (def T1558.001
+  "Golden Ticket"
   {:d3fend/attack-id "T1558.001",
    :d3fend/forges    :d3fend/KerberosTicketGrantingTicket,
    :db/ident         :d3fend/T1558.001,
@@ -24720,6 +25852,7 @@
                       :d3fend/T1558]})
 
 (def T1558.002
+  "Silver Ticket"
   {:d3fend/attack-id "T1558.002",
    :db/ident         :d3fend/T1558.002,
    :rdf/type         :owl/Class,
@@ -24743,6 +25876,7 @@
                      :d3fend/T1558]})
 
 (def T1558.004
+  "AS-REP Roasting"
   {:d3fend/attack-id "T1558.004",
    :db/ident         :d3fend/T1558.004,
    :rdf/type         :owl/Class,
@@ -24750,6 +25884,7 @@
    :rdfs/subClassOf  :d3fend/T1558})
 
 (def T1559
+  "Inter-Process Communication Execution"
   {:d3fend/attack-id "T1559",
    :d3fend/injects   :d3fend/InterprocessCommunication,
    :db/ident         :d3fend/T1559,
@@ -24761,6 +25896,7 @@
                       :d3fend/ExecutionTechnique]})
 
 (def T1559.001
+  "Component Object Model Execution"
   {:d3fend/attack-id "T1559.001",
    :db/ident         :d3fend/T1559.001,
    :rdf/type         :owl/Class,
@@ -24768,6 +25904,7 @@
    :rdfs/subClassOf  :d3fend/T1559})
 
 (def T1559.002
+  "Dynamic Data Exchange Execution"
   {:d3fend/attack-id "T1559.002",
    :db/ident         :d3fend/T1559.002,
    :rdf/type         :owl/Class,
@@ -24775,6 +25912,7 @@
    :rdfs/subClassOf  :d3fend/T1559})
 
 (def T1559.003
+  "XPC Services"
   {:d3fend/attack-id "T1559.003",
    :db/ident         :d3fend/T1559.003,
    :rdf/type         :owl/Class,
@@ -24782,6 +25920,7 @@
    :rdfs/subClassOf  :d3fend/T1559})
 
 (def T1560
+  "Archive Collected Data"
   {:d3fend/attack-id "T1560",
    :d3fend/creates   :d3fend/ArchiveFile,
    :db/ident         :d3fend/T1560,
@@ -24793,6 +25932,7 @@
                       :d3fend/CollectionTechnique]})
 
 (def T1560.001
+  "Archive via Utility"
   {:d3fend/attack-id "T1560.001",
    :d3fend/creates   :d3fend/ArchiveFile,
    :db/ident         :d3fend/T1560.001,
@@ -24804,6 +25944,7 @@
                       :d3fend/T1560]})
 
 (def T1560.002
+  "Archive via Library"
   {:d3fend/attack-id "T1560.002",
    :d3fend/creates   :d3fend/ArchiveFile,
    :db/ident         :d3fend/T1560.002,
@@ -24815,6 +25956,7 @@
                       :d3fend/T1560]})
 
 (def T1560.003
+  "Archive via Custom Method"
   {:d3fend/attack-id "T1560.003",
    :d3fend/creates   :d3fend/CustomArchiveFile,
    :db/ident         :d3fend/T1560.003,
@@ -24826,6 +25968,7 @@
                       :d3fend/T1560]})
 
 (def T1561
+  "Disk Wipe"
   {:d3fend/attack-id "T1561",
    :db/ident         :d3fend/T1561,
    :rdf/type         :owl/Class,
@@ -24833,6 +25976,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1561.001
+  "Disk Content Wipe"
   {:d3fend/attack-id  "T1561.001",
    :d3fend/may-modify [:d3fend/BootSector
                        :d3fend/PartitionTable
@@ -24842,24 +25986,25 @@
    :db/ident          :d3fend/T1561.001,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Disk Content Wipe",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/PartitionTable,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/BlockDevice,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/Partition,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/BootSector,
+                        :owl/someValuesFrom :d3fend/Volume,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1561
-                       {:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/BlockDevice,
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/PartitionTable,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/Volume,
+                        :owl/someValuesFrom :d3fend/BootSector,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1561.002
+  "Disk Structure Wipe"
   {:d3fend/attack-id  "T1561.002",
    :d3fend/may-modify [:d3fend/PartitionTable :d3fend/BootSector],
    :db/ident          :d3fend/T1561.002,
@@ -24874,6 +26019,7 @@
                        :d3fend/T1561]})
 
 (def T1562
+  "Impair Defenses"
   {:d3fend/attack-id "T1562",
    :db/ident         :d3fend/T1562,
    :rdf/type         :owl/Class,
@@ -24881,6 +26027,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1562.001
+  "Disable or Modify Tools"
   {:d3fend/attack-id "T1562.001",
    :d3fend/disables  :d3fend/OperatingSystemProcess,
    :db/ident         :d3fend/T1562.001,
@@ -24892,6 +26039,7 @@
                       :d3fend/T1562]})
 
 (def T1562.002
+  "Disable Windows Event Logging"
   {:d3fend/attack-id  "T1562.002",
    :d3fend/may-modify [:d3fend/OperatingSystemConfigurationComponent
                        :d3fend/ApplicationConfiguration],
@@ -24908,24 +26056,26 @@
                        :d3fend/T1562]})
 
 (def T1562.003
+  "Impair Command History Logging"
   {:d3fend/attack-id  "T1562.003",
    :d3fend/may-modify [:d3fend/UserInitScript :d3fend/WindowsRegistryKey],
    :d3fend/modifies   :d3fend/ProcessEnvironmentVariable,
    :db/ident          :d3fend/T1562.003,
    :rdf/type          [:owl/NamedIndividual :owl/Class],
    :rdfs/label        "Impair Command History Logging",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/ProcessEnvironmentVariable,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/UserInitScript,
                         :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/WindowsRegistryKey,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/UserInitScript,
+                       {:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/ProcessEnvironmentVariable,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1562]})
 
 (def T1562.004
+  "Disable or Modify System Firewall"
   {:d3fend/attack-id "T1562.004",
    :d3fend/modifies  :d3fend/SystemFirewallConfiguration,
    :db/ident         :d3fend/T1562.004,
@@ -24937,6 +26087,7 @@
                       :d3fend/T1562]})
 
 (def T1562.006
+  "Indicator Blocking"
   {:d3fend/attack-id "T1562.006",
    :db/ident         :d3fend/T1562.006,
    :rdf/type         :owl/Class,
@@ -24944,6 +26095,7 @@
    :rdfs/subClassOf  :d3fend/T1562})
 
 (def T1562.007
+  "Disable or Modify Cloud Firewall"
   {:d3fend/attack-id "T1562.007",
    :db/ident         :d3fend/T1562.007,
    :rdf/type         :owl/Class,
@@ -24951,6 +26103,7 @@
    :rdfs/subClassOf  :d3fend/T1562})
 
 (def T1562.008
+  "Disable Cloud Logs"
   {:d3fend/attack-id "T1562.008",
    :db/ident         :d3fend/T1562.008,
    :rdf/type         :owl/Class,
@@ -24958,6 +26111,7 @@
    :rdfs/subClassOf  :d3fend/T1562})
 
 (def T1562.009
+  "Safe Mode Boot"
   {:d3fend/attack-id  "T1562.009",
    :d3fend/disables   [:d3fend/EndpointSensor
                        :d3fend/SystemConfigurationInitDatabaseRecord],
@@ -24966,18 +26120,19 @@
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Safe Mode Boot",
    :rdfs/subClassOf   [:d3fend/T1562
-                       {:owl/onProperty :d3fend/disables,
-                        :owl/someValuesFrom
-                        :d3fend/SystemConfigurationInitDatabaseRecord,
-                        :rdf/type :owl/Restriction}
+                       {:owl/onProperty     :d3fend/may-modify,
+                        :owl/someValuesFrom :d3fend/EndpointHealthBeacon,
+                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/disables,
                         :owl/someValuesFrom :d3fend/EndpointSensor,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-modify,
-                        :owl/someValuesFrom :d3fend/EndpointHealthBeacon,
-                        :rdf/type           :owl/Restriction}]})
+                       {:owl/onProperty :d3fend/disables,
+                        :owl/someValuesFrom
+                        :d3fend/SystemConfigurationInitDatabaseRecord,
+                        :rdf/type :owl/Restriction}]})
 
 (def T1562.010
+  "Downgrade Attack"
   {:d3fend/accesses  :d3fend/LegacySystem,
    :d3fend/attack-id "T1562.010",
    :db/ident         :d3fend/T1562.010,
@@ -24989,6 +26144,7 @@
                       :d3fend/T1562]})
 
 (def T1563
+  "Remote Service Session Hijacking"
   {:d3fend/accesses  :d3fend/RemoteSession,
    :d3fend/attack-id "T1563",
    :d3fend/produces  :d3fend/AdministrativeNetworkTraffic,
@@ -25004,6 +26160,7 @@
                       :d3fend/LateralMovementTechnique]})
 
 (def T1563.001
+  "SSH Hijacking"
   {:d3fend/accesses  :d3fend/SSHSession,
    :d3fend/attack-id "T1563.001",
    :db/ident         :d3fend/T1563.001,
@@ -25015,6 +26172,7 @@
                       :d3fend/T1563]})
 
 (def T1563.002
+  "RDP Hijacking"
   {:d3fend/accesses  :d3fend/RDPSession,
    :d3fend/attack-id "T1563.002",
    :db/ident         :d3fend/T1563.002,
@@ -25026,6 +26184,7 @@
                       :d3fend/T1563]})
 
 (def T1564
+  "Hide Artifacts"
   {:d3fend/attack-id "T1564",
    :db/ident         :d3fend/T1564,
    :rdf/type         :owl/Class,
@@ -25033,6 +26192,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1564.001
+  "Hidden Files and Directories"
   {:d3fend/attack-id "T1564.001",
    :d3fend/modifies  :d3fend/FileSystemMetadata,
    :db/ident         :d3fend/T1564.001,
@@ -25044,6 +26204,7 @@
                       :d3fend/T1564]})
 
 (def T1564.002
+  "Hidden Users"
   {:d3fend/attack-id "T1564.002",
    :d3fend/modifies  :d3fend/UserInitConfigurationFile,
    :db/ident         :d3fend/T1564.002,
@@ -25055,6 +26216,7 @@
                       :d3fend/T1564]})
 
 (def T1564.003
+  "Hidden Window"
   {:d3fend/attack-id  "T1564.003",
    :d3fend/may-modify [:d3fend/SystemConfigurationDatabase
                        :d3fend/PropertyListFile],
@@ -25070,6 +26232,7 @@
                        :d3fend/T1564]})
 
 (def T1564.004
+  "NTFS File Attributes"
   {:d3fend/attack-id "T1564.004",
    :d3fend/modifies  :d3fend/FileSystemMetadata,
    :db/ident         :d3fend/T1564.004,
@@ -25081,6 +26244,7 @@
                       :d3fend/T1564]})
 
 (def T1564.005
+  "Hidden File System"
   {:d3fend/attack-id  "T1564.005",
    :d3fend/may-modify :d3fend/SystemConfigurationDatabase,
    :d3fend/modifies   :d3fend/Storage,
@@ -25096,6 +26260,7 @@
                        :d3fend/T1564]})
 
 (def T1564.006
+  "Run Virtual Instance"
   {:d3fend/attack-id  "T1564.006",
    :d3fend/creates    :d3fend/File,
    :d3fend/executes   :d3fend/VirtualizationSoftware,
@@ -25104,21 +26269,22 @@
    :db/ident          :d3fend/T1564.006,
    :rdf/type          [:owl/Class :owl/NamedIndividual],
    :rdfs/label        "Run Virtual Instance",
-   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/executes,
-                        :owl/someValuesFrom :d3fend/VirtualizationSoftware,
+   :rdfs/subClassOf   [{:owl/onProperty     :d3fend/creates,
+                        :owl/someValuesFrom :d3fend/File,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/may-add,
+                       {:owl/onProperty     :d3fend/executes,
                         :owl/someValuesFrom :d3fend/VirtualizationSoftware,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1564
                        {:owl/onProperty     :d3fend/may-create,
                         :owl/someValuesFrom :d3fend/Directory,
                         :rdf/type           :owl/Restriction}
-                       {:owl/onProperty     :d3fend/creates,
-                        :owl/someValuesFrom :d3fend/File,
+                       {:owl/onProperty     :d3fend/may-add,
+                        :owl/someValuesFrom :d3fend/VirtualizationSoftware,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1564.007
+  "VBA Stomping"
   {:d3fend/attack-id "T1564.007",
    :d3fend/modifies  :d3fend/OfficeApplicationFile,
    :db/ident         :d3fend/T1564.007,
@@ -25130,6 +26296,7 @@
                       :d3fend/T1564]})
 
 (def T1564.008
+  "Email Hiding Rules"
   {:d3fend/attack-id  "T1564.008",
    :d3fend/may-create :d3fend/EmailRule,
    :d3fend/may-modify :d3fend/EmailRule,
@@ -25141,14 +26308,15 @@
                         :owl/someValuesFrom :d3fend/EmailRule,
                         :rdf/type           :owl/Restriction}
                        :d3fend/T1564
-                       {:owl/onProperty     :d3fend/modifies,
-                        :owl/someValuesFrom :d3fend/ApplicationConfiguration,
-                        :rdf/type           :owl/Restriction}
                        {:owl/onProperty     :d3fend/may-modify,
                         :owl/someValuesFrom :d3fend/EmailRule,
+                        :rdf/type           :owl/Restriction}
+                       {:owl/onProperty     :d3fend/modifies,
+                        :owl/someValuesFrom :d3fend/ApplicationConfiguration,
                         :rdf/type           :owl/Restriction}]})
 
 (def T1564.009
+  "Resource Forking"
   {:d3fend/attack-id  "T1564.009",
    :d3fend/may-create :d3fend/ResourceFork,
    :d3fend/may-modify :d3fend/ResourceFork,
@@ -25164,6 +26332,7 @@
                        :d3fend/T1564]})
 
 (def T1564.010
+  "Process Argument Spoofing"
   {:d3fend/attack-id "T1564.010",
    :db/ident         :d3fend/T1564.010,
    :rdf/type         :owl/Class,
@@ -25171,6 +26340,7 @@
    :rdfs/subClassOf  :d3fend/T1564})
 
 (def T1565
+  "Data Manipulation"
   {:d3fend/attack-id "T1565",
    :db/ident         :d3fend/T1565,
    :rdf/type         :owl/Class,
@@ -25178,6 +26348,7 @@
    :rdfs/subClassOf  :d3fend/ImpactTechnique})
 
 (def T1565.001
+  "Stored Data Manipulation"
   {:d3fend/attack-id "T1565.001",
    :d3fend/modifies  :d3fend/File,
    :db/ident         :d3fend/T1565.001,
@@ -25189,6 +26360,7 @@
                       :d3fend/T1565]})
 
 (def T1565.002
+  "Transmitted Data Manipulation"
   {:d3fend/attack-id  "T1565.002",
    :d3fend/may-modify :d3fend/NetworkTraffic,
    :db/ident          :d3fend/T1565.002,
@@ -25200,6 +26372,7 @@
                        :d3fend/T1565]})
 
 (def T1565.003
+  "Runtime Data Manipulation"
   {:d3fend/attack-id  "T1565.003",
    :d3fend/may-modify :d3fend/ExecutableFile,
    :db/ident          :d3fend/T1565.003,
@@ -25211,6 +26384,7 @@
                        :d3fend/T1565]})
 
 (def T1566
+  "Phishing"
   {:d3fend/attack-id "T1566",
    :db/ident         :d3fend/T1566,
    :rdf/type         :owl/Class,
@@ -25218,6 +26392,7 @@
    :rdfs/subClassOf  :d3fend/InitialAccessTechnique})
 
 (def T1566.001
+  "Spearphishing Attachment"
   {:d3fend/attack-id "T1566.001",
    :d3fend/produces  [:d3fend/InboundInternetMailTraffic :d3fend/Email],
    :db/ident         :d3fend/T1566.001,
@@ -25232,6 +26407,7 @@
                       :d3fend/T1566]})
 
 (def T1566.002
+  "Spearphishing Link"
   {:d3fend/attack-id "T1566.002",
    :d3fend/produces  [:d3fend/Email
                       :d3fend/InboundInternetMailTraffic
@@ -25240,17 +26416,18 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Spearphishing Link",
    :rdfs/subClassOf  [{:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/URL,
+                       :owl/someValuesFrom :d3fend/Email,
                        :rdf/type           :owl/Restriction}
-                      :d3fend/T1566
                       {:owl/onProperty     :d3fend/produces,
                        :owl/someValuesFrom :d3fend/InboundInternetMailTraffic,
                        :rdf/type           :owl/Restriction}
+                      :d3fend/T1566
                       {:owl/onProperty     :d3fend/produces,
-                       :owl/someValuesFrom :d3fend/Email,
+                       :owl/someValuesFrom :d3fend/URL,
                        :rdf/type           :owl/Restriction}]})
 
 (def T1566.003
+  "Spearphishing Via Service"
   {:d3fend/attack-id "T1566.003",
    :d3fend/produces  [:d3fend/URL :d3fend/File],
    :db/ident         :d3fend/T1566.003,
@@ -25265,6 +26442,7 @@
                       :d3fend/T1566]})
 
 (def T1567
+  "Exfiltration Over Web Service"
   {:d3fend/attack-id "T1567",
    :d3fend/produces  :d3fend/OutboundInternetWebTraffic,
    :db/ident         :d3fend/T1567,
@@ -25276,6 +26454,7 @@
                       :d3fend/ExfiltrationTechnique]})
 
 (def T1567.001
+  "Exfiltration to Code Repository"
   {:d3fend/attack-id   "T1567.001",
    :d3fend/may-produce [:d3fend/OutboundInternetEncryptedWebTraffic
                         :d3fend/OutboundInternetEncryptedRemoteTerminalTraffic],
@@ -25293,6 +26472,7 @@
                         :d3fend/T1567]})
 
 (def T1567.002
+  "Exfiltration to Cloud Storage"
   {:d3fend/attack-id "T1567.002",
    :d3fend/produces  :d3fend/OutboundInternetEncryptedWebTraffic,
    :db/ident         :d3fend/T1567.002,
@@ -25305,6 +26485,7 @@
                       :d3fend/T1567]})
 
 (def T1568
+  "Dynamic Resolution"
   {:d3fend/attack-id "T1568",
    :d3fend/produces  :d3fend/OutboundInternetDNSLookupTraffic,
    :db/ident         :d3fend/T1568,
@@ -25317,6 +26498,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1568.001
+  "Fast Flux DNS"
   {:d3fend/attack-id "T1568.001",
    :db/ident         :d3fend/T1568.001,
    :rdf/type         :owl/Class,
@@ -25324,6 +26506,7 @@
    :rdfs/subClassOf  :d3fend/T1568})
 
 (def T1568.002
+  "Domain Generation Algorithms"
   {:d3fend/attack-id "T1568.002",
    :db/ident         :d3fend/T1568.002,
    :rdf/type         :owl/Class,
@@ -25331,6 +26514,7 @@
    :rdfs/subClassOf  :d3fend/T1568})
 
 (def T1568.003
+  "DNS Calculation"
   {:d3fend/attack-id "T1568.003",
    :db/ident         :d3fend/T1568.003,
    :rdf/type         :owl/Class,
@@ -25347,6 +26531,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1569.001
+  "Launchctl"
   {:d3fend/attack-id "T1569.001",
    :db/ident         :d3fend/T1569.001,
    :rdf/type         :owl/Class,
@@ -25354,6 +26539,7 @@
    :rdfs/subClassOf  :d3fend/T1569})
 
 (def T1569.002
+  "Service Execution"
   {:d3fend/attack-id "T1569.002",
    :db/ident         :d3fend/T1569.002,
    :rdf/type         :owl/Class,
@@ -25361,6 +26547,7 @@
    :rdfs/subClassOf  :d3fend/T1569})
 
 (def T1570
+  "Lateral Tool Transfer"
   {:d3fend/attack-id "T1570",
    :d3fend/produces  :d3fend/IntranetFileTransferTraffic,
    :db/ident         :d3fend/T1570,
@@ -25372,6 +26559,7 @@
                       :d3fend/LateralMovementTechnique]})
 
 (def T1571
+  "Non-Standard Port"
   {:d3fend/attack-id "T1571",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1571,
@@ -25384,6 +26572,7 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1572
+  "Protocol Tunneling"
   {:d3fend/attack-id "T1572",
    :d3fend/produces  :d3fend/OutboundInternetNetworkTraffic,
    :db/ident         :d3fend/T1572,
@@ -25396,21 +26585,23 @@
                       :d3fend/CommandAndControlTechnique]})
 
 (def T1573
+  "Encrypted Channel"
   {:d3fend/attack-id "T1573",
    :d3fend/produces  :d3fend/OutboundInternetEncryptedTraffic,
    :db/ident         :d3fend/T1573,
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/label       "Encrypted Channel",
-   :rdfs/subClassOf  [:d3fend/CommandAndControlTechnique
-                      {:owl/onProperty :d3fend/produces,
+   :rdfs/subClassOf  [{:owl/onProperty :d3fend/produces,
                        :owl/someValuesFrom
                        :d3fend/OutboundInternetEncryptedTraffic,
-                       :rdf/type :owl/Restriction}],
+                       :rdf/type :owl/Restriction}
+                      :d3fend/CommandAndControlTechnique],
    :skos/altLabel    ["Custom Cryptographic Protocol"
                       "Multilayer Encryption"
                       "Custom Command and Control Protocol"]})
 
 (def T1573.001
+  "Symmetric Cryptography"
   {:d3fend/attack-id "T1573.001",
    :d3fend/creates   :d3fend/OutboundInternetEncryptedTraffic,
    :db/ident         :d3fend/T1573.001,
@@ -25423,6 +26614,7 @@
                       :d3fend/T1573]})
 
 (def T1573.002
+  "Asymmetric Cryptography"
   {:d3fend/attack-id    "T1573.002",
    :d3fend/creates      :d3fend/OutboundInternetEncryptedTraffic,
    :d3fend/may-transfer :d3fend/CertificateFile,
@@ -25439,6 +26631,7 @@
                          :d3fend/T1573]})
 
 (def T1574
+  "Hijack Execution Flow"
   {:d3fend/attack-id "T1574",
    :db/ident         :d3fend/T1574,
    :rdf/type         :owl/Class,
@@ -25448,6 +26641,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1574.001
+  "DLL Search Order Hijacking"
   {:d3fend/attack-id  "T1574.001",
    :d3fend/may-create :d3fend/SharedLibraryFile,
    :db/ident          :d3fend/T1574.001,
@@ -25459,6 +26653,7 @@
                        :d3fend/T1574]})
 
 (def T1574.002
+  "DLL Side-Loading"
   {:d3fend/attack-id  "T1574.002",
    :d3fend/may-create :d3fend/SharedLibraryFile,
    :d3fend/may-modify :d3fend/SharedLibraryFile,
@@ -25474,6 +26669,7 @@
                        :d3fend/T1574]})
 
 (def T1574.004
+  "Dylib Hijacking"
   {:d3fend/attack-id  "T1574.004",
    :d3fend/may-create :d3fend/SharedLibraryFile,
    :d3fend/may-modify :d3fend/SharedLibraryFile,
@@ -25489,6 +26685,7 @@
                        :d3fend/T1574]})
 
 (def T1574.005
+  "Executable Installer File Permissions Weakness"
   {:d3fend/attack-id "T1574.005",
    :d3fend/modifies  :d3fend/ServiceApplication,
    :db/ident         :d3fend/T1574.005,
@@ -25500,6 +26697,7 @@
                       :d3fend/T1574]})
 
 (def T1574.006
+  "LD_PRELOAD"
   {:d3fend/attack-id "T1574.006",
    :d3fend/modifies  :d3fend/OperatingSystemConfigurationFile,
    :db/ident         :d3fend/T1574.006,
@@ -25512,6 +26710,7 @@
                       :d3fend/T1574]})
 
 (def T1574.007
+  "Path Interception by PATH Environment Variable"
   {:d3fend/attack-id "T1574.007",
    :d3fend/creates   :d3fend/ExecutableFile,
    :db/ident         :d3fend/T1574.007,
@@ -25523,6 +26722,7 @@
                       :d3fend/T1574]})
 
 (def T1574.008
+  "Path Interception by Search Order Hijacking"
   {:d3fend/attack-id "T1574.008",
    :d3fend/creates   :d3fend/ExecutableFile,
    :db/ident         :d3fend/T1574.008,
@@ -25534,6 +26734,7 @@
                       :d3fend/T1574]})
 
 (def T1574.009
+  "Path Interception by Unquoted Path"
   {:d3fend/attack-id "T1574.009",
    :d3fend/creates   :d3fend/ExecutableFile,
    :db/ident         :d3fend/T1574.009,
@@ -25545,6 +26746,7 @@
                       :d3fend/T1574]})
 
 (def T1574.010
+  "Services File Permissions Weakness"
   {:d3fend/attack-id "T1574.010",
    :d3fend/modifies  :d3fend/ServiceApplication,
    :db/ident         :d3fend/T1574.010,
@@ -25557,6 +26759,7 @@
    :skos/altLabel    "Service Registry Permissions Weakness"})
 
 (def T1574.011
+  "Services Registry Permissions Weakness"
   {:d3fend/attack-id "T1574.011",
    :d3fend/modifies  :d3fend/SystemConfigurationInitDatabaseRecord,
    :db/ident         :d3fend/T1574.011,
@@ -25569,6 +26772,7 @@
                       :d3fend/T1574]})
 
 (def T1574.012
+  "COR_PROFILER"
   {:d3fend/adds      :d3fend/SharedLibraryFile,
    :d3fend/attack-id "T1574.012",
    :d3fend/modifies  :d3fend/SystemConfigurationDatabaseRecord,
@@ -25585,6 +26789,7 @@
                       :d3fend/T1574]})
 
 (def T1574.013
+  "KernelCallbackTable"
   {:d3fend/attack-id "T1574.013",
    :db/ident         :d3fend/T1574.013,
    :rdf/type         :owl/Class,
@@ -25592,6 +26797,7 @@
    :rdfs/subClassOf  :d3fend/T1574})
 
 (def T1578
+  "Modify Cloud Compute Infrastructure"
   {:d3fend/attack-id "T1578",
    :db/ident         :d3fend/T1578,
    :rdf/type         :owl/Class,
@@ -25599,6 +26805,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1578.001
+  "Create Snapshot"
   {:d3fend/attack-id "T1578.001",
    :db/ident         :d3fend/T1578.001,
    :rdf/type         :owl/Class,
@@ -25606,6 +26813,7 @@
    :rdfs/subClassOf  :d3fend/T1578})
 
 (def T1578.002
+  "Create Cloud Instance"
   {:d3fend/attack-id "T1578.002",
    :db/ident         :d3fend/T1578.002,
    :rdf/type         :owl/Class,
@@ -25613,6 +26821,7 @@
    :rdfs/subClassOf  :d3fend/T1578})
 
 (def T1578.003
+  "Delete Cloud Instance"
   {:d3fend/attack-id "T1578.003",
    :db/ident         :d3fend/T1578.003,
    :rdf/type         :owl/Class,
@@ -25620,6 +26829,7 @@
    :rdfs/subClassOf  :d3fend/T1578})
 
 (def T1578.004
+  "Revert Cloud Instance"
   {:d3fend/attack-id "T1578.004",
    :db/ident         :d3fend/T1578.004,
    :rdf/type         :owl/Class,
@@ -25627,6 +26837,7 @@
    :rdfs/subClassOf  :d3fend/T1578})
 
 (def T1580
+  "Cloud Infrastructure Discovery"
   {:d3fend/attack-id "T1580",
    :db/ident         :d3fend/T1580,
    :rdf/type         :owl/Class,
@@ -25634,6 +26845,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1583
+  "Acquire Infrastructure"
   {:d3fend/attack-id "T1583",
    :db/ident         :d3fend/T1583,
    :rdf/type         :owl/Class,
@@ -25641,6 +26853,7 @@
    :rdfs/subClassOf  :d3fend/ResourceDevelopmentTechnique})
 
 (def T1583.001
+  "Domains"
   {:d3fend/attack-id "T1583.001",
    :db/ident         :d3fend/T1583.001,
    :rdf/type         :owl/Class,
@@ -25648,6 +26861,7 @@
    :rdfs/subClassOf  :d3fend/T1583})
 
 (def T1583.002
+  "DNS Server"
   {:d3fend/attack-id "T1583.002",
    :db/ident         :d3fend/T1583.002,
    :rdf/type         :owl/Class,
@@ -25655,6 +26869,7 @@
    :rdfs/subClassOf  :d3fend/T1583})
 
 (def T1583.003
+  "Virtual Private Server"
   {:d3fend/attack-id "T1583.003",
    :db/ident         :d3fend/T1583.003,
    :rdf/type         :owl/Class,
@@ -25662,6 +26877,7 @@
    :rdfs/subClassOf  :d3fend/T1583})
 
 (def T1583.004
+  "Server"
   {:d3fend/attack-id "T1583.004",
    :db/ident         :d3fend/T1583.004,
    :rdf/type         :owl/Class,
@@ -25669,6 +26885,7 @@
    :rdfs/subClassOf  :d3fend/T1583})
 
 (def T1583.005
+  "Botnet"
   {:d3fend/attack-id "T1583.005",
    :db/ident         :d3fend/T1583.005,
    :rdf/type         :owl/Class,
@@ -25676,6 +26893,7 @@
    :rdfs/subClassOf  :d3fend/T1583})
 
 (def T1583.006
+  "Web Services"
   {:d3fend/attack-id "T1583.006",
    :db/ident         :d3fend/T1583.006,
    :rdf/type         :owl/Class,
@@ -25683,6 +26901,7 @@
    :rdfs/subClassOf  :d3fend/T1583})
 
 (def T1584
+  "Compromise Infrastructure"
   {:d3fend/attack-id "T1584",
    :db/ident         :d3fend/T1584,
    :rdf/type         :owl/Class,
@@ -25690,6 +26909,7 @@
    :rdfs/subClassOf  :d3fend/ResourceDevelopmentTechnique})
 
 (def T1584.001
+  "Domains"
   {:d3fend/attack-id "T1584.001",
    :db/ident         :d3fend/T1584.001,
    :rdf/type         :owl/Class,
@@ -25697,6 +26917,7 @@
    :rdfs/subClassOf  :d3fend/T1584})
 
 (def T1584.002
+  "DNS Server"
   {:d3fend/attack-id "T1584.002",
    :db/ident         :d3fend/T1584.002,
    :rdf/type         :owl/Class,
@@ -25704,6 +26925,7 @@
    :rdfs/subClassOf  :d3fend/T1584})
 
 (def T1584.003
+  "Virtual Private Server"
   {:d3fend/attack-id "T1584.003",
    :db/ident         :d3fend/T1584.003,
    :rdf/type         :owl/Class,
@@ -25711,6 +26933,7 @@
    :rdfs/subClassOf  :d3fend/T1584})
 
 (def T1584.004
+  "Server"
   {:d3fend/attack-id "T1584.004",
    :db/ident         :d3fend/T1584.004,
    :rdf/type         :owl/Class,
@@ -25718,6 +26941,7 @@
    :rdfs/subClassOf  :d3fend/T1584})
 
 (def T1584.005
+  "Botnet"
   {:d3fend/attack-id "T1584.005",
    :db/ident         :d3fend/T1584.005,
    :rdf/type         :owl/Class,
@@ -25725,6 +26949,7 @@
    :rdfs/subClassOf  :d3fend/T1584})
 
 (def T1584.006
+  "Web Services"
   {:d3fend/attack-id "T1584.006",
    :db/ident         :d3fend/T1584.006,
    :rdf/type         :owl/Class,
@@ -25732,6 +26957,7 @@
    :rdfs/subClassOf  :d3fend/T1584})
 
 (def T1585
+  "Establish Accounts"
   {:d3fend/attack-id "T1585",
    :db/ident         :d3fend/T1585,
    :rdf/type         :owl/Class,
@@ -25739,6 +26965,7 @@
    :rdfs/subClassOf  :d3fend/ResourceDevelopmentTechnique})
 
 (def T1585.001
+  "Social Media Accounts"
   {:d3fend/attack-id "T1585.001",
    :db/ident         :d3fend/T1585.001,
    :rdf/type         :owl/Class,
@@ -25746,6 +26973,7 @@
    :rdfs/subClassOf  :d3fend/T1585})
 
 (def T1585.002
+  "Email Accounts"
   {:d3fend/attack-id "T1585.002",
    :db/ident         :d3fend/T1585.002,
    :rdf/type         :owl/Class,
@@ -25753,6 +26981,7 @@
    :rdfs/subClassOf  :d3fend/T1585})
 
 (def T1586
+  "Compromise Accounts"
   {:d3fend/attack-id "T1586",
    :db/ident         :d3fend/T1586,
    :rdf/type         :owl/Class,
@@ -25760,6 +26989,7 @@
    :rdfs/subClassOf  :d3fend/ResourceDevelopmentTechnique})
 
 (def T1586.001
+  "Social Media Accounts"
   {:d3fend/attack-id "T1586.001",
    :db/ident         :d3fend/T1586.001,
    :rdf/type         :owl/Class,
@@ -25767,6 +26997,7 @@
    :rdfs/subClassOf  :d3fend/T1586})
 
 (def T1586.002
+  "Email Accounts"
   {:d3fend/attack-id "T1586.002",
    :db/ident         :d3fend/T1586.002,
    :rdf/type         :owl/Class,
@@ -25774,6 +27005,7 @@
    :rdfs/subClassOf  :d3fend/T1586})
 
 (def T1587
+  "Develop Capabilities"
   {:d3fend/attack-id "T1587",
    :db/ident         :d3fend/T1587,
    :rdf/type         :owl/Class,
@@ -25781,6 +27013,7 @@
    :rdfs/subClassOf  :d3fend/ResourceDevelopmentTechnique})
 
 (def T1587.001
+  "Malware"
   {:d3fend/attack-id "T1587.001",
    :db/ident         :d3fend/T1587.001,
    :rdf/type         :owl/Class,
@@ -25788,6 +27021,7 @@
    :rdfs/subClassOf  :d3fend/T1587})
 
 (def T1587.002
+  "Code Signing Certificates"
   {:d3fend/attack-id "T1587.002",
    :db/ident         :d3fend/T1587.002,
    :rdf/type         :owl/Class,
@@ -25795,6 +27029,7 @@
    :rdfs/subClassOf  :d3fend/T1587})
 
 (def T1587.003
+  "Digital Certificates"
   {:d3fend/attack-id "T1587.003",
    :db/ident         :d3fend/T1587.003,
    :rdf/type         :owl/Class,
@@ -25802,6 +27037,7 @@
    :rdfs/subClassOf  :d3fend/T1587})
 
 (def T1587.004
+  "Exploits"
   {:d3fend/attack-id "T1587.004",
    :db/ident         :d3fend/T1587.004,
    :rdf/type         :owl/Class,
@@ -25809,6 +27045,7 @@
    :rdfs/subClassOf  :d3fend/T1587})
 
 (def T1588
+  "Obtain Capabilities"
   {:d3fend/attack-id "T1588",
    :db/ident         :d3fend/T1588,
    :rdf/type         :owl/Class,
@@ -25816,6 +27053,7 @@
    :rdfs/subClassOf  :d3fend/ResourceDevelopmentTechnique})
 
 (def T1588.001
+  "Malware"
   {:d3fend/attack-id "T1588.001",
    :db/ident         :d3fend/T1588.001,
    :rdf/type         :owl/Class,
@@ -25823,6 +27061,7 @@
    :rdfs/subClassOf  :d3fend/T1588})
 
 (def T1588.002
+  "Tool"
   {:d3fend/attack-id "T1588.002",
    :db/ident         :d3fend/T1588.002,
    :rdf/type         :owl/Class,
@@ -25830,6 +27069,7 @@
    :rdfs/subClassOf  :d3fend/T1588})
 
 (def T1588.003
+  "Code Signing Certificates"
   {:d3fend/attack-id "T1588.003",
    :db/ident         :d3fend/T1588.003,
    :rdf/type         :owl/Class,
@@ -25837,6 +27077,7 @@
    :rdfs/subClassOf  :d3fend/T1588})
 
 (def T1588.004
+  "Digital Certificates"
   {:d3fend/attack-id "T1588.004",
    :db/ident         :d3fend/T1588.004,
    :rdf/type         :owl/Class,
@@ -25844,6 +27085,7 @@
    :rdfs/subClassOf  :d3fend/T1588})
 
 (def T1588.005
+  "Exploits"
   {:d3fend/attack-id "T1588.005",
    :db/ident         :d3fend/T1588.005,
    :rdf/type         :owl/Class,
@@ -25851,6 +27093,7 @@
    :rdfs/subClassOf  :d3fend/T1588})
 
 (def T1588.006
+  "Vulnerabilities"
   {:d3fend/attack-id "T1588.006",
    :db/ident         :d3fend/T1588.006,
    :rdf/type         :owl/Class,
@@ -25858,6 +27101,7 @@
    :rdfs/subClassOf  :d3fend/T1588})
 
 (def T1589
+  "Gather Victim Identity Information"
   {:d3fend/attack-id "T1589",
    :db/ident         :d3fend/T1589,
    :rdf/type         :owl/Class,
@@ -25865,6 +27109,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1589.001
+  "Credentials"
   {:d3fend/attack-id "T1589.001",
    :db/ident         :d3fend/T1589.001,
    :rdf/type         :owl/Class,
@@ -25872,6 +27117,7 @@
    :rdfs/subClassOf  :d3fend/T1589})
 
 (def T1589.002
+  "Email Addresses"
   {:d3fend/attack-id "T1589.002",
    :db/ident         :d3fend/T1589.002,
    :rdf/type         :owl/Class,
@@ -25879,6 +27125,7 @@
    :rdfs/subClassOf  :d3fend/T1589})
 
 (def T1589.003
+  "Employee Names"
   {:d3fend/attack-id "T1589.003",
    :db/ident         :d3fend/T1589.003,
    :rdf/type         :owl/Class,
@@ -25886,6 +27133,7 @@
    :rdfs/subClassOf  :d3fend/T1589})
 
 (def T1590
+  "Gather Victim Network Information"
   {:d3fend/attack-id "T1590",
    :db/ident         :d3fend/T1590,
    :rdf/type         :owl/Class,
@@ -25893,6 +27141,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1590.001
+  "Domain Properties"
   {:d3fend/attack-id "T1590.001",
    :db/ident         :d3fend/T1590.001,
    :rdf/type         :owl/Class,
@@ -25900,6 +27149,7 @@
    :rdfs/subClassOf  :d3fend/T1590})
 
 (def T1590.002
+  "DNS"
   {:d3fend/attack-id "T1590.002",
    :db/ident         :d3fend/T1590.002,
    :rdf/type         :owl/Class,
@@ -25907,6 +27157,7 @@
    :rdfs/subClassOf  :d3fend/T1590})
 
 (def T1590.003
+  "Network Trust Dependencies"
   {:d3fend/attack-id "T1590.003",
    :db/ident         :d3fend/T1590.003,
    :rdf/type         :owl/Class,
@@ -25914,6 +27165,7 @@
    :rdfs/subClassOf  :d3fend/T1590})
 
 (def T1590.004
+  "Network Topology"
   {:d3fend/attack-id "T1590.004",
    :db/ident         :d3fend/T1590.004,
    :rdf/type         :owl/Class,
@@ -25921,6 +27173,7 @@
    :rdfs/subClassOf  :d3fend/T1590})
 
 (def T1590.005
+  "IP Addresses"
   {:d3fend/attack-id "T1590.005",
    :db/ident         :d3fend/T1590.005,
    :rdf/type         :owl/Class,
@@ -25928,6 +27181,7 @@
    :rdfs/subClassOf  :d3fend/T1590})
 
 (def T1590.006
+  "Network Security Appliances"
   {:d3fend/attack-id "T1590.006",
    :db/ident         :d3fend/T1590.006,
    :rdf/type         :owl/Class,
@@ -25935,6 +27189,7 @@
    :rdfs/subClassOf  :d3fend/T1590})
 
 (def T1591
+  "Gather Victim Org Information"
   {:d3fend/attack-id "T1591",
    :db/ident         :d3fend/T1591,
    :rdf/type         :owl/Class,
@@ -25942,6 +27197,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1591.001
+  "Determine Physical Locations"
   {:d3fend/attack-id "T1591.001",
    :db/ident         :d3fend/T1591.001,
    :rdf/type         :owl/Class,
@@ -25949,6 +27205,7 @@
    :rdfs/subClassOf  :d3fend/T1591})
 
 (def T1591.002
+  "Business Relationships"
   {:d3fend/attack-id "T1591.002",
    :db/ident         :d3fend/T1591.002,
    :rdf/type         :owl/Class,
@@ -25956,6 +27213,7 @@
    :rdfs/subClassOf  :d3fend/T1591})
 
 (def T1591.003
+  "Identify Business Tempo"
   {:d3fend/attack-id "T1591.003",
    :db/ident         :d3fend/T1591.003,
    :rdf/type         :owl/Class,
@@ -25963,6 +27221,7 @@
    :rdfs/subClassOf  :d3fend/T1591})
 
 (def T1591.004
+  "Identify Roles"
   {:d3fend/attack-id "T1591.004",
    :db/ident         :d3fend/T1591.004,
    :rdf/type         :owl/Class,
@@ -25970,6 +27229,7 @@
    :rdfs/subClassOf  :d3fend/T1591})
 
 (def T1592
+  "Gather Victim Host Information"
   {:d3fend/attack-id "T1592",
    :db/ident         :d3fend/T1592,
    :rdf/type         :owl/Class,
@@ -25977,6 +27237,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1592.001
+  "Hardware"
   {:d3fend/attack-id "T1592.001",
    :db/ident         :d3fend/T1592.001,
    :rdf/type         :owl/Class,
@@ -25984,6 +27245,7 @@
    :rdfs/subClassOf  :d3fend/T1592})
 
 (def T1592.002
+  "Software"
   {:d3fend/attack-id "T1592.002",
    :db/ident         :d3fend/T1592.002,
    :rdf/type         :owl/Class,
@@ -25991,6 +27253,7 @@
    :rdfs/subClassOf  :d3fend/T1592})
 
 (def T1592.003
+  "Firmware"
   {:d3fend/attack-id "T1592.003",
    :db/ident         :d3fend/T1592.003,
    :rdf/type         :owl/Class,
@@ -25998,6 +27261,7 @@
    :rdfs/subClassOf  :d3fend/T1592})
 
 (def T1592.004
+  "Client Configurations"
   {:d3fend/attack-id "T1592.004",
    :db/ident         :d3fend/T1592.004,
    :rdf/type         :owl/Class,
@@ -26005,6 +27269,7 @@
    :rdfs/subClassOf  :d3fend/T1592})
 
 (def T1593
+  "Search Open Websites/Domains"
   {:d3fend/attack-id "T1593",
    :db/ident         :d3fend/T1593,
    :rdf/type         :owl/Class,
@@ -26012,6 +27277,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1593.001
+  "Social Media"
   {:d3fend/attack-id "T1593.001",
    :db/ident         :d3fend/T1593.001,
    :rdf/type         :owl/Class,
@@ -26019,6 +27285,7 @@
    :rdfs/subClassOf  :d3fend/T1593})
 
 (def T1593.002
+  "Search Engines"
   {:d3fend/attack-id "T1593.002",
    :db/ident         :d3fend/T1593.002,
    :rdf/type         :owl/Class,
@@ -26026,6 +27293,7 @@
    :rdfs/subClassOf  :d3fend/T1593})
 
 (def T1594
+  "Search Victim-Owned Websites"
   {:d3fend/attack-id "T1594",
    :db/ident         :d3fend/T1594,
    :rdf/type         :owl/Class,
@@ -26033,6 +27301,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1595
+  "Active Scanning"
   {:d3fend/attack-id "T1595",
    :db/ident         :d3fend/T1595,
    :rdf/type         :owl/Class,
@@ -26040,6 +27309,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1595.001
+  "Scanning IP Blocks"
   {:d3fend/attack-id "T1595.001",
    :db/ident         :d3fend/T1595.001,
    :rdf/type         :owl/Class,
@@ -26047,6 +27317,7 @@
    :rdfs/subClassOf  :d3fend/T1595})
 
 (def T1595.002
+  "Vulnerability Scanning"
   {:d3fend/attack-id "T1595.002",
    :db/ident         :d3fend/T1595.002,
    :rdf/type         :owl/Class,
@@ -26054,6 +27325,7 @@
    :rdfs/subClassOf  :d3fend/T1595})
 
 (def T1595.003
+  "Wordlist Scanning"
   {:d3fend/attack-id "T1595.003",
    :db/ident         :d3fend/T1595.003,
    :rdf/type         :owl/Class,
@@ -26061,6 +27333,7 @@
    :rdfs/subClassOf  :d3fend/T1595})
 
 (def T1596
+  "Search Open Technical Databases"
   {:d3fend/attack-id "T1596",
    :db/ident         :d3fend/T1596,
    :rdf/type         :owl/Class,
@@ -26068,6 +27341,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1596.001
+  "DNS/Passive DNS"
   {:d3fend/attack-id "T1596.001",
    :db/ident         :d3fend/T1596.001,
    :rdf/type         :owl/Class,
@@ -26075,6 +27349,7 @@
    :rdfs/subClassOf  :d3fend/T1596})
 
 (def T1596.002
+  "WHOIS"
   {:d3fend/attack-id "T1596.002",
    :db/ident         :d3fend/T1596.002,
    :rdf/type         :owl/Class,
@@ -26082,6 +27357,7 @@
    :rdfs/subClassOf  :d3fend/T1596})
 
 (def T1596.003
+  "Digital Certificates"
   {:d3fend/attack-id "T1596.003",
    :db/ident         :d3fend/T1596.003,
    :rdf/type         :owl/Class,
@@ -26089,6 +27365,7 @@
    :rdfs/subClassOf  :d3fend/T1596})
 
 (def T1596.004
+  "CDNs"
   {:d3fend/attack-id "T1596.004",
    :db/ident         :d3fend/T1596.004,
    :rdf/type         :owl/Class,
@@ -26096,6 +27373,7 @@
    :rdfs/subClassOf  :d3fend/T1596})
 
 (def T1596.005
+  "Scan Databases"
   {:d3fend/attack-id "T1596.005",
    :db/ident         :d3fend/T1596.005,
    :rdf/type         :owl/Class,
@@ -26103,6 +27381,7 @@
    :rdfs/subClassOf  :d3fend/T1596})
 
 (def T1597
+  "Search Closed Sources"
   {:d3fend/attack-id "T1597",
    :db/ident         :d3fend/T1597,
    :rdf/type         :owl/Class,
@@ -26110,6 +27389,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1597.001
+  "Threat Intel Vendors"
   {:d3fend/attack-id "T1597.001",
    :db/ident         :d3fend/T1597.001,
    :rdf/type         :owl/Class,
@@ -26117,6 +27397,7 @@
    :rdfs/subClassOf  :d3fend/T1597})
 
 (def T1597.002
+  "Purchase Technical Data"
   {:d3fend/attack-id "T1597.002",
    :db/ident         :d3fend/T1597.002,
    :rdf/type         :owl/Class,
@@ -26124,6 +27405,7 @@
    :rdfs/subClassOf  :d3fend/T1597})
 
 (def T1598
+  "Phishing for Information"
   {:d3fend/attack-id "T1598",
    :db/ident         :d3fend/T1598,
    :rdf/type         :owl/Class,
@@ -26131,6 +27413,7 @@
    :rdfs/subClassOf  :d3fend/ReconnaissanceTechnique})
 
 (def T1598.001
+  "Spearphishing Service"
   {:d3fend/attack-id "T1598.001",
    :db/ident         :d3fend/T1598.001,
    :rdf/type         :owl/Class,
@@ -26138,6 +27421,7 @@
    :rdfs/subClassOf  :d3fend/T1598})
 
 (def T1598.002
+  "Spearphishing Attachment"
   {:d3fend/attack-id "T1598.002",
    :db/ident         :d3fend/T1598.002,
    :rdf/type         :owl/Class,
@@ -26145,6 +27429,7 @@
    :rdfs/subClassOf  :d3fend/T1598})
 
 (def T1598.003
+  "Spearphishing Link"
   {:d3fend/attack-id "T1598.003",
    :db/ident         :d3fend/T1598.003,
    :rdf/type         :owl/Class,
@@ -26152,6 +27437,7 @@
    :rdfs/subClassOf  :d3fend/T1598})
 
 (def T1599
+  "Network Boundary Bridging"
   {:d3fend/attack-id "T1599",
    :db/ident         :d3fend/T1599,
    :rdf/type         :owl/Class,
@@ -26159,6 +27445,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1599.001
+  "Network Address Translation Traversal"
   {:d3fend/attack-id "T1599.001",
    :db/ident         :d3fend/T1599.001,
    :rdf/type         :owl/Class,
@@ -26166,6 +27453,7 @@
    :rdfs/subClassOf  :d3fend/T1599})
 
 (def T1600
+  "Weaken Encryption"
   {:d3fend/attack-id "T1600",
    :db/ident         :d3fend/T1600,
    :rdf/type         :owl/Class,
@@ -26173,6 +27461,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1600.001
+  "Reduce Key Space"
   {:d3fend/attack-id "T1600.001",
    :db/ident         :d3fend/T1600.001,
    :rdf/type         :owl/Class,
@@ -26180,6 +27469,7 @@
    :rdfs/subClassOf  :d3fend/T1600})
 
 (def T1600.002
+  "Disable Crypto Hardware"
   {:d3fend/attack-id "T1600.002",
    :db/ident         :d3fend/T1600.002,
    :rdf/type         :owl/Class,
@@ -26187,6 +27477,7 @@
    :rdfs/subClassOf  :d3fend/T1600})
 
 (def T1601
+  "Modify System Image"
   {:d3fend/attack-id "T1601",
    :db/ident         :d3fend/T1601,
    :rdf/type         :owl/Class,
@@ -26194,6 +27485,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1601.001
+  "Patch System Image"
   {:d3fend/attack-id "T1601.001",
    :db/ident         :d3fend/T1601.001,
    :rdf/type         :owl/Class,
@@ -26201,6 +27493,7 @@
    :rdfs/subClassOf  :d3fend/T1601})
 
 (def T1601.002
+  "Downgrade System Image"
   {:d3fend/attack-id "T1601.002",
    :db/ident         :d3fend/T1601.002,
    :rdf/type         :owl/Class,
@@ -26208,6 +27501,7 @@
    :rdfs/subClassOf  :d3fend/T1601})
 
 (def T1602
+  "Data from Configuration Repository"
   {:d3fend/attack-id "T1602",
    :db/ident         :d3fend/T1602,
    :rdf/type         :owl/Class,
@@ -26215,6 +27509,7 @@
    :rdfs/subClassOf  :d3fend/CollectionTechnique})
 
 (def T1602.001
+  "SNMP (MIB Dump)"
   {:d3fend/attack-id "T1602.001",
    :db/ident         :d3fend/T1602.001,
    :rdf/type         :owl/Class,
@@ -26222,6 +27517,7 @@
    :rdfs/subClassOf  :d3fend/T1602})
 
 (def T1602.002
+  "Network Device Configuration Dump"
   {:d3fend/attack-id "T1602.002",
    :db/ident         :d3fend/T1602.002,
    :rdf/type         :owl/Class,
@@ -26229,6 +27525,7 @@
    :rdfs/subClassOf  :d3fend/T1602})
 
 (def T1606
+  "Forge Web Credentials"
   {:d3fend/attack-id "T1606",
    :db/ident         :d3fend/T1606,
    :rdf/type         :owl/Class,
@@ -26236,6 +27533,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1606.001
+  "Web Cookies"
   {:d3fend/attack-id "T1606.001",
    :db/ident         :d3fend/T1606.001,
    :rdf/type         :owl/Class,
@@ -26243,6 +27541,7 @@
    :rdfs/subClassOf  :d3fend/T1606})
 
 (def T1606.002
+  "SAML Tokens"
   {:d3fend/attack-id "T1606.002",
    :db/ident         :d3fend/T1606.002,
    :rdf/type         :owl/Class,
@@ -26250,6 +27549,7 @@
    :rdfs/subClassOf  :d3fend/T1606})
 
 (def T1608
+  "Stage Capabilities"
   {:d3fend/attack-id "T1608",
    :db/ident         :d3fend/T1608,
    :rdf/type         :owl/Class,
@@ -26257,6 +27557,7 @@
    :rdfs/subClassOf  :d3fend/ResourceDevelopmentTechnique})
 
 (def T1608.001
+  "Upload Malware"
   {:d3fend/attack-id "T1608.001",
    :db/ident         :d3fend/T1608.001,
    :rdf/type         :owl/Class,
@@ -26264,6 +27565,7 @@
    :rdfs/subClassOf  :d3fend/T1608})
 
 (def T1608.002
+  "Upload Tool"
   {:d3fend/attack-id "T1608.002",
    :db/ident         :d3fend/T1608.002,
    :rdf/type         :owl/Class,
@@ -26271,6 +27573,7 @@
    :rdfs/subClassOf  :d3fend/T1608})
 
 (def T1608.003
+  "Install Digital Certificate"
   {:d3fend/attack-id "T1608.003",
    :db/ident         :d3fend/T1608.003,
    :rdf/type         :owl/Class,
@@ -26278,6 +27581,7 @@
    :rdfs/subClassOf  :d3fend/T1608})
 
 (def T1608.004
+  "Drive-by Target"
   {:d3fend/attack-id "T1608.004",
    :db/ident         :d3fend/T1608.004,
    :rdf/type         :owl/Class,
@@ -26285,6 +27589,7 @@
    :rdfs/subClassOf  :d3fend/T1608})
 
 (def T1608.005
+  "Link Target"
   {:d3fend/attack-id "T1608.005",
    :db/ident         :d3fend/T1608.005,
    :rdf/type         :owl/Class,
@@ -26292,6 +27597,7 @@
    :rdfs/subClassOf  :d3fend/T1608})
 
 (def T1609
+  "Container Administration Command"
   {:d3fend/attack-id "T1609",
    :db/ident         :d3fend/T1609,
    :rdf/type         :owl/Class,
@@ -26299,6 +27605,7 @@
    :rdfs/subClassOf  :d3fend/ExecutionTechnique})
 
 (def T1610
+  "Deploy Container"
   {:d3fend/attack-id "T1610",
    :db/ident         :d3fend/T1610,
    :rdf/type         :owl/Class,
@@ -26307,6 +27614,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1611
+  "Escape to Host"
   {:d3fend/attack-id "T1611",
    :db/ident         :d3fend/T1611,
    :rdf/type         :owl/Class,
@@ -26314,6 +27622,7 @@
    :rdfs/subClassOf  :d3fend/PrivilegeEscalationTechnique})
 
 (def T1612
+  "Build Image on Host"
   {:d3fend/attack-id "T1612",
    :db/ident         :d3fend/T1612,
    :rdf/type         :owl/Class,
@@ -26321,6 +27630,7 @@
    :rdfs/subClassOf  :d3fend/DefenseEvasionTechnique})
 
 (def T1613
+  "Container and Resource Discovery"
   {:d3fend/attack-id "T1613",
    :db/ident         :d3fend/T1613,
    :rdf/type         :owl/Class,
@@ -26328,6 +27638,7 @@
    :rdfs/subClassOf  :d3fend/DiscoveryTechnique})
 
 (def T1614
+  "System Location Discovery"
   {:d3fend/accesses  :d3fend/ConfigurationResource,
    :d3fend/attack-id "T1614",
    :db/ident         :d3fend/T1614,
@@ -26339,6 +27650,7 @@
                       :d3fend/DiscoveryTechnique]})
 
 (def T1614.001
+  "System Language Discovery"
   {:d3fend/attack-id "T1614.001",
    :d3fend/queries   :d3fend/SystemConfigurationDatabase,
    :db/ident         :d3fend/T1614.001,
@@ -26350,6 +27662,7 @@
                       :d3fend/T1614]})
 
 (def T1615
+  "Group Policy Discovery"
   {:d3fend/attack-id "T1615",
    :d3fend/reads     :d3fend/GroupPolicy,
    :db/ident         :d3fend/T1615,
@@ -26361,6 +27674,7 @@
                       :d3fend/DiscoveryTechnique]})
 
 (def T1619
+  "Cloud Storage Object Discovery"
   {:d3fend/accesses  :d3fend/CloudStorage,
    :d3fend/attack-id "T1619",
    :db/ident         :d3fend/T1619,
@@ -26372,6 +27686,7 @@
                       :d3fend/DiscoveryTechnique]})
 
 (def T1620
+  "Reflective Code Loading"
   {:d3fend/attack-id "T1620",
    :d3fend/modifies  :d3fend/ProcessSegment,
    :db/ident         :d3fend/T1620,
@@ -26383,6 +27698,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1621
+  "Multi-Factor Authentication Request Generation"
   {:d3fend/attack-id "T1621",
    :db/ident         :d3fend/T1621,
    :rdf/type         :owl/Class,
@@ -26390,6 +27706,7 @@
    :rdfs/subClassOf  :d3fend/CredentialAccessTechnique})
 
 (def T1622
+  "Debugger Evasion"
   {:d3fend/attack-id "T1622",
    :db/ident         :d3fend/T1622,
    :rdf/type         :owl/Class,
@@ -26398,6 +27715,7 @@
                       :d3fend/DefenseEvasionTechnique]})
 
 (def T1647
+  "Plist File Modification"
   {:d3fend/attack-id "T1647",
    :db/ident         :d3fend/T1647,
    :rdf/type         :owl/Class,
@@ -26433,6 +27751,7 @@
    :skos/altLabel "Tablet"})
 
 (def TargetAudience
+  "Target Audience"
   {:db/ident        :d3fend/TargetAudience,
    :rdf/type        :owl/Class,
    :rdfs/label      "Target Audience",
@@ -26471,6 +27790,7 @@
    :rdfs/subClassOf :d3fend/SystemServiceSoftware})
 
 (def Technique
+  "Technique"
   {:db/ident        :d3fend/Technique,
    :rdf/type        :owl/Class,
    :rdfs/label      "Technique",
@@ -26572,6 +27892,7 @@
    :rdfs/subClassOf :d3fend/MessageHardening})
 
 (def TransportLink
+  "Transport Link"
   {:db/ident        :d3fend/TransportLink,
    :rdf/type        :owl/Class,
    :rdfs/label      "Transport Link",
@@ -26633,10 +27954,10 @@
                          :owl/Class
                          :d3fend/IdentifierReputationAnalysis],
    :rdfs/label          "URL Reputation Analysis",
-   :rdfs/subClassOf     [:d3fend/IdentifierReputationAnalysis
-                         {:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf     [{:owl/onProperty     :d3fend/analyzes,
                           :owl/someValuesFrom :d3fend/URL,
-                          :rdf/type           :owl/Restriction}]})
+                          :rdf/type           :owl/Restriction}
+                         :d3fend/IdentifierReputationAnalysis]})
 
 (def UnitTestExecutionTool
   "An unit test execution tool automatically performs unit testing. Unit testing is a software testing method by which individual units of source code are tested to determine whether they are fit for use. Unit test execution tools work with sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures. This contrasts with integration testing, which tests inter-unit dependencies and the modules as a group."
@@ -26666,24 +27987,28 @@
    :rdfs/subClassOf :d3fend/FileSystemLink})
 
 (def UseCaseGoal
+  "Use Case Goal"
   {:db/ident        :d3fend/UseCaseGoal,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Goal",
    :rdfs/subClassOf :d3fend/D3FENDUseCaseThing})
 
 (def UseCasePrerequisite
+  "Use Case Prerequisite"
   {:db/ident        :d3fend/UseCasePrerequisite,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Prerequisite",
    :rdfs/subClassOf :d3fend/D3FENDUseCaseThing})
 
 (def UseCaseProcedure
+  "Use Case Procedure"
   {:db/ident        :d3fend/UseCaseProcedure,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Procedure",
    :rdfs/subClassOf [:d3fend/Procedure :d3fend/D3FENDUseCaseThing]})
 
 (def UseCaseStep
+  "Use Case Step"
   {:db/ident        :d3fend/UseCaseStep,
    :rdf/type        :owl/Class,
    :rdfs/label      "Use Case Step",
@@ -26700,10 +28025,10 @@
    :rdfs/label "User",
    :rdfs/seeAlso ["UserAccount"
                   "http://wordnet-rdf.princeton.edu/id/10761247-n"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/has-account,
+   :rdfs/subClassOf [:d3fend/DigitalArtifact
+                     {:owl/onProperty     :d3fend/has-account,
                       :owl/someValuesFrom :d3fend/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DigitalArtifact]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def UserAccount
   "A user account allows a user to authenticate to a system and potentially to receive authorization to access resources provided by or connected to that system; however, authentication does not imply authorization. To log into an account, a user is typically required to authenticate oneself with a password or other credentials for the purposes of accounting, security, logging, and resource management."
@@ -26727,10 +28052,10 @@
    :db/ident :d3fend/UserAccountPermissions,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3fend/CredentialHardening],
    :rdfs/label "User Account Permissions",
-   :rdfs/subClassOf [:d3fend/CredentialHardening
-                     {:owl/onProperty     :d3fend/restricts,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/restricts,
                       :owl/someValuesFrom :d3fend/UserAccount,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3fend/CredentialHardening]})
 
 (def UserAction
   "An action performed by a user. Executing commands, granting permissions, and accessing resources are examples of user actions."
@@ -26780,10 +28105,10 @@
    "User behavior analytics (\"UBA\") as defined by Gartner, is a cybersecurity process about detection of insider threats, targeted attacks, and financial fraud. UBA solutions look at patterns of human behavior, and then apply algorithms and statistical analysis to detect meaningful anomalies from those patterns-anomalies that indicate potential threats.' Instead of tracking devices or security events, UBA tracks a system's users. Big data platforms are increasing UBA functionality by allowing them to analyze petabytes worth of data to detect insider threats and advanced persistent threats.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/User_behavior_analytics",
    :rdfs/label "User Behavior Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/enables,
+   :rdfs/subClassOf [:d3fend/DefensiveTechnique
+                     {:owl/onProperty     :d3fend/enables,
                       :owl/someValuesFrom :d3fend/Detect,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def UserDataTransferAnalysis
   "Analyzing the amount of data transferred by a user."
@@ -26817,10 +28142,10 @@
    :db/ident :d3fend/UserGeolocationLogonPatternAnalysis,
    :rdf/type [:d3fend/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label "User Geolocation Logon Pattern Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def UserInitConfigurationFile
   "A user initialization configuration file is a file containing the information necessary to configure that part of a user's environment which is common to all applications and actions. User configurations may be overridden by more specific configuration information (such as that found in a application configuration file.)"
@@ -26863,12 +28188,14 @@
    :rdfs/subClassOf :d3fend/LocalResource})
 
 (def UserManual
+  "User Manual"
   {:db/ident        :d3fend/UserManual,
    :rdf/type        [:d3fend/ReferenceType :owl/NamedIndividual :owl/Class],
    :rdfs/label      "User Manual",
    :rdfs/subClassOf :d3fend/Document})
 
 (def UserManualReference
+  "User Manual Reference"
   {:d3fend/pref-label "User Manual",
    :db/ident          :d3fend/UserManualReference,
    :rdf/type          :owl/Class,
@@ -26937,10 +28264,10 @@
    "Personal message, private message (PM), direct message (DM), or personal chat (PC) is a private form of messaging between different members on a given platform. It is only seen and accessible by the users participating in the message.",
    :rdfs/isDefinedBy "http://dbpedia.org/resource/Personal_message",
    :rdfs/label "User to User Message",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/has-sender,
+   :rdfs/subClassOf [{:owl/onProperty     :d3fend/has-recipient,
                       :owl/someValuesFrom :d3fend/UserAccount,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3fend/has-recipient,
+                     {:owl/onProperty     :d3fend/has-sender,
                       :owl/someValuesFrom :d3fend/UserAccount,
                       :rdf/type           :owl/Restriction}
                      :d3fend/DigitalArtifact],
@@ -26969,6 +28296,7 @@
    :rdfs/subClassOf :d3fend/Server})
 
 (def Vendor
+  "Vendor"
   {:db/ident        :d3fend/Vendor,
    :rdf/type        :owl/Class,
    :rdfs/label      "Vendor",
@@ -27038,6 +28366,7 @@
    :rdfs/subClassOf :d3fend/D3FENDThing})
 
 (def WHOISCompatibleDomainRegistration
+  "WHOIS Compatible Domain Registration"
   {:db/ident   :d3fend/WHOISCompatibleDomainRegistration,
    :rdf/type   [:d3fend/DomainRegistration :owl/NamedIndividual],
    :rdfs/label "WHOIS Compatible Domain Registration"})
@@ -27156,12 +28485,13 @@
    :db/ident :d3fend/WebSessionActivityAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3fend/UserBehaviorAnalysis],
    :rdfs/label "Web Session Activity Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3fend/analyzes,
+   :rdfs/subClassOf [:d3fend/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3fend/analyzes,
                       :owl/someValuesFrom :d3fend/WebResourceAccess,
-                      :rdf/type           :owl/Restriction}
-                     :d3fend/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def WebSocketURL
+  "Web Socket URL"
   {:db/ident   :d3fend/WebSocketURL,
    :rdf/type   [:d3fend/URL :owl/NamedIndividual],
    :rdfs/label "Web Socket URL"})
@@ -27178,11 +28508,13 @@
    :skos/altLabel "WAN"})
 
 (def WindowsBatchFile
+  "Windows Batch File"
   {:db/ident   :d3fend/WindowsBatchFile,
    :rdf/type   [:d3fend/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Windows Batch File"})
 
 (def WindowsProcess
+  "Windows Process"
   {:db/ident   :d3fend/WindowsProcess,
    :rdf/type   [:d3fend/Process :owl/NamedIndividual],
    :rdfs/label "Windows Process"})
@@ -27259,6 +28591,7 @@
    :rdfs/subClassOf :d3fend/SystemCall})
 
 (def X86CodeSegment
+  "X86 Code Segment"
   {:db/ident   :d3fend/X86CodeSegment,
    :rdf/type   [:d3fend/ProcessCodeSegment
                 :d3fend/ImageCodeSegment
@@ -27287,6 +28620,7 @@
    :skos/altLabel ["misuses" "misapplies"]})
 
 (def accessed-by
+  "accessed-by"
   {:db/ident           :d3fend/accessed-by,
    :owl/inverseOf      :d3fend/accesses,
    :rdf/type           :owl/ObjectProperty,
@@ -27351,6 +28685,7 @@
    :rdfs/subPropertyOf [:d3fend/detects :d3fend/associated-with]})
 
 (def archived-at
+  "archived-at"
   {:db/ident           :d3fend/archived-at,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         {:rdf/language "en",
@@ -27359,6 +28694,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-data-property})
 
 (def assessed-by
+  "assessed-by"
   {:db/ident           :d3fend/assessed-by,
    :owl/inverseOf      :d3fend/assesses,
    :rdf/type           :owl/ObjectProperty,
@@ -27366,6 +28702,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def assesses
+  "assesses"
   {:db/ident           :d3fend/assesses,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :d3fend/DefensiveTechniqueClaim,
@@ -27416,6 +28753,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-annotation})
 
 (def attack-kb-data-property
+  "attack-kb-data-property"
   {:db/ident           :d3fend/attack-kb-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "attack-kb-data-property",
@@ -27423,6 +28761,7 @@
    :skos/altLabel      "attack-kb-property"})
 
 (def attack-may-be-countered-by
+  "attack-may-be-countered-by"
   {:db/ident           :d3fend/attack-may-be-countered-by,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "attack-may-be-countered-by",
@@ -27439,6 +28778,7 @@
    :rdfs/subPropertyOf [:d3fend/hardens :d3fend/associated-with]})
 
 (def author
+  "author"
   {:db/ident           :d3fend/author,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "author",
@@ -27476,18 +28816,21 @@
    :rdfs/subPropertyOf [:d3fend/filters :d3fend/counters]})
 
 (def broader
+  "broader"
   {:db/ident           :d3fend/broader,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "broader",
    :rdfs/subPropertyOf :d3fend/semantic-relation})
 
 (def broader-transitive
+  "broader-transitive"
   {:db/ident           :d3fend/broader-transitive,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "broader-transitive",
    :rdfs/subPropertyOf :d3fend/semantic-relation})
 
 (def cited-by
+  "cited-by"
   {:db/ident           :d3fend/cited-by,
    :owl/inverseOf      :d3fend/cites,
    :rdf/type           :owl/ObjectProperty,
@@ -27495,6 +28838,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def cites
+  "cites"
   {:db/ident           :d3fend/cites,
    :owl/inverseOf      :d3fend/d3fend-catalog-object-property,
    :rdf/type           :owl/ObjectProperty,
@@ -27503,6 +28847,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def claimed-by
+  "claimed-by"
   {:db/ident           :d3fend/claimed-by,
    :owl/inverseOf      :d3fend/claims,
    :rdf/type           :owl/ObjectProperty,
@@ -27510,6 +28855,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def claims
+  "claims"
   {:db/ident           :d3fend/claims,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "claims",
@@ -27526,12 +28872,14 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-data-property})
 
 (def confidence
+  "confidence"
   {:db/ident           :d3fend/confidence,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "confidence",
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-data-property})
 
 (def configures
+  "configures"
   {:db/ident           :d3fend/configures,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "configures",
@@ -27548,6 +28896,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def contained-by
+  "contained-by"
   {:db/ident           :d3fend/contained-by,
    :owl/inverseOf      :d3fend/contains,
    :rdf/type           [:owl/TransitiveProperty :owl/ObjectProperty],
@@ -27589,6 +28938,7 @@
    :rdfs/subPropertyOf :d3fend/creates})
 
 (def counters
+  "counters"
   {:db/ident           :d3fend/counters,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "counters",
@@ -27606,6 +28956,7 @@
    :rdfs/subPropertyOf :d3fend/date})
 
 (def created-by
+  "created-by"
   {:db/ident           :d3fend/created-by,
    :owl/inverseOf      :d3fend/creates,
    :rdf/type           :owl/ObjectProperty,
@@ -27624,6 +28975,7 @@
    :rdfs/subPropertyOf [:d3fend/may-create :d3fend/associated-with]})
 
 (def creator
+  "creator"
   {:db/ident           :d3fend/creator,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "creator",
@@ -27649,6 +29001,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-data-property})
 
 (def d3fend-catalog-annotation-property
+  "d3fend-catalog-annotation-property"
   {:db/ident           :d3fend/d3fend-catalog-annotation-property,
    :rdf/type           :owl/AnnotationProperty,
    :rdfs/label         "d3fend-catalog-annotation-property",
@@ -27656,6 +29009,7 @@
    :skos/altLabel      "d3fend-vendor-registry-annotation-property"})
 
 (def d3fend-catalog-data-property
+  "d3fend-catalog-data-property"
   {:db/ident           :d3fend/d3fend-catalog-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "d3fend-catalog-data-property",
@@ -27665,6 +29019,7 @@
                         :rdf/value    "d3fend-vendor-registry-data-property"}})
 
 (def d3fend-catalog-object-property
+  "d3fend-catalog-object-property"
   {:db/ident           :d3fend/d3fend-catalog-object-property,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "d3fend-catalog-object-property",
@@ -27681,6 +29036,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-kb-data-property})
 
 (def d3fend-data-property
+  "d3fend-data-property"
   {:db/ident           :d3fend/d3fend-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "d3fend-data-property",
@@ -27701,6 +29057,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-data-property})
 
 (def d3fend-external-control-data-property
+  "d3fend-external-control-data-property"
   {:db/ident           :d3fend/d3fend-external-control-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "d3fend-external-control-data-property",
@@ -27768,6 +29125,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-object-property})
 
 (def d3fend-tactical-verb-property
+  "d3fend-tactical-verb-property"
   {:db/ident           :d3fend/d3fend-tactical-verb-property,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :d3fend/DefensiveTechnique,
@@ -27794,12 +29152,14 @@
    :rdfs/subPropertyOf :d3fend/d3fend-data-property})
 
 (def deceives
+  "deceives"
   {:db/ident           :d3fend/deceives,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "deceives",
    :rdfs/subPropertyOf :d3fend/counters})
 
 (def deceives-with
+  "deceives-with"
   {:db/ident           :d3fend/deceives-with,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "deceives-with",
@@ -27836,6 +29196,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def dependsOn
+  "depends-on"
   {:db/ident :d3fend/dependsOn,
    :owl/inverseOf :d3fend/has-dependent,
    :rdf/type :owl/ObjectProperty,
@@ -27857,6 +29218,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-annotation-property})
 
 (def detects
+  "detects"
   {:db/ident           :d3fend/detects,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "detects",
@@ -27951,6 +29313,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-process-object-property})
 
 (def evaluated-by
+  "evaluated-by"
   {:db/ident           :d3fend/evaluated-by,
    :owl/inverseOf      :d3fend/evaluates,
    :rdf/type           :owl/ObjectProperty,
@@ -27958,18 +29321,21 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def evaluates
+  "evaluates"
   {:db/ident           :d3fend/evaluates,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "evaluates",
    :rdfs/subPropertyOf [:d3fend/may-evaluate :d3fend/associated-with]})
 
 (def evaluator
+  "evaluator"
   {:db/ident           :d3fend/evaluator,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "evaluator",
    :rdfs/subPropertyOf :d3fend/contributor})
 
 (def evicts
+  "evicts"
   {:db/ident           :d3fend/evicts,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "evicts",
@@ -27978,6 +29344,7 @@
                         :d3fend/counters]})
 
 (def exactly
+  "exactly"
   {:db/ident           :d3fend/exactly,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "exactly",
@@ -27999,6 +29366,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-data-property})
 
 (def expected-latency
+  "expected-latency"
   {:db/ident           :d3fend/expected-latency,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "expected-latency",
@@ -28018,6 +29386,7 @@
    :rdfs/subPropertyOf :d3fend/modifies})
 
 (def features
+  "features"
   {:db/ident           :d3fend/features,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :d3fend/CapabilityFeatureClaim,
@@ -28054,6 +29423,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-process-object-property})
 
 (def hardens
+  "hardens"
   {:db/ident           :d3fend/hardens,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "hardens",
@@ -28086,18 +29456,21 @@
    :rdfs/subPropertyOf :d3fend/d3fend-kb-object-property})
 
 (def has-dependent
+  "has-dependent"
   {:db/ident           :d3fend/has-dependent,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "has-dependent",
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def has-evidence
+  "has-evidence"
   {:db/ident           :d3fend/has-evidence,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "has-evidence",
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def has-feature
+  "has-feature"
   {:db/ident           :d3fend/has-feature,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "has-feature",
@@ -28109,6 +29482,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-use-case-object-property})
 
 (def has-implementation
+  "has-implementation"
   {:db/ident           :d3fend/has-implementation,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "has-implementation",
@@ -28136,6 +29510,7 @@
    :skos/altLabel "located_in"})
 
 (def has-member
+  "has-member"
   {:db/ident           :d3fend/has-member,
    :owl/inverseOf      :d3fend/member-of,
    :rdf/type           :owl/ObjectProperty,
@@ -28188,6 +29563,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def iOSProcess
+  "iOS Process"
   {:db/ident   :d3fend/iOSProcess,
    :rdf/type   [:d3fend/Process :owl/NamedIndividual],
    :rdfs/label "iOS Process"})
@@ -28199,6 +29575,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def identifier
+  "identifier"
   {:db/ident           :d3fend/identifier,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         {:rdf/language "en",
@@ -28212,12 +29589,14 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def impairs
+  "impairs"
   {:db/ident           :d3fend/impairs,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "impairs",
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def implemented-by
+  "implemented-by"
   {:db/ident           :d3fend/implemented-by,
    :owl/inverseOf      :d3fend/implements,
    :rdf/type           :owl/ObjectProperty,
@@ -28226,6 +29605,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def implements
+  "implements"
   {:db/ident           :d3fend/implements,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :d3fend/CapabilityImplementation,
@@ -28264,6 +29644,7 @@
    :rdfs/subPropertyOf [:d3fend/may-interpret :d3fend/executes]})
 
 (def inventoried-by
+  "inventoried-by"
   {:db/ident           :d3fend/inventoried-by,
    :owl/inverseOf      :d3fend/inventories,
    :rdf/type           :owl/ObjectProperty,
@@ -28271,12 +29652,14 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def inventories
+  "inventories"
   {:db/ident           :d3fend/inventories,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "inventories",
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def invoked-by
+  "invoked-by"
   {:db/ident           :d3fend/invoked-by,
    :owl/inverseOf      :d3fend/invokes,
    :rdf/type           :owl/ObjectProperty,
@@ -28368,6 +29751,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-kb-annotation-property})
 
 (def kb-reference
+  "kb-reference"
   {:db/ident           :d3fend/kb-reference,
    :owl/inverseOf      :d3fend/kb-reference-of,
    :rdf/type           :owl/ObjectProperty,
@@ -28399,6 +29783,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-kb-data-property})
 
 (def label
+  "label"
   {:db/ident           :d3fend/label,
    :rdf/type           :owl/AnnotationProperty,
    :rdfs/label         {:rdf/language "en",
@@ -28406,6 +29791,7 @@
    :rdfs/subPropertyOf :rdfs/label})
 
 (def latency
+  "latency"
   {:db/ident           :d3fend/latency,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "latency",
@@ -28415,6 +29801,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def license
+  "license"
   {:db/ident           :d3fend/license,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "license",
@@ -28436,6 +29823,7 @@
    :skos/altLabel "cutoff"})
 
 (def loaded-by
+  "loaded-by"
   {:db/ident           :d3fend/loaded-by,
    :owl/inverseOf      :d3fend/loads,
    :rdf/type           :owl/ObjectProperty,
@@ -28453,6 +29841,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def macOSProcess
+  "macOS Process"
   {:db/ident   :d3fend/macOSProcess,
    :rdf/type   [:d3fend/Process :owl/NamedIndividual],
    :rdfs/label "macOS Process"})
@@ -28469,6 +29858,7 @@
    :skos/altLabel ["supervises" "oversees"]})
 
 (def mapped-by
+  "mapped-by"
   {:db/ident           :d3fend/mapped-by,
    :owl/inverseOf      :d3fend/maps,
    :rdf/type           :owl/ObjectProperty,
@@ -28476,6 +29866,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def maps
+  "maps"
   {:db/ident           :d3fend/maps,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "maps",
@@ -28501,6 +29892,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-be-accessed-by
+  "may-be-accessed-by"
   {:db/ident           :d3fend/may-be-accessed-by,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "may-be-accessed-by",
@@ -28517,6 +29909,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-object-property})
 
 (def may-be-contained-by
+  "may-be-contained-by"
   {:db/ident           :d3fend/may-be-contained-by,
    :owl/inverseOf      :d3fend/may-contain,
    :rdf/type           [:owl/TransitiveProperty :owl/ObjectProperty],
@@ -28524,6 +29917,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-be-created-by
+  "may-be-created-by"
   {:db/ident           :d3fend/may-be-created-by,
    :owl/inverseOf      :d3fend/may-create,
    :rdf/type           :owl/ObjectProperty,
@@ -28531,6 +29925,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-be-deceived-by
+  "may-be-deceived-by"
   {:d3fend/pref-label  "may be deceived by",
    :db/ident           :d3fend/may-be-deceived-by,
    :owl/inverseOf      :d3fend/may-deceive,
@@ -28539,6 +29934,7 @@
    :rdfs/subPropertyOf :d3fend/attack-may-be-countered-by})
 
 (def may-be-detected-by
+  "may-be-detected-by"
   {:d3fend/pref-label  "may be detected by",
    :db/ident           :d3fend/may-be-detected-by,
    :owl/inverseOf      :d3fend/may-detect,
@@ -28547,6 +29943,7 @@
    :rdfs/subPropertyOf :d3fend/attack-may-be-countered-by})
 
 (def may-be-evicted-by
+  "may-be-evicted-by"
   {:d3fend/pref-label  "may be evicted by",
    :db/ident           :d3fend/may-be-evicted-by,
    :owl/inverseOf      :d3fend/may-evict,
@@ -28555,6 +29952,7 @@
    :rdfs/subPropertyOf :d3fend/attack-may-be-countered-by})
 
 (def may-be-hardened-against-by
+  "may-be-hardened-against-by"
   {:d3fend/pref-label  "may be hardened against by",
    :db/ident           :d3fend/may-be-hardened-against-by,
    :owl/inverseOf      :d3fend/may-harden,
@@ -28563,6 +29961,7 @@
    :rdfs/subPropertyOf :d3fend/attack-may-be-countered-by})
 
 (def may-be-invoked-by
+  "may-be-invoked-by"
   {:db/ident           :d3fend/may-be-invoked-by,
    :owl/inverseOf      :d3fend/may-invoke,
    :rdf/type           :owl/ObjectProperty,
@@ -28570,6 +29969,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-be-isolated-by
+  "may-be-isolated-by"
   {:d3fend/pref-label  "may be isolated by",
    :db/ident           :d3fend/may-be-isolated-by,
    :owl/inverseOf      :d3fend/may-isolate,
@@ -28578,6 +29978,7 @@
    :rdfs/subPropertyOf :d3fend/attack-may-be-countered-by})
 
 (def may-be-modified-by
+  "may-be-modified-by"
   {:db/ident           :d3fend/may-be-modified-by,
    :owl/inverseOf      :d3fend/may-modify,
    :rdf/type           :owl/ObjectProperty,
@@ -28605,12 +30006,14 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-counter
+  "may-counter"
   {:db/ident           :d3fend/may-counter,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "may-counter",
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-counter-attack
+  "may-counter-attack"
   {:db/ident           :d3fend/may-counter-attack,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "may-counter-attack",
@@ -28626,6 +30029,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-deceive
+  "may-deceive"
   {:d3fend/pref-label  "may deceive",
    :db/ident           :d3fend/may-deceive,
    :rdf/type           :owl/ObjectProperty,
@@ -28633,6 +30037,7 @@
    :rdfs/subPropertyOf :d3fend/may-counter-attack})
 
 (def may-detect
+  "may-detect"
   {:d3fend/pref-label  "may detect",
    :db/ident           :d3fend/may-detect,
    :rdf/type           :owl/ObjectProperty,
@@ -28640,6 +30045,7 @@
    :rdfs/subPropertyOf :d3fend/may-counter-attack})
 
 (def may-disable
+  "may-disable"
   {:db/ident           :d3fend/may-disable,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "may-disable",
@@ -28651,6 +30057,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-evict
+  "may-evict"
   {:d3fend/pref-label  "may evict",
    :db/ident           :d3fend/may-evict,
    :rdf/type           :owl/ObjectProperty,
@@ -28658,12 +30065,14 @@
    :rdfs/subPropertyOf [:d3fend/may-counter-attack :d3fend/may-counter]})
 
 (def may-execute
+  "may-execute"
   {:db/ident           :d3fend/may-execute,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "may-execute",
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-harden
+  "may-harden"
   {:d3fend/pref-label  "may harden",
    :db/ident           :d3fend/may-harden,
    :rdf/type           :owl/ObjectProperty,
@@ -28689,6 +30098,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-isolate
+  "may-isolate"
   {:d3fend/pref-label  "may isolate",
    :db/ident           :d3fend/may-isolate,
    :rdf/type           :owl/ObjectProperty,
@@ -28696,6 +30106,7 @@
    :rdfs/subPropertyOf :d3fend/may-counter-attack})
 
 (def may-map
+  "may-map"
   {:db/ident           :d3fend/may-map,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "may-map",
@@ -28720,6 +30131,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def may-query
+  "may-query"
   {:db/ident           :d3fend/may-query,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "may-query",
@@ -28744,6 +30156,7 @@
    :rdfs/subPropertyOf :d3fend/may-be-associated-with})
 
 (def member-of
+  "member-of"
   {:db/ident           :d3fend/member-of,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "member-of",
@@ -28760,6 +30173,7 @@
    :rdfs/subPropertyOf :d3fend/date})
 
 (def modified-by
+  "modified-by"
   {:db/ident           :d3fend/modified-by,
    :owl/inverseOf      :d3fend/modifies,
    :rdf/type           :owl/ObjectProperty,
@@ -28799,6 +30213,7 @@
    :rdfs/subPropertyOf [:d3fend/detects :d3fend/associated-with]})
 
 (def name
+  "name"
   {:db/ident           :d3fend/name,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         {:rdf/language "en",
@@ -28806,12 +30221,14 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-data-property})
 
 (def narrower
+  "narrower"
   {:db/ident           :d3fend/narrower,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "narrower",
    :rdfs/subPropertyOf :d3fend/semantic-relation})
 
 (def narrower-transitive
+  "narrower-transitive"
   {:db/ident           :d3fend/narrower-transitive,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "narrower-transitive",
@@ -28833,11 +30250,13 @@
    :rdfs/subPropertyOf :d3fend/d3fend-process-object-property})
 
 (def non-real-time-analytic
+  "non-real-time-analytic"
   {:db/ident   :d3fend/non-real-time-analytic,
    :rdf/type   [:d3fend/AnalyticLatency :owl/NamedIndividual],
    :rdfs/label "non-real-time-analytic"})
 
 (def non-real-time-eviction
+  "non-real-time-eviction"
   {:db/ident   :d3fend/non-real-time-eviction,
    :rdf/type   [:d3fend/EvictionLatency :owl/NamedIndividual],
    :rdfs/label "non-real-time-eviction"})
@@ -28897,6 +30316,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-annotation})
 
 (def procedure-1
+  "Procedure 1 - T1134.001 Access Token Manipulation"
   {:d3fend/implements :d3fend/T1134.001,
    :d3fend/start      :d3fend/step-1,
    :db/ident          :d3fend/procedure-1,
@@ -28999,6 +30419,7 @@
    :skos/altLabel "processUser"})
 
 (def produced-by
+  "produced-by"
   {:db/ident           :d3fend/produced-by,
    :owl/inverseOf      :d3fend/produces,
    :rdf/type           :owl/ObjectProperty,
@@ -29006,6 +30427,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def producer
+  "producer"
   {:db/ident           :d3fend/producer,
    :owl/inverseOf      :d3fend/produces,
    :rdf/type           :owl/ObjectProperty,
@@ -29038,6 +30460,7 @@
    :rdfs/subPropertyOf :d3fend/associated-with})
 
 (def provides
+  "provides"
   {:db/ident           :d3fend/provides,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "provides",
@@ -29054,6 +30477,7 @@
    :rdfs/subPropertyOf :d3fend/date})
 
 (def publisher
+  "publisher"
   {:db/ident           :d3fend/publisher,
    :owl/inverseOf      :d3fend/publishes,
    :rdf/type           :owl/ObjectProperty,
@@ -29061,18 +30485,21 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def publishes
+  "publishes"
   {:db/ident           :d3fend/publishes,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "publishes",
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def queries
+  "queries"
   {:db/ident           :d3fend/queries,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "queries",
    :rdfs/subPropertyOf [:d3fend/may-query :d3fend/associated-with]})
 
 (def rating
+  "rating"
   {:db/ident           :d3fend/rating,
    :rdf/type           [:owl/FunctionalProperty :owl/DatatypeProperty],
    :rdfs/label         "rating",
@@ -29090,16 +30517,19 @@
    :rdfs/subPropertyOf :d3fend/accesses})
 
 (def real-time-analytic
+  "real-time-analytic"
   {:db/ident   :d3fend/real-time-analytic,
    :rdf/type   [:d3fend/AnalyticLatency :owl/NamedIndividual],
    :rdfs/label "real-time-analytic"})
 
 (def real-time-eviction
+  "real-time-eviction"
   {:db/ident   :d3fend/real-time-eviction,
    :rdf/type   [:d3fend/EvictionLatency :owl/NamedIndividual],
    :rdfs/label "real-time-eviction"})
 
 (def recorded-in
+  "recorded-in"
   {:db/ident           :d3fend/recorded-in,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "recorded-in",
@@ -29153,6 +30583,7 @@
    :rdfs/subPropertyOf [:d3fend/may-run :d3fend/associated-with]})
 
 (def seller
+  "seller"
   {:db/ident           :d3fend/seller,
    :owl/inverseOf      :d3fend/sells,
    :rdf/type           :owl/ObjectProperty,
@@ -29160,12 +30591,14 @@
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def sells
+  "sells"
   {:db/ident           :d3fend/sells,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "sells",
    :rdfs/subPropertyOf :d3fend/d3fend-catalog-object-property})
 
 (def semantic-relation
+  "semantic-relation"
   {:db/ident           :d3fend/semantic-relation,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "semantic-relation",
@@ -29183,6 +30616,7 @@
    :rdfs/subPropertyOf [:d3fend/deceives-with :d3fend/associated-with]})
 
 (def stage
+  "stage"
   {:db/ident           :d3fend/stage,
    :rdf/type           [:owl/FunctionalProperty :owl/DatatypeProperty],
    :rdfs/label         "stage",
@@ -29194,6 +30628,7 @@
    :rdfs/subPropertyOf :d3fend/d3fend-process-object-property})
 
 (def step-1
+  "Step 1 - Copy Token"
   {:d3fend/invokes :d3fend/CopyToken,
    :d3fend/next    :d3fend/step-2,
    :db/ident       :d3fend/step-1,
@@ -29201,6 +30636,7 @@
    :rdfs/label     "Step 1 - Copy Token"})
 
 (def step-2
+  "Step 2 - Impersonate User"
   {:d3fend/creates :d3fend/Authentication,
    :d3fend/invokes :d3fend/ImpersonateUser,
    :db/ident       :d3fend/step-2,
@@ -29218,6 +30654,7 @@
    :rdfs/subPropertyOf [:d3fend/hardens :d3fend/associated-with]})
 
 (def submitter
+  "submitter"
   {:db/ident           :d3fend/submitter,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "submitter",
@@ -29341,6 +30778,7 @@
    :rdfs/subPropertyOf [:d3fend/hardens :d3fend/associated-with]})
 
 (def validator
+  "validator"
   {:db/ident           :d3fend/validator,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "validator",
