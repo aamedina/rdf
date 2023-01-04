@@ -668,3 +668,8 @@
       (find-ns name) `(#'clojure.repl/print-doc (#'clojure.repl/namespace-doc (find-ns '~name)))
       (resolve name) `(#'clojure.repl/print-doc (meta (var ~name)))
       :else nil)))
+
+(extend-protocol clojure.core.protocols/Datafiable
+  clojure.lang.Keyword
+  (datafy [ident]
+    (find-metaobject ident)))
