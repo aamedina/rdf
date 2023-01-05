@@ -53,26 +53,41 @@
 
 (defn make-boot-context
   []
-  (transduce (comp
-               (filter #(= (:rdf/type (meta %)) :jsonld/Context))
-               (map ns-publics)
-               (mapcat vals)
-               (map deref)
-               (map (juxt :rdfa/prefix :rdfa/uri)))
-             (completing
-               (fn [reg [prefix uri]]
-                 (try
-                   (reg/add-prefix reg true prefix uri)
-                   (catch Throwable ex
-                     reg))))
-             (reg/add-prefix {:prefixes  {}
-                              :prefixes' {}
-                              :aliases   {}
-                              :aliases'  {}}
-                             true
-                             "dcterms"
-                             "http://purl.org/dc/terms/")
-             (all-ns)))
+  (let [ns-prefixes (->> (all-ns)
+                         (filter #(= (:rdf/type (meta %)) :jsonld/Context))
+                         (map #(str/replace % #"boot$" "rdf")))]
+    (transduce
+      (comp
+        (filter #(= (:rdf/type (meta %)) :jsonld/Context))
+        (map ns-publics)
+        (mapcat vals)
+        (map deref)
+        (map (juxt :rdfa/prefix :rdfa/uri)))
+      (completing
+        (fn [m [prefix uri]]
+          (-> m
+              (update :registry
+                      (fn [reg]
+                        (try
+                          (reg/add-prefix reg true prefix uri)
+                          (catch Throwable ex
+                            reg))))
+              (update :ns-aliases
+                      (fn [ns-aliases]
+                        (assoc ns-aliases
+                               prefix
+                               (some #(when-some [ns (find-ns (symbol (str % "." prefix)))]
+                                        ns)
+                                     ns-prefixes)))))))
+      {:registry   (reg/add-prefix {:prefixes  {}
+                                    :prefixes' {}
+                                    :aliases   {}
+                                    :aliases'  {}}
+                                 true
+                                 "dcterms"
+                                 "http://purl.org/dc/terms/")
+       :ns-aliases {}}
+      (all-ns))))
 
 (defn deriving
   [h {:db/keys [ident]} xs]
@@ -171,21 +186,11 @@
   com/Lifecycle
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
-              *target*    (or target *target*)]      
-      (alter-var-root #'reg/*registry* (constantly (make-boot-context)))
-      (let [ns-prefixes (->> (all-ns)
-                             (filter #(= (:rdf/type (meta %)) :jsonld/Context))
-                             (map #(str/replace % #"boot$" "rdf")))
-            ns-aliases  (reduce (fn [ns-aliases prefix]
-                                 (assoc ns-aliases
-                                        prefix
-                                        (some #(when-some [ns (find-ns (symbol (str % "." prefix)))]
-                                                 ns)
-                                              ns-prefixes)))
-                                {}
-                                (keys (:prefixes reg/*registry*)))]
-        (alter-var-root #'*ns-aliases* (constantly ns-aliases)))
-      (let [{:keys [classes properties]} (make-hierarchies)]
+              *target*    (or target *target*)]            
+      (let [{:keys [registry ns-aliases]} (make-boot-context)
+            {:keys [classes properties]} (make-hierarchies)]
+        (alter-var-root #'reg/*registry* (constantly registry))
+        (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
         (alter-var-root #'*properties* (constantly properties)))
       this))
