@@ -595,24 +595,23 @@
 (defn find-metaobject
   [ident]
   (when (qualified-keyword? ident)
-    (when-some [var (or (resolve (symbol ident))
-                        (some-> (get *ns-aliases* (namespace ident))
-                                (ns-resolve 
-                                  (cond
-                                    (= (name ident) "Class")
-                                    'T
-                                    
-                                    (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
-                                    (symbol (str (name ident) "Class"))
+    (when-some [var (resolve
+                      (symbol
+                        (str (or (get *ns-aliases* (namespace ident))
+                                 (get (ns-aliases *ns*) (symbol (namespace ident)))))
+                        (cond
+                          (= (name ident) "Class")
+                          "T"
+                          
+                          (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
+                          (str (name ident) "Class")
 
-                                    (= (name ident) "nil")
-                                    'null
+                          (= (name ident) "nil")
+                          "null"
 
-                                    :else
-                                    (-> (name ident)
-                                        (str/replace #"^#" "")
-                                        (symbol))))))]
-      
+                          :else
+                          (-> (name ident)
+                              (str/replace #"^#" "")))))]
       (with-meta @var {:var var :type (or (and (keyword? (type var))
                                                (type var))
                                           (:type (alter-meta! var assoc :type (type-of @var)))
