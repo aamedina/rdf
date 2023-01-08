@@ -670,7 +670,9 @@
       (qualified-keyword? name) `(#'print-doc ~name)
       (keyword? name) `(when-some [ns# (get *ns-aliases* (clojure.core/name ~name))]
                          (#'clojure.repl/print-doc (#'clojure.repl/namespace-doc ns#)))
-      (find-ns name) `(#'clojure.repl/print-doc (#'clojure.repl/namespace-doc (find-ns '~name)))
+      (find-ns name) `(some-> (find-ns '~name)
+                              (#'clojure.repl/namespace-doc)
+                              (#'clojure.repl/print-doc))
       (resolve name) `(#'clojure.repl/print-doc (meta (var ~name)))
       :else nil)))
 
