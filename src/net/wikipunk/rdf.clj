@@ -429,8 +429,16 @@
                                           (:rdf/type form)
                                           [(:rdf/type form)])))))
         the-ont    (or (first ontologies)
-                       (first (filter :rdf/uri (remove public? forms))))]
-    (with-meta (sort-by :db/ident (filter public? forms))
+                       (first (filter :rdf/uri (remove public? forms))))
+        publics (filter (fn [form]
+                          (or (public? form)
+                              (and (:db/ident form)
+                                   (or (str/starts-with? (namespace (:db/ident form)) "obo")
+                                       (str/starts-with? (namespace (:db/ident form)) "resource"))
+                                   (or (str/starts-with? (name (:db/ident form)) prefix)
+                                       (str/starts-with? (name (:db/ident form)) (str/upper-case prefix))))))
+                        forms)]
+    (with-meta (sort-by :db/ident publics)
       (merge md the-ont))))
 
 (defn unroll-ns
@@ -592,26 +600,39 @@
 
     :else :rdfs/Resource))
 
+(defn unmunge
+  [ident]
+  (cond
+    (= (name ident) "Class")
+    'T
+    
+    (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
+    (symbol (str (name ident) "Class"))
+
+    (= (name ident) "nil")
+    'null
+
+    :else
+    (-> (name ident)
+        (str/replace #"^#" "")
+        (symbol))))
+
+(defn find-obo-metaobject
+  "Find a metaobject in the OBO namespace."
+  [ident]
+  (when-some [prefix (str/lower-case (first (str/split (name ident) #"_")))]
+    (ns-resolve (get *ns-aliases* prefix) (unmunge ident))))
+
 (defn find-metaobject
   [ident]
   (when (qualified-keyword? ident)
-    (when-some [var (resolve
-                      (symbol
-                        (str (or (get *ns-aliases* (namespace ident))
-                                 (get (ns-aliases *ns*) (symbol (namespace ident)))))
-                        (cond
-                          (= (name ident) "Class")
-                          "T"
-                          
-                          (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
-                          (str (name ident) "Class")
-
-                          (= (name ident) "nil")
-                          "null"
-
-                          :else
-                          (-> (name ident)
-                              (str/replace #"^#" "")))))]
+    (when-some [var (if (= (namespace ident) "obo")
+                      (find-obo-metaobject ident)
+                      (resolve
+                        (symbol
+                          (str (or (get *ns-aliases* (namespace ident))
+                                   (get (ns-aliases *ns*) (symbol (namespace ident)))))
+                          (name (unmunge ident)))))]
       (with-meta @var {:var var :type (or (and (keyword? (type var))
                                                (type var))
                                           (:type (alter-meta! var assoc :type (type-of @var)))
