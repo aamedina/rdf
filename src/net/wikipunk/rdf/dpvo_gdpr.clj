@@ -1628,7 +1628,7 @@
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State where lawfulness or compliance with GDPR is unknown"},
-   :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
+   :rdf/type [:dpvo-gdpr/GDPRLawfulness :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GDPR Compliance Unknown"},
@@ -1643,7 +1643,7 @@
    :dcterms/description {:rdf/language "en",
                          :rdf/value
                          "State of being lawful or legally compliant for GDPR"},
-   :rdf/type            [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
+   :rdf/type            [:dpvo-gdpr/GDPRLawfulness :owl/NamedIndividual],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "GDPR Compliant"},
@@ -1675,7 +1675,7 @@
    :dcterms/description
    {:rdf/language "en",
     :rdf/value    "State of being unlawful or legally non-compliant for GDPR"},
-   :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
+   :rdf/type [:dpvo-gdpr/GDPRLawfulness :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GDPR Non-compliant"},
