@@ -268,3 +268,14 @@
   {:rdfa/uri    "http://www.w3.org/ns/shacl#"
    :rdfa/prefix "sh"
    :rdf/type    :rdfa/PrefixMapping})
+
+(def dtype
+  {:rdfa/uri    "http://www.linkedmodel.org/schema/dtype#"
+   :rdfa/prefix "dtype"
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def voag
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/voag/versions/2012-11-01.n3"
+   :rdfa/uri         "http://voag.linkedmodel.org/voag#"
+   :rdfa/prefix      "voag"
+   :rdf/type         :rdfa/PrefixMapping})
