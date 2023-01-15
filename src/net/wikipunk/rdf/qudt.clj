@@ -239,7 +239,7 @@
   "Pub article type"
   {:db/ident      :qudt/Article,
    :dtype/literal "article",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub article type"})
 
 (def Aspect
@@ -750,14 +750,14 @@
   "Pub book type"
   {:db/ident      :qudt/Book,
    :dtype/literal "book",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub book type"})
 
 (def Booklet
   "Pub booklet type"
   {:db/ident      :qudt/Booklet,
    :dtype/literal "booklet",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub booklet type"})
 
 (def BooleanEncoding
@@ -1236,7 +1236,7 @@
   "Pub techreport type"
   {:db/ident      :qudt/Conference,
    :dtype/literal "conference",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub techreport type"})
 
 (def ConstantValue
@@ -2869,21 +2869,21 @@
   "Pub inbook type"
   {:db/ident      :qudt/InBook,
    :dtype/literal "inbook",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub inbook type"})
 
 (def InCollection
   "Pub incollection type"
   {:db/ident      :qudt/InCollection,
    :dtype/literal "incollection",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub incollection type"})
 
 (def InProceedings
   "Pub inproceedings type"
   {:db/ident      :qudt/InProceedings,
    :dtype/literal "inproceedings",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub inproceedings type"})
 
 (def InertialCoordinateFrame
@@ -3284,7 +3284,7 @@
   "Pub manual type"
   {:db/ident      :qudt/Manual,
    :dtype/literal "manual",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub manual type"})
 
 (def Map
@@ -3391,7 +3391,7 @@
   "Pub misc type"
   {:db/ident      :qudt/Misc,
    :dtype/literal "misc",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub misc type"})
 
 (def ModalCue
@@ -4154,7 +4154,7 @@
   "Pub proceedings type"
   {:db/ident      :qudt/Proceedings,
    :dtype/literal "proceedings",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub proceedings type"})
 
 (def PubEnumeratedType
@@ -4872,63 +4872,6 @@
   {:db/ident   :qudt/STATE-SPACE-MATRIX,
    :rdf/type   [:qudt/StateSpaceMatrixType :owl/NamedIndividual],
    :rdfs/label "STATE SPACE MATRIX"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident      :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1,
-   :qudt/index    1,
-   :qudt/next     :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2,
-   :qudt/order    1,
-   :qudt/previous :rdf/nil,
-   :qudt/type     :qudt/FLOAT-DP,
-   :rdf/type      [:qudt/IndexedCollectionMember :owl/NamedIndividual],
-   :rdfs/label    "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2,
-   :qudt/next  :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3,
-   :qudt/order 2,
-   :qudt/type  :qudt/FLOAT-DP,
-   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
-   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3,
-   :qudt/next  :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4,
-   :qudt/order 3,
-   :qudt/type  :qudt/FLOAT-DP,
-   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
-   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4,
-   :qudt/next  :rdf/nil,
-   :qudt/order 4,
-   :qudt/type  :qudt/FLOAT-DP,
-   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
-   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES
-  "STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES"
-  {:db/ident :qudt/STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES,
-   :qudt/element
-   [:qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4
-    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3
-    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2
-    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1],
-   :rdf/type [:qudt/IndexedList :owl/NamedIndividual],
-   :rdfs/label "STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES"})
-
-(def STATE-VECTOR_MASS-PROPERTIES
-  "STATE-VECTOR-MASS-PROPERTIES"
-  {:db/ident         :qudt/STATE-VECTOR_MASS-PROPERTIES,
-   :qudt/objectValue :qudt/STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES,
-   :qudt/type        :qudt/StateSpaceVectorType,
-   :rdf/type         [:qudt/StateSpaceVectorType :owl/NamedIndividual],
-   :rdfs/label       "STATE-VECTOR-MASS-PROPERTIES"})
 
 (def ScalarDatatype
   "Scalar data types are those that have a single value. The permissible values are defined over a domain that may be integers, float, character or boolean. Often a scalar data type is referred to as a primitive data type."
@@ -5810,44 +5753,6 @@
                       :rdf/type          :owl/Restriction}
                      :qudt/Concept]})
 
-(def TABLE-COMPOSITION-EXAMPLE-SUBTREE_1
-  "TABLE-COMPOSITION-EXAMPLE-SUBTREE_1"
-  {:db/ident   :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_1,
-   :qudt/node  :qudt/TIME-SERIES-TABLE-A-2x4,
-   :rdf/type   [:qudt/Tree :owl/NamedIndividual],
-   :rdfs/label "TABLE-COMPOSITION-EXAMPLE-SUBTREE_1"})
-
-(def TABLE-COMPOSITION-EXAMPLE-SUBTREE_2
-  "TABLE-COMPOSITION-EXAMPLE-SUBTREE_2"
-  {:db/ident   :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_2,
-   :qudt/node  :qudt/TIME-SERIES-TABLE-B-2x4,
-   :rdf/type   [:qudt/Tree :owl/NamedIndividual],
-   :rdfs/label "TABLE-COMPOSITION-EXAMPLE-SUBTREE_2"})
-
-(def TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1
-  "TABLE-COMPOSITION-SUBTREE-1"
-  {:db/ident   :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1,
-   :qudt/order 1,
-   :qudt/value :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_1,
-   :rdf/type   [:qudt/TreeListMember :owl/NamedIndividual],
-   :rdfs/label "TABLE-COMPOSITION-SUBTREE-1"})
-
-(def TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2
-  "TABLE-COMPOSITION-SUBTREE_2"
-  {:db/ident   :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2,
-   :qudt/order 2,
-   :qudt/value :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_2,
-   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
-   :rdfs/label "TABLE-COMPOSITION-SUBTREE_2"})
-
-(def TABLE-COMPOSTION-SUBTREE-LIST-EXAMPLE_1
-  "TABLE-COMPOSTION-SUBTREES-EXAMPLE_1"
-  {:db/ident     :qudt/TABLE-COMPOSTION-SUBTREE-LIST-EXAMPLE_1,
-   :qudt/element [:qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2
-                  :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1],
-   :rdf/type     [:qudt/TreeListMember :owl/NamedIndividual],
-   :rdfs/label   "TABLE-COMPOSTION-SUBTREES-EXAMPLE_1"})
-
 (def TABLE-TYPE_2x4
   "Table type 2x4"
   {:db/ident            :qudt/TABLE-TYPE_2x4,
@@ -5975,7 +5880,7 @@
   "Pub techreport type"
   {:db/ident      :qudt/TechReport,
    :dtype/literal "techreport",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub techreport type"})
 
 (def Term
@@ -6674,7 +6579,7 @@
   "Pub unpublished type"
   {:db/ident      :qudt/Unpublished,
    :dtype/literal "unpublished",
-   :rdf/type      :qudt/PubEnumeratedType,
+   :rdf/type      [:qudt/PubEnumeratedType :owl/NamedIndividual],
    :rdfs/label    "Pub unpublished type"})
 
 (def UnsignedBigIntegerType
