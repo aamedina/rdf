@@ -932,7 +932,7 @@
                          :owl/withRestrictions [{:xsd/minInclusive 0}
                                                 {:xsd/maxInclusive 4294967295}],
                          :rdf/type       :rdfs/Datatype},
-   :rdf/type            [:owl/DataRange :rdfs/Datatype :owl/NamedIndividual],
+   :rdf/type            [:owl/DataRange :rdfs/Datatype],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
    :rdfs/label          "CRC-32",
    :rdfs/subClassOf     :xsd/integer})
