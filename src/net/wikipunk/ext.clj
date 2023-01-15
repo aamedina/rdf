@@ -242,7 +242,7 @@
 
 (def qudt.type
   {:dcat/downloadURL "https://raw.githubusercontent.com/qudt/qudt-public-repo/main/vocab/types/VOCAB_QUDT-DATATYPES-v2.1.ttl"
-   :rdfa/uri         "http://qudt.org/2.1/vocab/type/"
+   :rdfa/uri         "http://qudt.org/2.1/schema/type/"
    :rdfa/prefix      "qudt.type"
    :rdf/type         :rdfa/PrefixMapping})
 

@@ -866,7 +866,7 @@
                       :owl/onProperty     :qudt/dimensionVector,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom
-                      "http://qudt.org/schema/type#TypeMatrix",
+                      :qudt/TypeMatrix,
                       :owl/onProperty :qudt/typeMatrix,
                       :rdf/type :owl/Restriction}
                      :qudt/CompositeDatatype
@@ -1856,16 +1856,16 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Coordinates-2D-Double precision",
    :rdfs/subClassOf [{:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    "http://qudt.org/schema/type#Double_Y",
+                      :owl/onProperty    :qudt/Coordinates-2D-DoublePrecision-Double_Y
                       :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  "http://qudt.org/schema/type#Double_Y",
+                      :owl/onProperty  :qudt/Coordinates-2D-DoublePrecision-Double_Y
                       :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    "http://qudt.org/schema/type#Double_X",
+                      :owl/onProperty    :qudt/Coordinates-2D-DoublePrecision-Double_X
                       :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  "http://qudt.org/schema/type#Double_X",
+                      :owl/onProperty  :qudt/Coordinates-2D-DoublePrecision-Double_X
                       :rdf/type        :owl/Restriction}
                      :qudt/Coordinates-2D]})
 
@@ -1952,23 +1952,23 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "3D Coordinates (Double Precision)",
    :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  "http://qudt.org/schema/type#Double_Y",
+                      :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_Y
                       :rdf/type        :owl/Restriction}
                      :qudt/Coordinates-3D
                      {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    "http://qudt.org/schema/type#Double_Z",
+                      :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_Z,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    "http://qudt.org/schema/type#Double_Y",
+                      :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_Y
                       :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  "http://qudt.org/schema/type#Double_Z",
+                      :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_Z,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  "http://qudt.org/schema/type#Double_X",
+                      :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_X,
                       :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    "http://qudt.org/schema/type#Double_X",
+                      :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_X,
                       :rdf/type          :owl/Restriction}]})
 
 (def Coordinates-3D-DoublePrecision-Double_X
@@ -3307,7 +3307,7 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Modal Enumeration",
-   :rdfs/subClassOf [{:owl/allValuesFrom "http://qudt.org/schema/type#ModalCue",
+   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/ModelCue,
                       :owl/onProperty    :qudt/defaultValue,
                       :rdf/type          :owl/Restriction}
                      :qudt/Enumeration],
@@ -3347,7 +3347,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Multi dimensional data format",
    :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  "http://qudt.org/schema/type#descriptor",
+                      :owl/onProperty  :qudt/MultiDimensionalDataFormat-descriptor
                       :rdf/type        :owl/Restriction}
                      :qudt/CompositeDatatype]})
 
@@ -3378,19 +3378,19 @@
    :rdfs/label "Multi modal enumeration",
    :rdfs/subClassOf
    [{:owl/maxCardinality 1,
-     :owl/onProperty     "http://qudt.org/schema/type#auralCueEnumeration",
+     :owl/onProperty     :qudt/MultiModalEnumeration-auralCueEnumeration
      :rdf/type           :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty     "http://qudt.org/schema/type#iconicCueEnumeration",
+     :owl/onProperty     :qudt/MultiModalEnumeration-iconicCueEnumeration
      :rdf/type           :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty     "http://qudt.org/schema/type#visualCueEnumeration",
+     :owl/onProperty     :qudt/MultiModalEnumeration-visualCueEnumeration
      :rdf/type           :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty "http://qudt.org/schema/type#kinestheticCueEnumeration",
+     :owl/onProperty :qudt/MultiModalEnumeration-kinestheticCueEnumeration
      :rdf/type :owl/Restriction}
     {:owl/allValuesFrom :qudt/ModalEnumeration,
-     :owl/onProperty    "http://qudt.org/schema/type#modalCueEnumeration",
+     :owl/onProperty    :qudt/MultiModalEnumeration-modalCueEnumeration
      :rdf/type          :owl/Restriction}
     :qudt/Enumeration],
    :sh/property [:qudt/MultiModalEnumeration-kinestheticCueEnumeration
@@ -3439,23 +3439,23 @@
    :rdfs/label "Multi Modal Type",
    :rdfs/subClassOf
    [{:owl/maxCardinality 1,
-     :owl/onProperty     "http://qudt.org/schema/type#iconicCue",
+     :owl/onProperty     :qudt/iconicCue
      :rdf/type           :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty     "http://qudt.org/schema/type#kinestheticCue",
+     :owl/onProperty     :qudt/kinestheticCue
      :rdf/type           :owl/Restriction}
-    {:owl/allValuesFrom "http://qudt.org/schema/type#ModalCue",
-     :owl/onProperty    "http://qudt.org/schema/type#modalCue",
+    {:owl/allValuesFrom :qudt/ModelCue,
+     :owl/onProperty    :qudt/modalCue,
      :rdf/type          :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty     "http://qudt.org/schema/type#visualCue",
+     :owl/onProperty     :qudt/visualCue,
      :rdf/type           :owl/Restriction}
     :qudt/EnumeratedValue
     {:owl/maxCardinality 1,
-     :owl/onProperty     "http://qudt.org/schema/type#auralCue",
+     :owl/onProperty     :qudt/auralCue,
      :rdf/type           :owl/Restriction}
-    {:owl/onProperty     "http://qudt.org/schema/type#modalCue",
-     :owl/someValuesFrom "http://qudt.org/schema/type#ModalCue",
+    {:owl/onProperty     :qudt/modalCue,
+     :owl/someValuesFrom :qudt/ModelCue,
      :rdf/type           :owl/Restriction}],
    :sh/property [:qudt/MultiModalType-visualCue
                  :qudt/MultiModalType-kinestheticCue
@@ -4006,10 +4006,9 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Record Type",
-   :rdfs/subClassOf [{:owl/allValuesFrom
-                      "http://qudt.org/schema/type#FieldTypeList",
-                      :owl/onProperty :qudt/elementTypeList,
-                      :rdf/type :owl/Restriction}
+   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/FieldType
+                      :owl/onProperty    :qudt/elementTypeList,
+                      :rdf/type          :owl/Restriction}
                      :qudt/CompositeDatatype]})
 
 (def ReferenceDatatype
@@ -4972,16 +4971,16 @@
    :rdfs/label "Time Series Array Type",
    :rdfs/subClassOf
    [{:owl/cardinality 1,
-     :owl/onProperty  "http://qudt.org/schema/type#vector",
+     :owl/onProperty  :qudt/vector,
      :rdf/type        :owl/Restriction}
     {:owl/allValuesFrom :qudt/TimeStringType,
-     :owl/onProperty    "http://qudt.org/schema/type#incrementDatatype",
+     :owl/onProperty    :qudt/TimeSeriesArray-incrementDatatype
      :rdf/type          :owl/Restriction}
     {:owl/cardinality 1,
-     :owl/onProperty  "http://qudt.org/schema/type#incrementDatatype",
+     :owl/onProperty  :qudt/TimeSeriesArray-incrementDatatype
      :rdf/type        :owl/Restriction}
     {:owl/allValuesFrom :qudt/StateSpaceVector,
-     :owl/onProperty    "http://qudt.org/schema/type#vector",
+     :owl/onProperty    :qudt/vector,
      :rdf/type          :owl/Restriction}
     {:owl/cardinality 1,
      :owl/onProperty  :qudt/dimensionVector,
@@ -5605,7 +5604,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Vector Array Type",
    :rdfs/subClassOf [{:owl/allValuesFrom :qudt/StateSpaceVector,
-                      :owl/onProperty    "http://qudt.org/schema/type#vector",
+                      :owl/onProperty    :qudt/vector,
                       :rdf/type          :owl/Restriction}
                      :qudt/Array]})
 
