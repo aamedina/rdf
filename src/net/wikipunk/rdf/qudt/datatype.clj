@@ -85,7 +85,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Alignment type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :qudt/EnumeratedValue})
 
 (def Array
   "An array is represented as ordered entries of values arranged according to the dimensions given. The dimensions are given as a list of integers where each integer is the cardinality of each dimension. The number of dimensions is specified in the attribute 'dimensionality'. Optionally a reference can be made to a variable, whose values are the array entries. The data type of the array entries is an optional field, 'elementType', which points to a data type definition. If the data type is given, then it applies to all elements. If it is not given then the elements can be of different types for each position in the array. The property 'type:typeMatrix' must refer to a matrix of types. If a default value is given this can be used to place the appropriate value in a cell when an entry value is not known. If no dimensionality or dimension vector is specified the array is under-specified but still legitimate as a place-holder for a data type."
@@ -131,7 +131,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Array data order type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def ArrayIndex
   "An Array Index Type is a data type that specifies the properties of data structures that hold array indexes."
@@ -278,7 +278,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Axial Orientation Type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def BOOLEAN
   "In computer science, the Boolean or logical data type is a data type, having two values (usually denoted true and false), intended to represent the truth values of logic and Boolean algebra. The Boolean data type is the primary result of conditional statements, which allow different actions and change control flow depending on whether a programmer-specified boolean condition evaluates to true or false."
@@ -709,7 +709,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
    :rdfs/label          "boolean value",
-   :rdfs/subClassOf     :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf     :dtype/EnumeratedValue})
 
 (def ByColumn
   "By Column"
@@ -850,7 +850,7 @@
                           "http://en.wikipedia.org/wiki/Cardinal_number"],
    :rdf/type :owl/Class,
    :rdfs/label "Cardinality Type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def CartesianCoordinates
   "A set of variables which fix a geometric object. If the coordinates are distances measured along perpendicular axes, they are known as Cartesian coordinates."
@@ -1081,7 +1081,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Coordinate Center Type",
-   :rdfs/subClassOf [:qudt.datatype/NominalScale :qudt.datatype/EnumeratedValue],
+   :rdfs/subClassOf [:qudt/NominalScale :dtype/EnumeratedValue],
    :skos/prefLabel ["Coordinate center" "Coordinate center type"]})
 
 (def CoordinateMember
@@ -1178,7 +1178,7 @@
                       :owl/onProperty  :qudt.datatype/originDefinition,
                       :rdf/type        :owl/Restriction}
                      :qudt.datatype/TupleType
-                     :qudt.datatype/EnumeratedValue],
+                     :dtype/EnumeratedValue],
    :sh/property [:qudt.datatype/Coordinates-elementType
                  :qudt.datatype/CoordinateSystemType-originDefinition]})
 
@@ -1485,7 +1485,7 @@
 (def DataElement-type
   {:db/ident    :qudt.datatype/DataElement-type,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt.datatype/Datatype,
+   :sh/class    :qudt/Datatype,
    :sh/maxCount 1,
    :sh/minCount 0,
    :sh/path     :qudt.datatype/dataType})
@@ -1497,7 +1497,7 @@
    :rdfs/comment
    "A field is a tuple that carries a name, a type and optionally other properties that characterize a member element of a composite data strucuture.",
    :rdfs/label "QUDT DataSet Element",
-   :rdfs/subClassOf [:qudt.datatype/Tuple :qudt.datatype/DataElement],
+   :rdfs/subClassOf [:qudt.datatype/Tuple],
    :sh/property [:qudt.datatype/DataSetElement-quantityKind
                  :qudt.datatype/DataSetElement-optional
                  :qudt.datatype/DataSetElement-elementLabel]})
@@ -1535,7 +1535,7 @@
 (def Datatype-basis
   {:db/ident    :qudt.datatype/Datatype-basis,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt.datatype/Datatype,
+   :sh/class    :qudt/Datatype,
    :sh/maxCount 1,
    :sh/path     :qudt.datatype/basis})
 
@@ -1766,7 +1766,7 @@
   {:db/ident         :qudt.datatype/DiscreteState,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/subClassOf  :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf  :dtype/EnumeratedValue})
 
 (def DoublePrecisionEncoding
   "Single Precision Real Encoding"
@@ -1878,7 +1878,7 @@
      :owl/maxCardinality 1,
      :owl/onProperty :qudt.datatype/bits,
      :rdf/type :owl/Restriction}
-    {:owl/allValuesFrom :qudt.datatype/EnumeratedValue,
+    {:owl/allValuesFrom :dtype/EnumeratedValue,
      :owl/onProperty    :qudt.datatype/defaultValue,
      :rdf/type          :owl/Restriction}
     :dtype/Enumeration
@@ -1886,7 +1886,7 @@
     {:owl/maxCardinality 1,
      :owl/onProperty     :qudt.datatype/encoding,
      :rdf/type           :owl/Restriction}
-    {:owl/allValuesFrom :qudt.datatype/EnumeratedValue,
+    {:owl/allValuesFrom :dtype/EnumeratedValue,
      :owl/onProperty    :dtype/value,
      :rdf/type          :owl/Restriction}],
    :sh/property [:qudt.datatype/Enumeration-encoding
@@ -1904,7 +1904,7 @@
 (def Enumeration-defaultValue
   {:db/ident :qudt.datatype/Enumeration-defaultValue,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt.datatype/EnumeratedValue,
+   :sh/class :dtype/EnumeratedValue,
    :sh/path  :qudt.datatype/defaultValue})
 
 (def Enumeration-encoding
@@ -1916,7 +1916,7 @@
 (def Enumeration-value
   {:db/ident :qudt.datatype/Enumeration-value,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt.datatype/EnumeratedValue,
+   :sh/class :dtype/EnumeratedValue,
    :sh/path  :dtype/value})
 
 (def EnumerationScale
@@ -1971,7 +1971,7 @@
    :rdfs/subClassOf [{:owl/cardinality 1,
                       :owl/onProperty  :qudt.datatype/fieldName,
                       :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :qudt.datatype/Datatype,
+                     {:owl/allValuesFrom :qudt/Datatype,
                       :owl/onProperty    :qudt.datatype/elementType,
                       :rdf/type          :owl/Restriction}
                      :qudt.datatype/CompositeDatatype]})
@@ -1987,7 +1987,7 @@
 (def FieldType-elementType
   {:db/ident :qudt.datatype/FieldType-elementType,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt.datatype/Datatype,
+   :sh/class :qudt/Datatype,
    :sh/path  :qudt.datatype/elementType})
 
 (def FieldType-fieldLabel
@@ -2001,7 +2001,7 @@
 (def FieldType-fieldType
   {:db/ident    :qudt.datatype/FieldType-fieldType,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt.datatype/Datatype,
+   :sh/class    :qudt/Datatype,
    :sh/minCount 1,
    :sh/path     :qudt.datatype/fieldType})
 
@@ -2027,7 +2027,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "File format",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def FixedIntervalTimeSeriesArray
   "A Fixed Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals."
@@ -2067,7 +2067,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Frame Type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def Function
   "Function"
@@ -2091,11 +2091,11 @@
                      {:owl/cardinality 1,
                       :owl/onProperty  :qudt.datatype/returnType,
                       :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :qudt.datatype/Datatype,
+                     {:owl/allValuesFrom :qudt/Datatype,
                       :owl/onProperty    :qudt.datatype/argType,
                       :rdf/type          :owl/Restriction}
                      :qudt.datatype/StructuredDatatype
-                     {:owl/allValuesFrom :qudt.datatype/Datatype,
+                     {:owl/allValuesFrom :qudt/Datatype,
                       :owl/onProperty    :qudt.datatype/returnType,
                       :rdf/type          :owl/Restriction}],
    :sh/property [:qudt.datatype/FunctionDatatype-returnType
@@ -2105,7 +2105,7 @@
 (def FunctionDatatype-argType
   {:db/ident :qudt.datatype/FunctionDatatype-argType,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt.datatype/Datatype,
+   :sh/class :qudt/Datatype,
    :sh/path  :qudt.datatype/argType})
 
 (def FunctionDatatype-functionArity
@@ -2119,7 +2119,7 @@
 (def FunctionDatatype-returnType
   {:db/ident    :qudt.datatype/FunctionDatatype-returnType,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt.datatype/Datatype,
+   :sh/class    :qudt/Datatype,
    :sh/maxCount 1,
    :sh/minCount 0,
    :sh/path     :qudt.datatype/returnType})
@@ -2498,7 +2498,7 @@
   {:db/ident        :qudt.datatype/LimitType,
    :rdf/type        :owl/Class,
    :rdfs/label      "Limit type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def List
   "A sub-type of 'Collection Type'. Detailed desciption to be provided in a future version."
@@ -2511,7 +2511,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :qudt.datatype/List,
                       :owl/onProperty    :rdf/rest,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt.datatype/Datatype,
+                     {:owl/allValuesFrom :qudt/Datatype,
                       :owl/onProperty    :rdf/first,
                       :rdf/type          :owl/Restriction}
                      :qudt.datatype/Collection]})
@@ -2519,7 +2519,7 @@
 (def List-first
   {:db/ident :qudt.datatype/List-first,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt.datatype/Datatype,
+   :sh/class :qudt/Datatype,
    :sh/path  :rdf/first})
 
 (def List-rest
@@ -2700,7 +2700,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Major minor type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def Manual
   "Pub manual type"
@@ -2806,7 +2806,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Memory order type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def Misc
   "Pub misc type"
@@ -2820,7 +2820,7 @@
   {:db/ident        :qudt.datatype/ModalCue,
    :rdf/type        [:sh/NodeShape :owl/Class],
    :rdfs/label      "Modal Cue",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue,
+   :rdfs/subClassOf :dtype/EnumeratedValue,
    :sh/property     :qudt.datatype/ModalCue-duration})
 
 (def ModalCue-duration
@@ -2980,7 +2980,7 @@
     {:owl/maxCardinality 1,
      :owl/onProperty     "http://qudt.org/schema/type#visualCue",
      :rdf/type           :owl/Restriction}
-    :qudt.datatype/EnumeratedValue
+    :dtype/EnumeratedValue
     {:owl/allValuesFrom "http://qudt.org/schema/type#ModalCue",
      :owl/onProperty    "http://qudt.org/schema/type#modalCue",
      :rdf/type          :owl/Restriction}
@@ -3047,7 +3047,7 @@
 (def N-Tuple-elementType
   {:db/ident    :qudt.datatype/N-Tuple-elementType,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt.datatype/Datatype,
+   :sh/class    :qudt/Datatype,
    :sh/minCount 0,
    :sh/path     :qudt.datatype/elementType})
 
@@ -3263,7 +3263,7 @@
                      {:owl/allValuesFrom :qudt.datatype/OrderedCollection,
                       :owl/onProperty    :rdf/rest,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt.datatype/Datatype,
+                     {:owl/allValuesFrom :qudt/Datatype,
                       :owl/onProperty    :rdf/first,
                       :rdf/type          :owl/Restriction}
                      :qudt.datatype/Collection]})
@@ -3271,7 +3271,7 @@
 (def OrderedCollection-first
   {:db/ident :qudt.datatype/OrderedCollection-first,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt.datatype/Datatype,
+   :sh/class :qudt/Datatype,
    :sh/path  :rdf/first})
 
 (def OrderedCollection-orderingRelation
@@ -3350,7 +3350,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Padding type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def ParameterModifiabilityType
   "An enumeration of literals that signify whether a parameter is modifiable and if so, by whom."
@@ -3359,7 +3359,7 @@
    :rdfs/comment
    "An enumeration of literals that signify whether a parameter is modifiable and if so, by whom.",
    :rdfs/label "Parameter modifiability type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def Percentage
   "A Scalar Datatype for expressing a dimensionless ratio."
@@ -3407,7 +3407,7 @@
    :rdfs/comment
    "A \"Tagged Enumeration\" with the following instance(s): \"negative\", \"positive\".",
    :rdfs/label "Polarity",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def PositiveIntegerType
   "Positive Integers are integers that are either non-zero and non-negative."
@@ -3452,7 +3452,7 @@
                      :qudt.datatype/Misc],
    :rdf/type        :owl/Class,
    :rdfs/label      "Pub enumerated type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def QuantityKindDimensionVector_SI
   "A sub-type of 'Quantity Dimension Vector'. Detailed desciption to be provided in a future version."
@@ -4009,7 +4009,7 @@
    :rdfs/subClassOf     [{:owl/allValuesFrom :qudt.datatype/Sequence,
                           :owl/onProperty    :rdf/rest,
                           :rdf/type          :owl/Restriction}
-                         {:owl/allValuesFrom :qudt.datatype/Datatype,
+                         {:owl/allValuesFrom :qudt/Datatype,
                           :owl/onProperty    :rdf/first,
                           :rdf/type          :owl/Restriction}
                          :qudt.datatype/Collection]})
@@ -4017,7 +4017,7 @@
 (def Sequence-first
   {:db/ident :qudt.datatype/Sequence-first,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt.datatype/Datatype,
+   :sh/class :qudt/Datatype,
    :sh/path  :rdf/first})
 
 (def Sequence-rest
@@ -4522,7 +4522,7 @@
    :rdfs/subClassOf [{:owl/maxCardinality 1,
                       :owl/onProperty     :qudt.datatype/elementType,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt.datatype/Datatype,
+                     {:owl/allValuesFrom :qudt/Datatype,
                       :owl/onProperty    :qudt.datatype/elementType,
                       :rdf/type          :owl/Restriction}],
    :sh/property     :qudt.datatype/StructuredDatatype-elementType})
@@ -4530,7 +4530,7 @@
 (def StructuredDatatype-elementType
   {:db/ident    :qudt.datatype/StructuredDatatype-elementType,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt.datatype/Datatype,
+   :sh/class    :qudt/Datatype,
    :sh/maxCount 1,
    :sh/path     :qudt.datatype/elementType})
 
@@ -4793,7 +4793,7 @@
    :rdfs/comment
    "The class of data values that denote a point in time. Time values may be encoded in a 12-hour clock or a 24-hour clock, such as 1:35 AM, or 13:35.",
    :rdfs/label "Time",
-   :rdfs/subClassOf :qudt.datatype/Scalar,
+   :rdfs/subClassOf :qudt.datatype/ScalarDatatype,
    :sh/property :qudt.datatype/Time-type})
 
 (def Time-type
@@ -4820,7 +4820,7 @@
    :rdfs/comment
    "A relative interval that is an increment in time. For example, this is used in time series arrays to express the time point of a vector of values.",
    :rdfs/label "Time interval",
-   :rdfs/subClassOf :qudt.datatype/Parameter,
+   :rdfs/subClassOf :sh/Parameter,
    :sh/property :qudt.datatype/TimeInterval-type})
 
 (def TimeInterval-type
@@ -5088,7 +5088,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Type list",
-   :rdfs/subClassOf :qudt.datatype/Datatype})
+   :rdfs/subClassOf :qudt/Datatype})
 
 (def TypeMatrix
   "Members of this class are matrix data structures that describe the datatypes of a class of matrices. That is, the members of this class are matrices with cells that contain datatypes (c.f. type:Datatype) and are used to describe the datatype structure of other matrices."
@@ -5114,8 +5114,7 @@
                       :owl/onClass     :qudt.datatype/TypeVector,
                       :owl/onProperty  :qudt.datatype/typeVector,
                       :rdf/type        :owl/Restriction}
-                     :qudt.datatype/VectorType
-                     :qudt.datatype/DatatypeStructuredData],
+                     :qudt.datatype/VectorType],
    :sh/property [:qudt.datatype/TypeVector-typeVector
                  :qudt.datatype/TypeVector-type
                  :qudt.datatype/TypeVector-objectValue]})
@@ -5135,7 +5134,7 @@
 (def TypeVector-typeVector
   {:db/ident    :qudt.datatype/TypeVector-typeVector,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt.datatype/Datatype,
+   :sh/class    :qudt/Datatype,
    :sh/maxCount 1,
    :sh/path     :qudt.datatype/typeVector})
 
@@ -5689,7 +5688,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "Wet dry state type",
-   :rdfs/subClassOf  [:qudt.datatype/EnumeratedValue :qudt.datatype/DiscreteState]})
+   :rdfs/subClassOf  [:dtype/EnumeratedValue :qudt.datatype/DiscreteState]})
 
 (def WordAligned
   "Word Aligned"
@@ -5720,7 +5719,7 @@
   {:db/ident        :qudt.datatype/YesNoType,
    :rdf/type        :owl/Class,
    :rdfs/label      "Yes no type",
-   :rdfs/subClassOf :qudt.datatype/EnumeratedValue})
+   :rdfs/subClassOf :dtype/EnumeratedValue})
 
 (def abbreviation
   "abbreviation"
@@ -6483,7 +6482,7 @@
   "ORACLE SQL name"
   {:db/ident           :qudt.datatype/oracleSQLName,
    :rdf/type           :owl/DatatypeProperty,
-   :rdfs/domain        :qudt.datatype/Datatype,
+   :rdfs/domain        :qudt/Datatype,
    :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
    :rdfs/label         "ORACLE SQL name",
    :rdfs/range         :xsd/string,

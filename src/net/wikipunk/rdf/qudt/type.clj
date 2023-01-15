@@ -327,7 +327,7 @@
 (def BooleanEncoding
   "Boolean Encoding"
   {:db/ident         :qudt.type/BooleanEncoding,
-   :rdf/type         :qudt.dataype/BooleanEncodingType,
+   :rdf/type         :qudt.datatype/BooleanEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Boolean Encoding"})
 
@@ -339,7 +339,7 @@
    :qudt/code        1002,
    :qudt/value       ["http://qudt.org/schema/type#True"
                       "http://qudt.org/schema/type#False"],
-   :rdf/type         :qudt.dataype/DiscreteStateEnumeration,
+   :rdf/type         :qudt.datatype/DiscreteStateEnumeration,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Boolean value"})
 
@@ -356,7 +356,7 @@
   "Earth centered"
   {:db/ident         :qudt.type/CC_EarthCentered,
    :qudt/literal     "earthCentered",
-   :rdf/type         :qudt.dataype/CoordinateCenterType,
+   :rdf/type         :qudt.datatype/CoordinateCenterType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Earth centered"})
 
@@ -364,7 +364,7 @@
   "Mars centered"
   {:db/ident         :qudt.type/CC_MarsCentered,
    :qudt/literal     "marsCentered",
-   :rdf/type         :qudt.dataype/CoordinateCenterType,
+   :rdf/type         :qudt.datatype/CoordinateCenterType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Mars centered"})
 
@@ -372,7 +372,7 @@
   "Moon centered"
   {:db/ident         :qudt.type/CC_MoonCentered,
    :qudt/literal     "moonCentered",
-   :rdf/type         :qudt.dataype/CoordinateCenterType,
+   :rdf/type         :qudt.datatype/CoordinateCenterType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Moon centered"})
 
@@ -380,7 +380,7 @@
   "Sun centered"
   {:db/ident         :qudt.type/CC_SunCentered,
    :qudt/literal     "sunCentered",
-   :rdf/type         :qudt.dataype/CoordinateCenterType,
+   :rdf/type         :qudt.datatype/CoordinateCenterType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Sun centered"})
 
@@ -388,7 +388,7 @@
   "Vehicle centered"
   {:db/ident         :qudt.type/CC_VehicleCentered,
    :qudt/literal     "vehicleCentered",
-   :rdf/type         :qudt.dataype/CoordinateCenterType,
+   :rdf/type         :qudt.datatype/CoordinateCenterType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Vehicle centered"})
 
@@ -397,7 +397,7 @@
   {:db/ident         :qudt.type/CDF,
    :dcterms/description
    "CDF (Common Data format), a data format for storing and manipulating scalar and multidimensional data in a platform and discipline independent manner, making interoperability between applications and tools easier. CDF provides device independent view of the CDF data model by software programming interface insulting developers from actual physical file format. CDF was developed by NASA, and is described at http://cdf.gsfc.nasa.gov/.",
-   :rdf/type         :qudt.dataype/MultiDimensionalDataFormat,
+   :rdf/type         :qudt.datatype/MultiDimensionalDataFormat,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Common Data Format (CDF)"})
 
@@ -419,7 +419,7 @@
   "COORDS-2D-DOUBLE"
   {:db/ident         :qudt.type/COORDS-2D-DOUBLE,
    :qudt/elementType :qudt/FLOAT-DP,
-   :rdf/type         :qudt.dataype/Coordinates-2D-DoublePrecision,
+   :rdf/type         :qudt.datatype/Coordinates-2D-DoublePrecision,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "COORDS-2D-DOUBLE"})
 
@@ -443,7 +443,7 @@
 (def COORDS-3D-SINGLE
   "COORDS-3D-SINGLE"
   {:db/ident         :qudt.type/COORDS-3D-SINGLE,
-   :rdf/type         :qudt.dataype/Coordinates-3D-SinglePrecision,
+   :rdf/type         :qudt.datatype/Coordinates-3D-SinglePrecision,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "COORDS-3D-SINGLE"})
 
@@ -452,7 +452,7 @@
   {:db/ident         :qudt.type/COORDS-RH-DP,
    :dcterms/description
    "A three-dimensional coordinate system in which the axes satisfy the right-hand rule. ",
-   :rdf/type         :qudt.dataype/Coordinates-3D-DoublePrecision,
+   :rdf/type         :qudt.datatype/Coordinates-3D-DoublePrecision,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "COORDS - RH DP"})
 
@@ -468,7 +468,7 @@
 (def CompositeTABLE
   "Composite table"
   {:db/ident         :qudt.type/CompositeTABLE,
-   :rdf/type         :qudt.dataype/CompositeTable,
+   :rdf/type         :qudt.datatype/CompositeTable,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Composite table"})
 
@@ -502,7 +502,7 @@
 (def DICTIONARY
   "DICTIONARY"
   {:db/ident         :qudt.type/DICTIONARY,
-   :rdf/type         :qudt.dataype/Dictionary,
+   :rdf/type         :qudt.datatype/Dictionary,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "DICTIONARY"})
 
@@ -523,7 +523,7 @@
   "Double Precision Encoding"
   {:db/ident         :qudt.type/DoublePrecisionEncoding,
    :qudt/bytes       64,
-   :rdf/type         :qudt.dataype/FloatingPointEncodingType,
+   :rdf/type         :qudt.datatype/FloatingPointEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Double Precision Encoding"})
 
@@ -844,7 +844,7 @@
   "Inertial"
   {:db/ident         :qudt.type/FT_INERTIAL,
    :qudt/literal     "inertial",
-   :rdf/type         :qudt.dataype/FrameType,
+   :rdf/type         :qudt.datatype/FrameType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Inertial"})
 
@@ -852,7 +852,7 @@
   "Non rotating"
   {:db/ident         :qudt.type/FT_NON-ROTATING,
    :qudt/literal     "nonrotating",
-   :rdf/type         :qudt.dataype/FrameType,
+   :rdf/type         :qudt.datatype/FrameType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Non rotating"})
 
@@ -860,14 +860,14 @@
   "Rotating"
   {:db/ident         :qudt.type/FT_ROTATING,
    :qudt/literal     "rotating",
-   :rdf/type         :qudt.dataype/FrameType,
+   :rdf/type         :qudt.datatype/FrameType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Rotating"})
 
 (def GRAPH
   "GRAPH"
   {:db/ident         :qudt.type/GRAPH,
-   :rdf/type         :qudt.dataype/Graph,
+   :rdf/type         :qudt.datatype/Graph,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "GRAPH"})
 
@@ -885,7 +885,7 @@
 (def HASH-TABLE
   "Hash Table"
   {:db/ident         :qudt.type/HASH-TABLE,
-   :rdf/type         :qudt.dataype/HashTable,
+   :rdf/type         :qudt.datatype/HashTable,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Hash Table"})
 
@@ -894,7 +894,7 @@
   {:db/ident         :qudt.type/HDF5,
    :dcterms/description
    "The Hierarchical Data Format (HDF) is a common data format and a collection of application programming libraries developed at the NSCA primarily for the scientific community and for the exchange of scientific datasets. The present version of HDF is HDF5 which offers a simple data model and application interfaces for encoding and exchanging data without the added burden of defining mappings to the underlying machine representations.",
-   :rdf/type         :qudt.dataype/MultiDimensionalDataFormat,
+   :rdf/type         :qudt.datatype/MultiDimensionalDataFormat,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "HDF5"})
 
@@ -930,7 +930,7 @@
   "High to low"
   {:db/ident         :qudt.type/HighToLow,
    :qudt/literal     "high",
-   :rdf/type         :qudt.dataype/MemoryOrderType,
+   :rdf/type         :qudt.datatype/MemoryOrderType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "High to low"})
 
@@ -938,7 +938,7 @@
   "IEEE 754 1985 Real Encoding"
   {:db/ident         :qudt.type/IEEE754_1985RealEncoding,
    :qudt/bytes       32,
-   :rdf/type         :qudt.dataype/FloatingPointEncodingType,
+   :rdf/type         :qudt.datatype/FloatingPointEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "IEEE 754 1985 Real Encoding"})
 
@@ -948,7 +948,7 @@
    :dcterms/description
    "IERS Conventions (2003), D. D. McCarthy and Gérard Petit (eds.), IERS Technical Note No. 32, 2004; http://www.iers.org/iers/publications/tn/tn32.",
    :qudt/url         "http://www.iers.org/iers/publications/tn/tn32.",
-   :rdf/type         :qudt.dataype/Citation,
+   :rdf/type         :qudt.datatype/Citation,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "IERS-TN-32-2004",
    :skos/prefLabel   "IERS-TN-32-2004"})
@@ -959,14 +959,14 @@
    :qudt/allowedPattern
    ["[0-9]{4}[0-9]{2}[0-9]{2}T[0-9]{2}[0-9]{2}[0-9]{2}Z"
     "[0-9]{4}[0-9]{2}[0-9]{2}T[0-9]{2}[0-9]{2}[0-9]{2}.[0-9]+Z"],
-   :rdf/type         :qudt.dataype/DateTimeStringEncodingType,
+   :rdf/type         :qudt.datatype/DateTimeStringEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "ISO 8601 UTC Date Time - Basic Format"})
 
 (def InterpolatedTABLE
   "Interpolated table"
   {:db/ident         :qudt.type/InterpolatedTABLE,
-   :rdf/type         :qudt.dataype/InterpolatedTable,
+   :rdf/type         :qudt.datatype/InterpolatedTable,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Interpolated table"})
 
@@ -975,7 +975,7 @@
   {:db/ident         :qudt.type/Konopliv2001,
    :dcterms/description
    "\"Recent Gravity Models as a Result of the Lunar Prospector Mission\", A. S. Konopliv, S. W. Asmar, E. Carranza, W. L. Sjogren, and D. N. Yuan, Academic Press, Icarus 150, 1-18 (2001).",
-   :rdf/type         :qudt.dataype/Citation,
+   :rdf/type         :qudt.datatype/Citation,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Konopliv2001",
    :skos/prefLabel   "Konopliv2001"})
@@ -1037,7 +1037,7 @@
 (def LIST
   "LIST"
   {:db/ident         :qudt.type/LIST,
-   :rdf/type         :qudt.dataype/List,
+   :rdf/type         :qudt.datatype/List,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "LIST"})
 
@@ -1048,7 +1048,7 @@
    "A little-endian machine stores the least significant byte first.",
    :qudt/code        2,
    :qudt/literal     "little",
-   :rdf/type         :qudt.dataype/EndianType,
+   :rdf/type         :qudt.datatype/EndianType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Little Endian"})
 
@@ -1056,7 +1056,7 @@
   "Long Unsigned Integer Encoding"
   {:db/ident         :qudt.type/LongUnsignedIntegerEncoding,
    :qudt/bytes       8,
-   :rdf/type         :qudt.dataype/IntegerEncodingType,
+   :rdf/type         :qudt.datatype/IntegerEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Long Unsigned Integer Encoding"})
 
@@ -1064,14 +1064,14 @@
   "Low to high"
   {:db/ident         :qudt.type/LowToHigh,
    :qudt/literal     "low",
-   :rdf/type         :qudt.dataype/MemoryOrderType,
+   :rdf/type         :qudt.datatype/MemoryOrderType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Low to high"})
 
 (def MAP
   "MAP"
   {:db/ident         :qudt.type/MAP,
-   :rdf/type         :qudt.dataype/Map,
+   :rdf/type         :qudt.datatype/Map,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "MAP"})
 
@@ -1079,7 +1079,7 @@
   "MATRIX"
   {:db/ident         :qudt.type/MATRIX,
    :qudt/code        300,
-   :rdf/type         :qudt.dataype/Matrix,
+   :rdf/type         :qudt.datatype/Matrix,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "MATRIX"})
 
@@ -1130,14 +1130,14 @@
    :qudt/code        2,
    :qudt/literal     "major",
    :qudt/order       2,
-   :rdf/type         :qudt.dataype/MajorMinorType,
+   :rdf/type         :qudt.datatype/MajorMinorType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Major"})
 
 (def MassPropertiesARRAY
   "Mass properties ARRAY"
   {:db/ident         :qudt.type/MassPropertiesARRAY,
-   :rdf/type         :qudt.dataype/MassPropertiesArray,
+   :rdf/type         :qudt.datatype/MassPropertiesArray,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Mass properties ARRAY"})
 
@@ -1158,7 +1158,7 @@
    :qudt/code        1,
    :qudt/literal     "minor",
    :qudt/order       1,
-   :rdf/type         :qudt.dataype/MajorMinorType,
+   :rdf/type         :qudt.datatype/MajorMinorType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Minor"})
 
@@ -1309,7 +1309,7 @@
   {:db/ident         :qudt.type/NetCDF,
    :dcterms/description
    "NetCDF (network Common Data Form) is a set of interfaces for array-oriented data access and a freely-distributed collection of data access libraries for C, Fortran, C++, Java, and other languages. The netCDF libraries support a machine-independent format for representing scientific data. Together, the interfaces, libraries, and format support the creation, access, and sharing of scientific data.",
-   :rdf/type         :qudt.dataype/MultiDimensionalDataFormat,
+   :rdf/type         :qudt.datatype/MultiDimensionalDataFormat,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "NetCDF"})
 
@@ -1337,7 +1337,7 @@
 (def ORDERED-TREE
   "Ordered Tree"
   {:db/ident         :qudt.type/ORDERED-TREE,
-   :rdf/type         :qudt.dataype/OrderedTree,
+   :rdf/type         :qudt.datatype/OrderedTree,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Ordered Tree"})
 
@@ -1357,7 +1357,7 @@
    :qudt/code        1014,
    :qudt/value       ["http://qudt.org/schema/type#On"
                       "http://qudt.org/schema/type#Off"],
-   :rdf/type         :qudt.dataype/DiscreteStateEnumeration,
+   :rdf/type         :qudt.datatype/DiscreteStateEnumeration,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Off/On State Type Enumeration"})
 
@@ -1370,14 +1370,14 @@
    :qudt/inverted    true,
    :qudt/value       ["http://qudt.org/schema/type#On"
                       "http://qudt.org/schema/type#Off"],
-   :rdf/type         :qudt.dataype/DiscreteStateEnumeration,
+   :rdf/type         :qudt.datatype/DiscreteStateEnumeration,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "On/Off State Type Enumeration"})
 
 (def OrderedCOLLECTION
   "Ordered COLLECTION"
   {:db/ident         :qudt.type/OrderedCOLLECTION,
-   :rdf/type         :qudt.dataype/OrderedCollection,
+   :rdf/type         :qudt.datatype/OrderedCollection,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Ordered COLLECTION"})
 
@@ -1386,7 +1386,7 @@
   {:db/ident         :qudt.type/Other_TBD,
    :dcterms/description
    "2. “The adoption of ICRS on 1 January 1998: meaning and consequences”, Letter to the Editor, M. Feissel and F. Mignard, Astronomy and Astrophysics, 331, L33-L36, 1998, http://adsabs.harvard.edu/cgi-bin/nph- bib_query?bibcode=1998A%26A...331L..33F&amp;db_key=AST&amp;data_typ e=HTML&amp;format= \n\n4. “Lunar Laser Ranging Science: Gravitational Physics and Lunar Interior and Geodesy”, J. G. Williams, S. G. Turyshev, D. H. Boggs, and J. T. Ratcliff, 35th COSPAR Scientific Assembly, Paris, France, July 18-24, 2004, Advances in Space Research, in press 2005, http://arxiv.org/abs/gr-qc/?412049.\n\n6. “JPL Planetary and Lunar Ephemerides, DE403/LE403”, E. M. Standish, X. X. Newhall, J. G. Williams, and W. M. Folkner, JPL IOM 314.10-127, May 22, 1995, http://ssd.jpl.nasa.gov/iau-comm4/de403iom/.\n\n8. IERS Conventions (2003), D. D. McCarthy and Gérard Petit (eds.), IERS Technical Note No. 32, 2004; http://www.iers.org/iers/publications/tn/tn32.\n\n9. “Lunar coordinates in the regions of the Apollo lander,” M. E. Davies and T. R. Coltin, Journal Of Geophysical Research, V. 105, No. E8, Pages 20, 277-20, 280, August 25, 2000.\n\n10. “A Meaningful Relative Motion Coordinate System For Generic Use,” D. R. Adamo, AAS Paper No. 05-306, presented at the AAS/AIAA Astrodynamics Specialists Conference, Lake Tahoe, California, August 7 - 11, 2005.\n11. “Lunar moments, tides, orientation, and coordinate frames,” J. G. Williams, X. X. Newhall, and J. O. Dickey, Planet. Space Sci. 44:1077-1080, 1996.",
-   :rdf/type         :qudt.dataype/Citation,
+   :rdf/type         :qudt.datatype/Citation,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Other (TBD)",
    :skos/prefLabel   "Other"})
@@ -1439,7 +1439,7 @@
    :dcterms/description
    "Pad with either a one or a zero. In other words, this is the \"don't care\" situation.",
    :qudt/literal     "none",
-   :rdf/type         :qudt.dataype/PaddingType,
+   :rdf/type         :qudt.datatype/PaddingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Pad with any"})
 
@@ -1466,7 +1466,7 @@
   {:db/ident         :qudt.type/PartialArray,
    :dcterms/description
    "A partial array is an Array with two attributes that define the starting and ending indices of the elements that are provided.",
-   :rdf/type         :qudt.dataype/Array,
+   :rdf/type         :qudt.datatype/Array,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Partial Array"})
 
@@ -1475,7 +1475,7 @@
   {:db/ident         :qudt.type/Pointer,
    :dcterms/description
    "A pointer is a programming language data type whose value refers directly to (or \"points to\") another value stored elsewhere in the computer memory using its address. A pointer references a value stored elsewhere in memory, and obtaining or requesting the value to which a pointer refers is called dereferencing the pointer. A pointer is a simple implementation of the general reference data type. Pointers to data improve performance for repetitive operations such as traversing string and tree structures, and pointers to functions are used for binding methods in Object-oriented programming and run-time linking to dynamic link libraries (DLLs).\n\nWhile \"pointer\" has been used to refer to references in general, it more properly applies to data structures whose interface explicitly allows the pointer to be manipulated as a memory address.",
-   :rdf/type         :qudt.dataype/ReferenceDatatype,
+   :rdf/type         :qudt.datatype/ReferenceDatatype,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Pointer"})
 
@@ -1512,7 +1512,7 @@
 (def QUEUE
   "Queue"
   {:db/ident         :qudt.type/QUEUE,
-   :rdf/type         :qudt.dataype/OrderedCollection,
+   :rdf/type         :qudt.datatype/OrderedCollection,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Queue"})
 
@@ -1700,7 +1700,7 @@
    "Defined as the line through the vehicle center-of-mass and the central body center, positive toward the central body center.",
    :qudt/zCoordinateDefinition
    "Defined as the distance from the central body center to the vehicle center-of-mass minus the distance between P and N; equivalently, the radius of C minus the radius of the projection of P onto the vehicle orbit plane.",
-   :rdf/type         :qudt.dataype/RotatingReferenceFrame,
+   :rdf/type         :qudt.datatype/RotatingReferenceFrame,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Local Vertical Curvilinear",
    :skos/prefLabel   "Local Vertical Curvilinear"})
@@ -1719,7 +1719,7 @@
    "Completes a standard, right-handed coordinate frame and is positive in the direction of vehicle motion.",
    :qudt/zAxisDefinition
    "Defined as a line that lies along the radius vector from the central body center to the vehicle center-of-mass and is positive toward the central body center.",
-   :rdf/type         :qudt.dataype/RotatingReferenceFrame,
+   :rdf/type         :qudt.datatype/RotatingReferenceFrame,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Local Vertical Local Horizontal"})
 
@@ -1732,7 +1732,7 @@
    :qudt/frameType   :qudt/FT_ROTATING,
    :qudt/id          "T110-14",
    :qudt/literal     "MMEPMBF",
-   :rdf/type         :qudt.dataype/RotatingReferenceFrame,
+   :rdf/type         :qudt.datatype/RotatingReferenceFrame,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Mars Mean Equator and Prime Meridian Body-Fixed",
    :skos/definition
@@ -1764,7 +1764,7 @@
    :dcterms/description
    "\"Lunar Constants and Models Document”, R. Roncoli, JPL D-32296, September 23, 2005, http://ssd.jpl.nasa.gov/?lunar_doc.",
    :qudt/url         "http://ssd.jpl.nasa.gov/?lunar_doc",
-   :rdf/type         :qudt.dataype/Citation,
+   :rdf/type         :qudt.datatype/Citation,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Roncoli2005",
    :skos/prefLabel   "Roncoli2005"})
@@ -1772,14 +1772,14 @@
 (def SEQUENCE
   "SEQUENCE"
   {:db/ident         :qudt.type/SEQUENCE,
-   :rdf/type         :qudt.dataype/Sequence,
+   :rdf/type         :qudt.datatype/Sequence,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "SEQUENCE"})
 
 (def SET
   "SET"
   {:db/ident         :qudt.type/SET,
-   :rdf/type         :qudt.dataype/Set,
+   :rdf/type         :qudt.datatype/Set,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "SET"})
 
@@ -1944,7 +1944,7 @@
   {:db/ident         :qudt.type/STRUCT,
    :dcterms/description
    "A struct is C's and C++'s notion of a composite type, a datatype that composes a fixed set of labeled fields or members. It is so called because of the struct keyword used in declaring them, which is short for structure or, more precisely, user-defined data structure. A struct declaration consists of a list of fields, each of which can have any type. The total storage required for a struct object is the sum of the storage requirements of all the fields, plus any internal padding. [Wikipedia]",
-   :rdf/type         :qudt.dataype/CompositeDatatype,
+   :rdf/type         :qudt.datatype/CompositeDatatype,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "STRUCT"})
 
@@ -1964,7 +1964,7 @@
   {:db/ident         :qudt.type/Seidelmann2000,
    :dcterms/description
    "“Report of the IAU/IAG Working Group on Cartographic Coordinates and Rotational Elements of the Planets and Satellites: 2000”, P.K. Seidelmann, V. K. Abalakin, M. Bursa, M. E. Davies, C. DeBergh, J. H. Lieske, J. Oberst, J. L. Simon, E. M. Standish, P. Stooke, and P. C. Thomas, Celestial Mechanics and Dynamical Astronomy 82: 83-110, 2002 (http://springerlink.metapress.com, follow the links from “Browse by Online Libraries (subject areas)”, then “Physics and Astronomy”, then “Celestial Mechanics and Dynamical Astronomy”, then “Volume 82 - Number 1/January 2002”, then follow the links to download the paper.",
-   :rdf/type         :qudt.dataype/Citation,
+   :rdf/type         :qudt.datatype/Citation,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Seidelmann2000",
    :skos/prefLabel   "Seidelmann2000"})
@@ -1973,7 +1973,7 @@
   "Short Signed Integer Encoding"
   {:db/ident         :qudt.type/ShortSignedIntegerEncoding,
    :qudt/bytes       2,
-   :rdf/type         :qudt.dataype/IntegerEncodingType,
+   :rdf/type         :qudt.datatype/IntegerEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Short Signed Integer Encoding"})
 
@@ -1989,7 +1989,7 @@
   "Signed"
   {:db/ident         :qudt.type/Signed,
    :qudt/literal     "signed",
-   :rdf/type         :qudt.dataype/SignednessType,
+   :rdf/type         :qudt.datatype/SignednessType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Signed"})
 
@@ -1997,7 +1997,7 @@
   "Signed Integer Encoding"
   {:db/ident         :qudt.type/SignedIntegerEncoding,
    :qudt/bytes       4,
-   :rdf/type         :qudt.dataype/IntegerEncodingType,
+   :rdf/type         :qudt.datatype/IntegerEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Signed Integer Encoding"})
 
@@ -2005,14 +2005,14 @@
   "Single Precision Real Encoding"
   {:db/ident         :qudt.type/SinglePrecisionRealEncoding,
    :qudt/bytes       32,
-   :rdf/type         :qudt.dataype/FloatingPointEncodingType,
+   :rdf/type         :qudt.datatype/FloatingPointEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Single Precision Real Encoding"})
 
 (def Stack
   "Stack"
   {:db/ident         :qudt.type/Stack,
-   :rdf/type         :qudt.dataype/OrderedCollection,
+   :rdf/type         :qudt.datatype/OrderedCollection,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Stack"})
 
@@ -2085,7 +2085,7 @@
 (def TABLE
   "TABLE"
   {:db/ident         :qudt.type/TABLE,
-   :rdf/type         :qudt.dataype/Table,
+   :rdf/type         :qudt.datatype/Table,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "TABLE"})
 
@@ -2166,14 +2166,14 @@
 (def TREE
   "TREE"
   {:db/ident         :qudt.type/TREE,
-   :rdf/type         :qudt.dataype/Tree,
+   :rdf/type         :qudt.datatype/Tree,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "TREE"})
 
 (def TYPE-MATRIX-4by4-FLOATDP
   "TYPE-MATRIX-4by4-FLOATDP"
   {:db/ident         :qudt.type/TYPE-MATRIX-4by4-FLOATDP,
-   :rdf/type         :qudt.dataype/TypeList,
+   :rdf/type         :qudt.datatype/TypeList,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "TYPE-MATRIX-4by4-FLOATDP"})
 
@@ -2340,7 +2340,7 @@
 (def UTF16StringEncoding
   "UTF-16 String"
   {:db/ident         :qudt.type/UTF16StringEncoding,
-   :rdf/type         :qudt.dataype/StringEncodingType,
+   :rdf/type         :qudt.datatype/StringEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "UTF-16 String"})
 
@@ -2374,7 +2374,7 @@
   "UTF-8 Encoding"
   {:db/ident         :qudt.type/UTF8StringEncoding,
    :qudt/bytes       8,
-   :rdf/type         :qudt.dataype/StringEncodingType,
+   :rdf/type         :qudt.datatype/StringEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "UTF-8 Encoding"})
 
@@ -2382,7 +2382,7 @@
   "Unsigned"
   {:db/ident         :qudt.type/Unsigned,
    :qudt/literal     "unsigned",
-   :rdf/type         :qudt.dataype/SignednessType,
+   :rdf/type         :qudt.datatype/SignednessType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Unsigned"})
 
@@ -2390,7 +2390,7 @@
   "Unsigned Integer Encoding"
   {:db/ident         :qudt.type/UnsignedIntegerEncoding,
    :qudt/bytes       4,
-   :rdf/type         :qudt.dataype/IntegerEncodingType,
+   :rdf/type         :qudt.datatype/IntegerEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Unsigned Integer Encoding"})
 
@@ -2434,7 +2434,7 @@
    :dcterms/description
    "Alignment of a field at a word boundary, that is 2 bytes.",
    :qudt/literal     "word",
-   :rdf/type         :qudt.dataype/AlignmentType,
+   :rdf/type         :qudt.datatype/AlignmentType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label       "Word aligned"})
 
