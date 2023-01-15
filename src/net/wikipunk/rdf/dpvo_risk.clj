@@ -5446,7 +5446,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Risk Assessment Technique"},
-   :rdfs/subClassOf :dpvo/RiskManagementProcedure,
+   :rdfs/subClassOf :dpvo/RiskManagementProcess,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -5483,7 +5483,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Risk Management Methodology"},
-   :rdfs/subClassOf :dpvo/RiskManagementProcedure,
+   :rdfs/subClassOf :dpvo/RiskManagementProcess,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 

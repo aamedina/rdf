@@ -591,7 +591,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 49(1-f) protect vital interests"},
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis
-                     :dpvo/VitalInterestOfNatualPerson],
+                     :dpvo/VitalInterestOfNaturalPerson],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
 
@@ -687,7 +687,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art 6(1-a) explicit consent"},
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1a :dpvo/ExplicitlyExpressedConsent],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-a :dpvo/ExplicitlyExpressedConsent],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -712,7 +712,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Art.6(1-a) regular consent"},
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1a :dpvo/ExpressedConsent],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-a :dpvo/ExpressedConsent],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
@@ -837,9 +837,9 @@
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "changed"}})
 
-(def A6-1-d-natual-person
+(def A6-1-d-natural-person
   "Legal basis based on protecting the vital interests of another natural person that is not the data subject"
-  {:db/ident :dpvo-gdpr/A6-1-d-natual-person,
+  {:db/ident :dpvo-gdpr/A6-1-d-natural-person,
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
