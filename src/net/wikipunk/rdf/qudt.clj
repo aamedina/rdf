@@ -28,727 +28,19 @@
    :vaem/hasGraphMetadata :vaem/GMD_QUDT-SCHEMA}
   (:refer-clojure :exclude [bytes symbol type vector]))
 
-(def BOOLEAN
-  "In computer science, the Boolean or logical data type is a data type, having two values (usually denoted true and false), intended to represent the truth values of logic and Boolean algebra. The Boolean data type is the primary result of conditional statements, which allow different actions and change control flow depending on whether a programmer-specified boolean condition evaluates to true or false."
-  {:db/ident :qudt/BOOLEAN,
+(def AbstractDatatype
+  "An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument. <p class=\"lm-para\">An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument.</p>"
+  {:db/ident :qudt/AbstractDatatype,
    :dcterms/description
-   "In computer science, the Boolean or logical data type is a data type, having two values (usually denoted true and false), intended to represent the truth values of logic and Boolean algebra. The Boolean data type is the primary result of conditional statements, which allow different actions and change control flow depending on whether a programmer-specified boolean condition evaluates to true or false.",
-   :dtype/literal "boolean",
+   ["An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument."
+    "<p class=\"lm-para\">An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument.</p>"],
    :prov/wasInfluencedBy
-   ["http://msdn.microsoft.com/en-us/library/aa275635(v=sql.80).aspx"
-    "http://en.wikipedia.org/wiki/Boolean%5Fdata%5Ftype"],
-   :qudt/ansiSQLName "BOOLEAN",
-   :qudt/encoding :qudt/BooleanEncoding,
-   :qudt/javaName "boolean",
-   :qudt/jsName "Boolean()",
-   :qudt/microsoftSQLServerName "bit",
-   :qudt/mySQLName ["BOOLEAN" "TINYINT(1)" "BOOL"],
-   :qudt/odbcName "SQL_BIT",
-   :qudt/oleDBName "DBTYPE_BOOL",
-   :qudt/oracleSQLName "RAW(1)",
-   :qudt/protocolBuffersName "bool",
-   :qudt/pythonName "bool",
-   :qudt/rdfsDatatype :xsd/boolean,
-   :rdf/type :qudt/BooleanType,
-   :rdfs/label "BOOLEAN"})
-
-(def BYTE
-  "The byte data type is an 8-bit signed two's complement integer. It has a minimum value of -128 and a maximum value of 127 (inclusive). The byte data type can be useful for saving memory in large arrays, where the memory savings actually matters. They can also be used in place of int where their limits help to clarify your code; the fact that a variable's range is limited can serve as a form of documentation."
-  {:db/ident :qudt/BYTE,
-   :dcterms/description
-   "The byte data type is an 8-bit signed two's complement integer. It has a minimum value of -128 and a maximum value of 127 (inclusive). The byte data type can be useful for saving memory in large arrays, where the memory savings actually matters. They can also be used in place of int where their limits help to clarify your code; the fact that a variable's range is limited can serve as a form of documentation.",
-   :dtype/literal "byte",
-   :prov/wasInfluencedBy
-   "http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html",
-   :qudt/abbreviation "SI8",
-   :qudt/cName "Byte",
-   :qudt/encoding :qudt/OctetEncoding,
-   :qudt/maxInclusive 127,
-   :qudt/minInclusive -128,
-   :qudt/octets 1,
-   :qudt/rdfsDatatype :xsd/byte,
-   :qudt/signedness :qudt/SIGNED,
-   :rdf/type :qudt/SignedShortIntegerType,
-   :rdfs/label "Byte"})
-
-(def CCT_EarthCentered
-  "Earth-centered Coordinate System Type"
-  {:db/ident   :qudt/CCT_EarthCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
-   :rdfs/label "Earth-centered Coordinate System Type"})
-
-(def CCT_MarsCentered
-  "Mars-centered Coordinate System Type"
-  {:db/ident   :qudt/CCT_MarsCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
-   :rdfs/label "Mars-centered Coordinate System Type"})
-
-(def CCT_MoonCentered
-  "Moon-centered Coordinate System Type"
-  {:db/ident   :qudt/CCT_MoonCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
-   :rdfs/label "Moon-centered Coordinate System Type"})
-
-(def CCT_SunCentered
-  "Sun-centered Coordinate System Type"
-  {:db/ident   :qudt/CCT_SunCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
-   :rdfs/label "Sun-centered Coordinate System Type"})
-
-(def CCT_VehicleCentered
-  "Vehicle-centered Coordinate System Type"
-  {:db/ident   :qudt/CCT_VehicleCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
-   :rdfs/label "Vehicle-centered Coordinate System Type"})
-
-(def CFN_ConcatenateMatrixRows
-  "Concatenate matrix rows"
-  {:db/ident   :qudt/CFN_ConcatenateMatrixRows,
-   :rdf/type   :qudt/CompositionFunction,
-   :rdfs/label "Concatenate matrix rows"})
-
-(def COLOR_AMBER
-  "Amber Color"
-  {:db/ident     :qudt/COLOR_AMBER,
-   :qudt/literal "amber",
-   :qudt/rgbCode "#FFBF00",
-   :rdf/type     :qudt/ColorCue,
-   :rdfs/label   "Amber Color"})
-
-(def COLOR_GREEN
-  "Green color"
-  {:db/ident     :qudt/COLOR_GREEN,
-   :qudt/literal "green",
-   :qudt/rgbCode "#008000",
-   :rdf/type     :qudt/ColorCue,
-   :rdfs/label   "Green color"})
-
-(def COLOR_ORANGE
-  "Orange color"
-  {:db/ident     :qudt/COLOR_ORANGE,
-   :qudt/literal "orange",
-   :qudt/rgbCode "#FFA500",
-   :rdf/type     :qudt/ColorCue,
-   :rdfs/label   "Orange color"})
-
-(def COLOR_RED
-  "Red color"
-  {:db/ident     :qudt/COLOR_RED,
-   :qudt/literal "red",
-   :qudt/rgbCode "#FF0000",
-   :rdf/type     :qudt/ColorCue,
-   :rdfs/label   "Red color"})
-
-(def COLOR_YELLOW
-  "Yellow color"
-  {:db/ident     :qudt/COLOR_YELLOW,
-   :qudt/literal "yellow",
-   :qudt/rgbCode "#FFFF00",
-   :rdf/type     :qudt/ColorCue,
-   :rdfs/label   "Yellow color"})
-
-(def CT_COUNTABLY-INFINITE
-  "A set of numbers is called countably infinite if there is a way to enumerate them. Formally this is done with a bijection function that associates each number in the set with exactly one of the positive integers. The set of all fractions is also countably infinite. In other words, any set \\(X\\) that has the same cardinality as the set of the natural numbers, or \\(| X | \\; = \\; | \\mathbb N | \\; = \\; \\aleph0\\), is said to be a countably infinite set."
-  {:db/ident :qudt/CT_COUNTABLY-INFINITE,
-   :dcterms/description
-   "A set of numbers is called countably infinite if there is a way to enumerate them.  Formally this is done with a bijection function that associates each number in the set with exactly one of the positive integers.  The set of all fractions is also countably infinite.  In other words, any set \\(X\\) that has the same cardinality as the set of the natural numbers, or \\(| X | \\; =  \\; | \\mathbb N | \\; = \\; \\aleph0\\), is said to be a countably infinite set.",
-   :qudt/informativeReference
-   "http://www.math.vanderbilt.edu/~schectex/courses/infinity.pdf",
-   :qudt/literal "countable",
-   :rdf/type :qudt/CardinalityType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Countably Infinite Cardinality Type"})
-
-(def CT_FINITE
-  "Any set \\(X\\) with cardinality less than that of the natural numbers, or \\(| X | \\\\; < \\; | \\\\mathbb N | \\), is said to be a finite set."
-  {:db/ident :qudt/CT_FINITE,
-   :dcterms/description
-   "Any set \\(X\\) with cardinality less than that of the natural numbers, or \\(| X | \\\\; <  \\; | \\\\mathbb N | \\), is said to be a finite set.",
-   :qudt/literal "finite",
-   :rdf/type :qudt/CardinalityType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Finite Cardinality Type"})
-
-(def CT_UNCOUNTABLE
-  "Any set with cardinality greater than that of the natural numbers, or \\(| X | \\; > \\; | \\mathbb N | \\), for example \\(| R| \\; = \\; c \\; > |\\mathbb N |\\), is said to be uncountable."
-  {:db/ident :qudt/CT_UNCOUNTABLE,
-   :dcterms/description
-   "Any set with cardinality greater than that of the natural numbers, or \\(| X | \\; >  \\; | \\mathbb N | \\),  for example \\(| R| \\; =  \\;  c  \\; > |\\mathbb N |\\), is said to be uncountable.",
-   :qudt/literal "uncountable",
-   :rdf/type :qudt/CardinalityType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Uncountable Cardinality Type"})
-
-(def DATE
-  "Provides the date expressed in year, month and day."
-  {:db/ident          :qudt/DATE,
-   :dcterms/description "Provides the date expressed in year, month and day.",
-   :dtype/literal     "date",
-   :qudt/dimensionality 1,
-   :qudt/encodingDescription
-   "YYYY:MM:DD, where YYYY is a 4 digit year, MM is a 2 digit month and DD is a 2 digit day.",
-   :qudt/rdfsDatatype :xsd/date,
-   :rdf/type          :qudt/DateStringType,
-   :rdfs/label        "Date"})
-
-(def DATETIME
-  "A time stamp encoded as a string 'YYYY-MM-DDThh:mm:ss[.dd]' or 'YYYY-DDDThh:mm:ss[.dd]', where 'YYYY' is the year, 'MM' is the two-digit month, 'DD' is the two-digit day, 'DDD' is the three digit day of year, 'T' is constant, 'hh:mm:ss[.dd]' is the UTC time in hours, minutes, seconds, and optional fractional seconds. As many 'd' characters to the right of the period as required may be used to obtain the required precision. All fields require leading zeros."
-  {:db/ident :qudt/DATETIME,
-   :dcterms/description
-   "A time stamp encoded as a string 'YYYY-MM-DDThh:mm:ss[.dd]' or 'YYYY-DDDThh:mm:ss[.dd]', where 'YYYY' is the year, 'MM' is the two-digit month, 'DD' is the two-digit day, 'DDD' is the three digit day of year, 'T' is constant, 'hh:mm:ss[.dd]' is the UTC time in hours, minutes, seconds, and optional fractional seconds. As many 'd' characters to the right of the period as required may be used to obtain the required precision. All fields require leading zeros.",
-   :dtype/literal "datetime",
-   :owl/sameAs :qudt/UTC-DATETIME,
-   :qudt/dimensionality 1,
-   :qudt/rdfsDatatype :xsd/dateTime,
-   :rdf/type :qudt/DateStringType,
-   :rdfs/label "Date Time"})
-
-(def DECIMAL
-  "Decimal"
-  {:db/ident           :qudt/DECIMAL,
-   :dtype/literal      "numeric",
-   :qudt/ansiSQLName   "DECIMAL(p,s)",
-   :qudt/odbcName      "SQL_DECIMAL(p,s)",
-   :qudt/oracleSQLName "NUMBER(p,s)",
-   :qudt/rdfsDatatype  :xsd/decimal,
-   :rdf/type           :qudt/NumericType,
-   :rdfs/label         "Decimal"})
-
-(def FALSE
-  "False"
-  {:db/ident         :qudt/FALSE,
-   :dtype/literal    "false",
-   :rdf/type         :qudt/BooleanTypeEnumeratedValue,
+   ["http://xlinux.nist.gov/dads/HTML/abstractDataType.html"
+    "http://en.wikipedia.org/wiki/Abstract_data_type"],
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "False"})
-
-(def FLAG
-  "FLAG"
-  {:db/ident          :qudt/FLAG,
-   :dtype/literal     "flag",
-   :qudt/rdfsDatatype :xsd/boolean,
-   :rdf/type          :qudt/BooleanType,
-   :rdfs/label        "FLAG"})
-
-(def FT_INERTIAL
-  "Inertial Frame Type"
-  {:db/ident   :qudt/FT_INERTIAL,
-   :rdf/type   :qudt/FrameType,
-   :rdfs/label "Inertial Frame Type"})
-
-(def FT_NON-ROTATING
-  "Non-rotating Frame Type"
-  {:db/ident   :qudt/FT_NON-ROTATING,
-   :rdf/type   :qudt/FrameType,
-   :rdfs/label "Non-rotating Frame Type"})
-
-(def FT_ROTATING
-  "Rotating Frame Type"
-  {:db/ident   :qudt/FT_ROTATING,
-   :rdf/type   :qudt/FrameType,
-   :rdfs/label "Rotating Frame Type"})
-
-(def HEAP
-  "HEAP"
-  {:db/ident   :qudt/HEAP,
-   :rdf/type   :qudt/HeapType,
-   :rdfs/label "HEAP"})
-
-(def HEXBINARY
-  "HEXBINARY"
-  {:db/ident            :qudt/HEXBINARY,
-   :dtype/literal       "hexbinary",
-   :qudt/dimensionality 1,
-   :qudt/rdfsDatatype   :qudt/hexbinary,
-   :rdf/type            :qudt/HexBinaryType,
-   :rdfs/label          "HEXBINARY"})
-
-(def IEEE754_1985RealEncoding
-  "IEEE 754 1985 Real Encoding"
-  {:db/ident   :qudt/IEEE754_1985RealEncoding,
-   :qudt/bytes 32,
-   :rdf/type   :qudt/FloatingPointEncodingType,
-   :rdfs/label "IEEE 754 1985 Real Encoding"})
-
-(def IERS-TN-32-2004
-  "IERS Conventions (2003), D. D. McCarthy and Gérard Petit (eds.), IERS Technical Note No. 32, 2004; http://www.iers.org/iers/publications/tn/tn32."
-  {:db/ident :qudt/IERS-TN-32-2004,
-   :dcterms/description
-   "IERS Conventions (2003), D. D. McCarthy and Gérard Petit (eds.), IERS Technical Note No. 32, 2004; http://www.iers.org/iers/publications/tn/tn32.",
-   :qudt/url "http://www.iers.org/iers/publications/tn/tn32.",
-   :rdf/type :qudt/Citation,
-   :rdfs/label "IERS-TN-32-2004",
-   :skos/prefLabel "IERS-TN-32-2004"})
-
-(def LIST
-  "LIST"
-  {:db/ident   :qudt/LIST,
-   :rdf/type   :qudt/List,
-   :rdfs/label "LIST"})
-
-(def MASS-PROPERTIES-ARRAY
-  "MASS PROPERTIES ARRAY"
-  {:db/ident   :qudt/MASS-PROPERTIES-ARRAY,
-   :rdf/type   :qudt/MassPropertiesArrayType,
-   :rdfs/label "MASS PROPERTIES ARRAY"})
-
-(def MATRIX
-  "MATRIX"
-  {:db/ident   :qudt/MATRIX,
-   :rdf/type   :qudt/MatrixType,
-   :rdfs/label "MATRIX"})
-
-(def MATRIX-TYPE_2x4
-  "Matrix type 2x4"
-  {:db/ident            :qudt/MATRIX-TYPE_2x4,
-   :qudt/byRow          true,
-   :qudt/columns        4,
-   :qudt/dimensionVector :qudt/DV_2x4,
-   :qudt/dimensionality 2,
-   :qudt/rows           [4 2],
-   :rdf/type            :qudt/MatrixType,
-   :rdfs/label          "Matrix type  2x4"})
-
-(def MULTi-DIMENSIONAL-ARRAY
-  "MULTI-DIMENSIONAL ARRAY"
-  {:db/ident   :qudt/MULTi-DIMENSIONAL-ARRAY,
-   :rdf/type   :qudt/MultiDimensionalArrayType,
-   :rdfs/label "MULTI-DIMENSIONAL ARRAY"})
-
-(def NIST_SP811_Comment
-  "National Institute of Standards and Technology (NIST) Special Publication 811 Comments on some quantities and their units"
-  {:db/ident :qudt/NIST_SP811_Comment,
-   :dcterms/description
-   "National Institute of Standards and Technology (NIST) Special Publication 811 Comments on some quantities and their units",
-   :rdf/type [:owl/Class :owl/NamedIndividual],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "NIST SP~811 Comment",
-   :rdfs/subClassOf :qudt/Comment})
-
-(def NUMERIC
-  "Numeric"
-  {:db/ident           :qudt/NUMERIC,
-   :dtype/literal      "numeric",
-   :qudt/ansiSQLName   "DECIMAL(p,s)",
-   :qudt/odbcName      "SQL_DECIMAL(p,s)",
-   :qudt/oracleSQLName "NUMBER(p,s)",
-   :rdf/type           :qudt/NumericType,
-   :rdfs/label         "Numeric"})
-
-(def No
-  "No"
-  {:db/ident     :qudt/No,
-   :qudt/literal "N",
-   :rdf/type     :qudt/YesNoType,
-   :rdfs/label   "No"})
-
-(def OOST_OFF
-  "Off"
-  {:db/ident         :qudt/OOST_OFF,
-   :qudt/code        "0",
-   :qudt/literal     "off",
-   :rdf/type         :qudt/OnOffStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Off"})
-
-(def OOST_ON
-  "On"
-  {:db/ident         :qudt/OOST_ON,
-   :qudt/code        "0",
-   :qudt/literal     "on",
-   :rdf/type         :qudt/OnOffStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "On"})
-
-(def OOST_ZERO-MEANS-OFF
-  "Zero means off"
-  {:db/ident         :qudt/OOST_ZERO-MEANS-OFF,
-   :dtype/literal    "zero-means-off",
-   :qudt/inverted    true,
-   :rdf/type         :qudt/OnOffStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Zero means off"})
-
-(def OOST_ZERO-MEANS-ON
-  "Zero means on"
-  {:db/ident         :qudt/OOST_ZERO-MEANS-ON,
-   :dtype/literal    "zero-means-on",
-   :qudt/inverted    true,
-   :rdf/type         :qudt/OnOffStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Zero means on"})
-
-(def On
-  "On"
-  {:db/ident         :qudt/On,
-   :qudt/code        "1",
-   :qudt/literal     "on",
-   :rdf/type         :qudt/OnOffStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "On"})
-
-(def OneMeansOff
-  "One means off"
-  {:db/ident         :qudt/OneMeansOff,
-   :qudt/inverted    true,
-   :qudt/literal     "off",
-   :rdf/type         :qudt/OnOffStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "One means off"})
-
-(def Open
-  "Open"
-  {:db/ident     :qudt/Open,
-   :qudt/code    "1",
-   :qudt/literal "open",
-   :rdf/type     :qudt/OpenCloseStateType,
-   :rdfs/label   "Open"})
-
-(def PARTIAL-ARRAY
-  "PARTIAL ARRAY"
-  {:db/ident   :qudt/PARTIAL-ARRAY,
-   :rdf/type   :qudt/ArrayType,
-   :rdfs/label "PARTIAL ARRAY"})
-
-(def RELATIVE-DATETIME
-  "Days and time relative to some Epoch"
-  {:db/ident      :qudt/RELATIVE-DATETIME,
-   :dcterms/description "Days and time relative to some Epoch",
-   :dtype/literal "reldate",
-   :qudt/dimensionality 1,
-   :qudt/encodingDescription "TBD",
-   :rdf/type      :qudt/DateStringType,
-   :rdfs/label    "Relative Date And Time"})
-
-(def RN_BINARY-BASE
-  "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 2, and then the values of m and e are determined given this choice of base."
-  {:db/ident :qudt/RN_BINARY-BASE,
-   :rdf/type :qudt/RealNumberType,
-   :rdfs/comment
-   "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 2, and then the values of m and e are determined given this choice of base.",
-   :rdfs/label "Real number binary base"})
-
-(def RN_DECIMAL-BASE
-  "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 10, and then the values of m and e are determined given this choice of base."
-  {:db/ident :qudt/RN_DECIMAL-BASE,
-   :rdf/type :qudt/RealNumberType,
-   :rdfs/comment
-   "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 10, and then the values of m and e are determined given this choice of base.",
-   :rdfs/label "Real number decminal base"})
-
-(def SIGNED
-  "Signed"
-  {:db/ident         :qudt/SIGNED,
-   :dtype/literal    "signed",
-   :rdf/type         :qudt/SignednessType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Signed"})
-
-(def STATE-SPACE-MATRIX
-  "STATE SPACE MATRIX"
-  {:db/ident   :qudt/STATE-SPACE-MATRIX,
-   :rdf/type   :qudt/StateSpaceMatrixType,
-   :rdfs/label "STATE SPACE MATRIX"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident      :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1,
-   :qudt/index    1,
-   :qudt/next     :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2,
-   :qudt/order    1,
-   :qudt/previous :rdf/nil,
-   :qudt/type     :qudt/FLOAT-DP,
-   :rdf/type      :qudt/IndexedCollectionMember,
-   :rdfs/label    "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2,
-   :qudt/next  :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3,
-   :qudt/order 2,
-   :qudt/type  :qudt/FLOAT-DP,
-   :rdf/type   :qudt/IndexedCollectionMember,
-   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3,
-   :qudt/next  :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4,
-   :qudt/order 3,
-   :qudt/type  :qudt/FLOAT-DP,
-   :rdf/type   :qudt/IndexedCollectionMember,
-   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4
-  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
-  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4,
-   :qudt/next  :rdf/nil,
-   :qudt/order 4,
-   :qudt/type  :qudt/FLOAT-DP,
-   :rdf/type   :qudt/IndexedCollectionMember,
-   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
-
-(def STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES
-  "STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES"
-  {:db/ident :qudt/STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES,
-   :qudt/element
-   [:qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4
-    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3
-    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2
-    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1],
-   :rdf/type :qudt/IndexedList,
-   :rdfs/label "STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES"})
-
-(def STATE-VECTOR_MASS-PROPERTIES
-  "STATE-VECTOR-MASS-PROPERTIES"
-  {:db/ident         :qudt/STATE-VECTOR_MASS-PROPERTIES,
-   :qudt/objectValue :qudt/STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES,
-   :qudt/type        :qudt/StateSpaceVectorType,
-   :rdf/type         :qudt/StateSpaceVectorType,
-   :rdfs/label       "STATE-VECTOR-MASS-PROPERTIES"})
-
-(def TABLE-COMPOSITION-EXAMPLE-SUBTREE_1
-  "TABLE-COMPOSITION-EXAMPLE-SUBTREE_1"
-  {:db/ident   :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_1,
-   :qudt/node  :qudt/TIME-SERIES-TABLE-A-2x4,
-   :rdf/type   :qudt/Tree,
-   :rdfs/label "TABLE-COMPOSITION-EXAMPLE-SUBTREE_1"})
-
-(def TABLE-COMPOSITION-EXAMPLE-SUBTREE_2
-  "TABLE-COMPOSITION-EXAMPLE-SUBTREE_2"
-  {:db/ident   :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_2,
-   :qudt/node  :qudt/TIME-SERIES-TABLE-B-2x4,
-   :rdf/type   :qudt/Tree,
-   :rdfs/label "TABLE-COMPOSITION-EXAMPLE-SUBTREE_2"})
-
-(def TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1
-  "TABLE-COMPOSITION-SUBTREE-1"
-  {:db/ident   :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1,
-   :qudt/order 1,
-   :qudt/value :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_1,
-   :rdf/type   :qudt/TreeListMember,
-   :rdfs/label "TABLE-COMPOSITION-SUBTREE-1"})
-
-(def TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2
-  "TABLE-COMPOSITION-SUBTREE_2"
-  {:db/ident   :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2,
-   :qudt/order 2,
-   :qudt/value :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_2,
-   :rdf/type   :qudt/IndexedCollectionMember,
-   :rdfs/label "TABLE-COMPOSITION-SUBTREE_2"})
-
-(def TABLE-COMPOSTION-SUBTREE-LIST-EXAMPLE_1
-  "TABLE-COMPOSTION-SUBTREES-EXAMPLE_1"
-  {:db/ident     :qudt/TABLE-COMPOSTION-SUBTREE-LIST-EXAMPLE_1,
-   :qudt/element [:qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2
-                  :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1],
-   :rdf/type     :qudt/TreeListMember,
-   :rdfs/label   "TABLE-COMPOSTION-SUBTREES-EXAMPLE_1"})
-
-(def TABLE-TYPE_2x4
-  "Table type 2x4"
-  {:db/ident            :qudt/TABLE-TYPE_2x4,
-   :qudt/byRow          true,
-   :qudt/columns        4,
-   :qudt/dimensionVector :qudt/DV_2x4,
-   :qudt/dimensionality 2,
-   :qudt/rows           2,
-   :rdf/type            :qudt/TableType,
-   :rdfs/label          "Table type  2x4"})
-
-(def TIME
-  "Time in hh:mm:ss[Z|(+|-)hh:mm]format."
-  {:db/ident          :qudt/TIME,
-   :dcterms/description "Time in hh:mm:ss[Z|(+|-)hh:mm]format.",
-   :dtype/literal     "time",
-   :qudt/dimensionality 1,
-   :qudt/rdfsDatatype :xsd/time,
-   :rdf/type          :qudt/TimeStringType,
-   :rdfs/label        "TIME"})
-
-(def TRUE
-  "True"
-  {:db/ident         :qudt/TRUE,
-   :dtype/literal    "true",
-   :rdf/type         :qudt/BooleanTypeEnumeratedValue,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "True"})
-
-(def UCUMci
-  "Lexical pattern for the case-insensitive version of UCUM code"
-  {:db/ident :qudt/UCUMci,
-   :owl/deprecated true,
-   :owl/onDatatype :xsd/string,
-   :owl/withRestrictions [{:xsd/pattern "[\\x21-\\x60,\\x7b-\\x7e]+"}],
-   :rdf/type :rdfs/Datatype,
-   :rdfs/comment
-   "Lexical pattern for the case-insensitive version of UCUM code",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "case-insensitive UCUM code",
-   :rdfs/subClassOf :rdfs/Resource})
-
-(def UCUMci-term
-  "Lexical pattern for the terminal symbols in the case-insensitive version of UCUM code"
-  {:db/ident :qudt/UCUMci-term,
-   :owl/deprecated true,
-   :owl/onDatatype :xsd/string,
-   :owl/withRestrictions
-   [{:xsd/pattern
-     "[\\x21,\\x23-\\x27,\\x2a,\\x2c,\\x30-\\x3c,\\x3e-\\x5a,\\x5c,\\x5e-\\x60,\\x7c,\\x7e]+"}],
-   :rdf/type :rdfs/Datatype,
-   :rdfs/comment
-   "Lexical pattern for the terminal symbols in the case-insensitive version of UCUM code",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "case-insensitive UCUM term",
-   :rdfs/subClassOf :rdfs/Resource})
-
-(def UCUMcs
-  "Lexical pattern for the case-sensitive version of UCUM code"
-  {:db/ident :qudt/UCUMcs,
-   :dcterms/source "https://ucum.org/ucum.html",
-   :owl/onDatatype :xsd/string,
-   :owl/withRestrictions [{:xsd/pattern "[\\x21-\\x7e]+"}],
-   :rdf/type :rdfs/Datatype,
-   :rdfs/comment "Lexical pattern for the case-sensitive version of UCUM code",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "case-sensitive UCUM code",
-   :rdfs/seeAlso "https://ucum.org/ucum.html",
-   :rdfs/subClassOf :rdfs/Resource})
-
-(def UNARY-FUNCTION
-  "This type identifies functions that have exactly one argument."
-  {:db/ident           :qudt/UNARY-FUNCTION,
-   :dcterms/description
-   "This type identifies functions that have exactly one argument.",
-   :qudt/functionArity 1,
-   :rdf/type           :qudt/FunctionDatatype,
-   :rdfs/label         "UNARY-FUNCTION"})
-
-(def UTC-DATETIME
-  "UTC is the time-scale maintained by the BIPM, with assistance from the IERS, which forms the basis of a coordinated dissemination of standard frequencies and time signals. It corresponds exactly in rate with the international reference scale of atomic time (TAI) but differs from it by an integer number of seconds. TAI, based on the second (SI), as realized on the rotating geoid, is formed by the BIPM on the basis of clock data supplied by cooperating establishments. It is in the form of a continuous scale, e.g. in days, hours, minutes and seconds from the origin 1 January, 1958 (adopted by the CGPM 1971)."
-  {:db/ident :qudt/UTC-DATETIME,
-   :dcterms/description
-   "UTC is the time-scale maintained by the BIPM, with assistance from the IERS, which forms the basis of a coordinated dissemination of standard frequencies and time signals. It corresponds exactly in rate with  the international reference scale of atomic time (TAI) but differs from it by an integer number of seconds.  TAI, based on the second (SI), as realized on the rotating geoid, is formed by the BIPM on the basis of clock data supplied by cooperating establishments. It is in the form of a continuous scale, e.g. in days, hours, minutes and seconds from the origin 1 January, 1958 (adopted by the CGPM 1971). ",
-   :dtype/literal "utc-date",
-   :owl/sameAs :qudt/DATETIME,
-   :qudt/dimensionality 1,
-   :qudt/encodingDescription
-   "YYYY-MM-DDThh:mm:ss[.dd] or YYYY-DDDThh:mm:ss[.dd], where 'YYYY' is the year, 'MM' is the two-digit month, 'DD' is the two-digit day, 'DDD' is the three digit day of year, 'T' is constant, 'hh:mm:ss[.dd]' is the UTC time in hours, minutes, seconds, and optional fractional seconds. As many 'd' characters to the right of the period as required may be used to obtain the required precision. All fields require leading zeros.",
-   :qudt/rdfsDatatype :xsd/dateTime,
-   :rdf/type :qudt/DateStringType,
-   :rdfs/label "UTC Date Time"})
-
-(def UTC-DAYTIME
-  "UTC DAY TIME"
-  {:db/ident            :qudt/UTC-DAYTIME,
-   :dtype/literal       "utc-dayTime",
-   :qudt/dimensionality 1,
-   :qudt/encodingDescription
-   "YYYY-DDDThh:mm:ss.ddZ, where each character is an ASCII character using one octet with the following meanings: YYYY = Year in four-character subfield with values 0001-9999, DDD = Day of year in three-character subfield with values 001-365 or -366, T =  Calendar-Time separator, hh = Hour in two-character subfield with values 00-23,  mm = Minute in two-character subfield with values 00-59, ss = Second in two-character subfield with values 00-59 (-58 or -60 during leap seconds), dd = Decimal fraction of second in one- to n-character subfield, each d has values 0-9, and Z = time code terminator (optional)",
-   :qudt/rdfsDatatype   :qudt/UTC-DayTime,
-   :rdf/type            :qudt/DateStringType,
-   :rdfs/label          "UTC DAY TIME"})
-
-(def UTC-DayTime
-  "YYYY-DDDThh:mm:ss.ddZ, where each character is an ASCII character using one octet with the following meanings: YYYY = Year in four-character subfield with values 0001-9999, DDD = Day of year in three-character subfield with values 001-365 or -366, T = Calendar-Time separator, hh = Hour in two-character subfield with values 00-23, mm = Minute in two-character subfield with values 00-59, ss = Second in two-character subfield with values 00-59 (-58 or -60 during leap seconds), dd = Decimal fraction of second in one- to n-character subfield, each d has values 0-9, and Z = time code terminator (optional)"
-  {:db/ident         :qudt/UTC-DayTime,
-   :dcterms/description
-   "YYYY-DDDThh:mm:ss.ddZ, where each character is an ASCII character using one octet with the following meanings: YYYY = Year in four-character subfield with values 0001-9999, DDD = Day of year in three-character subfield with values 001-365 or -366, T =  Calendar-Time separator, hh = Hour in two-character subfield with values 00-23,  mm = Minute in two-character subfield with values 00-59, ss = Second in two-character subfield with values 00-59 (-58 or -60 during leap seconds), dd = Decimal fraction of second in one- to n-character subfield, each d has values 0-9, and Z = time code terminator (optional)",
-   :owl/equivalentClass
-   {:owl/onDatatype :xsd/string,
-    :owl/withRestrictions
-    [{:xsd/length 22}
-     {:xsd/pattern
-      "[0-9]{4}\\\\-[0-9]{3}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\\\.[0-9]{2}Z?"}],
-    :rdf/type       :rdfs/Datatype},
-   :rdf/type         [:owl/DataRange :rdfs/Datatype],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "UTC Day time",
-   :rdfs/subClassOf  :xsd/string})
-
-(def UTF16-STRING
-  "UTF16 String"
-  {:db/ident            :qudt/UTF16-STRING,
-   :dtype/literal       "utf16",
-   :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/UTF16-CHAR,
-   :qudt/encoding       :qudt/UTF16-StringEncoding,
-   :rdf/type            :qudt/StringUTF16,
-   :rdfs/label          "UTF16 String"})
-
-(def UTF16-StringEncoding
-  "UTF-16 String"
-  {:db/ident         :qudt/UTF16-StringEncoding,
-   :rdf/type         :qudt/StringEncodingType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "UTF-16 String"})
-
-(def UTF8-STRING
-  "String consisting of UTF-8 characters"
-  {:db/ident            :qudt/UTF8-STRING,
-   :dcterms/description "String consisting of UTF-8 characters",
-   :dtype/literal       "utf8",
-   :owl/sameAs          :qudt/STRING,
-   :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/UTF8-CHAR,
-   :qudt/encoding       :qudt/UTF8-StringEncoding,
-   :rdf/type            :qudt/StringUTF8,
-   :rdfs/label          "UTF8 String"})
-
-(def UTF8-StringEncoding
-  "UTF-8 Encoding"
-  {:db/ident   :qudt/UTF8-StringEncoding,
-   :qudt/bytes 8,
-   :rdf/type   :qudt/StringEncodingType,
-   :rdfs/label "UTF-8 Encoding"})
-
-(def UCUMcs-term
-  "Lexical pattern for the terminal symbols in the case-sensitive version of UCUM code"
-  {:db/ident :qudt/UCUMcs-term,
-   :dcterms/source "https://ucum.org/ucum.html",
-   :owl/onDatatype :xsd/string,
-   :owl/withRestrictions
-   [{:xsd/pattern
-     "[\\x21,\\x23-\\x27,\\x2a,\\x2c,\\x30-\\x3c,\\x3e-\\x5a,\\x5c,\\x5e-\\x7a,\\x7c,\\x7e]+"}],
-   :rdf/type :rdfs/Datatype,
-   :rdfs/comment
-   "Lexical pattern for the terminal symbols in the case-sensitive version of UCUM code",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "case-sensitive UCUM terminal",
-   :rdfs/seeAlso "https://ucum.org/ucum.html",
-   :rdfs/subClassOf :rdfs/Resource})
-
-(def UNSIGNED
-  "Unsigned"
-  {:db/ident         :qudt/UNSIGNED,
-   :dtype/literal    "unsigned",
-   :rdf/type         :qudt/SignednessType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Unsigned"})
-
-(def YDT
-  "Year Day Time"
-  {:db/ident            :qudt/YDT,
-   :dtype/literal       "YDT",
-   :qudt/dimensionality 1,
-   :qudt/encodingDescription "TBD",
-   :qudt/rdfsDatatype   :xsd/string,
-   :rdf/type            :qudt/DateStringType,
-   :rdfs/label          "Year Day Time"})
-
-(def Yes
-  "Yes"
-  {:db/ident     :qudt/Yes,
-   :qudt/literal "Y",
-   :rdf/type     :qudt/YesNoType,
-   :rdfs/label   "Yes"})
-
-(def Wikipedia
-  "Wikipedia"
-  {:db/ident         :qudt/Wikipedia,
-   :rdf/type         [:qudt/Organization :owl/NamedIndividual],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Wikipedia"})
+   :rdfs/label "Abstract Datatype",
+   :rdfs/subClassOf :qudt/StructuredDatatype})
 
 (def AbstractQuantityKind
   "Quantity Kind (abstract)"
@@ -766,20 +58,6 @@
                        :owl/onProperty    :skos/broader,
                        :rdf/type          :owl/Restriction}
                       :qudt/Concept]})
-
-(def AbstractDatatype
-  "An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument. <p class=\"lm-para\">An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument.</p>"
-  {:db/ident :qudt/AbstractDatatype,
-   :dcterms/description
-   ["An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument."
-    "<p class=\"lm-para\">An \"Abstract Datatype\" (ADT) is a specification of a set of data and the set of operations that can be performed on the data. Such a data type is abstract in the sense that it is independent of various concrete implementations. The definition can be mathematical, or it can be programmed as an interface. A first class ADT supports the creation of multiple instances of the ADT, and the interface normally provides a constructor, which returns an abstract handle to new data, and several operations, which are functions accepting the abstract handle as an argument.</p>"],
-   :prov/wasInfluencedBy
-   ["http://xlinux.nist.gov/dads/HTML/abstractDataType.html"
-    "http://en.wikipedia.org/wiki/Abstract_data_type"],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Abstract Datatype",
-   :rdfs/subClassOf :qudt/StructuredDatatype})
 
 (def AerospaceCoordinateSystem
   "A sub-type of 'Coordinate system'. Detailed desciption to be provided in a future version."
@@ -827,24 +105,6 @@
    :rdfs/subClassOf     :qudt/DimensionlessUnit,
    :skos/exactMatch     "http://dbpedia.org/resource/Category:Units_of_angle"})
 
-(def Aspect
-  "An aspect is an abstract type class that defines properties that can be reused."
-  {:db/ident :qudt/Aspect,
-   :rdf/type :qudt/AspectClass,
-   :rdfs/comment
-   "An aspect is an abstract type class that defines properties that can be reused.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "QUDT Aspect",
-   :rdfs/subClassOf :owl/Thing})
-
-(def AspectClass
-  "Aspect Class"
-  {:db/ident         :qudt/AspectClass,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Aspect Class",
-   :rdfs/subClassOf  :rdfs/Class})
-
 (def Array
   "An array is represented as ordered entries of values arranged according to the dimensions given. The dimensions are given as a list of integers where each integer is the cardinality of each dimension. The number of dimensions is specified in the attribute 'dimensionality'. Optionally a reference can be made to a variable, whose values are the array entries. The data type of the array entries is an optional field, 'elementType', which points to a data type definition. If the data type is given, then it applies to all elements. If it is not given then the elements can be of different types for each position in the array. The property 'type:typeMatrix' must refer to a matrix of types. If a default value is given this can be used to place the appropriate value in a cell when an entry value is not known. If no dimensionality or dimension vector is specified the array is under-specified but still legitimate as a place-holder for a data type."
   {:db/ident :qudt/Array,
@@ -865,10 +125,9 @@
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :qudt/dimensionVector,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom
-                      :qudt/TypeMatrix,
-                      :owl/onProperty :qudt/typeMatrix,
-                      :rdf/type :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/TypeMatrix,
+                      :owl/onProperty    :qudt/typeMatrix,
+                      :rdf/type          :owl/Restriction}
                      :qudt/CompositeDatatype
                      {:owl/allValuesFrom :qudt/DimensionVector,
                       :owl/onProperty    :qudt/dimensionVector,
@@ -905,6 +164,7 @@
                      :qudt/Vector]})
 
 (def ArrayIndex-elementType
+  "ArrayIndex-elementType"
   {:db/ident    :qudt/ArrayIndex-elementType,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/nonNegativeInteger,
@@ -936,6 +196,7 @@
                  :qudt/ArrayType-typeMatrix]})
 
 (def ArrayType-byRow
+  "ArrayType-byRow"
   {:db/ident    :qudt/ArrayType-byRow,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/boolean,
@@ -943,6 +204,7 @@
    :sh/path     :qudt/byRow})
 
 (def ArrayType-dataOrder
+  "ArrayType-dataOrder"
   {:db/ident    :qudt/ArrayType-dataOrder,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/ArrayDataOrderType,
@@ -950,6 +212,7 @@
    :sh/path     :qudt/dataOrder})
 
 (def ArrayType-dimensionVector
+  "ArrayType-dimensionVector"
   {:db/ident    :qudt/ArrayType-dimensionVector,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/DimensionVector,
@@ -957,6 +220,7 @@
    :sh/path     :qudt/dimensionVector})
 
 (def ArrayType-dimensionality
+  "ArrayType-dimensionality"
   {:db/ident    :qudt/ArrayType-dimensionality,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -964,6 +228,7 @@
    :sh/path     :qudt/dimensionality})
 
 (def ArrayType-typeMatrix
+  "ArrayType-typeMatrix"
   {:db/ident    :qudt/ArrayType-typeMatrix,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/typeMatrix,
@@ -976,6 +241,24 @@
    :dtype/literal "article",
    :rdf/type      :qudt/PubEnumeratedType,
    :rdfs/label    "Pub article type"})
+
+(def Aspect
+  "An aspect is an abstract type class that defines properties that can be reused."
+  {:db/ident :qudt/Aspect,
+   :rdf/type :qudt/AspectClass,
+   :rdfs/comment
+   "An aspect is an abstract type class that defines properties that can be reused.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "QUDT Aspect",
+   :rdfs/subClassOf :owl/Thing})
+
+(def AspectClass
+  "Aspect Class"
+  {:db/ident         :qudt/AspectClass,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Aspect Class",
+   :rdfs/subClassOf  :rdfs/Class})
 
 (def AssociativeArray
   "An Associative Array (or Map) is an abstract data type composed of a collection of keys and a collection of values, where each key is associated with one value. The operation of finding the value associated with a key is called a lookup or indexing, and this is the most important operation supported by an associative array. The relationship between a key and its value is sometimes called a mapping or binding."
@@ -1009,6 +292,7 @@
    :sh/property :qudt/AuralCue-sound})
 
 (def AuralCue-sound
+  "AuralCue-sound"
   {:db/ident    :qudt/AuralCue-sound,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/anyURI,
@@ -1017,6 +301,7 @@
    :sh/path     :qudt/sound})
 
 (def AuralCueEnumeration-defaultValue
+  "AuralCueEnumeration-defaultValue"
   {:db/ident :qudt/AuralCueEnumeration-defaultValue,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/AuralCue,
@@ -1038,6 +323,49 @@
    :rdfs/label "Axial Orientation Type",
    :rdfs/subClassOf :qudt/EnumeratedValue})
 
+(def BOOLEAN
+  "In computer science, the Boolean or logical data type is a data type, having two values (usually denoted true and false), intended to represent the truth values of logic and Boolean algebra. The Boolean data type is the primary result of conditional statements, which allow different actions and change control flow depending on whether a programmer-specified boolean condition evaluates to true or false."
+  {:db/ident :qudt/BOOLEAN,
+   :dcterms/description
+   "In computer science, the Boolean or logical data type is a data type, having two values (usually denoted true and false), intended to represent the truth values of logic and Boolean algebra. The Boolean data type is the primary result of conditional statements, which allow different actions and change control flow depending on whether a programmer-specified boolean condition evaluates to true or false.",
+   :dtype/literal "boolean",
+   :prov/wasInfluencedBy
+   ["http://msdn.microsoft.com/en-us/library/aa275635(v=sql.80).aspx"
+    "http://en.wikipedia.org/wiki/Boolean%5Fdata%5Ftype"],
+   :qudt/ansiSQLName "BOOLEAN",
+   :qudt/encoding :qudt/BooleanEncoding,
+   :qudt/javaName "boolean",
+   :qudt/jsName "Boolean()",
+   :qudt/microsoftSQLServerName "bit",
+   :qudt/mySQLName ["BOOLEAN" "TINYINT(1)" "BOOL"],
+   :qudt/odbcName "SQL_BIT",
+   :qudt/oleDBName "DBTYPE_BOOL",
+   :qudt/oracleSQLName "RAW(1)",
+   :qudt/protocolBuffersName "bool",
+   :qudt/pythonName "bool",
+   :qudt/rdfsDatatype :xsd/boolean,
+   :rdf/type [:qudt/BooleanType :owl/NamedIndividual],
+   :rdfs/label "BOOLEAN"})
+
+(def BYTE
+  "The byte data type is an 8-bit signed two's complement integer. It has a minimum value of -128 and a maximum value of 127 (inclusive). The byte data type can be useful for saving memory in large arrays, where the memory savings actually matters. They can also be used in place of int where their limits help to clarify your code; the fact that a variable's range is limited can serve as a form of documentation."
+  {:db/ident :qudt/BYTE,
+   :dcterms/description
+   "The byte data type is an 8-bit signed two's complement integer. It has a minimum value of -128 and a maximum value of 127 (inclusive). The byte data type can be useful for saving memory in large arrays, where the memory savings actually matters. They can also be used in place of int where their limits help to clarify your code; the fact that a variable's range is limited can serve as a form of documentation.",
+   :dtype/literal "byte",
+   :prov/wasInfluencedBy
+   "http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html",
+   :qudt/abbreviation "SI8",
+   :qudt/cName "Byte",
+   :qudt/encoding :qudt/OctetEncoding,
+   :qudt/maxInclusive 127,
+   :qudt/minInclusive -128,
+   :qudt/octets 1,
+   :qudt/rdfsDatatype :xsd/byte,
+   :qudt/signedness :qudt/SIGNED,
+   :rdf/type [:qudt/SignedShortIntegerType :owl/NamedIndividual],
+   :rdfs/label "Byte"})
+
 (def BalancedTree
   "A Balanced Tree Type is a data type that defines the properties of data structures that represent balanced trees. A balanced tree is a tree where no leaf is much farther away from the root than any other leaf. Different balancing schemes allow different definitions of \"much farther\" and different amounts of work to keep them balanced."
   {:db/ident :qudt/BalancedTree,
@@ -1052,6 +380,7 @@
                      :qudt/Tree]})
 
 (def BalancedTree-maxDepth
+  "BalancedTree-maxDepth"
   {:db/ident    :qudt/BalancedTree-maxDepth,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -1067,6 +396,31 @@
    :rdfs/label "Balanced Tree Type",
    :rdfs/subClassOf :qudt/TreeType,
    :sh/property :qudt/BalancedTree-maxDepth})
+
+(def BaseDimensionMagnitude
+  "<p class=\"lm-para\">A <em>Dimension</em> expresses a magnitude for a base quantiy kind such as mass, length and time.</p> <p class=\"lm-para\">DEPRECATED - each exponent is expressed as a property. Keep until a validaiton of this has been done.</p>"
+  {:db/ident :qudt/BaseDimensionMagnitude,
+   :qudt/informativeReference
+   ["http://en.wikipedia.org/wiki/Dimensional_analysis"
+    "http://web.mit.edu/2.25/www/pdf/DA_unified.pdf"],
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "<p class=\"lm-para\">A <em>Dimension</em> expresses a magnitude for a base quantiy kind such as mass, length and time.</p>\n<p class=\"lm-para\">DEPRECATED - each exponent is expressed as a property. Keep until a validaiton of this has been done.</p>",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Base Dimension Magnitude",
+   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/float,
+                      :owl/onProperty    :qudt/vectorMagnitude,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/QuantityKind,
+                      :owl/onProperty    :qudt/hasBaseQuantityKind,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/hasBaseQuantityKind,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/Concept
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/vectorMagnitude,
+                      :rdf/type        :owl/Restriction}]})
 
 (def BigEndian
   "Big Endian"
@@ -1094,11 +448,22 @@
    :sh/property :qudt/BigIntegerType-octets})
 
 (def BigIntegerType-octets
+  "BigIntegerType-octets"
   {:db/ident    :qudt/BigIntegerType-octets,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue 8,
    :sh/or       :qudt/IntegerUnionList,
    :sh/path     :qudt/octets})
+
+(def BinaryPrefix
+  "A <em>Binary Prefix</em> is a prefix for multiples of units in data processing, data transmission, and digital information, notably the bit and the byte, to indicate multiplication by a power of 2."
+  {:db/ident :qudt/BinaryPrefix,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A <em>Binary Prefix</em> is a prefix for multiples of units in data processing, data transmission, and digital information, notably the bit and the byte, to indicate multiplication by a power of 2.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Binary Prefix",
+   :rdfs/subClassOf :qudt/Prefix})
 
 (def BinaryTree
   "A Binary Tree Type is a data type that defines the properties of data structures that represent binary trees. A binary tree is a tree in which each node has at most 2 children."
@@ -1125,6 +490,14 @@
    :dtype/literal "bit",
    :rdf/type      :qudt/AlignmentType,
    :rdfs/label    "Bit Aligned"})
+
+(def BitEncoding
+  "Bit Encoding"
+  {:db/ident         :qudt/BitEncoding,
+   :qudt/bits        1,
+   :rdf/type         :qudt/BitEncodingType,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Bit Encoding"})
 
 (def BitEncodingType
   "A bit encoding is a correspondence between the two possible values of a bit, 0 or 1, and some interpretation. For example, in a boolean encoding, a bit denotes a truth value, where 0 corresponds to False and 1 corresponds to True."
@@ -1365,6 +738,7 @@
    :sh/property :qudt/BitFieldType-encodedValue})
 
 (def BitFieldType-encodedValue
+  "BitFieldType-encodedValue"
   {:db/ident    :qudt/BitFieldType-encodedValue,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/BitField,
@@ -1386,6 +760,25 @@
    :rdf/type      :qudt/PubEnumeratedType,
    :rdfs/label    "Pub booklet type"})
 
+(def BooleanEncoding
+  "Boolean Encoding"
+  {:db/ident         :qudt/BooleanEncoding,
+   :qudt/bits        1,
+   :rdf/type         :qudt/BooleanEncodingType,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Boolean Encoding"})
+
+(def BooleanEncodingType
+  "Boolean encoding type"
+  {:db/ident         :qudt/BooleanEncodingType,
+   :owl/oneOf        [:qudt/BooleanEncoding
+                      :qudt/BitEncoding
+                      :qudt/OctetEncoding],
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Boolean encoding type",
+   :rdfs/subClassOf  :qudt/Encoding})
+
 (def BooleanType
   "A boolean data type can take on only two values."
   {:db/ident            :qudt/BooleanType,
@@ -1400,6 +793,7 @@
    :sh/property         :qudt/BooleanType-encoding})
 
 (def BooleanType-encoding
+  "BooleanType-encoding"
   {:db/ident :qudt/BooleanType-encoding,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/BooleanEncodingType,
@@ -1455,6 +849,82 @@
    :rdfs/label "Byte Encoding",
    :rdfs/subClassOf :qudt/Encoding})
 
+(def CCT_EarthCentered
+  "Earth-centered Coordinate System Type"
+  {:db/ident   :qudt/CCT_EarthCentered,
+   :rdf/type   :qudt/CoordinateCenterType,
+   :rdfs/label "Earth-centered Coordinate System Type"})
+
+(def CCT_MarsCentered
+  "Mars-centered Coordinate System Type"
+  {:db/ident   :qudt/CCT_MarsCentered,
+   :rdf/type   :qudt/CoordinateCenterType,
+   :rdfs/label "Mars-centered Coordinate System Type"})
+
+(def CCT_MoonCentered
+  "Moon-centered Coordinate System Type"
+  {:db/ident   :qudt/CCT_MoonCentered,
+   :rdf/type   :qudt/CoordinateCenterType,
+   :rdfs/label "Moon-centered Coordinate System Type"})
+
+(def CCT_SunCentered
+  "Sun-centered Coordinate System Type"
+  {:db/ident   :qudt/CCT_SunCentered,
+   :rdf/type   :qudt/CoordinateCenterType,
+   :rdfs/label "Sun-centered Coordinate System Type"})
+
+(def CCT_VehicleCentered
+  "Vehicle-centered Coordinate System Type"
+  {:db/ident   :qudt/CCT_VehicleCentered,
+   :rdf/type   :qudt/CoordinateCenterType,
+   :rdfs/label "Vehicle-centered Coordinate System Type"})
+
+(def CFN_ConcatenateMatrixRows
+  "Concatenate matrix rows"
+  {:db/ident   :qudt/CFN_ConcatenateMatrixRows,
+   :rdf/type   :qudt/CompositionFunction,
+   :rdfs/label "Concatenate matrix rows"})
+
+(def COLOR_AMBER
+  "Amber Color"
+  {:db/ident     :qudt/COLOR_AMBER,
+   :qudt/literal "amber",
+   :qudt/rgbCode "#FFBF00",
+   :rdf/type     [:qudt/ColorCue :owl/NamedIndividual],
+   :rdfs/label   "Amber Color"})
+
+(def COLOR_GREEN
+  "Green color"
+  {:db/ident     :qudt/COLOR_GREEN,
+   :qudt/literal "green",
+   :qudt/rgbCode "#008000",
+   :rdf/type     [:qudt/ColorCue :owl/NamedIndividual],
+   :rdfs/label   "Green color"})
+
+(def COLOR_ORANGE
+  "Orange color"
+  {:db/ident     :qudt/COLOR_ORANGE,
+   :qudt/literal "orange",
+   :qudt/rgbCode "#FFA500",
+   :rdf/type     [:qudt/ColorCue :owl/NamedIndividual],
+   :rdfs/label   "Orange color"})
+
+(def COLOR_RED
+  "Red color"
+  {:db/ident     :qudt/COLOR_RED,
+   :qudt/literal "red",
+   :qudt/rgbCode "#FF0000",
+   :rdf/type     [:qudt/ColorCue :owl/NamedIndividual],
+   :rdfs/label   "Red color"})
+
+(def COLOR_YELLOW
+  "Yellow color"
+  {:db/ident     :qudt/COLOR_YELLOW,
+   :qudt/literal "yellow",
+   :qudt/rgbCode "#FFFF00",
+   :rdf/type     [:qudt/ColorCue :owl/NamedIndividual],
+   :rdfs/label   "Yellow color"})
+
 (def CRC32
   "CRC-32"
   {:db/ident            :qudt/CRC32,
@@ -1462,13 +932,45 @@
                          :owl/withRestrictions [{:xsd/minInclusive 0}
                                                 {:xsd/maxInclusive 4294967295}],
                          :rdf/type       :rdfs/Datatype},
-   :rdf/type            [:owl/DataRange :rdfs/Datatype],
+   :rdf/type            [:owl/DataRange :rdfs/Datatype :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
    :rdfs/label          "CRC-32",
    :rdfs/subClassOf     :xsd/integer})
 
+(def CT_COUNTABLY-INFINITE
+  "A set of numbers is called countably infinite if there is a way to enumerate them. Formally this is done with a bijection function that associates each number in the set with exactly one of the positive integers. The set of all fractions is also countably infinite. In other words, any set \\(X\\) that has the same cardinality as the set of the natural numbers, or \\(| X | \\; = \\; | \\mathbb N | \\; = \\; \\aleph0\\), is said to be a countably infinite set."
+  {:db/ident :qudt/CT_COUNTABLY-INFINITE,
+   :dcterms/description
+   "A set of numbers is called countably infinite if there is a way to enumerate them.  Formally this is done with a bijection function that associates each number in the set with exactly one of the positive integers.  The set of all fractions is also countably infinite.  In other words, any set \\(X\\) that has the same cardinality as the set of the natural numbers, or \\(| X | \\; =  \\; | \\mathbb N | \\; = \\; \\aleph0\\), is said to be a countably infinite set.",
+   :qudt/informativeReference
+   "http://www.math.vanderbilt.edu/~schectex/courses/infinity.pdf",
+   :qudt/literal "countable",
+   :rdf/type [:qudt/CardinalityType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Countably Infinite Cardinality Type"})
+
+(def CT_FINITE
+  "Any set \\(X\\) with cardinality less than that of the natural numbers, or \\(| X | \\\\; < \\; | \\\\mathbb N | \\), is said to be a finite set."
+  {:db/ident :qudt/CT_FINITE,
+   :dcterms/description
+   "Any set \\(X\\) with cardinality less than that of the natural numbers, or \\(| X | \\\\; <  \\; | \\\\mathbb N | \\), is said to be a finite set.",
+   :qudt/literal "finite",
+   :rdf/type [:qudt/CardinalityType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Finite Cardinality Type"})
+
+(def CT_UNCOUNTABLE
+  "Any set with cardinality greater than that of the natural numbers, or \\(| X | \\; > \\; | \\mathbb N | \\), for example \\(| R| \\; = \\; c \\; > |\\mathbb N |\\), is said to be uncountable."
+  {:db/ident :qudt/CT_UNCOUNTABLE,
+   :dcterms/description
+   "Any set with cardinality greater than that of the natural numbers, or \\(| X | \\; >  \\; | \\mathbb N | \\),  for example \\(| R| \\; =  \\;  c  \\; > |\\mathbb N |\\), is said to be uncountable.",
+   :qudt/literal "uncountable",
+   :rdf/type [:qudt/CardinalityType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Uncountable Cardinality Type"})
+
 (def CardinalityType
-  "In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set 'A = {2, 4, 6}' contains 3 elements, and therefore 'A' has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers.",
+  "In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set 'A = {2, 4, 6}' contains 3 elements, and therefore 'A' has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers."
   {:db/ident :qudt/CardinalityType,
    :dcterms/description
    "<p class=\"lm-para\">In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set \\(A = {2, 4, 6}\\) contains 3 elements, and therefore \\(A\\) has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers.</p>",
@@ -1476,9 +978,9 @@
    :prov/wasInfluencedBy ["http://en.wikipedia.org/wiki/Cardinality"
                           "http://en.wikipedia.org/wiki/Cardinal_number"],
    :qudt/informativeReference ["http://en.wikipedia.org/wiki/Cardinality"
-                               "http://en.wikipedia.org/wiki/Cardinal_number"]
+                               "http://en.wikipedia.org/wiki/Cardinal_number"],
    :qudt/plainTextDescription
-   "In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set 'A = {2, 4, 6}' contains 3 elements, and therefore 'A' has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers."
+   "In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set 'A = {2, 4, 6}' contains 3 elements, and therefore 'A' has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "Cardinality Type",
@@ -1503,6 +1005,26 @@
    :rdfs/label "Cartesian Coordinate Type",
    :rdfs/subClassOf :qudt/CompositeDatatype})
 
+(def CharEncoding
+  "7 bits of 1 octet"
+  {:db/ident            :qudt/CharEncoding,
+   :dcterms/description "7 bits of 1 octet",
+   :qudt/bytes          1,
+   :rdf/type            [:qudt/CharEncodingType :qudt/BooleanEncodingType],
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label          "Char Encoding"})
+
+(def CharEncodingType
+  "The class of all character encoding schemes, each of which defines a rule or algorithm for encoding character data as a sequence of bits or bytes."
+  {:db/ident :qudt/CharEncodingType,
+   :dcterms/description
+   "The class of all character encoding schemes, each of which defines a rule or algorithm for encoding character data as a sequence of bits or bytes.",
+   :owl/oneOf [:qudt/CharEncoding],
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Char Encoding Type",
+   :rdfs/subClassOf :qudt/Encoding})
+
 (def CharacterType
   "A Character Type is a data type that defines the type and encoding of single characters."
   {:db/ident :qudt/CharacterType,
@@ -1512,6 +1034,21 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Character Type",
    :rdfs/subClassOf :qudt/OrdinalType})
+
+(def Citation
+  "Provides a simple way of making citations."
+  {:db/ident         :qudt/Citation,
+   :rdf/type         :owl/Class,
+   :rdfs/comment     "Provides a simple way of making citations.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Citation",
+   :rdfs/subClassOf  [{:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :dcterms/description,
+                       :rdf/type        :owl/Restriction}
+                      :qudt/Concept]})
 
 (def Collection
   "A collection is a grouping of some variable number of zero or more data items that need to be operated upon together in some controlled fashion. Generally, the data items will all share the same data type or are derived from some common ancestor data type."
@@ -1543,12 +1080,28 @@
    :sh/property :qudt/ColorCue-rgbCode})
 
 (def ColorCue-rgbCode
+  "ColorCue-rgbCode"
   {:db/ident    :qudt/ColorCue-rgbCode,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
    :sh/maxCount 1,
    :sh/minCount 1,
    :sh/path     :qudt/rgbCode})
+
+(def Comment
+  "Comment"
+  {:db/ident         :qudt/Comment,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Comment",
+   :rdfs/subClassOf  [{:owl/minCardinality 0,
+                       :owl/onProperty     :qudt/rationale,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :dcterms/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      :qudt/Verifiable]})
 
 (def CompositeDataStructure
   "'Composite Data Structure', also referred to as 'Data Record' is a datatype that aggregates element of possibly different types. The aggregated items are called fields or members and are usually identified or indexed by field labels."
@@ -1564,6 +1117,7 @@
    :sh/property :qudt/CompositeDataStructure-dataElement})
 
 (def CompositeDataStructure-dataElement
+  "CompositeDataStructure-dataElement"
   {:db/ident :qudt/CompositeDataStructure-dataElement,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/DataSetElement,
@@ -1597,18 +1151,21 @@
                  :qudt/CompositeDatatype-elementType]})
 
 (def CompositeDatatype-alignment
+  "CompositeDatatype-alignment"
   {:db/ident :qudt/CompositeDatatype-alignment,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/AlignmentType,
    :sh/path  :qudt/alignment})
 
 (def CompositeDatatype-elementType
+  "CompositeDatatype-elementType"
   {:db/ident :qudt/CompositeDatatype-elementType,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/Datatype,
    :sh/path  :qudt/elementType})
 
 (def CompositeDatatype-padding
+  "CompositeDatatype-padding"
   {:db/ident    :qudt/CompositeDatatype-padding,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/PaddingType,
@@ -1633,12 +1190,14 @@
    :rdfs/subClassOf :qudt/Function})
 
 (def CompositionTreeType
+  "CompositionTreeType"
   {:db/ident        :qudt/CompositionTreeType,
    :rdf/type        [:sh/NodeShape :owl/Class],
    :rdfs/subClassOf :qudt/TreeType,
    :sh/property     :qudt/CompositionTreeType-compositionFunction})
 
 (def CompositionTreeType-compositionFunction
+  "CompositionTreeType-compositionFunction"
   {:db/ident    :qudt/CompositionTreeType-compositionFunction,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/CompositionFunction,
@@ -1672,12 +1231,25 @@
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :qudt/supercededBy,
                        :rdf/type           :owl/Restriction}]})
+
 (def Conference
   "Pub techreport type"
   {:db/ident      :qudt/Conference,
    :dtype/literal "conference",
    :rdf/type      :qudt/PubEnumeratedType,
    :rdfs/label    "Pub techreport type"})
+
+(def ConstantValue
+  "Used to specify the values of a constant."
+  {:db/ident         :qudt/ConstantValue,
+   :rdf/type         :owl/Class,
+   :rdfs/comment     "Used to specify the values of a constant.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Constant value",
+   :rdfs/subClassOf  [{:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/exactConstant,
+                       :rdf/type           :owl/Restriction}
+                      :qudt/QuantityValue]})
 
 (def Container
   "A container is a class, a data structure, or an abstract data type (ADT) whose instances are collections of other objects. They are used to store objects in an organized way following specific access rules."
@@ -1695,6 +1267,7 @@
    :sh/property :qudt/Container-elementTypeCount})
 
 (def Container-elementTypeCount
+  "Container-elementTypeCount"
   {:db/ident    :qudt/Container-elementTypeCount,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -1764,18 +1337,21 @@
                  :qudt/CoordinateSystem-abbreviation]})
 
 (def CoordinateSystem-abbreviation
+  "CoordinateSystem-abbreviation"
   {:db/ident    :qudt/CoordinateSystem-abbreviation,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/abbreviation})
 
 (def CoordinateSystem-acronym
+  "CoordinateSystem-acronym"
   {:db/ident    :qudt/CoordinateSystem-acronym,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :vaem/acronym})
 
 (def CoordinateSystem-coordinateCenter
+  "CoordinateSystem-coordinateCenter"
   {:db/ident    :qudt/CoordinateSystem-coordinateCenter,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/CoordinateCenterType,
@@ -1783,6 +1359,7 @@
    :sh/path     :qudt/coordinateCenter})
 
 (def CoordinateSystem-referenceFrame
+  "CoordinateSystem-referenceFrame"
   {:db/ident    :qudt/CoordinateSystem-referenceFrame,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/ReferenceFrame,
@@ -1816,6 +1393,7 @@
                  :qudt/CoordinateSystemType-originDefinition]})
 
 (def CoordinateSystemType-originDefinition
+  "CoordinateSystemType-originDefinition"
   {:db/ident    :qudt/CoordinateSystemType-originDefinition,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -1855,21 +1433,23 @@
    :rdf/type [:owl/Class :qudt/Coordinates-2D-Type],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Coordinates-2D-Double precision",
-   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    :qudt/Coordinates-2D-DoublePrecision-Double_Y
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/Coordinates-2D-DoublePrecision-Double_Y
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    :qudt/Coordinates-2D-DoublePrecision-Double_X
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/Coordinates-2D-DoublePrecision-Double_X
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Coordinates-2D]})
+   :rdfs/subClassOf
+   [{:owl/allValuesFrom :xsd/double,
+     :owl/onProperty    :qudt/Coordinates-2D-DoublePrecision-Double_Y,
+     :rdf/type          :owl/Restriction}
+    {:owl/cardinality 1,
+     :owl/onProperty  :qudt/Coordinates-2D-DoublePrecision-Double_Y,
+     :rdf/type        :owl/Restriction}
+    {:owl/allValuesFrom :xsd/double,
+     :owl/onProperty    :qudt/Coordinates-2D-DoublePrecision-Double_X,
+     :rdf/type          :owl/Restriction}
+    {:owl/cardinality 1,
+     :owl/onProperty  :qudt/Coordinates-2D-DoublePrecision-Double_X,
+     :rdf/type        :owl/Restriction}
+    :qudt/Coordinates-2D]})
 
 (def Coordinates-2D-DoublePrecision-Double_X
+  "Coordinates-2D-DoublePrecision-Double_X"
   {:db/ident    :qudt/Coordinates-2D-DoublePrecision-Double_X,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/double,
@@ -1878,6 +1458,7 @@
    :sh/path     :qudt/Double_X})
 
 (def Coordinates-2D-DoublePrecision-Double_Y
+  "Coordinates-2D-DoublePrecision-Double_Y"
   {:db/ident    :qudt/Coordinates-2D-DoublePrecision-Double_Y,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/double,
@@ -1909,6 +1490,7 @@
                      :qudt/Coordinates-2D]})
 
 (def Coordinates-2D-SinglePrecision-float_X
+  "Coordinates-2D-SinglePrecision-float_X"
   {:db/ident    :qudt/Coordinates-2D-SinglePrecision-float_X,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/float,
@@ -1917,6 +1499,7 @@
    :sh/path     :qudt/float_X})
 
 (def Coordinates-2D-SinglePrecision-float_Y
+  "Coordinates-2D-SinglePrecision-float_Y"
   {:db/ident    :qudt/Coordinates-2D-SinglePrecision-float_Y,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/float,
@@ -1951,27 +1534,29 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "3D Coordinates (Double Precision)",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_Y
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Coordinates-3D
-                     {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_Z,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_Y
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_Z,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_X,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/double,
-                      :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_X,
-                      :rdf/type          :owl/Restriction}]})
+   :rdfs/subClassOf
+   [{:owl/cardinality 1,
+     :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_Y,
+     :rdf/type        :owl/Restriction}
+    :qudt/Coordinates-3D
+    {:owl/allValuesFrom :xsd/double,
+     :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_Z,
+     :rdf/type          :owl/Restriction}
+    {:owl/allValuesFrom :xsd/double,
+     :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_Y,
+     :rdf/type          :owl/Restriction}
+    {:owl/cardinality 1,
+     :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_Z,
+     :rdf/type        :owl/Restriction}
+    {:owl/cardinality 1,
+     :owl/onProperty  :qudt/Coordinates-3D-DoublePrecision-Double_X,
+     :rdf/type        :owl/Restriction}
+    {:owl/allValuesFrom :xsd/double,
+     :owl/onProperty    :qudt/Coordinates-3D-DoublePrecision-Double_X,
+     :rdf/type          :owl/Restriction}]})
 
 (def Coordinates-3D-DoublePrecision-Double_X
+  "Coordinates-3D-DoublePrecision-Double_X"
   {:db/ident    :qudt/Coordinates-3D-DoublePrecision-Double_X,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/double,
@@ -1980,6 +1565,7 @@
    :sh/path     :qudt/Double_X})
 
 (def Coordinates-3D-DoublePrecision-Double_Y
+  "Coordinates-3D-DoublePrecision-Double_Y"
   {:db/ident    :qudt/Coordinates-3D-DoublePrecision-Double_Y,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/double,
@@ -1988,6 +1574,7 @@
    :sh/path     :qudt/Double_Y})
 
 (def Coordinates-3D-DoublePrecision-Double_Z
+  "Coordinates-3D-DoublePrecision-Double_Z"
   {:db/ident    :qudt/Coordinates-3D-DoublePrecision-Double_Z,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/double,
@@ -2042,6 +1629,7 @@
    :rdfs/label "3D Coordinates (Single Precision)"})
 
 (def Coordinates-3D-SinglePrecision-float_X
+  "Coordinates-3D-SinglePrecision-float_X"
   {:db/ident    :qudt/Coordinates-3D-SinglePrecision-float_X,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/float,
@@ -2050,6 +1638,7 @@
    :sh/path     :qudt/float_X})
 
 (def Coordinates-3D-SinglePrecision-float_Y
+  "Coordinates-3D-SinglePrecision-float_Y"
   {:db/ident    :qudt/Coordinates-3D-SinglePrecision-float_Y,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/float,
@@ -2058,6 +1647,7 @@
    :sh/path     :qudt/float_Y})
 
 (def Coordinates-3D-SinglePrecision-float_Z
+  "Coordinates-3D-SinglePrecision-float_Z"
   {:db/ident    :qudt/Coordinates-3D-SinglePrecision-float_Z,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/float,
@@ -2075,18 +1665,101 @@
    :rdfs/subClassOf [:qudt/ThreeTupleType :qudt/CartesianCoordinatesType]})
 
 (def Coordinates-elementType
+  "Coordinates-elementType"
   {:db/ident :qudt/Coordinates-elementType,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/CoordinateMember,
    :sh/path  :qudt/elementType})
 
+(def CountingUnit
+  "Used for all units that express counts. Examples are Atomic Number, Number, Number per Year, Percent and Sample per Second."
+  {:db/ident :qudt/CountingUnit,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "Used for all units that express counts. Examples are Atomic Number, Number, Number per Year, Percent and Sample per Second.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Counting Unit",
+   :rdfs/subClassOf :qudt/DimensionlessUnit})
+
+(def CurrencyUnit
+  "Used for all units that express currency. Currency Units have their own subclass of unit because: (a) they have additonal properites such as 'country' and (b) their URIs do not conform to the same rules as other units."
+  {:db/ident :qudt/CurrencyUnit,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   ["Used for all units that express currency."
+    "Currency Units have their own subclass of unit because: (a) they have additonal properites such as 'country' and (b) their URIs do not conform to the same rules as other units."],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Currency Unit",
+   :rdfs/subClassOf :qudt/DimensionlessUnit})
+
+(def DATE
+  "Provides the date expressed in year, month and day."
+  {:db/ident          :qudt/DATE,
+   :dcterms/description "Provides the date expressed in year, month and day.",
+   :dtype/literal     "date",
+   :qudt/dimensionality 1,
+   :qudt/encodingDescription
+   "YYYY:MM:DD, where YYYY is a 4 digit year, MM is a 2 digit month and DD is a 2 digit day.",
+   :qudt/rdfsDatatype :xsd/date,
+   :rdf/type          [:qudt/DateStringType :owl/NamedIndividual],
+   :rdfs/label        "Date"})
+
+(def DATETIME
+  "A time stamp encoded as a string 'YYYY-MM-DDThh:mm:ss[.dd]' or 'YYYY-DDDThh:mm:ss[.dd]', where 'YYYY' is the year, 'MM' is the two-digit month, 'DD' is the two-digit day, 'DDD' is the three digit day of year, 'T' is constant, 'hh:mm:ss[.dd]' is the UTC time in hours, minutes, seconds, and optional fractional seconds. As many 'd' characters to the right of the period as required may be used to obtain the required precision. All fields require leading zeros."
+  {:db/ident :qudt/DATETIME,
+   :dcterms/description
+   "A time stamp encoded as a string 'YYYY-MM-DDThh:mm:ss[.dd]' or 'YYYY-DDDThh:mm:ss[.dd]', where 'YYYY' is the year, 'MM' is the two-digit month, 'DD' is the two-digit day, 'DDD' is the three digit day of year, 'T' is constant, 'hh:mm:ss[.dd]' is the UTC time in hours, minutes, seconds, and optional fractional seconds. As many 'd' characters to the right of the period as required may be used to obtain the required precision. All fields require leading zeros.",
+   :dtype/literal "datetime",
+   :owl/sameAs :qudt/UTC-DATETIME,
+   :qudt/dimensionality 1,
+   :qudt/rdfsDatatype :xsd/dateTime,
+   :rdf/type [:qudt/DateStringType :owl/NamedIndividual],
+   :rdfs/label "Date Time"})
+
+(def DECIMAL
+  "Decimal"
+  {:db/ident           :qudt/DECIMAL,
+   :dtype/literal      "numeric",
+   :qudt/ansiSQLName   "DECIMAL(p,s)",
+   :qudt/odbcName      "SQL_DECIMAL(p,s)",
+   :qudt/oracleSQLName "NUMBER(p,s)",
+   :qudt/rdfsDatatype  :xsd/decimal,
+   :rdf/type           [:qudt/NumericType :owl/NamedIndividual],
+   :rdfs/label         "Decimal"})
+
 (def DataElement-type
+  "DataElement-type"
   {:db/ident    :qudt/DataElement-type,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/Datatype,
    :sh/maxCount 1,
    :sh/minCount 0,
    :sh/path     :qudt/dataType})
+
+(def DataEncoding
+  "<p><em>Data Encoding</em> expresses the properties that specify how data is represented at the bit and byte level. These properties are applicable to describing raw data.</p>"
+  {:db/ident :qudt/DataEncoding,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "<p><em>Data Encoding</em> expresses the properties that specify how data is represented at the bit and byte level. These properties are applicable to describing raw data.</p>",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Data Encoding",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/byteOrder,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/bitOrder,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/encoding,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/EndianType,
+                      :owl/onProperty    :qudt/bitOrder,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/Aspect
+                     {:owl/allValuesFrom :qudt/Encoding,
+                      :owl/onProperty    :qudt/encoding,
+                      :rdf/type          :owl/Restriction}]})
 
 (def DataSetElement
   "A field is a tuple that carries a name, a type and optionally other properties that characterize a member element of a composite data strucuture."
@@ -2101,6 +1774,7 @@
                  :qudt/DataSetElement-elementLabel]})
 
 (def DataSetElement-elementLabel
+  "DataSetElement-elementLabel"
   {:db/ident    :qudt/DataSetElement-elementLabel,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2109,6 +1783,7 @@
    :sh/path     :qudt/elementLabel})
 
 (def DataSetElement-optional
+  "DataSetElement-optional"
   {:db/ident    :qudt/DataSetElement-optional,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/boolean,
@@ -2117,13 +1792,91 @@
    :sh/path     :qudt/optional})
 
 (def DataSetElement-quantityKind
+  "DataSetElement-quantityKind"
   {:db/ident    :qudt/DataSetElement-quantityKind,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/QuantityKind,
    :sh/maxCount 1,
    :sh/path     :qudt/hasQuantityKind})
 
+(def Datatype
+  "A data type is a definition of a set of values (for example, \"all integers between 0 and 10\"), and the allowable operations on those values; the meaning of the data; and the way values of that type can be stored. Some types are primitive - built-in to the language, with no visible internal structure - e.g. Boolean; others are composite - constructed from one or more other types (of either kind) - e.g. lists, arrays, structures, unions. Object-oriented programming extends this with classes which encapsulate both the structure of a type and the operations that can be performed on it. Some languages provide strong typing, others allow implicit type conversion and/or explicit type conversion."
+  {:db/ident :qudt/Datatype,
+   :dcterms/description
+   "A data type is a definition of a set of values (for example, \"all integers between 0 and 10\"), and the allowable operations on those values; the meaning of the data; and the way values of that type can be stored. Some types are primitive - built-in to the language, with no visible internal structure - e.g. Boolean; others are composite - constructed from one or more other types (of either kind) - e.g. lists, arrays, structures, unions. Object-oriented programming extends this with classes which encapsulate both the structure of a type and the operations that can be performed on it. Some languages provide strong typing, others allow implicit type conversion and/or explicit type conversion.",
+   :qudt/informativeReference
+   ["http://en.wikipedia.org/wiki/Data_type"
+    "http://foldoc.org/data+type"
+    "http://www.princeton.edu/~achaney/tmve/wiki100k/docs/Data_type.html"],
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "QUDT Datatype",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/pythonName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :qudt/mySQLName,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/Datatype,
+                      :owl/onProperty    :qudt/basis,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/basis,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/jsName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/oracleSQLName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/odbcName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/microsoftSQLServerName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/oleDBName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/protocolBuffersName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/ansiSQLName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/OrderedType,
+                      :owl/onProperty    :qudt/orderedType,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/cName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/bounded,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/id,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/orderedType,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/vbName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/matlabName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/CardinalityType,
+                      :owl/onProperty    :qudt/cardinality,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/Concept
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/javaName,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/cardinality,
+                      :rdf/type           :owl/Restriction}]})
+
 (def Datatype-ansiSQLName
+  "Datatype-ansiSQLName"
   {:db/ident    :qudt/Datatype-ansiSQLName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2131,6 +1884,7 @@
    :sh/path     :qudt/ansiSQLName})
 
 (def Datatype-basis
+  "Datatype-basis"
   {:db/ident    :qudt/Datatype-basis,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/Datatype,
@@ -2138,6 +1892,7 @@
    :sh/path     :qudt/basis})
 
 (def Datatype-bounded
+  "Datatype-bounded"
   {:db/ident    :qudt/Datatype-bounded,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :xsd/boolean,
@@ -2145,6 +1900,7 @@
    :sh/path     :qudt/bounded})
 
 (def Datatype-cName
+  "Datatype-cName"
   {:db/ident    :qudt/Datatype-cName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2152,6 +1908,7 @@
    :sh/path     :qudt/cName})
 
 (def Datatype-cardinality
+  "Datatype-cardinality"
   {:db/ident    :qudt/Datatype-cardinality,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/CardinalityType,
@@ -2159,6 +1916,7 @@
    :sh/path     :qudt/cardinality})
 
 (def Datatype-description
+  "Datatype-description"
   {:db/ident       :qudt/Datatype-description,
    :rdf/type       :sh/PropertyShape,
    :sh/deactivated true,
@@ -2166,6 +1924,7 @@
    :sh/path        :vaem/description})
 
 (def Datatype-id
+  "Datatype-id"
   {:db/ident       :qudt/Datatype-id,
    :rdf/type       :sh/PropertyShape,
    :sh/datatype    :xsd/string,
@@ -2173,6 +1932,7 @@
    :sh/path        :qudt/id})
 
 (def Datatype-javaName
+  "Datatype-javaName"
   {:db/ident    :qudt/Datatype-javaName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2180,6 +1940,7 @@
    :sh/path     :qudt/javaName})
 
 (def Datatype-jsName
+  "Datatype-jsName"
   {:db/ident    :qudt/Datatype-jsName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2187,6 +1948,7 @@
    :sh/path     :qudt/jsName})
 
 (def Datatype-matlabName
+  "Datatype-matlabName"
   {:db/ident    :qudt/Datatype-matlabName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2194,6 +1956,7 @@
    :sh/path     :qudt/matlabName})
 
 (def Datatype-microsoftSQLServerName
+  "Datatype-microsoftSQLServerName"
   {:db/ident    :qudt/Datatype-microsoftSQLServerName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2201,6 +1964,7 @@
    :sh/path     :qudt/microsoftSQLServerName})
 
 (def Datatype-mySQLName
+  "Datatype-mySQLName"
   {:db/ident    :qudt/Datatype-mySQLName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2208,6 +1972,7 @@
    :sh/path     :qudt/mySQLName})
 
 (def Datatype-odbcName
+  "Datatype-odbcName"
   {:db/ident    :qudt/Datatype-odbcName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2215,6 +1980,7 @@
    :sh/path     :qudt/odbcName})
 
 (def Datatype-oleDBName
+  "Datatype-oleDBName"
   {:db/ident    :qudt/Datatype-oleDBName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2222,6 +1988,7 @@
    :sh/path     :qudt/oleDBName})
 
 (def Datatype-oracleSQLName
+  "Datatype-oracleSQLName"
   {:db/ident    :qudt/Datatype-oracleSQLName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2229,6 +1996,7 @@
    :sh/path     :qudt/oracleSQLName})
 
 (def Datatype-protocolBuffersName
+  "Datatype-protocolBuffersName"
   {:db/ident    :qudt/Datatype-protocolBuffersName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2236,6 +2004,7 @@
    :sh/path     :qudt/protocolBuffersName})
 
 (def Datatype-pythonName
+  "Datatype-pythonName"
   {:db/ident    :qudt/Datatype-pythonName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2243,6 +2012,7 @@
    :sh/path     :qudt/pythonName})
 
 (def Datatype-vbName
+  "Datatype-vbName"
   {:db/ident    :qudt/Datatype-vbName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2259,7 +2029,26 @@
    :rdfs/label "Date String Type",
    :rdfs/subClassOf :qudt/DateTimeStringType})
 
+(def DateTimeStringEncodingType
+  "Date Time encodings are logical encodings for expressing date/time quantities as strings by applying unambiguous formatting and parsing rules."
+  {:db/ident :qudt/DateTimeStringEncodingType,
+   :dcterms/description
+   "Date Time encodings are logical encodings for expressing date/time quantities as strings by applying unambiguous formatting and parsing rules.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Date Time String Encoding Type",
+   :rdfs/subClassOf [{:owl/minQualifiedCardinality 1,
+                      :owl/onDataRange :xsd/string,
+                      :owl/onProperty  :qudt/allowedPattern,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/StringEncodingType],
+   :sh/property [{:sh/path :qudt/allowedPattern,
+                  :sh/qualifiedMinCount 1,
+                  :sh/qualifiedValueShape {:sh/datatype :xsd/string}}
+                 :qudt/DateTimeStringEncodingType-allowedPattern]})
+
 (def DateTimeStringEncodingType-allowedPattern
+  "DateTimeStringEncodingType-allowedPattern"
   {:db/ident    :qudt/DateTimeStringEncodingType-allowedPattern,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2283,11 +2072,22 @@
    :sh/property :qudt/DateTimeStringType-encoding})
 
 (def DateTimeStringType-encoding
+  "DateTimeStringType-encoding"
   {:db/ident    :qudt/DateTimeStringType-encoding,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/DateTimeStringEncodingType,
    :sh/maxCount 1,
    :sh/path     :qudt/encoding})
+
+(def DecimalPrefix
+  "A <em>Decimal Prefix</em> is a prefix for multiples of units that are powers of 10."
+  {:db/ident :qudt/DecimalPrefix,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A <em>Decimal Prefix</em> is a prefix for multiples of units that are powers of 10.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Decimal Prefix",
+   :rdfs/subClassOf :qudt/Prefix})
 
 (def DecimalScaledUnit
   "A sub-type of 'Scaled unit'. Detailed desciption to be provided in a future version."
@@ -2306,6 +2106,17 @@
   {:db/ident :qudt/DerivedNonCoherentUnit,
    :dcterms/description
    "A sub-type of 'Derived Unit'. Detailed desciption to be provided in a future version."})
+
+(def DerivedUnit
+  "A DerivedUnit is a type specification for units that are derived from other units."
+  {:db/ident :qudt/DerivedUnit,
+   :qudt/dbpediaMatch "http://dbpedia.org/resource/Category:SI_derived_units",
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A DerivedUnit is a type specification for units that are derived from other units.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Derived Unit",
+   :rdfs/subClassOf :qudt/Unit})
 
 (def Dictionary
   "A \"Map\"."
@@ -2342,7 +2153,26 @@
    :rdfs/label "Dimensional Data Type",
    :rdfs/subClassOf :qudt/StructuredDatatype})
 
+(def DimensionlessUnit
+  "A Dimensionless Unit is a quantity for which all the exponents of the factors corresponding to the base quantities in its quantity dimension are zero."
+  {:db/ident :qudt/DimensionlessUnit,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A Dimensionless Unit is a quantity for which all the exponents of the factors corresponding to the base quantities in its quantity dimension are zero.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Dimensionless Unit",
+   :rdfs/subClassOf :qudt/Unit})
+
+(def Discipline
+  "Discipline"
+  {:db/ident         :qudt/Discipline,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Discipline",
+   :rdfs/subClassOf  :qudt/Concept})
+
 (def DiscreteState
+  "DiscreteState"
   {:db/ident         :qudt/DiscreteState,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
@@ -2382,6 +2212,7 @@
    :sh/property :qudt/EarthCoordinateSystem-coordinateCenter})
 
 (def EarthCoordinateSystem-coordinateCenter
+  "EarthCoordinateSystem-coordinateCenter"
   {:db/ident    :qudt/EarthCoordinateSystem-coordinateCenter,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/CoordinateCenterType,
@@ -2406,6 +2237,7 @@
    :sh/property [:qudt/Encoding-bytes :qudt/Encoding-bits]})
 
 (def Encoding-bits
+  "Encoding-bits"
   {:db/ident    :qudt/Encoding-bits,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -2413,11 +2245,24 @@
    :sh/path     :qudt/bits})
 
 (def Encoding-bytes
+  "Encoding-bytes"
   {:db/ident    :qudt/Encoding-bytes,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
    :sh/maxCount 1,
    :sh/path     :qudt/bytes})
+
+(def EndianType
+  "Endian Type"
+  {:db/ident         :qudt/EndianType,
+   :owl/oneOf        [:qudt.type/LittleEndian :qudt.type/BigEndian],
+   :qudt/informativeReference "http://en.wikipedia.org/wiki/Endianness",
+   :qudt/plainTextDescription
+   "In computing, endianness is the ordering used to represent some kind of data as a sequence of smaller units. Typical cases are the order in which integer values are stored as bytes in computer memory (relative to a given memory addressing scheme) and the transmission order over a network or other medium. When specifically talking about bytes, endianness is also referred to simply as byte order.  Most computer processors simply store integers as sequences of bytes, so that, conceptually, the encoded value can be obtained by simple concatenation. For an 'n-byte' integer value this allows 'n!' (n factorial) possible representations (one for each byte permutation). The two most common of them are: increasing numeric significance with increasing memory addresses, known as little-endian, and its opposite, called big-endian.",
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Endian Type",
+   :rdfs/subClassOf  :qudt/EnumeratedValue})
 
 (def EngineeringValueTupleMember
   "A sub-type of 'Tuple Member Type'. Detailed desciption to be provided in a future version."
@@ -2442,19 +2287,57 @@
    :sh/property :qudt/EngineeringValueTupleMember-elementType})
 
 (def EngineeringValueTupleMember-elementType
+  "EngineeringValueTupleMember-elementType"
   {:db/ident :qudt/EngineeringValueTupleMember-elementType,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/RealSinglePrecisionType,
    :sh/path  :qudt/elementType})
 
+(def EnumeratedQuantity
+  "Enumerated Quantity"
+  {:db/ident        :qudt/EnumeratedQuantity,
+   :rdf/type        :qudt/AspectClass,
+   :rdfs/label      "Enumerated Quantity",
+   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/Enumeration,
+                      :owl/onProperty    :qudt/enumeration,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/EnumeratedValue,
+                      :owl/onProperty    :qudt/enumeratedValue,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/Concept]})
+
+(def EnumeratedValue
+  "<p>This class is for all enumerated and/or coded values. For example, it contains the dimension objects that are the basis elements in some abstract vector space associated with a quantity kind system. Another use is for the base dimensions for quantity systems. Each quantity kind system that defines a base set has a corresponding ordered enumeration whose elements are the dimension objects for the base quantity kinds. The order of the dimensions in the enumeration determines the canonical order of the basis elements in the corresponding abstract vector space.</p> <p>An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in data conflicts and misinterpretations.</p> <p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of Scalar Datatype. This allows them to be used as the reference of a datatype specification.</p>"
+  {:db/ident :qudt/EnumeratedValue,
+   :dcterms/description
+   "<p>This class is for all enumerated and/or coded values.  For example, it contains the dimension objects that are the basis elements in some abstract vector space associated with a quantity kind system. Another use is for the base dimensions for quantity systems. Each quantity kind system that defines a base set has a corresponding ordered enumeration whose elements are the dimension objects for the base quantity kinds. The order of the dimensions in the enumeration determines the canonical order of the basis elements in the corresponding abstract vector space.</p>\n\n<p>An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>\n\n<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of Scalar Datatype. This allows them to be used as the reference of a datatype specification.</p>",
+   :qudt/informativeReference "http://en.wikipedia.org/wiki/Enumeration",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Enumerated Value",
+   :rdfs/subClassOf [:qudt/Concept
+                     :dtype/EnumeratedValue
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/symbol,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dcterms/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/abbreviation,
+                      :rdf/type           :owl/Restriction}]})
+
 (def Enumeration
-  "An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>\n\n<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of <em>Scalar Datatype</em>. This allows them to be used as the reference of a datatype specification.",
+  "An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>\n\n<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of <em>Scalar Datatype</em>. This allows them to be used as the reference of a datatype specification."
   {:db/ident :qudt/Enumeration,
+   :qudt/dbpediaMatch "http://dbpedia.org/resource/Enumeration",
+   :qudt/informativeReference ["http://en.wikipedia.org/wiki/Enumeration"
+                               "http://en.wikipedia.org/wiki/Enumerated_type"],
    :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "QUDT Enumeration",   
    :rdfs/comment
    "An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>\n\n<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of <em>Scalar Datatype</em>. This allows them to be used as the reference of a datatype specification.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "QUDT Enumeration",
    :rdfs/subClassOf
    [{:owl/allValuesFrom :qudt/EnumeratedValue,
      :owl/onProperty    :dtype/value,
@@ -2478,19 +2361,17 @@
     {:dcterms/description
      "The number of bits allocated to the field for encoding any tags associated with elements.",
      :owl/maxCardinality 1,
-     :owl/onProperty     :qudt/bits,
-     :rdf/type           :owl/Restriction}
+     :owl/onProperty :qudt/bits,
+     :rdf/type :owl/Restriction}
     :qudt/Concept
     :qudt/StructuredDatatype],
    :sh/property [:qudt/Enumeration-encoding
                  :qudt/Enumeration-bits
                  :qudt/Enumeration-defaultValue
-                 :qudt/Enumeration-value]
-   :qudt/dbpediaMatch "http://dbpedia.org/resource/Enumeration",
-   :qudt/informativeReference ["http://en.wikipedia.org/wiki/Enumeration"
-                               "http://en.wikipedia.org/wiki/Enumerated_type"],})
+                 :qudt/Enumeration-value]})
 
 (def Enumeration-bits
+  "Enumeration-bits"
   {:db/ident    :qudt/Enumeration-bits,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -2498,22 +2379,70 @@
    :sh/path     :qudt/bits})
 
 (def Enumeration-defaultValue
+  "Enumeration-defaultValue"
   {:db/ident :qudt/Enumeration-defaultValue,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/EnumeratedValue,
    :sh/path  :qudt/defaultValue})
 
 (def Enumeration-encoding
+  "Enumeration-encoding"
   {:db/ident    :qudt/Enumeration-encoding,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/encoding})
 
 (def Enumeration-value
+  "Enumeration-value"
   {:db/ident :qudt/Enumeration-value,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/EnumeratedValue,
    :sh/path  :dtype/value})
+
+(def EnumerationScale
+  "A sub-type of 'Scale'. Detailed desciption to be provided in a future version. A sub-type of 'DTYPE Enumeration'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/EnumerationScale,
+   :dcterms/description
+   ["A sub-type of 'Scale'. Detailed desciption to be provided in a future version."
+    "A sub-type of 'DTYPE Enumeration'. Detailed desciption to be provided in a future version."],
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Enumeration scale",
+   :rdfs/subClassOf [:dtype/Enumeration :qudt/Scale]})
+
+(def FALSE
+  "False"
+  {:db/ident         :qudt/FALSE,
+   :dtype/literal    "false",
+   :rdf/type         [:qudt/BooleanTypeEnumeratedValue :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "False"})
+
+(def FLAG
+  "FLAG"
+  {:db/ident          :qudt/FLAG,
+   :dtype/literal     "flag",
+   :qudt/rdfsDatatype :xsd/boolean,
+   :rdf/type          [:qudt/BooleanType :owl/NamedIndividual],
+   :rdfs/label        "FLAG"})
+
+(def FT_INERTIAL
+  "Inertial Frame Type"
+  {:db/ident   :qudt/FT_INERTIAL,
+   :rdf/type   [:qudt/FrameType :owl/NamedIndividual],
+   :rdfs/label "Inertial Frame Type"})
+
+(def FT_NON-ROTATING
+  "Non-rotating Frame Type"
+  {:db/ident   :qudt/FT_NON-ROTATING,
+   :rdf/type   [:qudt/FrameType :owl/NamedIndividual],
+   :rdfs/label "Non-rotating Frame Type"})
+
+(def FT_ROTATING
+  "Rotating Frame Type"
+  {:db/ident   :qudt/FT_ROTATING,
+   :rdf/type   [:qudt/FrameType :owl/NamedIndividual],
+   :rdfs/label "Rotating Frame Type"})
 
 (def FieldType
   "A sub-type of 'Composite Data Type'. Detailed desciption to be provided in a future version."
@@ -2532,6 +2461,7 @@
                      :qudt/CompositeDatatype]})
 
 (def FieldType-elementName
+  "FieldType-elementName"
   {:db/ident    :qudt/FieldType-elementName,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2540,12 +2470,14 @@
    :sh/path     :qudt/elementName})
 
 (def FieldType-elementType
+  "FieldType-elementType"
   {:db/ident :qudt/FieldType-elementType,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/Datatype,
    :sh/path  :qudt/elementType})
 
 (def FieldType-fieldLabel
+  "FieldType-fieldLabel"
   {:db/ident    :qudt/FieldType-fieldLabel,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2554,6 +2486,7 @@
    :sh/path     :qudt/fieldLabel})
 
 (def FieldType-fieldType
+  "FieldType-fieldType"
   {:db/ident    :qudt/FieldType-fieldType,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/Datatype,
@@ -2561,12 +2494,42 @@
    :sh/path     :qudt/fieldType})
 
 (def FieldType-optional
+  "FieldType-optional"
   {:db/ident    :qudt/FieldType-optional,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/boolean,
    :sh/maxCount 1,
    :sh/minCount 0,
    :sh/path     :qudt/optional})
+
+(def Figure
+  "A sub-type of 'QUDT Concept'. Detailed desciption to be provided in a future version."
+  {:db/ident         :qudt/Figure,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Figure",
+   :rdfs/subClassOf  [{:owl/cardinality 1,
+                       :owl/onProperty  :qudt/imageLocation,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/figureCaption,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/figureLabel,
+                       :rdf/type           :owl/Restriction}
+                      :qudt/Concept
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/image,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/landscape,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/width,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/height,
+                       :rdf/type           :owl/Restriction}]})
 
 (def FileFormat
   "A sub-type of 'Enumerated Value'. Detailed desciption to be provided in a future version."
@@ -2602,13 +2565,13 @@
   {:db/ident :qudt/FloatingPointEncodingType,
    :dcterms/description
    "A \"Encoding\" with the following instance(s): \"Double Precision Encoding\", \"Single Precision Real Encoding\".",
+   :owl/oneOf [:qudt/DoublePrecisionEncoding
+               :qudt/IEEE754_1985RealEncoding
+               :qudt/SinglePrecisionRealEncoding],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Floating Point Encoding",
-   :rdfs/subClassOf :qudt/Encoding
-   :owl/oneOf [:qudt/DoublePrecisionEncoding
-               :qudt/IEEE754_1985RealEncoding
-               :qudt/SinglePrecisionRealEncoding]})
+   :rdfs/subClassOf :qudt/Encoding})
 
 (def FrameType
   "This class contains elements which specify the intertial type of a coordinate frame as either inertial, rotating, or non-rotating."
@@ -2655,12 +2618,14 @@
                  :qudt/FunctionDatatype-argType]})
 
 (def FunctionDatatype-argType
+  "FunctionDatatype-argType"
   {:db/ident :qudt/FunctionDatatype-argType,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/Datatype,
    :sh/path  :qudt/argType})
 
 (def FunctionDatatype-functionArity
+  "FunctionDatatype-functionArity"
   {:db/ident    :qudt/FunctionDatatype-functionArity,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -2669,6 +2634,7 @@
    :sh/path     :qudt/functionArity})
 
 (def FunctionDatatype-returnType
+  "FunctionDatatype-returnType"
   {:db/ident    :qudt/FunctionDatatype-returnType,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/Datatype,
@@ -2710,6 +2676,21 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Ground coordinate system",
    :rdfs/subClassOf :qudt/AerospaceCoordinateSystem})
+
+(def HEAP
+  "HEAP"
+  {:db/ident   :qudt/HEAP,
+   :rdf/type   [:qudt/HeapType :owl/NamedIndividual],
+   :rdfs/label "HEAP"})
+
+(def HEXBINARY
+  "HEXBINARY"
+  {:db/ident            :qudt/HEXBINARY,
+   :dtype/literal       "hexbinary",
+   :qudt/dimensionality 1,
+   :qudt/rdfsDatatype   :qudt/hexbinary,
+   :rdf/type            [:qudt/HexBinaryType :owl/NamedIndividual],
+   :rdfs/label          "HEXBINARY"})
 
 (def HashTable
   "A hash table is a kind of map that utilizes a hash function to perform efficient lookup: given a key (e.g., a person's name), find the corresponding value (e.g., that person's telephone number). Hash tables support the efficient lookup, insertion and deletion of elements in constant time on average. A Hash Table Type is a data type that defines the types of a hash table's key-value pairs."
@@ -2777,6 +2758,7 @@
                          :qudt/HexBinaryType-pattern]})
 
 (def HexBinaryType-length
+  "HexBinaryType-length"
   {:db/ident    :qudt/HexBinaryType-length,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -2784,6 +2766,7 @@
    :sh/path     :qudt/length})
 
 (def HexBinaryType-maxLength
+  "HexBinaryType-maxLength"
   {:db/ident    :qudt/HexBinaryType-maxLength,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -2791,6 +2774,7 @@
    :sh/path     :qudt/maxLength})
 
 (def HexBinaryType-minLength
+  "HexBinaryType-minLength"
   {:db/ident    :qudt/HexBinaryType-minLength,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -2798,6 +2782,7 @@
    :sh/path     :qudt/minLength})
 
 (def HexBinaryType-pattern
+  "HexBinaryType-pattern"
   {:db/ident    :qudt/HexBinaryType-pattern,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -2810,6 +2795,23 @@
    :dtype/literal "high",
    :rdf/type      :qudt/MemoryOrderType,
    :rdfs/label    "High To Low"})
+
+(def IEEE754_1985RealEncoding
+  "IEEE 754 1985 Real Encoding"
+  {:db/ident   :qudt/IEEE754_1985RealEncoding,
+   :qudt/bytes 32,
+   :rdf/type   :qudt/FloatingPointEncodingType,
+   :rdfs/label "IEEE 754 1985 Real Encoding"})
+
+(def IERS-TN-32-2004
+  "IERS Conventions (2003), D. D. McCarthy and Gérard Petit (eds.), IERS Technical Note No. 32, 2004; http://www.iers.org/iers/publications/tn/tn32."
+  {:db/ident :qudt/IERS-TN-32-2004,
+   :dcterms/description
+   "IERS Conventions (2003), D. D. McCarthy and Gérard Petit (eds.), IERS Technical Note No. 32, 2004; http://www.iers.org/iers/publications/tn/tn32.",
+   :qudt/url "http://www.iers.org/iers/publications/tn/tn32.",
+   :rdf/type [:qudt/Citation :owl/NamedIndividual],
+   :rdfs/label "IERS-TN-32-2004",
+   :skos/prefLabel "IERS-TN-32-2004"})
 
 (def IMPERIAL-DimensionVector
   "A sub-type of 'Quantity Dimension Vector'. Detailed desciption to be provided in a future version."
@@ -2843,6 +2845,7 @@
    :sh/property      :qudt/IconicCue-image})
 
 (def IconicCue-image
+  "IconicCue-image"
   {:db/ident    :qudt/IconicCue-image,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
@@ -2850,6 +2853,7 @@
    :sh/path     :qudt/image})
 
 (def IconicCueEnumeration-defaultValue
+  "IconicCueEnumeration-defaultValue"
   {:db/ident :qudt/IconicCueEnumeration-defaultValue,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/IconicCue,
@@ -2897,6 +2901,7 @@
    :sh/property         :qudt/InertialCoordinateFrame-frameType})
 
 (def InertialCoordinateFrame-frameType
+  "InertialCoordinateFrame-frameType"
   {:db/ident    :qudt/InertialCoordinateFrame-frameType,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue :qudt.type/FT_NON-ROTATING,
@@ -2922,6 +2927,20 @@
    :rdfs/label "Integer Datatype",
    :rdfs/subClassOf [:qudt/OrdinalType :qudt/NumericType]})
 
+(def IntegerEncodingType
+  "The encoding scheme for integer types"
+  {:db/ident            :qudt/IntegerEncodingType,
+   :dcterms/description "The encoding scheme for integer types",
+   :owl/oneOf           [:qudt/LongUnsignedIntegerEncoding
+                         :qudt/ShortUnsignedIntegerEncoding
+                         :qudt/ShortUnsignedIntegerEncoding
+                         :qudt/SignedIntegerEncoding
+                         :qudt/UnsignedIntegerEncoding],
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label          "Integer Encoding",
+   :rdfs/subClassOf     :qudt/Encoding})
+
 (def IntegerList
   "Integer list"
   {:db/ident        :qudt/IntegerList,
@@ -2931,12 +2950,14 @@
    :sh/property     [:qudt/IntegerList-rest :qudt/IntegerList-first]})
 
 (def IntegerList-first
+  "IntegerList-first"
   {:db/ident    :qudt/IntegerList-first,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
    :sh/path     :rdf/first})
 
 (def IntegerList-rest
+  "IntegerList-rest"
   {:db/ident :qudt/IntegerList-rest,
    :rdf/type :sh/PropertyShape,
    :sh/path  :rdf/rest})
@@ -2959,6 +2980,20 @@
    :rdfs/label "Interpolated Table Type",
    :rdfs/subClassOf [:qudt/TableType :qudt/Table]})
 
+(def IntervalScale
+  "median, percentile & Monotonic increasing (order (<)) & totally ordered set <p>The interval type allows for the degree of difference between items, but not the ratio between them. Examples include temperature with the Celsius scale, which has two defined points (the freezing and boiling point of water at specific conditions) and then separated into 100 intervals, date when measured from an arbitrary epoch (such as AD), percentage such as a percentage return on a stock,[16] location in Cartesian coordinates, and direction measured in degrees from true or magnetic north. Ratios are not meaningful since 20 °C cannot be said to be \"twice as hot\" as 10 °C, nor can multiplication/division be carried out between any two dates directly. However, ratios of differences can be expressed; for example, one difference can be twice another. Interval type variables are sometimes also called \"scaled variables\", but the formal mathematical term is an affine space (in this case an affine line).</p> <p>Characteristics: median, percentile &amp; Monotonic increasing (order (&lt;) &amp; totally ordered set</p>"
+  {:db/ident :qudt/IntervalScale,
+   :qudt/informativeReference
+   "https://en.wikipedia.org/wiki/Level_of_measurement",
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   ["median, percentile & Monotonic increasing (order (<)) & totally ordered set"
+    "<p>The interval type allows for the degree of difference between items, but not the ratio between them. Examples include temperature with the Celsius scale, which has two defined points (the freezing and boiling point of water at specific conditions) and then separated into 100 intervals, date when measured from an arbitrary epoch (such as AD), percentage such as a percentage return on a stock,[16] location in Cartesian coordinates, and direction measured in degrees from true or magnetic north. Ratios are not meaningful since 20 °C cannot be said to be \"twice as hot\" as 10 °C, nor can multiplication/division be carried out between any two dates directly. However, ratios of differences can be expressed; for example, one difference can be twice another. Interval type variables are sometimes also called \"scaled variables\", but the formal mathematical term is an affine space (in this case an affine line).</p>\n<p>Characteristics: median, percentile &amp; Monotonic increasing (order (&lt;) &amp; totally ordered set</p>"],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Interval scale",
+   :rdfs/seeAlso [:qudt/OrdinalScale :qudt/RatioScale :qudt/NominalScale],
+   :rdfs/subClassOf :qudt/Scale})
+
 (def KinestheticCue
   "Kinesthetic Cue"
   {:db/ident        :qudt/KinestheticCue,
@@ -2968,6 +3003,7 @@
    :sh/property     :qudt/KinestheticCue-code})
 
 (def KinestheticCue-code
+  "KinestheticCue-code"
   {:db/ident    :qudt/KinestheticCue-code,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
@@ -2975,10 +3011,17 @@
    :sh/path     :qudt/code})
 
 (def KinestheticCueEnumeration-defaultValue
+  "KinestheticCueEnumeration-defaultValue"
   {:db/ident :qudt/KinestheticCueEnumeration-defaultValue,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/KinestheticCue,
    :sh/path  :qudt/defaultValue})
+
+(def LIST
+  "LIST"
+  {:db/ident   :qudt/LIST,
+   :rdf/type   [:qudt/List :owl/NamedIndividual],
+   :rdfs/label "LIST"})
 
 (def LargeObject
   "A 'LargeObject' datatype is used to store blocks of unstructured data (such as text, graphic images, video clips, and sound waveforms). They often are used to allow efficient, random, piece-wise access to the data."
@@ -2998,6 +3041,16 @@
    :rdf/type :owl/Class,
    :rdfs/label "Large object",
    :rdfs/subClassOf :qudt/CompositeDatatype})
+
+(def LatexString
+  "A type of string in which some characters may be wrapped with '\\(' and '\\) characters for LaTeX rendering."
+  {:db/ident :qudt/LatexString,
+   :rdf/type :rdfs/Datatype,
+   :rdfs/comment
+   "A type of string in which some characters may be wrapped with '\\(' and '\\) characters for LaTeX rendering.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Latex String",
+   :rdfs/subClassOf :xsd/string})
 
 (def LimitType
   "Limit type"
@@ -3023,12 +3076,14 @@
                      :qudt/Collection]})
 
 (def List-first
+  "List-first"
   {:db/ident :qudt/List-first,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/Datatype,
    :sh/path  :rdf/first})
 
 (def List-rest
+  "List-rest"
   {:db/ident :qudt/List-rest,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/List,
@@ -3042,6 +3097,14 @@
    :rdfs/subClassOf :qudt/CollectionType,
    :sh/property     [:qudt/List-rest :qudt/List-first]})
 
+(def LittleEndian
+  "Little Endian"
+  {:db/ident         :qudt/LittleEndian,
+   :dtype/literal    "little",
+   :rdf/type         :qudt/EndianType,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Little Endian"})
+
 (def LocalCoordinateSystem
   "A \"Trajectory Coordinate System\" with the following instance(s): \"Local vertical curvilinear coordinate system\", \"Local vertical local horizontal coordinate system\", \"Vehicle centered local vertical curvilinear coordinate system\"."
   {:db/ident :qudt/LocalCoordinateSystem,
@@ -3051,6 +3114,16 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Local Coordinate System Type",
    :rdfs/subClassOf :qudt/TrajectoryCoordinateSystem})
+
+(def LogarithmicUnit
+  "Logarithmic units are abstract mathematical units that can be used to express any quantities (physical or mathematical) that are defined on a logarithmic scale, that is, as being proportional to the value of a logarithm function. Examples of logarithmic units include common units of information and entropy, such as the bit, and the byte, as well as units of relative signal strength magnitude such as the decibel."
+  {:db/ident :qudt/LogarithmicUnit,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "Logarithmic units are abstract mathematical units that can be used to express any quantities (physical or mathematical) that are defined on a logarithmic scale, that is, as being proportional to the value of a logarithm function. Examples of logarithmic units include common units of information and entropy, such as the bit, and the byte, as well as units of relative signal strength magnitude such as the decibel.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Logarithmic Unit",
+   :rdfs/subClassOf :qudt/DimensionlessUnit})
 
 (def LongIntegerType
   "A Long Integer is an integer that can be represented in four octets (32 bits) of machine memory. Long integers may be signed or unsigned."
@@ -3070,6 +3143,7 @@
    :sh/property :qudt/LongIntegerType-octets})
 
 (def LongIntegerType-octets
+  "LongIntegerType-octets"
   {:db/ident    :qudt/LongIntegerType-octets,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue 4,
@@ -3121,6 +3195,7 @@
                  :qudt/LunarCoordinateSystem-coordinateCenter]})
 
 (def LunarCoordinateSystem-coordinateCenter
+  "LunarCoordinateSystem-coordinateCenter"
   {:db/ident    :qudt/LunarCoordinateSystem-coordinateCenter,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/CoordinateCenterType,
@@ -3128,6 +3203,7 @@
    :sh/path     :qudt/coordinateCenter})
 
 (def LunarCoordinateSystem-realization
+  "LunarCoordinateSystem-realization"
   {:db/ident    :qudt/LunarCoordinateSystem-realization,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -3135,6 +3211,7 @@
    :sh/path     :qudt/realization})
 
 (def LunarCoordinateSystem-xAxisDefinition
+  "LunarCoordinateSystem-xAxisDefinition"
   {:db/ident    :qudt/LunarCoordinateSystem-xAxisDefinition,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -3142,6 +3219,7 @@
    :sh/path     :qudt/xAxisDefinition})
 
 (def LunarCoordinateSystem-yAxisDefinition
+  "LunarCoordinateSystem-yAxisDefinition"
   {:db/ident    :qudt/LunarCoordinateSystem-yAxisDefinition,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
@@ -3149,17 +3227,47 @@
    :sh/path     :qudt/yAxisDefinition})
 
 (def LunarCoordinateSystem-zAxisDefinition
+  "LunarCoordinateSystem-zAxisDefinition"
   {:db/ident    :qudt/LunarCoordinateSystem-zAxisDefinition,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/string,
    :sh/maxCount 1,
    :sh/path     :qudt/zAxisDefinition})
 
+(def MASS-PROPERTIES-ARRAY
+  "MASS PROPERTIES ARRAY"
+  {:db/ident   :qudt/MASS-PROPERTIES-ARRAY,
+   :rdf/type   [:qudt/MassPropertiesArrayType :owl/NamedIndividual],
+   :rdfs/label "MASS PROPERTIES ARRAY"})
+
+(def MATRIX
+  "MATRIX"
+  {:db/ident   :qudt/MATRIX,
+   :rdf/type   [:qudt/MatrixType :owl/NamedIndividual],
+   :rdfs/label "MATRIX"})
+
+(def MATRIX-TYPE_2x4
+  "Matrix type 2x4"
+  {:db/ident            :qudt/MATRIX-TYPE_2x4,
+   :qudt/byRow          true,
+   :qudt/columns        4,
+   :qudt/dimensionVector :qudt/DV_2x4,
+   :qudt/dimensionality 2,
+   :qudt/rows           [4 2],
+   :rdf/type            :qudt/MatrixType,
+   :rdfs/label          "Matrix type  2x4"})
+
 (def MKS-Unit
   "A sub-type of 'Standards unit'. Detailed desciption to be provided in a future version."
   {:db/ident :qudt/MKS-Unit,
    :dcterms/description
    "A sub-type of 'Standards unit'. Detailed desciption to be provided in a future version."})
+
+(def MULTi-DIMENSIONAL-ARRAY
+  "MULTI-DIMENSIONAL ARRAY"
+  {:db/ident   :qudt/MULTi-DIMENSIONAL-ARRAY,
+   :rdf/type   :qudt/MultiDimensionalArrayType,
+   :rdfs/label "MULTI-DIMENSIONAL ARRAY"})
 
 (def MajorMinorType
   "A sub-type of 'Enumerated Value'. Detailed desciption to be provided in a future version."
@@ -3215,6 +3323,7 @@
    :sh/property :qudt/MarsCoordinateSystem-coordinateCenter})
 
 (def MarsCoordinateSystem-coordinateCenter
+  "MarsCoordinateSystem-coordinateCenter"
   {:db/ident    :qudt/MarsCoordinateSystem-coordinateCenter,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/CoordinateCenterType,
@@ -3294,6 +3403,7 @@
    :sh/property     :qudt/ModalCue-duration})
 
 (def ModalCue-duration
+  "ModalCue-duration"
   {:db/ident    :qudt/ModalCue-duration,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
@@ -3314,6 +3424,7 @@
    :sh/property :qudt/ModalEnumeration-defaultValue})
 
 (def ModalEnumeration-defaultValue
+  "ModalEnumeration-defaultValue"
   {:db/ident :qudt/ModalEnumeration-defaultValue,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/ModalCue,
@@ -3347,11 +3458,13 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Multi dimensional data format",
    :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :qudt/MultiDimensionalDataFormat-descriptor
-                      :rdf/type        :owl/Restriction}
+                      :owl/onProperty
+                      :qudt/MultiDimensionalDataFormat-descriptor,
+                      :rdf/type :owl/Restriction}
                      :qudt/CompositeDatatype]})
 
 (def MultiDimensionalDataFormat-descriptor
+  "MultiDimensionalDataFormat-descriptor"
   {:db/ident    :qudt/MultiDimensionalDataFormat-descriptor,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
@@ -3378,19 +3491,19 @@
    :rdfs/label "Multi modal enumeration",
    :rdfs/subClassOf
    [{:owl/maxCardinality 1,
-     :owl/onProperty     :qudt/MultiModalEnumeration-auralCueEnumeration
+     :owl/onProperty     :qudt/MultiModalEnumeration-auralCueEnumeration,
      :rdf/type           :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty     :qudt/MultiModalEnumeration-iconicCueEnumeration
+     :owl/onProperty     :qudt/MultiModalEnumeration-iconicCueEnumeration,
      :rdf/type           :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty     :qudt/MultiModalEnumeration-visualCueEnumeration
+     :owl/onProperty     :qudt/MultiModalEnumeration-visualCueEnumeration,
      :rdf/type           :owl/Restriction}
     {:owl/maxCardinality 1,
-     :owl/onProperty :qudt/MultiModalEnumeration-kinestheticCueEnumeration
-     :rdf/type :owl/Restriction}
+     :owl/onProperty     :qudt/MultiModalEnumeration-kinestheticCueEnumeration,
+     :rdf/type           :owl/Restriction}
     {:owl/allValuesFrom :qudt/ModalEnumeration,
-     :owl/onProperty    :qudt/MultiModalEnumeration-modalCueEnumeration
+     :owl/onProperty    :qudt/MultiModalEnumeration-modalCueEnumeration,
      :rdf/type          :owl/Restriction}
     :qudt/Enumeration],
    :sh/property [:qudt/MultiModalEnumeration-kinestheticCueEnumeration
@@ -3400,30 +3513,35 @@
                  :qudt/MultiModalEnumeration-auralCueEnumeration]})
 
 (def MultiModalEnumeration-auralCueEnumeration
+  "MultiModalEnumeration-auralCueEnumeration"
   {:db/ident    :qudt/MultiModalEnumeration-auralCueEnumeration,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/auralCueEnumeration})
 
 (def MultiModalEnumeration-iconicCueEnumeration
+  "MultiModalEnumeration-iconicCueEnumeration"
   {:db/ident    :qudt/MultiModalEnumeration-iconicCueEnumeration,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/iconicCueEnumeration})
 
 (def MultiModalEnumeration-kinestheticCueEnumeration
+  "MultiModalEnumeration-kinestheticCueEnumeration"
   {:db/ident    :qudt/MultiModalEnumeration-kinestheticCueEnumeration,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/kinestheticCueEnumeration})
 
 (def MultiModalEnumeration-modalCueEnumeration
+  "MultiModalEnumeration-modalCueEnumeration"
   {:db/ident :qudt/MultiModalEnumeration-modalCueEnumeration,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/ModalEnumeration,
    :sh/path  :qudt/modalCueEnumeration})
 
 (def MultiModalEnumeration-visualCueEnumeration
+  "MultiModalEnumeration-visualCueEnumeration"
   {:db/ident    :qudt/MultiModalEnumeration-visualCueEnumeration,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
@@ -3437,26 +3555,25 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Multi Modal Type",
-   :rdfs/subClassOf
-   [{:owl/maxCardinality 1,
-     :owl/onProperty     :qudt/iconicCue
-     :rdf/type           :owl/Restriction}
-    {:owl/maxCardinality 1,
-     :owl/onProperty     :qudt/kinestheticCue
-     :rdf/type           :owl/Restriction}
-    {:owl/allValuesFrom :qudt/ModelCue,
-     :owl/onProperty    :qudt/modalCue,
-     :rdf/type          :owl/Restriction}
-    {:owl/maxCardinality 1,
-     :owl/onProperty     :qudt/visualCue,
-     :rdf/type           :owl/Restriction}
-    :qudt/EnumeratedValue
-    {:owl/maxCardinality 1,
-     :owl/onProperty     :qudt/auralCue,
-     :rdf/type           :owl/Restriction}
-    {:owl/onProperty     :qudt/modalCue,
-     :owl/someValuesFrom :qudt/ModelCue,
-     :rdf/type           :owl/Restriction}],
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/iconicCue,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/kinestheticCue,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/ModelCue,
+                      :owl/onProperty    :qudt/modalCue,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/visualCue,
+                      :rdf/type           :owl/Restriction}
+                     :qudt/EnumeratedValue
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/auralCue,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :qudt/modalCue,
+                      :owl/someValuesFrom :qudt/ModelCue,
+                      :rdf/type           :owl/Restriction}],
    :sh/property [:qudt/MultiModalType-visualCue
                  :qudt/MultiModalType-kinestheticCue
                  :qudt/MultiModalType-modalCue
@@ -3464,30 +3581,35 @@
                  :qudt/MultiModalType-iconicCue]})
 
 (def MultiModalType-auralCue
+  "MultiModalType-auralCue"
   {:db/ident    :qudt/MultiModalType-auralCue,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/auralCue})
 
 (def MultiModalType-iconicCue
+  "MultiModalType-iconicCue"
   {:db/ident    :qudt/MultiModalType-iconicCue,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/iconicCue})
 
 (def MultiModalType-kinestheticCue
+  "MultiModalType-kinestheticCue"
   {:db/ident    :qudt/MultiModalType-kinestheticCue,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
    :sh/path     :qudt/kinestheticCue})
 
 (def MultiModalType-modalCue
+  "MultiModalType-modalCue"
   {:db/ident :qudt/MultiModalType-modalCue,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/ModalCue,
    :sh/path  :qudt/modalCue})
 
 (def MultiModalType-visualCue
+  "MultiModalType-visualCue"
   {:db/ident    :qudt/MultiModalType-visualCue,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
@@ -3515,6 +3637,7 @@
                      :qudt/Tuple]})
 
 (def N-Tuple-elementType
+  "N-Tuple-elementType"
   {:db/ident    :qudt/N-Tuple-elementType,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/Datatype,
@@ -3530,6 +3653,46 @@
    :rdfs/label "N-Tuple Type",
    :rdfs/subClassOf :qudt/TupleType,
    :sh/property :qudt/N-Tuple-elementType})
+
+(def NIST_SP811_Comment
+  "National Institute of Standards and Technology (NIST) Special Publication 811 Comments on some quantities and their units"
+  {:db/ident :qudt/NIST_SP811_Comment,
+   :dcterms/description
+   "National Institute of Standards and Technology (NIST) Special Publication 811 Comments on some quantities and their units",
+   :rdf/type [:owl/Class :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "NIST SP~811 Comment",
+   :rdfs/subClassOf :qudt/Comment})
+
+(def NUMERIC
+  "Numeric"
+  {:db/ident           :qudt/NUMERIC,
+   :dtype/literal      "numeric",
+   :qudt/ansiSQLName   "DECIMAL(p,s)",
+   :qudt/odbcName      "SQL_DECIMAL(p,s)",
+   :qudt/oracleSQLName "NUMBER(p,s)",
+   :rdf/type           [:qudt/NumericType :owl/NamedIndividual],
+   :rdfs/label         "Numeric"})
+
+(def No
+  "No"
+  {:db/ident     :qudt/No,
+   :qudt/literal "N",
+   :rdf/type     :qudt/YesNoType,
+   :rdfs/label   "No"})
+
+(def NominalScale
+  "A nominal scale differentiates between items or subjects based only on their names or (meta-)categories and other qualitative classifications they belong to; thus dichotomous data involves the construction of classifications as well as the classification of items. Discovery of an exception to a classification can be viewed as progress. Numbers may be used to represent the variables but the numbers do not have numerical value or relationship: For example, a Globally unique identifier. Examples of these classifications include gender, nationality, ethnicity, language, genre, style, biological species, and form. In a university one could also use hall of affiliation as an example."
+  {:db/ident :qudt/NominalScale,
+   :qudt/informativeReference
+   "https://en.wikipedia.org/wiki/Level_of_measurement",
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A nominal scale differentiates between items or subjects based only on their names or (meta-)categories and other qualitative classifications they belong to; thus dichotomous data involves the construction of classifications as well as the classification of items. Discovery of an exception to a classification can be viewed as progress. Numbers may be used to represent the variables but the numbers do not have numerical value or relationship: For example, a Globally unique identifier. Examples of these classifications include gender, nationality, ethnicity, language, genre, style, biological species, and form. In a university one could also use hall of affiliation as an example.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Nominal scale",
+   :rdfs/seeAlso [:qudt/RatioScale :qudt/OrdinalScale :qudt/IntervalScale],
+   :rdfs/subClassOf :qudt/Scale})
 
 (def NonModifiableParameter
   "Parameter is fixed, not modifiable."
@@ -3556,6 +3719,7 @@
    :sh/property :qudt/NonRotatingInertialFrame-frameType})
 
 (def NonRotatingInertialFrame-frameType
+  "NonRotatingInertialFrame-frameType"
   {:db/ident    :qudt/NonRotatingInertialFrame-frameType,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue :qudt.type/FT_NON-ROTATING,
@@ -3583,6 +3747,7 @@
    :sh/property [:qudt/NumericType-accuracy :qudt/NumericType-signedness]})
 
 (def NumericType-accuracy
+  "NumericType-accuracy"
   {:db/ident    :qudt/NumericType-accuracy,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/integer,
@@ -3590,11 +3755,63 @@
    :sh/path     :qudt/accuracy})
 
 (def NumericType-signedness
+  "NumericType-signedness"
   {:db/ident    :qudt/NumericType-signedness,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :qudt/SignednessType,
    :sh/maxCount 1,
    :sh/path     :qudt/signedness})
+
+(def NumericUnion
+  "Numeric union"
+  {:db/ident        :qudt/NumericUnion,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Numeric union",
+   :rdfs/subClassOf [:dtype/numericUnion :qudt/Concept]})
+
+(def OOST_OFF
+  "Off"
+  {:db/ident         :qudt/OOST_OFF,
+   :qudt/code        "0",
+   :qudt/literal     "off",
+   :rdf/type         [:qudt/OnOffStateType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Off"})
+
+(def OOST_ON
+  "On"
+  {:db/ident         :qudt/OOST_ON,
+   :qudt/code        "0",
+   :qudt/literal     "on",
+   :rdf/type         [:qudt/OnOffStateType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "On"})
+
+(def OOST_ZERO-MEANS-OFF
+  "Zero means off"
+  {:db/ident         :qudt/OOST_ZERO-MEANS-OFF,
+   :dtype/literal    "zero-means-off",
+   :qudt/inverted    true,
+   :rdf/type         [:qudt/OnOffStateType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Zero means off"})
+
+(def OOST_ZERO-MEANS-ON
+  "Zero means on"
+  {:db/ident         :qudt/OOST_ZERO-MEANS-ON,
+   :dtype/literal    "zero-means-on",
+   :qudt/inverted    true,
+   :rdf/type         [:qudt/OnOffStateType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Zero means on"})
+
+(def OctetEncoding
+  "OCTET Encoding"
+  {:db/ident         :qudt/OctetEncoding,
+   :qudt/bytes       1,
+   :rdf/type         [:qudt/ByteEncodingType :qudt/BooleanEncodingType],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "OCTET Encoding"})
 
 (def OctetType
   "An 8 bit unsigned integer"
@@ -3611,6 +3828,15 @@
    :rdfs/comment
    "A discrete state enumeration whose values are 'off' and 'on'. The 'off' value is encoded as a zero (0) and the 'on' value as a one (1)."})
 
+(def On
+  "On"
+  {:db/ident         :qudt/On,
+   :qudt/code        "1",
+   :qudt/literal     "on",
+   :rdf/type         :qudt/OnOffStateType,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "On"})
+
 (def OnOffStateType
   "On off state type"
   {:db/ident         :qudt/OnOffStateType,
@@ -3625,6 +3851,23 @@
    :qudt/inverted true,
    :rdfs/comment
    "A discrete state enumeration whose values are 'off' and 'on'. The 'on' value is encoded as a zero (0) and the 'off' value as a one (1)."})
+
+(def OneMeansOff
+  "One means off"
+  {:db/ident         :qudt/OneMeansOff,
+   :qudt/inverted    true,
+   :qudt/literal     "off",
+   :rdf/type         :qudt/OnOffStateType,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "One means off"})
+
+(def Open
+  "Open"
+  {:db/ident     :qudt/Open,
+   :qudt/code    "1",
+   :qudt/literal "open",
+   :rdf/type     :qudt/OpenCloseStateType,
+   :rdfs/label   "Open"})
 
 (def OpenCloseStateType
   "Open Close State Type"
@@ -3653,12 +3896,14 @@
                      :qudt/Collection]})
 
 (def OrderedCollection-first
+  "OrderedCollection-first"
   {:db/ident :qudt/OrderedCollection-first,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/Datatype,
    :sh/path  :rdf/first})
 
 (def OrderedCollection-orderingRelation
+  "OrderedCollection-orderingRelation"
   {:db/ident    :qudt/OrderedCollection-orderingRelation,
    :rdf/type    :sh/PropertyShape,
    :sh/class    :dtype/ComparisonOperator,
@@ -3666,6 +3911,7 @@
    :sh/path     :qudt/orderingRelation})
 
 (def OrderedCollection-rest
+  "OrderedCollection-rest"
   {:db/ident :qudt/OrderedCollection-rest,
    :rdf/type :sh/PropertyShape,
    :sh/class :qudt/OrderedCollectionType,
@@ -3702,6 +3948,33 @@
    :rdfs/label "Ordered Tree Type",
    :rdfs/subClassOf [:qudt/TreeType :qudt/OrderedCollectionType]})
 
+(def OrderedType
+  "Describes how a data or information structure is ordered."
+  {:db/ident :qudt/OrderedType,
+   :dcterms/description
+   "Describes how a data or information structure is ordered.",
+   :owl/oneOf [:qudt/Unordered :qudt/PartiallyOrdered :qudt/TotallyOrdered],
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Ordered type",
+   :rdfs/subClassOf :qudt/EnumeratedValue})
+
+(def OrdinalScale
+  "The ordinal type allows for rank order (1st, 2nd, 3rd, etc.) by which data can be sorted, but still does not allow for relative degree of difference between them. Examples include, on one hand, dichotomous data with dichotomous (or dichotomized) values such as 'sick' vs. 'healthy' when measuring health, 'guilty' vs. 'innocent' when making judgments in courts, 'wrong/false' vs. 'right/true' when measuring truth value, and, on the other hand, non-dichotomous data consisting of a spectrum of values, such as 'completely agree', 'mostly agree', 'mostly disagree', 'completely disagree' when measuring opinion."
+  {:db/ident :qudt/OrdinalScale,
+   :qudt/informativeReference
+   "https://en.wikipedia.org/wiki/Level_of_measurement",
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "The ordinal type allows for rank order (1st, 2nd, 3rd, etc.) by which data can be sorted, but still does not allow for relative degree of difference between them. Examples include, on one hand, dichotomous data with dichotomous (or dichotomized) values such as 'sick' vs. 'healthy' when measuring health, 'guilty' vs. 'innocent' when making judgments in courts, 'wrong/false' vs. 'right/true' when measuring truth value, and, on the other hand, non-dichotomous data consisting of a spectrum of values, such as 'completely agree', 'mostly agree', 'mostly disagree', 'completely disagree' when measuring opinion.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Ordinal scale",
+   :rdfs/seeAlso [:qudt/NominalScale :qudt/IntervalScale :qudt/RatioScale],
+   :rdfs/subClassOf [:qudt/Scale
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/order,
+                      :rdf/type        :owl/Restriction}]})
+
 (def OrdinalType
   "An ordinal data type is a data type that specifies the properties of values that can easily be put in a one to one correspondence with a subset of the natural numbers. Examples include boolean, character, and integer data types."
   {:db/ident :qudt/OrdinalType,
@@ -3716,14 +3989,20 @@
   "A sub-type of 'QUDT Concept'. Detailed desciption to be provided in a future version."
   {:db/ident :qudt/Organization,
    :dcterms/description
-   "A sub-type of 'QUDT Concept'. Detailed desciption to be provided in a future version."
-   :rdf/type         :owl/Class,
+   "A sub-type of 'QUDT Concept'. Detailed desciption to be provided in a future version.",
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Organization",
-   :rdfs/subClassOf  [{:owl/minCardinality 0,
-                       :owl/onProperty     :qudt/url,
-                       :rdf/type           :owl/Restriction}
-                      :qudt/Concept]})
+   :rdfs/label "Organization",
+   :rdfs/subClassOf [{:owl/minCardinality 0,
+                      :owl/onProperty     :qudt/url,
+                      :rdf/type           :owl/Restriction}
+                     :qudt/Concept]})
+
+(def PARTIAL-ARRAY
+  "PARTIAL ARRAY"
+  {:db/ident   :qudt/PARTIAL-ARRAY,
+   :rdf/type   [:qudt/ArrayType :owl/NamedIndividual],
+   :rdfs/label "PARTIAL ARRAY"})
 
 (def PaddingType
   "This describes how unused bits of a field are filled. Unused bits could be set to one or zero. A third option is \"don't care\"."
@@ -3746,6 +4025,15 @@
    :rdfs/label "Parameter modifiability type",
    :rdfs/subClassOf :qudt/EnumeratedValue})
 
+(def PartiallyOrdered
+  "Partially Ordered"
+  {:db/ident         :qudt/PartiallyOrdered,
+   :qudt/literal     "partial",
+   :qudt/plainTextDescription "Partial ordered structure.",
+   :rdf/type         :qudt/OrderedType,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Partially Ordered"})
+
 (def Percentage
   "A Scalar Datatype for expressing a dimensionless ratio."
   {:db/ident :qudt/Percentage,
@@ -3765,6 +4053,34 @@
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
    :rdfs/label          "Physical Address Type",
    :rdfs/subClassOf     :qudt/CompositeDatatype})
+
+(def PhysicalConstant
+  "A physical constant is a physical quantity that is generally believed to be both universal in nature and constant in time. It can be contrasted with a mathematical constant, which is a fixed numerical value but does not directly involve any physical measurement. There are many physical constants in science, some of the most widely recognized being the speed of light in vacuum c, Newton's gravitational constant G, Planck's constant h, the electric permittivity of free space ε0, and the elementary charge e. Physical constants can take many dimensional forms, or may be dimensionless depending on the system of quantities and units used."
+  {:db/ident :qudt/PhysicalConstant,
+   :qudt/dbpediaMatch "http://dbpedia.org/resource/Physical_constant",
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A physical constant is a physical quantity that is generally believed to be both universal in nature and constant in time. It can be contrasted with a mathematical constant, which is a fixed numerical value but does not directly involve any physical measurement. There are many physical constants in science, some of the most widely recognized being the speed of light in vacuum c, Newton's gravitational constant G, Planck's constant h, the electric permittivity of free space ε0, and the elementary charge e. Physical constants can take many dimensional forms, or may be dimensionless depending on the system of quantities and units used.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Physical Constant",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/mathMLdefinition,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/latexSymbol,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/latexDefinition,
+                      :rdf/type           :owl/Restriction}
+                     :qudt/Quantity]})
+
+(def PlaneAngleUnit
+  "Plane Angle Unit"
+  {:db/ident         :qudt/PlaneAngleUnit,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Plane Angle Unit",
+   :rdfs/subClassOf  :qudt/AngleUnit})
 
 (def PolarCoordinates
   "A set of variables which fix a geometric object. If the coordinates of a point P are determined by the distance from P to the origin and the angle subtended by the radial vector at P and a fixed axis, they are known as polar coordinates. Typically, the angle is measured with respect to the x-axis."
@@ -3807,6 +4123,27 @@
    :rdfs/label       "Positive Integer Type",
    :rdfs/subClassOf  [:qudt/UnsignedType :qudt/IntegerDatatype]})
 
+(def Prefix
+  "Prefix"
+  {:db/ident         :qudt/Prefix,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Prefix",
+   :rdfs/subClassOf  [{:owl/minCardinality 0,
+                       :owl/onProperty     :qudt/symbol,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/minCardinality 0,
+                       :owl/onProperty     :qudt/latexSymbol,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :qudt/prefixMultiplier,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :qudt/UCUMcs-term,
+                       :owl/onProperty    :qudt/ucumCode,
+                       :rdf/type          :owl/Restriction}
+                      :qudt/Verifiable
+                      :qudt/Concept]})
+
 (def PrefixUnit
   "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."
   {:db/ident :qudt/PrefixUnit,
@@ -3838,2468 +4175,6 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Pub enumerated type",
    :rdfs/subClassOf :qudt/EnumeratedValue})
-
-(def QuantityValueType
-  "A sub-type of 'Dimensional Data Type'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/QuantityValueType,
-   :dcterms/description
-   "A sub-type of 'Dimensional Data Type'. Detailed desciption to be provided in a future version.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Quantity value type",
-   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/Unit,
-                      :owl/onProperty    :qudt/elementUnit,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/QuantityType,
-                      :owl/onProperty    :qudt/basis,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/DimensionalDatatype
-                     {:owl/allValuesFrom :qudt/NumericType,
-                      :owl/onProperty    :qudt/elementType,
-                      :rdf/type          :owl/Restriction}],
-   :sh/property [:qudt/QuantityValueType-elementUnit
-                 :qudt/QuantityValueType-basis
-                 :qudt/QuantityValueType-elementType]})
-
-(def QuantityValueType-basis
-  {:db/ident :qudt/QuantityValueType-basis,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/QuantityType,
-   :sh/path  :qudt/basis})
-
-(def QuantityValueType-elementType
-  {:db/ident :qudt/QuantityValueType-elementType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/NumericType,
-   :sh/path  :qudt/elementType})
-
-(def QuantityValueType-elementUnit
-  {:db/ident    :qudt/QuantityValueType-elementUnit,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/Unit,
-   :sh/maxCount 1,
-   :sh/path     :qudt/elementUnit})
-
-(def RawValueTupleMember
-  "A sub-type of 'Tuple Member Type'. Detailed desciption to be provided in a future version."
-  {:db/ident         :qudt/RawValueTupleMember,
-   :dcterms/description
-   "A sub-type of 'Tuple Member Type'. Detailed desciption to be provided in a future version.",
-   :owl/equivalentClass
-   {:owl/intersectionOf [:qudt/TupleMember
-                         {:owl/allValuesFrom :qudt/UnsignedIntegerType,
-                          :owl/onProperty    :qudt/elementType,
-                          :rdf/type          :owl/Restriction}],
-    :rdf/type :owl/Class},
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Raw value tuple member",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :qudt/UnsignedIntegerType,
-                       :owl/onProperty    :qudt/elementType,
-                       :rdf/type          :owl/Restriction}
-                      :qudt/TupleMember]})
-
-(def RawValueTupleMember-elementType
-  {:db/ident :qudt/RawValueTupleMember-elementType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/UnsignedIntegerType,
-   :sh/path  :qudt/elementType})
-
-(def RawValueTupleMemberType
-  "Raw value tuple member type"
-  {:db/ident            :qudt/RawValueTupleMemberType,
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/TupleMemberType
-                                              {:owl/allValuesFrom
-                                               :qudt/UnsignedIntegerType,
-                                               :owl/onProperty
-                                               :qudt/elementType,
-                                               :rdf/type :owl/Restriction}],
-                         :rdf/type :owl/Class},
-   :rdf/type            [:sh/NodeShape :owl/Class],
-   :rdfs/label          "Raw value tuple member type",
-   :rdfs/subClassOf     :qudt/TupleMemberType,
-   :sh/property         :qudt/RawValueTupleMember-elementType})
-
-(def RealDatatype
-  "A real number is represented as a factor, called the mantissa, multiplied by a power (the exponent) of a base. Different bases yield different approximations to real numbers, and conversion between them is limited in accuracy. Four floating-point types are defined in 'IEEE-754 Standard for Binary Floating-Point'. These types are 'single', 'extended single', 'double', and 'extended double'."
-  {:db/ident :qudt/RealDatatype,
-   :dcterms/description
-   "A real number is represented as a factor, called the mantissa, multiplied by a power (the exponent) of a base. Different bases yield different approximations to real numbers, and conversion between them is limited in accuracy.  Four floating-point types are defined in 'IEEE-754 Standard for Binary Floating-Point'. These types are 'single', 'extended single', 'double', and 'extended double'.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Real Datatype",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/precision,
-                      :rdf/type           :owl/Restriction}
-                     :qudt/NumericType
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/base,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/maxExponent,
-                      :rdf/type           :owl/Restriction}],
-   :sh/property [:qudt/RealDatatype-maxExponent
-                 :qudt/RealDatatype-base
-                 :qudt/RealDatatype-precision]})
-
-(def RealDatatype-base
-  {:db/ident    :qudt/RealDatatype-base,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/base})
-
-(def RealDatatype-maxExponent
-  {:db/ident    :qudt/RealDatatype-maxExponent,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/maxExponent})
-
-(def RealDatatype-precision
-  {:db/ident    :qudt/RealDatatype-precision,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/precision})
-
-(def RealDoublePrecisionType
-  "A real double precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies two words in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes. An example of a real double precision data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 8 bytes for storage on 32-bit machine architectures."
-  {:db/ident         :qudt/RealDoublePrecisionType,
-   :dcterms/description
-   "A real double precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies two words in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes.\n\nAn example of a real double precision data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 8 bytes for storage on 32-bit machine architectures.",
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/RealDatatype
-                                              :qudt/DoublePrecisionType],
-                         :rdf/type :owl/Class},
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Real Double Precision Type",
-   :rdfs/subClassOf  [:qudt/RealDatatype :qudt/DoublePrecisionType]})
-
-(def RealNumberType
-  "This is the class of data values that approximate real numbers in finite precision. Often, such values are expressed in \"mantissa, base, exponent\" form. Any rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. Typically, b is chosen to be either 2 or 10, and then the values of m and e are determined given the choice of base."
-  {:db/ident :qudt/RealNumberType,
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/comment
-   "This is the class of data values that approximate real numbers in finite precision. Often, such values are expressed in \"mantissa, base, exponent\" form. Any rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. Typically, b is chosen to be either 2 or 10, and then the values of m and e are determined given the choice of base.",
-   :rdfs/label "Real number type",
-   :rdfs/subClassOf :qudt/RealDatatype})
-
-(def RealSinglePrecisionType
-  "A real single precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes. An example of a real single precisoin data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 4 bytes for storage on 32-bit machine architectures."
-  {:db/ident         :qudt/RealSinglePrecisionType,
-   :dcterms/description
-   "A real single precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes. An example of a real single precisoin data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 4 bytes for storage on 32-bit machine architectures.",
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/RealDatatype
-                                              :qudt/SinglePrecisionType],
-                         :rdf/type :owl/Class},
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Real Single Precision Type",
-   :rdfs/subClassOf  [:qudt/SinglePrecisionType :qudt/RealDatatype]})
-
-(def Record
-  "A Record Type is a type whose values are records, i.e. aggregates of several items of possibly different types. The aggregated items are called fields or members and are usually identified or indexed by field labels."
-  {:db/ident :qudt/Record,
-   :dcterms/description
-   "A Record Type is a type whose values are records, i.e. aggregates of several items of possibly different types. The aggregated items are called fields or members and are usually identified or indexed by field labels.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Record Type",
-   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/FieldType
-                      :owl/onProperty    :qudt/elementTypeList,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/CompositeDatatype]})
-
-(def ReferenceDatatype
-  "A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer. A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer. [Wikipedia]"
-  {:db/ident :qudt/ReferenceDatatype,
-   :dcterms/description
-   ["A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer."
-    "A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer. [Wikipedia]"],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Reference Data Type",
-   :rdfs/subClassOf :qudt/StructuredDatatype})
-
-(def ReferenceFrame
-  "A reference frame (or frame of reference) in physics, may refer to a coordinate system or set of axes. The frame serves as the datum to measure the position, orientation, and other properties of objects in it. Reference frame may refer to an observational reference frame tied to the state of motion of an observer. Reference frame may also refer to both an observational reference frame and an attached coordinate system as a unit."
-  {:db/ident :qudt/ReferenceFrame,
-   :dcterms/description
-   "A reference frame (or frame of reference) in physics, may refer to a coordinate system or set of axes.\nThe frame serves as the datum to measure the position, orientation, and other properties of objects in it.\nReference frame may refer to an observational reference frame tied to the state of motion of an observer. \nReference frame may also refer to both an observational reference frame and an attached coordinate system as a unit.",
-   :rdf/type [:owl/Class :sh/NodeShape],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Reference Frame",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/comment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/zAxisDefinition,
-                      :rdf/type        :owl/Restriction}
-                     :skos/Concept
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/xCoordinateDefinition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/yCoordinateDefinition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/zCoordinateDefinition,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Concept
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/yAxisDefinition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/xAxisDefinition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/FrameType,
-                      :owl/onProperty    :qudt/frameType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/realization,
-                      :rdf/type        :owl/Restriction}],
-   :sh/property [:qudt/ReferenceFrame-realization
-                 :qudt/ReferenceFrame-xAxisDefinition
-                 :qudt/ReferenceFrame-frameType
-                 :qudt/ReferenceFrame-comment
-                 :qudt/ReferenceFrame-zAxisDefinition
-                 :qudt/ReferenceFrame-xCoordinateDefinition
-                 :qudt/ReferenceFrame-zCoordinateDefinition
-                 :qudt/ReferenceFrame-description
-                 :qudt/ReferenceFrame-yAxisDefinition
-                 :qudt/ReferenceFrame-yCoordinateDefinition]})
-
-(def ReferenceFrame-comment
-  {:db/ident    :qudt/ReferenceFrame-comment,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/path     :vaem/comment})
-
-(def ReferenceFrame-description
-  {:db/ident    :qudt/ReferenceFrame-description,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/path     :vaem/description})
-
-(def ReferenceFrame-frameType
-  {:db/ident :qudt/ReferenceFrame-frameType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/FrameType,
-   :sh/path  :qudt/frameType})
-
-(def ReferenceFrame-realization
-  {:db/ident    :qudt/ReferenceFrame-realization,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/maxCount 1,
-   :sh/path     :qudt/realization})
-
-(def ReferenceFrame-xAxisDefinition
-  {:db/ident    :qudt/ReferenceFrame-xAxisDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/maxCount 1,
-   :sh/path     :qudt/xAxisDefinition})
-
-(def ReferenceFrame-xCoordinateDefinition
-  {:db/ident    :qudt/ReferenceFrame-xCoordinateDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/maxCount 1,
-   :sh/path     :qudt/xCoordinateDefinition})
-
-(def ReferenceFrame-yAxisDefinition
-  {:db/ident    :qudt/ReferenceFrame-yAxisDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/maxCount 1,
-   :sh/path     :qudt/yAxisDefinition})
-
-(def ReferenceFrame-yCoordinateDefinition
-  {:db/ident    :qudt/ReferenceFrame-yCoordinateDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/maxCount 1,
-   :sh/path     :qudt/yCoordinateDefinition})
-
-(def ReferenceFrame-zAxisDefinition
-  {:db/ident    :qudt/ReferenceFrame-zAxisDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/maxCount 1,
-   :sh/path     :qudt/zAxisDefinition})
-
-(def ReferenceFrame-zCoordinateDefinition
-  {:db/ident    :qudt/ReferenceFrame-zCoordinateDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/maxCount 1,
-   :sh/path     :qudt/zCoordinateDefinition})
-
-(def RotatingReferenceFrame
-  "A sub-type of 'Reference Frame'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/RotatingReferenceFrame,
-   :dcterms/description
-   "A sub-type of 'Reference Frame'. Detailed desciption to be provided in a future version.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Rotating reference frame",
-   :rdfs/subClassOf :qudt/ReferenceFrame})
-
-(def ScalarDatatype-bitOrder
-  {:db/ident    :qudt/ScalarDatatype-bitOrder,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/EndianType,
-   :sh/maxCount 1,
-   :sh/path     :qudt/bitOrder})
-
-(def ScalarDatatype-bits
-  {:db/ident    :qudt/ScalarDatatype-bits,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/or       :qudt/IntegerUnionList,
-   :sh/path     :qudt/bits})
-
-(def ScalarDatatype-byteOrder
-  {:db/ident    :qudt/ScalarDatatype-byteOrder,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/EndianType,
-   :sh/maxCount 1,
-   :sh/path     :qudt/byteOrder})
-
-(def ScalarDatatype-bytes
-  {:db/ident    :qudt/ScalarDatatype-bytes,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/or       :qudt/IntegerUnionList,
-   :sh/path     :qudt/bytes})
-
-(def ScalarDatatype-encoding
-  {:db/ident    :qudt/ScalarDatatype-encoding,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/Encoding,
-   :sh/maxCount 1,
-   :sh/path     :qudt/encoding})
-
-(def ScalarDatatype-length
-  {:db/ident    :qudt/ScalarDatatype-length,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/length})
-
-(def ScalarDatatype-maxExclusive
-  {:db/ident         :qudt/ScalarDatatype-maxExclusive,
-   :rdf/type         :sh/PropertyShape,
-   :rdfs/isDefinedBy "http://edg.topbraid.solutions/1.0/schema/qudt",
-   :sh/maxCount      1,
-   :sh/or            :qudt/NumericUnionList,
-   :sh/path          :qudt/maxExclusive})
-
-(def ScalarDatatype-maxInclusive
-  {:db/ident         :qudt/ScalarDatatype-maxInclusive,
-   :rdf/type         :sh/PropertyShape,
-   :rdfs/isDefinedBy "http://edg.topbraid.solutions/1.0/schema/qudt",
-   :sh/maxCount      1,
-   :sh/or            :qudt/NumericUnionList,
-   :sh/path          :qudt/maxInclusive})
-
-(def ScalarDatatype-minExclusive
-  {:db/ident    :qudt/ScalarDatatype-minExclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/or       :qudt/NumericUnionList,
-   :sh/path     :qudt/minExclusive})
-
-(def ScalarDatatype-minInclusive
-  {:db/ident    :qudt/ScalarDatatype-minInclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/or       :qudt/NumericUnionList,
-   :sh/path     :qudt/minInclusive})
-
-(def ScalarDatatype-rdfsDatatype
-  {:db/ident    :qudt/ScalarDatatype-rdfsDatatype,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/path     :qudt/rdfsDatatype})
-
-(def ScaledUnit
-  "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/ScaledUnit,
-   :dcterms/description
-   "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."})
-
-(def Sequence
-  "A \"Structured Datatype\"."
-  {:db/ident            :qudt/Sequence,
-   :dcterms/description "A \"Structured Datatype\".",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label          "Sequence",
-   :rdfs/subClassOf     [{:owl/allValuesFrom :qudt/Sequence,
-                          :owl/onProperty    :rdf/rest,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/allValuesFrom :qudt/Datatype,
-                          :owl/onProperty    :rdf/first,
-                          :rdf/type          :owl/Restriction}
-                         :qudt/Collection]})
-
-(def Sequence-first
-  {:db/ident :qudt/Sequence-first,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/Datatype,
-   :sh/path  :rdf/first})
-
-(def Sequence-rest
-  {:db/ident :qudt/Sequence-rest,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/SequenceType,
-   :sh/path  :rdf/rest})
-
-(def SequenceType
-  "A sequence is an enumerated collection of objects in which repetitions are allowed. Like a set, it contains members (also called elements, or terms). The number of elements (possibly infinite) is called the length of the sequence. Unlike a set, order matters, and exactly the same elements can appear multiple times at different positions in the sequence. Formally, a sequence can be defined as a function whose domain is either the set of the natural numbers (for infinite sequences) or the set of the first n natural numbers (for a sequence of finite length n). The position of an element in a sequence is its rank or index; it is the integer from which the element is the image. It depends on the context or of a specific convention, if the first element has index 0 or 1. [Wikipedia]"
-  {:db/ident :qudt/SequenceType,
-   :dcterms/description
-   "A sequence is an enumerated collection of objects in which repetitions are allowed. Like a set, it contains members (also called elements, or terms). The number of elements (possibly infinite) is called the length of the sequence. Unlike a set, order matters, and exactly the same elements can appear multiple times at different positions in the sequence. Formally, a sequence can be defined as a function whose domain is either the set of the natural numbers (for infinite sequences) or the set of the first n natural numbers (for a sequence of finite length n). The position of an element in a sequence is its rank or index; it is the integer from which the element is the image. It depends on the context or of a specific convention, if the first element has index 0 or 1. [Wikipedia]",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Sequence",
-   :rdfs/subClassOf :qudt/CollectionType,
-   :sh/property [:qudt/Sequence-rest :qudt/Sequence-first]})
-
-(def Set
-  "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics."
-  {:db/ident :qudt/Set,
-   :dcterms/description
-   "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Set Type",
-   :rdfs/subClassOf :qudt/Collection})
-
-(def SetType
-  "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics."
-  {:db/ident :qudt/SetType,
-   :dcterms/description
-   "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics.",
-   :rdf/type :owl/Class,
-   :rdfs/label "Set Type",
-   :rdfs/subClassOf :qudt/CollectionType})
-
-(def ShortIntegerType
-  "A Short Integer is an integer that can be represented in two octets (16 bits) of machine memory. Short integers may be signed or unsigned."
-  {:db/ident :qudt/ShortIntegerType,
-   :dcterms/description
-   "A Short Integer is an integer that can be represented in two octets (16 bits) of machine memory. Short integers may be signed or unsigned.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Short Integer Type",
-   :rdfs/subClassOf :qudt/IntegerDatatype})
-
-(def SignedBigIntegerType
-  "A Signed Big Integer is a signed integer that can be represented in eight octets (64 bits) of machine memory."
-  {:db/ident :qudt/SignedBigIntegerType,
-   :dcterms/description
-   "A Signed Big Integer is a signed integer that can be represented in eight octets (64 bits) of machine memory.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Signed Big Integer Type",
-   :rdfs/subClassOf [:qudt/BigIntegerType
-                     :qudt/SignedIntegerType
-                     {:owl/hasValue   "-2^{63}",
-                      :owl/onProperty :qudt/minInclusive,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "2^{63}-1",
-                      :owl/onProperty :qudt/maxInclusive,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "SI64",
-                      :owl/onProperty :dtype/literal,
-                      :rdf/type       :owl/Restriction}],
-   :sh/property [:qudt/SignedBigIntegerType-minInclusive
-                 :qudt/SignedBigIntegerType-maxInclusive
-                 :qudt/SignedBigIntegerType-literal]})
-
-(def SignedBigIntegerType-literal
-  {:db/ident :qudt/SignedBigIntegerType-literal,
-   :rdf/type :sh/PropertyShape,
-   :sh/path  :dtype/literal})
-
-(def SignedBigIntegerType-maxInclusive
-  {:db/ident :qudt/SignedBigIntegerType-maxInclusive,
-   :rdf/type :sh/PropertyShape,
-   :sh/or    :qudt/NumericUnionList,
-   :sh/path  :qudt/maxInclusive})
-
-(def SignedBigIntegerType-minInclusive
-  {:db/ident :qudt/SignedBigIntegerType-minInclusive,
-   :rdf/type :sh/PropertyShape,
-   :sh/or    [{:sh/datatype :xsd/string}
-              {:sh/datatype :xsd/integer}
-              {:sh/datatype :xsd/float}
-              {:sh/datatype :xsd/decimal}],
-   :sh/path  :qudt/minInclusive})
-
-(def SignedIntegerType
-  "Signed Integers are integers can take on both positive and negative values."
-  {:db/ident         :qudt/SignedIntegerType,
-   :dcterms/description
-   "Signed Integers are integers can take on both positive and negative values.",
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
-                                              :qudt/SignedType],
-                         :rdf/type :owl/Class},
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Signed Integer Type",
-   :rdfs/subClassOf  [:qudt/SignedType :qudt/IntegerDatatype]})
-
-(def SignedLongIntegerType
-  "A Signed Long Integer is a signed integer that can be represented in four octets (32 bits) of machine memory."
-  {:db/ident :qudt/SignedLongIntegerType,
-   :dcterms/description
-   "A Signed Long Integer is a signed integer that can be represented in four octets (32 bits) of machine memory.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Signed Long Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "-2^{31}",
-                      :owl/onProperty :qudt/minInclusive,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/LongIntegerType
-                     :qudt/SignedIntegerType
-                     {:owl/hasValue   "2^{31}-1",
-                      :owl/onProperty :qudt/maxInclusive,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "UI32",
-                      :owl/onProperty :dtype/literal,
-                      :rdf/type       :owl/Restriction}],
-   :sh/property [:qudt/SignedLongIntegerType-abbreviation
-                 :qudt/SignedLongIntegerType-minInclusive
-                 :qudt/SignedLongIntegerType-maxInclusive]})
-
-(def SignedLongIntegerType-abbreviation
-  {:db/ident    :qudt/SignedLongIntegerType-abbreviation,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/hasValue "SI32",
-   :sh/path     :qudt/abbreviation})
-
-(def SignedLongIntegerType-maxInclusive
-  {:db/ident :qudt/SignedLongIntegerType-maxInclusive,
-   :rdf/type :sh/PropertyShape,
-   :sh/or    :qudt/NumericUnionList,
-   :sh/path  :qudt/maxInclusive})
-
-(def SignedLongIntegerType-minInclusive
-  {:db/ident :qudt/SignedLongIntegerType-minInclusive,
-   :rdf/type :sh/PropertyShape,
-   :sh/or    [{:sh/datatype :xsd/string}
-              {:sh/datatype :xsd/integer}
-              {:sh/datatype :xsd/float}
-              {:sh/datatype :xsd/decimal}],
-   :sh/path  :qudt/minInclusive})
-
-(def SignedMediumIntegerType
-  "A \"Signed Medium Integers\" is an integer of 24 bits that can take on both positive and negative values."
-  {:db/ident         :qudt/SignedMediumIntegerType,
-   :dcterms/description
-   "A \"Signed Medium Integers\" is an integer of 24 bits that can take on both positive and negative values.",
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
-                                              :qudt/SignedType
-                                              {:owl/hasValue 3,
-                                               :owl/onProperty :qudt/bytes,
-                                               :rdf/type :owl/Restriction}],
-                         :rdf/type :owl/Class},
-   :rdf/type         [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Signed Integer Type",
-   :rdfs/subClassOf  [{:owl/hasValue   3,
-                       :owl/onProperty :qudt/bytes,
-                       :rdf/type       :owl/Restriction}
-                      :qudt/SignedIntegerType]})
-
-(def SignedShortIntegerType
-  "A Signed Short Integer is a signed integer that can be represented in four octets (32 bits) of machine memory."
-  {:db/ident :qudt/SignedShortIntegerType,
-   :dcterms/description
-   "A Signed Short Integer is a signed integer that can be represented in four octets (32 bits) of machine memory.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Signed Short Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "SI16",
-                      :owl/onProperty :dtype/literal,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/SignedIntegerType
-                     :qudt/ShortIntegerType],
-   :sh/property :qudt/SignedShortIntegerType-abbreviation})
-
-(def SignedShortIntegerType-abbreviation
-  {:db/ident :qudt/SignedShortIntegerType-abbreviation,
-   :rdf/type :sh/PropertyShape,
-   :sh/path  :qudt/abbreviation})
-
-(def SignedType
-  "A signed type is a numeric type that distinguishes between positive and negative numbers using an encoding scheme, such as sign and magnitude, one's compliment, and two's compliment to represent negative numbers."
-  {:db/ident :qudt/SignedType,
-   :dcterms/description
-   "A signed type is a numeric type that distinguishes between positive and negative numbers using an encoding scheme, such as sign and magnitude, one's compliment, and two's compliment to represent negative numbers.",
-   :owl/disjointWith :qudt/UnsignedType,
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/NumericType
-                                              {:owl/hasValue :qudt.type/Signed,
-                                               :owl/onProperty :qudt/signedness,
-                                               :rdf/type :owl/Restriction}],
-                         :rdf/type :owl/Class},
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Signed Type",
-   :rdfs/subClassOf [{:owl/hasValue   :qudt.type/Signed,
-                      :owl/onProperty :qudt/signedness,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/NumericType],
-   :sh/property :qudt/SignedType-signedness})
-
-(def SignedType-signedness
-  {:db/ident :qudt/SignedType-signedness,
-   :rdf/type :sh/PropertyShape,
-   :sh/path  :qudt/signedness})
-
-(def SignedVariableLengthIntegerType
-  "A Signed Variable Length Integer data type defines a data structure for representing signed integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length."
-  {:db/ident :qudt/SignedVariableLengthIntegerType,
-   :dcterms/description
-   "A Signed Variable Length Integer data type defines a data structure for representing signed integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Signed Variable Length Integer Type",
-   :rdfs/subClassOf [:qudt/VariableLengthIntegerType :qudt/SignedIntegerType]})
-
-(def SinglePrecisionType
-  "A single precision data type specifies how a numeric value, such as an integer or real number, is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes, and so a single precision data value on a 32-bit machine architecture occupies four bytes of memory."
-  {:db/ident :qudt/SinglePrecisionType,
-   :dcterms/description
-   "A single precision data type specifies how a numeric value, such as an integer or real number, is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes, and so a single precision data value on a 32-bit machine architecture occupies four bytes of memory.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Single Precision Type",
-   :rdfs/subClassOf :qudt/NumericType})
-
-(def SplineCalibrator
-  "A sub-type of 'Map Type'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/SplineCalibrator,
-   :dcterms/description
-   "A sub-type of 'Map Type'. Detailed desciption to be provided in a future version.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Spline calibrator",
-   :rdfs/subClassOf :qudt/Map})
-
-(def SplineCalibratorType
-  "Spline calibrator type"
-  {:db/ident        :qudt/SplineCalibratorType,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spline calibrator type",
-   :rdfs/subClassOf :qudt/MapType})
-
-(def SplinePoint
-  "A sub-type of 'Tuple Type'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/SplinePoint,
-   :dcterms/description
-   "A sub-type of 'Tuple Type'. Detailed desciption to be provided in a future version.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Spline point",
-   :rdfs/subClassOf :qudt/Tuple})
-
-(def SplinePointType
-  "Spline point type"
-  {:db/ident        :qudt/SplinePointType,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Spline point type",
-   :rdfs/subClassOf :qudt/TupleType})
-
-(def StandardsUnit
-  "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/StandardsUnit,
-   :dcterms/description
-   "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."})
-
-(def StateSpaceMatrix
-  "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant)."
-  {:db/ident :qudt/StateSpaceMatrix,
-   :dcterms/description
-   "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant). ",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "State Space Matrix Type",
-   :rdfs/subClassOf :qudt/Matrix})
-
-(def StateSpaceMatrixType
-  "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant)."
-  {:db/ident :qudt/StateSpaceMatrixType,
-   :dcterms/description
-   "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant). ",
-   :rdf/type :owl/Class,
-   :rdfs/label "State Space Matrix Type",
-   :rdfs/subClassOf :qudt/MatrixType})
-
-(def StateSpaceVector
-  "A state vector in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded."
-  {:db/ident :qudt/StateSpaceVector,
-   :dcterms/description
-   "A state vector in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "State Space Vector Type",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/coordinateSystem,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/CoordinateSystem,
-                      :owl/onProperty    :qudt/coordinateSystem,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/Vector]})
-
-(def StateSpaceVector-coordinateSystem
-  {:db/ident    :qudt/StateSpaceVector-coordinateSystem,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/CoordinateSystem,
-   :sh/maxCount 1,
-   :sh/path     :qudt/coordinateSystem})
-
-(def StateSpaceVectorType
-  "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded."
-  {:db/ident :qudt/StateSpaceVectorType,
-   :dcterms/description
-   "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "State Space Vector Type",
-   :rdfs/subClassOf :qudt/VectorType,
-   :sh/property :qudt/StateSpaceVector-coordinateSystem})
-
-(def StateVectorType
-  "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded."
-  {:db/ident :qudt/StateVectorType,
-   :dcterms/description
-   "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "State Vector Type",
-   :rdfs/subClassOf :qudt/VectorType})
-
-(def StringEncodingType
-  "A \"Encoding\" with the following instance(s): \"UTF-16 String\", \"UTF-8 Encoding\"."
-  {:db/ident :qudt/StringEncodingType,
-   :dcterms/description
-   "A \"Encoding\" with the following instance(s): \"UTF-16 String\", \"UTF-8 Encoding\".",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "String Encoding Type",
-   :rdfs/subClassOf :qudt/Encoding})
-
-(def StringList
-  "String list"
-  {:db/ident        :qudt/StringList,
-   :rdf/type        [:sh/NodeShape :owl/Class],
-   :rdfs/label      "String list",
-   :rdfs/subClassOf :qudt/List,
-   :sh/property     [:qudt/StringList-rest :qudt/StringList-first]})
-
-(def StringList-first
-  {:db/ident    :qudt/StringList-first,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/string,
-   :sh/path     :rdf/first})
-
-(def StringList-rest
-  {:db/ident :qudt/StringList-rest,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/StringList,
-   :sh/path  :rdf/rest})
-
-(def StringType
-  "A String Type is a data type that specifies the properties of data structures that hold strings."
-  {:db/ident :qudt/StringType,
-   :dcterms/description
-   "A String Type is a data type that specifies the properties of data structures that hold strings. ",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "String Type",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/maxLength,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/hasValue   1,
-                      :owl/onProperty :qudt/dimensionality,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/ScalarDatatype
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/isByteString,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/CharacterType,
-                      :owl/onProperty    :qudt/elementType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :qudt/typeMatrix,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Array
-                     :qudt/ArrayType],
-   :sh/property [:qudt/StringType-elementType
-                 :qudt/StringType-dimensionality
-                 :qudt/StringType-maxLength
-                 :qudt/StringType-typeMatrix
-                 :qudt/StringType-isByteString]})
-
-(def StringType-dimensionality
-  {:db/ident    :qudt/StringType-dimensionality,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/path     :qudt/dimensionality})
-
-(def StringType-elementType
-  {:db/ident :qudt/StringType-elementType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/CharacterType,
-   :sh/path  :qudt/elementType})
-
-(def StringType-isByteString
-  {:db/ident    :qudt/StringType-isByteString,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :xsd/boolean,
-   :sh/maxCount 1,
-   :sh/path     :qudt/isByteString})
-
-(def StringType-maxLength
-  {:db/ident    :qudt/StringType-maxLength,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/maxLength})
-
-(def StringType-typeMatrix
-  {:db/ident    :qudt/StringType-typeMatrix,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 0,
-   :sh/minCount 0,
-   :sh/path     :qudt/typeMatrix})
-
-(def StringUTF16
-  "String UTF-16 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-16 encoding. UTF-16 is the native internal representation of text in the Microsoft Windows NT/Windows 2000/Windows XP/Windows CE, Qualcomm BREW, and Symbian operating systems; the Java and .NET byte code environments; Mac OS X's Cocoa and Core Foundation frameworks; and the Qt cross-platform graphical widget toolkit."
-  {:db/ident :qudt/StringUTF16,
-   :dcterms/description
-   "String UTF-16 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-16 encoding. UTF-16 is the native internal representation of text in the Microsoft Windows NT/Windows 2000/Windows XP/Windows CE, Qualcomm BREW, and Symbian operating systems; the Java and .NET byte code environments; Mac OS X's Cocoa and Core Foundation frameworks; and the Qt cross-platform graphical widget toolkit.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "String UTF16 Type",
-   :rdfs/subClassOf [{:owl/hasValue   :qudt/UTF16-CHAR,
-                      :owl/onProperty :qudt/elementType,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/TextStringType
-                     :qudt/StringType],
-   :sh/property :qudt/StringUTF16-elementType})
-
-(def StringUTF16-elementType
-  {:db/ident :qudt/StringUTF16-elementType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/CharacterType,
-   :sh/path  :qudt/elementType})
-
-(def StringUTF8
-  "String UTF-8 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-8 encoding. UTF-8 includes ASCII, otherwise referred to as IA-5 (International Alphabet 5, as standardized by International Organization for Standardization [ISO]) as the first 128 values. The Internet Engineering Task Force (IETF) requires all Internet protocols to identify the encoding used for character data with UTF-8 as at least one supported encoding. The Internet Mail Consortium (IMC) recommends that all e-mail programs must be able to display and create mail using UTF-8."
-  {:db/ident :qudt/StringUTF8,
-   :dcterms/description
-   "String UTF-8 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-8 encoding. UTF-8 includes ASCII, otherwise referred to as IA-5 (International Alphabet 5, as standardized by International Organization for Standardization [ISO]) as the first 128 values. The Internet Engineering Task Force (IETF) requires all Internet protocols to identify the encoding used for character data with UTF-8 as at least one supported encoding. The Internet Mail Consortium (IMC) recommends that all e-mail programs must be able to display and create mail using UTF-8.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "String UTF8 Type",
-   :rdfs/subClassOf [{:owl/hasValue   :qudt/UTF8-CHAR,
-                      :owl/onProperty :qudt/elementType,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/TextStringType
-                     :qudt/StringType],
-   :sh/property :qudt/StringUTF8-elementType})
-
-(def StringUTF8-elementType
-  {:db/ident :qudt/StringUTF8-elementType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/CharacterType,
-   :sh/path  :qudt/elementType})
-
-(def StructuredDatatype-elementType
-  {:db/ident    :qudt/StructuredDatatype-elementType,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/Datatype,
-   :sh/maxCount 1,
-   :sh/path     :qudt/elementType})
-
-(def SubjectArea
-  "A \"Enumeration Literal\"."
-  {:db/ident        :qudt/SubjectArea,
-   :rdf/type        :owl/Class,
-   :rdfs/comment    "A \"Enumeration Literal\".",
-   :rdfs/label      "Subject Area",
-   :rdfs/subClassOf :owl/Thing})
-
-(def Symbol
-  "A sub-type of 'QUDT Concept'. Detailed desciption to be provided in a future version."
-  {:db/ident         :qudt/Symbol,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Symbol",
-   :rdfs/subClassOf  :qudt/Concept})
-
-(def SystemModifiableParameter
-  "Parameter is modifiable by a (computer) system."
-  {:db/ident     :qudt/SystemModifiableParameter,
-   :qudt/code    "1",
-   :qudt/literal "system",
-   :rdf/type     :qudt/ParameterModifiabilityType,
-   :rdfs/comment "Parameter is modifiable by a (computer) system.",
-   :rdfs/label   "System modifiable parameter"})
-
-(def Table
-  "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use."
-  {:db/ident :qudt/Table,
-   :dcterms/description
-   "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Table Type",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/byRow,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/hasValue   2,
-                      :owl/onProperty :qudt/dimensionality,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/rows,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/columns,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Array]})
-
-(def Table-byRow
-  {:db/ident    :qudt/Table-byRow,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/boolean,
-   :sh/maxCount 1,
-   :sh/path     :qudt/byRow})
-
-(def Table-columns
-  {:db/ident    :qudt/Table-columns,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/columns})
-
-(def Table-dimensionality
-  {:db/ident    :qudt/Table-dimensionality,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/dimensionality})
-
-(def Table-rows
-  {:db/ident    :qudt/Table-rows,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/rows})
-
-(def TableType
-  "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use."
-  {:db/ident :qudt/TableType,
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/comment
-   "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use.",
-   :rdfs/label "Table Type",
-   :rdfs/subClassOf :qudt/ArrayType,
-   :sh/property [:qudt/Table-rows
-                 :qudt/Table-dimensionality
-                 :qudt/Table-columns
-                 :qudt/Table-byRow]})
-
-(def TaggedEnumeration
-  "An enumeration where each literal has a tag that is a non-negative integer. These enumerations are likely to have their literals encoded - hence the need for the tag."
-  {:db/ident :qudt/TaggedEnumeration,
-   :dcterms/description
-   "An enumeration where each literal  has a tag that is a non-negative integer. These enumerations are likely to have their literals encoded - hence the need for the tag.",
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/Enumeration
-                                              {:owl/cardinality 1,
-                                               :owl/onProperty :dtype/code,
-                                               :rdf/type :owl/Restriction}],
-                         :rdf/type :owl/Class},
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Tagged Enumeration",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :dtype/code,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Enumeration],
-   :sh/property :qudt/TaggedEnumeration-code})
-
-(def TaggedEnumeration-code
-  {:db/ident    :qudt/TaggedEnumeration-code,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/minCount 1,
-   :sh/path     :dtype/code})
-
-(def TechReport
-  "Pub techreport type"
-  {:db/ident      :qudt/TechReport,
-   :dtype/literal "techreport",
-   :rdf/type      :qudt/PubEnumeratedType,
-   :rdfs/label    "Pub techreport type"})
-
-(def Term
-  {:db/ident        :qudt/Term,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :owl/Thing})
-
-(def TextStringType
-  "A text string. Encodings can be specified as subclass or in connection to character arrays in Structured Datatypes."
-  {:db/ident :qudt/TextStringType,
-   :dcterms/description
-   "A text string. Encodings can be specified as subclass or in connection to character arrays in Structured Datatypes.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Text String Type",
-   :rdfs/subClassOf :qudt/StringType})
-
-(def Three-Tuple
-  "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members."
-  {:db/ident :qudt/Three-Tuple,
-   :dcterms/description
-   "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Three-Tuple Type",
-   :rdfs/subClassOf [{:owl/hasValue   3,
-                      :owl/onProperty :qudt/elementTypeCount,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/cardinality 3,
-                      :owl/onProperty  :qudt/elementType,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/N-Tuple]})
-
-(def Three-Tuple-elementType
-  {:db/ident    :qudt/Three-Tuple-elementType,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/TupleMemberType,
-   :sh/minCount 0,
-   :sh/path     :qudt/elementType})
-
-(def Three-Tuple-elementTypeCount
-  {:db/ident    :qudt/Three-Tuple-elementTypeCount,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/hasValue 3,
-   :sh/path     :qudt/elementTypeCount})
-
-(def ThreeBodyRotatingCoordinateSystem
-  "The lunar coordinate systems are primarily used when operating in close proximity to the Moon. There are, however, a few additional coordinate systems that are also useful when analyzing (and depicting) trajectories in the vicinity of the Earth-Moon system. They are rotating coordinate systems associated with two different three-body systems: the Sun-Earth-spacecraft system and the Earth-Moon-spacecraft system. The Sun-Earth and Earth-Moon rotating coordinate frames are defined as follows. The pole vector or Z-axis of the coordinate frame is set equal to the instantaneous orbit normal of the secondary (smaller) body about the primary (larger) body and the X-axis is set equal to the vector from the primary body center of mass (CM) to the secondary body CM. The X-axis rotates at a rate equal to the instantaneous rotation rate of the secondary body about the primary body."
-  {:db/ident :qudt/ThreeBodyRotatingCoordinateSystem,
-   :dcterms/description
-   "The lunar coordinate systems are primarily used when operating in close proximity to the Moon. There are, however, a few additional coordinate systems that are also useful when analyzing (and depicting) trajectories in the vicinity of the Earth-Moon system. They are rotating coordinate systems associated with two different three-body systems: the Sun-Earth-spacecraft system and the Earth-Moon-spacecraft system. The Sun-Earth and Earth-Moon rotating coordinate frames are defined as follows. The pole vector or Z-axis of the coordinate frame is set equal to the instantaneous orbit normal of the secondary (smaller) body about the primary (larger) body and the X-axis is set equal to the vector from the primary body center of mass (CM) to the secondary body CM. The X-axis rotates at a rate equal to the instantaneous rotation rate of the secondary body about the primary body.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Three Body Rotating Coordinate System Type",
-   :rdfs/subClassOf :qudt/AerospaceCoordinateSystem})
-
-(def ThreeTupleType
-  "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members."
-  {:db/ident :qudt/ThreeTupleType,
-   :dcterms/description
-   "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Three-Tuple Type",
-   :rdfs/subClassOf :qudt/N-TupleType,
-   :sh/property [:qudt/Three-Tuple-elementTypeCount
-                 :qudt/Three-Tuple-elementType]})
-
-(def Time
-  "The class of data values that denote a point in time. Time values may be encoded in a 12-hour clock or a 24-hour clock, such as 1:35 AM, or 13:35."
-  {:db/ident :qudt/Time,
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/comment
-   "The class of data values that denote a point in time. Time values may be encoded in a 12-hour clock or a 24-hour clock, such as 1:35 AM, or 13:35.",
-   :rdfs/label "Time",
-   :rdfs/subClassOf :qudt/ScalarDatatype,
-   :sh/property :qudt/Time-type})
-
-(def Time-type
-  {:db/ident :qudt/Time-type,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/TimeStringType,
-   :sh/path  :qudt/type})
-
-(def TimeDataType
-  "A sub-type of 'QUDT Enumeration'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/TimeDataType,
-   :dcterms/description
-   "A sub-type of 'QUDT Enumeration'. Detailed desciption to be provided in a future version.",
-   :dtype/value :qudt/TIME,
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Time data type",
-   :rdfs/subClassOf [:qudt/ScalarDatatype :qudt/Enumeration]})
-
-(def TimeInterval
-  "A relative interval that is an increment in time. For example, this is used in time series arrays to express the time point of a vector of values."
-  {:db/ident :qudt/TimeInterval,
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/comment
-   "A relative interval that is an increment in time. For example, this is used in time series arrays to express the time point of a vector of values.",
-   :rdfs/label "Time interval",
-   :rdfs/subClassOf :sh/Parameter
-   :sh/property :qudt/TimeInterval-type})
-
-(def TimeInterval-type
-  {:db/ident :qudt/TimeInterval-type,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/TimeStringType,
-   :sh/path  :qudt/type})
-
-(def TimeSeriesArray
-  "A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured at successive time intervals. The time intervals may be uniformly or non-uniformly spaced."
-  {:db/ident :qudt/TimeSeriesArray,
-   :dcterms/description
-   ["A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals."
-    "A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured at successive time intervals. The time intervals may be uniformly or non-uniformly spaced."],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Time Series Array Type",
-   :rdfs/subClassOf
-   [{:owl/cardinality 1,
-     :owl/onProperty  :qudt/vector,
-     :rdf/type        :owl/Restriction}
-    {:owl/allValuesFrom :qudt/TimeStringType,
-     :owl/onProperty    :qudt/TimeSeriesArray-incrementDatatype
-     :rdf/type          :owl/Restriction}
-    {:owl/cardinality 1,
-     :owl/onProperty  :qudt/TimeSeriesArray-incrementDatatype
-     :rdf/type        :owl/Restriction}
-    {:owl/allValuesFrom :qudt/StateSpaceVector,
-     :owl/onProperty    :qudt/vector,
-     :rdf/type          :owl/Restriction}
-    {:owl/cardinality 1,
-     :owl/onProperty  :qudt/dimensionVector,
-     :rdf/type        :owl/Restriction}
-    :qudt/Array]})
-
-(def TimeSeriesArray-dimensionVector
-  {:db/ident    :qudt/TimeSeriesArray-dimensionVector,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/IntegerList,
-   :sh/maxCount 1,
-   :sh/minCount 1,
-   :sh/path     :qudt/dimensionVector})
-
-(def TimeSeriesArray-incrementDatatype
-  {:db/ident    :qudt/TimeSeriesArray-incrementDatatype,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/TimeStringType,
-   :sh/maxCount 1,
-   :sh/minCount 1,
-   :sh/path     :qudt/incrementDatatype})
-
-(def TimeSeriesArray-vector
-  {:db/ident    :qudt/TimeSeriesArray-vector,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/StateSpaceVectorType,
-   :sh/maxCount 1,
-   :sh/minCount 1,
-   :sh/path     :qudt/vector})
-
-(def TimeSeriesArrayType
-  "Time Series Array Type"
-  {:db/ident :qudt/TimeSeriesArrayType,
-   :rdf/comment
-   "A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured at successive time intervals. The time intervals may be uniformly or non-uniformly spaced.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Time Series Array Type",
-   :rdfs/subClassOf :qudt/ArrayType,
-   :sh/property [:qudt/TimeSeriesArray-vector
-                 :qudt/TimeSeriesArray-incrementDatatype
-                 :qudt/TimeSeriesArray-dimensionVector]})
-
-(def TimeStringType
-  "Time takes a number of forms, depending on the units used (e.g., year, day, minute, millisecond, or combinations thereof) and the origin (i.e., time zero) to which the time value is related."
-  {:db/ident :qudt/TimeStringType,
-   :dcterms/description
-   "Time takes a number of forms, depending on the units used (e.g., year, day, minute, millisecond, or combinations thereof) and the origin (i.e., time zero) to which the time value is related.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Time Type",
-   :rdfs/subClassOf [:qudt/TextStringType :qudt/DateTimeStringType]})
-
-(def TrajectoryCoordinateSystem
-  "A \"Coordinate System\"."
-  {:db/ident            :qudt/TrajectoryCoordinateSystem,
-   :dcterms/description "A \"Coordinate System\".",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label          "Trajectory Coordinate System",
-   :rdfs/subClassOf     :qudt/AerospaceCoordinateSystem})
-
-(def Tree
-  "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph."
-  {:db/ident :qudt/Tree,
-   :dcterms/description
-   "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph.",
-   :prov/wasInfluencedBy "http://en.wikipedia.org/wiki/Tree_(data_structure)",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Tree Type",
-   :rdfs/subClassOf :qudt/Graph})
-
-(def TreeType
-  "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph."
-  {:db/ident :qudt/TreeType,
-   :dcterms/description
-   "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph.",
-   :prov/wasInfluencedBy "http://en.wikipedia.org/wiki/Tree_(data_structure)",
-   :rdf/type :owl/Class,
-   :rdfs/label "Tree Type",
-   :rdfs/subClassOf :qudt/GraphType})
-
-(def Triplet
-  "A \"Tuple\"."
-  {:db/ident         :qudt/Triplet,
-   :dcterms/description "A \"Tuple\".",
-   :owl/equivalentClass [:qudt/ThreeTupleType :qudt/Three-Tuple],
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Triplet",
-   :rdfs/subClassOf  [:qudt/ThreeTupleType :qudt/Three-Tuple]})
-
-(def True
-  "true"
-  {:db/ident     :qudt/True,
-   :qudt/code    "1",
-   :qudt/literal "true",
-   :rdf/type     :qudt/BooleanStateType,
-   :rdfs/label   "true"})
-
-(def Tuple
-  "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple. In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>"
-  {:db/ident :qudt/Tuple,
-   :dcterms/description
-   "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple.  In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Tuple Type",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :qudt/length,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/elementTypeCount,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/TupleMember,
-                      :owl/onProperty    :qudt/elementType,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/CompositeDatatype]})
-
-(def Tuple-elementType
-  {:db/ident :qudt/Tuple-elementType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/TupleMemberType,
-   :sh/path  :qudt/elementType})
-
-(def Tuple-elementTypeCount
-  {:db/ident    :qudt/Tuple-elementTypeCount,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/minCount 0,
-   :sh/path     :qudt/elementTypeCount})
-
-(def Tuple-length
-  {:db/ident    :qudt/Tuple-length,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/minCount 0,
-   :sh/path     :qudt/length})
-
-(def TupleMember
-  "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples."
-  {:db/ident :qudt/TupleMember,
-   :dcterms/description
-   "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Tuple Member Type",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :qudt/orderInStructure,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/ScalarDatatype,
-                      :owl/onProperty    :qudt/elementType,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/CompositeDatatype]})
-
-(def TupleMember-elementType
-  {:db/ident :qudt/TupleMember-elementType,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/ScalarDatatype,
-   :sh/path  :qudt/elementType})
-
-(def TupleMember-orderInStructure
-  {:db/ident    :qudt/TupleMember-orderInStructure,
-   :rdf/type    :sh/PropertyShape,
-   :sh/maxCount 1,
-   :sh/minCount 1,
-   :sh/path     :qudt/orderInStructure})
-
-(def TupleMemberType
-  "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples."
-  {:db/ident :qudt/TupleMemberType,
-   :dcterms/description
-   "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Tuple Member Type",
-   :rdfs/subClassOf :qudt/CompositeDatatype,
-   :sh/property [:qudt/TupleMember-orderInStructure
-                 :qudt/TupleMember-elementType]})
-
-(def TupleType
-  "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple. In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>"
-  {:db/ident :qudt/TupleType,
-   :dcterms/description
-   "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple.  In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Tuple Type",
-   :rdfs/subClassOf :qudt/CompositeDatatype,
-   :sh/property
-   [:qudt/Tuple-length :qudt/Tuple-elementTypeCount :qudt/Tuple-elementType]})
-
-(def Two-Tuple
-  "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples."
-  {:db/ident :qudt/Two-Tuple,
-   :dcterms/description
-   "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Two-Tuple Type",
-   :rdfs/subClassOf [{:owl/hasValue   2,
-                      :owl/onProperty :qudt/elementTypeCount,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/cardinality 2,
-                      :owl/onProperty  :qudt/elementType,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/N-Tuple]})
-
-(def Two-Tuple-elementType
-  {:db/ident    :qudt/Two-Tuple-elementType,
-   :rdf/type    :sh/PropertyShape,
-   :sh/minCount 0,
-   :sh/path     :qudt/elementType})
-
-(def Two-Tuple-elementTypeCount
-  {:db/ident    :qudt/Two-Tuple-elementTypeCount,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/hasValue 2,
-   :sh/path     :qudt/elementTypeCount})
-
-(def TwoTupleType
-  "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples."
-  {:db/ident :qudt/TwoTupleType,
-   :dcterms/description
-   "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Two-Tuple Type",
-   :rdfs/subClassOf :qudt/N-TupleType,
-   :sh/property [:qudt/Two-Tuple-elementTypeCount :qudt/Two-Tuple-elementType]})
-
-(def TypeList
-  "A sub-type of 'QUDT Datatype'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/TypeList,
-   :dcterms/description
-   "A sub-type of 'QUDT Datatype'. Detailed desciption to be provided in a future version.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Type list",
-   :rdfs/subClassOf :qudt/Datatype})
-
-(def TypeMatrix
-  "Members of this class are matrix data structures that describe the datatypes of a class of matrices. That is, the members of this class are matrices with cells that contain datatypes (c.f. type:Datatype) and are used to describe the datatype structure of other matrices."
-  {:db/ident :qudt/TypeMatrix,
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/comment
-   "Members of this class are matrix data structures that describe the datatypes of a class of matrices. That is, the members of this class are matrices with cells that contain datatypes (c.f. type:Datatype) and are used to describe the datatype structure of other matrices.",
-   :rdfs/label "Type matrix",
-   :rdfs/subClassOf :qudt/MatrixType})
-
-(def TypeVector
-  "A Type Vector is a vector whose elements are data types. They are used, for instance, to specify the type of each component of a vector or class of vectors. A Type Vector Type is a further abstraction that specifies the structure of Type Vectors."
-  {:db/ident :qudt/TypeVector,
-   :dcterms/description
-   "A Type Vector is a vector whose elements are data types. They are used, for instance, to specify the type of each component of a vector or class of vectors. A Type Vector Type is a further abstraction that specifies the structure of Type Vectors.",
-   :rdf/type [:owl/Class :sh/NodeShape],
-   :rdfs/comment
-   "A Type Vector is a vector whose elements are data types. They are used, for instance, to specify the type of each component of a vector or class of vectors. A <em>Type Vector Type</em> is a further abstraction that specifies the structure of Type Vectors.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label ["Type vector" "Type Vector Type"],
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onClass     :qudt/TypeVector,
-                      :owl/onProperty  :qudt/typeVector,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Vector
-                     :qudt/VectorType
-                     :qudt/StructuredDatatype],
-   :sh/property [:qudt/TypeVector-type
-                 :qudt/TypeVector-objectValue
-                 :qudt/TypeVector-typeVector]})
-
-(def TypeVector-objectValue
-  {:db/ident :qudt/TypeVector-objectValue,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/IndexedList,
-   :sh/path  :qudt/objectValue})
-
-(def TypeVector-type
-  {:db/ident :qudt/TypeVector-type,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/TypeVector,
-   :sh/path  :qudt/type})
-
-(def TypeVector-typeVector
-  {:db/ident    :qudt/TypeVector-typeVector,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/Datatype,
-   :sh/maxCount 1,
-   :sh/path     :qudt/typeVector})
-
-(def Unpublished
-  "Pub unpublished type"
-  {:db/ident      :qudt/Unpublished,
-   :dtype/literal "unpublished",
-   :rdf/type      :qudt/PubEnumeratedType,
-   :rdfs/label    "Pub unpublished type"})
-
-(def UnsignedBigIntegerType
-  "An Unsgned Big Integer is an unsigned integer that can be represented in eight octets (64 bits) of machine memory."
-  {:db/ident :qudt/UnsignedBigIntegerType,
-   :dcterms/description
-   "An Unsgned Big Integer is an unsigned integer that can be represented in eight octets (64 bits) of machine memory.",
-   :rdf/type [:owl/Class :sh/NodeShape],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Unsigned Big Integer Type",
-   :rdfs/subClassOf [:qudt/UnsignedIntegerType
-                     {:owl/hasValue   "UI64",
-                      :owl/onProperty :dtype/literal,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "0",
-                      :owl/onProperty :qudt/minInclusive,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/BigIntegerType
-                     {:owl/hasValue   "2^{64}-1",
-                      :owl/onProperty :qudt/maxInclusive,
-                      :rdf/type       :owl/Restriction}],
-   :sh/property [:qudt/UnsignedBigIntegerType-maxInclusive
-                 :qudt/UnsignedBigIntegerType-abbreviation
-                 :qudt/UnsignedBigIntegerType-minInclusive]})
-
-(def UnsignedBigIntegerType-abbreviation
-  {:db/ident    :qudt/UnsignedBigIntegerType-abbreviation,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "UI64",
-   :sh/path     :qudt/abbreviation})
-
-(def UnsignedBigIntegerType-maxInclusive
-  {:db/ident    :qudt/UnsignedBigIntegerType-maxInclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "2^{64}-1",
-   :sh/or       :qudt/NumericUnionList,
-   :sh/path     :qudt/maxInclusive})
-
-(def UnsignedBigIntegerType-minInclusive
-  {:db/ident    :qudt/UnsignedBigIntegerType-minInclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "0",
-   :sh/or       [{:sh/datatype :xsd/string}
-                 {:sh/datatype :xsd/integer}
-                 {:sh/datatype :xsd/float}
-                 {:sh/datatype :xsd/decimal}],
-   :sh/path     :qudt/minInclusive})
-
-(def UnsignedIntegerType
-  "Unsgned Integers are integers that are either strictly non-negative or non-positive."
-  {:db/ident :qudt/UnsignedIntegerType,
-   :dcterms/description
-   "Unsgned Integers are integers that are either strictly non-negative or non-positive.",
-   :owl/disjointWith :qudt/SignedIntegerType,
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
-                                              :qudt/UnsignedType],
-                         :rdf/type :owl/Class},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Unsigned Integer Type",
-   :rdfs/subClassOf [:qudt/UnsignedType :qudt/IntegerDatatype]})
-
-(def UnsignedLongIntegerType
-  "An Unsigned Long Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory."
-  {:db/ident :qudt/UnsignedLongIntegerType,
-   :dcterms/description
-   "An Unsigned Long Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory.",
-   :rdf/type [:owl/Class :sh/NodeShape],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Unsigned Long Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "0",
-                      :owl/onProperty :qudt/minInclusive,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/UnsignedIntegerType
-                     :qudt/LongIntegerType
-                     {:owl/hasValue   "UI32",
-                      :owl/onProperty :dtype/literal,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "2^{32}-1",
-                      :owl/onProperty :qudt/maxInclusive,
-                      :rdf/type       :owl/Restriction}],
-   :sh/property [:qudt/UnsignedLongIntegerType-minInclusive
-                 :qudt/UnsignedLongIntegerType-maxInclusive
-                 :qudt/UnsignedLongIntegerType-literal]})
-
-(def UnsignedLongIntegerType-maxInclusive
-  {:db/ident    :qudt/UnsignedLongIntegerType-maxInclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "2^{32}-1",
-   :sh/or       :qudt/NumericUnionList,
-   :sh/path     :qudt/maxInclusive})
-
-(def UnsignedLongIntegerType-minInclusive
-  {:db/ident    :qudt/UnsignedLongIntegerType-minInclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "0",
-   :sh/or       [{:sh/datatype :xsd/string}
-                 {:sh/datatype :xsd/integer}
-                 {:sh/datatype :xsd/float}
-                 {:sh/datatype :xsd/decimal}],
-   :sh/path     :qudt/minInclusive})
-
-(def UnsignedMediumIntegerType
-  "An \"Unsigned Medium Integers\" is an integer of 24 bits that only takes on both positive values."
-  {:db/ident         :qudt/UnsignedMediumIntegerType,
-   :dcterms/description
-   "An \"Unsigned Medium Integers\" is an integer of 24 bits that only takes on both positive values.",
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
-                                              :qudt/SignedType],
-                         :rdf/type :owl/Class},
-   :rdf/type         [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Signed Integer Type",
-   :rdfs/subClassOf  [{:owl/hasValue   3,
-                       :owl/onProperty :qudt/bytes,
-                       :rdf/type       :owl/Restriction}
-                      :qudt/UnsignedIntegerType]})
-
-(def UnsignedShortIntegerType
-  "An Unsigned Short Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory."
-  {:db/ident :qudt/UnsignedShortIntegerType,
-   :dcterms/description
-   "An Unsigned Short Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory.",
-   :rdf/type [:owl/Class :sh/NodeShape],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Unsigned Short Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "UI16",
-                      :owl/onProperty :dtype/literal,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "0",
-                      :owl/onProperty :qudt/minInclusive,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/ShortIntegerType
-                     {:owl/hasValue   "2^{16}-1",
-                      :owl/onProperty :qudt/maxInclusive,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/UnsignedIntegerType],
-   :sh/property [:qudt/UnsignedShortIntegerType-maxInclusive
-                 :qudt/UnsignedShortIntegerType-minInclusive
-                 :qudt/UnsignedShortIntegerType-abbreviation]})
-
-(def UnsignedShortIntegerType-abbreviation
-  {:db/ident    :qudt/UnsignedShortIntegerType-abbreviation,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "UI16",
-   :sh/path     :qudt/abbreviation})
-
-(def UnsignedShortIntegerType-maxInclusive
-  {:db/ident    :qudt/UnsignedShortIntegerType-maxInclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "2^{16}-1",
-   :sh/path     :qudt/maxInclusive})
-
-(def UnsignedShortIntegerType-minInclusive
-  {:db/ident    :qudt/UnsignedShortIntegerType-minInclusive,
-   :rdf/type    :sh/PropertyShape,
-   :sh/hasValue "0",
-   :sh/path     :qudt/minInclusive})
-
-(def UnsignedType
-  "An unsigned data type is a numeric type that does not distinguish between positive and negative values."
-  {:db/ident :qudt/UnsignedType,
-   :dcterms/description
-   "An unsigned data type is a numeric type that does not distinguish between positive and negative values.",
-   :owl/disjointWith :qudt/SignedType,
-   :owl/equivalentClass {:owl/intersectionOf [:qudt/NumericType
-                                              {:owl/hasValue
-                                               :qudt.type/Unsigned,
-                                               :owl/onProperty :qudt/signedness,
-                                               :rdf/type :owl/Restriction}],
-                         :rdf/type :owl/Class},
-   :rdf/type [:owl/Class :sh/NodeShape],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Unsigned Type",
-   :rdfs/subClassOf [{:owl/hasValue   :qudt.type/Unsigned,
-                      :owl/onProperty :qudt/signedness,
-                      :rdf/type       :owl/Restriction}
-                     :qudt/NumericType],
-   :sh/property :qudt/UnsignedType-signedness})
-
-(def UnsignedType-signedness
-  {:db/ident    :qudt/UnsignedType-signedness,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/SignednessType,
-   :sh/hasValue :qudt/UNSIGNED,
-   :sh/path     :qudt/signedness})
-
-(def UnsignedVariableLengthIntegerType
-  "An Unsigned Variable Length Integer data type defines a data structure for representing unsigned integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length."
-  {:db/ident :qudt/UnsignedVariableLengthIntegerType,
-   :dcterms/description
-   "An Unsigned Variable Length Integer data type defines a data structure for representing unsigned integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Unsigned Variable Length Integer Type",
-   :rdfs/subClassOf [:qudt/VariableLengthIntegerType
-                     :qudt/UnsignedIntegerType]})
-
-(def UserModifiableParameter
-  "Parameter is modifiable by a user."
-  {:db/ident     :qudt/UserModifiableParameter,
-   :qudt/code    "2",
-   :qudt/literal "user",
-   :rdf/type     :qudt/ParameterModifiabilityType,
-   :rdfs/comment "Parameter is modifiable by a user.",
-   :rdfs/label   "User modifiable parameter"})
-
-(def VECTOR
-  "VECTOR"
-  {:db/ident   :qudt/VECTOR,
-   :qudt/dimensionality 1,
-   :rdf/type   :qudt/VectorType,
-   :rdfs/label "VECTOR"})
-
-(def VECTOR_3D
-  "VECTOR 3D"
-  {:db/ident   :qudt/VECTOR_3D,
-   :qudt/dimensionality 1,
-   :qudt/protocolBuffersName "Vector3D",
-   :rdf/type   :qudt/VectorType,
-   :rdfs/label "VECTOR 3D"})
-
-(def VariableIntervalTimeSeriesArray
-  "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random."
-  {:db/ident :qudt/VariableIntervalTimeSeriesArray,
-   :dcterms/description
-   "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Variable Interval Time Series Array Type",
-   :rdfs/subClassOf :qudt/TimeSeriesArray})
-
-(def VariableIntervalTimeSeriesArrayType
-  "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random."
-  {:db/ident :qudt/VariableIntervalTimeSeriesArrayType,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random.",
-   :rdfs/label "Variable Interval Time Series Array Type",
-   :rdfs/subClassOf :qudt/TimeSeriesArrayType})
-
-(def VariableLengthIntegerType
-  "A Variable Length Integer data type defines a data structure for representing integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length."
-  {:db/ident :qudt/VariableLengthIntegerType,
-   :dcterms/description
-   "A Variable Length Integer data type defines a data structure for representing integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length.",
-   :rdf/type [:owl/Class :sh/NodeShape],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Variable Length Integer Type",
-   :rdfs/subClassOf [:qudt/IntegerDatatype
-                     {:owl/hasValue   64,
-                      :owl/onProperty :qudt/maxBits,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   1,
-                      :owl/onProperty :qudt/minBits,
-                      :rdf/type       :owl/Restriction}],
-   :sh/property [:qudt/VariableLengthIntegerType-maxBits
-                 :qudt/VariableLengthIntegerType-minBits]})
-
-(def VariableLengthIntegerType-maxBits
-  {:db/ident    :qudt/VariableLengthIntegerType-maxBits,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/hasValue 64,
-   :sh/path     :qudt/maxBits})
-
-(def VariableLengthIntegerType-minBits
-  {:db/ident    :qudt/VariableLengthIntegerType-minBits,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/hasValue 1,
-   :sh/path     :qudt/minBits})
-
-(def Vector
-  "A Vector Type is a data type that specifies the properties of data structures that hold vectors."
-  {:db/ident :qudt/Vector,
-   :dcterms/description
-   "A Vector Type is a data type that specifies the properties of data structures that hold vectors.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Vector Type",
-   :rdfs/subClassOf [{:owl/hasValue   1,
-                      :owl/onProperty :qudt/dimensionality,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/dimensionality,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/referenceFrame,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/ReferenceFrame,
-                      :owl/onProperty    :qudt/referenceFrame,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/CompositeDatatype
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/dimension,
-                      :rdf/type        :owl/Restriction}]})
-
-(def Vector-dimension
-  {:db/ident    :qudt/Vector-dimension,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/minCount 0,
-   :sh/path     :qudt/dimension})
-
-(def Vector-dimensionality
-  {:db/ident    :qudt/Vector-dimensionality,
-   :rdf/type    :sh/PropertyShape,
-   :sh/datatype :xsd/integer,
-   :sh/maxCount 1,
-   :sh/path     :qudt/dimensionality})
-
-(def Vector-referenceFrame
-  {:db/ident    :qudt/Vector-referenceFrame,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/ReferenceFrame,
-   :sh/maxCount 1,
-   :sh/path     :qudt/referenceFrame})
-
-(def VectorArray
-  "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements."
-  {:db/ident :qudt/VectorArray,
-   :dcterms/description
-   "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements.",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Vector Array Type",
-   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/StateSpaceVector,
-                      :owl/onProperty    :qudt/vector,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/Array]})
-
-(def VectorArray-vector
-  {:db/ident :qudt/VectorArray-vector,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/StateSpaceVectorType,
-   :sh/path  :qudt/vector})
-
-(def VectorArrayType
-  "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements."
-  {:db/ident :qudt/VectorArrayType,
-   :dcterms/description
-   "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Vector Array Type",
-   :rdfs/subClassOf :qudt/ArrayType,
-   :sh/property :qudt/VectorArray-vector})
-
-(def VectorType
-  "A Vector Type is a data type that specifies the properties of data structures that hold vectors."
-  {:db/ident :qudt/VectorType,
-   :dcterms/description
-   "A Vector Type is a data type that specifies the properties of data structures that hold vectors.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/label "Vector Type",
-   :rdfs/subClassOf :qudt/CompositeDatatype,
-   :sh/property [:qudt/Vector-referenceFrame
-                 :qudt/Vector-dimensionality
-                 :qudt/Vector-dimension]})
-
-(def VehicleCoordinateSystem
-  "A sub-type of 'Aerospace coordinate system'. Detailed desciption to be provided in a future version."
-  {:db/ident :qudt/VehicleCoordinateSystem,
-   :dcterms/description
-   "A sub-type of 'Aerospace coordinate system'. Detailed desciption to be provided in a future version.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Vehicle coordinate system",
-   :rdfs/subClassOf [:qudt/AerospaceCoordinateSystem
-                     {:owl/allValuesFrom :qudt/AxialOrientationType,
-                      :owl/onProperty    :qudt/rollRotationDefinition,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/rollRotationDefinition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/pitchRotationDefinition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/yawRotationDefinition,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AxialOrientationType,
-                      :owl/onProperty    :qudt/yawRotationDefinition,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/AxialOrientationType,
-                      :owl/onProperty    :qudt/pitchRotationDefinition,
-                      :rdf/type          :owl/Restriction}],
-   :sh/property [:qudt/VehicleCoordinateSystem-pitchRotationDefinition
-                 :qudt/VehicleCoordinateSystem-yawRotationDefinition
-                 :qudt/VehicleCoordinateSystem-rollRotationDefinition]})
-
-(def VehicleCoordinateSystem-pitchRotationDefinition
-  {:db/ident    :qudt/VehicleCoordinateSystem-pitchRotationDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/AxialOrientationType,
-   :sh/maxCount 1,
-   :sh/path     :qudt/pitchRotationDefinition})
-
-(def VehicleCoordinateSystem-rollRotationDefinition
-  {:db/ident    :qudt/VehicleCoordinateSystem-rollRotationDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/AxialOrientationType,
-   :sh/maxCount 1,
-   :sh/minCount 0,
-   :sh/path     :qudt/rollRotationDefinition})
-
-(def VehicleCoordinateSystem-yawRotationDefinition
-  {:db/ident    :qudt/VehicleCoordinateSystem-yawRotationDefinition,
-   :rdf/type    :sh/PropertyShape,
-   :sh/class    :qudt/AxialOrientationType,
-   :sh/maxCount 1,
-   :sh/minCount 0,
-   :sh/path     :qudt/yawRotationDefinition})
-
-(def VisualCue
-  "Visual Cue"
-  {:db/ident        :qudt/VisualCue,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Visual Cue",
-   :rdfs/subClassOf :qudt/ModalCue})
-
-(def VisualCueEnumeration-defaultValue
-  {:db/ident :qudt/VisualCueEnumeration-defaultValue,
-   :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/VisualCue,
-   :sh/path  :qudt/defaultValue})
-
-(def WDST_DRY
-  "Dry"
-  {:db/ident         :qudt/WDST_DRY,
-   :dtype/literal    "dry",
-   :qudt/code        "2",
-   :rdf/type         :qudt/WetDryStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Dry"})
-
-(def WDST_WET
-  "Wet"
-  {:db/ident         :qudt/WDST_WET,
-   :dtype/literal    "wet",
-   :qudt/code        "1",
-   :rdf/type         :qudt/WetDryStateType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Wet"})
-
-(def WetDryStateType
-  "Wet dry state type"
-  {:db/ident         :qudt/WetDryStateType,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Wet dry state type",
-   :rdfs/subClassOf  [:qudt/EnumeratedValue :qudt/DiscreteState]})
-
-(def WordAligned
-  "Word Aligned"
-  {:db/ident      :qudt/WordAligned,
-   :dtype/literal "word",
-   :rdf/type      :qudt/AlignmentType,
-   :rdfs/label    "Word Aligned"})
-
-(def YesNoType
-  "Yes no type"
-  {:db/ident        :qudt/YesNoType,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Yes no type",
-   :rdfs/subClassOf :qudt/EnumeratedValue})
-
-(def BaseDimensionMagnitude
-  "<p class=\"lm-para\">A <em>Dimension</em> expresses a magnitude for a base quantiy kind such as mass, length and time.</p> <p class=\"lm-para\">DEPRECATED - each exponent is expressed as a property. Keep until a validaiton of this has been done.</p>"
-  {:db/ident :qudt/BaseDimensionMagnitude,
-   :qudt/informativeReference
-   ["http://en.wikipedia.org/wiki/Dimensional_analysis"
-    "http://web.mit.edu/2.25/www/pdf/DA_unified.pdf"],
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "<p class=\"lm-para\">A <em>Dimension</em> expresses a magnitude for a base quantiy kind such as mass, length and time.</p>\n<p class=\"lm-para\">DEPRECATED - each exponent is expressed as a property. Keep until a validaiton of this has been done.</p>",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Base Dimension Magnitude",
-   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/float,
-                      :owl/onProperty    :qudt/vectorMagnitude,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/QuantityKind,
-                      :owl/onProperty    :qudt/hasBaseQuantityKind,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/hasBaseQuantityKind,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/Concept
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/vectorMagnitude,
-                      :rdf/type        :owl/Restriction}]})
-
-(def BinaryPrefix
-  "A <em>Binary Prefix</em> is a prefix for multiples of units in data processing, data transmission, and digital information, notably the bit and the byte, to indicate multiplication by a power of 2."
-  {:db/ident :qudt/BinaryPrefix,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "A <em>Binary Prefix</em> is a prefix for multiples of units in data processing, data transmission, and digital information, notably the bit and the byte, to indicate multiplication by a power of 2.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Binary Prefix",
-   :rdfs/subClassOf :qudt/Prefix})
-
-(def BitEncoding
-  "Bit Encoding"
-  {:db/ident         :qudt/BitEncoding,
-   :qudt/bits        1,
-   :rdf/type         :qudt/BitEncodingType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Bit Encoding"})
-
-(def BooleanEncoding
-  "Boolean Encoding"
-  {:db/ident         :qudt/BooleanEncoding,
-   :qudt/bits        1,
-   :rdf/type         :qudt/BooleanEncodingType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Boolean Encoding"})
-
-(def BooleanEncodingType
-  "Boolean encoding type"
-  {:db/ident         :qudt/BooleanEncodingType,
-   :owl/oneOf        [:qudt/BooleanEncoding
-                      :qudt/BitEncoding
-                      :qudt/OctetEncoding],
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Boolean encoding type",
-   :rdfs/subClassOf  :qudt/Encoding})
-
-(def CharEncoding
-  "7 bits of 1 octet"
-  {:db/ident            :qudt/CharEncoding,
-   :dcterms/description "7 bits of 1 octet",
-   :qudt/bytes          1,
-   :rdf/type            [:qudt/CharEncodingType :qudt/BooleanEncodingType],
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label          "Char Encoding"})
-
-(def CharEncodingType
-  "The class of all character encoding schemes, each of which defines a rule or algorithm for encoding character data as a sequence of bits or bytes."
-  {:db/ident :qudt/CharEncodingType,
-   :dcterms/description
-   "The class of all character encoding schemes, each of which defines a rule or algorithm for encoding character data as a sequence of bits or bytes.",
-   :owl/oneOf [:qudt/CharEncoding],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Char Encoding Type",
-   :rdfs/subClassOf :qudt/Encoding})
-
-(def Citation
-  "Provides a simple way of making citations."
-  {:db/ident         :qudt/Citation,
-   :rdf/type         :owl/Class,
-   :rdfs/comment     "Provides a simple way of making citations.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Citation",
-   :rdfs/subClassOf  [{:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :dcterms/description,
-                       :rdf/type        :owl/Restriction}
-                      :qudt/Concept]})
-
-(def Comment
-  "Comment"
-  {:db/ident         :qudt/Comment,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Comment",
-   :rdfs/subClassOf  [{:owl/minCardinality 0,
-                       :owl/onProperty     :qudt/rationale,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :dcterms/description,
-                       :rdf/type           :owl/Restriction}
-                      :owl/Thing
-                      :qudt/Verifiable]})
-
-(def ConstantValue
-  "Used to specify the values of a constant."
-  {:db/ident         :qudt/ConstantValue,
-   :rdf/type         :owl/Class,
-   :rdfs/comment     "Used to specify the values of a constant.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Constant value",
-   :rdfs/subClassOf  [{:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/exactConstant,
-                       :rdf/type           :owl/Restriction}
-                      :qudt/QuantityValue]})
-
-(def CountingUnit
-  "Used for all units that express counts. Examples are Atomic Number, Number, Number per Year, Percent and Sample per Second."
-  {:db/ident :qudt/CountingUnit,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "Used for all units that express counts. Examples are Atomic Number, Number, Number per Year, Percent and Sample per Second.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Counting Unit",
-   :rdfs/subClassOf :qudt/DimensionlessUnit})
-
-(def CurrencyUnit
-  "Used for all units that express currency. Currency Units have their own subclass of unit because: (a) they have additonal properites such as 'country' and (b) their URIs do not conform to the same rules as other units."
-  {:db/ident :qudt/CurrencyUnit,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   ["Used for all units that express currency."
-    "Currency Units have their own subclass of unit because: (a) they have additonal properites such as 'country' and (b) their URIs do not conform to the same rules as other units."],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Currency Unit",
-   :rdfs/subClassOf :qudt/DimensionlessUnit})
-
-(def DataEncoding
-  "<p><em>Data Encoding</em> expresses the properties that specify how data is represented at the bit and byte level. These properties are applicable to describing raw data.</p>"
-  {:db/ident :qudt/DataEncoding,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "<p><em>Data Encoding</em> expresses the properties that specify how data is represented at the bit and byte level. These properties are applicable to describing raw data.</p>",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Data Encoding",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/byteOrder,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/bitOrder,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/encoding,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/EndianType,
-                      :owl/onProperty    :qudt/bitOrder,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/Aspect
-                     {:owl/allValuesFrom :qudt/Encoding,
-                      :owl/onProperty    :qudt/encoding,
-                      :rdf/type          :owl/Restriction}]})
-
-(def Datatype
-  "A data type is a definition of a set of values (for example, \"all integers between 0 and 10\"), and the allowable operations on those values; the meaning of the data; and the way values of that type can be stored. Some types are primitive - built-in to the language, with no visible internal structure - e.g. Boolean; others are composite - constructed from one or more other types (of either kind) - e.g. lists, arrays, structures, unions. Object-oriented programming extends this with classes which encapsulate both the structure of a type and the operations that can be performed on it. Some languages provide strong typing, others allow implicit type conversion and/or explicit type conversion."
-  {:db/ident :qudt/Datatype,
-   :dcterms/description
-   "A data type is a definition of a set of values (for example, \"all integers between 0 and 10\"), and the allowable operations on those values; the meaning of the data; and the way values of that type can be stored. Some types are primitive - built-in to the language, with no visible internal structure - e.g. Boolean; others are composite - constructed from one or more other types (of either kind) - e.g. lists, arrays, structures, unions. Object-oriented programming extends this with classes which encapsulate both the structure of a type and the operations that can be performed on it. Some languages provide strong typing, others allow implicit type conversion and/or explicit type conversion.",
-   :qudt/informativeReference
-   ["http://en.wikipedia.org/wiki/Data_type"
-    "http://foldoc.org/data+type"
-    "http://www.princeton.edu/~achaney/tmve/wiki100k/docs/Data_type.html"],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "QUDT Datatype",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/pythonName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty :qudt/mySQLName,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/Datatype,
-                      :owl/onProperty    :qudt/basis,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/basis,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/jsName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/oracleSQLName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/odbcName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/microsoftSQLServerName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/oleDBName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/protocolBuffersName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/ansiSQLName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/OrderedType,
-                      :owl/onProperty    :qudt/orderedType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/cName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/bounded,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/orderedType,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/vbName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/matlabName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/CardinalityType,
-                      :owl/onProperty    :qudt/cardinality,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/Concept
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/javaName,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/cardinality,
-                      :rdf/type           :owl/Restriction}]})
-
-(def DateTimeStringEncodingType
-  "Date Time encodings are logical encodings for expressing date/time quantities as strings by applying unambiguous formatting and parsing rules."
-  {:db/ident :qudt/DateTimeStringEncodingType,
-   :dcterms/description
-   "Date Time encodings are logical encodings for expressing date/time quantities as strings by applying unambiguous formatting and parsing rules.",
-   :rdf/type [:sh/NodeShape :owl/Class],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "Date Time String Encoding Type",
-   :rdfs/subClassOf [{:owl/minQualifiedCardinality 1,
-                      :owl/onDataRange :xsd/string,
-                      :owl/onProperty  :qudt/allowedPattern,
-                      :rdf/type        :owl/Restriction}
-                     :qudt/StringEncodingType],
-   :sh/property [{:sh/path :qudt/allowedPattern,
-                  :sh/qualifiedMinCount 1,
-                  :sh/qualifiedValueShape {:sh/datatype :xsd/string}}
-                 :qudt/DateTimeStringEncodingType-allowedPattern]})
-
-(def DecimalPrefix
-  "A <em>Decimal Prefix</em> is a prefix for multiples of units that are powers of 10."
-  {:db/ident :qudt/DecimalPrefix,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "A <em>Decimal Prefix</em> is a prefix for multiples of units that are powers of 10.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Decimal Prefix",
-   :rdfs/subClassOf :qudt/Prefix})
-
-(def DerivedUnit
-  "A DerivedUnit is a type specification for units that are derived from other units."
-  {:db/ident :qudt/DerivedUnit,
-   :qudt/dbpediaMatch "http://dbpedia.org/resource/Category:SI_derived_units",
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "A DerivedUnit is a type specification for units that are derived from other units.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Derived Unit",
-   :rdfs/subClassOf :qudt/Unit})
-
-(def DimensionlessUnit
-  "A Dimensionless Unit is a quantity for which all the exponents of the factors corresponding to the base quantities in its quantity dimension are zero."
-  {:db/ident :qudt/DimensionlessUnit,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "A Dimensionless Unit is a quantity for which all the exponents of the factors corresponding to the base quantities in its quantity dimension are zero.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Dimensionless Unit",
-   :rdfs/subClassOf :qudt/Unit})
-
-(def Discipline
-  "Discipline"
-  {:db/ident         :qudt/Discipline,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Discipline",
-   :rdfs/subClassOf  :qudt/Concept})
-
-(def EndianType
-  "Endian Type"
-  {:db/ident         :qudt/EndianType,
-   :owl/oneOf        [:qudt.type/LittleEndian :qudt.type/BigEndian],
-   :qudt/informativeReference "http://en.wikipedia.org/wiki/Endianness",
-   :qudt/plainTextDescription
-   "In computing, endianness is the ordering used to represent some kind of data as a sequence of smaller units. Typical cases are the order in which integer values are stored as bytes in computer memory (relative to a given memory addressing scheme) and the transmission order over a network or other medium. When specifically talking about bytes, endianness is also referred to simply as byte order.  Most computer processors simply store integers as sequences of bytes, so that, conceptually, the encoded value can be obtained by simple concatenation. For an 'n-byte' integer value this allows 'n!' (n factorial) possible representations (one for each byte permutation). The two most common of them are: increasing numeric significance with increasing memory addresses, known as little-endian, and its opposite, called big-endian.",
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Endian Type",
-   :rdfs/subClassOf  :qudt/EnumeratedValue})
-
-(def EnumeratedQuantity
-  "Enumerated Quantity"
-  {:db/ident        :qudt/EnumeratedQuantity,
-   :rdf/type        :qudt/AspectClass,
-   :rdfs/label      "Enumerated Quantity",
-   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/Enumeration,
-                      :owl/onProperty    :qudt/enumeration,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/EnumeratedValue,
-                      :owl/onProperty    :qudt/enumeratedValue,
-                      :rdf/type          :owl/Restriction}
-                     :qudt/Concept]})
-
-(def EnumeratedValue
-  "<p>This class is for all enumerated and/or coded values. For example, it contains the dimension objects that are the basis elements in some abstract vector space associated with a quantity kind system. Another use is for the base dimensions for quantity systems. Each quantity kind system that defines a base set has a corresponding ordered enumeration whose elements are the dimension objects for the base quantity kinds. The order of the dimensions in the enumeration determines the canonical order of the basis elements in the corresponding abstract vector space.</p> <p>An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in data conflicts and misinterpretations.</p> <p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of Scalar Datatype. This allows them to be used as the reference of a datatype specification.</p>"
-  {:db/ident :qudt/EnumeratedValue,
-   :dcterms/description
-   "<p>This class is for all enumerated and/or coded values.  For example, it contains the dimension objects that are the basis elements in some abstract vector space associated with a quantity kind system. Another use is for the base dimensions for quantity systems. Each quantity kind system that defines a base set has a corresponding ordered enumeration whose elements are the dimension objects for the base quantity kinds. The order of the dimensions in the enumeration determines the canonical order of the basis elements in the corresponding abstract vector space.</p>\n\n<p>An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>\n\n<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of Scalar Datatype. This allows them to be used as the reference of a datatype specification.</p>",
-   :qudt/informativeReference "http://en.wikipedia.org/wiki/Enumeration",
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Enumerated Value",
-   :rdfs/subClassOf [:qudt/Concept
-                     :dtype/EnumeratedValue
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/symbol,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :dcterms/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/abbreviation,
-                      :rdf/type           :owl/Restriction}]})
-
-(def EnumerationScale
-  "A sub-type of 'Scale'. Detailed desciption to be provided in a future version. A sub-type of 'DTYPE Enumeration'. Detailed desciption to be provided in a future version."
-  {:db/ident         :qudt/EnumerationScale,
-   :dcterms/description
-   ["A sub-type of 'Scale'. Detailed desciption to be provided in a future version."
-    "A sub-type of 'DTYPE Enumeration'. Detailed desciption to be provided in a future version."]
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Enumeration scale",
-   :rdfs/subClassOf  [:dtype/Enumeration :qudt/Scale]})
-
-(def Figure
-  "A sub-type of 'QUDT Concept'. Detailed desciption to be provided in a future version."
-  {:db/ident         :qudt/Figure,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Figure",
-   :rdfs/subClassOf  [{:owl/cardinality 1,
-                       :owl/onProperty  :qudt/imageLocation,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/figureCaption,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/figureLabel,
-                       :rdf/type           :owl/Restriction}
-                      :qudt/Concept
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/image,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/landscape,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/width,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/height,
-                       :rdf/type           :owl/Restriction}]})
-
-(def IntegerEncodingType
-  "The encoding scheme for integer types"
-  {:db/ident            :qudt/IntegerEncodingType,
-   :dcterms/description "The encoding scheme for integer types",
-   :owl/oneOf           [:qudt/LongUnsignedIntegerEncoding
-                         :qudt/ShortUnsignedIntegerEncoding
-                         :qudt/ShortUnsignedIntegerEncoding
-                         :qudt/SignedIntegerEncoding
-                         :qudt/UnsignedIntegerEncoding],
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label          "Integer Encoding",
-   :rdfs/subClassOf     :qudt/Encoding})
-
-(def IntervalScale
-  "median, percentile & Monotonic increasing (order (<)) & totally ordered set <p>The interval type allows for the degree of difference between items, but not the ratio between them. Examples include temperature with the Celsius scale, which has two defined points (the freezing and boiling point of water at specific conditions) and then separated into 100 intervals, date when measured from an arbitrary epoch (such as AD), percentage such as a percentage return on a stock,[16] location in Cartesian coordinates, and direction measured in degrees from true or magnetic north. Ratios are not meaningful since 20 °C cannot be said to be \"twice as hot\" as 10 °C, nor can multiplication/division be carried out between any two dates directly. However, ratios of differences can be expressed; for example, one difference can be twice another. Interval type variables are sometimes also called \"scaled variables\", but the formal mathematical term is an affine space (in this case an affine line).</p> <p>Characteristics: median, percentile &amp; Monotonic increasing (order (&lt;) &amp; totally ordered set</p>"
-  {:db/ident :qudt/IntervalScale,
-   :qudt/informativeReference
-   "https://en.wikipedia.org/wiki/Level_of_measurement",
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   ["median, percentile & Monotonic increasing (order (<)) & totally ordered set"
-    "<p>The interval type allows for the degree of difference between items, but not the ratio between them. Examples include temperature with the Celsius scale, which has two defined points (the freezing and boiling point of water at specific conditions) and then separated into 100 intervals, date when measured from an arbitrary epoch (such as AD), percentage such as a percentage return on a stock,[16] location in Cartesian coordinates, and direction measured in degrees from true or magnetic north. Ratios are not meaningful since 20 °C cannot be said to be \"twice as hot\" as 10 °C, nor can multiplication/division be carried out between any two dates directly. However, ratios of differences can be expressed; for example, one difference can be twice another. Interval type variables are sometimes also called \"scaled variables\", but the formal mathematical term is an affine space (in this case an affine line).</p>\n<p>Characteristics: median, percentile &amp; Monotonic increasing (order (&lt;) &amp; totally ordered set</p>"],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Interval scale",
-   :rdfs/seeAlso [:qudt/OrdinalScale :qudt/RatioScale :qudt/NominalScale],
-   :rdfs/subClassOf :qudt/Scale})
-
-(def LatexString
-  "A type of string in which some characters may be wrapped with '\\(' and '\\) characters for LaTeX rendering."
-  {:db/ident :qudt/LatexString,
-   :rdf/type :rdfs/Datatype,
-   :rdfs/comment
-   "A type of string in which some characters may be wrapped with '\\(' and '\\) characters for LaTeX rendering.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Latex String",
-   :rdfs/subClassOf :xsd/string})
-
-(def LittleEndian
-  "Little Endian"
-  {:db/ident         :qudt/LittleEndian,
-   :dtype/literal    "little",
-   :rdf/type         :qudt/EndianType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Little Endian"})
-
-(def LogarithmicUnit
-  "Logarithmic units are abstract mathematical units that can be used to express any quantities (physical or mathematical) that are defined on a logarithmic scale, that is, as being proportional to the value of a logarithm function. Examples of logarithmic units include common units of information and entropy, such as the bit, and the byte, as well as units of relative signal strength magnitude such as the decibel."
-  {:db/ident :qudt/LogarithmicUnit,
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "Logarithmic units are abstract mathematical units that can be used to express any quantities (physical or mathematical) that are defined on a logarithmic scale, that is, as being proportional to the value of a logarithm function. Examples of logarithmic units include common units of information and entropy, such as the bit, and the byte, as well as units of relative signal strength magnitude such as the decibel.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Logarithmic Unit",
-   :rdfs/subClassOf :qudt/DimensionlessUnit})
-
-(def NominalScale
-  "A nominal scale differentiates between items or subjects based only on their names or (meta-)categories and other qualitative classifications they belong to; thus dichotomous data involves the construction of classifications as well as the classification of items. Discovery of an exception to a classification can be viewed as progress. Numbers may be used to represent the variables but the numbers do not have numerical value or relationship: For example, a Globally unique identifier. Examples of these classifications include gender, nationality, ethnicity, language, genre, style, biological species, and form. In a university one could also use hall of affiliation as an example."
-  {:db/ident :qudt/NominalScale,
-   :qudt/informativeReference
-   "https://en.wikipedia.org/wiki/Level_of_measurement",
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "A nominal scale differentiates between items or subjects based only on their names or (meta-)categories and other qualitative classifications they belong to; thus dichotomous data involves the construction of classifications as well as the classification of items. Discovery of an exception to a classification can be viewed as progress. Numbers may be used to represent the variables but the numbers do not have numerical value or relationship: For example, a Globally unique identifier. Examples of these classifications include gender, nationality, ethnicity, language, genre, style, biological species, and form. In a university one could also use hall of affiliation as an example.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Nominal scale",
-   :rdfs/seeAlso [:qudt/RatioScale :qudt/OrdinalScale :qudt/IntervalScale],
-   :rdfs/subClassOf :qudt/Scale})
-
-(def NumericUnion
-  "Numeric union"
-  {:db/ident        :qudt/NumericUnion,
-   :rdf/type        :owl/Class,
-   :rdfs/label      "Numeric union",
-   :rdfs/subClassOf [:dtype/numericUnion :qudt/Concept]})
-
-(def OctetEncoding
-  "OCTET Encoding"
-  {:db/ident         :qudt/OctetEncoding,
-   :qudt/bytes       1,
-   :rdf/type         [:qudt/ByteEncodingType :qudt/BooleanEncodingType],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "OCTET Encoding"})
-
-(def OrderedType
-  "Describes how a data or information structure is ordered."
-  {:db/ident :qudt/OrderedType,
-   :dcterms/description
-   "Describes how a data or information structure is ordered.",
-   :owl/oneOf [:qudt/Unordered :qudt/PartiallyOrdered :qudt/TotallyOrdered],
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Ordered type",
-   :rdfs/subClassOf :qudt/EnumeratedValue})
-
-(def OrdinalScale
-  "The ordinal type allows for rank order (1st, 2nd, 3rd, etc.) by which data can be sorted, but still does not allow for relative degree of difference between them. Examples include, on one hand, dichotomous data with dichotomous (or dichotomized) values such as 'sick' vs. 'healthy' when measuring health, 'guilty' vs. 'innocent' when making judgments in courts, 'wrong/false' vs. 'right/true' when measuring truth value, and, on the other hand, non-dichotomous data consisting of a spectrum of values, such as 'completely agree', 'mostly agree', 'mostly disagree', 'completely disagree' when measuring opinion."
-  {:db/ident :qudt/OrdinalScale,
-   :qudt/informativeReference
-   "https://en.wikipedia.org/wiki/Level_of_measurement",
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "The ordinal type allows for rank order (1st, 2nd, 3rd, etc.) by which data can be sorted, but still does not allow for relative degree of difference between them. Examples include, on one hand, dichotomous data with dichotomous (or dichotomized) values such as 'sick' vs. 'healthy' when measuring health, 'guilty' vs. 'innocent' when making judgments in courts, 'wrong/false' vs. 'right/true' when measuring truth value, and, on the other hand, non-dichotomous data consisting of a spectrum of values, such as 'completely agree', 'mostly agree', 'mostly disagree', 'completely disagree' when measuring opinion.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Ordinal scale",
-   :rdfs/seeAlso [:qudt/NominalScale :qudt/IntervalScale :qudt/RatioScale],
-   :rdfs/subClassOf [:qudt/Scale
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :qudt/order,
-                      :rdf/type        :owl/Restriction}]})
-
-(def PartiallyOrdered
-  "Partially Ordered"
-  {:db/ident         :qudt/PartiallyOrdered,
-   :qudt/literal     "partial",
-   :qudt/plainTextDescription "Partial ordered structure.",
-   :rdf/type         :qudt/OrderedType,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Partially Ordered"})
-
-(def PhysicalConstant
-  "A physical constant is a physical quantity that is generally believed to be both universal in nature and constant in time. It can be contrasted with a mathematical constant, which is a fixed numerical value but does not directly involve any physical measurement. There are many physical constants in science, some of the most widely recognized being the speed of light in vacuum c, Newton's gravitational constant G, Planck's constant h, the electric permittivity of free space ε0, and the elementary charge e. Physical constants can take many dimensional forms, or may be dimensionless depending on the system of quantities and units used."
-  {:db/ident :qudt/PhysicalConstant,
-   :qudt/dbpediaMatch "http://dbpedia.org/resource/Physical_constant",
-   :rdf/type :owl/Class,
-   :rdfs/comment
-   "A physical constant is a physical quantity that is generally believed to be both universal in nature and constant in time. It can be contrasted with a mathematical constant, which is a fixed numerical value but does not directly involve any physical measurement. There are many physical constants in science, some of the most widely recognized being the speed of light in vacuum c, Newton's gravitational constant G, Planck's constant h, the electric permittivity of free space ε0, and the elementary charge e. Physical constants can take many dimensional forms, or may be dimensionless depending on the system of quantities and units used.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Physical Constant",
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/mathMLdefinition,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/latexSymbol,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :qudt/latexDefinition,
-                      :rdf/type           :owl/Restriction}
-                     :qudt/Quantity]})
-
-(def PlaneAngleUnit
-  "Plane Angle Unit"
-  {:db/ident         :qudt/PlaneAngleUnit,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Plane Angle Unit",
-   :rdfs/subClassOf  :qudt/AngleUnit})
-
-(def Prefix
-  "Prefix"
-  {:db/ident         :qudt/Prefix,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Prefix",
-   :rdfs/subClassOf  [{:owl/minCardinality 0,
-                       :owl/onProperty     :qudt/symbol,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/minCardinality 0,
-                       :owl/onProperty     :qudt/latexSymbol,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/prefixMultiplier,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :qudt/UCUMcs-term,
-                       :owl/onProperty    :qudt/ucumCode,
-                       :rdf/type          :owl/Restriction}
-                      :qudt/Verifiable
-                      :qudt/Concept]})
 
 (def Quantifiable
   "<p><em>Quantifiable</em> ascribes to some thing the capability of being measured, observed, or counted.</p>"
@@ -6591,6 +4466,76 @@
                      :qudt/Quantifiable
                      :qudt/Concept]})
 
+(def QuantityValueType
+  "A sub-type of 'Dimensional Data Type'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/QuantityValueType,
+   :dcterms/description
+   "A sub-type of 'Dimensional Data Type'. Detailed desciption to be provided in a future version.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Quantity value type",
+   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/Unit,
+                      :owl/onProperty    :qudt/elementUnit,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/QuantityType,
+                      :owl/onProperty    :qudt/basis,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/DimensionalDatatype
+                     {:owl/allValuesFrom :qudt/NumericType,
+                      :owl/onProperty    :qudt/elementType,
+                      :rdf/type          :owl/Restriction}],
+   :sh/property [:qudt/QuantityValueType-elementUnit
+                 :qudt/QuantityValueType-basis
+                 :qudt/QuantityValueType-elementType]})
+
+(def QuantityValueType-basis
+  "QuantityValueType-basis"
+  {:db/ident :qudt/QuantityValueType-basis,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/QuantityType,
+   :sh/path  :qudt/basis})
+
+(def QuantityValueType-elementType
+  "QuantityValueType-elementType"
+  {:db/ident :qudt/QuantityValueType-elementType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/NumericType,
+   :sh/path  :qudt/elementType})
+
+(def QuantityValueType-elementUnit
+  "QuantityValueType-elementUnit"
+  {:db/ident    :qudt/QuantityValueType-elementUnit,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/Unit,
+   :sh/maxCount 1,
+   :sh/path     :qudt/elementUnit})
+
+(def RELATIVE-DATETIME
+  "Days and time relative to some Epoch"
+  {:db/ident      :qudt/RELATIVE-DATETIME,
+   :dcterms/description "Days and time relative to some Epoch",
+   :dtype/literal "reldate",
+   :qudt/dimensionality 1,
+   :qudt/encodingDescription "TBD",
+   :rdf/type      [:qudt/DateStringType :owl/NamedIndividual],
+   :rdfs/label    "Relative Date And Time"})
+
+(def RN_BINARY-BASE
+  "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 2, and then the values of m and e are determined given this choice of base."
+  {:db/ident :qudt/RN_BINARY-BASE,
+   :rdf/type [:qudt/RealNumberType :owl/NamedIndividual],
+   :rdfs/comment
+   "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 2, and then the values of m and e are determined given this choice of base.",
+   :rdfs/label "Real number binary base"})
+
+(def RN_DECIMAL-BASE
+  "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 10, and then the values of m and e are determined given this choice of base."
+  {:db/ident :qudt/RN_DECIMAL-BASE,
+   :rdf/type [:qudt/RealNumberType :owl/NamedIndividual],
+   :rdfs/comment
+   "A rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. In this case b is chosen to be 10, and then the values of m and e are determined given this choice of base.",
+   :rdfs/label "Real number decminal base"})
+
 (def RatioScale
   "The ratio type takes its name from the fact that measurement is the estimation of the ratio between a magnitude of a continuous quantity and a unit magnitude of the same kind (Michell, 1997, 1999). A ratio scale possesses a meaningful (unique and non-arbitrary) zero value. Most measurement in the physical sciences and engineering is done on ratio scales. Examples include mass, length, duration, plane angle, energy and electric charge. In contrast to interval scales, ratios are now meaningful because having a non-arbitrary zero point makes it meaningful to say, for example, that one object has \"twice the length\" of another (= is \"twice as long\"). Very informally, many ratio scales can be described as specifying \"how much\" of something (i.e. an amount or magnitude) or \"how many\" (a count). The Kelvin temperature scale is a ratio scale because it has a unique, non-arbitrary zero point called absolute zero."
   {:db/ident :qudt/RatioScale,
@@ -6603,6 +4548,290 @@
    :rdfs/label "Ratio scale",
    :rdfs/seeAlso [:qudt/OrdinalScale :qudt/NominalScale :qudt/IntervalScale],
    :rdfs/subClassOf :qudt/Scale})
+
+(def RawValueTupleMember
+  "A sub-type of 'Tuple Member Type'. Detailed desciption to be provided in a future version."
+  {:db/ident         :qudt/RawValueTupleMember,
+   :dcterms/description
+   "A sub-type of 'Tuple Member Type'. Detailed desciption to be provided in a future version.",
+   :owl/equivalentClass
+   {:owl/intersectionOf [:qudt/TupleMember
+                         {:owl/allValuesFrom :qudt/UnsignedIntegerType,
+                          :owl/onProperty    :qudt/elementType,
+                          :rdf/type          :owl/Restriction}],
+    :rdf/type :owl/Class},
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Raw value tuple member",
+   :rdfs/subClassOf  [{:owl/allValuesFrom :qudt/UnsignedIntegerType,
+                       :owl/onProperty    :qudt/elementType,
+                       :rdf/type          :owl/Restriction}
+                      :qudt/TupleMember]})
+
+(def RawValueTupleMember-elementType
+  "RawValueTupleMember-elementType"
+  {:db/ident :qudt/RawValueTupleMember-elementType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/UnsignedIntegerType,
+   :sh/path  :qudt/elementType})
+
+(def RawValueTupleMemberType
+  "Raw value tuple member type"
+  {:db/ident            :qudt/RawValueTupleMemberType,
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/TupleMemberType
+                                              {:owl/allValuesFrom
+                                               :qudt/UnsignedIntegerType,
+                                               :owl/onProperty
+                                               :qudt/elementType,
+                                               :rdf/type :owl/Restriction}],
+                         :rdf/type :owl/Class},
+   :rdf/type            [:sh/NodeShape :owl/Class],
+   :rdfs/label          "Raw value tuple member type",
+   :rdfs/subClassOf     :qudt/TupleMemberType,
+   :sh/property         :qudt/RawValueTupleMember-elementType})
+
+(def RealDatatype
+  "A real number is represented as a factor, called the mantissa, multiplied by a power (the exponent) of a base. Different bases yield different approximations to real numbers, and conversion between them is limited in accuracy. Four floating-point types are defined in 'IEEE-754 Standard for Binary Floating-Point'. These types are 'single', 'extended single', 'double', and 'extended double'."
+  {:db/ident :qudt/RealDatatype,
+   :dcterms/description
+   "A real number is represented as a factor, called the mantissa, multiplied by a power (the exponent) of a base. Different bases yield different approximations to real numbers, and conversion between them is limited in accuracy.  Four floating-point types are defined in 'IEEE-754 Standard for Binary Floating-Point'. These types are 'single', 'extended single', 'double', and 'extended double'.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Real Datatype",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/precision,
+                      :rdf/type           :owl/Restriction}
+                     :qudt/NumericType
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/base,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/maxExponent,
+                      :rdf/type           :owl/Restriction}],
+   :sh/property [:qudt/RealDatatype-maxExponent
+                 :qudt/RealDatatype-base
+                 :qudt/RealDatatype-precision]})
+
+(def RealDatatype-base
+  "RealDatatype-base"
+  {:db/ident    :qudt/RealDatatype-base,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/base})
+
+(def RealDatatype-maxExponent
+  "RealDatatype-maxExponent"
+  {:db/ident    :qudt/RealDatatype-maxExponent,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/maxExponent})
+
+(def RealDatatype-precision
+  "RealDatatype-precision"
+  {:db/ident    :qudt/RealDatatype-precision,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/precision})
+
+(def RealDoublePrecisionType
+  "A real double precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies two words in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes. An example of a real double precision data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 8 bytes for storage on 32-bit machine architectures."
+  {:db/ident         :qudt/RealDoublePrecisionType,
+   :dcterms/description
+   "A real double precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies two words in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes.\n\nAn example of a real double precision data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 8 bytes for storage on 32-bit machine architectures.",
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/RealDatatype
+                                              :qudt/DoublePrecisionType],
+                         :rdf/type :owl/Class},
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Real Double Precision Type",
+   :rdfs/subClassOf  [:qudt/RealDatatype :qudt/DoublePrecisionType]})
+
+(def RealNumberType
+  "This is the class of data values that approximate real numbers in finite precision. Often, such values are expressed in \"mantissa, base, exponent\" form. Any rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. Typically, b is chosen to be either 2 or 10, and then the values of m and e are determined given the choice of base."
+  {:db/ident :qudt/RealNumberType,
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/comment
+   "This is the class of data values that approximate real numbers in finite precision. Often, such values are expressed in \"mantissa, base, exponent\" form. Any rational number can be expressed in the form m*b^e, where m (the mantissa), b (the base), and e (the exponent) are integers. Typically, b is chosen to be either 2 or 10, and then the values of m and e are determined given the choice of base.",
+   :rdfs/label "Real number type",
+   :rdfs/subClassOf :qudt/RealDatatype})
+
+(def RealSinglePrecisionType
+  "A real single precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes. An example of a real single precisoin data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 4 bytes for storage on 32-bit machine architectures."
+  {:db/ident         :qudt/RealSinglePrecisionType,
+   :dcterms/description
+   "A real single precision data type specifies how a real number, or an approximation of a real number is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes. An example of a real single precisoin data type specification is the IEEE 754 standard for encoding binary or decimal floating point numbers in 4 bytes for storage on 32-bit machine architectures.",
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/RealDatatype
+                                              :qudt/SinglePrecisionType],
+                         :rdf/type :owl/Class},
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Real Single Precision Type",
+   :rdfs/subClassOf  [:qudt/SinglePrecisionType :qudt/RealDatatype]})
+
+(def Record
+  "A Record Type is a type whose values are records, i.e. aggregates of several items of possibly different types. The aggregated items are called fields or members and are usually identified or indexed by field labels."
+  {:db/ident :qudt/Record,
+   :dcterms/description
+   "A Record Type is a type whose values are records, i.e. aggregates of several items of possibly different types. The aggregated items are called fields or members and are usually identified or indexed by field labels.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Record Type",
+   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/FieldType,
+                      :owl/onProperty    :qudt/elementTypeList,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/CompositeDatatype]})
+
+(def ReferenceDatatype
+  "A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer. A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer. [Wikipedia]"
+  {:db/ident :qudt/ReferenceDatatype,
+   :dcterms/description
+   ["A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer."
+    "A reference is an object containing information which refers to data stored elsewhere, as opposed to containing the data itself. A reference data type is a data type that specifies how a reference is represented and stored in memory, as well as the operations that can be performed on reference values. The most common example of a reference data type is a pointer. [Wikipedia]"],
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Reference Data Type",
+   :rdfs/subClassOf :qudt/StructuredDatatype})
+
+(def ReferenceFrame
+  "A reference frame (or frame of reference) in physics, may refer to a coordinate system or set of axes. The frame serves as the datum to measure the position, orientation, and other properties of objects in it. Reference frame may refer to an observational reference frame tied to the state of motion of an observer. Reference frame may also refer to both an observational reference frame and an attached coordinate system as a unit."
+  {:db/ident :qudt/ReferenceFrame,
+   :dcterms/description
+   "A reference frame (or frame of reference) in physics, may refer to a coordinate system or set of axes.\nThe frame serves as the datum to measure the position, orientation, and other properties of objects in it.\nReference frame may refer to an observational reference frame tied to the state of motion of an observer. \nReference frame may also refer to both an observational reference frame and an attached coordinate system as a unit.",
+   :rdf/type [:owl/Class :sh/NodeShape],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Reference Frame",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/comment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/zAxisDefinition,
+                      :rdf/type        :owl/Restriction}
+                     :skos/Concept
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/xCoordinateDefinition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/yCoordinateDefinition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/zCoordinateDefinition,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/Concept
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/yAxisDefinition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/xAxisDefinition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/FrameType,
+                      :owl/onProperty    :qudt/frameType,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/realization,
+                      :rdf/type        :owl/Restriction}],
+   :sh/property [:qudt/ReferenceFrame-realization
+                 :qudt/ReferenceFrame-xAxisDefinition
+                 :qudt/ReferenceFrame-frameType
+                 :qudt/ReferenceFrame-comment
+                 :qudt/ReferenceFrame-zAxisDefinition
+                 :qudt/ReferenceFrame-xCoordinateDefinition
+                 :qudt/ReferenceFrame-zCoordinateDefinition
+                 :qudt/ReferenceFrame-description
+                 :qudt/ReferenceFrame-yAxisDefinition
+                 :qudt/ReferenceFrame-yCoordinateDefinition]})
+
+(def ReferenceFrame-comment
+  "ReferenceFrame-comment"
+  {:db/ident    :qudt/ReferenceFrame-comment,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/path     :vaem/comment})
+
+(def ReferenceFrame-description
+  "ReferenceFrame-description"
+  {:db/ident    :qudt/ReferenceFrame-description,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/path     :vaem/description})
+
+(def ReferenceFrame-frameType
+  "ReferenceFrame-frameType"
+  {:db/ident :qudt/ReferenceFrame-frameType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/FrameType,
+   :sh/path  :qudt/frameType})
+
+(def ReferenceFrame-realization
+  "ReferenceFrame-realization"
+  {:db/ident    :qudt/ReferenceFrame-realization,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/maxCount 1,
+   :sh/path     :qudt/realization})
+
+(def ReferenceFrame-xAxisDefinition
+  "ReferenceFrame-xAxisDefinition"
+  {:db/ident    :qudt/ReferenceFrame-xAxisDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/maxCount 1,
+   :sh/path     :qudt/xAxisDefinition})
+
+(def ReferenceFrame-xCoordinateDefinition
+  "ReferenceFrame-xCoordinateDefinition"
+  {:db/ident    :qudt/ReferenceFrame-xCoordinateDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/maxCount 1,
+   :sh/path     :qudt/xCoordinateDefinition})
+
+(def ReferenceFrame-yAxisDefinition
+  "ReferenceFrame-yAxisDefinition"
+  {:db/ident    :qudt/ReferenceFrame-yAxisDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/maxCount 1,
+   :sh/path     :qudt/yAxisDefinition})
+
+(def ReferenceFrame-yCoordinateDefinition
+  "ReferenceFrame-yCoordinateDefinition"
+  {:db/ident    :qudt/ReferenceFrame-yCoordinateDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/maxCount 1,
+   :sh/path     :qudt/yCoordinateDefinition})
+
+(def ReferenceFrame-zAxisDefinition
+  "ReferenceFrame-zAxisDefinition"
+  {:db/ident    :qudt/ReferenceFrame-zAxisDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/maxCount 1,
+   :sh/path     :qudt/zAxisDefinition})
+
+(def ReferenceFrame-zCoordinateDefinition
+  "ReferenceFrame-zCoordinateDefinition"
+  {:db/ident    :qudt/ReferenceFrame-zCoordinateDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/maxCount 1,
+   :sh/path     :qudt/zCoordinateDefinition})
+
+(def RotatingReferenceFrame
+  "A sub-type of 'Reference Frame'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/RotatingReferenceFrame,
+   :dcterms/description
+   "A sub-type of 'Reference Frame'. Detailed desciption to be provided in a future version.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Rotating reference frame",
+   :rdfs/subClassOf :qudt/ReferenceFrame})
 
 (def Rule
   "Rule"
@@ -6629,6 +4858,77 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Rule Type",
    :rdfs/subClassOf  :qudt/EnumeratedValue})
+
+(def SIGNED
+  "Signed"
+  {:db/ident         :qudt/SIGNED,
+   :dtype/literal    "signed",
+   :rdf/type         [:qudt/SignednessType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Signed"})
+
+(def STATE-SPACE-MATRIX
+  "STATE SPACE MATRIX"
+  {:db/ident   :qudt/STATE-SPACE-MATRIX,
+   :rdf/type   [:qudt/StateSpaceMatrixType :owl/NamedIndividual],
+   :rdfs/label "STATE SPACE MATRIX"})
+
+(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1
+  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
+  {:db/ident      :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1,
+   :qudt/index    1,
+   :qudt/next     :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2,
+   :qudt/order    1,
+   :qudt/previous :rdf/nil,
+   :qudt/type     :qudt/FLOAT-DP,
+   :rdf/type      [:qudt/IndexedCollectionMember :owl/NamedIndividual],
+   :rdfs/label    "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
+
+(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2
+  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
+  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2,
+   :qudt/next  :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3,
+   :qudt/order 2,
+   :qudt/type  :qudt/FLOAT-DP,
+   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
+   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
+
+(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3
+  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
+  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3,
+   :qudt/next  :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4,
+   :qudt/order 3,
+   :qudt/type  :qudt/FLOAT-DP,
+   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
+   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
+
+(def STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4
+  "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"
+  {:db/ident   :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4,
+   :qudt/next  :rdf/nil,
+   :qudt/order 4,
+   :qudt/type  :qudt/FLOAT-DP,
+   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
+   :rdfs/label "STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES"})
+
+(def STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES
+  "STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES"
+  {:db/ident :qudt/STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES,
+   :qudt/element
+   [:qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-4
+    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-3
+    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-2
+    :qudt/STATE-VECTOR-TYPE-LIST-MEMBER_MASS-PROPERTIES-ELEMENT-1],
+   :rdf/type [:qudt/IndexedList :owl/NamedIndividual],
+   :rdfs/label "STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES"})
+
+(def STATE-VECTOR_MASS-PROPERTIES
+  "STATE-VECTOR-MASS-PROPERTIES"
+  {:db/ident         :qudt/STATE-VECTOR_MASS-PROPERTIES,
+   :qudt/objectValue :qudt/STATE-VECTOR-TYPE-LIST_MASS-PROPERTIES,
+   :qudt/type        :qudt/StateSpaceVectorType,
+   :rdf/type         [:qudt/StateSpaceVectorType :owl/NamedIndividual],
+   :rdfs/label       "STATE-VECTOR-MASS-PROPERTIES"})
 
 (def ScalarDatatype
   "Scalar data types are those that have a single value. The permissible values are defined over a domain that may be integers, float, character or boolean. Often a scalar data type is referred to as a primitive data type."
@@ -6676,18 +4976,107 @@
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :qudt/byteOrder,
-                      :rdf/type           :owl/Restriction}]
-   :sh/property     [:qudt/ScalarDatatype-rdfsDatatype
-                     :qudt/ScalarDatatype-maxInclusive
-                     :qudt/ScalarDatatype-maxExclusive
-                     :qudt/ScalarDatatype-bitOrder
-                     :qudt/ScalarDatatype-length
-                     :qudt/ScalarDatatype-encoding
-                     :qudt/ScalarDatatype-minExclusive
-                     :qudt/ScalarDatatype-bits
-                     :qudt/ScalarDatatype-byteOrder
-                     :qudt/ScalarDatatype-minInclusive
-                     :qudt/ScalarDatatype-bytes]})
+                      :rdf/type           :owl/Restriction}],
+   :sh/property [:qudt/ScalarDatatype-rdfsDatatype
+                 :qudt/ScalarDatatype-maxInclusive
+                 :qudt/ScalarDatatype-maxExclusive
+                 :qudt/ScalarDatatype-bitOrder
+                 :qudt/ScalarDatatype-length
+                 :qudt/ScalarDatatype-encoding
+                 :qudt/ScalarDatatype-minExclusive
+                 :qudt/ScalarDatatype-bits
+                 :qudt/ScalarDatatype-byteOrder
+                 :qudt/ScalarDatatype-minInclusive
+                 :qudt/ScalarDatatype-bytes]})
+
+(def ScalarDatatype-bitOrder
+  "ScalarDatatype-bitOrder"
+  {:db/ident    :qudt/ScalarDatatype-bitOrder,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/EndianType,
+   :sh/maxCount 1,
+   :sh/path     :qudt/bitOrder})
+
+(def ScalarDatatype-bits
+  "ScalarDatatype-bits"
+  {:db/ident    :qudt/ScalarDatatype-bits,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/or       :qudt/IntegerUnionList,
+   :sh/path     :qudt/bits})
+
+(def ScalarDatatype-byteOrder
+  "ScalarDatatype-byteOrder"
+  {:db/ident    :qudt/ScalarDatatype-byteOrder,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/EndianType,
+   :sh/maxCount 1,
+   :sh/path     :qudt/byteOrder})
+
+(def ScalarDatatype-bytes
+  "ScalarDatatype-bytes"
+  {:db/ident    :qudt/ScalarDatatype-bytes,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/or       :qudt/IntegerUnionList,
+   :sh/path     :qudt/bytes})
+
+(def ScalarDatatype-encoding
+  "ScalarDatatype-encoding"
+  {:db/ident    :qudt/ScalarDatatype-encoding,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/Encoding,
+   :sh/maxCount 1,
+   :sh/path     :qudt/encoding})
+
+(def ScalarDatatype-length
+  "ScalarDatatype-length"
+  {:db/ident    :qudt/ScalarDatatype-length,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/length})
+
+(def ScalarDatatype-maxExclusive
+  "ScalarDatatype-maxExclusive"
+  {:db/ident         :qudt/ScalarDatatype-maxExclusive,
+   :rdf/type         :sh/PropertyShape,
+   :rdfs/isDefinedBy "http://edg.topbraid.solutions/1.0/schema/qudt",
+   :sh/maxCount      1,
+   :sh/or            :qudt/NumericUnionList,
+   :sh/path          :qudt/maxExclusive})
+
+(def ScalarDatatype-maxInclusive
+  "ScalarDatatype-maxInclusive"
+  {:db/ident         :qudt/ScalarDatatype-maxInclusive,
+   :rdf/type         :sh/PropertyShape,
+   :rdfs/isDefinedBy "http://edg.topbraid.solutions/1.0/schema/qudt",
+   :sh/maxCount      1,
+   :sh/or            :qudt/NumericUnionList,
+   :sh/path          :qudt/maxInclusive})
+
+(def ScalarDatatype-minExclusive
+  "ScalarDatatype-minExclusive"
+  {:db/ident    :qudt/ScalarDatatype-minExclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/or       :qudt/NumericUnionList,
+   :sh/path     :qudt/minExclusive})
+
+(def ScalarDatatype-minInclusive
+  "ScalarDatatype-minInclusive"
+  {:db/ident    :qudt/ScalarDatatype-minInclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/or       :qudt/NumericUnionList,
+   :sh/path     :qudt/minInclusive})
+
+(def ScalarDatatype-rdfsDatatype
+  "ScalarDatatype-rdfsDatatype"
+  {:db/ident    :qudt/ScalarDatatype-rdfsDatatype,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/path     :qudt/rdfsDatatype})
 
 (def Scale
   "Scales (also called \"scales of measurement\" or \"levels of measurement\") are expressions that typically refer to the theory of scale types."
@@ -6733,6 +5122,80 @@
                        :rdf/type          :owl/Restriction}
                       :qudt/EnumeratedValue]})
 
+(def ScaledUnit
+  "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/ScaledUnit,
+   :dcterms/description
+   "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."})
+
+(def Sequence
+  "A \"Structured Datatype\"."
+  {:db/ident            :qudt/Sequence,
+   :dcterms/description "A \"Structured Datatype\".",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label          "Sequence",
+   :rdfs/subClassOf     [{:owl/allValuesFrom :qudt/Sequence,
+                          :owl/onProperty    :rdf/rest,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/allValuesFrom :qudt/Datatype,
+                          :owl/onProperty    :rdf/first,
+                          :rdf/type          :owl/Restriction}
+                         :qudt/Collection]})
+
+(def Sequence-first
+  "Sequence-first"
+  {:db/ident :qudt/Sequence-first,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/Datatype,
+   :sh/path  :rdf/first})
+
+(def Sequence-rest
+  "Sequence-rest"
+  {:db/ident :qudt/Sequence-rest,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/SequenceType,
+   :sh/path  :rdf/rest})
+
+(def SequenceType
+  "A sequence is an enumerated collection of objects in which repetitions are allowed. Like a set, it contains members (also called elements, or terms). The number of elements (possibly infinite) is called the length of the sequence. Unlike a set, order matters, and exactly the same elements can appear multiple times at different positions in the sequence. Formally, a sequence can be defined as a function whose domain is either the set of the natural numbers (for infinite sequences) or the set of the first n natural numbers (for a sequence of finite length n). The position of an element in a sequence is its rank or index; it is the integer from which the element is the image. It depends on the context or of a specific convention, if the first element has index 0 or 1. [Wikipedia]"
+  {:db/ident :qudt/SequenceType,
+   :dcterms/description
+   "A sequence is an enumerated collection of objects in which repetitions are allowed. Like a set, it contains members (also called elements, or terms). The number of elements (possibly infinite) is called the length of the sequence. Unlike a set, order matters, and exactly the same elements can appear multiple times at different positions in the sequence. Formally, a sequence can be defined as a function whose domain is either the set of the natural numbers (for infinite sequences) or the set of the first n natural numbers (for a sequence of finite length n). The position of an element in a sequence is its rank or index; it is the integer from which the element is the image. It depends on the context or of a specific convention, if the first element has index 0 or 1. [Wikipedia]",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Sequence",
+   :rdfs/subClassOf :qudt/CollectionType,
+   :sh/property [:qudt/Sequence-rest :qudt/Sequence-first]})
+
+(def Set
+  "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics."
+  {:db/ident :qudt/Set,
+   :dcterms/description
+   "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Set Type",
+   :rdfs/subClassOf :qudt/Collection})
+
+(def SetType
+  "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics."
+  {:db/ident :qudt/SetType,
+   :dcterms/description
+   "A Set Type is an abstract data type that defines the properties of sets. A set is a collection (container) of certain values, without any particular order, and no repeated values. It corresponds with a finite set in mathematics.",
+   :rdf/type :owl/Class,
+   :rdfs/label "Set Type",
+   :rdfs/subClassOf :qudt/CollectionType})
+
+(def ShortIntegerType
+  "A Short Integer is an integer that can be represented in two octets (16 bits) of machine memory. Short integers may be signed or unsigned."
+  {:db/ident :qudt/ShortIntegerType,
+   :dcterms/description
+   "A Short Integer is an integer that can be represented in two octets (16 bits) of machine memory. Short integers may be signed or unsigned.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Short Integer Type",
+   :rdfs/subClassOf :qudt/IntegerDatatype})
+
 (def ShortSignedIntegerEncoding
   "Short Signed Integer Encoding"
   {:db/ident         :qudt/ShortSignedIntegerEncoding,
@@ -6749,6 +5212,52 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Short Unsigned Integer Encoding"})
 
+(def SignedBigIntegerType
+  "A Signed Big Integer is a signed integer that can be represented in eight octets (64 bits) of machine memory."
+  {:db/ident :qudt/SignedBigIntegerType,
+   :dcterms/description
+   "A Signed Big Integer is a signed integer that can be represented in eight octets (64 bits) of machine memory.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Signed Big Integer Type",
+   :rdfs/subClassOf [:qudt/BigIntegerType
+                     :qudt/SignedIntegerType
+                     {:owl/hasValue   "-2^{63}",
+                      :owl/onProperty :qudt/minInclusive,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   "2^{63}-1",
+                      :owl/onProperty :qudt/maxInclusive,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   "SI64",
+                      :owl/onProperty :dtype/literal,
+                      :rdf/type       :owl/Restriction}],
+   :sh/property [:qudt/SignedBigIntegerType-minInclusive
+                 :qudt/SignedBigIntegerType-maxInclusive
+                 :qudt/SignedBigIntegerType-literal]})
+
+(def SignedBigIntegerType-literal
+  "SignedBigIntegerType-literal"
+  {:db/ident :qudt/SignedBigIntegerType-literal,
+   :rdf/type :sh/PropertyShape,
+   :sh/path  :dtype/literal})
+
+(def SignedBigIntegerType-maxInclusive
+  "SignedBigIntegerType-maxInclusive"
+  {:db/ident :qudt/SignedBigIntegerType-maxInclusive,
+   :rdf/type :sh/PropertyShape,
+   :sh/or    :qudt/NumericUnionList,
+   :sh/path  :qudt/maxInclusive})
+
+(def SignedBigIntegerType-minInclusive
+  "SignedBigIntegerType-minInclusive"
+  {:db/ident :qudt/SignedBigIntegerType-minInclusive,
+   :rdf/type :sh/PropertyShape,
+   :sh/or    [{:sh/datatype :xsd/string}
+              {:sh/datatype :xsd/integer}
+              {:sh/datatype :xsd/float}
+              {:sh/datatype :xsd/decimal}],
+   :sh/path  :qudt/minInclusive})
+
 (def SignedIntegerEncoding
   "Signed Integer Encoding"
   {:db/ident         :qudt/SignedIntegerEncoding,
@@ -6756,6 +5265,143 @@
    :rdf/type         :qudt/IntegerEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Signed Integer Encoding"})
+
+(def SignedIntegerType
+  "Signed Integers are integers can take on both positive and negative values."
+  {:db/ident         :qudt/SignedIntegerType,
+   :dcterms/description
+   "Signed Integers are integers can take on both positive and negative values.",
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
+                                              :qudt/SignedType],
+                         :rdf/type :owl/Class},
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Signed Integer Type",
+   :rdfs/subClassOf  [:qudt/SignedType :qudt/IntegerDatatype]})
+
+(def SignedLongIntegerType
+  "A Signed Long Integer is a signed integer that can be represented in four octets (32 bits) of machine memory."
+  {:db/ident :qudt/SignedLongIntegerType,
+   :dcterms/description
+   "A Signed Long Integer is a signed integer that can be represented in four octets (32 bits) of machine memory.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Signed Long Integer Type",
+   :rdfs/subClassOf [{:owl/hasValue   "-2^{31}",
+                      :owl/onProperty :qudt/minInclusive,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/LongIntegerType
+                     :qudt/SignedIntegerType
+                     {:owl/hasValue   "2^{31}-1",
+                      :owl/onProperty :qudt/maxInclusive,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   "UI32",
+                      :owl/onProperty :dtype/literal,
+                      :rdf/type       :owl/Restriction}],
+   :sh/property [:qudt/SignedLongIntegerType-abbreviation
+                 :qudt/SignedLongIntegerType-minInclusive
+                 :qudt/SignedLongIntegerType-maxInclusive]})
+
+(def SignedLongIntegerType-abbreviation
+  "SignedLongIntegerType-abbreviation"
+  {:db/ident    :qudt/SignedLongIntegerType-abbreviation,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/hasValue "SI32",
+   :sh/path     :qudt/abbreviation})
+
+(def SignedLongIntegerType-maxInclusive
+  "SignedLongIntegerType-maxInclusive"
+  {:db/ident :qudt/SignedLongIntegerType-maxInclusive,
+   :rdf/type :sh/PropertyShape,
+   :sh/or    :qudt/NumericUnionList,
+   :sh/path  :qudt/maxInclusive})
+
+(def SignedLongIntegerType-minInclusive
+  "SignedLongIntegerType-minInclusive"
+  {:db/ident :qudt/SignedLongIntegerType-minInclusive,
+   :rdf/type :sh/PropertyShape,
+   :sh/or    [{:sh/datatype :xsd/string}
+              {:sh/datatype :xsd/integer}
+              {:sh/datatype :xsd/float}
+              {:sh/datatype :xsd/decimal}],
+   :sh/path  :qudt/minInclusive})
+
+(def SignedMediumIntegerType
+  "A \"Signed Medium Integers\" is an integer of 24 bits that can take on both positive and negative values."
+  {:db/ident         :qudt/SignedMediumIntegerType,
+   :dcterms/description
+   "A \"Signed Medium Integers\" is an integer of 24 bits that can take on both positive and negative values.",
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
+                                              :qudt/SignedType
+                                              {:owl/hasValue 3,
+                                               :owl/onProperty :qudt/bytes,
+                                               :rdf/type :owl/Restriction}],
+                         :rdf/type :owl/Class},
+   :rdf/type         [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Signed Integer Type",
+   :rdfs/subClassOf  [{:owl/hasValue   3,
+                       :owl/onProperty :qudt/bytes,
+                       :rdf/type       :owl/Restriction}
+                      :qudt/SignedIntegerType]})
+
+(def SignedShortIntegerType
+  "A Signed Short Integer is a signed integer that can be represented in four octets (32 bits) of machine memory."
+  {:db/ident :qudt/SignedShortIntegerType,
+   :dcterms/description
+   "A Signed Short Integer is a signed integer that can be represented in four octets (32 bits) of machine memory.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Signed Short Integer Type",
+   :rdfs/subClassOf [{:owl/hasValue   "SI16",
+                      :owl/onProperty :dtype/literal,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/SignedIntegerType
+                     :qudt/ShortIntegerType],
+   :sh/property :qudt/SignedShortIntegerType-abbreviation})
+
+(def SignedShortIntegerType-abbreviation
+  "SignedShortIntegerType-abbreviation"
+  {:db/ident :qudt/SignedShortIntegerType-abbreviation,
+   :rdf/type :sh/PropertyShape,
+   :sh/path  :qudt/abbreviation})
+
+(def SignedType
+  "A signed type is a numeric type that distinguishes between positive and negative numbers using an encoding scheme, such as sign and magnitude, one's compliment, and two's compliment to represent negative numbers."
+  {:db/ident :qudt/SignedType,
+   :dcterms/description
+   "A signed type is a numeric type that distinguishes between positive and negative numbers using an encoding scheme, such as sign and magnitude, one's compliment, and two's compliment to represent negative numbers.",
+   :owl/disjointWith :qudt/UnsignedType,
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/NumericType
+                                              {:owl/hasValue :qudt.type/Signed,
+                                               :owl/onProperty :qudt/signedness,
+                                               :rdf/type :owl/Restriction}],
+                         :rdf/type :owl/Class},
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Signed Type",
+   :rdfs/subClassOf [{:owl/hasValue   :qudt.type/Signed,
+                      :owl/onProperty :qudt/signedness,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/NumericType],
+   :sh/property :qudt/SignedType-signedness})
+
+(def SignedType-signedness
+  "SignedType-signedness"
+  {:db/ident :qudt/SignedType-signedness,
+   :rdf/type :sh/PropertyShape,
+   :sh/path  :qudt/signedness})
+
+(def SignedVariableLengthIntegerType
+  "A Signed Variable Length Integer data type defines a data structure for representing signed integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length."
+  {:db/ident :qudt/SignedVariableLengthIntegerType,
+   :dcterms/description
+   "A Signed Variable Length Integer data type defines a data structure for representing signed integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Signed Variable Length Integer Type",
+   :rdfs/subClassOf [:qudt/VariableLengthIntegerType :qudt/SignedIntegerType]})
 
 (def SignednessType
   "Specifics whether a value should be signed or unsigned."
@@ -6776,6 +5422,16 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Single Precision Real Encoding"})
 
+(def SinglePrecisionType
+  "A single precision data type specifies how a numeric value, such as an integer or real number, is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes, and so a single precision data value on a 32-bit machine architecture occupies four bytes of memory."
+  {:db/ident :qudt/SinglePrecisionType,
+   :dcterms/description
+   "A single precision data type specifies how a numeric value, such as an integer or real number, is stored in memory that occupies one word in computer memory, where the byte length of a word depends on machine address size of the computer processor. For example, on 32-bit machine architectures, a word is four bytes, and so a single precision data value on a 32-bit machine architecture occupies four bytes of memory.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Single Precision Type",
+   :rdfs/subClassOf :qudt/NumericType})
+
 (def SolidAngleUnit
   "The solid angle subtended by a surface S is defined as the surface area of a unit sphere covered by the surface S's projection onto the sphere. A solid angle is related to the surface of a sphere in the same way an ordinary angle is related to the circumference of a circle. Since the total surface area of the unit sphere is 4*pi, the measure of solid angle will always be between 0 and 4*pi."
   {:db/ident :qudt/SolidAngleUnit,
@@ -6786,6 +5442,108 @@
    :rdfs/label "Solid Angle Unit",
    :rdfs/subClassOf :qudt/AngleUnit})
 
+(def SplineCalibrator
+  "A sub-type of 'Map Type'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/SplineCalibrator,
+   :dcterms/description
+   "A sub-type of 'Map Type'. Detailed desciption to be provided in a future version.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Spline calibrator",
+   :rdfs/subClassOf :qudt/Map})
+
+(def SplineCalibratorType
+  "Spline calibrator type"
+  {:db/ident        :qudt/SplineCalibratorType,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Spline calibrator type",
+   :rdfs/subClassOf :qudt/MapType})
+
+(def SplinePoint
+  "A sub-type of 'Tuple Type'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/SplinePoint,
+   :dcterms/description
+   "A sub-type of 'Tuple Type'. Detailed desciption to be provided in a future version.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Spline point",
+   :rdfs/subClassOf :qudt/Tuple})
+
+(def SplinePointType
+  "Spline point type"
+  {:db/ident        :qudt/SplinePointType,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Spline point type",
+   :rdfs/subClassOf :qudt/TupleType})
+
+(def StandardsUnit
+  "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/StandardsUnit,
+   :dcterms/description
+   "A sub-type of 'Unit'. Detailed desciption to be provided in a future version."})
+
+(def StateSpaceMatrix
+  "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant)."
+  {:db/ident :qudt/StateSpaceMatrix,
+   :dcterms/description
+   "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant). ",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "State Space Matrix Type",
+   :rdfs/subClassOf :qudt/Matrix})
+
+(def StateSpaceMatrixType
+  "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant)."
+  {:db/ident :qudt/StateSpaceMatrixType,
+   :dcterms/description
+   "In control engineering, a state space representation is a mathematical model of a physical system as a set of input, output and state variables related by first-order differential equations. To abstract from the number of inputs, outputs and states, the variables are expressed as vectors and the differential and algebraic equations are written in matrix form (the last one can be done when the dynamical system is linear and time invariant). ",
+   :rdf/type :owl/Class,
+   :rdfs/label "State Space Matrix Type",
+   :rdfs/subClassOf :qudt/MatrixType})
+
+(def StateSpaceVector
+  "A state vector in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded."
+  {:db/ident :qudt/StateSpaceVector,
+   :dcterms/description
+   "A state vector in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "State Space Vector Type",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/coordinateSystem,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/CoordinateSystem,
+                      :owl/onProperty    :qudt/coordinateSystem,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/Vector]})
+
+(def StateSpaceVector-coordinateSystem
+  "StateSpaceVector-coordinateSystem"
+  {:db/ident    :qudt/StateSpaceVector-coordinateSystem,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/CoordinateSystem,
+   :sh/maxCount 1,
+   :sh/path     :qudt/coordinateSystem})
+
+(def StateSpaceVectorType
+  "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded."
+  {:db/ident :qudt/StateSpaceVectorType,
+   :dcterms/description
+   "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "State Space Vector Type",
+   :rdfs/subClassOf :qudt/VectorType,
+   :sh/property :qudt/StateSpaceVector-coordinateSystem})
+
+(def StateVectorType
+  "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded."
+  {:db/ident :qudt/StateVectorType,
+   :dcterms/description
+   "A state-space vector type in general control systems describes the observed states of an object in state space, e.g. in variables of the degrees of freedom for motion. As data types, state vector types are used to specify the structure of state vectors, such as how the observed state is encoded.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "State Vector Type",
+   :rdfs/subClassOf :qudt/VectorType})
+
 (def Statement
   "Statement"
   {:db/ident         :qudt/Statement,
@@ -6794,22 +5552,201 @@
    :rdfs/label       "Statement",
    :rdfs/subClassOf  :rdf/Statement})
 
+(def StringEncodingType
+  "A \"Encoding\" with the following instance(s): \"UTF-16 String\", \"UTF-8 Encoding\"."
+  {:db/ident :qudt/StringEncodingType,
+   :dcterms/description
+   "A \"Encoding\" with the following instance(s): \"UTF-16 String\", \"UTF-8 Encoding\".",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "String Encoding Type",
+   :rdfs/subClassOf :qudt/Encoding})
+
+(def StringList
+  "String list"
+  {:db/ident        :qudt/StringList,
+   :rdf/type        [:sh/NodeShape :owl/Class],
+   :rdfs/label      "String list",
+   :rdfs/subClassOf :qudt/List,
+   :sh/property     [:qudt/StringList-rest :qudt/StringList-first]})
+
+(def StringList-first
+  "StringList-first"
+  {:db/ident    :qudt/StringList-first,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/string,
+   :sh/path     :rdf/first})
+
+(def StringList-rest
+  "StringList-rest"
+  {:db/ident :qudt/StringList-rest,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/StringList,
+   :sh/path  :rdf/rest})
+
+(def StringType
+  "A String Type is a data type that specifies the properties of data structures that hold strings."
+  {:db/ident :qudt/StringType,
+   :dcterms/description
+   "A String Type is a data type that specifies the properties of data structures that hold strings. ",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "String Type",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/maxLength,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/hasValue   1,
+                      :owl/onProperty :qudt/dimensionality,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/ScalarDatatype
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/isByteString,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/CharacterType,
+                      :owl/onProperty    :qudt/elementType,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :qudt/typeMatrix,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/Array
+                     :qudt/ArrayType],
+   :sh/property [:qudt/StringType-elementType
+                 :qudt/StringType-dimensionality
+                 :qudt/StringType-maxLength
+                 :qudt/StringType-typeMatrix
+                 :qudt/StringType-isByteString]})
+
+(def StringType-dimensionality
+  "StringType-dimensionality"
+  {:db/ident    :qudt/StringType-dimensionality,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/path     :qudt/dimensionality})
+
+(def StringType-elementType
+  "StringType-elementType"
+  {:db/ident :qudt/StringType-elementType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/CharacterType,
+   :sh/path  :qudt/elementType})
+
+(def StringType-isByteString
+  "StringType-isByteString"
+  {:db/ident    :qudt/StringType-isByteString,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :xsd/boolean,
+   :sh/maxCount 1,
+   :sh/path     :qudt/isByteString})
+
+(def StringType-maxLength
+  "StringType-maxLength"
+  {:db/ident    :qudt/StringType-maxLength,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/maxLength})
+
+(def StringType-typeMatrix
+  "StringType-typeMatrix"
+  {:db/ident    :qudt/StringType-typeMatrix,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 0,
+   :sh/minCount 0,
+   :sh/path     :qudt/typeMatrix})
+
+(def StringUTF16
+  "String UTF-16 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-16 encoding. UTF-16 is the native internal representation of text in the Microsoft Windows NT/Windows 2000/Windows XP/Windows CE, Qualcomm BREW, and Symbian operating systems; the Java and .NET byte code environments; Mac OS X's Cocoa and Core Foundation frameworks; and the Qt cross-platform graphical widget toolkit."
+  {:db/ident :qudt/StringUTF16,
+   :dcterms/description
+   "String UTF-16 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-16 encoding. UTF-16 is the native internal representation of text in the Microsoft Windows NT/Windows 2000/Windows XP/Windows CE, Qualcomm BREW, and Symbian operating systems; the Java and .NET byte code environments; Mac OS X's Cocoa and Core Foundation frameworks; and the Qt cross-platform graphical widget toolkit.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "String UTF16 Type",
+   :rdfs/subClassOf [{:owl/hasValue   :qudt/UTF16-CHAR,
+                      :owl/onProperty :qudt/elementType,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/TextStringType
+                     :qudt/StringType],
+   :sh/property :qudt/StringUTF16-elementType})
+
+(def StringUTF16-elementType
+  "StringUTF16-elementType"
+  {:db/ident :qudt/StringUTF16-elementType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/CharacterType,
+   :sh/path  :qudt/elementType})
+
+(def StringUTF8
+  "String UTF-8 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-8 encoding. UTF-8 includes ASCII, otherwise referred to as IA-5 (International Alphabet 5, as standardized by International Organization for Standardization [ISO]) as the first 128 values. The Internet Engineering Task Force (IETF) requires all Internet protocols to identify the encoding used for character data with UTF-8 as at least one supported encoding. The Internet Mail Consortium (IMC) recommends that all e-mail programs must be able to display and create mail using UTF-8."
+  {:db/ident :qudt/StringUTF8,
+   :dcterms/description
+   "String UTF-8 Type is a string data type that specifies the properties of string data structures which encode strings using the UTF-8 encoding. UTF-8 includes ASCII, otherwise referred to as IA-5 (International Alphabet 5, as standardized by International Organization for Standardization [ISO]) as the first 128 values. The Internet Engineering Task Force (IETF) requires all Internet protocols to identify the encoding used for character data with UTF-8 as at least one supported encoding. The Internet Mail Consortium (IMC) recommends that all e-mail programs must be able to display and create mail using UTF-8.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "String UTF8 Type",
+   :rdfs/subClassOf [{:owl/hasValue   :qudt/UTF8-CHAR,
+                      :owl/onProperty :qudt/elementType,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/TextStringType
+                     :qudt/StringType],
+   :sh/property :qudt/StringUTF8-elementType})
+
+(def StringUTF8-elementType
+  "StringUTF8-elementType"
+  {:db/ident :qudt/StringUTF8-elementType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/CharacterType,
+   :sh/path  :qudt/elementType})
+
 (def StructuredDatatype
   "A \"Structured Datatype\", in contrast to scalar data types, is used to characterize classes of more complex data structures, such as linked or indexed lists, trees, ordered trees, and multi-dimensional file formats."
-  {:db/ident         :qudt/StructuredDatatype,
+  {:db/ident :qudt/StructuredDatatype,
    :dcterms/description
    "A \"Structured Datatype\", in contrast to scalar data types, is used to characterize classes of more complex data structures, such as linked or indexed lists, trees, ordered trees, and multi-dimensional file formats.",
-   :rdf/type         [:sh/NodeShape :owl/Class],
+   :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "Structured Data Type",
-   :rdfs/subClassOf  [{:owl/maxCardinality 1,
-                       :owl/onProperty     :qudt/elementType,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :qudt/Datatype,
-                       :owl/onProperty    :qudt/elementType,
-                       :rdf/type          :owl/Restriction}
-                     :qudt/Datatype]
-   :sh/property      :qudt/StructuredDatatype-elementType})
+   :rdfs/label "Structured Data Type",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/elementType,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/Datatype,
+                      :owl/onProperty    :qudt/elementType,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/Datatype],
+   :sh/property :qudt/StructuredDatatype-elementType})
+
+(def StructuredDatatype-elementType
+  "StructuredDatatype-elementType"
+  {:db/ident    :qudt/StructuredDatatype-elementType,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/Datatype,
+   :sh/maxCount 1,
+   :sh/path     :qudt/elementType})
+
+(def SubjectArea
+  "A \"Enumeration Literal\"."
+  {:db/ident        :qudt/SubjectArea,
+   :rdf/type        :owl/Class,
+   :rdfs/comment    "A \"Enumeration Literal\".",
+   :rdfs/label      "Subject Area",
+   :rdfs/subClassOf :owl/Thing})
+
+(def Symbol
+  "A sub-type of 'QUDT Concept'. Detailed desciption to be provided in a future version."
+  {:db/ident         :qudt/Symbol,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Symbol",
+   :rdfs/subClassOf  :qudt/Concept})
+
+(def SystemModifiableParameter
+  "Parameter is modifiable by a (computer) system."
+  {:db/ident     :qudt/SystemModifiableParameter,
+   :qudt/code    "1",
+   :qudt/literal "system",
+   :rdf/type     :qudt/ParameterModifiabilityType,
+   :rdfs/comment "Parameter is modifiable by a (computer) system.",
+   :rdfs/label   "System modifiable parameter"})
 
 (def SystemOfQuantityKinds
   "A system of quantity kinds is a set of one or more quantity kinds together with a set of zero or more algebraic equations that define relationships between quantity kinds in the set. In the physical sciences, the equations relating quantity kinds are typically physical laws and definitional relations, and constants of proportionality. Examples include Newton’s First Law of Motion, Coulomb’s Law, and the definition of velocity as the instantaneous change in position. In almost all cases, the system identifies a subset of base quantity kinds. The base set is chosen so that all other quantity kinds of interest can be derived from the base quantity kinds and the algebraic equations. If the unit system is explicitly associated with a quantity kind system, then the unit system must define at least one unit for each quantity kind. From a scientific point of view, the division of quantities into base quantities and derived quantities is a matter of convention."
@@ -6873,6 +5810,363 @@
                       :rdf/type          :owl/Restriction}
                      :qudt/Concept]})
 
+(def TABLE-COMPOSITION-EXAMPLE-SUBTREE_1
+  "TABLE-COMPOSITION-EXAMPLE-SUBTREE_1"
+  {:db/ident   :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_1,
+   :qudt/node  :qudt/TIME-SERIES-TABLE-A-2x4,
+   :rdf/type   [:qudt/Tree :owl/NamedIndividual],
+   :rdfs/label "TABLE-COMPOSITION-EXAMPLE-SUBTREE_1"})
+
+(def TABLE-COMPOSITION-EXAMPLE-SUBTREE_2
+  "TABLE-COMPOSITION-EXAMPLE-SUBTREE_2"
+  {:db/ident   :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_2,
+   :qudt/node  :qudt/TIME-SERIES-TABLE-B-2x4,
+   :rdf/type   [:qudt/Tree :owl/NamedIndividual],
+   :rdfs/label "TABLE-COMPOSITION-EXAMPLE-SUBTREE_2"})
+
+(def TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1
+  "TABLE-COMPOSITION-SUBTREE-1"
+  {:db/ident   :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1,
+   :qudt/order 1,
+   :qudt/value :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_1,
+   :rdf/type   [:qudt/TreeListMember :owl/NamedIndividual],
+   :rdfs/label "TABLE-COMPOSITION-SUBTREE-1"})
+
+(def TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2
+  "TABLE-COMPOSITION-SUBTREE_2"
+  {:db/ident   :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2,
+   :qudt/order 2,
+   :qudt/value :qudt/TABLE-COMPOSITION-EXAMPLE-SUBTREE_2,
+   :rdf/type   [:qudt/IndexedCollectionMember :owl/NamedIndividual],
+   :rdfs/label "TABLE-COMPOSITION-SUBTREE_2"})
+
+(def TABLE-COMPOSTION-SUBTREE-LIST-EXAMPLE_1
+  "TABLE-COMPOSTION-SUBTREES-EXAMPLE_1"
+  {:db/ident     :qudt/TABLE-COMPOSTION-SUBTREE-LIST-EXAMPLE_1,
+   :qudt/element [:qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_2
+                  :qudt/TABLE-COMPOSITION-SUBTREE-LIST-MEMBER_1],
+   :rdf/type     [:qudt/TreeListMember :owl/NamedIndividual],
+   :rdfs/label   "TABLE-COMPOSTION-SUBTREES-EXAMPLE_1"})
+
+(def TABLE-TYPE_2x4
+  "Table type 2x4"
+  {:db/ident            :qudt/TABLE-TYPE_2x4,
+   :qudt/byRow          true,
+   :qudt/columns        4,
+   :qudt/dimensionVector :qudt/DV_2x4,
+   :qudt/dimensionality 2,
+   :qudt/rows           2,
+   :rdf/type            :qudt/TableType,
+   :rdfs/label          "Table type  2x4"})
+
+(def TIME
+  "Time in hh:mm:ss[Z|(+|-)hh:mm]format."
+  {:db/ident          :qudt/TIME,
+   :dcterms/description "Time in hh:mm:ss[Z|(+|-)hh:mm]format.",
+   :dtype/literal     "time",
+   :qudt/dimensionality 1,
+   :qudt/rdfsDatatype :xsd/time,
+   :rdf/type          [:qudt/TimeStringType :owl/NamedIndividual],
+   :rdfs/label        "TIME"})
+
+(def TRUE
+  "True"
+  {:db/ident         :qudt/TRUE,
+   :dtype/literal    "true",
+   :rdf/type         [:qudt/BooleanTypeEnumeratedValue :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "True"})
+
+(def Table
+  "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use."
+  {:db/ident :qudt/Table,
+   :dcterms/description
+   "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Table Type",
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/byRow,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/hasValue   2,
+                      :owl/onProperty :qudt/dimensionality,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/rows,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/columns,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/Array]})
+
+(def Table-byRow
+  "Table-byRow"
+  {:db/ident    :qudt/Table-byRow,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/boolean,
+   :sh/maxCount 1,
+   :sh/path     :qudt/byRow})
+
+(def Table-columns
+  "Table-columns"
+  {:db/ident    :qudt/Table-columns,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/columns})
+
+(def Table-dimensionality
+  "Table-dimensionality"
+  {:db/ident    :qudt/Table-dimensionality,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/dimensionality})
+
+(def Table-rows
+  "Table-rows"
+  {:db/ident    :qudt/Table-rows,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/rows})
+
+(def TableType
+  "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use."
+  {:db/ident :qudt/TableType,
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/comment
+   "A Table Type is a data type that specifies the properties of table data structures. A table is both a mode of visual communication and a means of arranging data. The use of tables is pervasive throughout NASA The precise conventions and terminology for describing tables varies depending on the context. Moreover, tables differ significantly in variety, structure, flexibility, notation, representation and use.",
+   :rdfs/label "Table Type",
+   :rdfs/subClassOf :qudt/ArrayType,
+   :sh/property [:qudt/Table-rows
+                 :qudt/Table-dimensionality
+                 :qudt/Table-columns
+                 :qudt/Table-byRow]})
+
+(def TaggedEnumeration
+  "An enumeration where each literal has a tag that is a non-negative integer. These enumerations are likely to have their literals encoded - hence the need for the tag."
+  {:db/ident :qudt/TaggedEnumeration,
+   :dcterms/description
+   "An enumeration where each literal  has a tag that is a non-negative integer. These enumerations are likely to have their literals encoded - hence the need for the tag.",
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/Enumeration
+                                              {:owl/cardinality 1,
+                                               :owl/onProperty :dtype/code,
+                                               :rdf/type :owl/Restriction}],
+                         :rdf/type :owl/Class},
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Tagged Enumeration",
+   :rdfs/subClassOf [{:owl/cardinality 1,
+                      :owl/onProperty  :dtype/code,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/Enumeration],
+   :sh/property :qudt/TaggedEnumeration-code})
+
+(def TaggedEnumeration-code
+  "TaggedEnumeration-code"
+  {:db/ident    :qudt/TaggedEnumeration-code,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/minCount 1,
+   :sh/path     :dtype/code})
+
+(def TechReport
+  "Pub techreport type"
+  {:db/ident      :qudt/TechReport,
+   :dtype/literal "techreport",
+   :rdf/type      :qudt/PubEnumeratedType,
+   :rdfs/label    "Pub techreport type"})
+
+(def Term
+  "Term"
+  {:db/ident        :qudt/Term,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :owl/Thing})
+
+(def TextStringType
+  "A text string. Encodings can be specified as subclass or in connection to character arrays in Structured Datatypes."
+  {:db/ident :qudt/TextStringType,
+   :dcterms/description
+   "A text string. Encodings can be specified as subclass or in connection to character arrays in Structured Datatypes.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Text String Type",
+   :rdfs/subClassOf :qudt/StringType})
+
+(def Three-Tuple
+  "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members."
+  {:db/ident :qudt/Three-Tuple,
+   :dcterms/description
+   "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Three-Tuple Type",
+   :rdfs/subClassOf [{:owl/hasValue   3,
+                      :owl/onProperty :qudt/elementTypeCount,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/cardinality 3,
+                      :owl/onProperty  :qudt/elementType,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/N-Tuple]})
+
+(def Three-Tuple-elementType
+  "Three-Tuple-elementType"
+  {:db/ident    :qudt/Three-Tuple-elementType,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/TupleMemberType,
+   :sh/minCount 0,
+   :sh/path     :qudt/elementType})
+
+(def Three-Tuple-elementTypeCount
+  "Three-Tuple-elementTypeCount"
+  {:db/ident    :qudt/Three-Tuple-elementTypeCount,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/hasValue 3,
+   :sh/path     :qudt/elementTypeCount})
+
+(def ThreeBodyRotatingCoordinateSystem
+  "The lunar coordinate systems are primarily used when operating in close proximity to the Moon. There are, however, a few additional coordinate systems that are also useful when analyzing (and depicting) trajectories in the vicinity of the Earth-Moon system. They are rotating coordinate systems associated with two different three-body systems: the Sun-Earth-spacecraft system and the Earth-Moon-spacecraft system. The Sun-Earth and Earth-Moon rotating coordinate frames are defined as follows. The pole vector or Z-axis of the coordinate frame is set equal to the instantaneous orbit normal of the secondary (smaller) body about the primary (larger) body and the X-axis is set equal to the vector from the primary body center of mass (CM) to the secondary body CM. The X-axis rotates at a rate equal to the instantaneous rotation rate of the secondary body about the primary body."
+  {:db/ident :qudt/ThreeBodyRotatingCoordinateSystem,
+   :dcterms/description
+   "The lunar coordinate systems are primarily used when operating in close proximity to the Moon. There are, however, a few additional coordinate systems that are also useful when analyzing (and depicting) trajectories in the vicinity of the Earth-Moon system. They are rotating coordinate systems associated with two different three-body systems: the Sun-Earth-spacecraft system and the Earth-Moon-spacecraft system. The Sun-Earth and Earth-Moon rotating coordinate frames are defined as follows. The pole vector or Z-axis of the coordinate frame is set equal to the instantaneous orbit normal of the secondary (smaller) body about the primary (larger) body and the X-axis is set equal to the vector from the primary body center of mass (CM) to the secondary body CM. The X-axis rotates at a rate equal to the instantaneous rotation rate of the secondary body about the primary body.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Three Body Rotating Coordinate System Type",
+   :rdfs/subClassOf :qudt/AerospaceCoordinateSystem})
+
+(def ThreeTupleType
+  "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members."
+  {:db/ident :qudt/ThreeTupleType,
+   :dcterms/description
+   "A three-tuple is a tuple with exactly three members. A Three-Tuple Type is a data type that defines the type properties of a class of three-tuples and their members.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Three-Tuple Type",
+   :rdfs/subClassOf :qudt/N-TupleType,
+   :sh/property [:qudt/Three-Tuple-elementTypeCount
+                 :qudt/Three-Tuple-elementType]})
+
+(def Time
+  "The class of data values that denote a point in time. Time values may be encoded in a 12-hour clock or a 24-hour clock, such as 1:35 AM, or 13:35."
+  {:db/ident :qudt/Time,
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/comment
+   "The class of data values that denote a point in time. Time values may be encoded in a 12-hour clock or a 24-hour clock, such as 1:35 AM, or 13:35.",
+   :rdfs/label "Time",
+   :rdfs/subClassOf :qudt/ScalarDatatype,
+   :sh/property :qudt/Time-type})
+
+(def Time-type
+  "Time-type"
+  {:db/ident :qudt/Time-type,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/TimeStringType,
+   :sh/path  :qudt/type})
+
+(def TimeDataType
+  "A sub-type of 'QUDT Enumeration'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/TimeDataType,
+   :dcterms/description
+   "A sub-type of 'QUDT Enumeration'. Detailed desciption to be provided in a future version.",
+   :dtype/value :qudt/TIME,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Time data type",
+   :rdfs/subClassOf [:qudt/ScalarDatatype :qudt/Enumeration]})
+
+(def TimeInterval
+  "A relative interval that is an increment in time. For example, this is used in time series arrays to express the time point of a vector of values."
+  {:db/ident :qudt/TimeInterval,
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/comment
+   "A relative interval that is an increment in time. For example, this is used in time series arrays to express the time point of a vector of values.",
+   :rdfs/label "Time interval",
+   :rdfs/subClassOf :sh/Parameter,
+   :sh/property :qudt/TimeInterval-type})
+
+(def TimeInterval-type
+  "TimeInterval-type"
+  {:db/ident :qudt/TimeInterval-type,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/TimeStringType,
+   :sh/path  :qudt/type})
+
+(def TimeSeriesArray
+  "A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured at successive time intervals. The time intervals may be uniformly or non-uniformly spaced."
+  {:db/ident :qudt/TimeSeriesArray,
+   :dcterms/description
+   ["A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals."
+    "A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured at successive time intervals. The time intervals may be uniformly or non-uniformly spaced."],
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Time Series Array Type",
+   :rdfs/subClassOf [{:owl/cardinality 1,
+                      :owl/onProperty  :qudt/vector,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/TimeStringType,
+                      :owl/onProperty :qudt/TimeSeriesArray-incrementDatatype,
+                      :rdf/type :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/TimeSeriesArray-incrementDatatype,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/StateSpaceVector,
+                      :owl/onProperty    :qudt/vector,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/dimensionVector,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/Array]})
+
+(def TimeSeriesArray-dimensionVector
+  "TimeSeriesArray-dimensionVector"
+  {:db/ident    :qudt/TimeSeriesArray-dimensionVector,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/IntegerList,
+   :sh/maxCount 1,
+   :sh/minCount 1,
+   :sh/path     :qudt/dimensionVector})
+
+(def TimeSeriesArray-incrementDatatype
+  "TimeSeriesArray-incrementDatatype"
+  {:db/ident    :qudt/TimeSeriesArray-incrementDatatype,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/TimeStringType,
+   :sh/maxCount 1,
+   :sh/minCount 1,
+   :sh/path     :qudt/incrementDatatype})
+
+(def TimeSeriesArray-vector
+  "TimeSeriesArray-vector"
+  {:db/ident    :qudt/TimeSeriesArray-vector,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/StateSpaceVectorType,
+   :sh/maxCount 1,
+   :sh/minCount 1,
+   :sh/path     :qudt/vector})
+
+(def TimeSeriesArrayType
+  "Time Series Array Type"
+  {:db/ident :qudt/TimeSeriesArrayType,
+   :rdf/comment
+   "A Time Series Array Type is a data type that specifies the properties of arrays that hold time series data. A time series is a sequence of data points, measured at successive time intervals. The time intervals may be uniformly or non-uniformly spaced.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Time Series Array Type",
+   :rdfs/subClassOf :qudt/ArrayType,
+   :sh/property [:qudt/TimeSeriesArray-vector
+                 :qudt/TimeSeriesArray-incrementDatatype
+                 :qudt/TimeSeriesArray-dimensionVector]})
+
+(def TimeStringType
+  "Time takes a number of forms, depending on the units used (e.g., year, day, minute, millisecond, or combinations thereof) and the origin (i.e., time zero) to which the time value is related."
+  {:db/ident :qudt/TimeStringType,
+   :dcterms/description
+   "Time takes a number of forms, depending on the units used (e.g., year, day, minute, millisecond, or combinations thereof) and the origin (i.e., time zero) to which the time value is related.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Time Type",
+   :rdfs/subClassOf [:qudt/TextStringType :qudt/DateTimeStringType]})
+
 (def TotallyOrdered
   "Totally Ordered"
   {:db/ident         :qudt/TotallyOrdered,
@@ -6882,6 +6176,15 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Totally Ordered"})
 
+(def TrajectoryCoordinateSystem
+  "A \"Coordinate System\"."
+  {:db/ident            :qudt/TrajectoryCoordinateSystem,
+   :dcterms/description "A \"Coordinate System\".",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label          "Trajectory Coordinate System",
+   :rdfs/subClassOf     :qudt/AerospaceCoordinateSystem})
+
 (def TransformType
   "Transform type"
   {:db/ident         :qudt/TransformType,
@@ -6890,6 +6193,396 @@
    :rdfs/label       "Transform type",
    :rdfs/subClassOf  :qudt/EnumeratedValue,
    :skos/prefLabel   "Transform type"})
+
+(def Tree
+  "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph."
+  {:db/ident :qudt/Tree,
+   :dcterms/description
+   "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph.",
+   :prov/wasInfluencedBy "http://en.wikipedia.org/wiki/Tree_(data_structure)",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Tree Type",
+   :rdfs/subClassOf :qudt/Graph})
+
+(def TreeType
+  "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph."
+  {:db/ident :qudt/TreeType,
+   :dcterms/description
+   "A \"Tree\" is a data type that defines the properties of data structures that represent trees. A tree is a graph data structure accessed beginning at the root node. Each node is either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes. Leaf nodes have no chidren. Nodes that share the same parent are siblings. In graph theoretic terminology, a tree is a connected, undirected, acyclic graph.",
+   :prov/wasInfluencedBy "http://en.wikipedia.org/wiki/Tree_(data_structure)",
+   :rdf/type :owl/Class,
+   :rdfs/label "Tree Type",
+   :rdfs/subClassOf :qudt/GraphType})
+
+(def Triplet
+  "A \"Tuple\"."
+  {:db/ident         :qudt/Triplet,
+   :dcterms/description "A \"Tuple\".",
+   :owl/equivalentClass [:qudt/ThreeTupleType :qudt/Three-Tuple],
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Triplet",
+   :rdfs/subClassOf  [:qudt/ThreeTupleType :qudt/Three-Tuple]})
+
+(def True
+  "true"
+  {:db/ident     :qudt/True,
+   :qudt/code    "1",
+   :qudt/literal "true",
+   :rdf/type     :qudt/BooleanStateType,
+   :rdfs/label   "true"})
+
+(def Tuple
+  "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple. In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>"
+  {:db/ident :qudt/Tuple,
+   :dcterms/description
+   "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple.  In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Tuple Type",
+   :rdfs/subClassOf [{:owl/cardinality 1,
+                      :owl/onProperty  :qudt/length,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/elementTypeCount,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/TupleMember,
+                      :owl/onProperty    :qudt/elementType,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/CompositeDatatype]})
+
+(def Tuple-elementType
+  "Tuple-elementType"
+  {:db/ident :qudt/Tuple-elementType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/TupleMemberType,
+   :sh/path  :qudt/elementType})
+
+(def Tuple-elementTypeCount
+  "Tuple-elementTypeCount"
+  {:db/ident    :qudt/Tuple-elementTypeCount,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/minCount 0,
+   :sh/path     :qudt/elementTypeCount})
+
+(def Tuple-length
+  "Tuple-length"
+  {:db/ident    :qudt/Tuple-length,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/minCount 0,
+   :sh/path     :qudt/length})
+
+(def TupleMember
+  "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples."
+  {:db/ident :qudt/TupleMember,
+   :dcterms/description
+   "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Tuple Member Type",
+   :rdfs/subClassOf [{:owl/cardinality 1,
+                      :owl/onProperty  :qudt/orderInStructure,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/ScalarDatatype,
+                      :owl/onProperty    :qudt/elementType,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/CompositeDatatype]})
+
+(def TupleMember-elementType
+  "TupleMember-elementType"
+  {:db/ident :qudt/TupleMember-elementType,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/ScalarDatatype,
+   :sh/path  :qudt/elementType})
+
+(def TupleMember-orderInStructure
+  "TupleMember-orderInStructure"
+  {:db/ident    :qudt/TupleMember-orderInStructure,
+   :rdf/type    :sh/PropertyShape,
+   :sh/maxCount 1,
+   :sh/minCount 1,
+   :sh/path     :qudt/orderInStructure})
+
+(def TupleMemberType
+  "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples."
+  {:db/ident :qudt/TupleMemberType,
+   :dcterms/description
+   "A Tuple Member Type is a data type that defines the properties of a member of a tuple. It is used to provide fine grained type specification to the elements of tuples.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Tuple Member Type",
+   :rdfs/subClassOf :qudt/CompositeDatatype,
+   :sh/property [:qudt/TupleMember-orderInStructure
+                 :qudt/TupleMember-elementType]})
+
+(def TupleType
+  "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple. In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>"
+  {:db/ident :qudt/TupleType,
+   :dcterms/description
+   "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple.  In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Tuple Type",
+   :rdfs/subClassOf :qudt/CompositeDatatype,
+   :sh/property
+   [:qudt/Tuple-length :qudt/Tuple-elementTypeCount :qudt/Tuple-elementType]})
+
+(def Two-Tuple
+  "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples."
+  {:db/ident :qudt/Two-Tuple,
+   :dcterms/description
+   "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Two-Tuple Type",
+   :rdfs/subClassOf [{:owl/hasValue   2,
+                      :owl/onProperty :qudt/elementTypeCount,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/cardinality 2,
+                      :owl/onProperty  :qudt/elementType,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/N-Tuple]})
+
+(def Two-Tuple-elementType
+  "Two-Tuple-elementType"
+  {:db/ident    :qudt/Two-Tuple-elementType,
+   :rdf/type    :sh/PropertyShape,
+   :sh/minCount 0,
+   :sh/path     :qudt/elementType})
+
+(def Two-Tuple-elementTypeCount
+  "Two-Tuple-elementTypeCount"
+  {:db/ident    :qudt/Two-Tuple-elementTypeCount,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/hasValue 2,
+   :sh/path     :qudt/elementTypeCount})
+
+(def TwoTupleType
+  "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples."
+  {:db/ident :qudt/TwoTupleType,
+   :dcterms/description
+   "A 2-tuple is called a pair. For example, a complex number can be represented as a 2-tuple, and 2D coordinates are sometimes represented as 2-tuples.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Two-Tuple Type",
+   :rdfs/subClassOf :qudt/N-TupleType,
+   :sh/property [:qudt/Two-Tuple-elementTypeCount :qudt/Two-Tuple-elementType]})
+
+(def TypeList
+  "A sub-type of 'QUDT Datatype'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/TypeList,
+   :dcterms/description
+   "A sub-type of 'QUDT Datatype'. Detailed desciption to be provided in a future version.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Type list",
+   :rdfs/subClassOf :qudt/Datatype})
+
+(def TypeMatrix
+  "Members of this class are matrix data structures that describe the datatypes of a class of matrices. That is, the members of this class are matrices with cells that contain datatypes (c.f. type:Datatype) and are used to describe the datatype structure of other matrices."
+  {:db/ident :qudt/TypeMatrix,
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/comment
+   "Members of this class are matrix data structures that describe the datatypes of a class of matrices. That is, the members of this class are matrices with cells that contain datatypes (c.f. type:Datatype) and are used to describe the datatype structure of other matrices.",
+   :rdfs/label "Type matrix",
+   :rdfs/subClassOf :qudt/MatrixType})
+
+(def TypeVector
+  "A Type Vector is a vector whose elements are data types. They are used, for instance, to specify the type of each component of a vector or class of vectors. A Type Vector Type is a further abstraction that specifies the structure of Type Vectors."
+  {:db/ident :qudt/TypeVector,
+   :dcterms/description
+   "A Type Vector is a vector whose elements are data types. They are used, for instance, to specify the type of each component of a vector or class of vectors. A Type Vector Type is a further abstraction that specifies the structure of Type Vectors.",
+   :rdf/type [:owl/Class :sh/NodeShape],
+   :rdfs/comment
+   "A Type Vector is a vector whose elements are data types. They are used, for instance, to specify the type of each component of a vector or class of vectors. A <em>Type Vector Type</em> is a further abstraction that specifies the structure of Type Vectors.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label ["Type vector" "Type Vector Type"],
+   :rdfs/subClassOf [{:owl/cardinality 1,
+                      :owl/onClass     :qudt/TypeVector,
+                      :owl/onProperty  :qudt/typeVector,
+                      :rdf/type        :owl/Restriction}
+                     :qudt/Vector
+                     :qudt/VectorType
+                     :qudt/StructuredDatatype],
+   :sh/property [:qudt/TypeVector-type
+                 :qudt/TypeVector-objectValue
+                 :qudt/TypeVector-typeVector]})
+
+(def TypeVector-objectValue
+  "TypeVector-objectValue"
+  {:db/ident :qudt/TypeVector-objectValue,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/IndexedList,
+   :sh/path  :qudt/objectValue})
+
+(def TypeVector-type
+  "TypeVector-type"
+  {:db/ident :qudt/TypeVector-type,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/TypeVector,
+   :sh/path  :qudt/type})
+
+(def TypeVector-typeVector
+  "TypeVector-typeVector"
+  {:db/ident    :qudt/TypeVector-typeVector,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/Datatype,
+   :sh/maxCount 1,
+   :sh/path     :qudt/typeVector})
+
+(def UCUMci
+  "Lexical pattern for the case-insensitive version of UCUM code"
+  {:db/ident :qudt/UCUMci,
+   :owl/deprecated true,
+   :owl/onDatatype :xsd/string,
+   :owl/withRestrictions [{:xsd/pattern "[\\x21-\\x60,\\x7b-\\x7e]+"}],
+   :rdf/type :rdfs/Datatype,
+   :rdfs/comment
+   "Lexical pattern for the case-insensitive version of UCUM code",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "case-insensitive UCUM code",
+   :rdfs/subClassOf :rdfs/Resource})
+
+(def UCUMci-term
+  "Lexical pattern for the terminal symbols in the case-insensitive version of UCUM code"
+  {:db/ident :qudt/UCUMci-term,
+   :owl/deprecated true,
+   :owl/onDatatype :xsd/string,
+   :owl/withRestrictions
+   [{:xsd/pattern
+     "[\\x21,\\x23-\\x27,\\x2a,\\x2c,\\x30-\\x3c,\\x3e-\\x5a,\\x5c,\\x5e-\\x60,\\x7c,\\x7e]+"}],
+   :rdf/type :rdfs/Datatype,
+   :rdfs/comment
+   "Lexical pattern for the terminal symbols in the case-insensitive version of UCUM code",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "case-insensitive UCUM term",
+   :rdfs/subClassOf :rdfs/Resource})
+
+(def UCUMcs
+  "Lexical pattern for the case-sensitive version of UCUM code"
+  {:db/ident :qudt/UCUMcs,
+   :dcterms/source "https://ucum.org/ucum.html",
+   :owl/onDatatype :xsd/string,
+   :owl/withRestrictions [{:xsd/pattern "[\\x21-\\x7e]+"}],
+   :rdf/type :rdfs/Datatype,
+   :rdfs/comment "Lexical pattern for the case-sensitive version of UCUM code",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "case-sensitive UCUM code",
+   :rdfs/seeAlso "https://ucum.org/ucum.html",
+   :rdfs/subClassOf :rdfs/Resource})
+
+(def UCUMcs-term
+  "Lexical pattern for the terminal symbols in the case-sensitive version of UCUM code"
+  {:db/ident :qudt/UCUMcs-term,
+   :dcterms/source "https://ucum.org/ucum.html",
+   :owl/onDatatype :xsd/string,
+   :owl/withRestrictions
+   [{:xsd/pattern
+     "[\\x21,\\x23-\\x27,\\x2a,\\x2c,\\x30-\\x3c,\\x3e-\\x5a,\\x5c,\\x5e-\\x7a,\\x7c,\\x7e]+"}],
+   :rdf/type :rdfs/Datatype,
+   :rdfs/comment
+   "Lexical pattern for the terminal symbols in the case-sensitive version of UCUM code",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "case-sensitive UCUM terminal",
+   :rdfs/seeAlso "https://ucum.org/ucum.html",
+   :rdfs/subClassOf :rdfs/Resource})
+
+(def UNARY-FUNCTION
+  "This type identifies functions that have exactly one argument."
+  {:db/ident           :qudt/UNARY-FUNCTION,
+   :dcterms/description
+   "This type identifies functions that have exactly one argument.",
+   :qudt/functionArity 1,
+   :rdf/type           [:qudt/FunctionDatatype :owl/NamedIndividual],
+   :rdfs/label         "UNARY-FUNCTION"})
+
+(def UNSIGNED
+  "Unsigned"
+  {:db/ident         :qudt/UNSIGNED,
+   :dtype/literal    "unsigned",
+   :rdf/type         [:qudt/SignednessType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Unsigned"})
+
+(def UTC-DATETIME
+  "UTC is the time-scale maintained by the BIPM, with assistance from the IERS, which forms the basis of a coordinated dissemination of standard frequencies and time signals. It corresponds exactly in rate with the international reference scale of atomic time (TAI) but differs from it by an integer number of seconds. TAI, based on the second (SI), as realized on the rotating geoid, is formed by the BIPM on the basis of clock data supplied by cooperating establishments. It is in the form of a continuous scale, e.g. in days, hours, minutes and seconds from the origin 1 January, 1958 (adopted by the CGPM 1971)."
+  {:db/ident :qudt/UTC-DATETIME,
+   :dcterms/description
+   "UTC is the time-scale maintained by the BIPM, with assistance from the IERS, which forms the basis of a coordinated dissemination of standard frequencies and time signals. It corresponds exactly in rate with  the international reference scale of atomic time (TAI) but differs from it by an integer number of seconds.  TAI, based on the second (SI), as realized on the rotating geoid, is formed by the BIPM on the basis of clock data supplied by cooperating establishments. It is in the form of a continuous scale, e.g. in days, hours, minutes and seconds from the origin 1 January, 1958 (adopted by the CGPM 1971). ",
+   :dtype/literal "utc-date",
+   :owl/sameAs :qudt/DATETIME,
+   :qudt/dimensionality 1,
+   :qudt/encodingDescription
+   "YYYY-MM-DDThh:mm:ss[.dd] or YYYY-DDDThh:mm:ss[.dd], where 'YYYY' is the year, 'MM' is the two-digit month, 'DD' is the two-digit day, 'DDD' is the three digit day of year, 'T' is constant, 'hh:mm:ss[.dd]' is the UTC time in hours, minutes, seconds, and optional fractional seconds. As many 'd' characters to the right of the period as required may be used to obtain the required precision. All fields require leading zeros.",
+   :qudt/rdfsDatatype :xsd/dateTime,
+   :rdf/type [:qudt/DateStringType :owl/NamedIndividual],
+   :rdfs/label "UTC Date Time"})
+
+(def UTC-DAYTIME
+  "UTC DAY TIME"
+  {:db/ident            :qudt/UTC-DAYTIME,
+   :dtype/literal       "utc-dayTime",
+   :qudt/dimensionality 1,
+   :qudt/encodingDescription
+   "YYYY-DDDThh:mm:ss.ddZ, where each character is an ASCII character using one octet with the following meanings: YYYY = Year in four-character subfield with values 0001-9999, DDD = Day of year in three-character subfield with values 001-365 or -366, T =  Calendar-Time separator, hh = Hour in two-character subfield with values 00-23,  mm = Minute in two-character subfield with values 00-59, ss = Second in two-character subfield with values 00-59 (-58 or -60 during leap seconds), dd = Decimal fraction of second in one- to n-character subfield, each d has values 0-9, and Z = time code terminator (optional)",
+   :qudt/rdfsDatatype   :qudt/UTC-DayTime,
+   :rdf/type            [:qudt/DateStringType :owl/NamedIndividual],
+   :rdfs/label          "UTC DAY TIME"})
+
+(def UTC-DayTime
+  "YYYY-DDDThh:mm:ss.ddZ, where each character is an ASCII character using one octet with the following meanings: YYYY = Year in four-character subfield with values 0001-9999, DDD = Day of year in three-character subfield with values 001-365 or -366, T = Calendar-Time separator, hh = Hour in two-character subfield with values 00-23, mm = Minute in two-character subfield with values 00-59, ss = Second in two-character subfield with values 00-59 (-58 or -60 during leap seconds), dd = Decimal fraction of second in one- to n-character subfield, each d has values 0-9, and Z = time code terminator (optional)"
+  {:db/ident         :qudt/UTC-DayTime,
+   :dcterms/description
+   "YYYY-DDDThh:mm:ss.ddZ, where each character is an ASCII character using one octet with the following meanings: YYYY = Year in four-character subfield with values 0001-9999, DDD = Day of year in three-character subfield with values 001-365 or -366, T =  Calendar-Time separator, hh = Hour in two-character subfield with values 00-23,  mm = Minute in two-character subfield with values 00-59, ss = Second in two-character subfield with values 00-59 (-58 or -60 during leap seconds), dd = Decimal fraction of second in one- to n-character subfield, each d has values 0-9, and Z = time code terminator (optional)",
+   :owl/equivalentClass
+   {:owl/onDatatype :xsd/string,
+    :owl/withRestrictions
+    [{:xsd/length 22}
+     {:xsd/pattern
+      "[0-9]{4}\\\\-[0-9]{3}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\\\.[0-9]{2}Z?"}],
+    :rdf/type       :rdfs/Datatype},
+   :rdf/type         [:owl/DataRange :rdfs/Datatype],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "UTC Day time",
+   :rdfs/subClassOf  :xsd/string})
+
+(def UTF16-STRING
+  "UTF16 String"
+  {:db/ident            :qudt/UTF16-STRING,
+   :dtype/literal       "utf16",
+   :qudt/dimensionality 1,
+   :qudt/elementType    :qudt/UTF16-CHAR,
+   :qudt/encoding       :qudt/UTF16-StringEncoding,
+   :rdf/type            [:qudt/StringUTF16 :owl/NamedIndividual],
+   :rdfs/label          "UTF16 String"})
+
+(def UTF16-StringEncoding
+  "UTF-16 String"
+  {:db/ident         :qudt/UTF16-StringEncoding,
+   :rdf/type         :qudt/StringEncodingType,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "UTF-16 String"})
+
+(def UTF8-STRING
+  "String consisting of UTF-8 characters"
+  {:db/ident            :qudt/UTF8-STRING,
+   :dcterms/description "String consisting of UTF-8 characters",
+   :dtype/literal       "utf8",
+   :owl/sameAs          :qudt/STRING,
+   :qudt/dimensionality 1,
+   :qudt/elementType    :qudt/UTF8-CHAR,
+   :qudt/encoding       :qudt/UTF8-StringEncoding,
+   :rdf/type            [:qudt/StringUTF8 :owl/NamedIndividual],
+   :rdfs/label          "UTF8 String"})
+
+(def UTF8-StringEncoding
+  "UTF-8 Encoding"
+  {:db/ident   :qudt/UTF8-StringEncoding,
+   :qudt/bytes 8,
+   :rdf/type   :qudt/StringEncodingType,
+   :rdfs/label "UTF-8 Encoding"})
 
 (def Unit
   "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as \\(Q = nU\\)."
@@ -6977,6 +6670,62 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Unordered"})
 
+(def Unpublished
+  "Pub unpublished type"
+  {:db/ident      :qudt/Unpublished,
+   :dtype/literal "unpublished",
+   :rdf/type      :qudt/PubEnumeratedType,
+   :rdfs/label    "Pub unpublished type"})
+
+(def UnsignedBigIntegerType
+  "An Unsgned Big Integer is an unsigned integer that can be represented in eight octets (64 bits) of machine memory."
+  {:db/ident :qudt/UnsignedBigIntegerType,
+   :dcterms/description
+   "An Unsgned Big Integer is an unsigned integer that can be represented in eight octets (64 bits) of machine memory.",
+   :rdf/type [:owl/Class :sh/NodeShape],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Unsigned Big Integer Type",
+   :rdfs/subClassOf [:qudt/UnsignedIntegerType
+                     {:owl/hasValue   "UI64",
+                      :owl/onProperty :dtype/literal,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   "0",
+                      :owl/onProperty :qudt/minInclusive,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/BigIntegerType
+                     {:owl/hasValue   "2^{64}-1",
+                      :owl/onProperty :qudt/maxInclusive,
+                      :rdf/type       :owl/Restriction}],
+   :sh/property [:qudt/UnsignedBigIntegerType-maxInclusive
+                 :qudt/UnsignedBigIntegerType-abbreviation
+                 :qudt/UnsignedBigIntegerType-minInclusive]})
+
+(def UnsignedBigIntegerType-abbreviation
+  "UnsignedBigIntegerType-abbreviation"
+  {:db/ident    :qudt/UnsignedBigIntegerType-abbreviation,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "UI64",
+   :sh/path     :qudt/abbreviation})
+
+(def UnsignedBigIntegerType-maxInclusive
+  "UnsignedBigIntegerType-maxInclusive"
+  {:db/ident    :qudt/UnsignedBigIntegerType-maxInclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "2^{64}-1",
+   :sh/or       :qudt/NumericUnionList,
+   :sh/path     :qudt/maxInclusive})
+
+(def UnsignedBigIntegerType-minInclusive
+  "UnsignedBigIntegerType-minInclusive"
+  {:db/ident    :qudt/UnsignedBigIntegerType-minInclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "0",
+   :sh/or       [{:sh/datatype :xsd/string}
+                 {:sh/datatype :xsd/integer}
+                 {:sh/datatype :xsd/float}
+                 {:sh/datatype :xsd/decimal}],
+   :sh/path     :qudt/minInclusive})
+
 (def UnsignedIntegerEncoding
   "Unsigned Integer Encoding"
   {:db/ident         :qudt/UnsignedIntegerEncoding,
@@ -6984,6 +6733,171 @@
    :rdf/type         :qudt/IntegerEncodingType,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Unsigned Integer Encoding"})
+
+(def UnsignedIntegerType
+  "Unsgned Integers are integers that are either strictly non-negative or non-positive."
+  {:db/ident :qudt/UnsignedIntegerType,
+   :dcterms/description
+   "Unsgned Integers are integers that are either strictly non-negative or non-positive.",
+   :owl/disjointWith :qudt/SignedIntegerType,
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
+                                              :qudt/UnsignedType],
+                         :rdf/type :owl/Class},
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Unsigned Integer Type",
+   :rdfs/subClassOf [:qudt/UnsignedType :qudt/IntegerDatatype]})
+
+(def UnsignedLongIntegerType
+  "An Unsigned Long Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory."
+  {:db/ident :qudt/UnsignedLongIntegerType,
+   :dcterms/description
+   "An Unsigned Long Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory.",
+   :rdf/type [:owl/Class :sh/NodeShape],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Unsigned Long Integer Type",
+   :rdfs/subClassOf [{:owl/hasValue   "0",
+                      :owl/onProperty :qudt/minInclusive,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/UnsignedIntegerType
+                     :qudt/LongIntegerType
+                     {:owl/hasValue   "UI32",
+                      :owl/onProperty :dtype/literal,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   "2^{32}-1",
+                      :owl/onProperty :qudt/maxInclusive,
+                      :rdf/type       :owl/Restriction}],
+   :sh/property [:qudt/UnsignedLongIntegerType-minInclusive
+                 :qudt/UnsignedLongIntegerType-maxInclusive
+                 :qudt/UnsignedLongIntegerType-literal]})
+
+(def UnsignedLongIntegerType-maxInclusive
+  "UnsignedLongIntegerType-maxInclusive"
+  {:db/ident    :qudt/UnsignedLongIntegerType-maxInclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "2^{32}-1",
+   :sh/or       :qudt/NumericUnionList,
+   :sh/path     :qudt/maxInclusive})
+
+(def UnsignedLongIntegerType-minInclusive
+  "UnsignedLongIntegerType-minInclusive"
+  {:db/ident    :qudt/UnsignedLongIntegerType-minInclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "0",
+   :sh/or       [{:sh/datatype :xsd/string}
+                 {:sh/datatype :xsd/integer}
+                 {:sh/datatype :xsd/float}
+                 {:sh/datatype :xsd/decimal}],
+   :sh/path     :qudt/minInclusive})
+
+(def UnsignedMediumIntegerType
+  "An \"Unsigned Medium Integers\" is an integer of 24 bits that only takes on both positive values."
+  {:db/ident         :qudt/UnsignedMediumIntegerType,
+   :dcterms/description
+   "An \"Unsigned Medium Integers\" is an integer of 24 bits that only takes on both positive values.",
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
+                                              :qudt/SignedType],
+                         :rdf/type :owl/Class},
+   :rdf/type         [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Signed Integer Type",
+   :rdfs/subClassOf  [{:owl/hasValue   3,
+                       :owl/onProperty :qudt/bytes,
+                       :rdf/type       :owl/Restriction}
+                      :qudt/UnsignedIntegerType]})
+
+(def UnsignedShortIntegerType
+  "An Unsigned Short Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory."
+  {:db/ident :qudt/UnsignedShortIntegerType,
+   :dcterms/description
+   "An Unsigned Short Integer is an unsigned integer that can be represented in four octets (32 bits) of machine memory.",
+   :rdf/type [:owl/Class :sh/NodeShape],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Unsigned Short Integer Type",
+   :rdfs/subClassOf [{:owl/hasValue   "UI16",
+                      :owl/onProperty :dtype/literal,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   "0",
+                      :owl/onProperty :qudt/minInclusive,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/ShortIntegerType
+                     {:owl/hasValue   "2^{16}-1",
+                      :owl/onProperty :qudt/maxInclusive,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/UnsignedIntegerType],
+   :sh/property [:qudt/UnsignedShortIntegerType-maxInclusive
+                 :qudt/UnsignedShortIntegerType-minInclusive
+                 :qudt/UnsignedShortIntegerType-abbreviation]})
+
+(def UnsignedShortIntegerType-abbreviation
+  "UnsignedShortIntegerType-abbreviation"
+  {:db/ident    :qudt/UnsignedShortIntegerType-abbreviation,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "UI16",
+   :sh/path     :qudt/abbreviation})
+
+(def UnsignedShortIntegerType-maxInclusive
+  "UnsignedShortIntegerType-maxInclusive"
+  {:db/ident    :qudt/UnsignedShortIntegerType-maxInclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "2^{16}-1",
+   :sh/path     :qudt/maxInclusive})
+
+(def UnsignedShortIntegerType-minInclusive
+  "UnsignedShortIntegerType-minInclusive"
+  {:db/ident    :qudt/UnsignedShortIntegerType-minInclusive,
+   :rdf/type    :sh/PropertyShape,
+   :sh/hasValue "0",
+   :sh/path     :qudt/minInclusive})
+
+(def UnsignedType
+  "An unsigned data type is a numeric type that does not distinguish between positive and negative values."
+  {:db/ident :qudt/UnsignedType,
+   :dcterms/description
+   "An unsigned data type is a numeric type that does not distinguish between positive and negative values.",
+   :owl/disjointWith :qudt/SignedType,
+   :owl/equivalentClass {:owl/intersectionOf [:qudt/NumericType
+                                              {:owl/hasValue
+                                               :qudt.type/Unsigned,
+                                               :owl/onProperty :qudt/signedness,
+                                               :rdf/type :owl/Restriction}],
+                         :rdf/type :owl/Class},
+   :rdf/type [:owl/Class :sh/NodeShape],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Unsigned Type",
+   :rdfs/subClassOf [{:owl/hasValue   :qudt.type/Unsigned,
+                      :owl/onProperty :qudt/signedness,
+                      :rdf/type       :owl/Restriction}
+                     :qudt/NumericType],
+   :sh/property :qudt/UnsignedType-signedness})
+
+(def UnsignedType-signedness
+  "UnsignedType-signedness"
+  {:db/ident    :qudt/UnsignedType-signedness,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/SignednessType,
+   :sh/hasValue :qudt/UNSIGNED,
+   :sh/path     :qudt/signedness})
+
+(def UnsignedVariableLengthIntegerType
+  "An Unsigned Variable Length Integer data type defines a data structure for representing unsigned integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length."
+  {:db/ident :qudt/UnsignedVariableLengthIntegerType,
+   :dcterms/description
+   "An Unsigned Variable Length Integer data type defines a data structure for representing unsigned integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Unsigned Variable Length Integer Type",
+   :rdfs/subClassOf [:qudt/VariableLengthIntegerType
+                     :qudt/UnsignedIntegerType]})
+
+(def UserModifiableParameter
+  "Parameter is modifiable by a user."
+  {:db/ident     :qudt/UserModifiableParameter,
+   :qudt/code    "2",
+   :qudt/literal "user",
+   :rdf/type     :qudt/ParameterModifiabilityType,
+   :rdfs/comment "Parameter is modifiable by a user.",
+   :rdfs/label   "User modifiable parameter"})
 
 (def UserQuantityKind
   "User Quantity Kind"
@@ -6998,6 +6912,223 @@
                        :owl/onProperty    :qudt/hasQuantityKind,
                        :rdf/type          :owl/Restriction}
                       :qudt/AbstractQuantityKind]})
+
+(def VECTOR
+  "VECTOR"
+  {:db/ident   :qudt/VECTOR,
+   :qudt/dimensionality 1,
+   :rdf/type   [:qudt/VectorType :owl/NamedIndividual],
+   :rdfs/label "VECTOR"})
+
+(def VECTOR_3D
+  "VECTOR 3D"
+  {:db/ident   :qudt/VECTOR_3D,
+   :qudt/dimensionality 1,
+   :qudt/protocolBuffersName "Vector3D",
+   :rdf/type   [:qudt/VectorType :owl/NamedIndividual],
+   :rdfs/label "VECTOR 3D"})
+
+(def VariableIntervalTimeSeriesArray
+  "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random."
+  {:db/ident :qudt/VariableIntervalTimeSeriesArray,
+   :dcterms/description
+   "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Variable Interval Time Series Array Type",
+   :rdfs/subClassOf :qudt/TimeSeriesArray})
+
+(def VariableIntervalTimeSeriesArrayType
+  "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random."
+  {:db/ident :qudt/VariableIntervalTimeSeriesArrayType,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A Variable Interval Time Series Array Type is a data type that specifies the properties of arrays that hold time series data that has been sampled over non-uniformly spaced time intervals. A time series is a sequence of data points, measured typically at successive times, spaced at uniform or non-uniform time intervals. For variable interval time series, the successive time intervals may follow a repeating pattern, or may be completely random.",
+   :rdfs/label "Variable Interval Time Series Array Type",
+   :rdfs/subClassOf :qudt/TimeSeriesArrayType})
+
+(def VariableLengthIntegerType
+  "A Variable Length Integer data type defines a data structure for representing integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length."
+  {:db/ident :qudt/VariableLengthIntegerType,
+   :dcterms/description
+   "A Variable Length Integer data type defines a data structure for representing integers that uses a variable number of bits depending on the magnitude of the integer. Typically, variable length integer data types are between one and 64 bits in length.",
+   :rdf/type [:owl/Class :sh/NodeShape],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Variable Length Integer Type",
+   :rdfs/subClassOf [:qudt/IntegerDatatype
+                     {:owl/hasValue   64,
+                      :owl/onProperty :qudt/maxBits,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/hasValue   1,
+                      :owl/onProperty :qudt/minBits,
+                      :rdf/type       :owl/Restriction}],
+   :sh/property [:qudt/VariableLengthIntegerType-maxBits
+                 :qudt/VariableLengthIntegerType-minBits]})
+
+(def VariableLengthIntegerType-maxBits
+  "VariableLengthIntegerType-maxBits"
+  {:db/ident    :qudt/VariableLengthIntegerType-maxBits,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/hasValue 64,
+   :sh/path     :qudt/maxBits})
+
+(def VariableLengthIntegerType-minBits
+  "VariableLengthIntegerType-minBits"
+  {:db/ident    :qudt/VariableLengthIntegerType-minBits,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/hasValue 1,
+   :sh/path     :qudt/minBits})
+
+(def Vector
+  "A Vector Type is a data type that specifies the properties of data structures that hold vectors."
+  {:db/ident :qudt/Vector,
+   :dcterms/description
+   "A Vector Type is a data type that specifies the properties of data structures that hold vectors.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Vector Type",
+   :rdfs/subClassOf [{:owl/hasValue   1,
+                      :owl/onProperty :qudt/dimensionality,
+                      :rdf/type       :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/dimensionality,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :qudt/referenceFrame,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/ReferenceFrame,
+                      :owl/onProperty    :qudt/referenceFrame,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/CompositeDatatype
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/dimension,
+                      :rdf/type        :owl/Restriction}]})
+
+(def Vector-dimension
+  "Vector-dimension"
+  {:db/ident    :qudt/Vector-dimension,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/minCount 0,
+   :sh/path     :qudt/dimension})
+
+(def Vector-dimensionality
+  "Vector-dimensionality"
+  {:db/ident    :qudt/Vector-dimensionality,
+   :rdf/type    :sh/PropertyShape,
+   :sh/datatype :xsd/integer,
+   :sh/maxCount 1,
+   :sh/path     :qudt/dimensionality})
+
+(def Vector-referenceFrame
+  "Vector-referenceFrame"
+  {:db/ident    :qudt/Vector-referenceFrame,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/ReferenceFrame,
+   :sh/maxCount 1,
+   :sh/path     :qudt/referenceFrame})
+
+(def VectorArray
+  "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements."
+  {:db/ident :qudt/VectorArray,
+   :dcterms/description
+   "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements.",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Vector Array Type",
+   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/StateSpaceVector,
+                      :owl/onProperty    :qudt/vector,
+                      :rdf/type          :owl/Restriction}
+                     :qudt/Array]})
+
+(def VectorArray-vector
+  "VectorArray-vector"
+  {:db/ident :qudt/VectorArray-vector,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/StateSpaceVectorType,
+   :sh/path  :qudt/vector})
+
+(def VectorArrayType
+  "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements."
+  {:db/ident :qudt/VectorArrayType,
+   :dcterms/description
+   "A vector array is an array whose elements are all state vectors. As a data type, a vector array type is used to describe the structure of vector array valued quantities by specifying the types of the array's elements.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Vector Array Type",
+   :rdfs/subClassOf :qudt/ArrayType,
+   :sh/property :qudt/VectorArray-vector})
+
+(def VectorType
+  "A Vector Type is a data type that specifies the properties of data structures that hold vectors."
+  {:db/ident :qudt/VectorType,
+   :dcterms/description
+   "A Vector Type is a data type that specifies the properties of data structures that hold vectors.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/label "Vector Type",
+   :rdfs/subClassOf :qudt/CompositeDatatype,
+   :sh/property [:qudt/Vector-referenceFrame
+                 :qudt/Vector-dimensionality
+                 :qudt/Vector-dimension]})
+
+(def VehicleCoordinateSystem
+  "A sub-type of 'Aerospace coordinate system'. Detailed desciption to be provided in a future version."
+  {:db/ident :qudt/VehicleCoordinateSystem,
+   :dcterms/description
+   "A sub-type of 'Aerospace coordinate system'. Detailed desciption to be provided in a future version.",
+   :rdf/type [:sh/NodeShape :owl/Class],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "Vehicle coordinate system",
+   :rdfs/subClassOf [:qudt/AerospaceCoordinateSystem
+                     {:owl/allValuesFrom :qudt/AxialOrientationType,
+                      :owl/onProperty    :qudt/rollRotationDefinition,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/rollRotationDefinition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/pitchRotationDefinition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :qudt/yawRotationDefinition,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/AxialOrientationType,
+                      :owl/onProperty    :qudt/yawRotationDefinition,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :qudt/AxialOrientationType,
+                      :owl/onProperty    :qudt/pitchRotationDefinition,
+                      :rdf/type          :owl/Restriction}],
+   :sh/property [:qudt/VehicleCoordinateSystem-pitchRotationDefinition
+                 :qudt/VehicleCoordinateSystem-yawRotationDefinition
+                 :qudt/VehicleCoordinateSystem-rollRotationDefinition]})
+
+(def VehicleCoordinateSystem-pitchRotationDefinition
+  "VehicleCoordinateSystem-pitchRotationDefinition"
+  {:db/ident    :qudt/VehicleCoordinateSystem-pitchRotationDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/AxialOrientationType,
+   :sh/maxCount 1,
+   :sh/path     :qudt/pitchRotationDefinition})
+
+(def VehicleCoordinateSystem-rollRotationDefinition
+  "VehicleCoordinateSystem-rollRotationDefinition"
+  {:db/ident    :qudt/VehicleCoordinateSystem-rollRotationDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/AxialOrientationType,
+   :sh/maxCount 1,
+   :sh/minCount 0,
+   :sh/path     :qudt/rollRotationDefinition})
+
+(def VehicleCoordinateSystem-yawRotationDefinition
+  "VehicleCoordinateSystem-yawRotationDefinition"
+  {:db/ident    :qudt/VehicleCoordinateSystem-yawRotationDefinition,
+   :rdf/type    :sh/PropertyShape,
+   :sh/class    :qudt/AxialOrientationType,
+   :sh/maxCount 1,
+   :sh/minCount 0,
+   :sh/path     :qudt/yawRotationDefinition})
 
 (def Verifiable
   "An aspect class that holds properties that provide external knowledge and specifications of a given resource."
@@ -7027,6 +7158,84 @@
                       :owl/onProperty     :qudt/informativeReference,
                       :rdf/type           :owl/Restriction}]})
 
+(def VisualCue
+  "Visual Cue"
+  {:db/ident        :qudt/VisualCue,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Visual Cue",
+   :rdfs/subClassOf :qudt/ModalCue})
+
+(def VisualCueEnumeration-defaultValue
+  "VisualCueEnumeration-defaultValue"
+  {:db/ident :qudt/VisualCueEnumeration-defaultValue,
+   :rdf/type :sh/PropertyShape,
+   :sh/class :qudt/VisualCue,
+   :sh/path  :qudt/defaultValue})
+
+(def WDST_DRY
+  "Dry"
+  {:db/ident         :qudt/WDST_DRY,
+   :dtype/literal    "dry",
+   :qudt/code        "2",
+   :rdf/type         [:qudt/WetDryStateType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Dry"})
+
+(def WDST_WET
+  "Wet"
+  {:db/ident         :qudt/WDST_WET,
+   :dtype/literal    "wet",
+   :qudt/code        "1",
+   :rdf/type         [:qudt/WetDryStateType :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Wet"})
+
+(def WetDryStateType
+  "Wet dry state type"
+  {:db/ident         :qudt/WetDryStateType,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Wet dry state type",
+   :rdfs/subClassOf  [:qudt/EnumeratedValue :qudt/DiscreteState]})
+
+(def Wikipedia
+  "Wikipedia"
+  {:db/ident         :qudt/Wikipedia,
+   :rdf/type         [:qudt/Organization :owl/NamedIndividual],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "Wikipedia"})
+
+(def WordAligned
+  "Word Aligned"
+  {:db/ident      :qudt/WordAligned,
+   :dtype/literal "word",
+   :rdf/type      :qudt/AlignmentType,
+   :rdfs/label    "Word Aligned"})
+
+(def YDT
+  "Year Day Time"
+  {:db/ident            :qudt/YDT,
+   :dtype/literal       "YDT",
+   :qudt/dimensionality 1,
+   :qudt/encodingDescription "TBD",
+   :qudt/rdfsDatatype   :xsd/string,
+   :rdf/type            [:qudt/DateStringType :owl/NamedIndividual],
+   :rdfs/label          "Year Day Time"})
+
+(def Yes
+  "Yes"
+  {:db/ident     :qudt/Yes,
+   :qudt/literal "Y",
+   :rdf/type     :qudt/YesNoType,
+   :rdfs/label   "Yes"})
+
+(def YesNoType
+  "Yes no type"
+  {:db/ident        :qudt/YesNoType,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Yes no type",
+   :rdfs/subClassOf :qudt/EnumeratedValue})
+
 (def abbreviation
   "An abbreviation for a unit is a short ASCII string that is used in place of the full name for the unit in contexts where non-ASCII characters would be problematic, or where using the abbreviation will enhance readability. When a power of abase unit needs to be expressed, such as squares this can be done using abbreviations rather than symbols. For example, <em>sq ft</em> means <em>square foot</em>, and <em>cu ft</em> means <em>cubic foot</em>."
   {:db/ident :qudt/abbreviation,
@@ -7037,6 +7246,16 @@
    :rdfs/label "abbreviation",
    :rdfs/range :xsd/string})
 
+(def accuracy
+  "Accuracy is the degree to which a given quantity is correct and free from error. For example, a quantity specified as 100+/-1 has an (absolute) accuracy of +/-1 (meaning its true value can fall in the range 99-101), while a quantity specified as 100+/-2% has a (relative) accuracy of +/-2% (meaning its true value can fall in the range 98-102). The concepts of accuracy and precision are both closely related and often confused. While the accuracy of a number x is given by the number of significant decimal (or other) digits to the right of the decimal point in x, the precision of x is the total number of significant decimal (or other) digits."
+  {:db/ident :qudt/accuracy,
+   :dcterms/description
+   "Accuracy is the degree to which a given quantity is correct and free from error. For example, a quantity specified as 100+/-1 has an (absolute) accuracy of +/-1 (meaning its true value can fall in the range 99-101), while a quantity specified as 100+/-2% has a (relative) accuracy of +/-2% (meaning its true value can fall in the range 98-102).\n\nThe concepts of accuracy and precision are both closely related and often confused. While the accuracy of a number x is given by the number of significant decimal (or other) digits to the right of the decimal point in x, the precision of x is the total number of significant decimal (or other) digits. ",
+   :rdf/type [:owl/FunctionalProperty :owl/DatatypeProperty],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "accuracy",
+   :rdfs/range :xsd/integer})
+
 (def acronym
   "acronym"
   {:db/ident         :qudt/acronym,
@@ -7044,6 +7263,23 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "acronym",
    :rdfs/range       :xsd/string})
+
+(def alignment
+  "alignment"
+  {:db/ident         :qudt/alignment,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "alignment"})
+
+(def allowedPattern
+  "This property relates a date string encoding (c.f. type:DateStringEncodingType) to one or more XML Schema compliant regular expressions that together determine the allowed lexical expressions that can be unambiguously parsed to determine a temporal quantity."
+  {:db/ident :qudt/allowedPattern,
+   :dcterms/description
+   "This property relates a date string encoding (c.f. type:DateStringEncodingType) to one or more XML Schema compliant regular expressions that together determine the allowed lexical expressions that can be unambiguously parsed to determine a temporal quantity.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "allowed pattern",
+   :rdfs/range :xsd/string})
 
 (def allowedUnitOfSystem
   "This property relates a unit of measure with a unit system that does not define the unit, but allows its use within the system. An allowed unit must be convertible to some dimensionally eqiuvalent unit that is defined by the system."
@@ -7055,6 +7291,15 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "allowed unit of system",
    :rdfs/subPropertyOf :qudt/unitOfSystem})
+
+(def ansiSQLName
+  "ANSI SQL name"
+  {:db/ident           :qudt/ansiSQLName,
+   :rdf/type           :owl/DatatypeProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label         "ANSI SQL name",
+   :rdfs/range         :xsd/string,
+   :rdfs/subPropertyOf :qudt/id})
 
 (def applicableCGSUnit
   "applicable CGS unit"
@@ -7125,6 +7370,68 @@
    :rdfs/label       "applicable unit",
    :rdfs/range       :qudt/Unit})
 
+(def arg1Type
+  "This property relates a funciton data type with the type of its arg1."
+  {:db/ident           :qudt/arg1Type,
+   :dcterms/description
+   "This property relates a funciton data type with the type of its arg1.",
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label         "arg1Type",
+   :rdfs/subPropertyOf :qudt/argType})
+
+(def arg2Type
+  "This property relates a funciton data type with the type of its arg2."
+  {:db/ident           :qudt/arg2Type,
+   :dcterms/description
+   "This property relates a funciton data type with the type of its arg2.",
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label         "arg2Type",
+   :rdfs/subPropertyOf :qudt/argType})
+
+(def arg3Type
+  "This property relates a funciton data type with the type of its arg3."
+  {:db/ident           :qudt/arg3Type,
+   :dcterms/description
+   "This property relates a funciton data type with the type of its arg3.",
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label         "arg3Type",
+   :rdfs/subPropertyOf :qudt/argType})
+
+(def argType
+  "This property relates a function data type with the type of one of its arguments."
+  {:db/ident           :qudt/argType,
+   :dcterms/description
+   "This property relates a function data type with the type of one of its arguments.",
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label         "argType",
+   :rdfs/subPropertyOf :qudt/elementType})
+
+(def auralCue
+  "aural cue"
+  {:db/ident           :qudt/auralCue,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/label         "aural cue",
+   :rdfs/subPropertyOf :qudt/modalCue})
+
+(def auralCueEnumeration
+  "aural cue enumeration"
+  {:db/ident           :qudt/auralCueEnumeration,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/label         "aural cue enumeration",
+   :rdfs/subPropertyOf :qudt/modalCueEnumeration})
+
+(def base
+  "base"
+  {:db/ident         :qudt/base,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "base",
+   :rdfs/range       :xsd/integer})
+
 (def baseDimensionEnumeration
   "This property associates a system of quantities with an enumeration that enumerates the base dimensions of the system in canonical order."
   {:db/ident :qudt/baseDimensionEnumeration,
@@ -7146,6 +7453,13 @@
    :rdfs/label "is base unit of system",
    :rdfs/subPropertyOf :qudt/coherentUnitOfSystem})
 
+(def basis
+  "basis"
+  {:db/ident         :qudt/basis,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "basis"})
+
 (def belongsToSystemOfQuantities
   "belongs to system of quantities"
   {:db/ident         :qudt/belongsToSystemOfQuantities,
@@ -7163,15 +7477,69 @@
    :rdfs/label       "bit order",
    :rdfs/range       :qudt/EndianType})
 
+(def bits
+  "bits"
+  {:db/ident         :qudt/bits,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "bits",
+   :rdfs/range       :xsd/integer})
+
+(def bounded
+  "A datatype is bounded if its value space has either a finite upper and lower bound. Either bound may be inclusive or exclusive."
+  {:db/ident :qudt/bounded,
+   :dcterms/description
+   "A datatype is bounded if its value space has either a finite upper and lower bound. Either bound may be inclusive or exclusive. ",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "bounded",
+   :rdfs/range :xsd/boolean})
+
+(def byRow
+  "A boolean to specify whether an array is presented row by row or column by column."
+  {:db/ident :qudt/byRow,
+   :dcterms/description
+   "A boolean to specify whether an array is presented row by row or column by column.",
+   :rdf/type [:owl/DeprecatedProperty :owl/DatatypeProperty],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "by row",
+   :rdfs/range :xsd/boolean,
+   :vaem/rationale "Replaced with an enumeration. See type:ArrayDataOrderType"})
+
+(def byteOrder
+  "Byte order is an enumeration of two values: 'Big Endian' and 'Little Endian' and is used to denote whether the most signiticant byte is either first or last, respectively."
+  {:db/ident :qudt/byteOrder,
+   :dcterms/description
+   "Byte order is an enumeration of two values: 'Big Endian' and 'Little Endian' and is used to denote whether the most signiticant byte is either first or last, respectively.",
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "byte order",
+   :rdfs/range :qudt/EndianType})
+
+(def bytes
+  "bytes"
+  {:db/ident         :qudt/bytes,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "bytes",
+   :rdfs/range       :xsd/integer})
+
 (def cName
   "Datatype name in the C programming language"
-  {:db/ident         :qudt/cName,
-   :rdf/type         :rdf/Property,
-   :rdfs/comment     "Datatype name in the C programming language",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "C Language name",
-   :rdfs/range       :xsd/string
+  {:db/ident           :qudt/cName,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       "Datatype name in the C programming language",
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label         "C Language name",
+   :rdfs/range         :xsd/string,
    :rdfs/subPropertyOf :qudt/id})
+
+(def cardinality
+  "cardinality"
+  {:db/ident         :qudt/cardinality,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "cardinality"})
 
 (def categorizedAs
   "categorized as"
@@ -7225,6 +7593,14 @@
    :rdfs/label         "coherent unit system",
    :rdfs/subPropertyOf :qudt/hasUnitSystem})
 
+(def columns
+  "columns"
+  {:db/ident         :qudt/columns,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "columns",
+   :rdfs/range       :xsd/integer})
+
 (def conversionCoefficient
   "conversion coefficient"
   {:db/ident         :qudt/conversionCoefficient,
@@ -7248,6 +7624,30 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "conversion offset",
    :rdfs/range       :dtype/numericUnion})
+
+(def coordinateCenter
+  "coordinate center"
+  {:db/ident         :qudt/coordinateCenter,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/domain      :qudt/CoordinateSystem,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "coordinate center",
+   :rdfs/range       :qudt/CoordinateCenterType,
+   :skos/prefLabel   "coordinate center"})
+
+(def coordinateSystem
+  "coordinate system"
+  {:db/ident         :qudt/coordinateSystem,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "coordinate system"})
+
+(def coordinateSystemFrame
+  "coordinate system frame"
+  {:db/ident         :qudt/coordinateSystemFrame,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "coordinate system frame"})
 
 (def currencyCode
   "Alphabetic Currency Code as defined by ISO 4217. For example, US Dollar has the code 'USD'."
@@ -7289,6 +7689,13 @@
    :rdfs/label       "data encoding",
    :rdfs/range       :qudt/DataEncoding})
 
+(def dataOrder
+  "data order"
+  {:db/ident         :qudt/dataOrder,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "data order"})
+
 (def dataStructure
   "data structure"
   {:db/ident         :qudt/dataStructure,
@@ -7319,6 +7726,13 @@
    :rdf/type         :owl/ObjectProperty,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "default"})
+
+(def defaultValue
+  "Default Value"
+  {:db/ident         :qudt/defaultValue,
+   :rdf/type         :owl/AnnotationProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "Default Value"})
 
 (def definedUnitOfSystem
   "This property relates a unit of measure with the unit system that defines the unit."
@@ -7381,6 +7795,15 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "is derived unit of system",
    :rdfs/subPropertyOf :qudt/unitOfSystem})
+
+(def dimension
+  "The number of elements in a vector."
+  {:db/ident            :qudt/dimension,
+   :dcterms/description "The number of elements in a vector.",
+   :rdf/type            :owl/DatatypeProperty,
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label          "dimension",
+   :rdfs/range          :xsd/integer})
 
 (def dimensionExponent
   "dimension exponent"
@@ -7458,6 +7881,14 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "dimension inverse"})
 
+(def dimensionVector
+  "dimension vector"
+  {:db/ident         :qudt/dimensionVector,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "dimension vector",
+   :rdfs/range       :qudt/DimensionVector})
+
 (def dimensionVectorForSI
   "dimension vector for SI"
   {:db/ident         :qudt/dimensionVectorForSI,
@@ -7465,6 +7896,16 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "dimension vector for SI",
    :rdfs/range       :qudt/QuantityKindDimensionVector_SI})
+
+(def dimensionality
+  "The number of dimensions making up an array. For example a 4 by 4 array has a dimensionality of 2. Whereas a vector or a string has a dimensionality of 1."
+  {:db/ident :qudt/dimensionality,
+   :dcterms/description
+   "The number of dimensions making up an array. For example a 4 by 4 array has a dimensionality of 2. Whereas a vector or a string has a dimensionality of 1.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "dimensionality",
+   :rdfs/range :xsd/integer})
 
 (def dimensionlessExponent
   "dimensionless exponent"
@@ -7482,12 +7923,89 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "element"})
 
+(def elementKind
+  "This property is used to describe the quantity kind for a dimensional data type."
+  {:db/ident           :qudt/elementKind,
+   :dcterms/description
+   "This property is used to describe the quantity kind for a dimensional data type.",
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label         "element kind",
+   :rdfs/subPropertyOf :qudt/elementKind})
+
+(def elementLabel
+  "This property is used to label the field of a composite data structure."
+  {:db/ident   :qudt/elementLabel,
+   :dcterms/description
+   "This property is used to label the field of a composite data structure.",
+   :rdf/type   :rdf/Property,
+   :rdfs/label "element label"})
+
+(def elementName
+  "element name"
+  {:db/ident   :qudt/elementName,
+   :rdf/type   :owl/DatatypeProperty,
+   :rdfs/label "element name"})
+
+(def elementType
+  "This property is used to relate a structured data type with the data type the structured type's elements. It is used for structured data types with elements that are all of the same type."
+  {:db/ident :qudt/elementType,
+   :dcterms/description
+   "This property is used to relate a structured data type with the data type the structured type's elements. It is used for structured data types with elements that are all of the same type.",
+   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment
+   "This property is used to relate a structured data type with the data type of the structured type's elements. It is used for homogeneous structured data types, that is, those whose elements that are all of the same type.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "element type",
+   :vaem/todo "Change name to type:elementDataType"})
+
+(def elementTypeCount
+  "This property determines the allowed number of element types that a structured data type may have."
+  {:db/ident :qudt/elementTypeCount,
+   :dcterms/description
+   "This property determines the allowed number of element types that a structured data type may have.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "element type count",
+   :rdfs/range :xsd/integer})
+
+(def elementTypeList
+  "This property is used to relate a structured data type with a list of data types. The list members determine the types of structured type's elements. It is used for structured data types with elements that are of different types."
+  {:db/ident         :qudt/elementTypeList,
+   :dcterms/description
+   "This property is used to relate a structured data type with a list of data types. The list members determine the types of structured type's elements. It is used for structured data types with elements that are of different types.",
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "element type list"})
+
+(def elementUnit
+  "element unit"
+  {:db/ident         :qudt/elementUnit,
+   :rdf/type         [:owl/ObjectProperty :owl/FunctionalProperty],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "element unit"})
+
+(def encodedValue
+  "encoded value"
+  {:db/ident         :qudt/encodedValue,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "encoded value"})
+
 (def encoding
   "encoding"
   {:db/ident         :qudt/encoding,
    :rdf/type         :owl/ObjectProperty,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "encoding"})
+
+(def encodingDescription
+  "encoding description"
+  {:db/ident         :qudt/encodingDescription,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "encoding description",
+   :rdfs/range       :xsd/string})
 
 (def enumeratedValue
   "enumerated value"
@@ -7529,6 +8047,12 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "example"})
 
+(def exponent
+  "exponent"
+  {:db/ident   :qudt/exponent,
+   :rdf/type   [:owl/FunctionalProperty :owl/DatatypeProperty],
+   :rdfs/label "exponent"})
+
 (def expression
   "An 'expression' is a finite combination of symbols that are well-formed according to rules that apply to units of measure, quantity kinds and their dimensions."
   {:db/ident         :qudt/expression,
@@ -7538,6 +8062,11 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "expression"})
 
+(def field
+  "field"
+  {:db/ident :qudt/field,
+   :rdf/type :rdf/Property})
+
 (def fieldCode
   "field code"
   {:db/ident         :qudt/fieldCode,
@@ -7546,6 +8075,23 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "field code",
+   :rdfs/range       :xsd/string})
+
+(def fieldLabels
+  "This property is used to list the field labels for a record type."
+  {:db/ident         :qudt/fieldLabels,
+   :dcterms/description
+   "This property is used to list the field labels for a record type.",
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "field labels"})
+
+(def fieldName
+  "field name"
+  {:db/ident         :qudt/fieldName,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "field name",
    :rdfs/range       :xsd/string})
 
 (def figure
@@ -7584,6 +8130,47 @@
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/qudt",
    :rdfs/label          "float percentage",
    :rdfs/subClassOf     :xsd/float})
+
+(def float_X
+  "float X"
+  {:db/ident         :qudt/float_X,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "float X",
+   :rdfs/range       :xsd/anySimpleType})
+
+(def float_Y
+  "float Y"
+  {:db/ident         :qudt/float_Y,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "float Y",
+   :rdfs/range       :xsd/anySimpleType})
+
+(def float_Z
+  "float Z"
+  {:db/ident         :qudt/float_Z,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "float Z",
+   :rdfs/range       :xsd/anySimpleType})
+
+(def frameType
+  "frame type"
+  {:db/ident         :qudt/frameType,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "frame type"})
+
+(def functionArity
+  "This property is used to state the number of arguments for a function type."
+  {:db/ident :qudt/functionArity,
+   :dcterms/description
+   "This property is used to state the number of arguments for a function type.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label "function arity",
+   :rdfs/range :xsd/integer})
 
 (def generalization
   "This property relates a quantity kind to its generalization. A quantity kind, PARENT, is a generalization of the quantity kind CHILD only if: 1. PARENT and CHILD have the same dimensions in every system of quantities; 2. Every unit that is a measure of quantities of kind CHILD is also a valid measure of quantities of kind PARENT."
@@ -7804,6 +8391,31 @@
    :rdfs/label       "height",
    :rdfs/range       :xsd/string})
 
+(def hexbinary
+  "hexbinary"
+  {:db/ident            :qudt/hexbinary,
+   :owl/equivalentClass {:owl/onDatatype :xsd/string,
+                         :owl/withRestrictions [{:xsd/pattern "[0-9A-F]*"}],
+                         :rdf/type       :rdfs/Datatype},
+   :rdf/type            :rdfs/Datatype,
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label          "hexbinary",
+   :rdfs/subClassOf     :xsd/string})
+
+(def iconicCue
+  "iconic cue"
+  {:db/ident           :qudt/iconicCue,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/label         "iconic cue",
+   :rdfs/subPropertyOf :qudt/modalCue})
+
+(def iconicCueEnumeration
+  "iconic cue enumeration"
+  {:db/ident           :qudt/iconicCueEnumeration,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/label         "iconic cue enumeration",
+   :rdfs/subPropertyOf :qudt/modalCueEnumeration})
+
 (def id
   "The \"qudt:id\" is an identifier string that uniquely identifies a QUDT concept. The identifier is constructed using a prefix. For example, units are coded using the pattern: \"UCCCENNNN\", where \"CCC\" is a numeric code or a category and \"NNNN\" is a digit string for a member element of that category. For scaled units there may be an addition field that has the format \"QNN\" where \"NN\" is a digit string representing an exponent power, and \"Q\" is a qualifier that indicates with the code \"P\" that the power is a positive decimal exponent, or the code \"N\" for a negative decimal exponent, or the code \"B\" for binary positive exponents."
   {:db/ident :qudt/id,
@@ -7849,6 +8461,30 @@
    :rdfs/label "informative reference",
    :rdfs/range :xsd/anyURI})
 
+(def integer1to12
+  "integer 1..12"
+  {:db/ident            :qudt/integer1to12,
+   :owl/equivalentClass {:owl/onDatatype :xsd/integer,
+                         :owl/withRestrictions [{:xsd/minInclusive 1}
+                                                {:xsd/maxInclusive 12}],
+                         :rdf/type       :rdfs/Datatype},
+   :rdf/type            [:owl/DataRange :rdfs/Datatype],
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label          "integer 1..12",
+   :rdfs/subClassOf     :xsd/integer})
+
+(def integer1to31
+  "integer 1..31"
+  {:db/ident            :qudt/integer1to31,
+   :owl/equivalentClass {:owl/onDatatype :xsd/integer,
+                         :owl/withRestrictions [{:xsd/minInclusive 1}
+                                                {:xsd/maxInclusive 31}],
+                         :rdf/type       :rdfs/Datatype},
+   :rdf/type            [:owl/DataRange :rdfs/Datatype],
+   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label          "integer 1..31",
+   :rdfs/subClassOf     :xsd/integer})
+
 (def integerPercentage
   "integer percentage"
   {:db/ident            :qudt/integerPercentage,
@@ -7862,6 +8498,14 @@
    :rdfs/label          "integer percentage",
    :rdfs/subClassOf     :xsd/integer})
 
+(def inverted
+  "inverted"
+  {:db/ident         :qudt/inverted,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "inverted",
+   :rdfs/range       :xsd/boolean})
+
 (def isBaseQuantityKindOfSystem
   "is base quantity kind of system"
   {:db/ident           :qudt/isBaseQuantityKindOfSystem,
@@ -7870,6 +8514,19 @@
    :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
    :rdfs/label         "is base quantity kind of system",
    :rdfs/subPropertyOf :qudt/isQuantityKindOf})
+
+(def isByteString
+  "is byte string"
+  {:db/ident         :qudt/isByteString,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
+   :rdfs/label       "is byte string",
+   :rdfs/range       :xsd/boolean})
+
+(def isComprisedOf
+  "isComprisedOf"
+  {:db/ident :qudt/isComprisedOf,
+   :rdf/type :rdf/Property})
 
 (def isDeltaQuantity
   "This property is used to identify a Quantity instance that is a measure of a change, or interval, of some property, rather than a measure of its absolute value. This is important for measurements such as temperature differences where the conversion among units would be calculated differently because of offsets."
@@ -7921,971 +8578,6 @@
    :rdfs/range          :xsd/anyURI,
    :rdfs/subPropertyOf  :qudt/normativeReference})
 
-(def landscape
-  "landscape"
-  {:db/ident         :qudt/landscape,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "landscape",
-   :rdfs/range       :xsd/boolean})
-
-(def latexDefinition
-  "latex definition"
-  {:db/ident         :qudt/latexDefinition,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "latex definition",
-   :rdfs/range       :qudt/LatexString})
-
-(def latexSymbol
-  "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."
-  {:db/ident :qudt/latexSymbol,
-   :dcterms/description
-   "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "latex symbol",
-   :rdfs/range :qudt/LatexString})
-
-(def literal
-  "literal"
-  {:db/ident           :qudt/literal,
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label         "literal",
-   :rdfs/range         :xsd/string,
-   :rdfs/subPropertyOf :dtype/literal})
-
-(def lowerBound
-  "lower bound"
-  {:db/ident         :qudt/lowerBound,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "lower bound"})
-
-(def mathDefinition
-  "math definition"
-  {:db/ident         :qudt/mathDefinition,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "math definition",
-   :rdfs/range       :xsd/string})
-
-(def mathMLdefinition
-  "mathML definition"
-  {:db/ident           :qudt/mathMLdefinition,
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label         "mathML definition",
-   :rdfs/range         :xsd/string,
-   :rdfs/subPropertyOf :qudt/mathDefinition})
-
-(def maxExclusive
-  "maxExclusive is the exclusive upper bound of the value space for a datatype with the ordered property. The value of maxExclusive must be in the value space of the base type or be equal to {value} in {base type definition}."
-  {:db/ident :qudt/maxExclusive,
-   :dcterms/description
-   "maxExclusive is the exclusive upper bound of the value space for a datatype with the ordered property. The value of maxExclusive must be in the value space of the base type or be equal to {value} in {base type definition}.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "max exclusive",
-   :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf :qudt/upperBound})
-
-(def maxInclusive
-  "maxInclusive is the inclusive upper bound of the value space for a datatype with the ordered property. The value of maxInclusive must be in the value space of the base type."
-  {:db/ident           :qudt/maxInclusive,
-   :dcterms/description
-   "maxInclusive is the inclusive upper bound of the value space for a datatype with the ordered property. The value of maxInclusive must be in the value space of the base type.",
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label         "max inclusive",
-   :rdfs/subPropertyOf :qudt/upperBound})
-
-(def negativeDeltaLimit
-  "A negative change limit between consecutive sample values for a parameter. The Negative Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined."
-  {:db/ident :qudt/negativeDeltaLimit,
-   :dcterms/description
-   "A negative change limit between consecutive sample values for a parameter. The Negative Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "negative delta limit",
-   :rdfs/range :xsd/string})
-
-(def normativeReference
-  "Provides a way to reference information that is an authorative source providing a standard definition"
-  {:db/ident :qudt/normativeReference,
-   :dcterms/description
-   "Provides a way to reference information that is an authorative source providing a standard definition",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "normative reference",
-   :rdfs/range :xsd/anyURI})
-
-(def numeratorDimensionVector
-  "numerator dimension vector"
-  {:db/ident         :qudt/numeratorDimensionVector,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "numerator dimension vector",
-   :rdfs/range       :qudt/QuantityKindDimensionVector})
-
-(def numericValue
-  "numeric value"
-  {:db/ident         :qudt/numericValue,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "numeric value",
-   :rdfs/range       :qudt/NumericUnion})
-
-(def omUnit
-  "om unit"
-  {:db/ident         :qudt/omUnit,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/domain      :qudt/Unit,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "om unit"})
-
-(def onlineReference
-  "online reference"
-  {:db/ident         :qudt/onlineReference,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "online reference",
-   :rdfs/range       :xsd/anyURI})
-
-(def order
-  "order"
-  {:db/ident         :qudt/order,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "order",
-   :rdfs/range       :xsd/nonNegativeInteger})
-
-(def outOfScope
-  "out of scope"
-  {:db/ident         :qudt/outOfScope,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "out of scope",
-   :rdfs/range       :xsd/boolean})
-
-(def permissibleMaths
-  "permissible maths"
-  {:db/ident         :qudt/permissibleMaths,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "permissible maths"})
-
-(def permissibleTransformation
-  "permissible transformation"
-  {:db/ident         :qudt/permissibleTransformation,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "permissible transformation"})
-
-(def plainTextDescription
-  "A plain text description is used to provide a description with only simple ASCII characters for cases where LaTeX , HTML or other markup would not be appropriate."
-  {:db/ident :qudt/plainTextDescription,
-   :dcterms/description
-   "A plain text description is used to provide a description with only simple ASCII characters for cases where LaTeX , HTML or other markup would not be appropriate.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "description (plain text)",
-   :rdfs/range :xsd/string})
-
-(def positiveDeltaLimit
-  "A positive change limit between consecutive sample values for a parameter. The Positive Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined."
-  {:db/ident :qudt/positiveDeltaLimit,
-   :dcterms/description
-   "A positive change limit between consecutive sample values for a parameter. The Positive Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Positive delta limit",
-   :rdfs/range :xsd/string})
-
-(def prefix
-  "Associates a unit with the appropriate prefix, if any."
-  {:db/ident         :qudt/prefix,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/comment     "Associates a unit with the appropriate prefix, if any.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "prefix",
-   :rdfs/range       :qudt/Prefix})
-
-(def prefixMultiplier
-  "prefix multiplier"
-  {:db/ident         :qudt/prefixMultiplier,
-   :rdf/type         [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "prefix multiplier",
-   :rdfs/range       :xsd/double})
-
-(def protocolBuffersName
-  "protocol buffers name"
-  {:db/ident           :qudt/protocolBuffersName,
-   :rdf/type           :rdf/Property,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label         "protocol buffers name",
-   :rdfs/range         :xsd/string
-   :rdfs/subPropertyOf :qudt/id})
-
-(def qkdvDenominator
-  "denominator dimension vector"
-  {:db/ident         :qudt/qkdvDenominator,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "denominator dimension vector",
-   :rdfs/range       :qudt/QuantityKindDimensionVector})
-
-(def qkdvNumerator
-  "numerator dimension vector"
-  {:db/ident         :qudt/qkdvNumerator,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "numerator dimension vector",
-   :rdfs/range       :qudt/QuantityKindDimensionVector})
-
-(def quantity
-  "a property to relate an observable thing with a quantity (qud:Quantity)"
-  {:db/ident         :qudt/quantity,
-   :dcterms/description
-   "a property to relate an observable thing with a quantity (qud:Quantity)",
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "quantity"})
-
-(def quantityValue
-  "quantity value"
-  {:db/ident         :qudt/quantityValue,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "quantity value",
-   :rdfs/range       :qudt/QuantityValue})
-
-(def rationale
-  "rationale"
-  {:db/ident         :qudt/rationale,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "rationale",
-   :rdfs/range       :rdf/HTML})
-
-(def reference
-  "reference"
-  {:db/ident         :qudt/reference,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "reference"})
-
-(def referenceUnit
-  "reference unit"
-  {:db/ident         :qudt/referenceUnit,
-   :rdf/type         [:owl/ObjectProperty :owl/FunctionalProperty],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "reference unit"})
-
-(def relativeStandardUncertainty
-  "The relative standard uncertainty of a measurement is the (absolute) standard uncertainty divided by the magnitude of the exact value."
-  {:db/ident :qudt/relativeStandardUncertainty,
-   :dcterms/description
-   "The relative standard uncertainty of a measurement is the (absolute) standard uncertainty divided by the magnitude of the exact value.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "relative standard uncertainty",
-   :rdfs/range :xsd/double})
-
-(def relevantQuantityKind
-  "relevant quantity kind"
-  {:db/ident         :qudt/relevantQuantityKind,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "relevant quantity kind",
-   :rdfs/range       :qudt/QuantityKind})
-
-(def relevantUnit
-  "This property is used for qudt:Discipline instances to identify the Unit instances that are used within a given discipline."
-  {:db/ident :qudt/relevantUnit,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/comment
-   "This property is used for qudt:Discipline instances to identify the Unit instances that are used within a given discipline.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "Relevant Unit",
-   :rdfs/range :qudt/Unit})
-
-(def ruleType
-  "rule type"
-  {:db/ident         :qudt/ruleType,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "rule type"})
-
-(def scaleType
-  "scale type"
-  {:db/ident         :qudt/scaleType,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "scale type"})
-
-(def siUnitsExpression
-  "si units expression"
-  {:db/ident         :qudt/siUnitsExpression,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "si units expression",
-   :rdfs/range       :xsd/string})
-
-(def specialization
-  "This property relates a quantity kind to its specialization(s). For example, linear velocity and angular velocity are both specializations of velocity."
-  {:db/ident :qudt/specialization,
-   :dcterms/description
-   "This property relates a quantity kind to its specialization(s). For example, linear velocity and angular velocity are both specializations of velocity.",
-   :owl/inverseOf :qudt/generalization,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "specialization"})
-
-(def standardUncertainty
-  "The standard uncertainty of a quantity is the estimated standard deviation of the mean taken from a series of measurements."
-  {:db/ident :qudt/standardUncertainty,
-   :dcterms/description
-   "The standard uncertainty of a quantity is the estimated standard deviation of the mean taken from a series of measurements.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "standard uncertainty",
-   :rdfs/range :xsd/double})
-
-(def supercededBy
-  "This property is used to refer to the most current definition of an entity, when needed."
-  {:db/ident         :qudt/supercededBy,
-   :dcterms/description
-   "This property is used to refer to the most current definition of an entity, when needed.",
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "superceded by"})
-
-(def symbol
-  "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."
-  {:db/ident           :qudt/symbol,
-   :dcterms/description
-   "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm.",
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label         "symbol",
-   :rdfs/subPropertyOf :qudt/literal})
-
-(def systemDefinition
-  "system definition"
-  {:db/ident         :qudt/systemDefinition,
-   :rdf/type         [:owl/TransitiveProperty :owl/ObjectProperty],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "system definition"})
-
-(def systemDerivedQuantityKind
-  "system derived quantity kind"
-  {:db/ident           :qudt/systemDerivedQuantityKind,
-   :owl/inverseOf      :qudt/derivedQuantityKindOfSystem,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label         "system derived quantity kind",
-   :rdfs/subPropertyOf :qudt/hasQuantityKind})
-
-(def systemDimension
-  "system dimension"
-  {:db/ident         :qudt/systemDimension,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "system dimension"})
-
-(def ucumCaseInsensitiveCode
-  "<em>ucumCode</em> associates a QUDT unit with a UCUM case-insensitive code."
-  {:db/ident :qudt/ucumCaseInsensitiveCode,
-   :dcterms/description
-   "<em>ucumCode</em> associates a QUDT unit with a UCUM case-insensitive code.",
-   :owl/deprecated true,
-   :rdf/type :owl/AnnotationProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "ucum case-insensitive code",
-   :rdfs/subPropertyOf :qudt/ucumCode})
-
-(def ucumCaseSensitiveCode
-  "<em>ucumCode</em> associates a QUDT unit with with a UCUM case-sensitive code."
-  {:db/ident :qudt/ucumCaseSensitiveCode,
-   :dcterms/description
-   "<em>ucumCode</em> associates a QUDT unit with with a UCUM case-sensitive code.",
-   :owl/deprecated true,
-   :rdf/type :owl/AnnotationProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "ucum case-sensitive code",
-   :rdfs/subPropertyOf :qudt/ucumCode})
-
-(def ucumCode
-  "<p><em>ucumCode</em> associates a QUDT unit with its UCUM code (case-sensitive). </p><p>In SHACL the values are derived from specific ucum properties using 'sh:values'.</p>"
-  {:db/ident :qudt/ucumCode,
-   :dcterms/description
-   "<p><em>ucumCode</em> associates a QUDT unit with its UCUM code (case-sensitive). </p><p>In SHACL the values are derived from specific ucum properties using 'sh:values'.</p>",
-   :dcterms/source "https://ucum.org/ucum.html",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "ucum code",
-   :rdfs/range {:owl/unionOf [:qudt/UCUMcs :qudt/UCUMcs-term],
-                :rdf/type    :owl/Class},
-   :rdfs/seeAlso "https://ucum.org/ucum.html",
-   :rdfs/subPropertyOf :skos/notation})
-
-(def udunitsCode
-  "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units. The package contains an extensive unit database, which is in XML format and user-extendable. The package also contains a command-line utility for investigating units and converting values."
-  {:db/ident :qudt/udunitsCode,
-   :dcterms/description
-   "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units. The package contains an extensive unit database, which is in XML format and user-extendable. The package also contains a command-line utility for investigating units and converting values.",
-   :dcterms/source "https://www.unidata.ucar.edu/software/udunits/",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "udunits code",
-   :rdfs/range :xsd/string})
-
-(def uneceCommonCode
-  "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."
-  {:db/ident :qudt/uneceCommonCode,
-   :dcterms/description
-   "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade.",
-   :dcterms/source
-   ["https://unece.org/trade/documents/2021/06/uncefact-rec20-0"
-    "https://service.unece.org/trade/uncefact/vocabulary/rec20/"],
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "unece common code",
-   :rdfs/range :xsd/string})
-
-(def unit
-  "A reference to the unit of measure of a quantity (variable or constant) of interest."
-  {:db/ident :qudt/unit,
-   :dcterms/description
-   "A reference to the unit of measure of a quantity (variable or constant) of interest.",
-   :owl/inverseOf :qudt/unitFor,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "unit",
-   :rdfs/range :qudt/Unit})
-
-(def unitFor
-  "unit for"
-  {:db/ident         :qudt/unitFor,
-   :owl/inverseOf    :qudt/unit,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "unit for"})
-
-(def unitOfSystem
-  "This property relates a unit of measure with a system of units that either a) defines the unit or b) allows the unit to be used within the system."
-  {:db/ident :qudt/unitOfSystem,
-   :dcterms/description
-   "This property relates a unit of measure with a system of units that either a) defines the unit or b) allows the unit to be used within the system.",
-   :owl/inverseOf :qudt/hasUnit,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :qudt/Unit,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label "is unit of system",
-   :rdfs/range :qudt/SystemOfUnits})
-
-(def upperBound
-  "upper bound"
-  {:db/ident         :qudt/upperBound,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "upper bound",
-   :rdfs/range       :xsd/anySimpleType})
-
-(def url
-  "url"
-  {:db/ident         :qudt/url,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "url",
-   :rdfs/range       :xsd/anyURI})
-
-(def valueQuantity
-  "value for quantity"
-  {:db/ident         :qudt/valueQuantity,
-   :owl/inverseOf    :qudt/quantityValue,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "value for quantity"})
-
-(def valueUnion
-  "A datatype that is the union of numeric xsd data types. \"numericUnion\" is equivalent to the xsd specification that uses an xsd:union of memberTypes=\"xsd:decimal xsd:double xsd:float xsd:integer\"."
-  {:db/ident         :qudt/valueUnion,
-   :dcterms/description
-   "A datatype that is the union of numeric xsd data types. \"numericUnion\" is equivalent to the xsd specification that uses an xsd:union of memberTypes=\"xsd:decimal xsd:double xsd:float xsd:integer\".",
-   :owl/equivalentClass {:owl/unionOf [:xsd/anySimpleType
-                                       :dtype/EnumeratedValue],
-                         :rdf/type    :owl/Class},
-   :rdf/type         :rdfs/Datatype,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "value union",
-   :rdfs/subClassOf  :rdfs/Resource})
-
-(def vectorMagnitude
-  "vector magnitude"
-  {:db/ident         :qudt/vectorMagnitude,
-   :rdf/type         [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "vector magnitude",
-   :rdfs/range       :xsd/float})
-
-(def width
-  "width"
-  {:db/ident         :qudt/width,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
-   :rdfs/label       "width",
-   :rdfs/range       :xsd/string})
-
-(def accuracy
-  "Accuracy is the degree to which a given quantity is correct and free from error. For example, a quantity specified as 100+/-1 has an (absolute) accuracy of +/-1 (meaning its true value can fall in the range 99-101), while a quantity specified as 100+/-2% has a (relative) accuracy of +/-2% (meaning its true value can fall in the range 98-102). The concepts of accuracy and precision are both closely related and often confused. While the accuracy of a number x is given by the number of significant decimal (or other) digits to the right of the decimal point in x, the precision of x is the total number of significant decimal (or other) digits."
-  {:db/ident :qudt/accuracy,
-   :dcterms/description
-   "Accuracy is the degree to which a given quantity is correct and free from error. For example, a quantity specified as 100+/-1 has an (absolute) accuracy of +/-1 (meaning its true value can fall in the range 99-101), while a quantity specified as 100+/-2% has a (relative) accuracy of +/-2% (meaning its true value can fall in the range 98-102).\n\nThe concepts of accuracy and precision are both closely related and often confused. While the accuracy of a number x is given by the number of significant decimal (or other) digits to the right of the decimal point in x, the precision of x is the total number of significant decimal (or other) digits. ",
-   :rdf/type [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "accuracy",
-   :rdfs/range :xsd/integer})
-
-(def alignment
-  "alignment"
-  {:db/ident         :qudt/alignment,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "alignment"})
-
-(def allowedPattern
-  "This property relates a date string encoding (c.f. type:DateStringEncodingType) to one or more XML Schema compliant regular expressions that together determine the allowed lexical expressions that can be unambiguously parsed to determine a temporal quantity."
-  {:db/ident :qudt/allowedPattern,
-   :dcterms/description
-   "This property relates a date string encoding (c.f. type:DateStringEncodingType) to one or more XML Schema compliant regular expressions that together determine the allowed lexical expressions that can be unambiguously parsed to determine a temporal quantity.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "allowed pattern",
-   :rdfs/range :xsd/string})
-
-(def ansiSQLName
-  "ANSI SQL name"
-  {:db/ident           :qudt/ansiSQLName,
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label         "ANSI SQL name",
-   :rdfs/range         :xsd/string,
-   :rdfs/subPropertyOf :qudt/id})
-
-(def arg1Type
-  "This property relates a funciton data type with the type of its arg1."
-  {:db/ident           :qudt/arg1Type,
-   :dcterms/description
-   "This property relates a funciton data type with the type of its arg1.",
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label         "arg1Type",
-   :rdfs/subPropertyOf :qudt/argType})
-
-(def arg2Type
-  "This property relates a funciton data type with the type of its arg2."
-  {:db/ident           :qudt/arg2Type,
-   :dcterms/description
-   "This property relates a funciton data type with the type of its arg2.",
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label         "arg2Type",
-   :rdfs/subPropertyOf :qudt/argType})
-
-(def arg3Type
-  "This property relates a funciton data type with the type of its arg3."
-  {:db/ident           :qudt/arg3Type,
-   :dcterms/description
-   "This property relates a funciton data type with the type of its arg3.",
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label         "arg3Type",
-   :rdfs/subPropertyOf :qudt/argType})
-
-(def argType
-  "This property relates a function data type with the type of one of its arguments."
-  {:db/ident           :qudt/argType,
-   :dcterms/description
-   "This property relates a function data type with the type of one of its arguments.",
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label         "argType",
-   :rdfs/subPropertyOf :qudt/elementType})
-
-(def auralCue
-  "aural cue"
-  {:db/ident           :qudt/auralCue,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "aural cue",
-   :rdfs/subPropertyOf :qudt/modalCue})
-
-(def auralCueEnumeration
-  "aural cue enumeration"
-  {:db/ident           :qudt/auralCueEnumeration,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "aural cue enumeration",
-   :rdfs/subPropertyOf :qudt/modalCueEnumeration})
-
-(def base
-  "base"
-  {:db/ident         :qudt/base,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "base",
-   :rdfs/range       :xsd/integer})
-
-(def basis
-  "basis"
-  {:db/ident         :qudt/basis,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "basis"})
-
-(def bits
-  "bits"
-  {:db/ident         :qudt/bits,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "bits",
-   :rdfs/range       :xsd/integer})
-
-(def bounded
-  "A datatype is bounded if its value space has either a finite upper and lower bound. Either bound may be inclusive or exclusive."
-  {:db/ident :qudt/bounded,
-   :dcterms/description
-   "A datatype is bounded if its value space has either a finite upper and lower bound. Either bound may be inclusive or exclusive. ",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "bounded",
-   :rdfs/range :xsd/boolean})
-
-(def byRow
-  "A boolean to specify whether an array is presented row by row or column by column."
-  {:db/ident :qudt/byRow,
-   :dcterms/description
-   "A boolean to specify whether an array is presented row by row or column by column.",
-   :rdf/type [:owl/DeprecatedProperty :owl/DatatypeProperty],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "by row",
-   :rdfs/range :xsd/boolean,
-   :vaem/rationale "Replaced with an enumeration. See type:ArrayDataOrderType"})
-
-(def byteOrder
-  "Byte order is an enumeration of two values: 'Big Endian' and 'Little Endian' and is used to denote whether the most signiticant byte is either first or last, respectively."
-  {:db/ident :qudt/byteOrder,
-   :dcterms/description
-   "Byte order is an enumeration of two values: 'Big Endian' and 'Little Endian' and is used to denote whether the most signiticant byte is either first or last, respectively.",
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "byte order",
-   :rdfs/range :qudt/EndianType})
-
-(def bytes
-  "bytes"
-  {:db/ident         :qudt/bytes,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "bytes",
-   :rdfs/range       :xsd/integer})
-
-(def cardinality
-  "cardinality"
-  {:db/ident         :qudt/cardinality,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "cardinality"})
-
-(def columns
-  "columns"
-  {:db/ident         :qudt/columns,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "columns",
-   :rdfs/range       :xsd/integer})
-
-(def coordinateCenter
-  "coordinate center"
-  {:db/ident         :qudt/coordinateCenter,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/domain      :qudt/CoordinateSystem,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "coordinate center",
-   :rdfs/range       :qudt/CoordinateCenterType,
-   :skos/prefLabel   "coordinate center"})
-
-(def coordinateSystem
-  "coordinate system"
-  {:db/ident         :qudt/coordinateSystem,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "coordinate system"})
-
-(def coordinateSystemFrame
-  "coordinate system frame"
-  {:db/ident         :qudt/coordinateSystemFrame,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "coordinate system frame"})
-
-(def dataOrder
-  "data order"
-  {:db/ident         :qudt/dataOrder,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "data order"})
-
-(def defaultValue
-  "Default Value"
-  {:db/ident         :qudt/defaultValue,
-   :rdf/type         :owl/AnnotationProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "Default Value"})
-
-(def dimension
-  "The number of elements in a vector."
-  {:db/ident            :qudt/dimension,
-   :dcterms/description "The number of elements in a vector.",
-   :rdf/type            :owl/DatatypeProperty,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label          "dimension",
-   :rdfs/range          :xsd/integer})
-
-(def dimensionVector
-  "dimension vector"
-  {:db/ident         :qudt/dimensionVector,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "dimension vector",
-   :rdfs/range       :qudt/DimensionVector})
-
-(def dimensionality
-  "The number of dimensions making up an array. For example a 4 by 4 array has a dimensionality of 2. Whereas a vector or a string has a dimensionality of 1."
-  {:db/ident :qudt/dimensionality,
-   :dcterms/description
-   "The number of dimensions making up an array. For example a 4 by 4 array has a dimensionality of 2. Whereas a vector or a string has a dimensionality of 1.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "dimensionality",
-   :rdfs/range :xsd/integer})
-
-(def elementKind
-  "This property is used to describe the quantity kind for a dimensional data type."
-  {:db/ident           :qudt/elementKind,
-   :dcterms/description
-   "This property is used to describe the quantity kind for a dimensional data type.",
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label         "element kind",
-   :rdfs/subPropertyOf :qudt/elementKind})
-
-(def elementLabel
-  "This property is used to label the field of a composite data structure."
-  {:db/ident   :qudt/elementLabel,
-   :dcterms/description
-   "This property is used to label the field of a composite data structure.",
-   :rdf/type   :rdf/Property,
-   :rdfs/label "element label"})
-
-(def elementName
-  "element name"
-  {:db/ident   :qudt/elementName,
-   :rdf/type   :owl/DatatypeProperty,
-   :rdfs/label "element name"})
-
-(def elementType
-  "This property is used to relate a structured data type with the data type the structured type's elements. It is used for structured data types with elements that are all of the same type."
-  {:db/ident :qudt/elementType,
-   :dcterms/description
-   "This property is used to relate a structured data type with the data type the structured type's elements. It is used for structured data types with elements that are all of the same type.",
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment
-   "This property is used to relate a structured data type with the data type of the structured type's elements. It is used for homogeneous structured data types, that is, those whose elements that are all of the same type.",
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "element type",
-   :vaem/todo "Change name to type:elementDataType"})
-
-(def elementTypeCount
-  "This property determines the allowed number of element types that a structured data type may have."
-  {:db/ident :qudt/elementTypeCount,
-   :dcterms/description
-   "This property determines the allowed number of element types that a structured data type may have.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "element type count",
-   :rdfs/range :xsd/integer})
-
-(def elementTypeList
-  "This property is used to relate a structured data type with a list of data types. The list members determine the types of structured type's elements. It is used for structured data types with elements that are of different types."
-  {:db/ident         :qudt/elementTypeList,
-   :dcterms/description
-   "This property is used to relate a structured data type with a list of data types. The list members determine the types of structured type's elements. It is used for structured data types with elements that are of different types.",
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "element type list"})
-
-(def elementUnit
-  "element unit"
-  {:db/ident         :qudt/elementUnit,
-   :rdf/type         [:owl/ObjectProperty :owl/FunctionalProperty],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "element unit"})
-
-(def encodedValue
-  "encoded value"
-  {:db/ident         :qudt/encodedValue,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "encoded value"})
-
-(def encodingDescription
-  "encoding description"
-  {:db/ident         :qudt/encodingDescription,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "encoding description",
-   :rdfs/range       :xsd/string})
-
-(def exponent
-  "exponent"
-  {:db/ident   :qudt/exponent,
-   :rdf/type   [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/label "exponent"})
-
-(def field
-  {:db/ident :qudt/field,
-   :rdf/type :rdf/Property})
-
-(def fieldLabels
-  "This property is used to list the field labels for a record type."
-  {:db/ident         :qudt/fieldLabels,
-   :dcterms/description
-   "This property is used to list the field labels for a record type.",
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "field labels"})
-
-(def fieldName
-  "field name"
-  {:db/ident         :qudt/fieldName,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "field name",
-   :rdfs/range       :xsd/string})
-
-(def float_X
-  "float X"
-  {:db/ident         :qudt/float_X,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "float X",
-   :rdfs/range       :xsd/anySimpleType})
-
-(def float_Y
-  "float Y"
-  {:db/ident         :qudt/float_Y,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "float Y",
-   :rdfs/range       :xsd/anySimpleType})
-
-(def float_Z
-  "float Z"
-  {:db/ident         :qudt/float_Z,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "float Z",
-   :rdfs/range       :xsd/anySimpleType})
-
-(def frameType
-  "frame type"
-  {:db/ident         :qudt/frameType,
-   :rdf/type         :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "frame type"})
-
-(def functionArity
-  "This property is used to state the number of arguments for a function type."
-  {:db/ident :qudt/functionArity,
-   :dcterms/description
-   "This property is used to state the number of arguments for a function type.",
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label "function arity",
-   :rdfs/range :xsd/integer})
-
-(def hexbinary
-  "hexbinary"
-  {:db/ident            :qudt/hexbinary,
-   :owl/equivalentClass {:owl/onDatatype :xsd/string,
-                         :owl/withRestrictions [{:xsd/pattern "[0-9A-F]*"}],
-                         :rdf/type       :rdfs/Datatype},
-   :rdf/type            :rdfs/Datatype,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label          "hexbinary",
-   :rdfs/subClassOf     :xsd/string})
-
-(def iconicCue
-  "iconic cue"
-  {:db/ident           :qudt/iconicCue,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "iconic cue",
-   :rdfs/subPropertyOf :qudt/modalCue})
-
-(def iconicCueEnumeration
-  "iconic cue enumeration"
-  {:db/ident           :qudt/iconicCueEnumeration,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/label         "iconic cue enumeration",
-   :rdfs/subPropertyOf :qudt/modalCueEnumeration})
-
-(def integer1to12
-  "integer 1..12"
-  {:db/ident            :qudt/integer1to12,
-   :owl/equivalentClass {:owl/onDatatype :xsd/integer,
-                         :owl/withRestrictions [{:xsd/minInclusive 1}
-                                                {:xsd/maxInclusive 12}],
-                         :rdf/type       :rdfs/Datatype},
-   :rdf/type            [:owl/DataRange :rdfs/Datatype],
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label          "integer 1..12",
-   :rdfs/subClassOf     :xsd/integer})
-
-(def integer1to31
-  "integer 1..31"
-  {:db/ident            :qudt/integer1to31,
-   :owl/equivalentClass {:owl/onDatatype :xsd/integer,
-                         :owl/withRestrictions [{:xsd/minInclusive 1}
-                                                {:xsd/maxInclusive 31}],
-                         :rdf/type       :rdfs/Datatype},
-   :rdf/type            [:owl/DataRange :rdfs/Datatype],
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label          "integer 1..31",
-   :rdfs/subClassOf     :xsd/integer})
-
-(def inverted
-  "inverted"
-  {:db/ident         :qudt/inverted,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "inverted",
-   :rdfs/range       :xsd/boolean})
-
-(def isByteString
-  "is byte string"
-  {:db/ident         :qudt/isByteString,
-   :rdf/type         :owl/DatatypeProperty,
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "is byte string",
-   :rdfs/range       :xsd/boolean})
-
-(def isComprisedOf
-  {:db/ident :qudt/isComprisedOf,
-   :rdf/type :rdf/Property})
-
 (def javaName
   "java name"
   {:db/ident           :qudt/javaName,
@@ -8918,6 +8610,32 @@
    :rdfs/label         "kinesthetic cue enumeration",
    :rdfs/subPropertyOf :qudt/modalCueEnumeration})
 
+(def landscape
+  "landscape"
+  {:db/ident         :qudt/landscape,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "landscape",
+   :rdfs/range       :xsd/boolean})
+
+(def latexDefinition
+  "latex definition"
+  {:db/ident         :qudt/latexDefinition,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "latex definition",
+   :rdfs/range       :qudt/LatexString})
+
+(def latexSymbol
+  "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."
+  {:db/ident :qudt/latexSymbol,
+   :dcterms/description
+   "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "latex symbol",
+   :rdfs/range :qudt/LatexString})
+
 (def length
   "The length of a structure, for example the size of a vector"
   {:db/ident :qudt/length,
@@ -8929,6 +8647,22 @@
    :rdfs/range :xsd/integer,
    :rdfs/subPropertyOf [:qudt/minLength :qudt/maxLength]})
 
+(def literal
+  "literal"
+  {:db/ident           :qudt/literal,
+   :rdf/type           :owl/DatatypeProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label         "literal",
+   :rdfs/range         :xsd/string,
+   :rdfs/subPropertyOf :dtype/literal})
+
+(def lowerBound
+  "lower bound"
+  {:db/ident         :qudt/lowerBound,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "lower bound"})
+
 (def mantissa
   "In scientific notation, the mantissa of a real number is the integer coefficient preceding the base raised to the exponent."
   {:db/ident :qudt/mantissa,
@@ -8936,6 +8670,23 @@
    :rdfs/comment
    "In scientific notation, the mantissa of a real number is the integer coefficient preceding the base raised to the exponent.",
    :rdfs/label "mantissa"})
+
+(def mathDefinition
+  "math definition"
+  {:db/ident         :qudt/mathDefinition,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "math definition",
+   :rdfs/range       :xsd/string})
+
+(def mathMLdefinition
+  "mathML definition"
+  {:db/ident           :qudt/mathMLdefinition,
+   :rdf/type           :owl/DatatypeProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label         "mathML definition",
+   :rdfs/range         :xsd/string,
+   :rdfs/subPropertyOf :qudt/mathDefinition})
 
 (def matlabName
   "matlab name"
@@ -8962,6 +8713,17 @@
    :rdfs/label       "max depth",
    :rdfs/range       :xsd/integer})
 
+(def maxExclusive
+  "maxExclusive is the exclusive upper bound of the value space for a datatype with the ordered property. The value of maxExclusive must be in the value space of the base type or be equal to {value} in {base type definition}."
+  {:db/ident :qudt/maxExclusive,
+   :dcterms/description
+   "maxExclusive is the exclusive upper bound of the value space for a datatype with the ordered property. The value of maxExclusive must be in the value space of the base type or be equal to {value} in {base type definition}.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "max exclusive",
+   :rdfs/range :xsd/string,
+   :rdfs/subPropertyOf :qudt/upperBound})
+
 (def maxExponent
   "max exponent"
   {:db/ident         :qudt/maxExponent,
@@ -8969,6 +8731,16 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "max exponent",
    :rdfs/range       :xsd/integer})
+
+(def maxInclusive
+  "maxInclusive is the inclusive upper bound of the value space for a datatype with the ordered property. The value of maxInclusive must be in the value space of the base type."
+  {:db/ident           :qudt/maxInclusive,
+   :dcterms/description
+   "maxInclusive is the inclusive upper bound of the value space for a datatype with the ordered property. The value of maxInclusive must be in the value space of the base type.",
+   :rdf/type           :owl/DatatypeProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label         "max inclusive",
+   :rdfs/subPropertyOf :qudt/upperBound})
 
 (def maxLength
   "max length"
@@ -9088,6 +8860,42 @@
    :rdf/type     :qudt/Polarity,
    :rdfs/label   "negative"})
 
+(def negativeDeltaLimit
+  "A negative change limit between consecutive sample values for a parameter. The Negative Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined."
+  {:db/ident :qudt/negativeDeltaLimit,
+   :dcterms/description
+   "A negative change limit between consecutive sample values for a parameter. The Negative Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "negative delta limit",
+   :rdfs/range :xsd/string})
+
+(def normativeReference
+  "Provides a way to reference information that is an authorative source providing a standard definition"
+  {:db/ident :qudt/normativeReference,
+   :dcterms/description
+   "Provides a way to reference information that is an authorative source providing a standard definition",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "normative reference",
+   :rdfs/range :xsd/anyURI})
+
+(def numeratorDimensionVector
+  "numerator dimension vector"
+  {:db/ident         :qudt/numeratorDimensionVector,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "numerator dimension vector",
+   :rdfs/range       :qudt/QuantityKindDimensionVector})
+
+(def numericValue
+  "numeric value"
+  {:db/ident         :qudt/numericValue,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "numeric value",
+   :rdfs/range       :qudt/NumericUnion})
+
 (def octets
   "octets"
   {:db/ident         :qudt/octets,
@@ -9119,6 +8927,22 @@
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :qudt/id})
 
+(def omUnit
+  "om unit"
+  {:db/ident         :qudt/omUnit,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/domain      :qudt/Unit,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "om unit"})
+
+(def onlineReference
+  "online reference"
+  {:db/ident         :qudt/onlineReference,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "online reference",
+   :rdfs/range       :xsd/anyURI})
+
 (def optional
   "optional"
   {:db/ident   :qudt/optional,
@@ -9134,6 +8958,14 @@
    :rdfs/label         "ORACLE SQL name",
    :rdfs/range         :xsd/string,
    :rdfs/subPropertyOf :qudt/id})
+
+(def order
+  "order"
+  {:db/ident         :qudt/order,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "order",
+   :rdfs/range       :xsd/nonNegativeInteger})
 
 (def orderInStructure
   "order in structure"
@@ -9166,6 +8998,14 @@
    :rdfs/label       "origin definition",
    :rdfs/range       :xsd/string})
 
+(def outOfScope
+  "out of scope"
+  {:db/ident         :qudt/outOfScope,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "out of scope",
+   :rdfs/range       :xsd/boolean})
+
 (def padding
   "padding"
   {:db/ident         :qudt/padding,
@@ -9183,6 +9023,20 @@
    :rdfs/label "pattern",
    :rdfs/range :xsd/string})
 
+(def permissibleMaths
+  "permissible maths"
+  {:db/ident         :qudt/permissibleMaths,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "permissible maths"})
+
+(def permissibleTransformation
+  "permissible transformation"
+  {:db/ident         :qudt/permissibleTransformation,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "permissible transformation"})
+
 (def pitchRotationDefinition
   "pitch rotation definition"
   {:db/ident           :qudt/pitchRotationDefinition,
@@ -9191,6 +9045,16 @@
    :rdfs/label         "pitch rotation definition",
    :rdfs/subPropertyOf :qudt/rotationDefinition})
 
+(def plainTextDescription
+  "A plain text description is used to provide a description with only simple ASCII characters for cases where LaTeX , HTML or other markup would not be appropriate."
+  {:db/ident :qudt/plainTextDescription,
+   :dcterms/description
+   "A plain text description is used to provide a description with only simple ASCII characters for cases where LaTeX , HTML or other markup would not be appropriate.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "description (plain text)",
+   :rdfs/range :xsd/string})
+
 (def positive
   "positive"
   {:db/ident     :qudt/positive,
@@ -9198,6 +9062,16 @@
    :qudt/literal "positive",
    :rdf/type     :qudt/Polarity,
    :rdfs/label   "positive"})
+
+(def positiveDeltaLimit
+  "A positive change limit between consecutive sample values for a parameter. The Positive Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined."
+  {:db/ident :qudt/positiveDeltaLimit,
+   :dcterms/description
+   "A positive change limit between consecutive sample values for a parameter. The Positive Delta may be the encoded value or engineering units value depending on whether or not a Calibrator is defined.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Positive delta limit",
+   :rdfs/range :xsd/string})
 
 (def precision
   "Precision is the number of digits used to perform a given computation. The concepts of accuracy and precision are both closely related and often confused. While the accuracy of a number x is given by the number of significant decimal (or other) digits to the right of the decimal point in x, the precision of x is the total number of significant decimal (or other) digits. For a given numeric data type, the value of type:precision (?p) is related to the values of type:maxMantissa (?M) and type:base (?b) by the formula ?p := log(?b, ?M) where log(a,y) = x iff y=a^x."
@@ -9209,6 +9083,32 @@
    :rdfs/label "precision",
    :rdfs/range :xsd/integer})
 
+(def prefix
+  "Associates a unit with the appropriate prefix, if any."
+  {:db/ident         :qudt/prefix,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/comment     "Associates a unit with the appropriate prefix, if any.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "prefix",
+   :rdfs/range       :qudt/Prefix})
+
+(def prefixMultiplier
+  "prefix multiplier"
+  {:db/ident         :qudt/prefixMultiplier,
+   :rdf/type         [:owl/FunctionalProperty :owl/DatatypeProperty],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "prefix multiplier",
+   :rdfs/range       :xsd/double})
+
+(def protocolBuffersName
+  "protocol buffers name"
+  {:db/ident           :qudt/protocolBuffersName,
+   :rdf/type           :rdf/Property,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label         "protocol buffers name",
+   :rdfs/range         :xsd/string,
+   :rdfs/subPropertyOf :qudt/id})
+
 (def pythonName
   "python name"
   {:db/ident           :qudt/pythonName,
@@ -9217,6 +9117,47 @@
    :rdfs/label         "python name",
    :rdfs/range         :xsd/string,
    :rdfs/subPropertyOf :qudt/id})
+
+(def qkdvDenominator
+  "denominator dimension vector"
+  {:db/ident         :qudt/qkdvDenominator,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "denominator dimension vector",
+   :rdfs/range       :qudt/QuantityKindDimensionVector})
+
+(def qkdvNumerator
+  "numerator dimension vector"
+  {:db/ident         :qudt/qkdvNumerator,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "numerator dimension vector",
+   :rdfs/range       :qudt/QuantityKindDimensionVector})
+
+(def quantity
+  "a property to relate an observable thing with a quantity (qud:Quantity)"
+  {:db/ident         :qudt/quantity,
+   :dcterms/description
+   "a property to relate an observable thing with a quantity (qud:Quantity)",
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "quantity"})
+
+(def quantityValue
+  "quantity value"
+  {:db/ident         :qudt/quantityValue,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "quantity value",
+   :rdfs/range       :qudt/QuantityValue})
+
+(def rationale
+  "rationale"
+  {:db/ident         :qudt/rationale,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "rationale",
+   :rdfs/range       :rdf/HTML})
 
 (def rdfsDatatype
   "rdfs datatype"
@@ -9233,6 +9174,13 @@
    :rdfs/label       "realization",
    :rdfs/range       :xsd/string})
 
+(def reference
+  "reference"
+  {:db/ident         :qudt/reference,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "reference"})
+
 (def referenceFrame
   "reference frame"
   {:db/ident           :qudt/referenceFrame,
@@ -9247,6 +9195,41 @@
    :rdf/type         :owl/ObjectProperty,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "reference frame type"})
+
+(def referenceUnit
+  "reference unit"
+  {:db/ident         :qudt/referenceUnit,
+   :rdf/type         [:owl/ObjectProperty :owl/FunctionalProperty],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "reference unit"})
+
+(def relativeStandardUncertainty
+  "The relative standard uncertainty of a measurement is the (absolute) standard uncertainty divided by the magnitude of the exact value."
+  {:db/ident :qudt/relativeStandardUncertainty,
+   :dcterms/description
+   "The relative standard uncertainty of a measurement is the (absolute) standard uncertainty divided by the magnitude of the exact value.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "relative standard uncertainty",
+   :rdfs/range :xsd/double})
+
+(def relevantQuantityKind
+  "relevant quantity kind"
+  {:db/ident         :qudt/relevantQuantityKind,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "relevant quantity kind",
+   :rdfs/range       :qudt/QuantityKind})
+
+(def relevantUnit
+  "This property is used for qudt:Discipline instances to identify the Unit instances that are used within a given discipline."
+  {:db/ident :qudt/relevantUnit,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/comment
+   "This property is used for qudt:Discipline instances to identify the Unit instances that are used within a given discipline.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "Relevant Unit",
+   :rdfs/range :qudt/Unit})
 
 (def returnType
   "This property is used to state the return type of a function type."
@@ -9287,6 +9270,28 @@
    :rdfs/label       "rows",
    :rdfs/range       :xsd/integer})
 
+(def ruleType
+  "rule type"
+  {:db/ident         :qudt/ruleType,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "rule type"})
+
+(def scaleType
+  "scale type"
+  {:db/ident         :qudt/scaleType,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "scale type"})
+
+(def siUnitsExpression
+  "si units expression"
+  {:db/ident         :qudt/siUnitsExpression,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "si units expression",
+   :rdfs/range       :xsd/string})
+
 (def signedness
   "signedness"
   {:db/ident         :qudt/signedness,
@@ -9310,12 +9315,74 @@
    "The intended use of the sound property is to be associated with modal enumerations",
    :rdfs/label "sound"})
 
+(def specialization
+  "This property relates a quantity kind to its specialization(s). For example, linear velocity and angular velocity are both specializations of velocity."
+  {:db/ident :qudt/specialization,
+   :dcterms/description
+   "This property relates a quantity kind to its specialization(s). For example, linear velocity and angular velocity are both specializations of velocity.",
+   :owl/inverseOf :qudt/generalization,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "specialization"})
+
+(def standardUncertainty
+  "The standard uncertainty of a quantity is the estimated standard deviation of the mean taken from a series of measurements."
+  {:db/ident :qudt/standardUncertainty,
+   :dcterms/description
+   "The standard uncertainty of a quantity is the estimated standard deviation of the mean taken from a series of measurements.",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "standard uncertainty",
+   :rdfs/range :xsd/double})
+
 (def stringValue
   "string value"
   {:db/ident           :qudt/stringValue,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "string value",
    :rdfs/subPropertyOf :qudt/scalarValue})
+
+(def supercededBy
+  "This property is used to refer to the most current definition of an entity, when needed."
+  {:db/ident         :qudt/supercededBy,
+   :dcterms/description
+   "This property is used to refer to the most current definition of an entity, when needed.",
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "superceded by"})
+
+(def symbol
+  "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."
+  {:db/ident           :qudt/symbol,
+   :dcterms/description
+   "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm.",
+   :rdf/type           :owl/DatatypeProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label         "symbol",
+   :rdfs/subPropertyOf :qudt/literal})
+
+(def systemDefinition
+  "system definition"
+  {:db/ident         :qudt/systemDefinition,
+   :rdf/type         [:owl/TransitiveProperty :owl/ObjectProperty],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "system definition"})
+
+(def systemDerivedQuantityKind
+  "system derived quantity kind"
+  {:db/ident           :qudt/systemDerivedQuantityKind,
+   :owl/inverseOf      :qudt/derivedQuantityKindOfSystem,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label         "system derived quantity kind",
+   :rdfs/subPropertyOf :qudt/hasQuantityKind})
+
+(def systemDimension
+  "system dimension"
+  {:db/ident         :qudt/systemDimension,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "system dimension"})
 
 (def timeDatatype
   "time datatype"
@@ -9352,6 +9419,113 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "type vector"})
 
+(def ucumCaseInsensitiveCode
+  "<em>ucumCode</em> associates a QUDT unit with a UCUM case-insensitive code."
+  {:db/ident :qudt/ucumCaseInsensitiveCode,
+   :dcterms/description
+   "<em>ucumCode</em> associates a QUDT unit with a UCUM case-insensitive code.",
+   :owl/deprecated true,
+   :rdf/type :owl/AnnotationProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "ucum case-insensitive code",
+   :rdfs/subPropertyOf :qudt/ucumCode})
+
+(def ucumCaseSensitiveCode
+  "<em>ucumCode</em> associates a QUDT unit with with a UCUM case-sensitive code."
+  {:db/ident :qudt/ucumCaseSensitiveCode,
+   :dcterms/description
+   "<em>ucumCode</em> associates a QUDT unit with with a UCUM case-sensitive code.",
+   :owl/deprecated true,
+   :rdf/type :owl/AnnotationProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "ucum case-sensitive code",
+   :rdfs/subPropertyOf :qudt/ucumCode})
+
+(def ucumCode
+  "<p><em>ucumCode</em> associates a QUDT unit with its UCUM code (case-sensitive). </p><p>In SHACL the values are derived from specific ucum properties using 'sh:values'.</p>"
+  {:db/ident :qudt/ucumCode,
+   :dcterms/description
+   "<p><em>ucumCode</em> associates a QUDT unit with its UCUM code (case-sensitive). </p><p>In SHACL the values are derived from specific ucum properties using 'sh:values'.</p>",
+   :dcterms/source "https://ucum.org/ucum.html",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "ucum code",
+   :rdfs/range {:owl/unionOf [:qudt/UCUMcs :qudt/UCUMcs-term],
+                :rdf/type    :owl/Class},
+   :rdfs/seeAlso "https://ucum.org/ucum.html",
+   :rdfs/subPropertyOf :skos/notation})
+
+(def udunitsCode
+  "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units. The package contains an extensive unit database, which is in XML format and user-extendable. The package also contains a command-line utility for investigating units and converting values."
+  {:db/ident :qudt/udunitsCode,
+   :dcterms/description
+   "The UDUNITS package supports units of physical quantities. Its C library provides for arithmetic manipulation of units and for conversion of numeric values between compatible units. The package contains an extensive unit database, which is in XML format and user-extendable. The package also contains a command-line utility for investigating units and converting values.",
+   :dcterms/source "https://www.unidata.ucar.edu/software/udunits/",
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "udunits code",
+   :rdfs/range :xsd/string})
+
+(def uneceCommonCode
+  "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade."
+  {:db/ident :qudt/uneceCommonCode,
+   :dcterms/description
+   "The UN/CEFACT Recommendation 20 provides three character alphabetic and alphanumeric codes for representing units of measurement for length, area, volume/capacity, mass (weight), time, and other quantities used in international trade. The codes are intended for use in manual and/or automated systems for the exchange of information between participants in international trade.",
+   :dcterms/source
+   ["https://unece.org/trade/documents/2021/06/uncefact-rec20-0"
+    "https://service.unece.org/trade/uncefact/vocabulary/rec20/"],
+   :rdf/type :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "unece common code",
+   :rdfs/range :xsd/string})
+
+(def unit
+  "A reference to the unit of measure of a quantity (variable or constant) of interest."
+  {:db/ident :qudt/unit,
+   :dcterms/description
+   "A reference to the unit of measure of a quantity (variable or constant) of interest.",
+   :owl/inverseOf :qudt/unitFor,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "unit",
+   :rdfs/range :qudt/Unit})
+
+(def unitFor
+  "unit for"
+  {:db/ident         :qudt/unitFor,
+   :owl/inverseOf    :qudt/unit,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "unit for"})
+
+(def unitOfSystem
+  "This property relates a unit of measure with a system of units that either a) defines the unit or b) allows the unit to be used within the system."
+  {:db/ident :qudt/unitOfSystem,
+   :dcterms/description
+   "This property relates a unit of measure with a system of units that either a) defines the unit or b) allows the unit to be used within the system.",
+   :owl/inverseOf :qudt/hasUnit,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/domain :qudt/Unit,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label "is unit of system",
+   :rdfs/range :qudt/SystemOfUnits})
+
+(def upperBound
+  "upper bound"
+  {:db/ident         :qudt/upperBound,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "upper bound",
+   :rdfs/range       :xsd/anySimpleType})
+
+(def url
+  "url"
+  {:db/ident         :qudt/url,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "url",
+   :rdfs/range       :xsd/anyURI})
+
 (def value
   "A property to relate an observable thing with a value of any kind"
   {:db/ident :qudt/value,
@@ -9360,9 +9534,17 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "This property identifies the value associated with a data structure. The value may be a scalar or a reference to another object. The disjoint sub-properties of this data:value distinguish between scalar values and object references.",
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "value",
-   :rdfs/subPropertyOf :rdf/value
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt"})
+   :rdfs/subPropertyOf :rdf/value})
+
+(def valueQuantity
+  "value for quantity"
+  {:db/ident         :qudt/valueQuantity,
+   :owl/inverseOf    :qudt/quantityValue,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "value for quantity"})
 
 (def valueRange
   "value range"
@@ -9376,6 +9558,19 @@
    :rdf/type         :owl/ObjectProperty,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "value type"})
+
+(def valueUnion
+  "A datatype that is the union of numeric xsd data types. \"numericUnion\" is equivalent to the xsd specification that uses an xsd:union of memberTypes=\"xsd:decimal xsd:double xsd:float xsd:integer\"."
+  {:db/ident         :qudt/valueUnion,
+   :dcterms/description
+   "A datatype that is the union of numeric xsd data types. \"numericUnion\" is equivalent to the xsd specification that uses an xsd:union of memberTypes=\"xsd:decimal xsd:double xsd:float xsd:integer\".",
+   :owl/equivalentClass {:owl/unionOf [:xsd/anySimpleType
+                                       :dtype/EnumeratedValue],
+                         :rdf/type    :owl/Class},
+   :rdf/type         :rdfs/Datatype,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "value union",
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def valueVector
   "A list of the values of elements in a Partial Array."
@@ -9399,6 +9594,14 @@
    :rdf/type   :owl/ObjectProperty,
    :rdfs/label "vector"})
 
+(def vectorMagnitude
+  "vector magnitude"
+  {:db/ident         :qudt/vectorMagnitude,
+   :rdf/type         [:owl/FunctionalProperty :owl/DatatypeProperty],
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "vector magnitude",
+   :rdfs/range       :xsd/float})
+
 (def visualCue
   "visual cue"
   {:db/ident           :qudt/visualCue,
@@ -9412,6 +9615,14 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         "visual cue enumeration",
    :rdfs/subPropertyOf :qudt/modalCueEnumeration})
+
+(def width
+  "width"
+  {:db/ident         :qudt/width,
+   :rdf/type         :owl/DatatypeProperty,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
+   :rdfs/label       "width",
+   :rdfs/range       :xsd/string})
 
 (def xAxisDefinition
   "The definition of the X-Axis could be an intersection, cross-product or other function of a meridian or orbit. It could also mention any aspects of rotation, for example, the rotation equator of the Earth, Sun, Moon or other celestial body. An epoch might also be given."
