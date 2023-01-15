@@ -488,7 +488,7 @@
   "Bit Aligned"
   {:db/ident      :qudt/BitAligned,
    :dtype/literal "bit",
-   :rdf/type      :qudt/AlignmentType,
+   :rdf/type      [:qudt/AlignmentType :owl/NamedIndividual],
    :rdfs/label    "Bit Aligned"})
 
 (def BitEncoding
@@ -812,7 +812,7 @@
   "By Column"
   {:db/ident         :qudt/ByColumn,
    :dtype/literal    "byColumn",
-   :rdf/type         :qudt/ArrayDataOrderType,
+   :rdf/type         [:qudt/ArrayDataOrderType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "By Column"})
 
@@ -820,7 +820,7 @@
   "By Left Most Index"
   {:db/ident         :qudt/ByLeftMostIndex,
    :dtype/literal    "byLeftMostIndex",
-   :rdf/type         :qudt/ArrayDataOrderType,
+   :rdf/type         [:qudt/ArrayDataOrderType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "By Left Most Index"})
 
@@ -828,7 +828,7 @@
   "By Row"
   {:db/ident         :qudt/ByRow,
    :dtype/literal    "byRow",
-   :rdf/type         :qudt/ArrayDataOrderType,
+   :rdf/type         [:qudt/ArrayDataOrderType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "By Row"})
 
@@ -836,7 +836,7 @@
   "Byte Aligned"
   {:db/ident      :qudt/ByteAligned,
    :dtype/literal "byte",
-   :rdf/type      :qudt/AlignmentType,
+   :rdf/type      [:qudt/AlignmentType :owl/NamedIndividual],
    :rdfs/label    "Byte Aligned"})
 
 (def ByteEncodingType
@@ -852,31 +852,31 @@
 (def CCT_EarthCentered
   "Earth-centered Coordinate System Type"
   {:db/ident   :qudt/CCT_EarthCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
+   :rdf/type   [:qudt/CoordinateCenterType :owl/NamedIndividual],
    :rdfs/label "Earth-centered Coordinate System Type"})
 
 (def CCT_MarsCentered
   "Mars-centered Coordinate System Type"
   {:db/ident   :qudt/CCT_MarsCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
+   :rdf/type   [:qudt/CoordinateCenterType :owl/NamedIndividual],
    :rdfs/label "Mars-centered Coordinate System Type"})
 
 (def CCT_MoonCentered
   "Moon-centered Coordinate System Type"
   {:db/ident   :qudt/CCT_MoonCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
+   :rdf/type   [:qudt/CoordinateCenterType :owl/NamedIndividual],
    :rdfs/label "Moon-centered Coordinate System Type"})
 
 (def CCT_SunCentered
   "Sun-centered Coordinate System Type"
   {:db/ident   :qudt/CCT_SunCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
+   :rdf/type   [:qudt/CoordinateCenterType :owl/NamedIndividual],
    :rdfs/label "Sun-centered Coordinate System Type"})
 
 (def CCT_VehicleCentered
   "Vehicle-centered Coordinate System Type"
   {:db/ident   :qudt/CCT_VehicleCentered,
-   :rdf/type   :qudt/CoordinateCenterType,
+   :rdf/type   [:qudt/CoordinateCenterType :owl/NamedIndividual],
    :rdfs/label "Vehicle-centered Coordinate System Type"})
 
 (def CFN_ConcatenateMatrixRows
@@ -2793,7 +2793,7 @@
   "High To Low"
   {:db/ident      :qudt/HighToLow,
    :dtype/literal "high",
-   :rdf/type      :qudt/MemoryOrderType,
+   :rdf/type      [:qudt/MemoryOrderType :owl/NamedIndividual],
    :rdfs/label    "High To Low"})
 
 (def IEEE754_1985RealEncoding
@@ -3101,7 +3101,7 @@
   "Little Endian"
   {:db/ident         :qudt/LittleEndian,
    :dtype/literal    "little",
-   :rdf/type         :qudt/EndianType,
+   :rdf/type         [:qudt/EndianType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Little Endian"})
 
@@ -3161,7 +3161,7 @@
   "Low To High"
   {:db/ident      :qudt/LowToHigh,
    :dtype/literal "low",
-   :rdf/type      :qudt/MemoryOrderType,
+   :rdf/type      [:qudt/MemoryOrderType :owl/NamedIndividual],
    :rdfs/label    "Low To High"})
 
 (def LunarCoordinateSystem
@@ -3678,7 +3678,7 @@
   "No"
   {:db/ident     :qudt/No,
    :qudt/literal "N",
-   :rdf/type     :qudt/YesNoType,
+   :rdf/type     [:qudt/YesNoType :owl/NamedIndividual],
    :rdfs/label   "No"})
 
 (def NominalScale
@@ -3699,7 +3699,7 @@
   {:db/ident     :qudt/NonModifiableParameter,
    :qudt/code    "0",
    :qudt/literal "fixed",
-   :rdf/type     :qudt/ParameterModifiabilityType,
+   :rdf/type     [:qudt/ParameterModifiabilityType :owl/NamedIndividual],
    :rdfs/comment "Parameter is fixed, not modifiable.",
    :rdfs/label   "Non modifiable parameter"})
 
@@ -3833,7 +3833,7 @@
   {:db/ident         :qudt/On,
    :qudt/code        "1",
    :qudt/literal     "on",
-   :rdf/type         :qudt/OnOffStateType,
+   :rdf/type         [:qudt/OnOffStateType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "On"})
 
@@ -3857,7 +3857,7 @@
   {:db/ident         :qudt/OneMeansOff,
    :qudt/inverted    true,
    :qudt/literal     "off",
-   :rdf/type         :qudt/OnOffStateType,
+   :rdf/type         [:qudt/OnOffStateType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "One means off"})
 
@@ -3866,7 +3866,7 @@
   {:db/ident     :qudt/Open,
    :qudt/code    "1",
    :qudt/literal "open",
-   :rdf/type     :qudt/OpenCloseStateType,
+   :rdf/type     [:qudt/OpenCloseStateType :owl/NamedIndividual],
    :rdfs/label   "Open"})
 
 (def OpenCloseStateType
@@ -4030,7 +4030,7 @@
   {:db/ident         :qudt/PartiallyOrdered,
    :qudt/literal     "partial",
    :qudt/plainTextDescription "Partial ordered structure.",
-   :rdf/type         :qudt/OrderedType,
+   :rdf/type         [:qudt/OrderedType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Partially Ordered"})
 
@@ -5687,7 +5687,7 @@
   {:db/ident     :qudt/SystemModifiableParameter,
    :qudt/code    "1",
    :qudt/literal "system",
-   :rdf/type     :qudt/ParameterModifiabilityType,
+   :rdf/type     [:qudt/ParameterModifiabilityType :owl/NamedIndividual],
    :rdfs/comment "Parameter is modifiable by a (computer) system.",
    :rdfs/label   "System modifiable parameter"})
 
@@ -6077,7 +6077,7 @@
   {:db/ident         :qudt/TotallyOrdered,
    :qudt/literal     "total",
    :qudt/plainTextDescription "Totally ordered structure.",
-   :rdf/type         :qudt/OrderedType,
+   :rdf/type         [:qudt/OrderedType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Totally Ordered"})
 
@@ -6571,7 +6571,7 @@
   {:db/ident         :qudt/Unordered,
    :qudt/literal     "unordered",
    :qudt/plainTextDescription "Unordered structure.",
-   :rdf/type         :qudt/OrderedType,
+   :rdf/type         [:qudt/OrderedType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Unordered"})
 
@@ -6800,7 +6800,7 @@
   {:db/ident     :qudt/UserModifiableParameter,
    :qudt/code    "2",
    :qudt/literal "user",
-   :rdf/type     :qudt/ParameterModifiabilityType,
+   :rdf/type     [:qudt/ParameterModifiabilityType :owl/NamedIndividual],
    :rdfs/comment "Parameter is modifiable by a user.",
    :rdfs/label   "User modifiable parameter"})
 
@@ -7114,7 +7114,7 @@
   "Word Aligned"
   {:db/ident      :qudt/WordAligned,
    :dtype/literal "word",
-   :rdf/type      :qudt/AlignmentType,
+   :rdf/type      [:qudt/AlignmentType :owl/NamedIndividual],
    :rdfs/label    "Word Aligned"})
 
 (def YDT
@@ -7131,7 +7131,7 @@
   "Yes"
   {:db/ident     :qudt/Yes,
    :qudt/literal "Y",
-   :rdf/type     :qudt/YesNoType,
+   :rdf/type     [:qudt/YesNoType :owl/NamedIndividual],
    :rdfs/label   "Yes"})
 
 (def YesNoType
@@ -8762,7 +8762,7 @@
   {:db/ident     :qudt/negative,
    :qudt/code    "1",
    :qudt/literal "negative",
-   :rdf/type     :qudt/Polarity,
+   :rdf/type     [:qudt/Polarity :owl/NamedIndividual],
    :rdfs/label   "negative"})
 
 (def negativeDeltaLimit
@@ -8965,7 +8965,7 @@
   {:db/ident     :qudt/positive,
    :qudt/code    "2",
    :qudt/literal "positive",
-   :rdf/type     :qudt/Polarity,
+   :rdf/type     [:qudt/Polarity :owl/NamedIndividual],
    :rdfs/label   "positive"})
 
 (def positiveDeltaLimit
