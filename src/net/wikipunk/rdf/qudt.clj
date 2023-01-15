@@ -495,7 +495,7 @@
   "Bit Encoding"
   {:db/ident         :qudt/BitEncoding,
    :qudt/bits        1,
-   :rdf/type         :qudt/BitEncodingType,
+   :rdf/type         [:qudt/BitEncodingType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Bit Encoding"})
 
@@ -764,7 +764,7 @@
   "Boolean Encoding"
   {:db/ident         :qudt/BooleanEncoding,
    :qudt/bits        1,
-   :rdf/type         :qudt/BooleanEncodingType,
+   :rdf/type         [:qudt/BooleanEncodingType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Boolean Encoding"})
 
@@ -1010,7 +1010,9 @@
   {:db/ident            :qudt/CharEncoding,
    :dcterms/description "7 bits of 1 octet",
    :qudt/bytes          1,
-   :rdf/type            [:qudt/CharEncodingType :qudt/BooleanEncodingType],
+   :rdf/type            [:qudt/CharEncodingType
+                         :qudt/BooleanEncodingType
+                         :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/qudt",
    :rdfs/label          "Char Encoding"})
 
@@ -2182,7 +2184,7 @@
   "Single Precision Real Encoding"
   {:db/ident         :qudt/DoublePrecisionEncoding,
    :qudt/bytes       64,
-   :rdf/type         :qudt/FloatingPointEncodingType,
+   :rdf/type         [:qudt/FloatingPointEncodingType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Single Precision Real Encoding"})
 
@@ -2800,7 +2802,7 @@
   "IEEE 754 1985 Real Encoding"
   {:db/ident   :qudt/IEEE754_1985RealEncoding,
    :qudt/bytes 32,
-   :rdf/type   :qudt/FloatingPointEncodingType,
+   :rdf/type   [:qudt/FloatingPointEncodingType :owl/NamedIndividual],
    :rdfs/label "IEEE 754 1985 Real Encoding"})
 
 (def IERS-TN-32-2004
@@ -3154,7 +3156,7 @@
   "Long Unsigned Integer Encoding"
   {:db/ident   :qudt/LongUnsignedIntegerEncoding,
    :qudt/bytes 8,
-   :rdf/type   :qudt/IntegerEncodingType,
+   :rdf/type   [:qudt/IntegerEncodingType :owl/NamedIndividual],
    :rdfs/label "Long Unsigned Integer Encoding"})
 
 (def LowToHigh
@@ -3809,7 +3811,9 @@
   "OCTET Encoding"
   {:db/ident         :qudt/OctetEncoding,
    :qudt/bytes       1,
-   :rdf/type         [:qudt/ByteEncodingType :qudt/BooleanEncodingType],
+   :rdf/type         [:qudt/ByteEncodingType
+                      :qudt/BooleanEncodingType
+                      :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "OCTET Encoding"})
 
@@ -5151,7 +5155,9 @@
   "Short Unsigned Integer Encoding"
   {:db/ident         :qudt/ShortUnsignedIntegerEncoding,
    :qudt/bytes       2,
-   :rdf/type         [:qudt/IntegerEncodingType :qudt/BooleanEncodingType],
+   :rdf/type         [:qudt/IntegerEncodingType
+                      :qudt/BooleanEncodingType
+                      :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Short Unsigned Integer Encoding"})
 
@@ -5205,7 +5211,7 @@
   "Signed Integer Encoding"
   {:db/ident         :qudt/SignedIntegerEncoding,
    :qudt/bytes       4,
-   :rdf/type         :qudt/IntegerEncodingType,
+   :rdf/type         [:qudt/IntegerEncodingType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Signed Integer Encoding"})
 
@@ -5361,7 +5367,7 @@
   "Single Precision Real Encoding"
   {:db/ident         :qudt/SinglePrecisionRealEncoding,
    :qudt/bytes       32,
-   :rdf/type         :qudt/FloatingPointEncodingType,
+   :rdf/type         [:qudt/FloatingPointEncodingType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Single Precision Real Encoding"})
 
@@ -6635,7 +6641,7 @@
   "Unsigned Integer Encoding"
   {:db/ident         :qudt/UnsignedIntegerEncoding,
    :qudt/bytes       4,
-   :rdf/type         :qudt/IntegerEncodingType,
+   :rdf/type         [:qudt/IntegerEncodingType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label       "Unsigned Integer Encoding"})
 
