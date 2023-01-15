@@ -248,8 +248,8 @@
 
 (def qudt.datatype
   {:dcat/downloadURL "https://qudt.org/2.1/schema/datatype.ttl"
-   :rdfa/uri         "http://qudt.org/2.1/schema/datatype/"
-   :rdfa/prefix      "qudt.datatype"
+   :rdfa/uri         "http://qudt.org/2.1/schema/datatype/" #_"http://qudt.org/2.1/schema/qudt/"
+   :rdfa/prefix      "datatype" #_"qudt"
    :rdf/type         :rdfa/PrefixMapping})
 
 (def qudt.math
