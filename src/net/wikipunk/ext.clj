@@ -263,3 +263,8 @@
    :rdfa/uri         "http://qudt.org/2.1/vocab/discipline/"
    :rdfa/prefix      "discipline"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def shacl
+  {:rdfa/uri    "http://www.w3.org/ns/shacl#"
+   :rdfa/prefix "sh"
+   :rdf/type    :rdfa/PrefixMapping})
