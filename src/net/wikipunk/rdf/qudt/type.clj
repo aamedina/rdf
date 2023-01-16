@@ -337,8 +337,7 @@
    :dcterms/description
    "The elements of the 'BooleanEnumeration' with two values, 'true' and 'false'.",
    :qudt/code 1002,
-   :qudt/value ["http://qudt.org/schema/type#True"
-                "http://qudt.org/schema/type#False"],
+   :qudt/value [:qudt/TRUE :qudt/FALSE],
    :rdf/type [:qudt/DiscreteState :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Boolean value"})
@@ -419,7 +418,7 @@
 (def COORDS-2D-DOUBLE
   "COORDS-2D-DOUBLE"
   {:db/ident         :qudt.type/COORDS-2D-DOUBLE,
-   :qudt/elementType :qudt/FLOAT-DP,
+   :qudt/elementType :qudt.type/FLOAT-DP,
    :rdf/type         [:qudt/Coordinates-2D-DoublePrecision
                       :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
@@ -428,7 +427,7 @@
 (def COORDS-2D-SINGLE
   "COORDS-2D-SINGLE"
   {:db/ident         :qudt.type/COORDS-2D-SINGLE,
-   :qudt/elementType :qudt/FLOAT-SP,
+   :qudt/elementType :qudt.type/FLOAT-SP,
    :qudt/elementTypeCount 2,
    :rdf/type         [:qudt/Coordinates-2D-SinglePrecision
                       :owl/NamedIndividual],
@@ -502,7 +501,7 @@
    :qudt/literal       "numeric",
    :qudt/odbcName      "SQL_DECIMAL(p,s)",
    :qudt/oracleSQLName "NUMBER(p,s)",
-   :qudt/rdfsDatatype  :qudt/numericUnion,
+   :qudt/rdfsDatatype  :qudt/NumericUnion,
    :rdf/type           [:qudt/NumericType :owl/NamedIndividual],
    :rdfs/isDefinedBy   "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label         "Decimal"})
@@ -540,7 +539,7 @@
   "Earth Centered Earth Mean Equator And Prime Meridian Coordinate System"
   {:db/ident :qudt.type/ECS_EC-EMEPM,
    :qudt/code 10,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id "TECS-03",
    :qudt/literal "EC-EMEP",
    :qudt/referenceFrame :qudt.type/RRF_EMEPM,
@@ -556,10 +555,10 @@
   "Earth Centered Earth True Equator And Prime Meridian Of Epoch Coordinate System"
   {:db/ident :qudt.type/ECS_EC-ETEPME,
    :qudt/code 12,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id "TECS-04",
    :qudt/literal "EC-ETEP",
-   :qudt/referenceFrame :qudt/NRIF_ETEPME,
+   :qudt/referenceFrame :qudt.type/NRIF_ETEPME,
    :rdf/type [:qudt/EarthCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label
@@ -571,10 +570,10 @@
   "Earth Centered International Celestial Reference System"
   {:db/ident :qudt.type/ECS_EC-ICRF,
    :qudt/code 14,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id "TECS-01",
    :qudt/literal "EC-IC",
-   :qudt/referenceFrame :qudt/NRIF_ICRF,
+   :qudt/referenceFrame :qudt.type/NRIF_ICRF,
    :rdf/type [:qudt/EarthCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Earth centered international celestial reference system",
@@ -584,7 +583,7 @@
   "Earth Centered International Terrestrial Reference System"
   {:db/ident :qudt.type/ECS_EC-ITRF,
    :qudt/code 16,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id "TECS-02",
    :qudt/literal "EC-IT",
    :qudt/referenceFrame :qudt.type/RRF_ITRF,
@@ -598,9 +597,9 @@
   "Sun Centered International Celestial Reference System"
   {:db/ident :qudt.type/ECS_SC-ICRF,
    :qudt/code 90,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id "TECS-05",
-   :qudt/referenceFrame :qudt/NRIF_ICRF,
+   :qudt/referenceFrame :qudt.type/NRIF_ICRF,
    :rdf/type [:qudt/EarthCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Sun-Centered international celestial reference system",
@@ -610,10 +609,10 @@
   "Vehicle Centered International Celestial Reference System"
   {:db/ident :qudt.type/ECS_VC-ICRF,
    :qudt/code 100,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id "TECS-06",
    :qudt/literal "VC-IC",
-   :qudt/referenceFrame :qudt/NRIF_ICRF,
+   :qudt/referenceFrame :qudt.type/NRIF_ICRF,
    :rdf/type [:qudt/EarthCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Vehicle centered international celestial reference system",
@@ -758,7 +757,7 @@
   {:db/ident :qudt.type/FLOAT-DP,
    :dcterms/description
    "A double precision floating point datatype.  Numbers of this type are stored using 64 bits, they require more memory than numbers of type single, which use 32 bits. However, because they are stored with more bits, numbers of type double are represented to more precision than numbers of type single. The double-precision (or double) data type is represented according to IEEE Standard 754 for double precision. A value is formatted with bit-fields for sign, mantissa and exponent.",
-   :owl/sameAs :qudt/FLOAT_IEEE754-BINARY64,
+   :owl/sameAs :qudt.type/FLOAT_IEEE754-BINARY64,
    :prov/wasInfluencedBy
    ["http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html"
     "http://en.wikipedia.org/wiki/IEEE_floating_point"
@@ -836,7 +835,7 @@
   {:db/ident :qudt.type/FLOAT_IEEE754-BINARY64,
    :dcterms/description
    "IEEE-754 floating point datatype is a technical standar established in 1985 by the Institute of Electrical and Electronics Engineers (IEEE). Many hardware floating point units use the IEEE 754 standard..",
-   :owl/sameAs :qudt/FLOAT-DP,
+   :owl/sameAs :qudt.type/FLOAT-DP,
    :prov/wasInfluencedBy "http://en.wikipedia.org/wiki/IEEE_floating_point",
    :qudt/base 2,
    :qudt/bits 64,
@@ -886,7 +885,7 @@
    :qudt/code           360,
    :qudt/dimension      3,
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :rdf/type            [:qudt/StateSpaceVector :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label          "Global Position Vector - double precision"})
@@ -1030,7 +1029,7 @@
    :qudt/coordinateCenter :qudt.type/CC_MoonCentered,
    :qudt/id             "TLCS-03",
    :qudt/literal        "LPABF",
-   :qudt/referenceFrame :qudt/NRIF_LPAE,
+   :qudt/referenceFrame :qudt.type/NRIF_LPAE,
    :rdf/type            [:qudt/LunarCoordinateSystem
                          :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -1103,9 +1102,9 @@
   {:db/ident            :qudt.type/MATRIX-4X4-FLOATDP,
    :qudt/code           320,
    :qudt/dimensionality 2,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :qudt/hasDimensionVector [4 4],
-   :qudt/typeMatrix     "http://qudt.org/schema/type#TYPE-MATRIX-4x4-FLOATDP",
+   :qudt/typeMatrix     :qudt.type/TYPE-MATRIX-4by4-FLOATDP
    :rdf/type            [:qudt/Matrix :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label          "MATRIX-4 X 4 Double precision"})
@@ -1114,10 +1113,10 @@
   "Mars Mean Equator And IAU-Node Of Epoch Coordinate System"
   {:db/ident :qudt.type/MCS_MC-MMEIAUE,
    :qudt/code 50,
-   :qudt/coordinateCenter :qudt/CC_MarsCentered,
+   :qudt/coordinateCenter :qudt.type/CC_MarsCentered,
    :qudt/id "TMCS-01",
    :qudt/literal "MMEIAUE",
-   :qudt/referenceFrame :qudt/NRIF_MMEIAUE,
+   :qudt/referenceFrame :qudt.type/NRIF_MMEIAUE,
    :rdf/type [:qudt/MarsCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Mars mean equator and IAU-Node of epoch Coordinate System",
@@ -1128,7 +1127,7 @@
   "Mars Mean Equator And Prime Meridian Body-Fixed Coordinate System"
   {:db/ident :qudt.type/MCS_MC-MMEPMBF,
    :qudt/code 52,
-   :qudt/coordinateCenter :qudt/CC_MarsCentered,
+   :qudt/coordinateCenter :qudt.type/CC_MarsCentered,
    :qudt/id "TMCS-02",
    :qudt/literal "MMEPMBF",
    :qudt/referenceFrame :qudt.type/RRF_MMEPMBF,
@@ -1162,7 +1161,7 @@
    :qudt/code           440,
    :qudt/dimension      4,
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :rdf/type            [:qudt/TypeVector :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label          "Mass properties State Vector - double precision"})
@@ -1196,11 +1195,11 @@
 (def NRIF_ETEPME
   "Earth True Equator and Prime Meridian of Epoch"
   {:db/ident :qudt.type/NRIF_ETEPME,
-   :qudt/figure :qudt/FIG_EM-ETEPME,
+   :qudt/figure :qudt.type/FIG_EM-ETEPME,
    :qudt/frameType :qudt/FT_NON-ROTATING,
    :qudt/id "T110-02",
    :qudt/literal "ETEPME",
-   :qudt/longDescription
+   :dcterms/description
    "The relationship between ITRF and ICRS is discussed extensively in [IERS-TN-32-2004]. Different models of this relationship are used. The NASA Deep Space Network uses the Lieske precession model (1976) and the corresponding nutation model is realized by nutations provided on DE405; the corresponding timing and polar motion data as measured for times past are maintained in internal files at the Jet Propulsion Laboratory. The IERS has proposed use of more recent precession (two flavors available) and nutation models and publishes timing and polar motion data for times past in its Earth Orientation Parameters (EOP) file available at http://www.iers.org. Either algorithm should be sufficiently accurate and it should be stated which is being used. However, the data and models must not be mixed. Do not, for example, use IERS EOP data with the Lieske precession model and DE405 nutations.",
    :qudt/realization
    "The International Terrestrial Reference Frame as defined for 1993 (ITRF93), as located in the ICRF at the epoch given using a consistent set of precession, nutation, and timing and polar motion models.",
@@ -1220,7 +1219,7 @@
   {:db/ident :qudt.type/NRIF_ICRF,
    :dcterms/description
    "The International celestial reference frame (ICRF) is the best-determined and most stable reference frame and is the root frame.  Other reference frames are often given with respect to the ICRF.",
-   :qudt/figure :qudt/FIG_ICRF,
+   :qudt/figure :qudt.type/FIG_ICRF,
    :qudt/frameType :qudt/FT_NON-ROTATING,
    :qudt/id "T110-03",
    :qudt/literal "ICRF",
@@ -1240,7 +1239,7 @@
   {:db/ident :qudt.type/NRIF_LPAE,
    :qudt/abbreviation "LPAE",
    :qudt/code 44,
-   :qudt/figure :qudt/FIG_LPAE,
+   :qudt/figure :qudt.type/FIG_LPAE,
    :qudt/frameType :qudt/FT_NON-ROTATING,
    :qudt/id "T110-04",
    :qudt/literal "LPAE",
@@ -1376,8 +1375,8 @@
    :dcterms/description
    "A discrete state enumeration whose values are 'off' and 'on'. The 'off' value is encoded as a zero (0) and the 'on' value as a one (1).",
    :qudt/code 1014,
-   :qudt/value ["http://qudt.org/schema/type#On"
-                "http://qudt.org/schema/type#Off"],
+   :qudt/value [:qudt/OOST_ON
+                :qudt/OOST_OFF],
    :rdf/type [:qudt/DiscreteState :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Off/On State Type Enumeration"})
@@ -1389,8 +1388,8 @@
    "A discrete state enumeration whose values are 'off' and 'on'. The 'on' value is encoded as a zero (0) and the 'off' value as a one (1).",
    :qudt/code 1016,
    :qudt/inverted true,
-   :qudt/value ["http://qudt.org/schema/type#On"
-                "http://qudt.org/schema/type#Off"],
+   :qudt/value [:qudt/OOST_ON
+                :qudt/OOST_OFF],
    :rdf/type [:qudt/DiscreteState :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "On/Off State Type Enumeration"})
@@ -1548,7 +1547,7 @@
    :qudt/code 340,
    :qudt/dimension 4,
    :qudt/dimensionality 1,
-   :qudt/elementType :qudt/FLOAT-DP,
+   :qudt/elementType :qudt.type/FLOAT-DP,
    :rdf/type [:qudt/Vector :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Quaternion Vector - double precision"})
@@ -1569,11 +1568,11 @@
 (def RRF_EMEPM
   "Earth Mean Equator and Prime Meridian"
   {:db/ident :qudt.type/RRF_EMEPM,
-   :qudt/figure :qudt/FIG_ICRF_EME-EMEPM,
+   :qudt/figure :qudt.type/FIG_ICRF_EME-EMEPM,
    :qudt/frameType :qudt/FT_NON-ROTATING,
    :qudt/id "T110-07",
    :qudt/literal "EMEPM",
-   :qudt/longDescription
+   :dcterms/description
    "Reasonable alternatives include the ICRF precessed and rotated according to any standard precession model, but since the “mean” is an approximation, it seems not worthwhile to additional computation to this definition. Although [Seidelmann2000] specifies TCB (Barycentric Coordinate Time), this in fact was an error introduced late in the preparation of the paper; the correct time scale for use in the IAU formulae given in Table 2.0-1 in the paper is TDB (Barycentric Dynamical Time, i.e., ephemeris time) and the standard epoch is 2451545.0 TDB.",
    :qudt/realization
    "This frame is realized from the ICRF, precessed and rotated according to the formulae in IAU2000.",
@@ -1608,17 +1607,15 @@
    :skos/prefLabel "Earth-Moon Rotating"})
 
 (def RRF_ICRF
-  "The ICRF is the best-determined and most stable reference frame and is the “root” frame—other reference frames are often given with respect to the ICRF."
+  "The vehicle-centered,EME2000coordinatesystemisusefulforvehicleattitude determination since the positions of stars in star catalogs used with star trackers and other celestial sensors are generally expressed in the EME2000 coordinate frame. However, caution must be exercised here since the EME2000 frames realized in the past by various star catalogs (such as FK5) and ephemerides (such as DE205) were actually slightly different frames because estimates of the actual location EME2000 changed with improvements in models and new data. For this reason the ICRF is the recommended standard.",
   {:db/ident :qudt.type/RRF_ICRF,
    :dcterms/description
    "The ICRF is the best-determined and most stable reference frame and is the “root” frame—other reference frames are often given with respect to the ICRF.",
-   :owl/sameAs :qudt/NRIF_ICRF,
-   :qudt/figure :qudt/FIG_ICRF,
+   :owl/sameAs :qudt.type/NRIF_ICRF,
+   :qudt/figure :qudt.type/FIG_ICRF,
    :qudt/frameType :qudt/FT_NON-ROTATING,
    :qudt/id "T110-06",
    :qudt/literal "ICRF",
-   :qudt/longDescription
-   "The vehicle-centered,EME2000coordinatesystemisusefulforvehicleattitude determination since the positions of stars in star catalogs used with star trackers and other celestial sensors are generally expressed in the EME2000 coordinate frame. However, caution must be exercised here since the EME2000 frames realized in the past by various star catalogs (such as FK5) and ephemerides (such as DE205) were actually slightly different frames because estimates of the actual location EME2000 changed with improvements in models and new data. For this reason the ICRF is the recommended standard.",
    :qudt/realization
    "The International Celestial Reference Frame (ICRF) was defined in 1995 with locations given for 22 quasars and other bright radio objects. This definition was extended by the addition of more sources in 2000. See Reference 8 for further information.",
    :qudt/xAxisDefinition
@@ -1637,8 +1634,8 @@
   {:db/ident :qudt.type/RRF_ITRF,
    :dcterms/description
    "At current levels of accuracy and precision the location of the ITRF at any point in time with respect to the ICRF cannot be predicted because the Earth (and its weather!) are not modeled that accurately. The location of the true pole depends on modeling precession and nutation and then measuring the actual rotation pole relative to the modeled pole with respect to both the ITRF and the ICRF. One can use either the NASA Deep Space Network’s models and file of pole locations, which also includes timing information to tell where the prime meridian was OR one can use the IERS models and file of pole locations and timing called the Earth Orientation Parameters (EOP) file BUT NOT BOTH, e.g., do not use the IERS EOP with the DSN models for precession and nutation. The IERS information is more publicly available and is recommended. See Reference 8 for more information, including the relationships between the various ITRF frames.",
-   :owl/sameAs :qudt/NRIF_ETEPMBF,
-   :qudt/figure :qudt/FIG_ITRF,
+   :owl/sameAs :qudt.type/NRIF_ETEPMBF,
+   :qudt/figure :qudt.type/FIG_ITRF,
    :qudt/frameType :qudt/FT_ROTATING,
    :qudt/id "T110-09",
    :qudt/literal "ITRF",
@@ -1655,7 +1652,7 @@
    :skos/prefLabel "International Terrestrial Reference Frame"})
 
 (def RRF_LMEBF
-  "Lunar body-fixed coordinate frame aligned with the rotation axis of the Moon."
+  "The location of the LMEBF is a fixed rotation from the LPABF given in [Williams96] as: “The three rotations (in arcseconds) from Principal (P) to Mean (M) axes are M = R_1(-0.15′′) R_2(-79.12′′) R_3(-66.48′′) P.\"\n\nHistorical data and surface maps are given in this frame. Finding the rotation axes and principal axes depends on solving for the dynamics of the Moon’s orientation, which must be done in conjunction with solving for its motion in space, though the Moon’s motion in space can also be solved for independently.\n\nUsing the traditional terminology and syntax for trajectory-related coordinate frames, this frame probably could have been called “Moon True Equator and Prime Meridian Body-Fixed” since the lunar principal axes directions represent the best (or “true”) orientations of the Moon’s pole and prime meridian at any given time. These axes are slightly rotated away from the Moon’s principal axes because the Moon is tidally locked to Earth so that perturbations from higher order terms in the gravity field are not averaged out by rotation.",
   {:db/ident :qudt.type/RRF_LMEBF,
    :dcterms/description
    "Lunar body-fixed coordinate frame aligned with the rotation axis of the Moon.",
@@ -1665,8 +1662,6 @@
    :qudt/frameType :qudt/FT_ROTATING,
    :qudt/id "T110-10",
    :qudt/literal "LMEBF",
-   :qudt/longDescription
-   "The location of the LMEBF is a fixed rotation from the LPABF given in [Williams96] as: “The three rotations (in arcseconds) from Principal (P) to Mean (M) axes are M = R_1(-0.15′′) R_2(-79.12′′) R_3(-66.48′′) P.\"\n\nHistorical data and surface maps are given in this frame. Finding the rotation axes and principal axes depends on solving for the dynamics of the Moon’s orientation, which must be done in conjunction with solving for its motion in space, though the Moon’s motion in space can also be solved for independently.\n\nUsing the traditional terminology and syntax for trajectory-related coordinate frames, this frame probably could have been called “Moon True Equator and Prime Meridian Body-Fixed” since the lunar principal axes directions represent the best (or “true”) orientations of the Moon’s pole and prime meridian at any given time. These axes are slightly rotated away from the Moon’s principal axes because the Moon is tidally locked to Earth so that perturbations from higher order terms in the gravity field are not averaged out by rotation.",
    :qudt/realization
    "This is realized by the locations of the three Apollo and one Lunar laser ranging retroreflectors",
    :qudt/xAxisDefinition
@@ -1769,7 +1764,7 @@
    :dcterms/description
    "In this coordinate frame, the two collinear Lagrange points EL_1 and EL_2 (sometimes called Libration points) both lie along the positive X-axis approximately 1.5 million kilometers from the Earth. The EL_1 point lies on the X-axis between the Earth and the Sun and the EL_2 point lies on the X-axis on the other side of the Earth away from the Sun. See [Roncoli2005] for more information about Lagrange points.",
    :qudt/code 92,
-   :qudt/figure :qudt/FIG_EM-ROT,
+   :qudt/figure :qudt.type/FIG_EM-ROT,
    :qudt/frameType :qudt/FT_ROTATING,
    :qudt/id "T110-15",
    :qudt/literal "SE-ROT",
@@ -1905,7 +1900,7 @@
    :qudt/oracleSQLName "NUMBER(10)",
    :qudt/protocolBuffersName "int32",
    :qudt/rdfsDatatype :xsd/int,
-   :qudt/signedness [:qudt/Signed :qudt/SIGNED],
+   :qudt/signedness :qudt/SIGNED
    :rdf/type [:qudt/SignedLongIntegerType :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Signed Long Integer"})
@@ -1957,7 +1952,7 @@
    :dtype/literal       "string",
    :owl/sameAs          :qudt/UTF8-STRING,
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/UTF8-CHAR,
+   :qudt/elementType    :qudt.type/UTF8-CHAR,
    :qudt/encoding       :qudt/UTF8-StringEncoding,
    :qudt/protocolBuffersName "string",
    :qudt/rdfsDatatype   :xsd/string,
@@ -1979,7 +1974,7 @@
    :qudt/code           350,
    :qudt/dimension      3,
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :rdf/type            [:qudt/Vector :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label          "Scale 3D Vector - double precision"})
@@ -2049,7 +2044,7 @@
   {:db/ident            :qudt.type/StateSpaceMatrix-2X2-DP,
    :qudt/code           321,
    :qudt/dimensionality 2,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :qudt/hasDimensionVector [2 2],
    :rdf/type            [:qudt/StateSpaceMatrix :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2060,7 +2055,7 @@
   {:db/ident            :qudt.type/StateSpaceMatrix-2by4-FLOATDP,
    :qudt/code           323,
    :qudt/dimensionality 2,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :qudt/hasDimensionVector [2 4],
    :rdf/type            [:qudt/StateSpaceMatrix :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2071,7 +2066,7 @@
   {:db/ident            :qudt.type/StateSpaceMatrix-4X4-DP,
    :qudt/code           327,
    :qudt/dimensionality 2,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :qudt/hasDimensionVector [4 4],
    :rdf/type            [:qudt/StateSpaceMatrix :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2082,7 +2077,7 @@
   {:db/ident            :qudt.type/StateSpaceMatrix-4by2-DoublePrecision,
    :qudt/code           325,
    :qudt/dimensionality 2,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :qudt/hasDimensionVector [4 2],
    :rdf/type            [:qudt/StateSpaceMatrix :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2094,7 +2089,7 @@
    :qudt/code           353,
    :qudt/dimension      3,
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/FLOAT-DP,
+   :qudt/elementType    :qudt.type/FLOAT-DP,
    :rdf/type            [:qudt/StateSpaceVector :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label          "State Vector Double Precision"})
@@ -2105,7 +2100,7 @@
    :qudt/code           351,
    :qudt/dimension      3,
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/FLOAT-SP,
+   :qudt/elementType    :qudt.type/FLOAT-SP,
    :rdf/type            [:qudt/StateSpaceVector :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label          "State Vector Single Precision"})
@@ -2133,7 +2128,7 @@
   "Earth-Centered Earth-Moon Rotating Coordinate System"
   {:db/ident            :qudt.type/TBRCS_EC-EMR,
    :qudt/code           20,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id             "TTBRCS-01",
    :qudt/literal        "EM-ROT",
    :qudt/referenceFrame :qudt.type/RRF_EMR,
@@ -2146,7 +2141,7 @@
   "Earth-Centered Sun Earth Rotating Coordinate System"
   {:db/ident            :qudt.type/TBRCS_EC-SER,
    :qudt/code           92,
-   :qudt/coordinateCenter :qudt/CC_EarthCentered,
+   :qudt/coordinateCenter :qudt.type/CC_EarthCentered,
    :qudt/id             "TTBRCS-02",
    :qudt/literal        "SE-ROT",
    :qudt/referenceFrame :qudt.type/RRF_SER,
@@ -2173,7 +2168,7 @@
   "Sun-Centered Sun Earth Rotating Coordinate System"
   {:db/ident            :qudt.type/TBRCS_SC-SER,
    :qudt/code           92,
-   :qudt/coordinateCenter :qudt/CC_SunCentered,
+   :qudt/coordinateCenter :qudt.type/CC_SunCentered,
    :qudt/id             "TTBRCS-04",
    :qudt/literal        "SE-ROT",
    :qudt/referenceFrame :qudt.type/RRF_SER,
@@ -2366,7 +2361,7 @@
   {:db/ident            :qudt.type/UTF16STRING,
    :qudt/code           600,
    :qudt/dimensionality 1,
-   :qudt/encoding       :qudt/UTF16StringEncoding,
+   :qudt/encoding       :qudt/UTF16-StringEncoding,
    :qudt/literal        "utf16",
    :rdf/type            [:qudt/StringUTF16 :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2399,7 +2394,7 @@
    :dcterms/description "String consisting of UTF-8 characters",
    :qudt/code           500,
    :qudt/dimensionality 1,
-   :qudt/encoding       :qudt/UTF8StringEncoding,
+   :qudt/encoding       :qudt/UTF8-StringEncoding,
    :qudt/literal        "utf8",
    :rdf/type            [:qudt/StringUTF8 :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2433,7 +2428,7 @@
   "Vehicle centered local vertical curvilinear coordinate system"
   {:db/ident :qudt.type/VCS_VC-LVC,
    :qudt/code 30,
-   :qudt/coordinateCenter :qudt/CC_VehicleCentered,
+   :qudt/coordinateCenter :qudt.type/CC_VehicleCentered,
    :qudt/id "TVCS-01",
    :qudt/literal "VC-LVC",
    :qudt/referenceFrame :qudt.type/RRF_LVC,
@@ -2447,7 +2442,7 @@
   "Local Vertical Local Horizontal Coordinate System"
   {:db/ident              :qudt.type/VCS_VC-LVLH,
    :qudt/code             32,
-   :qudt/coordinateCenter :qudt/CC_VehicleCentered,
+   :qudt/coordinateCenter :qudt.type/CC_VehicleCentered,
    :qudt/id               "TVCS-02",
    :qudt/literal          "LVLH",
    :rdf/type              [:qudt/VehicleCoordinateSystem

@@ -168,7 +168,7 @@
   {:db/ident    :qudt/ArrayIndex-elementType,
    :rdf/type    :sh/PropertyShape,
    :sh/datatype :xsd/nonNegativeInteger,
-   :sh/hasValue :qudt/UNSIGNED-INTEGER,
+   :sh/hasValue :qudt.type/UNSIGNED-INTEGER,
    :sh/path     :qudt/elementType})
 
 (def ArrayIndexType
@@ -452,7 +452,7 @@
   {:db/ident    :qudt/BigIntegerType-octets,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue 8,
-   :sh/or       :qudt/IntegerUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/octets})
 
 (def BinaryPrefix
@@ -1205,7 +1205,7 @@
    :sh/class    :qudt/CompositionFunction,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/function})
+   :sh/path     :qudt/Function})
 
 (def Concept
   "The root class for all QUDT concepts."
@@ -1457,7 +1457,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Double_X})
+   :sh/path     :qudt/Coordinates-2D-DoublePrecision-Double_X})
 
 (def Coordinates-2D-DoublePrecision-Double_Y
   "Coordinates-2D-DoublePrecision-Double_Y"
@@ -1466,7 +1466,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Double_Y})
+   :sh/path     :qudt/Coordinates-2D-DoublePrecision-Double_Y,})
 
 (def Coordinates-2D-SinglePrecision
   "2D coordinates in single floating point precision for locating a point in physical space"
@@ -1564,7 +1564,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Double_X})
+   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_X,})
 
 (def Coordinates-3D-DoublePrecision-Double_Y
   "Coordinates-3D-DoublePrecision-Double_Y"
@@ -1573,7 +1573,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Double_Y})
+   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_Y,})
 
 (def Coordinates-3D-DoublePrecision-Double_Z
   "Coordinates-3D-DoublePrecision-Double_Z"
@@ -1582,7 +1582,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Double_Z})
+   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_Z,})
 
 (def Coordinates-3D-DoublePrecision-Type
   "3D coordinates in double floating point precision for locating a point in physical space"
@@ -3149,7 +3149,7 @@
   {:db/ident    :qudt/LongIntegerType-octets,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue 4,
-   :sh/or       :qudt/IntegerUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/octets})
 
 (def LongUnsignedIntegerEncoding
@@ -3248,7 +3248,7 @@
    :rdf/type   [:qudt/MatrixType :owl/NamedIndividual],
    :rdfs/label "MATRIX"})
 
-(def MATRIX-TYPE_2x4
+#_(def MATRIX-TYPE_2x4
   "Matrix type 2x4"
   {:db/ident            :qudt/MATRIX-TYPE_2x4,
    :qudt/byRow          true,
@@ -3419,7 +3419,7 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Modal Enumeration",
-   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/ModelCue,
+   :rdfs/subClassOf [{:owl/allValuesFrom :qudt/ModalCue,
                       :owl/onProperty    :qudt/defaultValue,
                       :rdf/type          :owl/Restriction}
                      :qudt/Enumeration],
@@ -3563,7 +3563,7 @@
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :qudt/kinestheticCue,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :qudt/ModelCue,
+                     {:owl/allValuesFrom :qudt/ModalCue,
                       :owl/onProperty    :qudt/modalCue,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
@@ -3574,7 +3574,7 @@
                       :owl/onProperty     :qudt/auralCue,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :qudt/modalCue,
-                      :owl/someValuesFrom :qudt/ModelCue,
+                      :owl/someValuesFrom :qudt/ModalCue,
                       :rdf/type           :owl/Restriction}],
    :sh/property [:qudt/MultiModalType-visualCue
                  :qudt/MultiModalType-kinestheticCue
@@ -3831,15 +3831,6 @@
   {:db/ident :qudt/OffOnStateTypeEnumeration,
    :rdfs/comment
    "A discrete state enumeration whose values are 'off' and 'on'. The 'off' value is encoded as a zero (0) and the 'on' value as a one (1)."})
-
-(def On
-  "On"
-  {:db/ident         :qudt/On,
-   :qudt/code        "1",
-   :qudt/literal     "on",
-   :rdf/type         [:qudt/OnOffStateType :owl/NamedIndividual],
-   :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
-   :rdfs/label       "On"})
 
 (def OnOffStateType
   "On off state type"
@@ -4949,7 +4940,7 @@
   {:db/ident    :qudt/ScalarDatatype-bits,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
-   :sh/or       :qudt/IntegerUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/bits})
 
 (def ScalarDatatype-byteOrder
@@ -4965,7 +4956,7 @@
   {:db/ident    :qudt/ScalarDatatype-bytes,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
-   :sh/or       :qudt/IntegerUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/bytes})
 
 (def ScalarDatatype-encoding
@@ -4990,7 +4981,7 @@
    :rdf/type         :sh/PropertyShape,
    :rdfs/isDefinedBy "http://edg.topbraid.solutions/1.0/schema/qudt",
    :sh/maxCount      1,
-   :sh/or            :qudt/NumericUnionList,
+   :sh/or            [:qudt/NumericUnion],
    :sh/path          :qudt/maxExclusive})
 
 (def ScalarDatatype-maxInclusive
@@ -4999,7 +4990,7 @@
    :rdf/type         :sh/PropertyShape,
    :rdfs/isDefinedBy "http://edg.topbraid.solutions/1.0/schema/qudt",
    :sh/maxCount      1,
-   :sh/or            :qudt/NumericUnionList,
+   :sh/or            [:qudt/NumericUnion],
    :sh/path          :qudt/maxInclusive})
 
 (def ScalarDatatype-minExclusive
@@ -5007,7 +4998,7 @@
   {:db/ident    :qudt/ScalarDatatype-minExclusive,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
-   :sh/or       :qudt/NumericUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/minExclusive})
 
 (def ScalarDatatype-minInclusive
@@ -5015,7 +5006,7 @@
   {:db/ident    :qudt/ScalarDatatype-minInclusive,
    :rdf/type    :sh/PropertyShape,
    :sh/maxCount 1,
-   :sh/or       :qudt/NumericUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/minInclusive})
 
 (def ScalarDatatype-rdfsDatatype
@@ -5194,7 +5185,7 @@
   "SignedBigIntegerType-maxInclusive"
   {:db/ident :qudt/SignedBigIntegerType-maxInclusive,
    :rdf/type :sh/PropertyShape,
-   :sh/or    :qudt/NumericUnionList,
+   :sh/or    [:qudt/NumericUnion],
    :sh/path  :qudt/maxInclusive})
 
 (def SignedBigIntegerType-minInclusive
@@ -5263,7 +5254,7 @@
   "SignedLongIntegerType-maxInclusive"
   {:db/ident :qudt/SignedLongIntegerType-maxInclusive,
    :rdf/type :sh/PropertyShape,
-   :sh/or    :qudt/NumericUnionList,
+   :sh/or    [:qudt/NumericUnion],
    :sh/path  :qudt/maxInclusive})
 
 (def SignedLongIntegerType-minInclusive
@@ -5611,7 +5602,7 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "String UTF16 Type",
-   :rdfs/subClassOf [{:owl/hasValue   :qudt/UTF16-CHAR,
+   :rdfs/subClassOf [{:owl/hasValue   :qudt.type/UTF16-CHAR,
                       :owl/onProperty :qudt/elementType,
                       :rdf/type       :owl/Restriction}
                      :qudt/TextStringType
@@ -5633,7 +5624,7 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "String UTF8 Type",
-   :rdfs/subClassOf [{:owl/hasValue   :qudt/UTF8-CHAR,
+   :rdfs/subClassOf [{:owl/hasValue   :qudt.type/UTF8-CHAR,
                       :owl/onProperty :qudt/elementType,
                       :rdf/type       :owl/Restriction}
                      :qudt/TextStringType
@@ -5759,7 +5750,7 @@
                       :rdf/type          :owl/Restriction}
                      :qudt/Concept]})
 
-(def TABLE-TYPE_2x4
+#_(def TABLE-TYPE_2x4
   "Table type 2x4"
   {:db/ident            :qudt/TABLE-TYPE_2x4,
    :qudt/byRow          true,
@@ -6136,14 +6127,6 @@
    :rdfs/label       "Triplet",
    :rdfs/subClassOf  [:qudt/ThreeTupleType :qudt/Three-Tuple]})
 
-(def True
-  "true"
-  {:db/ident     :qudt/True,
-   :qudt/code    "1",
-   :qudt/literal "true",
-   :rdf/type     :qudt/BooleanStateType,
-   :rdfs/label   "true"})
-
 (def Tuple
   "<p>The term <em>Tuple</em> originated as an abstraction of the sequence: single, double, triple, quadruple, quintuple, n-tuple. In mathematics, a tuple is a finite sequence (also known as an <em>Ordered List</em> of objects, each of a specified type. The <em>n</em> can be any non-negative integer.</p>"
   {:db/ident :qudt/Tuple,
@@ -6325,7 +6308,7 @@
   "TypeVector-objectValue"
   {:db/ident :qudt/TypeVector-objectValue,
    :rdf/type :sh/PropertyShape,
-   :sh/class :qudt/IndexedList,
+   :sh/class :qudt/List,
    :sh/path  :qudt/objectValue})
 
 (def TypeVector-type
@@ -6464,7 +6447,7 @@
   {:db/ident            :qudt/UTF16-STRING,
    :dtype/literal       "utf16",
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/UTF16-CHAR,
+   :qudt/elementType    :qudt.type/UTF16-CHAR,
    :qudt/encoding       :qudt/UTF16-StringEncoding,
    :rdf/type            [:qudt/StringUTF16 :owl/NamedIndividual],
    :rdfs/label          "UTF16 String"})
@@ -6481,9 +6464,8 @@
   {:db/ident            :qudt/UTF8-STRING,
    :dcterms/description "String consisting of UTF-8 characters",
    :dtype/literal       "utf8",
-   :owl/sameAs          :qudt/STRING,
    :qudt/dimensionality 1,
-   :qudt/elementType    :qudt/UTF8-CHAR,
+   :qudt/elementType    :qudt.type/UTF8-CHAR,
    :qudt/encoding       :qudt/UTF8-StringEncoding,
    :rdf/type            [:qudt/StringUTF8 :owl/NamedIndividual],
    :rdfs/label          "UTF8 String"})
@@ -6623,7 +6605,7 @@
   {:db/ident    :qudt/UnsignedBigIntegerType-maxInclusive,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue "2^{64}-1",
-   :sh/or       :qudt/NumericUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/maxInclusive})
 
 (def UnsignedBigIntegerType-minInclusive
@@ -6682,12 +6664,18 @@
                  :qudt/UnsignedLongIntegerType-maxInclusive
                  :qudt/UnsignedLongIntegerType-literal]})
 
+(def UnsignedLongIntegerType-literal
+  "UnsignedLongIntegerType-literal"
+  {:db/ident :qudt/UnsignedLongIntegerType-literal
+   :rdf/type :sh/PropertyShape,
+   :sh/path  :dtype/literal})
+
 (def UnsignedLongIntegerType-maxInclusive
   "UnsignedLongIntegerType-maxInclusive"
   {:db/ident    :qudt/UnsignedLongIntegerType-maxInclusive,
    :rdf/type    :sh/PropertyShape,
    :sh/hasValue "2^{32}-1",
-   :sh/or       :qudt/NumericUnionList,
+   :sh/or       [:qudt/NumericUnion],
    :sh/path     :qudt/maxInclusive})
 
 (def UnsignedLongIntegerType-minInclusive
@@ -7363,6 +7351,36 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "is base unit of system",
    :rdfs/subPropertyOf :qudt/coherentUnitOfSystem})
+
+(def baseImperialUnitDimensions
+  {:db/ident :qudt/baseImperialUnitDimensions
+   :rdf/type :owl/ObjectProperty
+   :rdfs/domain :qudt/QuantityKind
+   :rdfs/range :xsd/string})
+
+(def baseSIUnitDimensions
+  {:db/ident :qudt/baseSIUnitDimensions
+   :rdf/type :owl/ObjectProperty
+   :rdfs/domain :qudt/QuantityKind
+   :rdfs/range :xsd/string})
+
+(def baseCGSUnitDimensions
+  {:db/ident :qudt/baseCGSUnitDimensions
+   :rdf/type :owl/ObjectProperty
+   :rdfs/domain :qudt/QuantityKind
+   :rdfs/range :xsd/string})
+
+(def baseISOUnitDimensions
+  {:db/ident :qudt/baseISOUnitDimensions
+   :rdf/type :owl/ObjectProperty
+   :rdfs/domain :qudt/QuantityKind
+   :rdfs/range :xsd/string})
+
+(def baseUSCustomaryUnitDimensions
+  {:db/ident :qudt/baseISOUnitDimensions
+   :rdf/type :owl/ObjectProperty
+   :rdfs/domain :qudt/QuantityKind
+   :rdfs/range :xsd/string})
 
 (def basis
   "basis"
