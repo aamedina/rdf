@@ -17,7 +17,7 @@
                        "rev" "http://purl.org/stuff/rev#",
                        "vann" "http://purl.org/vocab/vann/",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type [:owl/Thing :owl/Ontology],
+   :rdf/type          :owl/Ontology
    :rdf/uri "http://purl.org/stuff/rev#",
    :rdfa/prefix "rev",
    :rdfa/uri "http://purl.org/stuff/rev#",

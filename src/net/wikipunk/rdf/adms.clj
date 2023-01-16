@@ -46,7 +46,7 @@
                        "xhv"     "http://www.w3.org/1999/xhtml/vocab#",
                        "xml"     "http://www.w3.org/XML/1998/namespace",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type [:voaf/Vocabulary :owl/Ontology],
+   :rdf/type :owl/Ontology
    :rdf/uri "http://www.w3.org/ns/adms",
    :rdfa/prefix "adms",
    :rdfa/uri "http://www.w3.org/ns/adms#",

@@ -23,7 +23,7 @@
                        "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"     "http://www.w3.org/2004/02/skos/core#",
                        "vann"     "http://purl.org/vocab/vann/"},
-   :rdf/type [:owl/Ontology :cc/Work],
+   :rdf/type :owl/Ontology
    :rdf/uri "https://vocab.org/frbr/frbr-core-20050810.rdf",
    :rdfa/prefix "frbr",
    :rdfa/uri "http://purl.org/vocab/frbr/core#",

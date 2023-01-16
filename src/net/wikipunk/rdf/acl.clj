@@ -9,7 +9,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "vcard"   "http://www.w3.org/2006/vcard/ns#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :rdfa/PrefixMapping,
+   :rdf/type :owl/Ontology
    :rdf/uri "http://www.w3.org/ns/auth/acl",
    :rdfa/prefix "acl",
    :rdfa/uri "http://www.w3.org/ns/auth/acl#",

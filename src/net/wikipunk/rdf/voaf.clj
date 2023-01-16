@@ -39,7 +39,7 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "voaf" "http://purl.org/vocommons/voaf#",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type [:owl/Ontology :voaf/Vocabulary],
+   :rdf/type          :owl/Ontology
    :rdf/uri "http://purl.org/vocommons/voaf",
    :rdfa/prefix "voaf",
    :rdfa/uri "http://purl.org/vocommons/voaf#",

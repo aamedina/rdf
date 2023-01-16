@@ -15,7 +15,7 @@
                        "sioc" "http://rdfs.org/sioc/ns#",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
                        "wot" "http://xmlns.com/wot/0.1/"},
-   :rdf/type [:owl/Thing :owl/Ontology],
+   :rdf/type          :owl/Ontology
    :rdf/uri "http://rdfs.org/sioc/ns#",
    :rdfa/prefix "sioc",
    :rdfa/uri "http://rdfs.org/sioc/ns#",

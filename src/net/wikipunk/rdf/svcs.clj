@@ -10,7 +10,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "sioc"    "http://rdfs.org/sioc/ns#",
                        "svcs"    "http://rdfs.org/sioc/services#"},
-   :rdf/type [:owl/Thing :owl/Ontology],
+   :rdf/type          :owl/Ontology
    :rdf/uri "http://rdfs.org/sioc/services#",
    :rdfa/prefix "svcs",
    :rdfa/uri "http://rdfs.org/sioc/services#",

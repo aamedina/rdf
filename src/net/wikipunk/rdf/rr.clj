@@ -23,7 +23,7 @@
                          "vann" "http://purl.org/vocab/vann/",
                          "xml" "http://www.w3.org/XML/1998/namespace",
                          "xsd" "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type            [:voaf/Vocabulary :owl/Ontology],
+   :rdf/type          :owl/Ontology
    :rdf/uri             "http://www.w3.org/ns/r2rml#",
    :rdfa/prefix         "rr",
    :rdfa/uri            "http://www.w3.org/ns/r2rml#",

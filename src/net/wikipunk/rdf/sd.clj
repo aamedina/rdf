@@ -5,7 +5,7 @@
                        "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                        "sd" "http://www.w3.org/ns/sparql-service-description#"},
-   :rdf/type          :rdfa/PrefixMapping,
+   :rdf/type          :owl/Ontology
    :rdfa/prefix       "sd",
    :rdfa/uri          "http://www.w3.org/ns/sparql-service-description#",
    :rdfs/isDefinedBy  {:rdf/uri

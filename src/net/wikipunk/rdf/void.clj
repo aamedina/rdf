@@ -55,7 +55,7 @@
                        "vann"    "http://purl.org/vocab/vann/",
                        "void"    "http://rdfs.org/ns/void#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type [:adms/SemanticAsset :owl/Ontology],
+   :rdf/type          :owl/Ontology
    :rdf/uri "http://vocab.deri.ie/void",
    :rdfa/prefix "void",
    :rdfa/uri "http://rdfs.org/ns/void#",

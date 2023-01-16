@@ -7,7 +7,7 @@
                        "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
                        "swrl" "http://www.w3.org/2003/11/swrl#"},
-   :rdf/type :rdfa/PrefixMapping,
+   :rdf/type          :owl/Ontology
    :rdf/uri "http://www.w3.org/2003/11/swrl",
    :rdfa/prefix "swrl",
    :rdfa/uri "http://www.w3.org/2003/11/swrl#",

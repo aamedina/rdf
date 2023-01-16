@@ -31,7 +31,7 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "voaf" "http://purl.org/vocommons/voaf#",
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type :voaf/Vocabulary,
+   :rdf/type :owl/Ontology
    :rdf/uri "http://www.w3.org/ns/duv",
    :rdfa/prefix "duv",
    :rdfa/uri "https://www.w3.org/ns/duv#",

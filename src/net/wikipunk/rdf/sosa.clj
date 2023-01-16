@@ -28,7 +28,7 @@
                        "vann"    "http://purl.org/vocab/vann/",
                        "voaf"    "http://purl.org/vocommons/voaf#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type [:voaf/Vocabulary :owl/Ontology],
+   :rdf/type          :owl/Ontology
    :rdf/uri "http://www.w3.org/ns/sosa/",
    :rdfa/prefix "sosa",
    :rdfa/uri "http://www.w3.org/ns/sosa/",

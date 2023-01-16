@@ -23,7 +23,7 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"    "http://www.w3.org/2004/02/skos/core#",
                        "time"    "http://www.w3.org/2006/time#",
-                       "xsd"     "http://www.w3.org/2001/XMLSchema#"},
+                       "xsd"     "http://www.w3.org/2001/XMLSchema#"},   
    :rdf/type :owl/Ontology,
    :rdf/uri "http://www.w3.org/2006/time",
    :rdfa/prefix "time",
