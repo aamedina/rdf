@@ -543,7 +543,7 @@
    :qudt/coordinateCenter :qudt/CC_EarthCentered,
    :qudt/id "TECS-03",
    :qudt/literal "EC-EMEP",
-   :qudt/referenceFrame :qudt/RRF_EMEPM,
+   :qudt/referenceFrame :qudt.type/RRF_EMEPM,
    :rdf/type [:qudt/EarthCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label
@@ -587,7 +587,7 @@
    :qudt/coordinateCenter :qudt/CC_EarthCentered,
    :qudt/id "TECS-02",
    :qudt/literal "EC-IT",
-   :qudt/referenceFrame :qudt/RRF_ITRF,
+   :qudt/referenceFrame :qudt.type/RRF_ITRF,
    :rdf/type [:qudt/EarthCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Earth centered international terrestrial reference system",
@@ -997,10 +997,10 @@
   "Lunar Mean Earth Body Fixed Coordinate System"
   {:db/ident            :qudt.type/LCS_LC-LMEBF,
    :qudt/code           40,
-   :qudt/coordinateCenter :qudt/CC_MoonCentered,
+   :qudt/coordinateCenter :qudt.type/CC_MoonCentered,
    :qudt/id             "TLCS-01",
    :qudt/literal        "LMEBF",
-   :qudt/referenceFrame :qudt/RRF_LMEBF,
+   :qudt/referenceFrame :qudt.type/RRF_LMEBF,
    :rdf/type            [:qudt/LunarCoordinateSystem
                          :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -1013,11 +1013,11 @@
    :dcterms/description
    "Lunar body-fixed coordinate frame aligned with the principal axes of the Moon.",
    :qudt/code 42,
-   :qudt/coordinateCenter :qudt/CC_MoonCentered,
+   :qudt/coordinateCenter :qudt.type/CC_MoonCentered,
    :qudt/id "TLCS-02",
    :qudt/literal "LPABF",
    :qudt/realization "This is a fixed rotation from LMEBF",
-   :qudt/referenceFrame :qudt/RRF_LPABF,
+   :qudt/referenceFrame :qudt.type/RRF_LPABF,
    :rdf/type [:qudt/LunarCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Lunar principal axis body fixed Coordinate System",
@@ -1027,7 +1027,7 @@
   "Lunar Principal Axis of Epoch Coordinate System"
   {:db/ident            :qudt.type/LCS_LC-LPAE,
    :qudt/code           42,
-   :qudt/coordinateCenter :qudt/CC_MoonCentered,
+   :qudt/coordinateCenter :qudt.type/CC_MoonCentered,
    :qudt/id             "TLCS-03",
    :qudt/literal        "LPABF",
    :qudt/referenceFrame :qudt/NRIF_LPAE,
@@ -1131,7 +1131,7 @@
    :qudt/coordinateCenter :qudt/CC_MarsCentered,
    :qudt/id "TMCS-02",
    :qudt/literal "MMEPMBF",
-   :qudt/referenceFrame :qudt/RRF_MMEPMBF,
+   :qudt/referenceFrame :qudt.type/RRF_MMEPMBF,
    :rdf/type [:qudt/MarsCoordinateSystem :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label
@@ -1651,7 +1651,7 @@
    :rdf/type [:qudt/RotatingReferenceFrame :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "International Terrestrial Reference Frame",
-   :rdfs/seeAlso :qudt/RRF_ICRF,
+   :rdfs/seeAlso :qudt.type/RRF_ICRF,
    :skos/prefLabel "International Terrestrial Reference Frame"})
 
 (def RRF_LMEBF
@@ -2136,7 +2136,7 @@
    :qudt/coordinateCenter :qudt/CC_EarthCentered,
    :qudt/id             "TTBRCS-01",
    :qudt/literal        "EM-ROT",
-   :qudt/referenceFrame :qudt/RRF_EMR,
+   :qudt/referenceFrame :qudt.type/RRF_EMR,
    :rdf/type            [:qudt/ThreeBodyRotatingCoordinateSystem
                          :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2149,7 +2149,7 @@
    :qudt/coordinateCenter :qudt/CC_EarthCentered,
    :qudt/id             "TTBRCS-02",
    :qudt/literal        "SE-ROT",
-   :qudt/referenceFrame :qudt/RRF_SER,
+   :qudt/referenceFrame :qudt.type/RRF_SER,
    :rdf/type            [:qudt/ThreeBodyRotatingCoordinateSystem
                          :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2160,10 +2160,10 @@
   "Moon-Centered Earth-Moon Rotating Coordinate System"
   {:db/ident            :qudt.type/TBRCS_MC-EMR,
    :qudt/code           20,
-   :qudt/coordinateCenter :qudt/CC_MoonCentered,
+   :qudt/coordinateCenter :qudt.type/CC_MoonCentered,
    :qudt/id             "TTBRCS-03",
    :qudt/literal        "EM-ROT",
-   :qudt/referenceFrame :qudt/RRF_EMR,
+   :qudt/referenceFrame :qudt.type/RRF_EMR,
    :rdf/type            [:qudt/ThreeBodyRotatingCoordinateSystem
                          :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2176,7 +2176,7 @@
    :qudt/coordinateCenter :qudt/CC_SunCentered,
    :qudt/id             "TTBRCS-04",
    :qudt/literal        "SE-ROT",
-   :qudt/referenceFrame :qudt/RRF_SER,
+   :qudt/referenceFrame :qudt.type/RRF_SER,
    :rdf/type            [:qudt/ThreeBodyRotatingCoordinateSystem
                          :owl/NamedIndividual],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/datatype",
@@ -2436,7 +2436,7 @@
    :qudt/coordinateCenter :qudt/CC_VehicleCentered,
    :qudt/id "TVCS-01",
    :qudt/literal "VC-LVC",
-   :qudt/referenceFrame :qudt/RRF_LVC,
+   :qudt/referenceFrame :qudt.type/RRF_LVC,
    :rdf/type [:qudt/VehicleCoordinateSystem
               :qudt/LocalCoordinateSystem
               :owl/NamedIndividual],
