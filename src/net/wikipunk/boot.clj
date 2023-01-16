@@ -40,7 +40,8 @@
 
 (def dc11
   "Dublin Core Metadata Element Set, Version 1.1"
-  {:rdfa/uri         "http://purl.org/dc/elements/1.1/",
+  {:dcat/downloadURL "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_elements.ttl"
+   :rdfa/uri         "http://purl.org/dc/elements/1.1/",
    :rdfa/prefix      "dc11",
    :rdfs/isDefinedBy {:rdf/uri "http://purl.org/dc/elements/1.1/"},
    :rdf/type         :rdfa/PrefixMapping})

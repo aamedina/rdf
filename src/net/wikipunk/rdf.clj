@@ -331,7 +331,7 @@
                                                                       (assoc prefix uri))
                                                                     (.getNsPrefixMap (.getPrefixMapping g)))
                                                               "ruleml")
-                                                      {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "dc11" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"})]
+                                                      {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"})]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
                       (map (fn [[subject triples]]
@@ -372,8 +372,7 @@
    https://www.dublincore.org/specifications/dublin-core/dces/"
   [form]
   (if (and (keyword? form) (or (= (namespace form) "dc")
-                               (= (namespace form) "dct")
-                               (= (namespace form) "dc11")))
+                               (= (namespace form) "dct")))
 
     (keyword "dcterms" (name form))
     form))
