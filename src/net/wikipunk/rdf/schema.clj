@@ -24,7 +24,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A radio channel that uses AM."},
-   :rdfs/isDefinedBy :schema/AMRadioChannel,
+   :rdfs/isDefinedBy "http://schema.org/AMRadioChannel",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AMRadioChannel"},
    :rdfs/subClassOf  :schema/RadioChannel})
@@ -37,7 +37,7 @@
    {:rdf/language "en",
     :rdf/value
     "Reference documentation for application programming interfaces (APIs)."},
-   :rdfs/isDefinedBy :schema/APIReference,
+   :rdfs/isDefinedBy "http://schema.org/APIReference",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "APIReference"},
    :rdfs/subClassOf :schema/TechArticle})
@@ -48,7 +48,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: About page."},
-   :rdfs/isDefinedBy :schema/AboutPage,
+   :rdfs/isDefinedBy "http://schema.org/AboutPage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AboutPage"},
    :rdfs/subClassOf  :schema/WebPage})
@@ -61,7 +61,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of committing to/adopting an object.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/RejectAction\">RejectAction</a>: The antonym of AcceptAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/AcceptAction,
+   :rdfs/isDefinedBy "http://schema.org/AcceptAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AcceptAction"},
    :rdfs/subClassOf :schema/AllocateAction})
@@ -74,7 +74,7 @@
    {:rdf/language "en",
     :rdf/value
     "An accommodation is a place that can accommodate human beings, e.g. a hotel room, a camping pitch, or a meeting room. Many accommodations are for overnight stays, but this is not a mandatory requirement.\nFor more specific types of accommodations not defined in schema.org, one can use additionalType with external vocabularies.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Accommodation,
+   :rdfs/isDefinedBy "http://schema.org/Accommodation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Accommodation"},
    :rdfs/subClassOf :schema/Place})
@@ -87,7 +87,7 @@
    {:rdf/language "en",
     :rdf/value
     "Accountancy business.<br/><br/>\n\nAs a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a> it can be described as a <a class=\"localLink\" href=\"https://schema.org/provider\">provider</a> of one or more <a class=\"localLink\" href=\"https://schema.org/Service\">Service</a>(s)."},
-   :rdfs/isDefinedBy :schema/AccountingService,
+   :rdfs/isDefinedBy "http://schema.org/AccountingService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AccountingService"},
    :rdfs/subClassOf :schema/FinancialService})
@@ -100,7 +100,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of accomplishing something via previous efforts. It is an instantaneous action rather than an ongoing process."},
-   :rdfs/isDefinedBy :schema/AchieveAction,
+   :rdfs/isDefinedBy "http://schema.org/AchieveAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AchieveAction"},
    :rdfs/subClassOf :schema/Action})
@@ -113,7 +113,7 @@
    {:rdf/language "en",
     :rdf/value
     "An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/04/announcing-schemaorg-actions.html\">blog post</a> and <a href=\"https://schema.org/docs/actions.html\">Actions overview document</a>."},
-   :rdfs/isDefinedBy :schema/Action,
+   :rdfs/isDefinedBy "http://schema.org/Action",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Action"},
    :rdfs/subClassOf :schema/Thing})
@@ -126,7 +126,7 @@
    {:rdf/language "en",
     :rdf/value
     "A set of requirements that must be fulfilled in order to perform an Action."},
-   :rdfs/isDefinedBy :schema/ActionAccessSpecification,
+   :rdfs/isDefinedBy "http://schema.org/ActionAccessSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ActionAccessSpecification"},
    :rdfs/subClassOf :schema/Intangible})
@@ -137,7 +137,7 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The status of an Action."},
-   :rdfs/isDefinedBy :schema/ActionStatusType,
+   :rdfs/isDefinedBy "http://schema.org/ActionStatusType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ActionStatusType"},
    :rdfs/subClassOf  :schema/StatusEnumeration})
@@ -150,7 +150,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of starting or activating a device or application (e.g. starting a timer or turning on a flashlight)."},
-   :rdfs/isDefinedBy :schema/ActivateAction,
+   :rdfs/isDefinedBy "http://schema.org/ActivateAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ActivateAction"},
    :rdfs/subClassOf :schema/ControlAction})
@@ -162,7 +162,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "The act of editing by adding an object to a collection."},
-   :rdfs/isDefinedBy :schema/AddAction,
+   :rdfs/isDefinedBy "http://schema.org/AddAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AddAction"},
    :rdfs/subClassOf :schema/UpdateAction})
@@ -175,7 +175,7 @@
    {:rdf/language "en",
     :rdf/value
     "A geographical region, typically under the jurisdiction of a particular government."},
-   :rdfs/isDefinedBy :schema/AdministrativeArea,
+   :rdfs/isDefinedBy "http://schema.org/AdministrativeArea",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AdministrativeArea"},
    :rdfs/subClassOf :schema/Place})
@@ -186,7 +186,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An adult entertainment establishment."},
-   :rdfs/isDefinedBy :schema/AdultEntertainment,
+   :rdfs/isDefinedBy "http://schema.org/AdultEntertainment",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AdultEntertainment"},
    :rdfs/subClassOf  :schema/EntertainmentBusiness})
@@ -225,7 +225,7 @@
    {:rdf/language "en",
     :rdf/value
     "When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.<br/><br/>\n\nNote: AggregateOffers are normally expected to associate multiple offers that all share the same defined <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a> value, or default to http://purl.org/goodrelations/v1#Sell if businessFunction is not explicitly defined."},
-   :rdfs/isDefinedBy :schema/AggregateOffer,
+   :rdfs/isDefinedBy "http://schema.org/AggregateOffer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AggregateOffer"},
    :rdfs/subClassOf :schema/Offer})
@@ -237,7 +237,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "The average rating based on multiple ratings or reviews."},
-   :rdfs/isDefinedBy :schema/AggregateRating,
+   :rdfs/isDefinedBy "http://schema.org/AggregateRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AggregateRating"},
    :rdfs/subClassOf :schema/Rating})
@@ -250,7 +250,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants."},
-   :rdfs/isDefinedBy :schema/AgreeAction,
+   :rdfs/isDefinedBy "http://schema.org/AgreeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AgreeAction"},
    :rdfs/subClassOf :schema/ReactAction})
@@ -262,7 +262,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "An organization that provides flights for passengers."},
-   :rdfs/isDefinedBy :schema/Airline,
+   :rdfs/isDefinedBy "http://schema.org/Airline",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Airline"},
    :rdfs/subClassOf  :schema/Organization})
@@ -273,7 +273,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An airport."},
-   :rdfs/isDefinedBy :schema/Airport,
+   :rdfs/isDefinedBy "http://schema.org/Airport",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Airport"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -286,7 +286,7 @@
    {:rdf/language "en",
     :rdf/value
     "An intangible item that describes an alignment between a learning resource and a node in an educational framework.<br/><br/>\n\nShould not be used where the nature of the alignment can be described using a simple property, for example to express that a resource <a class=\"localLink\" href=\"https://schema.org/teaches\">teaches</a> or <a class=\"localLink\" href=\"https://schema.org/assesses\">assesses</a> a competency."},
-   :rdfs/isDefinedBy :schema/AlignmentObject,
+   :rdfs/isDefinedBy "http://schema.org/AlignmentObject",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AlignmentObject"},
    :rdfs/subClassOf :schema/Intangible})
@@ -299,7 +299,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of organizing tasks/objects/events by associating resources to it."},
-   :rdfs/isDefinedBy :schema/AllocateAction,
+   :rdfs/isDefinedBy "http://schema.org/AllocateAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AllocateAction"},
    :rdfs/subClassOf :schema/OrganizeAction})
@@ -323,7 +323,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An amusement park."},
-   :rdfs/isDefinedBy :schema/AmusementPark,
+   :rdfs/isDefinedBy "http://schema.org/AmusementPark",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AmusementPark"},
    :rdfs/subClassOf  :schema/EntertainmentBusiness})
@@ -373,7 +373,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Animal shelter."},
-   :rdfs/isDefinedBy :schema/AnimalShelter,
+   :rdfs/isDefinedBy "http://schema.org/AnimalShelter",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AnimalShelter"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -386,7 +386,7 @@
    {:rdf/language "en",
     :rdf/value
     "An answer offered to a question; perhaps correct, perhaps opinionated or wrong."},
-   :rdfs/isDefinedBy :schema/Answer,
+   :rdfs/isDefinedBy "http://schema.org/Answer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Answer"},
    :rdfs/subClassOf :schema/Comment})
@@ -399,7 +399,7 @@
    {:rdf/language "en",
     :rdf/value
     "An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Apartment\">http://en.wikipedia.org/wiki/Apartment</a>)."},
-   :rdfs/isDefinedBy :schema/Apartment,
+   :rdfs/isDefinedBy "http://schema.org/Apartment",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Apartment"},
    :rdfs/subClassOf :schema/Accommodation})
@@ -410,7 +410,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Residence type: Apartment complex."},
-   :rdfs/isDefinedBy :schema/ApartmentComplex,
+   :rdfs/isDefinedBy "http://schema.org/ApartmentComplex",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ApartmentComplex"},
    :rdfs/subClassOf  :schema/Residence})
@@ -422,7 +422,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "The act of inserting at the end if an ordered collection."},
-   :rdfs/isDefinedBy :schema/AppendAction,
+   :rdfs/isDefinedBy "http://schema.org/AppendAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AppendAction"},
    :rdfs/subClassOf :schema/InsertAction})
@@ -435,7 +435,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of registering to an organization/service without the guarantee to receive it.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: Unlike RegisterAction, ApplyAction has no guarantees that the application will be accepted.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/ApplyAction,
+   :rdfs/isDefinedBy "http://schema.org/ApplyAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ApplyAction"},
    :rdfs/subClassOf :schema/OrganizeAction})
@@ -459,7 +459,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Aquarium."},
-   :rdfs/isDefinedBy :schema/Aquarium,
+   :rdfs/isDefinedBy "http://schema.org/Aquarium",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Aquarium"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -498,7 +498,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of arriving at a place. An agent arrives at a destination from a fromLocation, optionally with participants."},
-   :rdfs/isDefinedBy :schema/ArriveAction,
+   :rdfs/isDefinedBy "http://schema.org/ArriveAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ArriveAction"},
    :rdfs/subClassOf :schema/MoveAction})
@@ -509,7 +509,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An art gallery."},
-   :rdfs/isDefinedBy :schema/ArtGallery,
+   :rdfs/isDefinedBy "http://schema.org/ArtGallery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ArtGallery"},
    :rdfs/subClassOf  :schema/EntertainmentBusiness})
@@ -535,7 +535,7 @@
    {:rdf/language "en",
     :rdf/value
     "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html\">blog post</a>."},
-   :rdfs/isDefinedBy :schema/Article,
+   :rdfs/isDefinedBy "http://schema.org/Article",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Article"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -548,7 +548,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of posing a question / favor to someone.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/ReplyAction\">ReplyAction</a>: Appears generally as a response to AskAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/AskAction,
+   :rdfs/isDefinedBy "http://schema.org/AskAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AskAction"},
    :rdfs/subClassOf :schema/CommunicateAction})
@@ -573,7 +573,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "The act of forming one's opinion, reaction or sentiment."},
-   :rdfs/isDefinedBy :schema/AssessAction,
+   :rdfs/isDefinedBy "http://schema.org/AssessAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AssessAction"},
    :rdfs/subClassOf :schema/Action})
@@ -586,7 +586,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of allocating an action/event/task to some destination (someone or something)."},
-   :rdfs/isDefinedBy :schema/AssignAction,
+   :rdfs/isDefinedBy "http://schema.org/AssignAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "AssignAction"},
    :rdfs/subClassOf :schema/AllocateAction})
@@ -612,7 +612,7 @@
    {:rdf/language "en",
     :rdf/value
     "Professional service: Attorney. <br/><br/>\n\nThis type is deprecated - <a class=\"localLink\" href=\"https://schema.org/LegalService\">LegalService</a> is more inclusive and less ambiguous."},
-   :rdfs/isDefinedBy :schema/Attorney,
+   :rdfs/isDefinedBy "http://schema.org/Attorney",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Attorney"},
    :rdfs/subClassOf :schema/LegalService})
@@ -625,7 +625,7 @@
    {:rdf/language "en",
     :rdf/value
     "Intended audience for an item, i.e. the group for whom the item was created."},
-   :rdfs/isDefinedBy :schema/Audience,
+   :rdfs/isDefinedBy "http://schema.org/Audience",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Audience"},
    :rdfs/subClassOf :schema/Intangible})
@@ -636,7 +636,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An audio file."},
-   :rdfs/isDefinedBy :schema/AudioObject,
+   :rdfs/isDefinedBy "http://schema.org/AudioObject",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AudioObject"},
    :rdfs/subClassOf  :schema/MediaObject})
@@ -672,7 +672,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of granting permission to an object."},
-   :rdfs/isDefinedBy :schema/AuthorizeAction,
+   :rdfs/isDefinedBy "http://schema.org/AuthorizeAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AuthorizeAction"},
    :rdfs/subClassOf  :schema/AllocateAction})
@@ -683,7 +683,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Auto body shop."},
-   :rdfs/isDefinedBy :schema/AutoBodyShop,
+   :rdfs/isDefinedBy "http://schema.org/AutoBodyShop",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutoBodyShop"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -694,7 +694,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An car dealership."},
-   :rdfs/isDefinedBy :schema/AutoDealer,
+   :rdfs/isDefinedBy "http://schema.org/AutoDealer",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutoDealer"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -705,7 +705,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An auto parts store."},
-   :rdfs/isDefinedBy :schema/AutoPartsStore,
+   :rdfs/isDefinedBy "http://schema.org/AutoPartsStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutoPartsStore"},
    :rdfs/subClassOf  [:schema/AutomotiveBusiness :schema/Store]})
@@ -716,7 +716,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A car rental business."},
-   :rdfs/isDefinedBy :schema/AutoRental,
+   :rdfs/isDefinedBy "http://schema.org/AutoRental",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutoRental"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -727,7 +727,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Car repair business."},
-   :rdfs/isDefinedBy :schema/AutoRepair,
+   :rdfs/isDefinedBy "http://schema.org/AutoRepair",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutoRepair"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -738,7 +738,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A car wash business."},
-   :rdfs/isDefinedBy :schema/AutoWash,
+   :rdfs/isDefinedBy "http://schema.org/AutoWash",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutoWash"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -749,7 +749,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "ATM/cash machine."},
-   :rdfs/isDefinedBy :schema/AutomatedTeller,
+   :rdfs/isDefinedBy "http://schema.org/AutomatedTeller",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutomatedTeller"},
    :rdfs/subClassOf  :schema/FinancialService})
@@ -760,7 +760,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Car repair, sales, or parts."},
-   :rdfs/isDefinedBy :schema/AutomotiveBusiness,
+   :rdfs/isDefinedBy "http://schema.org/AutomotiveBusiness",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "AutomotiveBusiness"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -784,7 +784,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bakery."},
-   :rdfs/isDefinedBy :schema/Bakery,
+   :rdfs/isDefinedBy "http://schema.org/Bakery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Bakery"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -797,7 +797,7 @@
    {:rdf/language "en",
     :rdf/value
     "A product or service offered by a bank whereby one may deposit, withdraw or transfer money and in some cases be paid interest."},
-   :rdfs/isDefinedBy :schema/BankAccount,
+   :rdfs/isDefinedBy "http://schema.org/BankAccount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BankAccount"},
    :rdfs/subClassOf :schema/FinancialProduct})
@@ -808,7 +808,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Bank or credit union."},
-   :rdfs/isDefinedBy :schema/BankOrCreditUnion,
+   :rdfs/isDefinedBy "http://schema.org/BankOrCreditUnion",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BankOrCreditUnion"},
    :rdfs/subClassOf  :schema/FinancialService})
@@ -819,7 +819,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bar or pub."},
-   :rdfs/isDefinedBy :schema/BarOrPub,
+   :rdfs/isDefinedBy "http://schema.org/BarOrPub",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BarOrPub"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -832,7 +832,7 @@
    {:rdf/language "en",
     :rdf/value
     "An image of a visual machine-readable code such as a barcode or QR code."},
-   :rdfs/isDefinedBy :schema/Barcode,
+   :rdfs/isDefinedBy "http://schema.org/Barcode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Barcode"},
    :rdfs/subClassOf :schema/ImageObject})
@@ -843,7 +843,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Beach."},
-   :rdfs/isDefinedBy :schema/Beach,
+   :rdfs/isDefinedBy "http://schema.org/Beach",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Beach"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -854,7 +854,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Beauty salon."},
-   :rdfs/isDefinedBy :schema/BeautySalon,
+   :rdfs/isDefinedBy "http://schema.org/BeautySalon",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BeautySalon"},
    :rdfs/subClassOf  :schema/HealthAndBeautyBusiness})
@@ -867,7 +867,7 @@
    {:rdf/language "en",
     :rdf/value
     "Bed and breakfast.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/BedAndBreakfast,
+   :rdfs/isDefinedBy "http://schema.org/BedAndBreakfast",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BedAndBreakfast"},
    :rdfs/subClassOf :schema/LodgingBusiness})
@@ -880,7 +880,7 @@
    {:rdf/language "en",
     :rdf/value
     "An entity holding detailed information about the available bed types, e.g. the quantity of twin beds for a hotel room. For the single case of just one bed of a certain type, you can use bed directly with a text. See also <a class=\"localLink\" href=\"https://schema.org/BedType\">BedType</a> (under development)."},
-   :rdfs/isDefinedBy :schema/BedDetails,
+   :rdfs/isDefinedBy "http://schema.org/BedDetails",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BedDetails"},
    :rdfs/subClassOf :schema/Intangible})
@@ -893,7 +893,7 @@
    {:rdf/language "en",
     :rdf/value
     "A type of bed. This is used for indicating the bed or beds available in an accommodation."},
-   :rdfs/isDefinedBy :schema/BedType,
+   :rdfs/isDefinedBy "http://schema.org/BedType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BedType"},
    :rdfs/subClassOf :schema/QualitativeValue})
@@ -906,7 +906,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/BefriendAction,
+   :rdfs/isDefinedBy "http://schema.org/BefriendAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BefriendAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -917,7 +917,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bike store."},
-   :rdfs/isDefinedBy :schema/BikeStore,
+   :rdfs/isDefinedBy "http://schema.org/BikeStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BikeStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -943,7 +943,7 @@
    {:rdf/language "en",
     :rdf/value
     "A <a href=\"https://en.wikipedia.org/wiki/Blog\">blog</a>, sometimes known as a \"weblog\". Note that the individual posts (<a class=\"localLink\" href=\"https://schema.org/BlogPosting\">BlogPosting</a>s) in a <a class=\"localLink\" href=\"https://schema.org/Blog\">Blog</a> are often colloquially referred to by the same term."},
-   :rdfs/isDefinedBy :schema/Blog,
+   :rdfs/isDefinedBy "http://schema.org/Blog",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Blog"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -954,7 +954,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A blog post."},
-   :rdfs/isDefinedBy :schema/BlogPosting,
+   :rdfs/isDefinedBy "http://schema.org/BlogPosting",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BlogPosting"},
    :rdfs/subClassOf  :schema/SocialMediaPosting})
@@ -978,7 +978,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A type of boarding policy used by an airline."},
-   :rdfs/isDefinedBy :schema/BoardingPolicyType,
+   :rdfs/isDefinedBy "http://schema.org/BoardingPolicyType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BoardingPolicyType"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -1040,7 +1040,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A body of water, such as a sea, ocean, or lake."},
-   :rdfs/isDefinedBy :schema/BodyOfWater,
+   :rdfs/isDefinedBy "http://schema.org/BodyOfWater",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BodyOfWater"},
    :rdfs/subClassOf  :schema/Landform})
@@ -1064,7 +1064,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A book."},
-   :rdfs/isDefinedBy :schema/Book,
+   :rdfs/isDefinedBy "http://schema.org/Book",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Book"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -1075,7 +1075,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The publication format of the book."},
-   :rdfs/isDefinedBy :schema/BookFormatType,
+   :rdfs/isDefinedBy "http://schema.org/BookFormatType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BookFormatType"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -1088,7 +1088,7 @@
    {:rdf/language "en",
     :rdf/value
     "A series of books. Included books can be indicated with the hasPart property."},
-   :rdfs/isDefinedBy :schema/BookSeries,
+   :rdfs/isDefinedBy "http://schema.org/BookSeries",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BookSeries"},
    :rdfs/subClassOf :schema/CreativeWorkSeries})
@@ -1099,7 +1099,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bookstore."},
-   :rdfs/isDefinedBy :schema/BookStore,
+   :rdfs/isDefinedBy "http://schema.org/BookStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BookStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -1111,7 +1111,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "An agent bookmarks/flags/labels/tags/marks an object."},
-   :rdfs/isDefinedBy :schema/BookmarkAction,
+   :rdfs/isDefinedBy "http://schema.org/BookmarkAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BookmarkAction"},
    :rdfs/subClassOf  :schema/OrganizeAction})
@@ -1122,7 +1122,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Boolean: True or False."},
-   :rdfs/isDefinedBy :schema/Boolean,
+   :rdfs/isDefinedBy "http://schema.org/Boolean",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Boolean"},
    :rdfs/subClassOf  :schema/DataType})
@@ -1135,7 +1135,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/LendAction\">LendAction</a>: Reciprocal of BorrowAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/BorrowAction,
+   :rdfs/isDefinedBy "http://schema.org/BorrowAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BorrowAction"},
    :rdfs/subClassOf :schema/TransferAction})
@@ -1146,7 +1146,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bowling alley."},
-   :rdfs/isDefinedBy :schema/BowlingAlley,
+   :rdfs/isDefinedBy "http://schema.org/BowlingAlley",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BowlingAlley"},
    :rdfs/subClassOf  :schema/SportsActivityLocation})
@@ -1172,7 +1172,7 @@
    {:rdf/language "en",
     :rdf/value
     "A brand is a name used by an organization or business person for labeling a product, product group, or similar."},
-   :rdfs/isDefinedBy :schema/Brand,
+   :rdfs/isDefinedBy "http://schema.org/Brand",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Brand"},
    :rdfs/subClassOf :schema/Intangible})
@@ -1185,7 +1185,7 @@
    {:rdf/language "en",
     :rdf/value
     "A BreadcrumbList is an ItemList consisting of a chain of linked Web pages, typically described using at least their URL and their name, and typically ending with the current page.<br/><br/>\n\nThe <a class=\"localLink\" href=\"https://schema.org/position\">position</a> property is used to reconstruct the order of the items in a BreadcrumbList. The convention is that a breadcrumb list has an <a class=\"localLink\" href=\"https://schema.org/itemListOrder\">itemListOrder</a> of <a class=\"localLink\" href=\"https://schema.org/ItemListOrderAscending\">ItemListOrderAscending</a> (lower values listed first), and that the first items in this list correspond to the \"top\" or beginning of the breadcrumb trail, e.g. with a site or section homepage. The specific values of 'position' are not assigned meaning for a BreadcrumbList, but they should be integers, e.g. beginning with '1' for the first item in the list."},
-   :rdfs/isDefinedBy :schema/BreadcrumbList,
+   :rdfs/isDefinedBy "http://schema.org/BreadcrumbList",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BreadcrumbList"},
    :rdfs/subClassOf :schema/ItemList})
@@ -1196,7 +1196,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Brewery."},
-   :rdfs/isDefinedBy :schema/Brewery,
+   :rdfs/isDefinedBy "http://schema.org/Brewery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Brewery"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -1207,7 +1207,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bridge."},
-   :rdfs/isDefinedBy :schema/Bridge,
+   :rdfs/isDefinedBy "http://schema.org/Bridge",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Bridge"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -1220,7 +1220,7 @@
    {:rdf/language "en",
     :rdf/value
     "A unique instance of a BroadcastService on a CableOrSatelliteService lineup."},
-   :rdfs/isDefinedBy :schema/BroadcastChannel,
+   :rdfs/isDefinedBy "http://schema.org/BroadcastChannel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BroadcastChannel"},
    :rdfs/subClassOf :schema/Intangible})
@@ -1231,7 +1231,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "An over the air or online broadcast event."},
-   :rdfs/isDefinedBy :schema/BroadcastEvent,
+   :rdfs/isDefinedBy "http://schema.org/BroadcastEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BroadcastEvent"},
    :rdfs/subClassOf  :schema/PublicationEvent})
@@ -1244,7 +1244,7 @@
    {:rdf/language "en",
     :rdf/value
     "The frequency in MHz and the modulation used for a particular BroadcastService."},
-   :rdfs/isDefinedBy :schema/BroadcastFrequencySpecification,
+   :rdfs/isDefinedBy "http://schema.org/BroadcastFrequencySpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BroadcastFrequencySpecification"},
    :rdfs/subClassOf :schema/Intangible})
@@ -1257,7 +1257,7 @@
    {:rdf/language "en",
     :rdf/value
     "A delivery service through which content is provided via broadcast over the air or online."},
-   :rdfs/isDefinedBy :schema/BroadcastService,
+   :rdfs/isDefinedBy "http://schema.org/BroadcastService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BroadcastService"},
    :rdfs/subClassOf :schema/Service})
@@ -1281,7 +1281,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A Buddhist temple."},
-   :rdfs/isDefinedBy :schema/BuddhistTemple,
+   :rdfs/isDefinedBy "http://schema.org/BuddhistTemple",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BuddhistTemple"},
    :rdfs/subClassOf  :schema/PlaceOfWorship})
@@ -1307,7 +1307,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation for bus travel. <br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."},
-   :rdfs/isDefinedBy :schema/BusReservation,
+   :rdfs/isDefinedBy "http://schema.org/BusReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BusReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -1318,7 +1318,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bus station."},
-   :rdfs/isDefinedBy :schema/BusStation,
+   :rdfs/isDefinedBy "http://schema.org/BusStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BusStation"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -1329,7 +1329,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A bus stop."},
-   :rdfs/isDefinedBy :schema/BusStop,
+   :rdfs/isDefinedBy "http://schema.org/BusStop",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BusStop"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -1340,7 +1340,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A trip on a commercial bus line."},
-   :rdfs/isDefinedBy :schema/BusTrip,
+   :rdfs/isDefinedBy "http://schema.org/BusTrip",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BusTrip"},
    :rdfs/subClassOf  :schema/Trip})
@@ -1353,7 +1353,7 @@
    {:rdf/language "en",
     :rdf/value
     "A set of characteristics belonging to businesses, e.g. who compose an item's target audience."},
-   :rdfs/isDefinedBy :schema/BusinessAudience,
+   :rdfs/isDefinedBy "http://schema.org/BusinessAudience",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BusinessAudience"},
    :rdfs/subClassOf :schema/Audience})
@@ -1366,7 +1366,7 @@
    {:rdf/language "en",
     :rdf/value
     "A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of an organization or business person.<br/><br/>\n\nCommonly used values:<br/><br/>\n\n<ul>\n<li>http://purl.org/goodrelations/v1#Business</li>\n<li>http://purl.org/goodrelations/v1#Enduser</li>\n<li>http://purl.org/goodrelations/v1#PublicInstitution</li>\n<li>http://purl.org/goodrelations/v1#Reseller</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/BusinessEntityType,
+   :rdfs/isDefinedBy "http://schema.org/BusinessEntityType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BusinessEntityType"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -1377,7 +1377,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Business event."},
-   :rdfs/isDefinedBy :schema/BusinessEvent,
+   :rdfs/isDefinedBy "http://schema.org/BusinessEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "BusinessEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -1390,7 +1390,7 @@
    {:rdf/language "en",
     :rdf/value
     "The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.<br/><br/>\n\nCommonly used values:<br/><br/>\n\n<ul>\n<li>http://purl.org/goodrelations/v1#ConstructionInstallation</li>\n<li>http://purl.org/goodrelations/v1#Dispose</li>\n<li>http://purl.org/goodrelations/v1#LeaseOut</li>\n<li>http://purl.org/goodrelations/v1#Maintain</li>\n<li>http://purl.org/goodrelations/v1#ProvideService</li>\n<li>http://purl.org/goodrelations/v1#Repair</li>\n<li>http://purl.org/goodrelations/v1#Sell</li>\n<li>http://purl.org/goodrelations/v1#Buy</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/BusinessFunction,
+   :rdfs/isDefinedBy "http://schema.org/BusinessFunction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BusinessFunction"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -1403,7 +1403,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction."},
-   :rdfs/isDefinedBy :schema/BuyAction,
+   :rdfs/isDefinedBy "http://schema.org/BuyAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "BuyAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -1429,7 +1429,7 @@
    {:rdf/language "en",
     :rdf/value
     "A service which provides access to media programming like TV or radio. Access may be via cable or satellite."},
-   :rdfs/isDefinedBy :schema/CableOrSatelliteService,
+   :rdfs/isDefinedBy "http://schema.org/CableOrSatelliteService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CableOrSatelliteService"},
    :rdfs/subClassOf :schema/Service})
@@ -1440,7 +1440,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A cafe or coffee shop."},
-   :rdfs/isDefinedBy :schema/CafeOrCoffeeShop,
+   :rdfs/isDefinedBy "http://schema.org/CafeOrCoffeeShop",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CafeOrCoffeeShop"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -1453,7 +1453,7 @@
    {:rdf/language "en",
     :rdf/value
     "A camping site, campsite, or <a class=\"localLink\" href=\"https://schema.org/Campground\">Campground</a> is a place used for overnight stay in the outdoors, typically containing individual <a class=\"localLink\" href=\"https://schema.org/CampingPitch\">CampingPitch</a> locations. <br/><br/>\n\nIn British English a campsite is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites (source: Wikipedia, see <a href=\"https://en.wikipedia.org/wiki/Campsite\">https://en.wikipedia.org/wiki/Campsite</a>).<br/><br/>\n\nSee also the dedicated <a href=\"/docs/hotels.html\">document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Campground,
+   :rdfs/isDefinedBy "http://schema.org/Campground",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Campground"},
    :rdfs/subClassOf [:schema/CivicStructure :schema/LodgingBusiness]})
@@ -1466,7 +1466,7 @@
    {:rdf/language "en",
     :rdf/value
     "A <a class=\"localLink\" href=\"https://schema.org/CampingPitch\">CampingPitch</a> is an individual place for overnight stay in the outdoors, typically being part of a larger camping site, or <a class=\"localLink\" href=\"https://schema.org/Campground\">Campground</a>.<br/><br/>\n\nIn British English a campsite, or campground, is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites.\n(Source: Wikipedia, see <a href=\"https://en.wikipedia.org/wiki/Campsite\">https://en.wikipedia.org/wiki/Campsite</a>.)<br/><br/>\n\nSee also the dedicated <a href=\"/docs/hotels.html\">document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/CampingPitch,
+   :rdfs/isDefinedBy "http://schema.org/CampingPitch",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CampingPitch"},
    :rdfs/subClassOf :schema/Accommodation})
@@ -1477,7 +1477,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A canal, like the Panama Canal."},
-   :rdfs/isDefinedBy :schema/Canal,
+   :rdfs/isDefinedBy "http://schema.org/Canal",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Canal"},
    :rdfs/subClassOf  :schema/BodyOfWater})
@@ -1490,7 +1490,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of asserting that a future event/action is no longer going to happen.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/ConfirmAction\">ConfirmAction</a>: The antonym of CancelAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/CancelAction,
+   :rdfs/isDefinedBy "http://schema.org/CancelAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CancelAction"},
    :rdfs/subClassOf :schema/PlanAction})
@@ -1503,7 +1503,7 @@
    {:rdf/language "en",
     :rdf/value
     "A car is a wheeled, self-powered motor vehicle used for transportation."},
-   :rdfs/isDefinedBy :schema/Car,
+   :rdfs/isDefinedBy "http://schema.org/Car",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Car"},
    :rdfs/subClassOf :schema/Vehicle})
@@ -1527,7 +1527,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A casino."},
-   :rdfs/isDefinedBy :schema/Casino,
+   :rdfs/isDefinedBy "http://schema.org/Casino",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Casino"},
    :rdfs/subClassOf  :schema/EntertainmentBusiness})
@@ -1560,7 +1560,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A Catholic church."},
-   :rdfs/isDefinedBy :schema/CatholicChurch,
+   :rdfs/isDefinedBy "http://schema.org/CatholicChurch",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CatholicChurch"},
    :rdfs/subClassOf  :schema/Church})
@@ -1571,7 +1571,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A graveyard."},
-   :rdfs/isDefinedBy :schema/Cemetery,
+   :rdfs/isDefinedBy "http://schema.org/Cemetery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Cemetery"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -1597,7 +1597,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent inspects, determines, investigates, inquires, or examines an object's accuracy, quality, condition, or state."},
-   :rdfs/isDefinedBy :schema/CheckAction,
+   :rdfs/isDefinedBy "http://schema.org/CheckAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CheckAction"},
    :rdfs/subClassOf :schema/FindAction})
@@ -1610,7 +1610,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e.g. flight check-in) or at a place (e.g. hotel), possibly resulting in a result (boarding pass, etc).<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/CheckOutAction\">CheckOutAction</a>: The antonym of CheckInAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/ArriveAction\">ArriveAction</a>: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/ConfirmAction\">ConfirmAction</a>: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the <em>start</em> of a previously reserved service rather than its validity/existence.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/CheckInAction,
+   :rdfs/isDefinedBy "http://schema.org/CheckInAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CheckInAction"},
    :rdfs/subClassOf :schema/CommunicateAction})
@@ -1623,7 +1623,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e.g. flight check-in) or place (e.g. hotel).<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/CheckInAction\">CheckInAction</a>: The antonym of CheckOutAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/DepartAction\">DepartAction</a>: Unlike DepartAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/CancelAction\">CancelAction</a>: Unlike CancelAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/CheckOutAction,
+   :rdfs/isDefinedBy "http://schema.org/CheckOutAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CheckOutAction"},
    :rdfs/subClassOf :schema/CommunicateAction})
@@ -1634,7 +1634,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: Checkout page."},
-   :rdfs/isDefinedBy :schema/CheckoutPage,
+   :rdfs/isDefinedBy "http://schema.org/CheckoutPage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CheckoutPage"},
    :rdfs/subClassOf  :schema/WebPage})
@@ -1658,7 +1658,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A Childcare center."},
-   :rdfs/isDefinedBy :schema/ChildCare,
+   :rdfs/isDefinedBy "http://schema.org/ChildCare",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ChildCare"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -1669,7 +1669,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Children's event."},
-   :rdfs/isDefinedBy :schema/ChildrensEvent,
+   :rdfs/isDefinedBy "http://schema.org/ChildrensEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ChildrensEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -1682,7 +1682,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of expressing a preference from a set of options or a large or unbounded set of choices/options."},
-   :rdfs/isDefinedBy :schema/ChooseAction,
+   :rdfs/isDefinedBy "http://schema.org/ChooseAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ChooseAction"},
    :rdfs/subClassOf :schema/AssessAction})
@@ -1693,7 +1693,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A church."},
-   :rdfs/isDefinedBy :schema/Church,
+   :rdfs/isDefinedBy "http://schema.org/Church",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Church"},
    :rdfs/subClassOf  :schema/PlaceOfWorship})
@@ -1704,7 +1704,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A city or town."},
-   :rdfs/isDefinedBy :schema/City,
+   :rdfs/isDefinedBy "http://schema.org/City",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "City"},
    :rdfs/subClassOf  :schema/AdministrativeArea})
@@ -1715,7 +1715,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A city hall."},
-   :rdfs/isDefinedBy :schema/CityHall,
+   :rdfs/isDefinedBy "http://schema.org/CityHall",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CityHall"},
    :rdfs/subClassOf  :schema/GovernmentBuilding})
@@ -1727,7 +1727,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "A public structure, such as a town hall or concert hall."},
-   :rdfs/isDefinedBy :schema/CivicStructure,
+   :rdfs/isDefinedBy "http://schema.org/CivicStructure",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CivicStructure"},
    :rdfs/subClassOf :schema/Place})
@@ -1753,7 +1753,7 @@
    {:rdf/language "en",
     :rdf/value
     "A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed)."},
-   :rdfs/isDefinedBy :schema/ClaimReview,
+   :rdfs/isDefinedBy "http://schema.org/ClaimReview",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ClaimReview"},
    :rdfs/subClassOf :schema/Review})
@@ -1778,7 +1778,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "A short TV or radio program or a segment/part of a program."},
-   :rdfs/isDefinedBy :schema/Clip,
+   :rdfs/isDefinedBy "http://schema.org/Clip",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Clip"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -1789,7 +1789,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A clothing store."},
-   :rdfs/isDefinedBy :schema/ClothingStore,
+   :rdfs/isDefinedBy "http://schema.org/ClothingStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ClothingStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -1802,7 +1802,7 @@
    {:rdf/language "en",
     :rdf/value
     "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."},
-   :rdfs/isDefinedBy :schema/Code,
+   :rdfs/isDefinedBy "http://schema.org/Code",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Code"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -1825,7 +1825,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: Collection page."},
-   :rdfs/isDefinedBy :schema/CollectionPage,
+   :rdfs/isDefinedBy "http://schema.org/CollectionPage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CollectionPage"},
    :rdfs/subClassOf  :schema/WebPage})
@@ -1838,7 +1838,7 @@
    {:rdf/language "en",
     :rdf/value
     "A college, university, or other third-level educational institution."},
-   :rdfs/isDefinedBy :schema/CollegeOrUniversity,
+   :rdfs/isDefinedBy "http://schema.org/CollegeOrUniversity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CollegeOrUniversity"},
    :rdfs/subClassOf :schema/EducationalOrganization})
@@ -1849,7 +1849,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A comedy club."},
-   :rdfs/isDefinedBy :schema/ComedyClub,
+   :rdfs/isDefinedBy "http://schema.org/ComedyClub",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ComedyClub"},
    :rdfs/subClassOf  :schema/EntertainmentBusiness})
@@ -1860,7 +1860,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Comedy event."},
-   :rdfs/isDefinedBy :schema/ComedyEvent,
+   :rdfs/isDefinedBy "http://schema.org/ComedyEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ComedyEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -1923,7 +1923,7 @@
    {:rdf/language "en",
     :rdf/value
     "A comment on an item - for example, a comment on a blog post. The comment's content is expressed via the <a class=\"localLink\" href=\"https://schema.org/text\">text</a> property, and its topic via <a class=\"localLink\" href=\"https://schema.org/about\">about</a>, properties shared with all CreativeWorks."},
-   :rdfs/isDefinedBy :schema/Comment,
+   :rdfs/isDefinedBy "http://schema.org/Comment",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Comment"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -1935,7 +1935,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of generating a comment about a subject."},
-   :rdfs/isDefinedBy :schema/CommentAction,
+   :rdfs/isDefinedBy "http://schema.org/CommentAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CommentAction"},
    :rdfs/subClassOf  :schema/CommunicateAction})
@@ -1948,7 +1948,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation."},
-   :rdfs/isDefinedBy :schema/CommunicateAction,
+   :rdfs/isDefinedBy "http://schema.org/CommunicateAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CommunicateAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -1974,7 +1974,7 @@
    {:rdf/language "en",
     :rdf/value
     "A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. \"electricity\" or \"final cleaning\")."},
-   :rdfs/isDefinedBy :schema/CompoundPriceSpecification,
+   :rdfs/isDefinedBy "http://schema.org/CompoundPriceSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CompoundPriceSpecification"},
    :rdfs/subClassOf :schema/PriceSpecification})
@@ -1987,7 +1987,7 @@
    {:rdf/language "en",
     :rdf/value
     "This type covers computer programming languages such as Scheme and Lisp, as well as other language-like computer representations. Natural languages are best represented with the <a class=\"localLink\" href=\"https://schema.org/Language\">Language</a> type."},
-   :rdfs/isDefinedBy :schema/ComputerLanguage,
+   :rdfs/isDefinedBy "http://schema.org/ComputerLanguage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ComputerLanguage"},
    :rdfs/subClassOf :schema/Intangible})
@@ -1998,7 +1998,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A computer store."},
-   :rdfs/isDefinedBy :schema/ComputerStore,
+   :rdfs/isDefinedBy "http://schema.org/ComputerStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ComputerStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -2011,7 +2011,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of notifying someone that a future event/action is going to happen as expected.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/CancelAction\">CancelAction</a>: The antonym of ConfirmAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/ConfirmAction,
+   :rdfs/isDefinedBy "http://schema.org/ConfirmAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ConfirmAction"},
    :rdfs/subClassOf :schema/InformAction})
@@ -2036,7 +2036,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of ingesting information/resources/food."},
-   :rdfs/isDefinedBy :schema/ConsumeAction,
+   :rdfs/isDefinedBy "http://schema.org/ConsumeAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ConsumeAction"},
    :rdfs/subClassOf  :schema/Action})
@@ -2047,7 +2047,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: Contact page."},
-   :rdfs/isDefinedBy :schema/ContactPage,
+   :rdfs/isDefinedBy "http://schema.org/ContactPage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ContactPage"},
    :rdfs/subClassOf  :schema/WebPage})
@@ -2060,7 +2060,7 @@
    {:rdf/language "en",
     :rdf/value
     "A contact point&#x2014;for example, a Customer Complaints department."},
-   :rdfs/isDefinedBy :schema/ContactPoint,
+   :rdfs/isDefinedBy "http://schema.org/ContactPoint",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ContactPoint"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -2072,7 +2072,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "Enumerated options related to a ContactPoint."},
-   :rdfs/isDefinedBy :schema/ContactPointOption,
+   :rdfs/isDefinedBy "http://schema.org/ContactPointOption",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ContactPointOption"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -2084,7 +2084,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "One of the continents (for example, Europe or Africa)."},
-   :rdfs/isDefinedBy :schema/Continent,
+   :rdfs/isDefinedBy "http://schema.org/Continent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Continent"},
    :rdfs/subClassOf  :schema/Landform})
@@ -2095,7 +2095,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "An agent controls a device or application."},
-   :rdfs/isDefinedBy :schema/ControlAction,
+   :rdfs/isDefinedBy "http://schema.org/ControlAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ControlAction"},
    :rdfs/subClassOf  :schema/Action})
@@ -2106,7 +2106,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A convenience store."},
-   :rdfs/isDefinedBy :schema/ConvenienceStore,
+   :rdfs/isDefinedBy "http://schema.org/ConvenienceStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ConvenienceStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -2119,7 +2119,7 @@
    {:rdf/language "en",
     :rdf/value
     "One or more messages between organizations or people on a particular topic. Individual messages can be linked to the conversation with isPartOf or hasPart properties."},
-   :rdfs/isDefinedBy :schema/Conversation,
+   :rdfs/isDefinedBy "http://schema.org/Conversation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Conversation"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -2130,7 +2130,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of producing/preparing food."},
-   :rdfs/isDefinedBy :schema/CookAction,
+   :rdfs/isDefinedBy "http://schema.org/CookAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CookAction"},
    :rdfs/subClassOf  :schema/CreateAction})
@@ -2141,7 +2141,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Organization: A business corporation."},
-   :rdfs/isDefinedBy :schema/Corporation,
+   :rdfs/isDefinedBy "http://schema.org/Corporation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Corporation"},
    :rdfs/subClassOf  :schema/Organization})
@@ -2165,7 +2165,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A country."},
-   :rdfs/isDefinedBy :schema/Country,
+   :rdfs/isDefinedBy "http://schema.org/Country",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Country"},
    :rdfs/subClassOf  :schema/AdministrativeArea})
@@ -2178,7 +2178,7 @@
    {:rdf/language "en",
     :rdf/value
     "A description of an educational course which may be offered as distinct instances which take place at different times or take place at different locations, or be offered through different media or modes of study. An educational course is a sequence of one or more educational events and/or creative works which aims to build knowledge, competence or ability of learners."},
-   :rdfs/isDefinedBy :schema/Course,
+   :rdfs/isDefinedBy "http://schema.org/Course",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Course"},
    :rdfs/subClassOf [:schema/LearningResource :schema/CreativeWork]})
@@ -2191,7 +2191,7 @@
    {:rdf/language "en",
     :rdf/value
     "An instance of a <a class=\"localLink\" href=\"https://schema.org/Course\">Course</a> which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students."},
-   :rdfs/isDefinedBy :schema/CourseInstance,
+   :rdfs/isDefinedBy "http://schema.org/CourseInstance",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CourseInstance"},
    :rdfs/subClassOf :schema/Event})
@@ -2202,7 +2202,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A courthouse."},
-   :rdfs/isDefinedBy :schema/Courthouse,
+   :rdfs/isDefinedBy "http://schema.org/Courthouse",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Courthouse"},
    :rdfs/subClassOf  :schema/GovernmentBuilding})
@@ -2240,7 +2240,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of deliberately creating/producing/generating/building a result out of the agent."},
-   :rdfs/isDefinedBy :schema/CreateAction,
+   :rdfs/isDefinedBy "http://schema.org/CreateAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CreateAction"},
    :rdfs/subClassOf :schema/Action})
@@ -2253,7 +2253,7 @@
    {:rdf/language "en",
     :rdf/value
     "The most generic kind of creative work, including books, movies, photographs, software programs, etc."},
-   :rdfs/isDefinedBy :schema/CreativeWork,
+   :rdfs/isDefinedBy "http://schema.org/CreativeWork",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CreativeWork"},
    :rdfs/subClassOf :schema/Thing})
@@ -2265,7 +2265,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A media season, e.g. TV, radio, video game etc."},
-   :rdfs/isDefinedBy :schema/CreativeWorkSeason,
+   :rdfs/isDefinedBy "http://schema.org/CreativeWorkSeason",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "CreativeWorkSeason"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -2278,7 +2278,7 @@
    {:rdf/language "en",
     :rdf/value
     "A CreativeWorkSeries in schema.org is a group of related items, typically but not necessarily of the same kind. CreativeWorkSeries are usually organized into some order, often chronological. Unlike <a class=\"localLink\" href=\"https://schema.org/ItemList\">ItemList</a> which is a general purpose data structure for lists of things, the emphasis with CreativeWorkSeries is on published materials (written e.g. books and periodicals, or media such as TV, radio and games).<br/><br/>\n\nSpecific subtypes are available for describing <a class=\"localLink\" href=\"https://schema.org/TVSeries\">TVSeries</a>, <a class=\"localLink\" href=\"https://schema.org/RadioSeries\">RadioSeries</a>, <a class=\"localLink\" href=\"https://schema.org/MovieSeries\">MovieSeries</a>, <a class=\"localLink\" href=\"https://schema.org/BookSeries\">BookSeries</a>, <a class=\"localLink\" href=\"https://schema.org/Periodical\">Periodical</a> and <a class=\"localLink\" href=\"https://schema.org/VideoGameSeries\">VideoGameSeries</a>. In each case, the <a class=\"localLink\" href=\"https://schema.org/hasPart\">hasPart</a> / <a class=\"localLink\" href=\"https://schema.org/isPartOf\">isPartOf</a> properties can be used to relate the CreativeWorkSeries to its parts. The general CreativeWorkSeries type serves largely just to organize these more specific and practical subtypes.<br/><br/>\n\nIt is common for properties applicable to an item from the series to be usefully applied to the containing group. Schema.org attempts to anticipate some of these cases, but publishers should be free to apply properties of the series parts to the series as a whole wherever they seem appropriate."},
-   :rdfs/isDefinedBy :schema/CreativeWorkSeries,
+   :rdfs/isDefinedBy "http://schema.org/CreativeWorkSeries",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CreativeWorkSeries"},
    :rdfs/subClassOf [:schema/CreativeWork :schema/Series]})
@@ -2291,7 +2291,7 @@
    {:rdf/language "en",
     :rdf/value
     "A card payment method of a particular brand or name.  Used to mark up a particular payment method and/or the financial product/service that supplies the card account.<br/><br/>\n\nCommonly used values:<br/><br/>\n\n<ul>\n<li>http://purl.org/goodrelations/v1#AmericanExpress</li>\n<li>http://purl.org/goodrelations/v1#DinersClub</li>\n<li>http://purl.org/goodrelations/v1#Discover</li>\n<li>http://purl.org/goodrelations/v1#JCB</li>\n<li>http://purl.org/goodrelations/v1#MasterCard</li>\n<li>http://purl.org/goodrelations/v1#VISA</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/CreditCard,
+   :rdfs/isDefinedBy "http://schema.org/CreditCard",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CreditCard"},
    :rdfs/subClassOf [:schema/LoanOrCredit :schema/PaymentCard]})
@@ -2302,7 +2302,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A crematorium."},
-   :rdfs/isDefinedBy :schema/Crematorium,
+   :rdfs/isDefinedBy "http://schema.org/Crematorium",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Crematorium"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -2339,7 +2339,7 @@
    {:rdf/language "en",
     :rdf/value
     "A service to convert funds from one currency to another currency."},
-   :rdfs/isDefinedBy :schema/CurrencyConversionService,
+   :rdfs/isDefinedBy "http://schema.org/CurrencyConversionService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CurrencyConversionService"},
    :rdfs/subClassOf :schema/FinancialProduct})
@@ -2363,7 +2363,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: A social dance."},
-   :rdfs/isDefinedBy :schema/DanceEvent,
+   :rdfs/isDefinedBy "http://schema.org/DanceEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DanceEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -2376,7 +2376,7 @@
    {:rdf/language "en",
     :rdf/value
     "A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance."},
-   :rdfs/isDefinedBy :schema/DanceGroup,
+   :rdfs/isDefinedBy "http://schema.org/DanceGroup",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DanceGroup"},
    :rdfs/subClassOf :schema/PerformingGroup})
@@ -2387,7 +2387,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A collection of datasets."},
-   :rdfs/isDefinedBy :schema/DataCatalog,
+   :rdfs/isDefinedBy "http://schema.org/DataCatalog",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DataCatalog"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -2400,7 +2400,7 @@
    {:rdf/language "en",
     :rdf/value
     "All or part of a <a class=\"localLink\" href=\"https://schema.org/Dataset\">Dataset</a> in downloadable form."},
-   :rdfs/isDefinedBy :schema/DataDownload,
+   :rdfs/isDefinedBy "http://schema.org/DataDownload",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DataDownload"},
    :rdfs/subClassOf :schema/MediaObject})
@@ -2413,7 +2413,7 @@
    {:rdf/language "en",
     :rdf/value
     "A single feed providing structured information about one or more entities or topics."},
-   :rdfs/isDefinedBy :schema/DataFeed,
+   :rdfs/isDefinedBy "http://schema.org/DataFeed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DataFeed"},
    :rdfs/subClassOf :schema/Dataset})
@@ -2424,7 +2424,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A single item within a larger data feed."},
-   :rdfs/isDefinedBy :schema/DataFeedItem,
+   :rdfs/isDefinedBy "http://schema.org/DataFeedItem",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DataFeedItem"},
    :rdfs/subClassOf  :schema/Intangible})
@@ -2436,7 +2436,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The basic data types such as Integers, Strings, etc."},
-   :rdfs/isDefinedBy :schema/DataType,
+   :rdfs/isDefinedBy "http://schema.org/DataType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DataType"},
    :rdfs/subClassOf  :rdfs/Class})
@@ -2449,7 +2449,7 @@
    {:rdf/language "en",
     :rdf/value
     "A body of structured information describing some topic(s) of interest."},
-   :rdfs/isDefinedBy :schema/Dataset,
+   :rdfs/isDefinedBy "http://schema.org/Dataset",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Dataset"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -2462,7 +2462,7 @@
    {:rdf/language "en",
     :rdf/value
     "A date value in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>."},
-   :rdfs/isDefinedBy :schema/Date,
+   :rdfs/isDefinedBy "http://schema.org/Date",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Date"},
    :rdfs/subClassOf :schema/DataType})
@@ -2475,7 +2475,7 @@
    {:rdf/language "en",
     :rdf/value
     "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)."},
-   :rdfs/isDefinedBy :schema/DateTime,
+   :rdfs/isDefinedBy "http://schema.org/DateTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DateTime"},
    :rdfs/subClassOf :schema/DataType})
@@ -2488,7 +2488,7 @@
    {:rdf/language "en",
     :rdf/value
     "A DatedMoneySpecification represents monetary values with optional start and end dates. For example, this could represent an employee's salary over a specific period of time. <strong>Note:</strong> This type has been superseded by <a class=\"localLink\" href=\"https://schema.org/MonetaryAmount\">MonetaryAmount</a>, use of that type is recommended."},
-   :rdfs/isDefinedBy :schema/DatedMoneySpecification,
+   :rdfs/isDefinedBy "http://schema.org/DatedMoneySpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DatedMoneySpecification"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -2501,7 +2501,7 @@
    {:rdf/language "en",
     :rdf/value
     "The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.<br/><br/>\n\nOriginally, URLs from <a href=\"http://purl.org/goodrelations/v1\">GoodRelations</a> were used (for <a class=\"localLink\" href=\"https://schema.org/Monday\">Monday</a>, <a class=\"localLink\" href=\"https://schema.org/Tuesday\">Tuesday</a>, <a class=\"localLink\" href=\"https://schema.org/Wednesday\">Wednesday</a>, <a class=\"localLink\" href=\"https://schema.org/Thursday\">Thursday</a>, <a class=\"localLink\" href=\"https://schema.org/Friday\">Friday</a>, <a class=\"localLink\" href=\"https://schema.org/Saturday\">Saturday</a>, <a class=\"localLink\" href=\"https://schema.org/Sunday\">Sunday</a> plus a special entry for <a class=\"localLink\" href=\"https://schema.org/PublicHolidays\">PublicHolidays</a>); these have now been integrated directly into schema.org."},
-   :rdfs/isDefinedBy :schema/DayOfWeek,
+   :rdfs/isDefinedBy "http://schema.org/DayOfWeek",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DayOfWeek"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -2512,7 +2512,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A day spa."},
-   :rdfs/isDefinedBy :schema/DaySpa,
+   :rdfs/isDefinedBy "http://schema.org/DaySpa",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DaySpa"},
    :rdfs/subClassOf  :schema/HealthAndBeautyBusiness})
@@ -2525,7 +2525,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of stopping or deactivating a device or application (e.g. stopping a timer or turning off a flashlight)."},
-   :rdfs/isDefinedBy :schema/DeactivateAction,
+   :rdfs/isDefinedBy "http://schema.org/DeactivateAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DeactivateAction"},
    :rdfs/subClassOf :schema/ControlAction})
@@ -2537,7 +2537,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A defence establishment, such as an army or navy base."},
-   :rdfs/isDefinedBy :schema/DefenceEstablishment,
+   :rdfs/isDefinedBy "http://schema.org/DefenceEstablishment",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DefenceEstablishment"},
    :rdfs/subClassOf  :schema/GovernmentBuilding})
@@ -2589,7 +2589,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of editing a recipient by removing one of its objects."},
-   :rdfs/isDefinedBy :schema/DeleteAction,
+   :rdfs/isDefinedBy "http://schema.org/DeleteAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DeleteAction"},
    :rdfs/subClassOf :schema/UpdateAction})
@@ -2602,7 +2602,7 @@
    {:rdf/language "en",
     :rdf/value
     "The price for the delivery of an offer using a particular delivery method."},
-   :rdfs/isDefinedBy :schema/DeliveryChargeSpecification,
+   :rdfs/isDefinedBy "http://schema.org/DeliveryChargeSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DeliveryChargeSpecification"},
    :rdfs/subClassOf :schema/PriceSpecification})
@@ -2613,7 +2613,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "An event involving the delivery of an item."},
-   :rdfs/isDefinedBy :schema/DeliveryEvent,
+   :rdfs/isDefinedBy "http://schema.org/DeliveryEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DeliveryEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -2626,7 +2626,7 @@
    {:rdf/language "en",
     :rdf/value
     "A delivery method is a standardized procedure for transferring the product or service to the destination of fulfillment chosen by the customer. Delivery methods are characterized by the means of transportation used, and by the organization or group that is the contracting party for the sending organization or person.<br/><br/>\n\nCommonly used values:<br/><br/>\n\n<ul>\n<li>http://purl.org/goodrelations/v1#DeliveryModeDirectDownload</li>\n<li>http://purl.org/goodrelations/v1#DeliveryModeFreight</li>\n<li>http://purl.org/goodrelations/v1#DeliveryModeMail</li>\n<li>http://purl.org/goodrelations/v1#DeliveryModeOwnFleet</li>\n<li>http://purl.org/goodrelations/v1#DeliveryModePickUp</li>\n<li>http://purl.org/goodrelations/v1#DHL</li>\n<li>http://purl.org/goodrelations/v1#FederalExpress</li>\n<li>http://purl.org/goodrelations/v1#UPS</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/DeliveryMethod,
+   :rdfs/isDefinedBy "http://schema.org/DeliveryMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DeliveryMethod"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -2652,7 +2652,7 @@
    {:rdf/language "en",
     :rdf/value
     "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply."},
-   :rdfs/isDefinedBy :schema/Demand,
+   :rdfs/isDefinedBy "http://schema.org/Demand",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Demand"},
    :rdfs/subClassOf :schema/Intangible})
@@ -2663,7 +2663,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A dentist."},
-   :rdfs/isDefinedBy :schema/Dentist,
+   :rdfs/isDefinedBy "http://schema.org/Dentist",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Dentist"},
    :rdfs/subClassOf  [:schema/MedicalBusiness
@@ -2678,7 +2678,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of  departing from a place. An agent departs from a fromLocation for a destination, optionally with participants."},
-   :rdfs/isDefinedBy :schema/DepartAction,
+   :rdfs/isDefinedBy "http://schema.org/DepartAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DepartAction"},
    :rdfs/subClassOf :schema/MoveAction})
@@ -2689,7 +2689,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A department store."},
-   :rdfs/isDefinedBy :schema/DepartmentStore,
+   :rdfs/isDefinedBy "http://schema.org/DepartmentStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DepartmentStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -2702,7 +2702,7 @@
    {:rdf/language "en",
     :rdf/value
     "A type of Bank Account with a main purpose of depositing funds to gain interest or other benefits."},
-   :rdfs/isDefinedBy :schema/DepositAccount,
+   :rdfs/isDefinedBy "http://schema.org/DepositAccount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DepositAccount"},
    :rdfs/subClassOf [:schema/InvestmentOrDeposit :schema/BankAccount]})
@@ -2765,7 +2765,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An electronic file or document."},
-   :rdfs/isDefinedBy :schema/DigitalDocument,
+   :rdfs/isDefinedBy "http://schema.org/DigitalDocument",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DigitalDocument"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -2778,7 +2778,7 @@
    {:rdf/language "en",
     :rdf/value
     "A permission for a particular person or group to access a particular file."},
-   :rdfs/isDefinedBy :schema/DigitalDocumentPermission,
+   :rdfs/isDefinedBy "http://schema.org/DigitalDocumentPermission",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DigitalDocumentPermission"},
    :rdfs/subClassOf :schema/Intangible})
@@ -2791,7 +2791,7 @@
    {:rdf/language "en",
     :rdf/value
     "A type of permission which can be granted for accessing a digital document."},
-   :rdfs/isDefinedBy :schema/DigitalDocumentPermissionType,
+   :rdfs/isDefinedBy "http://schema.org/DigitalDocumentPermissionType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DigitalDocumentPermissionType"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -2817,7 +2817,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants."},
-   :rdfs/isDefinedBy :schema/DisagreeAction,
+   :rdfs/isDefinedBy "http://schema.org/DisagreeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DisagreeAction"},
    :rdfs/subClassOf :schema/ReactAction})
@@ -2828,7 +2828,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "The act of discovering/finding an object."},
-   :rdfs/isDefinedBy :schema/DiscoverAction,
+   :rdfs/isDefinedBy "http://schema.org/DiscoverAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DiscoverAction"},
    :rdfs/subClassOf  :schema/FindAction})
@@ -2839,7 +2839,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A posting to a discussion forum."},
-   :rdfs/isDefinedBy :schema/DiscussionForumPosting,
+   :rdfs/isDefinedBy "http://schema.org/DiscussionForumPosting",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DiscussionForumPosting"},
    :rdfs/subClassOf  :schema/SocialMediaPosting})
@@ -2852,7 +2852,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants."},
-   :rdfs/isDefinedBy :schema/DislikeAction,
+   :rdfs/isDefinedBy "http://schema.org/DislikeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DislikeAction"},
    :rdfs/subClassOf :schema/ReactAction})
@@ -2865,7 +2865,7 @@
    {:rdf/language "en",
     :rdf/value
     "Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'."},
-   :rdfs/isDefinedBy :schema/Distance,
+   :rdfs/isDefinedBy "http://schema.org/Distance",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Distance"},
    :rdfs/subClassOf :schema/Quantity})
@@ -2876,7 +2876,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A distillery."},
-   :rdfs/isDefinedBy :schema/Distillery,
+   :rdfs/isDefinedBy "http://schema.org/Distillery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Distillery"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -2889,7 +2889,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of providing goods, services, or money without compensation, often for philanthropic reasons."},
-   :rdfs/isDefinedBy :schema/DonateAction,
+   :rdfs/isDefinedBy "http://schema.org/DonateAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DonateAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -2912,7 +2912,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of downloading an object."},
-   :rdfs/isDefinedBy :schema/DownloadAction,
+   :rdfs/isDefinedBy "http://schema.org/DownloadAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DownloadAction"},
    :rdfs/subClassOf  :schema/TransferAction})
@@ -2925,7 +2925,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of producing a visual/graphical representation of an object, typically with a pen/pencil and paper as instruments."},
-   :rdfs/isDefinedBy :schema/DrawAction,
+   :rdfs/isDefinedBy "http://schema.org/DrawAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DrawAction"},
    :rdfs/subClassOf :schema/CreateAction})
@@ -2949,7 +2949,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of swallowing liquids."},
-   :rdfs/isDefinedBy :schema/DrinkAction,
+   :rdfs/isDefinedBy "http://schema.org/DrinkAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DrinkAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -2961,7 +2961,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "A value indicating which roadwheels will receive torque."},
-   :rdfs/isDefinedBy :schema/DriveWheelConfigurationValue,
+   :rdfs/isDefinedBy "http://schema.org/DriveWheelConfigurationValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "DriveWheelConfigurationValue"},
    :rdfs/subClassOf :schema/QualitativeValue})
@@ -3074,7 +3074,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A dry-cleaning business."},
-   :rdfs/isDefinedBy :schema/DryCleaningOrLaundry,
+   :rdfs/isDefinedBy "http://schema.org/DryCleaningOrLaundry",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "DryCleaningOrLaundry"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -3087,7 +3087,7 @@
    {:rdf/language "en",
     :rdf/value
     "Quantity: Duration (use <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 duration format</a>)."},
-   :rdfs/isDefinedBy :schema/Duration,
+   :rdfs/isDefinedBy "http://schema.org/Duration",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Duration"},
    :rdfs/subClassOf :schema/Quantity})
@@ -3111,7 +3111,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of swallowing solid objects."},
-   :rdfs/isDefinedBy :schema/EatAction,
+   :rdfs/isDefinedBy "http://schema.org/EatAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EatAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -3122,7 +3122,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Education event."},
-   :rdfs/isDefinedBy :schema/EducationEvent,
+   :rdfs/isDefinedBy "http://schema.org/EducationEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EducationEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -3133,7 +3133,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An EducationalAudience."},
-   :rdfs/isDefinedBy :schema/EducationalAudience,
+   :rdfs/isDefinedBy "http://schema.org/EducationalAudience",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EducationalAudience"},
    :rdfs/subClassOf  :schema/Audience})
@@ -3172,7 +3172,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An educational organization."},
-   :rdfs/isDefinedBy :schema/EducationalOrganization,
+   :rdfs/isDefinedBy "http://schema.org/EducationalOrganization",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EducationalOrganization"},
    :rdfs/subClassOf  [:schema/Organization :schema/CivicStructure]})
@@ -3183,7 +3183,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An electrician."},
-   :rdfs/isDefinedBy :schema/Electrician,
+   :rdfs/isDefinedBy "http://schema.org/Electrician",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Electrician"},
    :rdfs/subClassOf  :schema/HomeAndConstructionBusiness})
@@ -3194,7 +3194,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An electronics store."},
-   :rdfs/isDefinedBy :schema/ElectronicsStore,
+   :rdfs/isDefinedBy "http://schema.org/ElectronicsStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ElectronicsStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -3205,7 +3205,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An elementary school."},
-   :rdfs/isDefinedBy :schema/ElementarySchool,
+   :rdfs/isDefinedBy "http://schema.org/ElementarySchool",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ElementarySchool"},
    :rdfs/subClassOf  :schema/EducationalOrganization})
@@ -3216,7 +3216,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An email message."},
-   :rdfs/isDefinedBy :schema/EmailMessage,
+   :rdfs/isDefinedBy "http://schema.org/EmailMessage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EmailMessage"},
    :rdfs/subClassOf  :schema/Message})
@@ -3227,7 +3227,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An embassy."},
-   :rdfs/isDefinedBy :schema/Embassy,
+   :rdfs/isDefinedBy "http://schema.org/Embassy",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Embassy"},
    :rdfs/subClassOf  :schema/GovernmentBuilding})
@@ -3239,7 +3239,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "An emergency service, such as a fire station or ER."},
-   :rdfs/isDefinedBy :schema/EmergencyService,
+   :rdfs/isDefinedBy "http://schema.org/EmergencyService",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EmergencyService"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -3252,7 +3252,7 @@
    {:rdf/language "en",
     :rdf/value
     "A subclass of OrganizationRole used to describe employee relationships."},
-   :rdfs/isDefinedBy :schema/EmployeeRole,
+   :rdfs/isDefinedBy "http://schema.org/EmployeeRole",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EmployeeRole"},
    :rdfs/subClassOf :schema/OrganizationRole})
@@ -3265,7 +3265,7 @@
    {:rdf/language "en",
     :rdf/value
     "An aggregate rating of an Organization related to its role as an employer."},
-   :rdfs/isDefinedBy :schema/EmployerAggregateRating,
+   :rdfs/isDefinedBy "http://schema.org/EmployerAggregateRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EmployerAggregateRating"},
    :rdfs/subClassOf :schema/AggregateRating})
@@ -3289,7 +3289,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An employment agency."},
-   :rdfs/isDefinedBy :schema/EmploymentAgency,
+   :rdfs/isDefinedBy "http://schema.org/EmploymentAgency",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EmploymentAgency"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -3302,7 +3302,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent approves/certifies/likes/supports/sanctions an object."},
-   :rdfs/isDefinedBy :schema/EndorseAction,
+   :rdfs/isDefinedBy "http://schema.org/EndorseAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EndorseAction"},
    :rdfs/subClassOf :schema/ReactAction})
@@ -3315,7 +3315,7 @@
    {:rdf/language "en",
     :rdf/value
     "An EndorsementRating is a rating that expresses some level of endorsement, for example inclusion in a \"critic's pick\" blog, a\n\"Like\" or \"+1\" on a social network. It can be considered the <a class=\"localLink\" href=\"https://schema.org/result\">result</a> of an <a class=\"localLink\" href=\"https://schema.org/EndorseAction\">EndorseAction</a> in which the <a class=\"localLink\" href=\"https://schema.org/object\">object</a> of the action is rated positively by\nsome <a class=\"localLink\" href=\"https://schema.org/agent\">agent</a>. As is common elsewhere in schema.org, it is sometimes more useful to describe the results of such an action without explicitly describing the <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>.<br/><br/>\n\nAn <a class=\"localLink\" href=\"https://schema.org/EndorsementRating\">EndorsementRating</a> may be part of a numeric scale or organized system, but this is not required: having an explicit type for indicating a positive,\nendorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive."},
-   :rdfs/isDefinedBy :schema/EndorsementRating,
+   :rdfs/isDefinedBy "http://schema.org/EndorsementRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EndorsementRating"},
    :rdfs/subClassOf :schema/Rating})
@@ -3328,7 +3328,7 @@
    {:rdf/language "en",
     :rdf/value
     "Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'."},
-   :rdfs/isDefinedBy :schema/Energy,
+   :rdfs/isDefinedBy "http://schema.org/Energy",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Energy"},
    :rdfs/subClassOf :schema/Quantity})
@@ -3380,7 +3380,7 @@
    {:rdf/language "en",
     :rdf/value
     "Information about the engine of the vehicle. A vehicle can have multiple engines represented by multiple engine specification entities."},
-   :rdfs/isDefinedBy :schema/EngineSpecification,
+   :rdfs/isDefinedBy "http://schema.org/EngineSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EngineSpecification"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -3391,7 +3391,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A business providing entertainment."},
-   :rdfs/isDefinedBy :schema/EntertainmentBusiness,
+   :rdfs/isDefinedBy "http://schema.org/EntertainmentBusiness",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EntertainmentBusiness"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -3403,7 +3403,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "An entry point, within some Web-based protocol."},
-   :rdfs/isDefinedBy :schema/EntryPoint,
+   :rdfs/isDefinedBy "http://schema.org/EntryPoint",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EntryPoint"},
    :rdfs/subClassOf  :schema/Intangible})
@@ -3416,7 +3416,7 @@
    {:rdf/language "en",
     :rdf/value
     "Lists or enumerations—for example, a list of cuisines or music genres, etc."},
-   :rdfs/isDefinedBy :schema/Enumeration,
+   :rdfs/isDefinedBy "http://schema.org/Enumeration",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Enumeration"},
    :rdfs/subClassOf :schema/Intangible})
@@ -3429,7 +3429,7 @@
    {:rdf/language "en",
     :rdf/value
     "A media episode (e.g. TV, radio, video game) which can be part of a series or season."},
-   :rdfs/isDefinedBy :schema/Episode,
+   :rdfs/isDefinedBy "http://schema.org/Episode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Episode"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -3442,7 +3442,7 @@
    {:rdf/language "en",
     :rdf/value
     "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the <a class=\"localLink\" href=\"https://schema.org/offers\">offers</a> property. Repeated events may be structured as separate Event objects."},
-   :rdfs/isDefinedBy :schema/Event,
+   :rdfs/isDefinedBy "http://schema.org/Event",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Event"},
    :rdfs/subClassOf :schema/Thing})
@@ -3469,7 +3469,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation for an event like a concert, sporting event, or lecture.<br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."},
-   :rdfs/isDefinedBy :schema/EventReservation,
+   :rdfs/isDefinedBy "http://schema.org/EventReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EventReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -3495,7 +3495,7 @@
    {:rdf/language "en",
     :rdf/value
     "EventStatusType is an enumeration type whose instances represent several states that an Event may be in."},
-   :rdfs/isDefinedBy :schema/EventStatusType,
+   :rdfs/isDefinedBy "http://schema.org/EventStatusType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "EventStatusType"},
    :rdfs/subClassOf :schema/StatusEnumeration})
@@ -3506,7 +3506,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An event venue."},
-   :rdfs/isDefinedBy :schema/EventVenue,
+   :rdfs/isDefinedBy "http://schema.org/EventVenue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "EventVenue"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -3531,7 +3531,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of participating in exertive activity for the purposes of improving health and fitness."},
-   :rdfs/isDefinedBy :schema/ExerciseAction,
+   :rdfs/isDefinedBy "http://schema.org/ExerciseAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ExerciseAction"},
    :rdfs/subClassOf :schema/PlayAction})
@@ -3542,7 +3542,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A gym."},
-   :rdfs/isDefinedBy :schema/ExerciseGym,
+   :rdfs/isDefinedBy "http://schema.org/ExerciseGym",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ExerciseGym"},
    :rdfs/subClassOf  :schema/SportsActivityLocation})
@@ -3568,7 +3568,7 @@
    {:rdf/language "en",
     :rdf/value
     "Event type: Exhibition event, e.g. at a museum, library, archive, tradeshow, ..."},
-   :rdfs/isDefinedBy :schema/ExhibitionEvent,
+   :rdfs/isDefinedBy "http://schema.org/ExhibitionEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ExhibitionEvent"},
    :rdfs/subClassOf :schema/Event})
@@ -3581,7 +3581,7 @@
    {:rdf/language "en",
     :rdf/value
     "A <a class=\"localLink\" href=\"https://schema.org/FAQPage\">FAQPage</a> is a <a class=\"localLink\" href=\"https://schema.org/WebPage\">WebPage</a> presenting one or more \"<a href=\"https://en.wikipedia.org/wiki/FAQ\">Frequently asked questions</a>\" (see also <a class=\"localLink\" href=\"https://schema.org/QAPage\">QAPage</a>)."},
-   :rdfs/isDefinedBy :schema/FAQPage,
+   :rdfs/isDefinedBy "http://schema.org/FAQPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "FAQPage"},
    :rdfs/subClassOf :schema/WebPage})
@@ -3592,7 +3592,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A radio channel that uses FM."},
-   :rdfs/isDefinedBy :schema/FMRadioChannel,
+   :rdfs/isDefinedBy "http://schema.org/FMRadioChannel",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FMRadioChannel"},
    :rdfs/subClassOf  :schema/RadioChannel})
@@ -3603,7 +3603,7 @@
    :rdf/type         :owl/NamedIndividual,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The boolean value false."},
-   :rdfs/isDefinedBy :schema/False,
+   :rdfs/isDefinedBy "http://schema.org/False",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "False"}})
 
@@ -3613,7 +3613,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A fast-food restaurant."},
-   :rdfs/isDefinedBy :schema/FastFoodRestaurant,
+   :rdfs/isDefinedBy "http://schema.org/FastFoodRestaurant",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FastFoodRestaurant"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -3624,7 +3624,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Festival."},
-   :rdfs/isDefinedBy :schema/Festival,
+   :rdfs/isDefinedBy "http://schema.org/Festival",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Festival"},
    :rdfs/subClassOf  :schema/Event})
@@ -3637,7 +3637,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of capturing sound and moving images on film, video, or digitally."},
-   :rdfs/isDefinedBy :schema/FilmAction,
+   :rdfs/isDefinedBy "http://schema.org/FilmAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "FilmAction"},
    :rdfs/subClassOf :schema/CreateAction})
@@ -3650,7 +3650,7 @@
    {:rdf/language "en",
     :rdf/value
     "A product provided to consumers and businesses by financial institutions such as banks, insurance companies, brokerage firms, consumer finance companies, and investment companies which comprise the financial services industry."},
-   :rdfs/isDefinedBy :schema/FinancialProduct,
+   :rdfs/isDefinedBy "http://schema.org/FinancialProduct",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "FinancialProduct"},
    :rdfs/subClassOf :schema/Service})
@@ -3661,7 +3661,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Financial services business."},
-   :rdfs/isDefinedBy :schema/FinancialService,
+   :rdfs/isDefinedBy "http://schema.org/FinancialService",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FinancialService"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -3674,7 +3674,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of finding an object.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/SearchAction\">SearchAction</a>: FindAction is generally lead by a SearchAction, but not necessarily.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/FindAction,
+   :rdfs/isDefinedBy "http://schema.org/FindAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "FindAction"},
    :rdfs/subClassOf :schema/Action})
@@ -3685,7 +3685,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A fire station. With firemen."},
-   :rdfs/isDefinedBy :schema/FireStation,
+   :rdfs/isDefinedBy "http://schema.org/FireStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FireStation"},
    :rdfs/subClassOf  [:schema/CivicStructure :schema/EmergencyService]})
@@ -3696,7 +3696,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An airline flight."},
-   :rdfs/isDefinedBy :schema/Flight,
+   :rdfs/isDefinedBy "http://schema.org/Flight",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Flight"},
    :rdfs/subClassOf  :schema/Trip})
@@ -3709,7 +3709,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation for air travel.<br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."},
-   :rdfs/isDefinedBy :schema/FlightReservation,
+   :rdfs/isDefinedBy "http://schema.org/FlightReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "FlightReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -3720,7 +3720,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Data type: Floating number."},
-   :rdfs/isDefinedBy :schema/Float,
+   :rdfs/isDefinedBy "http://schema.org/Float",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Float"},
    :rdfs/subClassOf  :schema/Number})
@@ -3744,7 +3744,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A florist."},
-   :rdfs/isDefinedBy :schema/Florist,
+   :rdfs/isDefinedBy "http://schema.org/Florist",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Florist"},
    :rdfs/subClassOf  :schema/Store})
@@ -3757,7 +3757,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates polled from.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/BefriendAction\">BefriendAction</a>: Unlike BefriendAction, FollowAction implies that the connection is <em>not</em> necessarily reciprocal.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/SubscribeAction\">SubscribeAction</a>: Unlike SubscribeAction, FollowAction implies that the follower acts as an active agent constantly/actively polling for updates.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: Unlike RegisterAction, FollowAction implies that the agent is interested in continuing receiving updates from the object.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/JoinAction\">JoinAction</a>: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/TrackAction\">TrackAction</a>: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it).</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/FollowAction,
+   :rdfs/isDefinedBy "http://schema.org/FollowAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "FollowAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -3768,7 +3768,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A food-related business."},
-   :rdfs/isDefinedBy :schema/FoodEstablishment,
+   :rdfs/isDefinedBy "http://schema.org/FoodEstablishment",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FoodEstablishment"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -3781,7 +3781,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation to dine at a food-related business.<br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."},
-   :rdfs/isDefinedBy :schema/FoodEstablishmentReservation,
+   :rdfs/isDefinedBy "http://schema.org/FoodEstablishmentReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "FoodEstablishmentReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -3792,7 +3792,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Food event."},
-   :rdfs/isDefinedBy :schema/FoodEvent,
+   :rdfs/isDefinedBy "http://schema.org/FoodEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FoodEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -3804,7 +3804,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A food service, like breakfast, lunch, or dinner."},
-   :rdfs/isDefinedBy :schema/FoodService,
+   :rdfs/isDefinedBy "http://schema.org/FoodService",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FoodService"},
    :rdfs/subClassOf  :schema/Service})
@@ -3841,7 +3841,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A furniture store."},
-   :rdfs/isDefinedBy :schema/FurnitureStore,
+   :rdfs/isDefinedBy "http://schema.org/FurnitureStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "FurnitureStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -3854,7 +3854,7 @@
    {:rdf/language "en",
     :rdf/value
     "The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting."},
-   :rdfs/isDefinedBy :schema/Game,
+   :rdfs/isDefinedBy "http://schema.org/Game",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Game"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -3880,7 +3880,7 @@
    {:rdf/language "en",
     :rdf/value
     "Indicates whether this game is multi-player, co-op or single-player."},
-   :rdfs/isDefinedBy :schema/GamePlayMode,
+   :rdfs/isDefinedBy "http://schema.org/GamePlayMode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GamePlayMode"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -3892,7 +3892,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "Server that provides game interaction in a multiplayer game."},
-   :rdfs/isDefinedBy :schema/GameServer,
+   :rdfs/isDefinedBy "http://schema.org/GameServer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GameServer"},
    :rdfs/subClassOf :schema/Intangible})
@@ -3903,7 +3903,7 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Status of a game server."},
-   :rdfs/isDefinedBy :schema/GameServerStatus,
+   :rdfs/isDefinedBy "http://schema.org/GameServerStatus",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GameServerStatus"},
    :rdfs/subClassOf  :schema/StatusEnumeration})
@@ -3914,7 +3914,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A garden store."},
-   :rdfs/isDefinedBy :schema/GardenStore,
+   :rdfs/isDefinedBy "http://schema.org/GardenStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GardenStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -3925,7 +3925,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A gas station."},
-   :rdfs/isDefinedBy :schema/GasStation,
+   :rdfs/isDefinedBy "http://schema.org/GasStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GasStation"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -3936,7 +3936,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Residence type: Gated community."},
-   :rdfs/isDefinedBy :schema/GatedResidenceCommunity,
+   :rdfs/isDefinedBy "http://schema.org/GatedResidenceCommunity",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GatedResidenceCommunity"},
    :rdfs/subClassOf  :schema/Residence})
@@ -3947,7 +3947,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An enumeration of genders."},
-   :rdfs/isDefinedBy :schema/GenderType,
+   :rdfs/isDefinedBy "http://schema.org/GenderType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GenderType"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -3971,7 +3971,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A general contractor."},
-   :rdfs/isDefinedBy :schema/GeneralContractor,
+   :rdfs/isDefinedBy "http://schema.org/GeneralContractor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GeneralContractor"},
    :rdfs/subClassOf  :schema/HomeAndConstructionBusiness})
@@ -3984,7 +3984,7 @@
    {:rdf/language "en",
     :rdf/value
     "A GeoCircle is a GeoShape representing a circular geographic area. As it is a GeoShape\n          it provides the simple textual property 'circle', but also allows the combination of postalCode alongside geoRadius.\n          The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'."},
-   :rdfs/isDefinedBy :schema/GeoCircle,
+   :rdfs/isDefinedBy "http://schema.org/GeoCircle",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GeoCircle"},
    :rdfs/subClassOf :schema/GeoShape})
@@ -3996,7 +3996,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The geographic coordinates of a place or event."},
-   :rdfs/isDefinedBy :schema/GeoCoordinates,
+   :rdfs/isDefinedBy "http://schema.org/GeoCoordinates",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GeoCoordinates"},
    :rdfs/subClassOf  :schema/StructuredValue})
@@ -4009,7 +4009,7 @@
    {:rdf/language "en",
     :rdf/value
     "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points."},
-   :rdfs/isDefinedBy :schema/GeoShape,
+   :rdfs/isDefinedBy "http://schema.org/GeoShape",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GeoShape"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -4035,7 +4035,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/TakeAction\">TakeAction</a>: Reciprocal of GiveAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/SendAction\">SendAction</a>: Unlike SendAction, GiveAction implies that ownership is being transferred (e.g. I may send my laptop to you, but that doesn't mean I'm giving it to you).</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/GiveAction,
+   :rdfs/isDefinedBy "http://schema.org/GiveAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GiveAction"},
    :rdfs/subClassOf :schema/TransferAction})
@@ -4046,7 +4046,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A golf course."},
-   :rdfs/isDefinedBy :schema/GolfCourse,
+   :rdfs/isDefinedBy "http://schema.org/GolfCourse",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GolfCourse"},
    :rdfs/subClassOf  :schema/SportsActivityLocation})
@@ -4070,7 +4070,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A government building."},
-   :rdfs/isDefinedBy :schema/GovernmentBuilding,
+   :rdfs/isDefinedBy "http://schema.org/GovernmentBuilding",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GovernmentBuilding"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -4082,7 +4082,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "A government office&#x2014;for example, an IRS or DMV office."},
-   :rdfs/isDefinedBy :schema/GovernmentOffice,
+   :rdfs/isDefinedBy "http://schema.org/GovernmentOffice",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GovernmentOffice"},
    :rdfs/subClassOf :schema/LocalBusiness})
@@ -4093,7 +4093,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A governmental organization or agency."},
-   :rdfs/isDefinedBy :schema/GovernmentOrganization,
+   :rdfs/isDefinedBy "http://schema.org/GovernmentOrganization",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GovernmentOrganization"},
    :rdfs/subClassOf  :schema/Organization})
@@ -4104,7 +4104,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A permit issued by a government agency."},
-   :rdfs/isDefinedBy :schema/GovernmentPermit,
+   :rdfs/isDefinedBy "http://schema.org/GovernmentPermit",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GovernmentPermit"},
    :rdfs/subClassOf  :schema/Permit})
@@ -4117,7 +4117,7 @@
    {:rdf/language "en",
     :rdf/value
     "A service provided by a government organization, e.g. food stamps, veterans benefits, etc."},
-   :rdfs/isDefinedBy :schema/GovernmentService,
+   :rdfs/isDefinedBy "http://schema.org/GovernmentService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "GovernmentService"},
    :rdfs/subClassOf :schema/Service})
@@ -4141,7 +4141,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A grocery store."},
-   :rdfs/isDefinedBy :schema/GroceryStore,
+   :rdfs/isDefinedBy "http://schema.org/GroceryStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "GroceryStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -4167,7 +4167,7 @@
    {:rdf/language "en",
     :rdf/value
     "A business that provides Heating, Ventilation and Air Conditioning services."},
-   :rdfs/isDefinedBy :schema/HVACBusiness,
+   :rdfs/isDefinedBy "http://schema.org/HVACBusiness",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HVACBusiness"},
    :rdfs/subClassOf :schema/HomeAndConstructionBusiness})
@@ -4191,7 +4191,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A hair salon."},
-   :rdfs/isDefinedBy :schema/HairSalon,
+   :rdfs/isDefinedBy "http://schema.org/HairSalon",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HairSalon"},
    :rdfs/subClassOf  :schema/HealthAndBeautyBusiness})
@@ -4202,7 +4202,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A hardware store."},
-   :rdfs/isDefinedBy :schema/HardwareStore,
+   :rdfs/isDefinedBy "http://schema.org/HardwareStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HardwareStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -4213,7 +4213,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Health and beauty."},
-   :rdfs/isDefinedBy :schema/HealthAndBeautyBusiness,
+   :rdfs/isDefinedBy "http://schema.org/HealthAndBeautyBusiness",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HealthAndBeautyBusiness"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -4237,7 +4237,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A health club."},
-   :rdfs/isDefinedBy :schema/HealthClub,
+   :rdfs/isDefinedBy "http://schema.org/HealthClub",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HealthClub"},
    :rdfs/subClassOf  [:schema/SportsActivityLocation
@@ -4313,7 +4313,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A high school."},
-   :rdfs/isDefinedBy :schema/HighSchool,
+   :rdfs/isDefinedBy "http://schema.org/HighSchool",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HighSchool"},
    :rdfs/subClassOf  :schema/EducationalOrganization})
@@ -4324,7 +4324,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A Hindu temple."},
-   :rdfs/isDefinedBy :schema/HinduTemple,
+   :rdfs/isDefinedBy "http://schema.org/HinduTemple",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HinduTemple"},
    :rdfs/subClassOf  :schema/PlaceOfWorship})
@@ -4337,7 +4337,7 @@
    {:rdf/language "en",
     :rdf/value
     "A store that sells materials useful or necessary for various hobbies."},
-   :rdfs/isDefinedBy :schema/HobbyShop,
+   :rdfs/isDefinedBy "http://schema.org/HobbyShop",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HobbyShop"},
    :rdfs/subClassOf :schema/Store})
@@ -4350,7 +4350,7 @@
    {:rdf/language "en",
     :rdf/value
     "A construction business.<br/><br/>\n\nA HomeAndConstructionBusiness is a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a> that provides services around homes and buildings.<br/><br/>\n\nAs a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a> it can be described as a <a class=\"localLink\" href=\"https://schema.org/provider\">provider</a> of one or more <a class=\"localLink\" href=\"https://schema.org/Service\">Service</a>(s)."},
-   :rdfs/isDefinedBy :schema/HomeAndConstructionBusiness,
+   :rdfs/isDefinedBy "http://schema.org/HomeAndConstructionBusiness",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HomeAndConstructionBusiness"},
    :rdfs/subClassOf :schema/LocalBusiness})
@@ -4361,7 +4361,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A home goods store."},
-   :rdfs/isDefinedBy :schema/HomeGoodsStore,
+   :rdfs/isDefinedBy "http://schema.org/HomeGoodsStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HomeGoodsStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -4372,7 +4372,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A hospital."},
-   :rdfs/isDefinedBy :schema/Hospital,
+   :rdfs/isDefinedBy "http://schema.org/Hospital",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Hospital"},
    :rdfs/subClassOf  [:schema/CivicStructure
@@ -4387,7 +4387,7 @@
    {:rdf/language "en",
     :rdf/value
     "A hostel - cheap accommodation, often in shared dormitories.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Hostel,
+   :rdfs/isDefinedBy "http://schema.org/Hostel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Hostel"},
    :rdfs/subClassOf :schema/LodgingBusiness})
@@ -4400,7 +4400,7 @@
    {:rdf/language "en",
     :rdf/value
     "A hotel is an establishment that provides lodging paid on a short-term basis (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Hotel).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Hotel,
+   :rdfs/isDefinedBy "http://schema.org/Hotel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Hotel"},
    :rdfs/subClassOf :schema/LodgingBusiness})
@@ -4413,7 +4413,7 @@
    {:rdf/language "en",
     :rdf/value
     "A hotel room is a single room in a hotel.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/HotelRoom,
+   :rdfs/isDefinedBy "http://schema.org/HotelRoom",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HotelRoom"},
    :rdfs/subClassOf :schema/Room})
@@ -4426,7 +4426,7 @@
    {:rdf/language "en",
     :rdf/value
     "A house is a building or structure that has the ability to be occupied for habitation by humans or other creatures (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/House\">http://en.wikipedia.org/wiki/House</a>)."},
-   :rdfs/isDefinedBy :schema/House,
+   :rdfs/isDefinedBy "http://schema.org/House",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "House"},
    :rdfs/subClassOf :schema/Accommodation})
@@ -4437,7 +4437,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A house painting service."},
-   :rdfs/isDefinedBy :schema/HousePainter,
+   :rdfs/isDefinedBy "http://schema.org/HousePainter",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "HousePainter"},
    :rdfs/subClassOf  :schema/HomeAndConstructionBusiness})
@@ -4450,7 +4450,7 @@
    {:rdf/language "en",
     :rdf/value
     "Instructions that explain how to achieve a result by performing a sequence of steps."},
-   :rdfs/isDefinedBy :schema/HowTo,
+   :rdfs/isDefinedBy "http://schema.org/HowTo",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowTo"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -4463,7 +4463,7 @@
    {:rdf/language "en",
     :rdf/value
     "A direction indicating a single action to do in the instructions for how to achieve a result."},
-   :rdfs/isDefinedBy :schema/HowToDirection,
+   :rdfs/isDefinedBy "http://schema.org/HowToDirection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowToDirection"},
    :rdfs/subClassOf [:schema/ListItem :schema/CreativeWork]})
@@ -4476,7 +4476,7 @@
    {:rdf/language "en",
     :rdf/value
     "An item used as either a tool or supply when performing the instructions for how to achieve a result."},
-   :rdfs/isDefinedBy :schema/HowToItem,
+   :rdfs/isDefinedBy "http://schema.org/HowToItem",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowToItem"},
    :rdfs/subClassOf :schema/ListItem})
@@ -4489,7 +4489,7 @@
    {:rdf/language "en",
     :rdf/value
     "A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe)."},
-   :rdfs/isDefinedBy :schema/HowToSection,
+   :rdfs/isDefinedBy "http://schema.org/HowToSection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowToSection"},
    :rdfs/subClassOf [:schema/ListItem :schema/CreativeWork :schema/ItemList]})
@@ -4502,7 +4502,7 @@
    {:rdf/language "en",
     :rdf/value
     "A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items."},
-   :rdfs/isDefinedBy :schema/HowToStep,
+   :rdfs/isDefinedBy "http://schema.org/HowToStep",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowToStep"},
    :rdfs/subClassOf [:schema/ListItem :schema/CreativeWork :schema/ItemList]})
@@ -4515,7 +4515,7 @@
    {:rdf/language "en",
     :rdf/value
     "A supply consumed when performing the instructions for how to achieve a result."},
-   :rdfs/isDefinedBy :schema/HowToSupply,
+   :rdfs/isDefinedBy "http://schema.org/HowToSupply",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowToSupply"},
    :rdfs/subClassOf :schema/HowToItem})
@@ -4528,7 +4528,7 @@
    {:rdf/language "en",
     :rdf/value
     "An explanation in the instructions for how to achieve a result. It provides supplementary information about a technique, supply, author's preference, etc. It can explain what could be done, or what should not be done, but doesn't specify what should be done (see HowToDirection)."},
-   :rdfs/isDefinedBy :schema/HowToTip,
+   :rdfs/isDefinedBy "http://schema.org/HowToTip",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowToTip"},
    :rdfs/subClassOf [:schema/CreativeWork :schema/ListItem]})
@@ -4541,7 +4541,7 @@
    {:rdf/language "en",
     :rdf/value
     "A tool used (but not consumed) when performing instructions for how to achieve a result."},
-   :rdfs/isDefinedBy :schema/HowToTool,
+   :rdfs/isDefinedBy "http://schema.org/HowToTool",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "HowToTool"},
    :rdfs/subClassOf :schema/HowToItem})
@@ -4578,7 +4578,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An ice cream shop."},
-   :rdfs/isDefinedBy :schema/IceCreamShop,
+   :rdfs/isDefinedBy "http://schema.org/IceCreamShop",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "IceCreamShop"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -4591,7 +4591,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of intentionally disregarding the object. An agent ignores an object."},
-   :rdfs/isDefinedBy :schema/IgnoreAction,
+   :rdfs/isDefinedBy "http://schema.org/IgnoreAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "IgnoreAction"},
    :rdfs/subClassOf :schema/AssessAction})
@@ -4602,7 +4602,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: Image gallery page."},
-   :rdfs/isDefinedBy :schema/ImageGallery,
+   :rdfs/isDefinedBy "http://schema.org/ImageGallery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ImageGallery"},
    :rdfs/subClassOf  :schema/MediaGallery})
@@ -4613,7 +4613,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An image file."},
-   :rdfs/isDefinedBy :schema/ImageObject,
+   :rdfs/isDefinedBy "http://schema.org/ImageObject",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ImageObject"},
    :rdfs/subClassOf  :schema/MediaObject})
@@ -4652,7 +4652,7 @@
    {:rdf/language "en",
     :rdf/value
     "A single, identifiable product instance (e.g. a laptop with a particular serial number)."},
-   :rdfs/isDefinedBy :schema/IndividualProduct,
+   :rdfs/isDefinedBy "http://schema.org/IndividualProduct",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "IndividualProduct"},
    :rdfs/subClassOf :schema/Product})
@@ -4691,7 +4691,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of notifying someone of information pertinent to them, with no expectation of a response."},
-   :rdfs/isDefinedBy :schema/InformAction,
+   :rdfs/isDefinedBy "http://schema.org/InformAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "InformAction"},
    :rdfs/subClassOf :schema/CommunicateAction})
@@ -4704,7 +4704,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of adding at a specific location in an ordered collection."},
-   :rdfs/isDefinedBy :schema/InsertAction,
+   :rdfs/isDefinedBy "http://schema.org/InsertAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "InsertAction"},
    :rdfs/subClassOf :schema/AddAction})
@@ -4715,7 +4715,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of installing an application."},
-   :rdfs/isDefinedBy :schema/InstallAction,
+   :rdfs/isDefinedBy "http://schema.org/InstallAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "InstallAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -4726,7 +4726,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An Insurance agency."},
-   :rdfs/isDefinedBy :schema/InsuranceAgency,
+   :rdfs/isDefinedBy "http://schema.org/InsuranceAgency",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "InsuranceAgency"},
    :rdfs/subClassOf  :schema/FinancialService})
@@ -4739,7 +4739,7 @@
    {:rdf/language "en",
     :rdf/value
     "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."},
-   :rdfs/isDefinedBy :schema/Intangible,
+   :rdfs/isDefinedBy "http://schema.org/Intangible",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Intangible"},
    :rdfs/subClassOf :schema/Thing})
@@ -4750,7 +4750,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Data type: Integer."},
-   :rdfs/isDefinedBy :schema/Integer,
+   :rdfs/isDefinedBy "http://schema.org/Integer",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Integer"},
    :rdfs/subClassOf  :schema/Number})
@@ -4762,7 +4762,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "The act of interacting with another person or organization."},
-   :rdfs/isDefinedBy :schema/InteractAction,
+   :rdfs/isDefinedBy "http://schema.org/InteractAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "InteractAction"},
    :rdfs/subClassOf :schema/Action})
@@ -4775,7 +4775,7 @@
    {:rdf/language "en",
     :rdf/value
     "A summary of how users have interacted with this CreativeWork. In most cases, authors will use a subtype to specify the specific type of interaction."},
-   :rdfs/isDefinedBy :schema/InteractionCounter,
+   :rdfs/isDefinedBy "http://schema.org/InteractionCounter",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "InteractionCounter"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -4786,7 +4786,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An internet cafe."},
-   :rdfs/isDefinedBy :schema/InternetCafe,
+   :rdfs/isDefinedBy "http://schema.org/InternetCafe",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "InternetCafe"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -4812,7 +4812,7 @@
    {:rdf/language "en",
     :rdf/value
     "A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return."},
-   :rdfs/isDefinedBy :schema/InvestmentOrDeposit,
+   :rdfs/isDefinedBy "http://schema.org/InvestmentOrDeposit",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "InvestmentOrDeposit"},
    :rdfs/subClassOf :schema/FinancialProduct})
@@ -4825,7 +4825,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of asking someone to attend an event. Reciprocal of RsvpAction."},
-   :rdfs/isDefinedBy :schema/InviteAction,
+   :rdfs/isDefinedBy "http://schema.org/InviteAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "InviteAction"},
    :rdfs/subClassOf :schema/CommunicateAction})
@@ -4837,7 +4837,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "A statement of the money due for goods or services; a bill."},
-   :rdfs/isDefinedBy :schema/Invoice,
+   :rdfs/isDefinedBy "http://schema.org/Invoice",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Invoice"},
    :rdfs/subClassOf :schema/Intangible})
@@ -4849,7 +4849,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A list of possible product availability options."},
-   :rdfs/isDefinedBy :schema/ItemAvailability,
+   :rdfs/isDefinedBy "http://schema.org/ItemAvailability",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ItemAvailability"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -4862,7 +4862,7 @@
    {:rdf/language "en",
     :rdf/value
     "A list of items of any sort&#x2014;for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. Not to be confused with HTML lists, which are often used only for formatting."},
-   :rdfs/isDefinedBy :schema/ItemList,
+   :rdfs/isDefinedBy "http://schema.org/ItemList",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ItemList"},
    :rdfs/subClassOf :schema/Intangible})
@@ -4875,7 +4875,7 @@
    {:rdf/language "en",
     :rdf/value
     "Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized."},
-   :rdfs/isDefinedBy :schema/ItemListOrderType,
+   :rdfs/isDefinedBy "http://schema.org/ItemListOrderType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ItemListOrderType"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -4888,7 +4888,7 @@
    {:rdf/language "en",
     :rdf/value
     "A page devoted to a single item, such as a particular product or hotel."},
-   :rdfs/isDefinedBy :schema/ItemPage,
+   :rdfs/isDefinedBy "http://schema.org/ItemPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ItemPage"},
    :rdfs/subClassOf :schema/WebPage})
@@ -4899,7 +4899,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A jewelry store."},
-   :rdfs/isDefinedBy :schema/JewelryStore,
+   :rdfs/isDefinedBy "http://schema.org/JewelryStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "JewelryStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -4912,7 +4912,7 @@
    {:rdf/language "en",
     :rdf/value
     "A listing that describes a job opening in a certain organization."},
-   :rdfs/isDefinedBy :schema/JobPosting,
+   :rdfs/isDefinedBy "http://schema.org/JobPosting",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "JobPosting"},
    :rdfs/subClassOf :schema/Intangible})
@@ -4925,7 +4925,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent joins an event/group with participants/friends at a location.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: Unlike RegisterAction, JoinAction refers to joining a group/team of people.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/SubscribeAction\">SubscribeAction</a>: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/JoinAction,
+   :rdfs/isDefinedBy "http://schema.org/JoinAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "JoinAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -4949,7 +4949,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A lake (for example, Lake Pontrachain)."},
-   :rdfs/isDefinedBy :schema/LakeBodyOfWater,
+   :rdfs/isDefinedBy "http://schema.org/LakeBodyOfWater",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "LakeBodyOfWater"},
    :rdfs/subClassOf  :schema/BodyOfWater})
@@ -4962,7 +4962,7 @@
    {:rdf/language "en",
     :rdf/value
     "A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins."},
-   :rdfs/isDefinedBy :schema/Landform,
+   :rdfs/isDefinedBy "http://schema.org/Landform",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Landform"},
    :rdfs/subClassOf :schema/Place})
@@ -4973,7 +4973,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An historical landmark or building."},
-   :rdfs/isDefinedBy :schema/LandmarksOrHistoricalBuildings,
+   :rdfs/isDefinedBy "http://schema.org/LandmarksOrHistoricalBuildings",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "LandmarksOrHistoricalBuildings"},
    :rdfs/subClassOf  :schema/Place})
@@ -4986,7 +4986,7 @@
    {:rdf/language "en",
     :rdf/value
     "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"https://schema.org/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"https://schema.org/ComputerLanguage\">ComputerLanguage</a>."},
-   :rdfs/isDefinedBy :schema/Language,
+   :rdfs/isDefinedBy "http://schema.org/Language",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Language"},
    :rdfs/subClassOf :schema/Intangible})
@@ -5012,7 +5012,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent leaves an event / group with participants/friends at a location.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/JoinAction\">JoinAction</a>: The antonym of LeaveAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/UnRegisterAction\">UnRegisterAction</a>: Unlike UnRegisterAction, LeaveAction implies leaving a group/team of people rather than a service.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/LeaveAction,
+   :rdfs/isDefinedBy "http://schema.org/LeaveAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LeaveAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -5038,7 +5038,7 @@
    {:rdf/language "en",
     :rdf/value
     "A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.<br/><br/>\n\nAs a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a> it can be described as a <a class=\"localLink\" href=\"https://schema.org/provider\">provider</a> of one or more <a class=\"localLink\" href=\"https://schema.org/Service\">Service</a>(s)."},
-   :rdfs/isDefinedBy :schema/LegalService,
+   :rdfs/isDefinedBy "http://schema.org/LegalService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LegalService"},
    :rdfs/subClassOf :schema/LocalBusiness})
@@ -5089,7 +5089,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "A legislative building&#x2014;for example, the state capitol."},
-   :rdfs/isDefinedBy :schema/LegislativeBuilding,
+   :rdfs/isDefinedBy "http://schema.org/LegislativeBuilding",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LegislativeBuilding"},
    :rdfs/subClassOf :schema/GovernmentBuilding})
@@ -5102,7 +5102,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/BorrowAction\">BorrowAction</a>: Reciprocal of LendAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/LendAction,
+   :rdfs/isDefinedBy "http://schema.org/LendAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LendAction"},
    :rdfs/subClassOf :schema/TransferAction})
@@ -5113,7 +5113,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A library."},
-   :rdfs/isDefinedBy :schema/Library,
+   :rdfs/isDefinedBy "http://schema.org/Library",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Library"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -5165,7 +5165,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of expressing a positive sentiment about the object. An agent likes an object (a proposition, topic or theme) with participants."},
-   :rdfs/isDefinedBy :schema/LikeAction,
+   :rdfs/isDefinedBy "http://schema.org/LikeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LikeAction"},
    :rdfs/subClassOf :schema/ReactAction})
@@ -5191,7 +5191,7 @@
    {:rdf/language "en",
     :rdf/value
     "A shop that sells alcoholic drinks such as wine, beer, whisky and other spirits."},
-   :rdfs/isDefinedBy :schema/LiquorStore,
+   :rdfs/isDefinedBy "http://schema.org/LiquorStore",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LiquorStore"},
    :rdfs/subClassOf :schema/Store})
@@ -5204,7 +5204,7 @@
    {:rdf/language "en",
     :rdf/value
     "An list item, e.g. a step in a checklist or how-to description."},
-   :rdfs/isDefinedBy :schema/ListItem,
+   :rdfs/isDefinedBy "http://schema.org/ListItem",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ListItem"},
    :rdfs/subClassOf :schema/Intangible})
@@ -5215,7 +5215,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of consuming audio content."},
-   :rdfs/isDefinedBy :schema/ListenAction,
+   :rdfs/isDefinedBy "http://schema.org/ListenAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ListenAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -5226,7 +5226,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Literary event."},
-   :rdfs/isDefinedBy :schema/LiteraryEvent,
+   :rdfs/isDefinedBy "http://schema.org/LiteraryEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "LiteraryEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -5239,7 +5239,7 @@
    {:rdf/language "en",
     :rdf/value
     "A <a class=\"localLink\" href=\"https://schema.org/LiveBlogPosting\">LiveBlogPosting</a> is a <a class=\"localLink\" href=\"https://schema.org/BlogPosting\">BlogPosting</a> intended to provide a rolling textual coverage of an ongoing event through continuous updates."},
-   :rdfs/isDefinedBy :schema/LiveBlogPosting,
+   :rdfs/isDefinedBy "http://schema.org/LiveBlogPosting",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LiveBlogPosting"},
    :rdfs/subClassOf :schema/BlogPosting})
@@ -5252,7 +5252,7 @@
    {:rdf/language "en",
     :rdf/value
     "A financial product for the loaning of an amount of money, or line of credit, under agreed terms and charges."},
-   :rdfs/isDefinedBy :schema/LoanOrCredit,
+   :rdfs/isDefinedBy "http://schema.org/LoanOrCredit",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LoanOrCredit"},
    :rdfs/subClassOf :schema/FinancialProduct})
@@ -5265,7 +5265,7 @@
    {:rdf/language "en",
     :rdf/value
     "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc."},
-   :rdfs/isDefinedBy :schema/LocalBusiness,
+   :rdfs/isDefinedBy "http://schema.org/LocalBusiness",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LocalBusiness"},
    :rdfs/subClassOf [:schema/Organization :schema/Place]})
@@ -5278,7 +5278,7 @@
    {:rdf/language "en",
     :rdf/value
     "Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality."},
-   :rdfs/isDefinedBy :schema/LocationFeatureSpecification,
+   :rdfs/isDefinedBy "http://schema.org/LocationFeatureSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LocationFeatureSpecification"},
    :rdfs/subClassOf :schema/PropertyValue})
@@ -5289,7 +5289,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A locksmith."},
-   :rdfs/isDefinedBy :schema/Locksmith,
+   :rdfs/isDefinedBy "http://schema.org/Locksmith",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Locksmith"},
    :rdfs/subClassOf  :schema/HomeAndConstructionBusiness})
@@ -5301,7 +5301,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A lodging business, such as a motel, hotel, or inn."},
-   :rdfs/isDefinedBy :schema/LodgingBusiness,
+   :rdfs/isDefinedBy "http://schema.org/LodgingBusiness",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "LodgingBusiness"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -5314,7 +5314,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation for lodging at a hotel, motel, inn, etc.<br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."},
-   :rdfs/isDefinedBy :schema/LodgingReservation,
+   :rdfs/isDefinedBy "http://schema.org/LodgingReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "LodgingReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -5326,7 +5326,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of being defeated in a competitive activity."},
-   :rdfs/isDefinedBy :schema/LoseAction,
+   :rdfs/isDefinedBy "http://schema.org/LoseAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "LoseAction"},
    :rdfs/subClassOf  :schema/AchieveAction})
@@ -5363,7 +5363,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A map."},
-   :rdfs/isDefinedBy :schema/Map,
+   :rdfs/isDefinedBy "http://schema.org/Map",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Map"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -5374,7 +5374,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An enumeration of several kinds of Map."},
-   :rdfs/isDefinedBy :schema/MapCategoryType,
+   :rdfs/isDefinedBy "http://schema.org/MapCategoryType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MapCategoryType"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -5385,7 +5385,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of marrying a person."},
-   :rdfs/isDefinedBy :schema/MarryAction,
+   :rdfs/isDefinedBy "http://schema.org/MarryAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MarryAction"},
    :rdfs/subClassOf  :schema/InteractAction})
@@ -5398,7 +5398,7 @@
    {:rdf/language "en",
     :rdf/value
     "Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'."},
-   :rdfs/isDefinedBy :schema/Mass,
+   :rdfs/isDefinedBy "http://schema.org/Mass",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mass"},
    :rdfs/subClassOf :schema/Quantity})
@@ -5450,7 +5450,7 @@
    {:rdf/language "en",
     :rdf/value
     "Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia."},
-   :rdfs/isDefinedBy :schema/MediaGallery,
+   :rdfs/isDefinedBy "http://schema.org/MediaGallery",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MediaGallery"},
    :rdfs/subClassOf :schema/CollectionPage})
@@ -5477,7 +5477,7 @@
    {:rdf/language "en",
     :rdf/value
     "A media object, such as an image, video, or audio object embedded in a web page or a downloadable dataset, i.e. DataDownload. Note that a creative work may have many media objects associated with it on the same web page. For example, a page about a single song (MusicRecording) may have a music video (VideoObject), and a high and low bandwidth audio stream (2 <a class=\"localLink\" href=\"https://schema.org/AudioObject\">AudioObject</a>s)."},
-   :rdfs/isDefinedBy :schema/MediaObject,
+   :rdfs/isDefinedBy "http://schema.org/MediaObject",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MediaObject"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -5516,7 +5516,7 @@
    {:rdf/language "en",
     :rdf/value
     "A subscription which allows a user to access media including audio, video, books, etc."},
-   :rdfs/isDefinedBy :schema/MediaSubscription,
+   :rdfs/isDefinedBy "http://schema.org/MediaSubscription",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MediaSubscription"},
    :rdfs/subClassOf :schema/Intangible})
@@ -5815,7 +5815,7 @@
    {:rdf/language "en",
     :rdf/value
     "A medical organization (physical or not), such as hospital, institution or clinic."},
-   :rdfs/isDefinedBy :schema/MedicalOrganization,
+   :rdfs/isDefinedBy "http://schema.org/MedicalOrganization",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MedicalOrganization"},
    :rdfs/subClassOf :schema/Organization})
@@ -6081,7 +6081,7 @@
    {:rdf/language "en",
     :rdf/value
     "A meeting room, conference room, or conference hall is a room provided for singular events such as business conferences and meetings (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Conference_hall\">http://en.wikipedia.org/wiki/Conference_hall</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/MeetingRoom,
+   :rdfs/isDefinedBy "http://schema.org/MeetingRoom",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MeetingRoom"},
    :rdfs/subClassOf :schema/Room})
@@ -6092,7 +6092,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A men's clothing store."},
-   :rdfs/isDefinedBy :schema/MensClothingStore,
+   :rdfs/isDefinedBy "http://schema.org/MensClothingStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MensClothingStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -6105,7 +6105,7 @@
    {:rdf/language "en",
     :rdf/value
     "A structured representation of food or drink items available from a FoodEstablishment."},
-   :rdfs/isDefinedBy :schema/Menu,
+   :rdfs/isDefinedBy "http://schema.org/Menu",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Menu"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -6117,7 +6117,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A food or drink item listed in a menu or menu section."},
-   :rdfs/isDefinedBy :schema/MenuItem,
+   :rdfs/isDefinedBy "http://schema.org/MenuItem",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MenuItem"},
    :rdfs/subClassOf  :schema/Intangible})
@@ -6130,7 +6130,7 @@
    {:rdf/language "en",
     :rdf/value
     "A sub-grouping of food or drink items in a menu. E.g. courses (such as 'Dinner', 'Breakfast', etc.), specific type of dishes (such as 'Meat', 'Vegan', 'Drinks', etc.), or some other classification made by the menu provider."},
-   :rdfs/isDefinedBy :schema/MenuSection,
+   :rdfs/isDefinedBy "http://schema.org/MenuSection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MenuSection"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -6182,7 +6182,7 @@
    {:rdf/language "en",
     :rdf/value
     "A single message from a sender to one or more organizations or people."},
-   :rdfs/isDefinedBy :schema/Message,
+   :rdfs/isDefinedBy "http://schema.org/Message",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Message"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -6195,7 +6195,7 @@
    {:rdf/language "en",
     :rdf/value
     "A middle school (typically for children aged around 11-14, although this varies somewhat)."},
-   :rdfs/isDefinedBy :schema/MiddleSchool,
+   :rdfs/isDefinedBy "http://schema.org/MiddleSchool",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MiddleSchool"},
    :rdfs/subClassOf :schema/EducationalOrganization})
@@ -6208,7 +6208,7 @@
    {:rdf/language "en",
     :rdf/value
     "A software application designed specifically to work well on a mobile device such as a telephone."},
-   :rdfs/isDefinedBy :schema/MobileApplication,
+   :rdfs/isDefinedBy "http://schema.org/MobileApplication",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MobileApplication"},
    :rdfs/subClassOf :schema/SoftwareApplication})
@@ -6220,7 +6220,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "A store that sells mobile phones and related accessories."},
-   :rdfs/isDefinedBy :schema/MobilePhoneStore,
+   :rdfs/isDefinedBy "http://schema.org/MobilePhoneStore",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MobilePhoneStore"},
    :rdfs/subClassOf :schema/Store})
@@ -6246,7 +6246,7 @@
    {:rdf/language "en",
     :rdf/value
     "A monetary value or range. This type can be used to describe an amount of money such as $50 USD, or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. It is recommended to use <a class=\"localLink\" href=\"https://schema.org/PriceSpecification\">PriceSpecification</a> Types to describe the price of an Offer, Invoice, etc."},
-   :rdfs/isDefinedBy :schema/MonetaryAmount,
+   :rdfs/isDefinedBy "http://schema.org/MonetaryAmount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MonetaryAmount"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -6258,7 +6258,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A statistical distribution of monetary amounts."},
-   :rdfs/isDefinedBy :schema/MonetaryAmountDistribution,
+   :rdfs/isDefinedBy "http://schema.org/MonetaryAmountDistribution",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MonetaryAmountDistribution"},
    :rdfs/subClassOf  :schema/QuantitativeValueDistribution})
@@ -6306,7 +6306,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A mosque."},
-   :rdfs/isDefinedBy :schema/Mosque,
+   :rdfs/isDefinedBy "http://schema.org/Mosque",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Mosque"},
    :rdfs/subClassOf  :schema/PlaceOfWorship})
@@ -6319,7 +6319,7 @@
    {:rdf/language "en",
     :rdf/value
     "A motel.\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Motel,
+   :rdfs/isDefinedBy "http://schema.org/Motel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Motel"},
    :rdfs/subClassOf :schema/LodgingBusiness})
@@ -6343,7 +6343,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A motorcycle dealer."},
-   :rdfs/isDefinedBy :schema/MotorcycleDealer,
+   :rdfs/isDefinedBy "http://schema.org/MotorcycleDealer",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MotorcycleDealer"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -6354,7 +6354,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A motorcycle repair shop."},
-   :rdfs/isDefinedBy :schema/MotorcycleRepair,
+   :rdfs/isDefinedBy "http://schema.org/MotorcycleRepair",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MotorcycleRepair"},
    :rdfs/subClassOf  :schema/AutomotiveBusiness})
@@ -6379,7 +6379,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A mountain, like Mount Whitney or Mount Everest."},
-   :rdfs/isDefinedBy :schema/Mountain,
+   :rdfs/isDefinedBy "http://schema.org/Mountain",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Mountain"},
    :rdfs/subClassOf  :schema/Landform})
@@ -6392,7 +6392,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of an agent relocating to a place.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/TransferAction\">TransferAction</a>: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/MoveAction,
+   :rdfs/isDefinedBy "http://schema.org/MoveAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MoveAction"},
    :rdfs/subClassOf :schema/Action})
@@ -6403,7 +6403,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A movie."},
-   :rdfs/isDefinedBy :schema/Movie,
+   :rdfs/isDefinedBy "http://schema.org/Movie",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Movie"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -6414,7 +6414,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A short segment/part of a movie."},
-   :rdfs/isDefinedBy :schema/MovieClip,
+   :rdfs/isDefinedBy "http://schema.org/MovieClip",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MovieClip"},
    :rdfs/subClassOf  :schema/Clip})
@@ -6425,7 +6425,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A movie rental store."},
-   :rdfs/isDefinedBy :schema/MovieRentalStore,
+   :rdfs/isDefinedBy "http://schema.org/MovieRentalStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MovieRentalStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -6438,7 +6438,7 @@
    {:rdf/language "en",
     :rdf/value
     "A series of movies. Included movies can be indicated with the hasPart property."},
-   :rdfs/isDefinedBy :schema/MovieSeries,
+   :rdfs/isDefinedBy "http://schema.org/MovieSeries",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MovieSeries"},
    :rdfs/subClassOf :schema/CreativeWorkSeries})
@@ -6449,7 +6449,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A movie theater."},
-   :rdfs/isDefinedBy :schema/MovieTheater,
+   :rdfs/isDefinedBy "http://schema.org/MovieTheater",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MovieTheater"},
    :rdfs/subClassOf  [:schema/EntertainmentBusiness :schema/CivicStructure]})
@@ -6460,7 +6460,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A moving company."},
-   :rdfs/isDefinedBy :schema/MovingCompany,
+   :rdfs/isDefinedBy "http://schema.org/MovingCompany",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MovingCompany"},
    :rdfs/subClassOf  :schema/HomeAndConstructionBusiness})
@@ -6484,7 +6484,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A museum."},
-   :rdfs/isDefinedBy :schema/Museum,
+   :rdfs/isDefinedBy "http://schema.org/Museum",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Museum"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -6495,7 +6495,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A collection of music tracks."},
-   :rdfs/isDefinedBy :schema/MusicAlbum,
+   :rdfs/isDefinedBy "http://schema.org/MusicAlbum",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicAlbum"},
    :rdfs/subClassOf  :schema/MusicPlaylist})
@@ -6508,7 +6508,7 @@
    {:rdf/language "en",
     :rdf/value
     "Classification of the album by its type of content: soundtrack, live album, studio album, etc."},
-   :rdfs/isDefinedBy :schema/MusicAlbumProductionType,
+   :rdfs/isDefinedBy "http://schema.org/MusicAlbumProductionType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MusicAlbumProductionType"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -6520,7 +6520,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "The kind of release which this album is: single, EP or album."},
-   :rdfs/isDefinedBy :schema/MusicAlbumReleaseType,
+   :rdfs/isDefinedBy "http://schema.org/MusicAlbumReleaseType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MusicAlbumReleaseType"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -6531,7 +6531,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A musical composition."},
-   :rdfs/isDefinedBy :schema/MusicComposition,
+   :rdfs/isDefinedBy "http://schema.org/MusicComposition",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicComposition"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -6542,7 +6542,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Music event."},
-   :rdfs/isDefinedBy :schema/MusicEvent,
+   :rdfs/isDefinedBy "http://schema.org/MusicEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -6555,7 +6555,7 @@
    {:rdf/language "en",
     :rdf/value
     "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician."},
-   :rdfs/isDefinedBy :schema/MusicGroup,
+   :rdfs/isDefinedBy "http://schema.org/MusicGroup",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MusicGroup"},
    :rdfs/subClassOf :schema/PerformingGroup})
@@ -6567,7 +6567,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A collection of music tracks in playlist form."},
-   :rdfs/isDefinedBy :schema/MusicPlaylist,
+   :rdfs/isDefinedBy "http://schema.org/MusicPlaylist",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicPlaylist"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -6579,7 +6579,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A music recording (track), usually a single song."},
-   :rdfs/isDefinedBy :schema/MusicRecording,
+   :rdfs/isDefinedBy "http://schema.org/MusicRecording",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicRecording"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -6591,7 +6591,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A MusicRelease is a specific release of a music album."},
-   :rdfs/isDefinedBy :schema/MusicRelease,
+   :rdfs/isDefinedBy "http://schema.org/MusicRelease",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicRelease"},
    :rdfs/subClassOf  :schema/MusicPlaylist})
@@ -6604,7 +6604,7 @@
    {:rdf/language "en",
     :rdf/value
     "Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.)."},
-   :rdfs/isDefinedBy :schema/MusicReleaseFormatType,
+   :rdfs/isDefinedBy "http://schema.org/MusicReleaseFormatType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "MusicReleaseFormatType"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -6615,7 +6615,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A music store."},
-   :rdfs/isDefinedBy :schema/MusicStore,
+   :rdfs/isDefinedBy "http://schema.org/MusicStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -6626,7 +6626,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A music venue."},
-   :rdfs/isDefinedBy :schema/MusicVenue,
+   :rdfs/isDefinedBy "http://schema.org/MusicVenue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicVenue"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -6637,7 +6637,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A music video file."},
-   :rdfs/isDefinedBy :schema/MusicVideoObject,
+   :rdfs/isDefinedBy "http://schema.org/MusicVideoObject",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "MusicVideoObject"},
    :rdfs/subClassOf  :schema/MediaObject})
@@ -6649,7 +6649,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "Organization: Non-governmental Organization."},
-   :rdfs/isDefinedBy :schema/NGO,
+   :rdfs/isDefinedBy "http://schema.org/NGO",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NGO"},
    :rdfs/subClassOf  :schema/Organization})
@@ -6673,7 +6673,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A nail salon."},
-   :rdfs/isDefinedBy :schema/NailSalon,
+   :rdfs/isDefinedBy "http://schema.org/NailSalon",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NailSalon"},
    :rdfs/subClassOf  :schema/HealthAndBeautyBusiness})
@@ -6699,7 +6699,7 @@
    {:rdf/language "en",
     :rdf/value
     "A NewsArticle is an article whose content reports news, or provides background context and supporting materials for understanding the news.<br/><br/>\n\nA more detailed overview of <a href=\"/docs/news.html\">schema.org News markup</a> is also available."},
-   :rdfs/isDefinedBy :schema/NewsArticle,
+   :rdfs/isDefinedBy "http://schema.org/NewsArticle",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "NewsArticle"},
    :rdfs/subClassOf :schema/Article})
@@ -6735,7 +6735,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A nightclub or discotheque."},
-   :rdfs/isDefinedBy :schema/NightClub,
+   :rdfs/isDefinedBy "http://schema.org/NightClub",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NightClub"},
    :rdfs/subClassOf  :schema/EntertainmentBusiness})
@@ -6759,7 +6759,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A notary."},
-   :rdfs/isDefinedBy :schema/Notary,
+   :rdfs/isDefinedBy "http://schema.org/Notary",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Notary"},
    :rdfs/subClassOf  :schema/LegalService})
@@ -6771,7 +6771,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A file containing a note, primarily for the author."},
-   :rdfs/isDefinedBy :schema/NoteDigitalDocument,
+   :rdfs/isDefinedBy "http://schema.org/NoteDigitalDocument",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NoteDigitalDocument"},
    :rdfs/subClassOf  :schema/DigitalDocument})
@@ -6784,7 +6784,7 @@
    {:rdf/language "en",
     :rdf/value
     "Data type: Number.<br/><br/>\n\nUsage guidelines:<br/><br/>\n\n<ul>\n<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.</li>\n<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/Number,
+   :rdfs/isDefinedBy "http://schema.org/Number",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Number"},
    :rdfs/subClassOf :schema/DataType})
@@ -6795,7 +6795,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "Nutritional information about the recipe."},
-   :rdfs/isDefinedBy :schema/NutritionInformation,
+   :rdfs/isDefinedBy "http://schema.org/NutritionInformation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "NutritionInformation"},
    :rdfs/subClassOf  :schema/StructuredValue})
@@ -6821,7 +6821,7 @@
    {:rdf/language "en",
     :rdf/value
     "A profession, may involve prolonged training and/or a formal qualification."},
-   :rdfs/isDefinedBy :schema/Occupation,
+   :rdfs/isDefinedBy "http://schema.org/Occupation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Occupation"},
    :rdfs/subClassOf :schema/Intangible})
@@ -6859,7 +6859,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An ocean (for example, the Pacific)."},
-   :rdfs/isDefinedBy :schema/OceanBodyOfWater,
+   :rdfs/isDefinedBy "http://schema.org/OceanBodyOfWater",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "OceanBodyOfWater"},
    :rdfs/subClassOf  :schema/BodyOfWater})
@@ -6872,7 +6872,7 @@
    {:rdf/language "en",
     :rdf/value
     "An offer to transfer some rights to an item or to provide a service — for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.<br/><br/>\n\nNote: As the <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a> property, which identifies the form of offer (e.g. sell, lease, repair, dispose), defaults to http://purl.org/goodrelations/v1#Sell; an Offer without a defined businessFunction value can be assumed to be an offer to sell.<br/><br/>\n\nFor <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GTIN</a>-related fields, see <a href=\"http://www.gs1.org/barcodes/support/check_digit_calculator\">Check Digit calculator</a> and <a href=\"http://www.gs1us.org/resources/standards/gtin-validation-guide\">validation guide</a> from <a href=\"http://www.gs1.org/\">GS1</a>."},
-   :rdfs/isDefinedBy :schema/Offer,
+   :rdfs/isDefinedBy "http://schema.org/Offer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Offer"},
    :rdfs/subClassOf :schema/Intangible})
@@ -6885,7 +6885,7 @@
    {:rdf/language "en",
     :rdf/value
     "An OfferCatalog is an ItemList that contains related Offers and/or further OfferCatalogs that are offeredBy the same provider."},
-   :rdfs/isDefinedBy :schema/OfferCatalog,
+   :rdfs/isDefinedBy "http://schema.org/OfferCatalog",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OfferCatalog"},
    :rdfs/subClassOf :schema/ItemList})
@@ -6922,7 +6922,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "A list of possible conditions for the item."},
-   :rdfs/isDefinedBy :schema/OfferItemCondition,
+   :rdfs/isDefinedBy "http://schema.org/OfferItemCondition",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "OfferItemCondition"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -6946,7 +6946,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An office equipment store."},
-   :rdfs/isDefinedBy :schema/OfficeEquipmentStore,
+   :rdfs/isDefinedBy "http://schema.org/OfficeEquipmentStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "OfficeEquipmentStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -6959,7 +6959,7 @@
    {:rdf/language "en",
     :rdf/value
     "A publication event, e.g. catch-up TV or radio podcast, during which a program is available on-demand."},
-   :rdfs/isDefinedBy :schema/OnDemandEvent,
+   :rdfs/isDefinedBy "http://schema.org/OnDemandEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OnDemandEvent"},
    :rdfs/subClassOf :schema/PublicationEvent})
@@ -6996,7 +6996,7 @@
    {:rdf/language "en",
     :rdf/value
     "A structured value providing information about the opening hours of a place or a certain service inside a place.<br/><br/>\n\nThe place is <strong>open</strong> if the <a class=\"localLink\" href=\"https://schema.org/opens\">opens</a> property is specified, and <strong>closed</strong> otherwise.<br/><br/>\n\nIf the value for the <a class=\"localLink\" href=\"https://schema.org/closes\">closes</a> property is less than the value for the <a class=\"localLink\" href=\"https://schema.org/opens\">opens</a> property then the hour range is assumed to span over the next day."},
-   :rdfs/isDefinedBy :schema/OpeningHoursSpecification,
+   :rdfs/isDefinedBy "http://schema.org/OpeningHoursSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OpeningHoursSpecification"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -7035,7 +7035,7 @@
    {:rdf/language "en",
     :rdf/value
     "An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer."},
-   :rdfs/isDefinedBy :schema/Order,
+   :rdfs/isDefinedBy "http://schema.org/Order",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Order"},
    :rdfs/subClassOf :schema/Intangible})
@@ -7048,7 +7048,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent orders an object/product/service to be delivered/sent."},
-   :rdfs/isDefinedBy :schema/OrderAction,
+   :rdfs/isDefinedBy "http://schema.org/OrderAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OrderAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -7061,7 +7061,7 @@
    {:rdf/language "en",
     :rdf/value
     "An order item is a line of an order. It includes the quantity and shipping details of a bought offer."},
-   :rdfs/isDefinedBy :schema/OrderItem,
+   :rdfs/isDefinedBy "http://schema.org/OrderItem",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OrderItem"},
    :rdfs/subClassOf :schema/Intangible})
@@ -7072,7 +7072,7 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Enumerated status values for Order."},
-   :rdfs/isDefinedBy :schema/OrderStatus,
+   :rdfs/isDefinedBy "http://schema.org/OrderStatus",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "OrderStatus"},
    :rdfs/subClassOf  :schema/StatusEnumeration})
@@ -7085,7 +7085,7 @@
    {:rdf/language "en",
     :rdf/value
     "An organization such as a school, NGO, corporation, club, etc."},
-   :rdfs/isDefinedBy :schema/Organization,
+   :rdfs/isDefinedBy "http://schema.org/Organization",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Organization"},
    :rdfs/subClassOf :schema/Thing})
@@ -7098,7 +7098,7 @@
    {:rdf/language "en",
     :rdf/value
     "A subclass of Role used to describe roles within organizations."},
-   :rdfs/isDefinedBy :schema/OrganizationRole,
+   :rdfs/isDefinedBy "http://schema.org/OrganizationRole",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OrganizationRole"},
    :rdfs/subClassOf :schema/Role})
@@ -7111,7 +7111,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of manipulating/administering/supervising/controlling one or more objects."},
-   :rdfs/isDefinedBy :schema/OrganizeAction,
+   :rdfs/isDefinedBy "http://schema.org/OrganizeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OrganizeAction"},
    :rdfs/subClassOf :schema/Action})
@@ -7122,7 +7122,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An outlet store."},
-   :rdfs/isDefinedBy :schema/OutletStore,
+   :rdfs/isDefinedBy "http://schema.org/OutletStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "OutletStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -7135,7 +7135,7 @@
    {:rdf/language "en",
     :rdf/value
     "A structured value providing information about when a certain organization or person owned a certain product."},
-   :rdfs/isDefinedBy :schema/OwnershipInfo,
+   :rdfs/isDefinedBy "http://schema.org/OwnershipInfo",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "OwnershipInfo"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -7148,7 +7148,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of producing a painting, typically with paint and canvas as instruments."},
-   :rdfs/isDefinedBy :schema/PaintAction,
+   :rdfs/isDefinedBy "http://schema.org/PaintAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PaintAction"},
    :rdfs/subClassOf :schema/CreateAction})
@@ -7159,7 +7159,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A painting."},
-   :rdfs/isDefinedBy :schema/Painting,
+   :rdfs/isDefinedBy "http://schema.org/Painting",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Painting"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -7185,7 +7185,7 @@
    {:rdf/language "en",
     :rdf/value
     "The delivery of a parcel either via the postal service or a commercial service."},
-   :rdfs/isDefinedBy :schema/ParcelDelivery,
+   :rdfs/isDefinedBy "http://schema.org/ParcelDelivery",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ParcelDelivery"},
    :rdfs/subClassOf :schema/Intangible})
@@ -7198,7 +7198,7 @@
    {:rdf/language "en",
     :rdf/value
     "A set of characteristics describing parents, who can be interested in viewing some content."},
-   :rdfs/isDefinedBy :schema/ParentAudience,
+   :rdfs/isDefinedBy "http://schema.org/ParentAudience",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ParentAudience"},
    :rdfs/subClassOf :schema/PeopleAudience})
@@ -7209,7 +7209,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A park."},
-   :rdfs/isDefinedBy :schema/Park,
+   :rdfs/isDefinedBy "http://schema.org/Park",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Park"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -7220,7 +7220,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A parking lot or other parking facility."},
-   :rdfs/isDefinedBy :schema/ParkingFacility,
+   :rdfs/isDefinedBy "http://schema.org/ParkingFacility",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ParkingFacility"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -7258,7 +7258,7 @@
    {:rdf/language "en",
     :rdf/value
     "A shop that will buy, or lend money against the security of, personal possessions."},
-   :rdfs/isDefinedBy :schema/PawnShop,
+   :rdfs/isDefinedBy "http://schema.org/PawnShop",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PawnShop"},
    :rdfs/subClassOf :schema/Store})
@@ -7269,7 +7269,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An agent pays a price to a participant."},
-   :rdfs/isDefinedBy :schema/PayAction,
+   :rdfs/isDefinedBy "http://schema.org/PayAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PayAction"},
    :rdfs/subClassOf  :schema/TradeAction})
@@ -7282,7 +7282,7 @@
    {:rdf/language "en",
     :rdf/value
     "A payment method using a credit, debit, store or other card to associate the payment with an account."},
-   :rdfs/isDefinedBy :schema/PaymentCard,
+   :rdfs/isDefinedBy "http://schema.org/PaymentCard",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PaymentCard"},
    :rdfs/subClassOf [:schema/FinancialProduct :schema/PaymentMethod]})
@@ -7295,7 +7295,7 @@
    {:rdf/language "en",
     :rdf/value
     "The costs of settling the payment using a particular payment method."},
-   :rdfs/isDefinedBy :schema/PaymentChargeSpecification,
+   :rdfs/isDefinedBy "http://schema.org/PaymentChargeSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PaymentChargeSpecification"},
    :rdfs/subClassOf :schema/PriceSpecification})
@@ -7308,7 +7308,7 @@
    {:rdf/language "en",
     :rdf/value
     "A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction.<br/><br/>\n\nCommonly used values:<br/><br/>\n\n<ul>\n<li>http://purl.org/goodrelations/v1#ByBankTransferInAdvance</li>\n<li>http://purl.org/goodrelations/v1#ByInvoice</li>\n<li>http://purl.org/goodrelations/v1#Cash</li>\n<li>http://purl.org/goodrelations/v1#CheckInAdvance</li>\n<li>http://purl.org/goodrelations/v1#COD</li>\n<li>http://purl.org/goodrelations/v1#DirectDebit</li>\n<li>http://purl.org/goodrelations/v1#GoogleCheckout</li>\n<li>http://purl.org/goodrelations/v1#PayPal</li>\n<li>http://purl.org/goodrelations/v1#PaySwarm</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/PaymentMethod,
+   :rdfs/isDefinedBy "http://schema.org/PaymentMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PaymentMethod"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -7321,7 +7321,7 @@
    {:rdf/language "en",
     :rdf/value
     "A Service to transfer funds from a person or organization to a beneficiary person or organization."},
-   :rdfs/isDefinedBy :schema/PaymentService,
+   :rdfs/isDefinedBy "http://schema.org/PaymentService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PaymentService"},
    :rdfs/subClassOf :schema/FinancialProduct})
@@ -7334,7 +7334,7 @@
    {:rdf/language "en",
     :rdf/value
     "A specific payment status. For example, PaymentDue, PaymentComplete, etc."},
-   :rdfs/isDefinedBy :schema/PaymentStatusType,
+   :rdfs/isDefinedBy "http://schema.org/PaymentStatusType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PaymentStatusType"},
    :rdfs/subClassOf :schema/StatusEnumeration})
@@ -7347,7 +7347,7 @@
    {:rdf/language "en",
     :rdf/value
     "A set of characteristics belonging to people, e.g. who compose an item's target audience."},
-   :rdfs/isDefinedBy :schema/PeopleAudience,
+   :rdfs/isDefinedBy "http://schema.org/PeopleAudience",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PeopleAudience"},
    :rdfs/subClassOf :schema/Audience})
@@ -7359,7 +7359,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of participating in performance arts."},
-   :rdfs/isDefinedBy :schema/PerformAction,
+   :rdfs/isDefinedBy "http://schema.org/PerformAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PerformAction"},
    :rdfs/subClassOf  :schema/PlayAction})
@@ -7372,7 +7372,7 @@
    {:rdf/language "en",
     :rdf/value
     "A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc."},
-   :rdfs/isDefinedBy :schema/PerformanceRole,
+   :rdfs/isDefinedBy "http://schema.org/PerformanceRole",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PerformanceRole"},
    :rdfs/subClassOf :schema/Role})
@@ -7383,7 +7383,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "A theater or other performing art center."},
-   :rdfs/isDefinedBy :schema/PerformingArtsTheater,
+   :rdfs/isDefinedBy "http://schema.org/PerformingArtsTheater",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PerformingArtsTheater"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -7396,7 +7396,7 @@
    {:rdf/language "en",
     :rdf/value
     "A performance group, such as a band, an orchestra, or a circus."},
-   :rdfs/isDefinedBy :schema/PerformingGroup,
+   :rdfs/isDefinedBy "http://schema.org/PerformingGroup",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PerformingGroup"},
    :rdfs/subClassOf :schema/Organization})
@@ -7409,7 +7409,7 @@
    {:rdf/language "en",
     :rdf/value
     "A publication in any medium issued in successive parts bearing numerical or chronological designations and intended to continue indefinitely, such as a magazine, scholarly journal, or newspaper.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html\">blog post</a>."},
-   :rdfs/isDefinedBy :schema/Periodical,
+   :rdfs/isDefinedBy "http://schema.org/Periodical",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Periodical"},
    :rdfs/subClassOf :schema/CreativeWorkSeries})
@@ -7421,7 +7421,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "A permit issued by an organization, e.g. a parking pass."},
-   :rdfs/isDefinedBy :schema/Permit,
+   :rdfs/isDefinedBy "http://schema.org/Permit",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Permit"},
    :rdfs/subClassOf :schema/Intangible})
@@ -7433,7 +7433,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A person (alive, dead, undead, or fictional)."},
-   :rdfs/isDefinedBy :schema/Person,
+   :rdfs/isDefinedBy "http://schema.org/Person",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Person"},
    :rdfs/subClassOf  :schema/Thing})
@@ -7444,7 +7444,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A pet store."},
-   :rdfs/isDefinedBy :schema/PetStore,
+   :rdfs/isDefinedBy "http://schema.org/PetStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PetStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -7455,7 +7455,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A pharmacy or drugstore."},
-   :rdfs/isDefinedBy :schema/Pharmacy,
+   :rdfs/isDefinedBy "http://schema.org/Pharmacy",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Pharmacy"},
    :rdfs/subClassOf  [:schema/MedicalBusiness :schema/MedicalOrganization]})
@@ -7466,7 +7466,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A photograph."},
-   :rdfs/isDefinedBy :schema/Photograph,
+   :rdfs/isDefinedBy "http://schema.org/Photograph",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Photograph"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -7478,7 +7478,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "The act of capturing still images of objects using a camera."},
-   :rdfs/isDefinedBy :schema/PhotographAction,
+   :rdfs/isDefinedBy "http://schema.org/PhotographAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PhotographAction"},
    :rdfs/subClassOf :schema/CreateAction})
@@ -7542,7 +7542,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A doctor's office."},
-   :rdfs/isDefinedBy :schema/Physician,
+   :rdfs/isDefinedBy "http://schema.org/Physician",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Physician"},
    :rdfs/subClassOf  [:schema/MedicalBusiness :schema/MedicalOrganization]})
@@ -7554,7 +7554,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "Entities that have a somewhat fixed, physical extension."},
-   :rdfs/isDefinedBy :schema/Place,
+   :rdfs/isDefinedBy "http://schema.org/Place",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Place"},
    :rdfs/subClassOf :schema/Thing})
@@ -7566,7 +7566,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "Place of worship, such as a church, synagogue, or mosque."},
-   :rdfs/isDefinedBy :schema/PlaceOfWorship,
+   :rdfs/isDefinedBy "http://schema.org/PlaceOfWorship",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PlaceOfWorship"},
    :rdfs/subClassOf :schema/CivicStructure})
@@ -7579,7 +7579,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of planning the execution of an event/task/action/reservation/plan to a future date."},
-   :rdfs/isDefinedBy :schema/PlanAction,
+   :rdfs/isDefinedBy "http://schema.org/PlanAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PlanAction"},
    :rdfs/subClassOf :schema/OrganizeAction})
@@ -7605,7 +7605,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of playing/exercising/training/performing for enjoyment, leisure, recreation, competition or exercise.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/ListenAction\">ListenAction</a>: Unlike ListenAction (which is under ConsumeAction), PlayAction refers to performing for an audience or at an event, rather than consuming music.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/WatchAction\">WatchAction</a>: Unlike WatchAction (which is under ConsumeAction), PlayAction refers to showing/displaying for an audience or at an event, rather than consuming visual content.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/PlayAction,
+   :rdfs/isDefinedBy "http://schema.org/PlayAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PlayAction"},
    :rdfs/subClassOf :schema/Action})
@@ -7627,7 +7627,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A playground."},
-   :rdfs/isDefinedBy :schema/Playground,
+   :rdfs/isDefinedBy "http://schema.org/Playground",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Playground"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -7638,7 +7638,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A plumbing service."},
-   :rdfs/isDefinedBy :schema/Plumber,
+   :rdfs/isDefinedBy "http://schema.org/Plumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Plumber"},
    :rdfs/subClassOf  :schema/HomeAndConstructionBusiness})
@@ -7686,7 +7686,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A police station."},
-   :rdfs/isDefinedBy :schema/PoliceStation,
+   :rdfs/isDefinedBy "http://schema.org/PoliceStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PoliceStation"},
    :rdfs/subClassOf  [:schema/CivicStructure :schema/EmergencyService]})
@@ -7697,7 +7697,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A pond."},
-   :rdfs/isDefinedBy :schema/Pond,
+   :rdfs/isDefinedBy "http://schema.org/Pond",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Pond"},
    :rdfs/subClassOf  :schema/BodyOfWater})
@@ -7708,7 +7708,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A post office."},
-   :rdfs/isDefinedBy :schema/PostOffice,
+   :rdfs/isDefinedBy "http://schema.org/PostOffice",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PostOffice"},
    :rdfs/subClassOf  :schema/GovernmentOffice})
@@ -7719,7 +7719,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The mailing address."},
-   :rdfs/isDefinedBy :schema/PostalAddress,
+   :rdfs/isDefinedBy "http://schema.org/PostalAddress",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PostalAddress"},
    :rdfs/subClassOf  :schema/ContactPoint})
@@ -7758,7 +7758,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent orders a (not yet released) object/product/service to be delivered/sent."},
-   :rdfs/isDefinedBy :schema/PreOrderAction,
+   :rdfs/isDefinedBy "http://schema.org/PreOrderAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PreOrderAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -7771,7 +7771,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of inserting at the beginning if an ordered collection."},
-   :rdfs/isDefinedBy :schema/PrependAction,
+   :rdfs/isDefinedBy "http://schema.org/PrependAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PrependAction"},
    :rdfs/subClassOf :schema/InsertAction})
@@ -7782,7 +7782,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A preschool."},
-   :rdfs/isDefinedBy :schema/Preschool,
+   :rdfs/isDefinedBy "http://schema.org/Preschool",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Preschool"},
    :rdfs/subClassOf  :schema/EducationalOrganization})
@@ -7794,7 +7794,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A file containing slides or used for a presentation."},
-   :rdfs/isDefinedBy :schema/PresentationDigitalDocument,
+   :rdfs/isDefinedBy "http://schema.org/PresentationDigitalDocument",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PresentationDigitalDocument"},
    :rdfs/subClassOf  :schema/DigitalDocument})
@@ -7833,7 +7833,7 @@
    {:rdf/language "en",
     :rdf/value
     "A structured value representing a price or price range. Typically, only the subclasses of this type are used for markup. It is recommended to use <a class=\"localLink\" href=\"https://schema.org/MonetaryAmount\">MonetaryAmount</a> to describe independent amounts of money such as a salary, credit card limits, etc."},
-   :rdfs/isDefinedBy :schema/PriceSpecification,
+   :rdfs/isDefinedBy "http://schema.org/PriceSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PriceSpecification"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -7859,7 +7859,7 @@
    {:rdf/language "en",
     :rdf/value
     "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online."},
-   :rdfs/isDefinedBy :schema/Product,
+   :rdfs/isDefinedBy "http://schema.org/Product",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Product"},
    :rdfs/subClassOf :schema/Thing})
@@ -7898,7 +7898,7 @@
    {:rdf/language "en",
     :rdf/value
     "A datasheet or vendor specification of a product (in the sense of a prototypical description)."},
-   :rdfs/isDefinedBy :schema/ProductModel,
+   :rdfs/isDefinedBy "http://schema.org/ProductModel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ProductModel"},
    :rdfs/subClassOf :schema/Product})
@@ -7937,7 +7937,7 @@
    {:rdf/language "en",
     :rdf/value
     "Original definition: \"provider of professional services.\"<br/><br/>\n\nThe general <a class=\"localLink\" href=\"https://schema.org/ProfessionalService\">ProfessionalService</a> type for local businesses was deprecated due to confusion with <a class=\"localLink\" href=\"https://schema.org/Service\">Service</a>. For reference, the types that it included were: <a class=\"localLink\" href=\"https://schema.org/Dentist\">Dentist</a>,\n        <a class=\"localLink\" href=\"https://schema.org/AccountingService\">AccountingService</a>, <a class=\"localLink\" href=\"https://schema.org/Attorney\">Attorney</a>, <a class=\"localLink\" href=\"https://schema.org/Notary\">Notary</a>, as well as types for several kinds of <a class=\"localLink\" href=\"https://schema.org/HomeAndConstructionBusiness\">HomeAndConstructionBusiness</a>: <a class=\"localLink\" href=\"https://schema.org/Electrician\">Electrician</a>, <a class=\"localLink\" href=\"https://schema.org/GeneralContractor\">GeneralContractor</a>,\n        <a class=\"localLink\" href=\"https://schema.org/HousePainter\">HousePainter</a>, <a class=\"localLink\" href=\"https://schema.org/Locksmith\">Locksmith</a>, <a class=\"localLink\" href=\"https://schema.org/Plumber\">Plumber</a>, <a class=\"localLink\" href=\"https://schema.org/RoofingContractor\">RoofingContractor</a>. <a class=\"localLink\" href=\"https://schema.org/LegalService\">LegalService</a> was introduced as a more inclusive supertype of <a class=\"localLink\" href=\"https://schema.org/Attorney\">Attorney</a>."},
-   :rdfs/isDefinedBy :schema/ProfessionalService,
+   :rdfs/isDefinedBy "http://schema.org/ProfessionalService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ProfessionalService"},
    :rdfs/subClassOf :schema/LocalBusiness})
@@ -7948,7 +7948,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: Profile page."},
-   :rdfs/isDefinedBy :schema/ProfilePage,
+   :rdfs/isDefinedBy "http://schema.org/ProfilePage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ProfilePage"},
    :rdfs/subClassOf  :schema/WebPage})
@@ -7961,7 +7961,7 @@
    {:rdf/language "en",
     :rdf/value
     "Used to describe membership in a loyalty programs (e.g. \"StarAliance\"), traveler clubs (e.g. \"AAA\"), purchase clubs (\"Safeway Club\"), etc."},
-   :rdfs/isDefinedBy :schema/ProgramMembership,
+   :rdfs/isDefinedBy "http://schema.org/ProgramMembership",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ProgramMembership"},
    :rdfs/subClassOf :schema/Intangible})
@@ -8011,7 +8011,7 @@
    {:rdf/language "en",
     :rdf/value
     "A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>\n\nAlways use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property."},
-   :rdfs/isDefinedBy :schema/PropertyValue,
+   :rdfs/isDefinedBy "http://schema.org/PropertyValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PropertyValue"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -8022,7 +8022,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A Property value specification."},
-   :rdfs/isDefinedBy :schema/PropertyValueSpecification,
+   :rdfs/isDefinedBy "http://schema.org/PropertyValueSpecification",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PropertyValueSpecification"},
    :rdfs/subClassOf  :schema/Intangible})
@@ -8059,7 +8059,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A public swimming pool."},
-   :rdfs/isDefinedBy :schema/PublicSwimmingPool,
+   :rdfs/isDefinedBy "http://schema.org/PublicSwimmingPool",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "PublicSwimmingPool"},
    :rdfs/subClassOf  :schema/SportsActivityLocation})
@@ -8085,7 +8085,7 @@
    {:rdf/language "en",
     :rdf/value
     "A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type, e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media."},
-   :rdfs/isDefinedBy :schema/PublicationEvent,
+   :rdfs/isDefinedBy "http://schema.org/PublicationEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PublicationEvent"},
    :rdfs/subClassOf :schema/Event})
@@ -8098,7 +8098,7 @@
    {:rdf/language "en",
     :rdf/value
     "A part of a successively published publication such as a periodical or publication volume, often numbered, usually containing a grouping of works such as articles.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html\">blog post</a>."},
-   :rdfs/isDefinedBy :schema/PublicationIssue,
+   :rdfs/isDefinedBy "http://schema.org/PublicationIssue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PublicationIssue"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -8111,7 +8111,7 @@
    {:rdf/language "en",
     :rdf/value
     "A part of a successively published publication such as a periodical or multi-volume work, often numbered. It may represent a time span, such as a year.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html\">blog post</a>."},
-   :rdfs/isDefinedBy :schema/PublicationVolume,
+   :rdfs/isDefinedBy "http://schema.org/PublicationVolume",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "PublicationVolume"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -8124,7 +8124,7 @@
    {:rdf/language "en",
     :rdf/value
     "A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g. in a question answering site or documenting Frequently Asked Questions (FAQs)."},
-   :rdfs/isDefinedBy :schema/QAPage,
+   :rdfs/isDefinedBy "http://schema.org/QAPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "QAPage"},
    :rdfs/subClassOf :schema/WebPage})
@@ -8137,7 +8137,7 @@
    {:rdf/language "en",
     :rdf/value
     "A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'."},
-   :rdfs/isDefinedBy :schema/QualitativeValue,
+   :rdfs/isDefinedBy "http://schema.org/QualitativeValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "QualitativeValue"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -8150,7 +8150,7 @@
    {:rdf/language "en",
     :rdf/value
     "A point value or interval for product characteristics and other purposes."},
-   :rdfs/isDefinedBy :schema/QuantitativeValue,
+   :rdfs/isDefinedBy "http://schema.org/QuantitativeValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "QuantitativeValue"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -8161,7 +8161,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A statistical distribution of values."},
-   :rdfs/isDefinedBy :schema/QuantitativeValueDistribution,
+   :rdfs/isDefinedBy "http://schema.org/QuantitativeValueDistribution",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "QuantitativeValueDistribution"},
    :rdfs/subClassOf  :schema/StructuredValue})
@@ -8174,7 +8174,7 @@
    {:rdf/language "en",
     :rdf/value
     "Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are entities like '3 kg' or '4 milligrams'."},
-   :rdfs/isDefinedBy :schema/Quantity,
+   :rdfs/isDefinedBy "http://schema.org/Quantity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Quantity"},
    :rdfs/subClassOf :schema/Intangible})
@@ -8187,7 +8187,7 @@
    {:rdf/language "en",
     :rdf/value
     "A specific question - e.g. from a user seeking answers online, or collected in a Frequently Asked Questions (FAQ) document."},
-   :rdfs/isDefinedBy :schema/Question,
+   :rdfs/isDefinedBy "http://schema.org/Question",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Question"},
    :rdfs/subClassOf :schema/Comment})
@@ -8225,7 +8225,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent quotes/estimates/appraises an object/product/service with a price at a location/store."},
-   :rdfs/isDefinedBy :schema/QuoteAction,
+   :rdfs/isDefinedBy "http://schema.org/QuoteAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "QuoteAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -8238,7 +8238,7 @@
    {:rdf/language "en",
     :rdf/value
     "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like."},
-   :rdfs/isDefinedBy :schema/RVPark,
+   :rdfs/isDefinedBy "http://schema.org/RVPark",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RVPark"},
    :rdfs/subClassOf :schema/CivicStructure})
@@ -8277,7 +8277,7 @@
    {:rdf/language "en",
     :rdf/value
     "A unique instance of a radio BroadcastService on a CableOrSatelliteService lineup."},
-   :rdfs/isDefinedBy :schema/RadioChannel,
+   :rdfs/isDefinedBy "http://schema.org/RadioChannel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RadioChannel"},
    :rdfs/subClassOf :schema/BroadcastChannel})
@@ -8289,7 +8289,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "A short radio program or a segment/part of a radio program."},
-   :rdfs/isDefinedBy :schema/RadioClip,
+   :rdfs/isDefinedBy "http://schema.org/RadioClip",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RadioClip"},
    :rdfs/subClassOf :schema/Clip})
@@ -8301,7 +8301,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "A radio episode which can be part of a series or season."},
-   :rdfs/isDefinedBy :schema/RadioEpisode,
+   :rdfs/isDefinedBy "http://schema.org/RadioEpisode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RadioEpisode"},
    :rdfs/subClassOf :schema/Episode})
@@ -8314,7 +8314,7 @@
    {:rdf/language "en",
     :rdf/value
     "Season dedicated to radio broadcast and associated online delivery."},
-   :rdfs/isDefinedBy :schema/RadioSeason,
+   :rdfs/isDefinedBy "http://schema.org/RadioSeason",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RadioSeason"},
    :rdfs/subClassOf :schema/CreativeWorkSeason})
@@ -8327,7 +8327,7 @@
    {:rdf/language "en",
     :rdf/value
     "CreativeWorkSeries dedicated to radio broadcast and associated online delivery."},
-   :rdfs/isDefinedBy :schema/RadioSeries,
+   :rdfs/isDefinedBy "http://schema.org/RadioSeries",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RadioSeries"},
    :rdfs/subClassOf :schema/CreativeWorkSeries})
@@ -8338,7 +8338,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A radio station."},
-   :rdfs/isDefinedBy :schema/RadioStation,
+   :rdfs/isDefinedBy "http://schema.org/RadioStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "RadioStation"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -8351,7 +8351,7 @@
    {:rdf/language "en",
     :rdf/value
     "A rating is an evaluation on a numeric scale, such as 1 to 5 stars."},
-   :rdfs/isDefinedBy :schema/Rating,
+   :rdfs/isDefinedBy "http://schema.org/Rating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Rating"},
    :rdfs/subClassOf :schema/Intangible})
@@ -8364,7 +8364,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of responding instinctively and emotionally to an object, expressing a sentiment."},
-   :rdfs/isDefinedBy :schema/ReactAction,
+   :rdfs/isDefinedBy "http://schema.org/ReactAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReactAction"},
    :rdfs/subClassOf :schema/AssessAction})
@@ -8375,7 +8375,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of consuming written content."},
-   :rdfs/isDefinedBy :schema/ReadAction,
+   :rdfs/isDefinedBy "http://schema.org/ReadAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ReadAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -8386,7 +8386,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A real-estate agent."},
-   :rdfs/isDefinedBy :schema/RealEstateAgent,
+   :rdfs/isDefinedBy "http://schema.org/RealEstateAgent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "RealEstateAgent"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -8412,7 +8412,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/SendAction\">SendAction</a>: The reciprocal of ReceiveAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/TakeAction\">TakeAction</a>: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transferred (e.g. I can receive a package, but it does not mean the package is now mine).</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/ReceiveAction,
+   :rdfs/isDefinedBy "http://schema.org/ReceiveAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReceiveAction"},
    :rdfs/subClassOf :schema/TransferAction})
@@ -8425,7 +8425,7 @@
    {:rdf/language "en",
     :rdf/value
     "A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via <a class=\"localLink\" href=\"https://schema.org/suitableForDiet\">suitableForDiet</a>. The <a class=\"localLink\" href=\"https://schema.org/keywords\">keywords</a> property can also be used to add more detail."},
-   :rdfs/isDefinedBy :schema/Recipe,
+   :rdfs/isDefinedBy "http://schema.org/Recipe",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Recipe"},
    :rdfs/subClassOf :schema/HowTo})
@@ -8463,7 +8463,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A recycling center."},
-   :rdfs/isDefinedBy :schema/RecyclingCenter,
+   :rdfs/isDefinedBy "http://schema.org/RecyclingCenter",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "RecyclingCenter"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -8488,7 +8488,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of registering to be a user of a service, product or web page.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/JoinAction\">JoinAction</a>: Unlike JoinAction, RegisterAction implies you are registering to be a user of a service, <em>not</em> a group/team of people.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/SubscribeAction\">SubscribeAction</a>: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/RegisterAction,
+   :rdfs/isDefinedBy "http://schema.org/RegisterAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RegisterAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -8501,7 +8501,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of rejecting to/adopting an object.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/AcceptAction\">AcceptAction</a>: The antonym of RejectAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/RejectAction,
+   :rdfs/isDefinedBy "http://schema.org/RejectAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RejectAction"},
    :rdfs/subClassOf :schema/AllocateAction})
@@ -8514,7 +8514,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment."},
-   :rdfs/isDefinedBy :schema/RentAction,
+   :rdfs/isDefinedBy "http://schema.org/RentAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RentAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -8527,7 +8527,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation for a rental car.<br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."},
-   :rdfs/isDefinedBy :schema/RentalCarReservation,
+   :rdfs/isDefinedBy "http://schema.org/RentalCarReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RentalCarReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -8551,7 +8551,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of editing a recipient by replacing an old object with a new object."},
-   :rdfs/isDefinedBy :schema/ReplaceAction,
+   :rdfs/isDefinedBy "http://schema.org/ReplaceAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReplaceAction"},
    :rdfs/subClassOf :schema/UpdateAction})
@@ -8564,7 +8564,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of responding to a question/message asked/sent by the object. Related to <a class=\"localLink\" href=\"https://schema.org/AskAction\">AskAction</a>.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/AskAction\">AskAction</a>: Appears generally as an origin of a ReplyAction.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/ReplyAction,
+   :rdfs/isDefinedBy "http://schema.org/ReplyAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReplyAction"},
    :rdfs/subClassOf :schema/CommunicateAction})
@@ -8577,7 +8577,7 @@
    {:rdf/language "en",
     :rdf/value
     "A Report generated by governmental or non-governmental organization."},
-   :rdfs/isDefinedBy :schema/Report,
+   :rdfs/isDefinedBy "http://schema.org/Report",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Report"},
    :rdfs/subClassOf :schema/Article})
@@ -8638,7 +8638,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Researchers."},
-   :rdfs/isDefinedBy :schema/Researcher,
+   :rdfs/isDefinedBy "http://schema.org/Researcher",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Researcher"},
    :rdfs/subClassOf  :schema/Audience})
@@ -8651,7 +8651,7 @@
    {:rdf/language "en",
     :rdf/value
     "Describes a reservation for travel, dining or an event. Some reservations require tickets. <br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, restaurant reservations, flights, or rental cars, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."},
-   :rdfs/isDefinedBy :schema/Reservation,
+   :rdfs/isDefinedBy "http://schema.org/Reservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Reservation"},
    :rdfs/subClassOf :schema/Intangible})
@@ -8664,7 +8664,7 @@
    {:rdf/language "en",
     :rdf/value
     "A group of multiple reservations with common values for all sub-reservations."},
-   :rdfs/isDefinedBy :schema/ReservationPackage,
+   :rdfs/isDefinedBy "http://schema.org/ReservationPackage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReservationPackage"},
    :rdfs/subClassOf :schema/Reservation})
@@ -8675,7 +8675,7 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "Enumerated status values for Reservation."},
-   :rdfs/isDefinedBy :schema/ReservationStatusType,
+   :rdfs/isDefinedBy "http://schema.org/ReservationStatusType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ReservationStatusType"},
    :rdfs/subClassOf  :schema/StatusEnumeration})
@@ -8688,7 +8688,7 @@
    {:rdf/language "en",
     :rdf/value
     "Reserving a concrete object.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/ScheduleAction\">ScheduleAction</a>: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/ReserveAction,
+   :rdfs/isDefinedBy "http://schema.org/ReserveAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReserveAction"},
    :rdfs/subClassOf :schema/PlanAction})
@@ -8701,7 +8701,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservoir of water, typically an artificially created lake, like the Lake Kariba reservoir."},
-   :rdfs/isDefinedBy :schema/Reservoir,
+   :rdfs/isDefinedBy "http://schema.org/Reservoir",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Reservoir"},
    :rdfs/subClassOf :schema/BodyOfWater})
@@ -8712,7 +8712,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The place where a person lives."},
-   :rdfs/isDefinedBy :schema/Residence,
+   :rdfs/isDefinedBy "http://schema.org/Residence",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Residence"},
    :rdfs/subClassOf  :schema/Place})
@@ -8725,7 +8725,7 @@
    {:rdf/language "en",
     :rdf/value
     "A resort is a place used for relaxation or recreation, attracting visitors for holidays or vacations. Resorts are places, towns or sometimes commercial establishments operated by a single company (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Resort\">http://en.wikipedia.org/wiki/Resort</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Resort,
+   :rdfs/isDefinedBy "http://schema.org/Resort",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Resort"},
    :rdfs/subClassOf :schema/LodgingBusiness})
@@ -8736,7 +8736,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A restaurant."},
-   :rdfs/isDefinedBy :schema/Restaurant,
+   :rdfs/isDefinedBy "http://schema.org/Restaurant",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Restaurant"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -8749,7 +8749,7 @@
    {:rdf/language "en",
     :rdf/value
     "A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons."},
-   :rdfs/isDefinedBy :schema/RestrictedDiet,
+   :rdfs/isDefinedBy "http://schema.org/RestrictedDiet",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RestrictedDiet"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -8762,7 +8762,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of resuming a device or application which was formerly paused (e.g. resume music playback or resume a timer)."},
-   :rdfs/isDefinedBy :schema/ResumeAction,
+   :rdfs/isDefinedBy "http://schema.org/ResumeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ResumeAction"},
    :rdfs/subClassOf :schema/ControlAction})
@@ -8775,7 +8775,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of returning to the origin that which was previously received (concrete objects) or taken (ownership)."},
-   :rdfs/isDefinedBy :schema/ReturnAction,
+   :rdfs/isDefinedBy "http://schema.org/ReturnAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReturnAction"},
    :rdfs/subClassOf :schema/TransferAction})
@@ -8825,7 +8825,7 @@
    {:rdf/language "en",
     :rdf/value
     "A review of an item - for example, of a restaurant, movie, or store."},
-   :rdfs/isDefinedBy :schema/Review,
+   :rdfs/isDefinedBy "http://schema.org/Review",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Review"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -8838,7 +8838,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review."},
-   :rdfs/isDefinedBy :schema/ReviewAction,
+   :rdfs/isDefinedBy "http://schema.org/ReviewAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ReviewAction"},
    :rdfs/subClassOf :schema/AssessAction})
@@ -8863,7 +8863,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A river (for example, the broad majestic Shannon)."},
-   :rdfs/isDefinedBy :schema/RiverBodyOfWater,
+   :rdfs/isDefinedBy "http://schema.org/RiverBodyOfWater",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "RiverBodyOfWater"},
    :rdfs/subClassOf  :schema/BodyOfWater})
@@ -8876,7 +8876,7 @@
    {:rdf/language "en",
     :rdf/value
     "Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.<br/><br/>\n\nSee also <a href=\"http://blog.schema.org/2014/06/introducing-role.html\">blog post</a>."},
-   :rdfs/isDefinedBy :schema/Role,
+   :rdfs/isDefinedBy "http://schema.org/Role",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Role"},
    :rdfs/subClassOf :schema/Intangible})
@@ -8887,7 +8887,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A roofing contractor."},
-   :rdfs/isDefinedBy :schema/RoofingContractor,
+   :rdfs/isDefinedBy "http://schema.org/RoofingContractor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "RoofingContractor"},
    :rdfs/subClassOf  :schema/HomeAndConstructionBusiness})
@@ -8900,7 +8900,7 @@
    {:rdf/language "en",
     :rdf/value
     "A room is a distinguishable space within a structure, usually separated from other spaces by interior walls (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Room\">http://en.wikipedia.org/wiki/Room</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Room,
+   :rdfs/isDefinedBy "http://schema.org/Room",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Room"},
    :rdfs/subClassOf :schema/Accommodation})
@@ -8913,7 +8913,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of notifying an event organizer as to whether you expect to attend the event."},
-   :rdfs/isDefinedBy :schema/RsvpAction,
+   :rdfs/isDefinedBy "http://schema.org/RsvpAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RsvpAction"},
    :rdfs/subClassOf :schema/InformAction})
@@ -8926,7 +8926,7 @@
    {:rdf/language "en",
     :rdf/value
     "RsvpResponseType is an enumeration type whose instances represent responding to an RSVP request."},
-   :rdfs/isDefinedBy :schema/RsvpResponseType,
+   :rdfs/isDefinedBy "http://schema.org/RsvpResponseType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "RsvpResponseType"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -8937,7 +8937,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Sales event."},
-   :rdfs/isDefinedBy :schema/SaleEvent,
+   :rdfs/isDefinedBy "http://schema.org/SaleEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SaleEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -8976,7 +8976,7 @@
    {:rdf/language "en",
     :rdf/value
     "Scheduling future actions, events, or tasks.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/ReserveAction\">ReserveAction</a>: Unlike ReserveAction, ScheduleAction allocates future actions (e.g. an event, a task, etc) towards a time slot / spatial allocation.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/ScheduleAction,
+   :rdfs/isDefinedBy "http://schema.org/ScheduleAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ScheduleAction"},
    :rdfs/subClassOf :schema/PlanAction})
@@ -8987,7 +8987,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A scholarly article."},
-   :rdfs/isDefinedBy :schema/ScholarlyArticle,
+   :rdfs/isDefinedBy "http://schema.org/ScholarlyArticle",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ScholarlyArticle"},
    :rdfs/subClassOf  :schema/Article})
@@ -8998,7 +8998,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A school."},
-   :rdfs/isDefinedBy :schema/School,
+   :rdfs/isDefinedBy "http://schema.org/School",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "School"},
    :rdfs/subClassOf  :schema/EducationalOrganization})
@@ -9022,7 +9022,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A screening of a movie or other video."},
-   :rdfs/isDefinedBy :schema/ScreeningEvent,
+   :rdfs/isDefinedBy "http://schema.org/ScreeningEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ScreeningEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -9033,7 +9033,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A piece of sculpture."},
-   :rdfs/isDefinedBy :schema/Sculpture,
+   :rdfs/isDefinedBy "http://schema.org/Sculpture",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Sculpture"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -9044,7 +9044,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A sea (for example, the Caspian sea)."},
-   :rdfs/isDefinedBy :schema/SeaBodyOfWater,
+   :rdfs/isDefinedBy "http://schema.org/SeaBodyOfWater",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SeaBodyOfWater"},
    :rdfs/subClassOf  :schema/BodyOfWater})
@@ -9057,7 +9057,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of searching for an object.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/FindAction\">FindAction</a>: SearchAction generally leads to a FindAction, but not necessarily.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/SearchAction,
+   :rdfs/isDefinedBy "http://schema.org/SearchAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SearchAction"},
    :rdfs/subClassOf :schema/Action})
@@ -9080,7 +9080,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: Search results page."},
-   :rdfs/isDefinedBy :schema/SearchResultsPage,
+   :rdfs/isDefinedBy "http://schema.org/SearchResultsPage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SearchResultsPage"},
    :rdfs/subClassOf  :schema/WebPage})
@@ -9092,7 +9092,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A media season, e.g. TV, radio, video game etc."},
-   :rdfs/isDefinedBy :schema/Season,
+   :rdfs/isDefinedBy "http://schema.org/Season",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Season"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -9105,7 +9105,7 @@
    {:rdf/language "en",
     :rdf/value
     "Used to describe a seat, such as a reserved seat in an event reservation."},
-   :rdfs/isDefinedBy :schema/Seat,
+   :rdfs/isDefinedBy "http://schema.org/Seat",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Seat"},
    :rdfs/subClassOf :schema/Intangible})
@@ -9129,7 +9129,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A self-storage facility."},
-   :rdfs/isDefinedBy :schema/SelfStorage,
+   :rdfs/isDefinedBy "http://schema.org/SelfStorage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SelfStorage"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -9142,7 +9142,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction."},
-   :rdfs/isDefinedBy :schema/SellAction,
+   :rdfs/isDefinedBy "http://schema.org/SellAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SellAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -9155,7 +9155,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of physically/electronically dispatching an object for transfer from an origin to a destination. Related actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/ReceiveAction\">ReceiveAction</a>: The reciprocal of SendAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/GiveAction\">GiveAction</a>: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/SendAction,
+   :rdfs/isDefinedBy "http://schema.org/SendAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SendAction"},
    :rdfs/subClassOf :schema/TransferAction})
@@ -9168,7 +9168,7 @@
    {:rdf/language "en",
     :rdf/value
     "A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also <a class=\"localLink\" href=\"https://schema.org/CreativeWorkSeries\">CreativeWorkSeries</a>, <a class=\"localLink\" href=\"https://schema.org/EventSeries\">EventSeries</a>."},
-   :rdfs/isDefinedBy :schema/Series,
+   :rdfs/isDefinedBy "http://schema.org/Series",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Series"},
    :rdfs/subClassOf :schema/Intangible})
@@ -9181,7 +9181,7 @@
    {:rdf/language "en",
     :rdf/value
     "A service provided by an organization, e.g. delivery service, print services, etc."},
-   :rdfs/isDefinedBy :schema/Service,
+   :rdfs/isDefinedBy "http://schema.org/Service",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Service"},
    :rdfs/subClassOf :schema/Intangible})
@@ -9194,7 +9194,7 @@
    {:rdf/language "en",
     :rdf/value
     "A means for accessing a service, e.g. a government office location, web site, or phone number."},
-   :rdfs/isDefinedBy :schema/ServiceChannel,
+   :rdfs/isDefinedBy "http://schema.org/ServiceChannel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ServiceChannel"},
    :rdfs/subClassOf :schema/Intangible})
@@ -9207,7 +9207,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of distributing content to people for their amusement or edification."},
-   :rdfs/isDefinedBy :schema/ShareAction,
+   :rdfs/isDefinedBy "http://schema.org/ShareAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ShareAction"},
    :rdfs/subClassOf :schema/CommunicateAction})
@@ -9256,7 +9256,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A shoe store."},
-   :rdfs/isDefinedBy :schema/ShoeStore,
+   :rdfs/isDefinedBy "http://schema.org/ShoeStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ShoeStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -9267,7 +9267,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A shopping center or mall."},
-   :rdfs/isDefinedBy :schema/ShoppingCenter,
+   :rdfs/isDefinedBy "http://schema.org/ShoppingCenter",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ShoppingCenter"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -9291,7 +9291,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Residence type: Single-family home."},
-   :rdfs/isDefinedBy :schema/SingleFamilyResidence,
+   :rdfs/isDefinedBy "http://schema.org/SingleFamilyResidence",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SingleFamilyResidence"},
    :rdfs/subClassOf  :schema/House})
@@ -9302,7 +9302,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A navigation element of the page."},
-   :rdfs/isDefinedBy :schema/SiteNavigationElement,
+   :rdfs/isDefinedBy "http://schema.org/SiteNavigationElement",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SiteNavigationElement"},
    :rdfs/subClassOf  :schema/WebPageElement})
@@ -9351,7 +9351,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A ski resort."},
-   :rdfs/isDefinedBy :schema/SkiResort,
+   :rdfs/isDefinedBy "http://schema.org/SkiResort",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SkiResort"},
    :rdfs/subClassOf  [:schema/Resort :schema/SportsActivityLocation]})
@@ -9362,7 +9362,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Social event."},
-   :rdfs/isDefinedBy :schema/SocialEvent,
+   :rdfs/isDefinedBy "http://schema.org/SocialEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SocialEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -9375,7 +9375,7 @@
    {:rdf/language "en",
     :rdf/value
     "A post to a social media platform, including blog posts, tweets, Facebook posts, etc."},
-   :rdfs/isDefinedBy :schema/SocialMediaPosting,
+   :rdfs/isDefinedBy "http://schema.org/SocialMediaPosting",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SocialMediaPosting"},
    :rdfs/subClassOf :schema/Article})
@@ -9386,7 +9386,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A software application."},
-   :rdfs/isDefinedBy :schema/SoftwareApplication,
+   :rdfs/isDefinedBy "http://schema.org/SoftwareApplication",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SoftwareApplication"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -9399,7 +9399,7 @@
    {:rdf/language "en",
     :rdf/value
     "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."},
-   :rdfs/isDefinedBy :schema/SoftwareSourceCode,
+   :rdfs/isDefinedBy "http://schema.org/SoftwareSourceCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SoftwareSourceCode"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -9424,7 +9424,7 @@
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value "A placeholder for multiple similar products of the same kind."},
-   :rdfs/isDefinedBy :schema/SomeProducts,
+   :rdfs/isDefinedBy "http://schema.org/SomeProducts",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SomeProducts"},
    :rdfs/subClassOf :schema/Product})
@@ -9437,7 +9437,7 @@
    {:rdf/language "en",
     :rdf/value
     "A SpeakableSpecification indicates (typically via <a class=\"localLink\" href=\"https://schema.org/xpath\">xpath</a> or <a class=\"localLink\" href=\"https://schema.org/cssSelector\">cssSelector</a>) sections of a document that are highlighted as particularly <a class=\"localLink\" href=\"https://schema.org/speakable\">speakable</a>. Instances of this type are expected to be used primarily as values of the <a class=\"localLink\" href=\"https://schema.org/speakable\">speakable</a> property."},
-   :rdfs/isDefinedBy :schema/SpeakableSpecification,
+   :rdfs/isDefinedBy "http://schema.org/SpeakableSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SpeakableSpecification"},
    :rdfs/subClassOf :schema/Intangible})
@@ -9463,7 +9463,7 @@
    {:rdf/language "en",
     :rdf/value
     "Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort."},
-   :rdfs/isDefinedBy :schema/Specialty,
+   :rdfs/isDefinedBy "http://schema.org/Specialty",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specialty"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -9474,7 +9474,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A sporting goods store."},
-   :rdfs/isDefinedBy :schema/SportingGoodsStore,
+   :rdfs/isDefinedBy "http://schema.org/SportingGoodsStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SportingGoodsStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -9485,7 +9485,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "A sports location, such as a playing field."},
-   :rdfs/isDefinedBy :schema/SportsActivityLocation,
+   :rdfs/isDefinedBy "http://schema.org/SportsActivityLocation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SportsActivityLocation"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -9496,7 +9496,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A sports club."},
-   :rdfs/isDefinedBy :schema/SportsClub,
+   :rdfs/isDefinedBy "http://schema.org/SportsClub",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SportsClub"},
    :rdfs/subClassOf  :schema/SportsActivityLocation})
@@ -9507,7 +9507,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Sports event."},
-   :rdfs/isDefinedBy :schema/SportsEvent,
+   :rdfs/isDefinedBy "http://schema.org/SportsEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SportsEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -9520,7 +9520,7 @@
    {:rdf/language "en",
     :rdf/value
     "Represents the collection of all sports organizations, including sports teams, governing bodies, and sports associations."},
-   :rdfs/isDefinedBy :schema/SportsOrganization,
+   :rdfs/isDefinedBy "http://schema.org/SportsOrganization",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SportsOrganization"},
    :rdfs/subClassOf :schema/Organization})
@@ -9531,7 +9531,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Organization: Sports team."},
-   :rdfs/isDefinedBy :schema/SportsTeam,
+   :rdfs/isDefinedBy "http://schema.org/SportsTeam",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SportsTeam"},
    :rdfs/subClassOf  :schema/SportsOrganization})
@@ -9542,7 +9542,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A spreadsheet file."},
-   :rdfs/isDefinedBy :schema/SpreadsheetDigitalDocument,
+   :rdfs/isDefinedBy "http://schema.org/SpreadsheetDigitalDocument",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SpreadsheetDigitalDocument"},
    :rdfs/subClassOf  :schema/DigitalDocument})
@@ -9553,7 +9553,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A stadium."},
-   :rdfs/isDefinedBy :schema/StadiumOrArena,
+   :rdfs/isDefinedBy "http://schema.org/StadiumOrArena",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "StadiumOrArena"},
    :rdfs/subClassOf  [:schema/CivicStructure :schema/SportsActivityLocation]})
@@ -9564,7 +9564,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A state or province of a country."},
-   :rdfs/isDefinedBy :schema/State,
+   :rdfs/isDefinedBy "http://schema.org/State",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "State"},
    :rdfs/subClassOf  :schema/AdministrativeArea})
@@ -9602,7 +9602,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "Lists or enumerations dealing with status types."},
-   :rdfs/isDefinedBy :schema/StatusEnumeration,
+   :rdfs/isDefinedBy "http://schema.org/StatusEnumeration",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "StatusEnumeration"},
    :rdfs/subClassOf  :schema/Enumeration})
@@ -9613,7 +9613,7 @@
    :rdf/type         [:owl/NamedIndividual :owl/Class],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A value indicating a steering position."},
-   :rdfs/isDefinedBy :schema/SteeringPositionValue,
+   :rdfs/isDefinedBy "http://schema.org/SteeringPositionValue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SteeringPositionValue"},
    :rdfs/subClassOf  :schema/QualitativeValue})
@@ -9624,7 +9624,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A retail good store."},
-   :rdfs/isDefinedBy :schema/Store,
+   :rdfs/isDefinedBy "http://schema.org/Store",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Store"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -9637,7 +9637,7 @@
    {:rdf/language "en",
     :rdf/value
     "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing."},
-   :rdfs/isDefinedBy :schema/StructuredValue,
+   :rdfs/isDefinedBy "http://schema.org/StructuredValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "StructuredValue"},
    :rdfs/subClassOf :schema/Intangible})
@@ -9661,7 +9661,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates pushed to.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, SubscribeAction implies that the subscriber acts as a passive agent being constantly/actively pushed for updates.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/JoinAction\">JoinAction</a>: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/SubscribeAction,
+   :rdfs/isDefinedBy "http://schema.org/SubscribeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SubscribeAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -9685,7 +9685,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A subway station."},
-   :rdfs/isDefinedBy :schema/SubwayStation,
+   :rdfs/isDefinedBy "http://schema.org/SubwayStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "SubwayStation"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -9698,7 +9698,7 @@
    {:rdf/language "en",
     :rdf/value
     "A suite in a hotel or other public accommodation, denotes a class of luxury accommodations, the key feature of which is multiple rooms (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Suite_(hotel)\">http://en.wikipedia.org/wiki/Suite_(hotel)</a>).\n<br /><br />\nSee also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."},
-   :rdfs/isDefinedBy :schema/Suite,
+   :rdfs/isDefinedBy "http://schema.org/Suite",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Suite"},
    :rdfs/subClassOf :schema/Accommodation})
@@ -9737,7 +9737,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of momentarily pausing a device or application (e.g. pause music playback or pause a timer)."},
-   :rdfs/isDefinedBy :schema/SuspendAction,
+   :rdfs/isDefinedBy "http://schema.org/SuspendAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "SuspendAction"},
    :rdfs/subClassOf :schema/ControlAction})
@@ -9748,7 +9748,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A synagogue."},
-   :rdfs/isDefinedBy :schema/Synagogue,
+   :rdfs/isDefinedBy "http://schema.org/Synagogue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Synagogue"},
    :rdfs/subClassOf  :schema/PlaceOfWorship})
@@ -9760,7 +9760,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A short TV program or a segment/part of a TV program."},
-   :rdfs/isDefinedBy :schema/TVClip,
+   :rdfs/isDefinedBy "http://schema.org/TVClip",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TVClip"},
    :rdfs/subClassOf  :schema/Clip})
@@ -9772,7 +9772,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A TV episode which can be part of a series or season."},
-   :rdfs/isDefinedBy :schema/TVEpisode,
+   :rdfs/isDefinedBy "http://schema.org/TVEpisode",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TVEpisode"},
    :rdfs/subClassOf  :schema/Episode})
@@ -9785,7 +9785,7 @@
    {:rdf/language "en",
     :rdf/value
     "Season dedicated to TV broadcast and associated online delivery."},
-   :rdfs/isDefinedBy :schema/TVSeason,
+   :rdfs/isDefinedBy "http://schema.org/TVSeason",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TVSeason"},
    :rdfs/subClassOf [:schema/CreativeWork :schema/CreativeWorkSeason]})
@@ -9798,7 +9798,7 @@
    {:rdf/language "en",
     :rdf/value
     "CreativeWorkSeries dedicated to TV broadcast and associated online delivery."},
-   :rdfs/isDefinedBy :schema/TVSeries,
+   :rdfs/isDefinedBy "http://schema.org/TVSeries",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TVSeries"},
    :rdfs/subClassOf [:schema/CreativeWorkSeries :schema/CreativeWork]})
@@ -9809,7 +9809,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A table on a Web page."},
-   :rdfs/isDefinedBy :schema/Table,
+   :rdfs/isDefinedBy "http://schema.org/Table",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Table"},
    :rdfs/subClassOf  :schema/WebPageElement})
@@ -9822,7 +9822,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/GiveAction\">GiveAction</a>: The reciprocal of TakeAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/ReceiveAction\">ReceiveAction</a>: Unlike ReceiveAction, TakeAction implies that ownership has been transferred.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/TakeAction,
+   :rdfs/isDefinedBy "http://schema.org/TakeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TakeAction"},
    :rdfs/subClassOf :schema/TransferAction})
@@ -9833,7 +9833,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A tattoo parlor."},
-   :rdfs/isDefinedBy :schema/TattooParlor,
+   :rdfs/isDefinedBy "http://schema.org/TattooParlor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TattooParlor"},
    :rdfs/subClassOf  :schema/HealthAndBeautyBusiness})
@@ -9844,7 +9844,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A taxi."},
-   :rdfs/isDefinedBy :schema/Taxi,
+   :rdfs/isDefinedBy "http://schema.org/Taxi",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Taxi"},
    :rdfs/subClassOf  :schema/Service})
@@ -9857,7 +9857,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation for a taxi.<br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."},
-   :rdfs/isDefinedBy :schema/TaxiReservation,
+   :rdfs/isDefinedBy "http://schema.org/TaxiReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TaxiReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -9870,7 +9870,7 @@
    {:rdf/language "en",
     :rdf/value
     "A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled."},
-   :rdfs/isDefinedBy :schema/TaxiService,
+   :rdfs/isDefinedBy "http://schema.org/TaxiService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TaxiService"},
    :rdfs/subClassOf :schema/Service})
@@ -9881,7 +9881,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A taxi stand."},
-   :rdfs/isDefinedBy :schema/TaxiStand,
+   :rdfs/isDefinedBy "http://schema.org/TaxiStand",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TaxiStand"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -9907,7 +9907,7 @@
    {:rdf/language "en",
     :rdf/value
     "A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc."},
-   :rdfs/isDefinedBy :schema/TechArticle,
+   :rdfs/isDefinedBy "http://schema.org/TechArticle",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TechArticle"},
    :rdfs/subClassOf :schema/Article})
@@ -9920,7 +9920,7 @@
    {:rdf/language "en",
     :rdf/value
     "A unique instance of a television BroadcastService on a CableOrSatelliteService lineup."},
-   :rdfs/isDefinedBy :schema/TelevisionChannel,
+   :rdfs/isDefinedBy "http://schema.org/TelevisionChannel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TelevisionChannel"},
    :rdfs/subClassOf :schema/BroadcastChannel})
@@ -9931,7 +9931,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A television station."},
-   :rdfs/isDefinedBy :schema/TelevisionStation,
+   :rdfs/isDefinedBy "http://schema.org/TelevisionStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TelevisionStation"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -9942,7 +9942,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A tennis complex."},
-   :rdfs/isDefinedBy :schema/TennisComplex,
+   :rdfs/isDefinedBy "http://schema.org/TennisComplex",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TennisComplex"},
    :rdfs/subClassOf  :schema/SportsActivityLocation})
@@ -9953,7 +9953,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Data type: Text."},
-   :rdfs/isDefinedBy :schema/Text,
+   :rdfs/isDefinedBy "http://schema.org/Text",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Text"},
    :rdfs/subClassOf  :schema/DataType})
@@ -9964,7 +9964,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A file composed primarily of text."},
-   :rdfs/isDefinedBy :schema/TextDigitalDocument,
+   :rdfs/isDefinedBy "http://schema.org/TextDigitalDocument",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TextDigitalDocument"},
    :rdfs/subClassOf  :schema/DigitalDocument})
@@ -9975,7 +9975,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Theater performance."},
-   :rdfs/isDefinedBy :schema/TheaterEvent,
+   :rdfs/isDefinedBy "http://schema.org/TheaterEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TheaterEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -9988,7 +9988,7 @@
    {:rdf/language "en",
     :rdf/value
     "A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre."},
-   :rdfs/isDefinedBy :schema/TheaterGroup,
+   :rdfs/isDefinedBy "http://schema.org/TheaterGroup",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TheaterGroup"},
    :rdfs/subClassOf :schema/PerformingGroup})
@@ -10025,7 +10025,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The most generic type of item."},
-   :rdfs/isDefinedBy :schema/Thing,
+   :rdfs/isDefinedBy "http://schema.org/Thing",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Thing"}})
 
@@ -10037,7 +10037,7 @@
    {:rdf/language "en",
     :rdf/value
     "Used to describe a ticket to an event, a flight, a bus ride, etc."},
-   :rdfs/isDefinedBy :schema/Ticket,
+   :rdfs/isDefinedBy "http://schema.org/Ticket",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Ticket"},
    :rdfs/subClassOf :schema/Intangible})
@@ -10049,7 +10049,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of reaching a draw in a competitive activity."},
-   :rdfs/isDefinedBy :schema/TieAction,
+   :rdfs/isDefinedBy "http://schema.org/TieAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TieAction"},
    :rdfs/subClassOf  :schema/AchieveAction})
@@ -10062,7 +10062,7 @@
    {:rdf/language "en",
     :rdf/value
     "A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm] (see <a href=\"http://www.w3.org/TR/xmlschema-2/#time\">XML schema for details</a>)."},
-   :rdfs/isDefinedBy :schema/Time,
+   :rdfs/isDefinedBy "http://schema.org/Time",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Time"},
    :rdfs/subClassOf :schema/DataType})
@@ -10075,7 +10075,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of giving money voluntarily to a beneficiary in recognition of services rendered."},
-   :rdfs/isDefinedBy :schema/TipAction,
+   :rdfs/isDefinedBy "http://schema.org/TipAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TipAction"},
    :rdfs/subClassOf :schema/TradeAction})
@@ -10086,7 +10086,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A tire shop."},
-   :rdfs/isDefinedBy :schema/TireShop,
+   :rdfs/isDefinedBy "http://schema.org/TireShop",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TireShop"},
    :rdfs/subClassOf  :schema/Store})
@@ -10099,7 +10099,7 @@
    {:rdf/language "en",
     :rdf/value
     "A tourist attraction.  In principle any Thing can be a <a class=\"localLink\" href=\"https://schema.org/TouristAttraction\">TouristAttraction</a>, from a <a class=\"localLink\" href=\"https://schema.org/Mountain\">Mountain</a> and <a class=\"localLink\" href=\"https://schema.org/LandmarksOrHistoricalBuildings\">LandmarksOrHistoricalBuildings</a> to a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a>.  This Type can be used on its own to describe a general <a class=\"localLink\" href=\"https://schema.org/TouristAttraction\">TouristAttraction</a>, or be used as an <a class=\"localLink\" href=\"https://schema.org/additionalType\">additionalType</a> to add tourist attraction properties to any other type.  (See examples below)"},
-   :rdfs/isDefinedBy :schema/TouristAttraction,
+   :rdfs/isDefinedBy "http://schema.org/TouristAttraction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TouristAttraction"},
    :rdfs/subClassOf :schema/Place})
@@ -10123,7 +10123,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A tourist information center."},
-   :rdfs/isDefinedBy :schema/TouristInformationCenter,
+   :rdfs/isDefinedBy "http://schema.org/TouristInformationCenter",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TouristInformationCenter"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -10147,7 +10147,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A toy store."},
-   :rdfs/isDefinedBy :schema/ToyStore,
+   :rdfs/isDefinedBy "http://schema.org/ToyStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ToyStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -10160,7 +10160,7 @@
    {:rdf/language "en",
     :rdf/value
     "An agent tracks an object for updates.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/SubscribeAction\">SubscribeAction</a>: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/TrackAction,
+   :rdfs/isDefinedBy "http://schema.org/TrackAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TrackAction"},
    :rdfs/subClassOf :schema/FindAction})
@@ -10173,7 +10173,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment."},
-   :rdfs/isDefinedBy :schema/TradeAction,
+   :rdfs/isDefinedBy "http://schema.org/TradeAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TradeAction"},
    :rdfs/subClassOf :schema/Action})
@@ -10186,7 +10186,7 @@
    {:rdf/language "en",
     :rdf/value
     "A reservation for train travel.<br/><br/>\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."},
-   :rdfs/isDefinedBy :schema/TrainReservation,
+   :rdfs/isDefinedBy "http://schema.org/TrainReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TrainReservation"},
    :rdfs/subClassOf :schema/Reservation})
@@ -10197,7 +10197,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A train station."},
-   :rdfs/isDefinedBy :schema/TrainStation,
+   :rdfs/isDefinedBy "http://schema.org/TrainStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TrainStation"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -10208,7 +10208,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A trip on a commercial train line."},
-   :rdfs/isDefinedBy :schema/TrainTrip,
+   :rdfs/isDefinedBy "http://schema.org/TrainTrip",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TrainTrip"},
    :rdfs/subClassOf  :schema/Trip})
@@ -10221,7 +10221,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another."},
-   :rdfs/isDefinedBy :schema/TransferAction,
+   :rdfs/isDefinedBy "http://schema.org/TransferAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TransferAction"},
    :rdfs/subClassOf :schema/Action})
@@ -10234,7 +10234,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of traveling from a fromLocation to a destination by a specified mode of transport, optionally with participants."},
-   :rdfs/isDefinedBy :schema/TravelAction,
+   :rdfs/isDefinedBy "http://schema.org/TravelAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TravelAction"},
    :rdfs/subClassOf :schema/MoveAction})
@@ -10245,7 +10245,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A travel agency."},
-   :rdfs/isDefinedBy :schema/TravelAgency,
+   :rdfs/isDefinedBy "http://schema.org/TravelAgency",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "TravelAgency"},
    :rdfs/subClassOf  :schema/LocalBusiness})
@@ -10271,7 +10271,7 @@
    {:rdf/language "en",
     :rdf/value
     "A trip or journey. An itinerary of visits to one or more places."},
-   :rdfs/isDefinedBy :schema/Trip,
+   :rdfs/isDefinedBy "http://schema.org/Trip",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Trip"},
    :rdfs/subClassOf :schema/Intangible})
@@ -10282,7 +10282,7 @@
    :rdf/type         :owl/NamedIndividual,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The boolean value true."},
-   :rdfs/isDefinedBy :schema/True,
+   :rdfs/isDefinedBy "http://schema.org/True",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "True"}})
 
@@ -10294,7 +10294,7 @@
    {:rdf/language "en",
     :rdf/value
     "A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer."},
-   :rdfs/isDefinedBy :schema/TypeAndQuantityNode,
+   :rdfs/isDefinedBy "http://schema.org/TypeAndQuantityNode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "TypeAndQuantityNode"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -10318,7 +10318,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Data type: URL."},
-   :rdfs/isDefinedBy :schema/URL,
+   :rdfs/isDefinedBy "http://schema.org/URL",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "URL"},
    :rdfs/subClassOf  :schema/Text})
@@ -10344,7 +10344,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of un-registering from a service.<br/><br/>\n\nRelated actions:<br/><br/>\n\n<ul>\n<li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: antonym of UnRegisterAction.</li>\n<li><a class=\"localLink\" href=\"https://schema.org/LeaveAction\">LeaveAction</a>: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you were previously registered, rather than leaving a team/group of people.</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/UnRegisterAction,
+   :rdfs/isDefinedBy "http://schema.org/UnRegisterAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UnRegisterAction"},
    :rdfs/subClassOf :schema/InteractAction})
@@ -10357,7 +10357,7 @@
    {:rdf/language "en",
     :rdf/value
     "The price asked for a given offer by the respective organization or person."},
-   :rdfs/isDefinedBy :schema/UnitPriceSpecification,
+   :rdfs/isDefinedBy "http://schema.org/UnitPriceSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UnitPriceSpecification"},
    :rdfs/subClassOf :schema/PriceSpecification})
@@ -10370,7 +10370,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of managing by changing/editing the state of the object."},
-   :rdfs/isDefinedBy :schema/UpdateAction,
+   :rdfs/isDefinedBy "http://schema.org/UpdateAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UpdateAction"},
    :rdfs/subClassOf :schema/Action})
@@ -10382,7 +10382,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of applying an object to its intended purpose."},
-   :rdfs/isDefinedBy :schema/UseAction,
+   :rdfs/isDefinedBy "http://schema.org/UseAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "UseAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -10395,7 +10395,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserBlocks,
+   :rdfs/isDefinedBy "http://schema.org/UserBlocks",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserBlocks"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10408,7 +10408,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserCheckins,
+   :rdfs/isDefinedBy "http://schema.org/UserCheckins",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserCheckins"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10421,7 +10421,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserComments,
+   :rdfs/isDefinedBy "http://schema.org/UserComments",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserComments"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10434,7 +10434,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserDownloads,
+   :rdfs/isDefinedBy "http://schema.org/UserDownloads",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserDownloads"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10447,7 +10447,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserInteraction,
+   :rdfs/isDefinedBy "http://schema.org/UserInteraction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserInteraction"},
    :rdfs/subClassOf :schema/Event})
@@ -10460,7 +10460,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserLikes,
+   :rdfs/isDefinedBy "http://schema.org/UserLikes",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserLikes"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10473,7 +10473,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserPageVisits,
+   :rdfs/isDefinedBy "http://schema.org/UserPageVisits",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserPageVisits"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10486,7 +10486,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserPlays,
+   :rdfs/isDefinedBy "http://schema.org/UserPlays",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserPlays"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10499,7 +10499,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserPlusOnes,
+   :rdfs/isDefinedBy "http://schema.org/UserPlusOnes",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserPlusOnes"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10525,7 +10525,7 @@
    {:rdf/language "en",
     :rdf/value
     "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."},
-   :rdfs/isDefinedBy :schema/UserTweets,
+   :rdfs/isDefinedBy "http://schema.org/UserTweets",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UserTweets"},
    :rdfs/subClassOf :schema/UserInteraction})
@@ -10538,7 +10538,7 @@
    {:rdf/language "en",
     :rdf/value
     "A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space."},
-   :rdfs/isDefinedBy :schema/Vehicle,
+   :rdfs/isDefinedBy "http://schema.org/Vehicle",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Vehicle"},
    :rdfs/subClassOf :schema/Product})
@@ -10586,7 +10586,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web page type: Video gallery page."},
-   :rdfs/isDefinedBy :schema/VideoGallery,
+   :rdfs/isDefinedBy "http://schema.org/VideoGallery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "VideoGallery"},
    :rdfs/subClassOf  :schema/MediaGallery})
@@ -10599,7 +10599,7 @@
    {:rdf/language "en",
     :rdf/value
     "A video game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device."},
-   :rdfs/isDefinedBy :schema/VideoGame,
+   :rdfs/isDefinedBy "http://schema.org/VideoGame",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "VideoGame"},
    :rdfs/subClassOf [:schema/Game :schema/SoftwareApplication]})
@@ -10610,7 +10610,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A short segment/part of a video game."},
-   :rdfs/isDefinedBy :schema/VideoGameClip,
+   :rdfs/isDefinedBy "http://schema.org/VideoGameClip",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "VideoGameClip"},
    :rdfs/subClassOf  :schema/Clip})
@@ -10621,7 +10621,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A video game series."},
-   :rdfs/isDefinedBy :schema/VideoGameSeries,
+   :rdfs/isDefinedBy "http://schema.org/VideoGameSeries",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "VideoGameSeries"},
    :rdfs/subClassOf  :schema/CreativeWorkSeries})
@@ -10632,7 +10632,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A video file."},
-   :rdfs/isDefinedBy :schema/VideoObject,
+   :rdfs/isDefinedBy "http://schema.org/VideoObject",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "VideoObject"},
    :rdfs/subClassOf  :schema/MediaObject})
@@ -10656,7 +10656,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "The act of consuming static visual content."},
-   :rdfs/isDefinedBy :schema/ViewAction,
+   :rdfs/isDefinedBy "http://schema.org/ViewAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ViewAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -10680,7 +10680,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Event type: Visual arts event."},
-   :rdfs/isDefinedBy :schema/VisualArtsEvent,
+   :rdfs/isDefinedBy "http://schema.org/VisualArtsEvent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "VisualArtsEvent"},
    :rdfs/subClassOf  :schema/Event})
@@ -10692,7 +10692,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A work of art that is primarily visual in character."},
-   :rdfs/isDefinedBy :schema/VisualArtwork,
+   :rdfs/isDefinedBy "http://schema.org/VisualArtwork",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "VisualArtwork"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -10716,7 +10716,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A volcano, like Fujisan."},
-   :rdfs/isDefinedBy :schema/Volcano,
+   :rdfs/isDefinedBy "http://schema.org/Volcano",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Volcano"},
    :rdfs/subClassOf  :schema/Landform})
@@ -10729,7 +10729,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of expressing a preference from a fixed/finite/structured set of choices/options."},
-   :rdfs/isDefinedBy :schema/VoteAction,
+   :rdfs/isDefinedBy "http://schema.org/VoteAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "VoteAction"},
    :rdfs/subClassOf :schema/ChooseAction})
@@ -10740,7 +10740,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "An advertising section of the page."},
-   :rdfs/isDefinedBy :schema/WPAdBlock,
+   :rdfs/isDefinedBy "http://schema.org/WPAdBlock",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WPAdBlock"},
    :rdfs/subClassOf  :schema/WebPageElement})
@@ -10751,7 +10751,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The footer section of the page."},
-   :rdfs/isDefinedBy :schema/WPFooter,
+   :rdfs/isDefinedBy "http://schema.org/WPFooter",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WPFooter"},
    :rdfs/subClassOf  :schema/WebPageElement})
@@ -10762,7 +10762,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The header section of the page."},
-   :rdfs/isDefinedBy :schema/WPHeader,
+   :rdfs/isDefinedBy "http://schema.org/WPHeader",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WPHeader"},
    :rdfs/subClassOf  :schema/WebPageElement})
@@ -10773,7 +10773,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A sidebar section of the page."},
-   :rdfs/isDefinedBy :schema/WPSideBar,
+   :rdfs/isDefinedBy "http://schema.org/WPSideBar",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WPSideBar"},
    :rdfs/subClassOf  :schema/WebPageElement})
@@ -10786,7 +10786,7 @@
    {:rdf/language "en",
     :rdf/value
     "The act of expressing a desire about the object. An agent wants an object."},
-   :rdfs/isDefinedBy :schema/WantAction,
+   :rdfs/isDefinedBy "http://schema.org/WantAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "WantAction"},
    :rdfs/subClassOf :schema/ReactAction})
@@ -10799,7 +10799,7 @@
    {:rdf/language "en",
     :rdf/value
     "A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product."},
-   :rdfs/isDefinedBy :schema/WarrantyPromise,
+   :rdfs/isDefinedBy "http://schema.org/WarrantyPromise",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "WarrantyPromise"},
    :rdfs/subClassOf :schema/StructuredValue})
@@ -10812,7 +10812,7 @@
    {:rdf/language "en",
     :rdf/value
     "A range of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.<br/><br/>\n\nCommonly used values:<br/><br/>\n\n<ul>\n<li>http://purl.org/goodrelations/v1#Labor-BringIn</li>\n<li>http://purl.org/goodrelations/v1#PartsAndLabor-BringIn</li>\n<li>http://purl.org/goodrelations/v1#PartsAndLabor-PickUp</li>\n</ul>\n"},
-   :rdfs/isDefinedBy :schema/WarrantyScope,
+   :rdfs/isDefinedBy "http://schema.org/WarrantyScope",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "WarrantyScope"},
    :rdfs/subClassOf :schema/Enumeration})
@@ -10824,7 +10824,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of consuming dynamic/moving visual content."},
-   :rdfs/isDefinedBy :schema/WatchAction,
+   :rdfs/isDefinedBy "http://schema.org/WatchAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WatchAction"},
    :rdfs/subClassOf  :schema/ConsumeAction})
@@ -10835,7 +10835,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A waterfall, like Niagara."},
-   :rdfs/isDefinedBy :schema/Waterfall,
+   :rdfs/isDefinedBy "http://schema.org/Waterfall",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Waterfall"},
    :rdfs/subClassOf  :schema/BodyOfWater})
@@ -10846,7 +10846,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The act of dressing oneself in clothing."},
-   :rdfs/isDefinedBy :schema/WearAction,
+   :rdfs/isDefinedBy "http://schema.org/WearAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WearAction"},
    :rdfs/subClassOf  :schema/UseAction})
@@ -10909,7 +10909,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Web applications."},
-   :rdfs/isDefinedBy :schema/WebApplication,
+   :rdfs/isDefinedBy "http://schema.org/WebApplication",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WebApplication"},
    :rdfs/subClassOf  :schema/SoftwareApplication})
@@ -10935,7 +10935,7 @@
    {:rdf/language "en",
     :rdf/value
     "A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page."},
-   :rdfs/isDefinedBy :schema/WebPage,
+   :rdfs/isDefinedBy "http://schema.org/WebPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "WebPage"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -10947,7 +10947,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "A web page element, like a table or an image."},
-   :rdfs/isDefinedBy :schema/WebPageElement,
+   :rdfs/isDefinedBy "http://schema.org/WebPageElement",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WebPageElement"},
    :rdfs/subClassOf  :schema/CreativeWork})
@@ -10960,7 +10960,7 @@
    {:rdf/language "en",
     :rdf/value
     "A WebSite is a set of related web pages and other items typically served from a single web domain and accessible via URLs."},
-   :rdfs/isDefinedBy :schema/WebSite,
+   :rdfs/isDefinedBy "http://schema.org/WebSite",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "WebSite"},
    :rdfs/subClassOf :schema/CreativeWork})
@@ -10971,7 +10971,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A wholesale store."},
-   :rdfs/isDefinedBy :schema/WholesaleStore,
+   :rdfs/isDefinedBy "http://schema.org/WholesaleStore",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WholesaleStore"},
    :rdfs/subClassOf  :schema/Store})
@@ -10983,7 +10983,7 @@
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
                   "The act of achieving victory in a competitive activity."},
-   :rdfs/isDefinedBy :schema/WinAction,
+   :rdfs/isDefinedBy "http://schema.org/WinAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "WinAction"},
    :rdfs/subClassOf :schema/AchieveAction})
@@ -10994,7 +10994,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A winery."},
-   :rdfs/isDefinedBy :schema/Winery,
+   :rdfs/isDefinedBy "http://schema.org/Winery",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Winery"},
    :rdfs/subClassOf  :schema/FoodEstablishment})
@@ -11020,7 +11020,7 @@
    {:rdf/language "en",
     :rdf/value
     "A Workers Union (also known as a Labor Union, Labour Union, or Trade Union) is an organization that promotes the interests of its worker members by collectively bargaining with management, organizing, and political lobbying."},
-   :rdfs/isDefinedBy :schema/WorkersUnion,
+   :rdfs/isDefinedBy "http://schema.org/WorkersUnion",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "WorkersUnion"},
    :rdfs/subClassOf :schema/Organization})
@@ -11032,7 +11032,7 @@
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
                       "The act of authoring written creative content."},
-   :rdfs/isDefinedBy :schema/WriteAction,
+   :rdfs/isDefinedBy "http://schema.org/WriteAction",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "WriteAction"},
    :rdfs/subClassOf  :schema/CreateAction})
@@ -11056,7 +11056,7 @@
    :rdf/type         :owl/Class,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "A zoo."},
-   :rdfs/isDefinedBy :schema/Zoo,
+   :rdfs/isDefinedBy "http://schema.org/Zoo",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Zoo"},
    :rdfs/subClassOf  :schema/CivicStructure})
@@ -11072,7 +11072,7 @@
                                     :schema/CreativeWork
                                     :schema/Event],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/about,
+   :rdfs/isDefinedBy "http://schema.org/about",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "about"},
    :rdfs/range       {:owl/unionOf [:schema/Thing
@@ -11141,7 +11141,7 @@
     "The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author."},
    :rdfs/domain {:owl/unionOf [:schema/Question],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/acceptedAnswer,
+   :rdfs/isDefinedBy "http://schema.org/acceptedAnswer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "acceptedAnswer"},
    :rdfs/range
@@ -11160,7 +11160,7 @@
     "The offer(s) -- e.g., product, quantity and price combinations -- included in the order."},
    :rdfs/domain {:owl/unionOf [:schema/Order],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/acceptedOffer,
+   :rdfs/isDefinedBy "http://schema.org/acceptedOffer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "acceptedOffer"},
    :rdfs/range
@@ -11176,7 +11176,7 @@
                   "The payment method(s) accepted by seller for this offer."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/acceptedPaymentMethod,
+   :rdfs/isDefinedBy "http://schema.org/acceptedPaymentMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "acceptedPaymentMethod"},
    :rdfs/range {:owl/unionOf [:schema/PaymentMethod
@@ -11196,7 +11196,7 @@
     "Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings <code>Yes</code> or <code>No</code>."},
    :rdfs/domain {:owl/unionOf [:schema/FoodEstablishment],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/acceptsReservations,
+   :rdfs/isDefinedBy "http://schema.org/acceptsReservations",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "acceptsReservations"},
    :rdfs/range
@@ -11213,7 +11213,7 @@
     "Password, PIN, or access code needed for delivery (e.g. from a locker)."},
    :rdfs/domain {:owl/unionOf [:schema/DeliveryEvent],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessCode,
+   :rdfs/isDefinedBy "http://schema.org/accessCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessCode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11229,7 +11229,7 @@
     "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the <a href=\"https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode-vocabulary\">approved vocabulary</a>."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessMode,
+   :rdfs/isDefinedBy "http://schema.org/accessMode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessMode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11245,7 +11245,7 @@
     "A list of single or combined accessModes that are sufficient to understand all the intellectual content of a resource. Values should be drawn from the <a href=\"https://www.w3.org/2021/a11y-discov-vocab/latest/#accessModeSufficient-vocabulary\">approved vocabulary</a>."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessModeSufficient,
+   :rdfs/isDefinedBy "http://schema.org/accessModeSufficient",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessModeSufficient"},
    :rdfs/range
@@ -11262,7 +11262,7 @@
     "Indicates that the resource is compatible with the referenced accessibility API. Values should be drawn from the <a href=\"https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityAPI-vocabulary\">approved vocabulary</a>."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessibilityAPI,
+   :rdfs/isDefinedBy "http://schema.org/accessibilityAPI",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessibilityAPI"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11278,7 +11278,7 @@
     "Identifies input methods that are sufficient to fully control the described resource. Values should be drawn from the <a href=\"https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityControl-vocabulary\">approved vocabulary</a>."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessibilityControl,
+   :rdfs/isDefinedBy "http://schema.org/accessibilityControl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessibilityControl"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11294,7 +11294,7 @@
     "Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility. Values should be drawn from the <a href=\"https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityFeature-vocabulary\">approved vocabulary</a>."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessibilityFeature,
+   :rdfs/isDefinedBy "http://schema.org/accessibilityFeature",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessibilityFeature"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11310,7 +11310,7 @@
     "A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3. Values should be drawn from the <a href=\"https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityHazard-vocabulary\">approved vocabulary</a>."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessibilityHazard,
+   :rdfs/isDefinedBy "http://schema.org/accessibilityHazard",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessibilityHazard"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11326,7 +11326,7 @@
     "A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as \"short descriptions are present but long descriptions will be needed for non-visual users\" or \"short descriptions are present and no long descriptions are needed.\""},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accessibilitySummary,
+   :rdfs/isDefinedBy "http://schema.org/accessibilitySummary",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accessibilitySummary"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11376,7 +11376,7 @@
     "The identifier for the account the payment will be applied to."},
    :rdfs/domain {:owl/unionOf [:schema/Invoice],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accountId,
+   :rdfs/isDefinedBy "http://schema.org/accountId",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accountId"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11428,7 +11428,7 @@
     "Specifies the Person that is legally accountable for the CreativeWork."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/accountablePerson,
+   :rdfs/isDefinedBy "http://schema.org/accountablePerson",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accountablePerson"},
    :rdfs/range
@@ -11463,7 +11463,7 @@
     "The organization or person from which the product was acquired."},
    :rdfs/domain {:owl/unionOf [:schema/OwnershipInfo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/acquiredFrom,
+   :rdfs/isDefinedBy "http://schema.org/acquiredFrom",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "acquiredFrom"},
    :rdfs/range
@@ -11497,7 +11497,7 @@
     "A set of requirements that must be fulfilled in order to perform an Action. If more than one value is specified, fulfilling one set of requirements will allow the Action to be performed."},
    :rdfs/domain {:owl/unionOf [:schema/ConsumeAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/actionAccessibilityRequirement,
+   :rdfs/isDefinedBy "http://schema.org/actionAccessibilityRequirement",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "actionAccessibilityRequirement"},
    :rdfs/range {:owl/unionOf [:schema/ActionAccessSpecification
@@ -11515,7 +11515,7 @@
                       "An application that can complete the request."},
    :rdfs/domain      {:owl/unionOf [:schema/EntryPoint],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/actionApplication,
+   :rdfs/isDefinedBy "http://schema.org/actionApplication",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "actionApplication"},
    :rdfs/range       {:owl/unionOf [:schema/SoftwareApplication
@@ -11533,7 +11533,7 @@
     :rdf/value "A sub property of object. The options subject to this action."},
    :rdfs/domain {:owl/unionOf [:schema/ChooseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/actionOption,
+   :rdfs/isDefinedBy "http://schema.org/actionOption",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "actionOption"},
    :rdfs/range
@@ -11551,7 +11551,7 @@
     "The high level platform(s) where the Action can be performed for the given URL. To specify a specific application or operating system instance, use actionApplication."},
    :rdfs/domain {:owl/unionOf [:schema/EntryPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/actionPlatform,
+   :rdfs/isDefinedBy "http://schema.org/actionPlatform",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "actionPlatform"},
    :rdfs/range {:owl/unionOf [:schema/URL
@@ -11569,7 +11569,7 @@
                       "Indicates the current disposition of the Action."},
    :rdfs/domain      {:owl/unionOf [:schema/Action],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/actionStatus,
+   :rdfs/isDefinedBy "http://schema.org/actionStatus",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "actionStatus"},
    :rdfs/range       {:owl/unionOf [:schema/ActionStatusType
@@ -11673,7 +11673,7 @@
                                :schema/RadioSeries
                                :schema/Episode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/actor,
+   :rdfs/isDefinedBy "http://schema.org/actor",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "actor"},
    :rdfs/range
@@ -11698,7 +11698,7 @@
                                :schema/VideoObject
                                :schema/TVSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/actors,
+   :rdfs/isDefinedBy "http://schema.org/actors",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "actors"},
    :rdfs/range
@@ -11716,7 +11716,7 @@
     "An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge)."},
    :rdfs/domain {:owl/unionOf [:schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/addOn,
+   :rdfs/isDefinedBy "http://schema.org/addOn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "addOn"},
    :rdfs/range
@@ -11733,7 +11733,7 @@
     "An additional name for a Person, can be used for a middle name."},
    :rdfs/domain {:owl/unionOf [:schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/additionalName,
+   :rdfs/isDefinedBy "http://schema.org/additionalName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "additionalName"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11750,7 +11750,7 @@
     "If responding yes, the number of guests who will attend in addition to the invitee."},
    :rdfs/domain {:owl/unionOf [:schema/RsvpAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/additionalNumberOfGuests,
+   :rdfs/isDefinedBy "http://schema.org/additionalNumberOfGuests",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "additionalNumberOfGuests"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -11770,7 +11770,7 @@
                                :schema/Product
                                :schema/QualitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/additionalProperty,
+   :rdfs/isDefinedBy "http://schema.org/additionalProperty",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "additionalProperty"},
    :rdfs/range
@@ -11787,7 +11787,7 @@
     "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."},
    :rdfs/domain {:owl/unionOf [:schema/Thing],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/additionalType,
+   :rdfs/isDefinedBy "http://schema.org/additionalType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "additionalType"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -11822,7 +11822,7 @@
                                     :schema/Organization
                                     :schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/address,
+   :rdfs/isDefinedBy "http://schema.org/address",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "address"},
    :rdfs/range       {:owl/unionOf [:schema/Text
@@ -11844,7 +11844,7 @@
                                :schema/PostalAddress
                                :schema/DefinedRegion],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/addressCountry,
+   :rdfs/isDefinedBy "http://schema.org/addressCountry",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "addressCountry"},
    :rdfs/range
@@ -11861,7 +11861,7 @@
     "The locality in which the street address is, and which is in the region. For example, Mountain View."},
    :rdfs/domain {:owl/unionOf [:schema/PostalAddress],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/addressLocality,
+   :rdfs/isDefinedBy "http://schema.org/addressLocality",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "addressLocality"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11877,7 +11877,7 @@
     "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level <a href=\"https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country\">Administrative division</a>."},
    :rdfs/domain {:owl/unionOf [:schema/PostalAddress :schema/DefinedRegion],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/addressRegion,
+   :rdfs/isDefinedBy "http://schema.org/addressRegion",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "addressRegion"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -11908,7 +11908,7 @@
     "The amount of time that is required between accepting the offer and the actual usage of the resource or service."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/advanceBookingRequirement,
+   :rdfs/isDefinedBy "http://schema.org/advanceBookingRequirement",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "advanceBookingRequirement"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -11962,7 +11962,7 @@
     "An organization that this person is affiliated with. For example, a school/university, a club, or a team."},
    :rdfs/domain {:owl/unionOf [:schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/affiliation,
+   :rdfs/isDefinedBy "http://schema.org/affiliation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "affiliation"},
    :rdfs/range
@@ -11980,7 +11980,7 @@
     "A media object representing the circumstances after performing this direction."},
    :rdfs/domain {:owl/unionOf [:schema/HowToDirection],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/afterMedia,
+   :rdfs/isDefinedBy "http://schema.org/afterMedia",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "afterMedia"},
    :rdfs/range
@@ -11997,7 +11997,7 @@
     "The direct performer or driver of the action (animate or inanimate). E.g. <em>John</em> wrote a book."},
    :rdfs/domain {:owl/unionOf [:schema/Action],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/agent,
+   :rdfs/isDefinedBy "http://schema.org/agent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "agent"},
    :rdfs/range
@@ -12022,7 +12022,7 @@
                                :schema/CreativeWork
                                :schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/aggregateRating,
+   :rdfs/isDefinedBy "http://schema.org/aggregateRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "aggregateRating"},
    :rdfs/range {:owl/unionOf [:schema/AggregateRating
@@ -12040,7 +12040,7 @@
                       "The kind of aircraft (e.g., \"Boeing 747\")."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/aircraft,
+   :rdfs/isDefinedBy "http://schema.org/aircraft",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "aircraft"},
    :rdfs/range       {:owl/unionOf [:schema/Text
@@ -12057,7 +12057,7 @@
                       :rdf/value    "A music album."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicGroup],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/album,
+   :rdfs/isDefinedBy "http://schema.org/album",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "album"},
    :rdfs/range       {:owl/unionOf [:schema/MusicAlbum
@@ -12076,7 +12076,7 @@
     "Classification of the album by its type of content: soundtrack, live album, studio album, etc."},
    :rdfs/domain {:owl/unionOf [:schema/MusicAlbum],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/albumProductionType,
+   :rdfs/isDefinedBy "http://schema.org/albumProductionType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "albumProductionType"},
    :rdfs/range {:owl/unionOf [:schema/MusicAlbumProductionType
@@ -12094,7 +12094,7 @@
                       :rdf/value    "A release of this album."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicAlbum],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/albumRelease,
+   :rdfs/isDefinedBy "http://schema.org/albumRelease",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "albumRelease"},
    :rdfs/range       {:owl/unionOf [:schema/MusicRelease
@@ -12112,7 +12112,7 @@
     :rdf/value "The kind of release which this album is: single, EP or album."},
    :rdfs/domain {:owl/unionOf [:schema/MusicAlbum],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/albumReleaseType,
+   :rdfs/isDefinedBy "http://schema.org/albumReleaseType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "albumReleaseType"},
    :rdfs/range {:owl/unionOf [:schema/MusicAlbumReleaseType
@@ -12129,7 +12129,7 @@
                          :rdf/value    "A collection of music albums."},
    :rdfs/domain         {:owl/unionOf [:schema/MusicGroup],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/albums,
+   :rdfs/isDefinedBy    "http://schema.org/albums",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "albums"},
    :rdfs/range          {:owl/unionOf [:schema/MusicAlbum
@@ -12180,7 +12180,7 @@
     "A category of alignment between the learning resource and the framework node. Recommended values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'."},
    :rdfs/domain {:owl/unionOf [:schema/AlignmentObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/alignmentType,
+   :rdfs/isDefinedBy "http://schema.org/alignmentType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "alignmentType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12194,7 +12194,7 @@
                       :rdf/value    "An alias for the item."},
    :rdfs/domain      {:owl/unionOf [:schema/Thing],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/alternateName,
+   :rdfs/isDefinedBy "http://schema.org/alternateName",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "alternateName"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12208,7 +12208,7 @@
                       :rdf/value    "A secondary title of the CreativeWork."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/alternativeHeadline,
+   :rdfs/isDefinedBy "http://schema.org/alternativeHeadline",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "alternativeHeadline"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12242,7 +12242,7 @@
    :rdfs/domain      {:owl/unionOf [:schema/Organization
                                     :schema/EducationalOrganization],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/alumni,
+   :rdfs/isDefinedBy "http://schema.org/alumni",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "alumni"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -12261,7 +12261,7 @@
                       "An organization that the person is an alumni of."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/alumniOf,
+   :rdfs/isDefinedBy "http://schema.org/alumniOf",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "alumniOf"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -12284,7 +12284,7 @@
                                :schema/Place
                                :schema/FloorPlan],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/amenityFeature,
+   :rdfs/isDefinedBy "http://schema.org/amenityFeature",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "amenityFeature"},
    :rdfs/range {:owl/unionOf [:schema/LocationFeatureSpecification
@@ -12305,7 +12305,7 @@
                                     :schema/MonetaryGrant
                                     :schema/MoneyTransfer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/amount,
+   :rdfs/isDefinedBy "http://schema.org/amount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "amount"},
    :rdfs/range       {:owl/unionOf [:schema/MonetaryAmount
@@ -12324,7 +12324,7 @@
                       "The quantity of the goods included in the offer."},
    :rdfs/domain      {:owl/unionOf [:schema/TypeAndQuantityNode],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/amountOfThisGood,
+   :rdfs/isDefinedBy "http://schema.org/amountOfThisGood",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "amountOfThisGood"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -12361,7 +12361,7 @@
     "The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction."},
    :rdfs/domain {:owl/unionOf [:schema/FinancialProduct],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/annualPercentageRate,
+   :rdfs/isDefinedBy "http://schema.org/annualPercentageRate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "annualPercentageRate"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -12380,7 +12380,7 @@
                       "The number of answers this question has received."},
    :rdfs/domain      {:owl/unionOf [:schema/Question],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/answerCount,
+   :rdfs/isDefinedBy "http://schema.org/answerCount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "answerCount"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -12500,7 +12500,7 @@
                          "An application that can complete the request."},
    :rdfs/domain         {:owl/unionOf [:schema/EntryPoint],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/application,
+   :rdfs/isDefinedBy    "http://schema.org/application",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "application"},
    :rdfs/range          {:owl/unionOf [:schema/SoftwareApplication
@@ -12519,7 +12519,7 @@
                       "Type of software application, e.g. 'Game, Multimedia'."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/applicationCategory,
+   :rdfs/isDefinedBy "http://schema.org/applicationCategory",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "applicationCategory"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -12583,7 +12583,7 @@
                       "Subcategory of the application, e.g. 'Arcade Game'."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/applicationSubCategory,
+   :rdfs/isDefinedBy "http://schema.org/applicationSubCategory",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "applicationSubCategory"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -12599,7 +12599,7 @@
     "The name of the application suite to which the application belongs (e.g. Excel belongs to Office)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/applicationSuite,
+   :rdfs/isDefinedBy "http://schema.org/applicationSuite",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "applicationSuite"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12616,7 +12616,7 @@
    :rdfs/domain {:owl/unionOf [:schema/DeliveryChargeSpecification
                                :schema/PaymentChargeSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/appliesToDeliveryMethod,
+   :rdfs/isDefinedBy "http://schema.org/appliesToDeliveryMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "appliesToDeliveryMethod"},
    :rdfs/range
@@ -12633,7 +12633,7 @@
     "The payment method(s) to which the payment charge specification applies."},
    :rdfs/domain {:owl/unionOf [:schema/PaymentChargeSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/appliesToPaymentMethod,
+   :rdfs/isDefinedBy "http://schema.org/appliesToPaymentMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "appliesToPaymentMethod"},
    :rdfs/range
@@ -12687,7 +12687,7 @@
     "The area within which users can expect to reach the broadcast service."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastService],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/area,
+   :rdfs/isDefinedBy "http://schema.org/area",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "area"},
    :rdfs/range
@@ -12710,7 +12710,7 @@
                                :schema/Service
                                :schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/areaServed,
+   :rdfs/isDefinedBy "http://schema.org/areaServed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "areaServed"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -12729,7 +12729,7 @@
                       :rdf/value    "The airport where the flight terminates."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/arrivalAirport,
+   :rdfs/isDefinedBy "http://schema.org/arrivalAirport",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "arrivalAirport"},
    :rdfs/range       {:owl/unionOf [:schema/Airport
@@ -12765,7 +12765,7 @@
                       "The stop or station from which the bus arrives."},
    :rdfs/domain      {:owl/unionOf [:schema/BusTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/arrivalBusStop,
+   :rdfs/isDefinedBy "http://schema.org/arrivalBusStop",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "arrivalBusStop"},
    :rdfs/range       {:owl/unionOf [:schema/BusStop
@@ -12783,7 +12783,7 @@
                       :rdf/value    "Identifier of the flight's arrival gate."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/arrivalGate,
+   :rdfs/isDefinedBy "http://schema.org/arrivalGate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "arrivalGate"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12797,7 +12797,7 @@
                       :rdf/value    "The platform where the train arrives."},
    :rdfs/domain      {:owl/unionOf [:schema/TrainTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/arrivalPlatform,
+   :rdfs/isDefinedBy "http://schema.org/arrivalPlatform",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "arrivalPlatform"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12811,7 +12811,7 @@
                       :rdf/value    "The station where the train trip ends."},
    :rdfs/domain      {:owl/unionOf [:schema/TrainTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/arrivalStation,
+   :rdfs/isDefinedBy "http://schema.org/arrivalStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "arrivalStation"},
    :rdfs/range       {:owl/unionOf [:schema/TrainStation
@@ -12829,7 +12829,7 @@
                       "Identifier of the flight's arrival terminal."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/arrivalTerminal,
+   :rdfs/isDefinedBy "http://schema.org/arrivalTerminal",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "arrivalTerminal"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12843,7 +12843,7 @@
                       :rdf/value    "The expected arrival time."},
    :rdfs/domain      {:owl/unionOf [:schema/Trip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/arrivalTime,
+   :rdfs/isDefinedBy "http://schema.org/arrivalTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "arrivalTime"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime :schema/Time],
@@ -12859,7 +12859,7 @@
     "The number of copies when multiple copies of a piece of artwork are produced - e.g. for a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in this example \"20\")."},
    :rdfs/domain {:owl/unionOf [:schema/VisualArtwork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/artEdition,
+   :rdfs/isDefinedBy "http://schema.org/artEdition",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "artEdition"},
    :rdfs/range
@@ -12876,7 +12876,7 @@
     "The material used. (E.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc.)"},
    :rdfs/domain {:owl/unionOf [:schema/VisualArtwork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/artMedium,
+   :rdfs/isDefinedBy "http://schema.org/artMedium",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "artMedium"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -12911,7 +12911,7 @@
     "e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc."},
    :rdfs/domain {:owl/unionOf [:schema/VisualArtwork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/artform,
+   :rdfs/isDefinedBy "http://schema.org/artform",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "artform"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -12925,7 +12925,7 @@
                       :rdf/value    "The actual body of the article."},
    :rdfs/domain      {:owl/unionOf [:schema/Article],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/articleBody,
+   :rdfs/isDefinedBy "http://schema.org/articleBody",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "articleBody"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12941,7 +12941,7 @@
     "Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc."},
    :rdfs/domain {:owl/unionOf [:schema/Article],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/articleSection,
+   :rdfs/isDefinedBy "http://schema.org/articleSection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "articleSection"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -12975,7 +12975,7 @@
     "The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc."},
    :rdfs/domain {:owl/unionOf [:schema/VisualArtwork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/artworkSurface,
+   :rdfs/isDefinedBy "http://schema.org/artworkSurface",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "artworkSurface"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -13024,7 +13024,7 @@
                   "Library file name, e.g., mscorlib.dll, system.web.dll."},
    :rdfs/domain {:owl/unionOf [:schema/APIReference],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/assembly,
+   :rdfs/isDefinedBy "http://schema.org/assembly",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "assembly"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -13041,7 +13041,7 @@
     "Associated product/technology version. E.g., .NET Framework 4.5."},
    :rdfs/domain {:owl/unionOf [:schema/APIReference],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/assemblyVersion,
+   :rdfs/isDefinedBy "http://schema.org/assemblyVersion",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "assemblyVersion"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -13097,7 +13097,7 @@
                       "A NewsArticle associated with the Media Object."},
    :rdfs/domain      {:owl/unionOf [:schema/MediaObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/associatedArticle,
+   :rdfs/isDefinedBy "http://schema.org/associatedArticle",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "associatedArticle"},
    :rdfs/range       {:owl/unionOf [:schema/NewsArticle
@@ -13155,7 +13155,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/CreativeWork :schema/HyperTocEntry :schema/HyperToc],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/associatedMedia,
+   :rdfs/isDefinedBy "http://schema.org/associatedMedia",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "associatedMedia"},
    :rdfs/range
@@ -13226,7 +13226,7 @@
     "A person that acts as performing member of a sports team; a player as opposed to a coach."},
    :rdfs/domain {:owl/unionOf [:schema/SportsTeam],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/athlete,
+   :rdfs/isDefinedBy "http://schema.org/athlete",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "athlete"},
    :rdfs/range
@@ -13242,7 +13242,7 @@
                       "A person or organization attending the event."},
    :rdfs/domain      {:owl/unionOf [:schema/Event],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/attendee,
+   :rdfs/isDefinedBy "http://schema.org/attendee",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "attendee"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -13260,7 +13260,7 @@
                          :rdf/value    "A person attending the event."},
    :rdfs/domain         {:owl/unionOf [:schema/Event],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/attendees,
+   :rdfs/isDefinedBy    "http://schema.org/attendees",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "attendees"},
    :rdfs/range          {:owl/unionOf [:schema/Organization
@@ -13286,7 +13286,7 @@
                                :schema/Event
                                :schema/PlayAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/audience,
+   :rdfs/isDefinedBy "http://schema.org/audience",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "audience"},
    :rdfs/range
@@ -13303,7 +13303,7 @@
     "The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.)."},
    :rdfs/domain {:owl/unionOf [:schema/Audience],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/audienceType,
+   :rdfs/isDefinedBy "http://schema.org/audienceType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "audienceType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -13317,7 +13317,7 @@
                       :rdf/value    "An embedded audio object."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/audio,
+   :rdfs/isDefinedBy "http://schema.org/audio",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "audio"},
    :rdfs/range       {:owl/unionOf [:schema/AudioObject
@@ -13338,7 +13338,7 @@
     "The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media."},
    :rdfs/domain {:owl/unionOf [:schema/MediaSubscription],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/authenticator,
+   :rdfs/isDefinedBy "http://schema.org/authenticator",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "authenticator"},
    :rdfs/range
@@ -13355,7 +13355,7 @@
     "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."},
    :rdfs/domain {:owl/unionOf [:schema/Rating :schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/author,
+   :rdfs/isDefinedBy "http://schema.org/author",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "author"},
    :rdfs/range
@@ -13373,7 +13373,7 @@
     "The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availability,
+   :rdfs/isDefinedBy "http://schema.org/availability",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availability"},
    :rdfs/range {:owl/unionOf [:schema/ItemAvailability
@@ -13394,7 +13394,7 @@
                                :schema/Offer
                                :schema/ActionAccessSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availabilityEnds,
+   :rdfs/isDefinedBy "http://schema.org/availabilityEnds",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availabilityEnds"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Time :schema/Date],
@@ -13412,7 +13412,7 @@
                                :schema/Offer
                                :schema/ActionAccessSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availabilityStarts,
+   :rdfs/isDefinedBy "http://schema.org/availabilityStarts",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availabilityStarts"},
    :rdfs/range {:owl/unionOf [:schema/Date :schema/Time :schema/DateTime],
@@ -13428,7 +13428,7 @@
     "The place(s) from which the offer can be obtained (e.g. store locations)."},
    :rdfs/domain {:owl/unionOf [:schema/Offer :schema/Demand],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availableAtOrFrom,
+   :rdfs/isDefinedBy "http://schema.org/availableAtOrFrom",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availableAtOrFrom"},
    :rdfs/range
@@ -13446,7 +13446,7 @@
     "A means of accessing the service (e.g. a phone bank, a web site, a location, etc.)."},
    :rdfs/domain {:owl/unionOf [:schema/Service],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availableChannel,
+   :rdfs/isDefinedBy "http://schema.org/availableChannel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availableChannel"},
    :rdfs/range
@@ -13462,7 +13462,7 @@
                       "The delivery method(s) available for this offer."},
    :rdfs/domain      {:owl/unionOf [:schema/Demand :schema/Offer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availableDeliveryMethod,
+   :rdfs/isDefinedBy "http://schema.org/availableDeliveryMethod",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "availableDeliveryMethod"},
    :rdfs/range       {:owl/unionOf [:schema/DeliveryMethod
@@ -13481,7 +13481,7 @@
     "When the item is available for pickup from the store, locker, etc."},
    :rdfs/domain {:owl/unionOf [:schema/DeliveryEvent],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availableFrom,
+   :rdfs/isDefinedBy "http://schema.org/availableFrom",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availableFrom"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -13518,7 +13518,7 @@
                                :schema/LodgingBusiness
                                :schema/ServiceChannel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availableLanguage,
+   :rdfs/isDefinedBy "http://schema.org/availableLanguage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availableLanguage"},
    :rdfs/range
@@ -13535,7 +13535,7 @@
     "Device required to run the application. Used in cases where a specific make/model is required to run the application."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availableOnDevice,
+   :rdfs/isDefinedBy "http://schema.org/availableOnDevice",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availableOnDevice"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -13608,7 +13608,7 @@
     "After this date, the item will no longer be available for pickup."},
    :rdfs/domain {:owl/unionOf [:schema/DeliveryEvent],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/availableThrough,
+   :rdfs/isDefinedBy "http://schema.org/availableThrough",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "availableThrough"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -13626,7 +13626,7 @@
                                     :schema/Person
                                     :schema/Product],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/award,
+   :rdfs/isDefinedBy "http://schema.org/award",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "award"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -13643,7 +13643,7 @@
                                        :schema/Person
                                        :schema/Product],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/awards,
+   :rdfs/isDefinedBy    "http://schema.org/awards",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "awards"},
    :rdfs/range          {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -13658,7 +13658,7 @@
                         :rdf/value    "The away team in a sports event."},
    :rdfs/domain        {:owl/unionOf [:schema/SportsEvent],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/awayTeam,
+   :rdfs/isDefinedBy   "http://schema.org/awayTeam",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "awayTeam"},
    :rdfs/range         {:owl/unionOf [:schema/SportsTeam
@@ -13710,7 +13710,7 @@
     "The base salary of the job or of an employee in an EmployeeRole."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting :schema/EmployeeRole],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/baseSalary,
+   :rdfs/isDefinedBy "http://schema.org/baseSalary",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "baseSalary"},
    :rdfs/range {:owl/unionOf [:schema/MonetaryAmount
@@ -13731,7 +13731,7 @@
     "A sub property of recipient. The recipient blind copied on a message."},
    :rdfs/domain {:owl/unionOf [:schema/Message],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bccRecipient,
+   :rdfs/isDefinedBy "http://schema.org/bccRecipient",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "bccRecipient"},
    :rdfs/range {:owl/unionOf [:schema/Organization
@@ -13753,7 +13753,7 @@
     "The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.\n      If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property."},
    :rdfs/domain {:owl/unionOf [:schema/HotelRoom :schema/Suite],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bed,
+   :rdfs/isDefinedBy "http://schema.org/bed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "bed"},
    :rdfs/range
@@ -13771,7 +13771,7 @@
     "A media object representing the circumstances before performing this direction."},
    :rdfs/domain {:owl/unionOf [:schema/HowToDirection],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/beforeMedia,
+   :rdfs/isDefinedBy "http://schema.org/beforeMedia",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "beforeMedia"},
    :rdfs/range
@@ -13806,7 +13806,7 @@
                          "Description of benefits associated with the job."},
    :rdfs/domain         {:owl/unionOf [:schema/JobPosting],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/benefits,
+   :rdfs/isDefinedBy    "http://schema.org/benefits",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "benefits"},
    :rdfs/range          {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -13839,7 +13839,7 @@
     "The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed."},
    :rdfs/domain {:owl/unionOf [:schema/Rating],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bestRating,
+   :rdfs/isDefinedBy "http://schema.org/bestRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "bestRating"},
    :rdfs/range
@@ -13854,7 +13854,7 @@
                       :rdf/value    "The billing address for the order."},
    :rdfs/domain      {:owl/unionOf [:schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/billingAddress,
+   :rdfs/isDefinedBy "http://schema.org/billingAddress",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "billingAddress"},
    :rdfs/range       {:owl/unionOf [:schema/PostalAddress
@@ -13894,7 +13894,7 @@
     "This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property."},
    :rdfs/domain {:owl/unionOf [:schema/UnitPriceSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/billingIncrement,
+   :rdfs/isDefinedBy "http://schema.org/billingIncrement",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "billingIncrement"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -13909,7 +13909,7 @@
                       "The time interval used to compute the invoice."},
    :rdfs/domain      {:owl/unionOf [:schema/Invoice],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/billingPeriod,
+   :rdfs/isDefinedBy "http://schema.org/billingPeriod",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "billingPeriod"},
    :rdfs/range       {:owl/unionOf [:schema/Duration
@@ -14006,7 +14006,7 @@
                       :rdf/value    "Date of birth."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/birthDate,
+   :rdfs/isDefinedBy "http://schema.org/birthDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "birthDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -14020,7 +14020,7 @@
                       :rdf/value    "The place where the person was born."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/birthPlace,
+   :rdfs/isDefinedBy "http://schema.org/birthPlace",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "birthPlace"},
    :rdfs/range       {:owl/unionOf [:schema/Place
@@ -14037,7 +14037,7 @@
                       :rdf/value    "The bitrate of the media object."},
    :rdfs/domain      {:owl/unionOf [:schema/MediaObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bitrate,
+   :rdfs/isDefinedBy "http://schema.org/bitrate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "bitrate"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14051,7 +14051,7 @@
                       :rdf/value    "A posting that is part of this blog."},
    :rdfs/domain      {:owl/unionOf [:schema/Blog],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/blogPost,
+   :rdfs/isDefinedBy "http://schema.org/blogPost",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "blogPost"},
    :rdfs/range       {:owl/unionOf [:schema/BlogPosting
@@ -14070,7 +14070,7 @@
     "Indicates a post that is part of a <a class=\"localLink\" href=\"https://schema.org/Blog\">Blog</a>. Note that historically, what we term a \"Blog\" was once known as a \"weblog\", and that what we term a \"BlogPosting\" is now often colloquially referred to as a \"blog\"."},
    :rdfs/domain {:owl/unionOf [:schema/Blog],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/blogPosts,
+   :rdfs/isDefinedBy "http://schema.org/blogPosts",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "blogPosts"},
    :rdfs/range
@@ -14105,7 +14105,7 @@
     "The airline-specific indicator of boarding order / preference."},
    :rdfs/domain {:owl/unionOf [:schema/FlightReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/boardingGroup,
+   :rdfs/isDefinedBy "http://schema.org/boardingGroup",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "boardingGroup"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14121,7 +14121,7 @@
     "The type of boarding policy used by the airline (e.g. zone-based or group-based)."},
    :rdfs/domain {:owl/unionOf [:schema/Airline :schema/Flight],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/boardingPolicy,
+   :rdfs/isDefinedBy "http://schema.org/boardingPolicy",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "boardingPolicy"},
    :rdfs/range {:owl/unionOf [:schema/BoardingPolicyType
@@ -14173,7 +14173,7 @@
                       :rdf/value    "The edition of the book."},
    :rdfs/domain      {:owl/unionOf [:schema/Book],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bookEdition,
+   :rdfs/isDefinedBy "http://schema.org/bookEdition",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "bookEdition"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14187,7 +14187,7 @@
                       :rdf/value    "The format of the book."},
    :rdfs/domain      {:owl/unionOf [:schema/Book],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bookFormat,
+   :rdfs/isDefinedBy "http://schema.org/bookFormat",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "bookFormat"},
    :rdfs/range       {:owl/unionOf [:schema/BookFormatType
@@ -14206,7 +14206,7 @@
     "'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent."},
    :rdfs/domain {:owl/unionOf [:schema/Reservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bookingAgent,
+   :rdfs/isDefinedBy "http://schema.org/bookingAgent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "bookingAgent"},
    :rdfs/range
@@ -14224,7 +14224,7 @@
                       "The date and time the reservation was booked."},
    :rdfs/domain      {:owl/unionOf [:schema/Reservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/bookingTime,
+   :rdfs/isDefinedBy "http://schema.org/bookingTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "bookingTime"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime],
@@ -14240,7 +14240,7 @@
     "A sub property of participant. The person that borrows the object being lent."},
    :rdfs/domain {:owl/unionOf [:schema/LendAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/borrower,
+   :rdfs/isDefinedBy "http://schema.org/borrower",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "borrower"},
    :rdfs/range
@@ -14258,7 +14258,7 @@
     "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character."},
    :rdfs/domain {:owl/unionOf [:schema/GeoShape],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/box,
+   :rdfs/isDefinedBy "http://schema.org/box",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "box"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14294,7 +14294,7 @@
     "A short textual code (also called \"store code\") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.<br/><br/>\n\nFor example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code \"3047\" is a branchCode for a particular branch."},
    :rdfs/domain {:owl/unionOf [:schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/branchCode,
+   :rdfs/isDefinedBy "http://schema.org/branchCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "branchCode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14310,7 +14310,7 @@
     "The larger organization that this local business is a branch of, if any. Not to be confused with (anatomical) <a class=\"localLink\" href=\"https://schema.org/branch\">branch</a>."},
    :rdfs/domain {:owl/unionOf [:schema/LocalBusiness],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/branchOf,
+   :rdfs/isDefinedBy "http://schema.org/branchOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "branchOf"},
    :rdfs/range
@@ -14331,7 +14331,7 @@
                                :schema/Organization
                                :schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/brand,
+   :rdfs/isDefinedBy "http://schema.org/brand",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "brand"},
    :rdfs/range
@@ -14349,7 +14349,7 @@
     "A set of links that can help a user understand and navigate a website hierarchy."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/breadcrumb,
+   :rdfs/isDefinedBy "http://schema.org/breadcrumb",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "breadcrumb"},
    :rdfs/range
@@ -14382,7 +14382,7 @@
     "The media network(s) whose content is broadcast on this station."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastService],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastAffiliateOf,
+   :rdfs/isDefinedBy "http://schema.org/broadcastAffiliateOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcastAffiliateOf"},
    :rdfs/range
@@ -14399,7 +14399,7 @@
     "The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastChannel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastChannelId,
+   :rdfs/isDefinedBy "http://schema.org/broadcastChannelId",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcastChannelId"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14415,7 +14415,7 @@
     "The name displayed in the channel guide. For many US affiliates, it is the network name."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastService],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastDisplayName,
+   :rdfs/isDefinedBy "http://schema.org/broadcastDisplayName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcastDisplayName"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14432,7 +14432,7 @@
    :rdfs/domain {:owl/unionOf [:schema/BroadcastService
                                :schema/BroadcastChannel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastFrequency,
+   :rdfs/isDefinedBy "http://schema.org/broadcastFrequency",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcastFrequency"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -14450,7 +14450,7 @@
                       "The frequency in MHz for a particular broadcast."},
    :rdfs/domain      {:owl/unionOf [:schema/BroadcastFrequencySpecification],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastFrequencyValue,
+   :rdfs/isDefinedBy "http://schema.org/broadcastFrequencyValue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "broadcastFrequencyValue"},
    :rdfs/range       {:owl/unionOf [:schema/Number
@@ -14470,7 +14470,7 @@
     "The event being broadcast such as a sporting event or awards ceremony."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastEvent],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastOfEvent,
+   :rdfs/isDefinedBy "http://schema.org/broadcastOfEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcastOfEvent"},
    :rdfs/range
@@ -14487,7 +14487,7 @@
     "The type of service required to have access to the channel (e.g. Standard or Premium)."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastChannel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastServiceTier,
+   :rdfs/isDefinedBy "http://schema.org/broadcastServiceTier",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcastServiceTier"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14536,7 +14536,7 @@
     "The timezone in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 format</a> for which the service bases its broadcasts."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastService],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcastTimezone,
+   :rdfs/isDefinedBy "http://schema.org/broadcastTimezone",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcastTimezone"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14551,7 +14551,7 @@
     :rdf/value "The organization owning or operating the broadcast service."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastService],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broadcaster,
+   :rdfs/isDefinedBy "http://schema.org/broadcaster",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broadcaster"},
    :rdfs/range
@@ -14571,7 +14571,7 @@
                                :schema/Order
                                :schema/Invoice],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/broker,
+   :rdfs/isDefinedBy "http://schema.org/broker",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "broker"},
    :rdfs/range
@@ -14589,7 +14589,7 @@
     "Specifies browser requirements in human-readable text. For example, 'requires HTML5 support'."},
    :rdfs/domain {:owl/unionOf [:schema/WebApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/browserRequirements,
+   :rdfs/isDefinedBy "http://schema.org/browserRequirements",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "browserRequirements"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14603,7 +14603,7 @@
                       :rdf/value    "The name of the bus (e.g. Bolt Express)."},
    :rdfs/domain      {:owl/unionOf [:schema/BusTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/busName,
+   :rdfs/isDefinedBy "http://schema.org/busName",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "busName"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14617,7 +14617,7 @@
                       :rdf/value    "The unique identifier for the bus."},
    :rdfs/domain      {:owl/unionOf [:schema/BusTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/busNumber,
+   :rdfs/isDefinedBy "http://schema.org/busNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "busNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14653,7 +14653,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/TypeAndQuantityNode :schema/Demand :schema/Offer],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/businessFunction,
+   :rdfs/isDefinedBy "http://schema.org/businessFunction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "businessFunction"},
    :rdfs/range {:owl/unionOf [:schema/BusinessFunction
@@ -14672,7 +14672,7 @@
     "A sub property of participant. The participant/person/organization that bought the object."},
    :rdfs/domain {:owl/unionOf [:schema/SellAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/buyer,
+   :rdfs/isDefinedBy "http://schema.org/buyer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "buyer"},
    :rdfs/range
@@ -14690,7 +14690,7 @@
                       "The artist that performed this album or recording."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicAlbum :schema/MusicRecording],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/byArtist,
+   :rdfs/isDefinedBy "http://schema.org/byArtist",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "byArtist"},
    :rdfs/range       {:owl/unionOf [:schema/MusicGroup
@@ -14791,7 +14791,7 @@
                       :rdf/value    "The number of calories."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/calories,
+   :rdfs/isDefinedBy "http://schema.org/calories",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "calories"},
    :rdfs/range       {:owl/unionOf [:schema/Energy
@@ -14810,7 +14810,7 @@
     "A sub property of object. The candidate subject of this action."},
    :rdfs/domain {:owl/unionOf [:schema/VoteAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/candidate,
+   :rdfs/isDefinedBy "http://schema.org/candidate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "candidate"},
    :rdfs/range
@@ -14829,7 +14829,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/VideoObject :schema/ImageObject :schema/AudioObject],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/caption,
+   :rdfs/isDefinedBy "http://schema.org/caption",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "caption"},
    :rdfs/range
@@ -14844,7 +14844,7 @@
                       :rdf/value    "The number of grams of carbohydrates."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/carbohydrateContent,
+   :rdfs/isDefinedBy "http://schema.org/carbohydrateContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "carbohydrateContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -14863,7 +14863,7 @@
     "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.<br/><br/>\n\nTypical unit code(s): LTR for liters, FTQ for cubic foot/feet<br/><br/>\n\nNote: You can use <a class=\"localLink\" href=\"https://schema.org/minValue\">minValue</a> and <a class=\"localLink\" href=\"https://schema.org/maxValue\">maxValue</a> to indicate ranges."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/cargoVolume,
+   :rdfs/isDefinedBy "http://schema.org/cargoVolume",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "cargoVolume"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -14882,7 +14882,7 @@
     "'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights."},
    :rdfs/domain {:owl/unionOf [:schema/ParcelDelivery :schema/Flight],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/carrier,
+   :rdfs/isDefinedBy "http://schema.org/carrier",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "carrier"},
    :rdfs/range
@@ -14900,7 +14900,7 @@
     "Specifies specific carrier(s) requirements for the application (e.g. an application may only work on a specific carrier network)."},
    :rdfs/domain {:owl/unionOf [:schema/MobileApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/carrierRequirements,
+   :rdfs/isDefinedBy "http://schema.org/carrierRequirements",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "carrierRequirements"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14931,7 +14931,7 @@
                          "A data catalog which contains this dataset."},
    :rdfs/domain         {:owl/unionOf [:schema/Dataset],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/catalog,
+   :rdfs/isDefinedBy    "http://schema.org/catalog",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "catalog"},
    :rdfs/range          {:owl/unionOf [:schema/DataCatalog
@@ -14949,7 +14949,7 @@
                       :rdf/value    "The catalog number for the release."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicRelease],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/catalogNumber,
+   :rdfs/isDefinedBy "http://schema.org/catalogNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "catalogNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -14972,7 +14972,7 @@
                                :schema/Recommendation
                                :schema/SpecialAnnouncement],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/category,
+   :rdfs/isDefinedBy "http://schema.org/category",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "category"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -15009,7 +15009,7 @@
     "A sub property of recipient. The recipient copied on a message."},
    :rdfs/domain {:owl/unionOf [:schema/Message],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ccRecipient,
+   :rdfs/isDefinedBy "http://schema.org/ccRecipient",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ccRecipient"},
    :rdfs/range {:owl/unionOf [:schema/Organization
@@ -15030,7 +15030,7 @@
                       "Fictional person connected with a creative work."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/character,
+   :rdfs/isDefinedBy "http://schema.org/character",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "character"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -15049,7 +15049,7 @@
     "A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage)."},
    :rdfs/domain {:owl/unionOf [:schema/VideoGameSeries :schema/Game],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/characterAttribute,
+   :rdfs/isDefinedBy "http://schema.org/characterAttribute",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "characterAttribute"},
    :rdfs/range
@@ -15066,7 +15066,7 @@
     "The name of a character played in some acting or performing role, i.e. in a PerformanceRole."},
    :rdfs/domain {:owl/unionOf [:schema/PerformanceRole],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/characterName,
+   :rdfs/isDefinedBy "http://schema.org/characterName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "characterName"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15080,7 +15080,7 @@
                       :rdf/value    "Cheat codes to the game."},
    :rdfs/domain      {:owl/unionOf [:schema/VideoGameSeries :schema/VideoGame],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/cheatCode,
+   :rdfs/isDefinedBy "http://schema.org/cheatCode",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "cheatCode"},
    :rdfs/range       {:owl/unionOf [:schema/CreativeWork
@@ -15099,7 +15099,7 @@
    :rdfs/domain {:owl/unionOf [:schema/LodgingBusiness
                                :schema/LodgingReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/checkinTime,
+   :rdfs/isDefinedBy "http://schema.org/checkinTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "checkinTime"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Time],
@@ -15131,7 +15131,7 @@
    :rdfs/domain {:owl/unionOf [:schema/LodgingBusiness
                                :schema/LodgingReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/checkoutTime,
+   :rdfs/isDefinedBy "http://schema.org/checkoutTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "checkoutTime"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Time],
@@ -15178,7 +15178,7 @@
                       :rdf/value    "Maximal age of the child."},
    :rdfs/domain      {:owl/unionOf [:schema/ParentAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/childMaxAge,
+   :rdfs/isDefinedBy "http://schema.org/childMaxAge",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "childMaxAge"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -15192,7 +15192,7 @@
                       :rdf/value    "Minimal age of the child."},
    :rdfs/domain      {:owl/unionOf [:schema/ParentAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/childMinAge,
+   :rdfs/isDefinedBy "http://schema.org/childMinAge",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "childMinAge"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -15225,7 +15225,7 @@
                       :rdf/value    "A child of the person."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/children,
+   :rdfs/isDefinedBy "http://schema.org/children",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "children"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -15242,7 +15242,7 @@
                       :rdf/value    "The number of milligrams of cholesterol."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/cholesterolContent,
+   :rdfs/isDefinedBy "http://schema.org/cholesterolContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "cholesterolContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -15261,7 +15261,7 @@
     "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters."},
    :rdfs/domain {:owl/unionOf [:schema/GeoShape],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/circle,
+   :rdfs/isDefinedBy "http://schema.org/circle",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "circle"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15277,7 +15277,7 @@
     "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/citation,
+   :rdfs/isDefinedBy "http://schema.org/citation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "citation"},
    :rdfs/range
@@ -15312,7 +15312,7 @@
     "A short summary of the specific claims reviewed in a ClaimReview."},
    :rdfs/domain {:owl/unionOf [:schema/ClaimReview],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/claimReviewed,
+   :rdfs/isDefinedBy "http://schema.org/claimReviewed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "claimReviewed"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15360,7 +15360,7 @@
                   "Position of the clip within an ordered group of clips."},
    :rdfs/domain {:owl/unionOf [:schema/Clip],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/clipNumber,
+   :rdfs/isDefinedBy "http://schema.org/clipNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "clipNumber"},
    :rdfs/range
@@ -15378,7 +15378,7 @@
     "The closing hour of the place or service on the given day(s) of the week."},
    :rdfs/domain {:owl/unionOf [:schema/OpeningHoursSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/closes,
+   :rdfs/isDefinedBy "http://schema.org/closes",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "closes"},
    :rdfs/range {:owl/unionOf [:schema/Time],
@@ -15393,7 +15393,7 @@
                   "A person that acts in a coaching role for a sports team."},
    :rdfs/domain {:owl/unionOf [:schema/SportsTeam],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/coach,
+   :rdfs/isDefinedBy "http://schema.org/coach",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "coach"},
    :rdfs/range
@@ -15427,7 +15427,7 @@
     "Link to the repository where the un-compiled, human readable code and related code is located (SVN, GitHub, CodePlex)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareSourceCode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/codeRepository,
+   :rdfs/isDefinedBy "http://schema.org/codeRepository",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "codeRepository"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -15443,7 +15443,7 @@
     "What type of code sample: full (compile ready) solution, code snippet, inline code, scripts, template."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareSourceCode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/codeSampleType,
+   :rdfs/isDefinedBy "http://schema.org/codeSampleType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "codeSampleType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15487,7 +15487,7 @@
                       :rdf/value    "A colleague of the person."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/colleague,
+   :rdfs/isDefinedBy "http://schema.org/colleague",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "colleague"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -15504,7 +15504,7 @@
                          :rdf/value    "A colleague of the person."},
    :rdfs/domain         {:owl/unionOf [:schema/Person],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/colleagues,
+   :rdfs/isDefinedBy    "http://schema.org/colleagues",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "colleagues"},
    :rdfs/range          {:owl/unionOf [:schema/Person
@@ -15524,7 +15524,7 @@
     "A sub property of object. The collection target of the action."},
    :rdfs/domain {:owl/unionOf [:schema/UpdateAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/collection,
+   :rdfs/isDefinedBy "http://schema.org/collection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "collection"},
    :rdfs/range
@@ -15557,7 +15557,7 @@
                       :rdf/value    "The color of the product."},
    :rdfs/domain      {:owl/unionOf [:schema/Product],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/color,
+   :rdfs/isDefinedBy "http://schema.org/color",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "color"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15591,7 +15591,7 @@
                       :rdf/value    "Comments, typically from users."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork :schema/RsvpAction],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/comment,
+   :rdfs/isDefinedBy "http://schema.org/comment",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "comment"},
    :rdfs/range       {:owl/unionOf [:schema/Comment
@@ -15610,7 +15610,7 @@
     "The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/commentCount,
+   :rdfs/isDefinedBy "http://schema.org/commentCount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "commentCount"},
    :rdfs/range {:owl/unionOf [:schema/Integer],
@@ -15624,7 +15624,7 @@
                       :rdf/value    "The text of the UserComment."},
    :rdfs/domain      {:owl/unionOf [:schema/UserComments],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/commentText,
+   :rdfs/isDefinedBy "http://schema.org/commentText",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "commentText"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15638,7 +15638,7 @@
                       :rdf/value "The time at which the UserComment was made."},
    :rdfs/domain      {:owl/unionOf [:schema/UserComments],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/commentTime,
+   :rdfs/isDefinedBy "http://schema.org/commentTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "commentTime"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -15670,7 +15670,7 @@
                       :rdf/value    "A competitor in a sports event."},
    :rdfs/domain      {:owl/unionOf [:schema/SportsEvent],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/competitor,
+   :rdfs/isDefinedBy "http://schema.org/competitor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "competitor"},
    :rdfs/range       {:owl/unionOf [:schema/SportsTeam
@@ -15690,7 +15690,7 @@
     "The person or organization who wrote a composition, or who is the composer of a work performed at some event."},
    :rdfs/domain {:owl/unionOf [:schema/Event :schema/MusicComposition],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/composer,
+   :rdfs/isDefinedBy "http://schema.org/composer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "composer"},
    :rdfs/range
@@ -15744,7 +15744,7 @@
     "A number that confirms the given order or payment has been received."},
    :rdfs/domain {:owl/unionOf [:schema/Invoice :schema/Order],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/confirmationNumber,
+   :rdfs/isDefinedBy "http://schema.org/confirmationNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "confirmationNumber"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15796,7 +15796,7 @@
     "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers)."},
    :rdfs/domain {:owl/unionOf [:schema/ContactPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contactOption,
+   :rdfs/isDefinedBy "http://schema.org/contactOption",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "contactOption"},
    :rdfs/range {:owl/unionOf [:schema/ContactPointOption
@@ -15816,7 +15816,7 @@
                                     :schema/Person
                                     :schema/HealthInsurancePlan],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contactPoint,
+   :rdfs/isDefinedBy "http://schema.org/contactPoint",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "contactPoint"},
    :rdfs/range       {:owl/unionOf [:schema/ContactPoint
@@ -15834,7 +15834,7 @@
                          "A contact point for a person or organization."},
    :rdfs/domain         {:owl/unionOf [:schema/Organization :schema/Person],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/contactPoints,
+   :rdfs/isDefinedBy    "http://schema.org/contactPoints",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "contactPoints"},
    :rdfs/range          {:owl/unionOf [:schema/ContactPoint
@@ -15854,7 +15854,7 @@
     "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point."},
    :rdfs/domain {:owl/unionOf [:schema/ContactPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contactType,
+   :rdfs/isDefinedBy "http://schema.org/contactType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "contactType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -15886,7 +15886,7 @@
     "The basic containment relation between a place and one that contains it."},
    :rdfs/domain {:owl/unionOf [:schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/containedIn,
+   :rdfs/isDefinedBy "http://schema.org/containedIn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "containedIn"},
    :rdfs/range
@@ -15905,7 +15905,7 @@
     "The basic containment relation between a place and one that contains it."},
    :rdfs/domain {:owl/unionOf [:schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/containedInPlace,
+   :rdfs/isDefinedBy "http://schema.org/containedInPlace",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "containedInPlace"},
    :rdfs/range
@@ -15923,7 +15923,7 @@
     "The basic containment relation between a place and another that it contains."},
    :rdfs/domain {:owl/unionOf [:schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/containsPlace,
+   :rdfs/isDefinedBy "http://schema.org/containsPlace",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "containsPlace"},
    :rdfs/range
@@ -15941,7 +15941,7 @@
                                       :schema/RadioSeries
                                       :schema/VideoGameSeries],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/containsSeason,
+   :rdfs/isDefinedBy   "http://schema.org/containsSeason",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "containsSeason"},
    :rdfs/range         {:owl/unionOf [:schema/CreativeWorkSeason
@@ -15961,7 +15961,7 @@
     "The location depicted or described in the content. For example, the location in a photograph or painting."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contentLocation,
+   :rdfs/isDefinedBy "http://schema.org/contentLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "contentLocation"},
    :rdfs/range
@@ -15978,7 +15978,7 @@
     "Official rating of a piece of content&#x2014;for example, 'MPAA PG-13'."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contentRating,
+   :rdfs/isDefinedBy "http://schema.org/contentRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "contentRating"},
    :rdfs/range
@@ -16009,7 +16009,7 @@
                       :rdf/value    "File size in (mega/kilo)bytes."},
    :rdfs/domain      {:owl/unionOf [:schema/MediaObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contentSize,
+   :rdfs/isDefinedBy "http://schema.org/contentSize",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "contentSize"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16024,7 +16024,7 @@
                   "The supported content type(s) for an EntryPoint response."},
    :rdfs/domain {:owl/unionOf [:schema/EntryPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contentType,
+   :rdfs/isDefinedBy "http://schema.org/contentType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "contentType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16040,7 +16040,7 @@
     "Actual bytes of the media object, for example the image file or video file."},
    :rdfs/domain {:owl/unionOf [:schema/MediaObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contentUrl,
+   :rdfs/isDefinedBy "http://schema.org/contentUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "contentUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -16073,7 +16073,7 @@
                       "A secondary contributor to the CreativeWork or Event."},
    :rdfs/domain      {:owl/unionOf [:schema/Event :schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/contributor,
+   :rdfs/isDefinedBy "http://schema.org/contributor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "contributor"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -16093,7 +16093,7 @@
     "The time it takes to actually cook the dish, in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 duration format</a>."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/cookTime,
+   :rdfs/isDefinedBy "http://schema.org/cookTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "cookTime"},
    :rdfs/range
@@ -16110,7 +16110,7 @@
                       "The method of cooking, such as Frying, Steaming, ..."},
    :rdfs/domain      {:owl/unionOf [:schema/Recipe],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/cookingMethod,
+   :rdfs/isDefinedBy "http://schema.org/cookingMethod",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "cookingMethod"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16125,7 +16125,7 @@
                   "The party holding the legal copyright to the CreativeWork."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/copyrightHolder,
+   :rdfs/isDefinedBy "http://schema.org/copyrightHolder",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "copyrightHolder"},
    :rdfs/range
@@ -16159,7 +16159,7 @@
     "The year during which the claimed copyright for the CreativeWork was first asserted."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/copyrightYear,
+   :rdfs/isDefinedBy "http://schema.org/copyrightYear",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "copyrightYear"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -16282,7 +16282,7 @@
     "Countries for which the application is not supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/countriesNotSupported,
+   :rdfs/isDefinedBy "http://schema.org/countriesNotSupported",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "countriesNotSupported"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16298,7 +16298,7 @@
     "Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/countriesSupported,
+   :rdfs/isDefinedBy "http://schema.org/countriesSupported",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "countriesSupported"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16349,7 +16349,7 @@
                                :schema/TVEpisode
                                :schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/countryOfOrigin,
+   :rdfs/isDefinedBy "http://schema.org/countryOfOrigin",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "countryOfOrigin"},
    :rdfs/range
@@ -16366,7 +16366,7 @@
     "A sub property of location. The course where this action was taken."},
    :rdfs/domain {:owl/unionOf [:schema/ExerciseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/course,
+   :rdfs/isDefinedBy "http://schema.org/course",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "course"},
    :rdfs/range
@@ -16385,7 +16385,7 @@
     "The identifier for the <a class=\"localLink\" href=\"https://schema.org/Course\">Course</a> used by the course <a class=\"localLink\" href=\"https://schema.org/provider\">provider</a> (e.g. CS101 or 6.001)."},
    :rdfs/domain {:owl/unionOf [:schema/Course],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/courseCode,
+   :rdfs/isDefinedBy "http://schema.org/courseCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "courseCode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16401,7 +16401,7 @@
     "The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. \"online\", \"onsite\" or \"blended\"; \"synchronous\" or \"asynchronous\"; \"full-time\" or \"part-time\") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous)."},
    :rdfs/domain {:owl/unionOf [:schema/CourseInstance],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/courseMode,
+   :rdfs/isDefinedBy "http://schema.org/courseMode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "courseMode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16417,7 +16417,7 @@
     "Requirements for taking the Course. May be completion of another <a class=\"localLink\" href=\"https://schema.org/Course\">Course</a> or a textual description like \"permission of instructor\". Requirements may be a pre-requisite competency, referenced using <a class=\"localLink\" href=\"https://schema.org/AlignmentObject\">AlignmentObject</a>."},
    :rdfs/domain {:owl/unionOf [:schema/Course],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/coursePrerequisites,
+   :rdfs/isDefinedBy "http://schema.org/coursePrerequisites",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "coursePrerequisites"},
    :rdfs/range {:owl/unionOf [:schema/Course
@@ -16453,7 +16453,7 @@
     "The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes."},
    :rdfs/domain {:owl/unionOf [:schema/LiveBlogPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/coverageEndTime,
+   :rdfs/isDefinedBy "http://schema.org/coverageEndTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "coverageEndTime"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -16469,7 +16469,7 @@
     "The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins."},
    :rdfs/domain {:owl/unionOf [:schema/LiveBlogPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/coverageStartTime,
+   :rdfs/isDefinedBy "http://schema.org/coverageStartTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "coverageStartTime"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -16502,7 +16502,7 @@
     "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork :schema/UserComments],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/creator,
+   :rdfs/isDefinedBy "http://schema.org/creator",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "creator"},
    :rdfs/range
@@ -16553,7 +16553,7 @@
     "The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to \"Stefani Germanotta Band\", but by Lady Gaga."},
    :rdfs/domain {:owl/unionOf [:schema/MusicRelease],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/creditedTo,
+   :rdfs/isDefinedBy "http://schema.org/creditedTo",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "creditedTo"},
    :rdfs/range
@@ -16572,7 +16572,7 @@
    :rdfs/domain {:owl/unionOf [:schema/SpeakableSpecification
                                :schema/WebPageElement],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/cssSelector,
+   :rdfs/isDefinedBy "http://schema.org/cssSelector",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "cssSelector"},
    :rdfs/range {:owl/unionOf [:schema/CssSelectorType
@@ -16591,7 +16591,7 @@
     "The currency accepted.<br/><br/>\n\nUse standard formats: <a href=\"http://en.wikipedia.org/wiki/ISO_4217\">ISO 4217 currency format</a>, e.g. \"USD\"; <a href=\"https://en.wikipedia.org/wiki/List_of_cryptocurrencies\">Ticker symbol</a> for cryptocurrencies, e.g. \"BTC\"; well known names for <a href=\"https://en.wikipedia.org/wiki/Local_exchange_trading_system\">Local Exchange Trading Systems</a> (LETS) and other currency types, e.g. \"Ithaca HOUR\"."},
    :rdfs/domain {:owl/unionOf [:schema/LocalBusiness],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/currenciesAccepted,
+   :rdfs/isDefinedBy "http://schema.org/currenciesAccepted",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "currenciesAccepted"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16611,7 +16611,7 @@
                                :schema/LoanOrCredit
                                :schema/ExchangeRateSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/currency,
+   :rdfs/isDefinedBy "http://schema.org/currency",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "currency"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -16643,7 +16643,7 @@
                       "Party placing the order or paying the invoice."},
    :rdfs/domain      {:owl/unionOf [:schema/Invoice :schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/customer,
+   :rdfs/isDefinedBy "http://schema.org/customer",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "customer"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -16992,7 +16992,7 @@
     "An item within a data feed. Data feeds may have many elements."},
    :rdfs/domain {:owl/unionOf [:schema/DataFeed],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dataFeedElement,
+   :rdfs/isDefinedBy "http://schema.org/dataFeedElement",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dataFeedElement"},
    :rdfs/range
@@ -17009,7 +17009,7 @@
                       :rdf/value    "A dataset contained in this catalog."},
    :rdfs/domain      {:owl/unionOf [:schema/DataCatalog],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dataset,
+   :rdfs/isDefinedBy "http://schema.org/dataset",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dataset"},
    :rdfs/range       {:owl/unionOf [:schema/Dataset
@@ -17028,7 +17028,7 @@
     "The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format)."},
    :rdfs/domain {:owl/unionOf [:schema/Dataset],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/datasetTimeInterval,
+   :rdfs/isDefinedBy "http://schema.org/datasetTimeInterval",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "datasetTimeInterval"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -17045,7 +17045,7 @@
     "The date on which the CreativeWork was created or the item was added to a DataFeed."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork :schema/DataFeedItem],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateCreated,
+   :rdfs/isDefinedBy "http://schema.org/dateCreated",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dateCreated"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -17060,7 +17060,7 @@
                       "The datetime the item was removed from the DataFeed."},
    :rdfs/domain      {:owl/unionOf [:schema/DataFeedItem],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateDeleted,
+   :rdfs/isDefinedBy "http://schema.org/dateDeleted",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dateDeleted"},
    :rdfs/range       {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -17074,7 +17074,7 @@
                       :rdf/value    "The date the ticket was issued."},
    :rdfs/domain      {:owl/unionOf [:schema/Ticket],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateIssued,
+   :rdfs/isDefinedBy "http://schema.org/dateIssued",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dateIssued"},
    :rdfs/range       {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -17090,7 +17090,7 @@
     "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork :schema/DataFeedItem],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateModified,
+   :rdfs/isDefinedBy "http://schema.org/dateModified",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dateModified"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -17107,7 +17107,7 @@
                                     :schema/CDCPMDRecord
                                     :schema/SpecialAnnouncement],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/datePosted,
+   :rdfs/isDefinedBy "http://schema.org/datePosted",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "datePosted"},
    :rdfs/range       {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -17121,7 +17121,7 @@
                       :rdf/value    "Date of first broadcast/publication."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/datePublished,
+   :rdfs/isDefinedBy "http://schema.org/datePublished",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "datePublished"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -17137,7 +17137,7 @@
     "The date/time at which the message has been read by the recipient if a single recipient exists."},
    :rdfs/domain {:owl/unionOf [:schema/Message],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateRead,
+   :rdfs/isDefinedBy "http://schema.org/dateRead",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dateRead"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -17153,7 +17153,7 @@
     "The date/time the message was received if a single recipient exists."},
    :rdfs/domain {:owl/unionOf [:schema/Message],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateReceived,
+   :rdfs/isDefinedBy "http://schema.org/dateReceived",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dateReceived"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -17168,7 +17168,7 @@
                       "The date/time at which the message was sent."},
    :rdfs/domain      {:owl/unionOf [:schema/Message],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateSent,
+   :rdfs/isDefinedBy "http://schema.org/dateSent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dateSent"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime],
@@ -17184,7 +17184,7 @@
     "The date of the first registration of the vehicle with the respective public authorities."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateVehicleFirstRegistered,
+   :rdfs/isDefinedBy "http://schema.org/dateVehicleFirstRegistered",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dateVehicleFirstRegistered"},
    :rdfs/range {:owl/unionOf [:schema/Date],
@@ -17200,7 +17200,7 @@
     "A <a href=\"https://en.wikipedia.org/wiki/Dateline\">dateline</a> is a brief piece of text included in news articles that describes where and when the story was written or filed though the date is often omitted. Sometimes only a placename is provided.<br/><br/>\n\nStructured representations of dateline-related information can also be expressed more explicitly using <a class=\"localLink\" href=\"https://schema.org/locationCreated\">locationCreated</a> (which represents where a work was created, e.g. where a news report was written).  For location depicted or described in the content, use <a class=\"localLink\" href=\"https://schema.org/contentLocation\">contentLocation</a>.<br/><br/>\n\nDateline summaries are oriented more towards human readers than towards automated processing, and can vary substantially. Some examples: \"BEIRUT, Lebanon, June 2.\", \"Paris, France\", \"December 19, 2017 11:43AM Reporting from Washington\", \"Beijing/Moscow\", \"QUEZON CITY, Philippines\"."},
    :rdfs/domain {:owl/unionOf [:schema/NewsArticle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dateline,
+   :rdfs/isDefinedBy "http://schema.org/dateline",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dateline"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17216,7 +17216,7 @@
    :rdfs/domain {:owl/unionOf [:schema/OpeningHoursSpecification
                                :schema/EducationalOccupationalProgram],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dayOfWeek,
+   :rdfs/isDefinedBy "http://schema.org/dayOfWeek",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "dayOfWeek"},
    :rdfs/range
@@ -17231,7 +17231,7 @@
                       :rdf/value    "Date of death."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/deathDate,
+   :rdfs/isDefinedBy "http://schema.org/deathDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "deathDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -17245,7 +17245,7 @@
                       :rdf/value    "The place where the person died."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/deathPlace,
+   :rdfs/isDefinedBy "http://schema.org/deathPlace",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "deathPlace"},
    :rdfs/range       {:owl/unionOf [:schema/Place
@@ -17264,7 +17264,7 @@
     "The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/defaultValue,
+   :rdfs/isDefinedBy "http://schema.org/defaultValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "defaultValue"},
    :rdfs/range
@@ -17279,7 +17279,7 @@
                       :rdf/value    "Destination address."},
    :rdfs/domain      {:owl/unionOf [:schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/deliveryAddress,
+   :rdfs/isDefinedBy "http://schema.org/deliveryAddress",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "deliveryAddress"},
    :rdfs/range       {:owl/unionOf [:schema/PostalAddress
@@ -17298,7 +17298,7 @@
     "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup."},
    :rdfs/domain {:owl/unionOf [:schema/Offer :schema/Demand],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/deliveryLeadTime,
+   :rdfs/isDefinedBy "http://schema.org/deliveryLeadTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "deliveryLeadTime"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -17319,7 +17319,7 @@
                                :schema/SendAction
                                :schema/OrderAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/deliveryMethod,
+   :rdfs/isDefinedBy "http://schema.org/deliveryMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "deliveryMethod"},
    :rdfs/range
@@ -17337,7 +17337,7 @@
     "New entry added as the package passes through each leg of its journey (from shipment to final delivery)."},
    :rdfs/domain {:owl/unionOf [:schema/ParcelDelivery],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/deliveryStatus,
+   :rdfs/isDefinedBy "http://schema.org/deliveryStatus",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "deliveryStatus"},
    :rdfs/range
@@ -17374,7 +17374,7 @@
     "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe."},
    :rdfs/domain {:owl/unionOf [:schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/department,
+   :rdfs/isDefinedBy "http://schema.org/department",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "department"},
    :rdfs/range
@@ -17389,7 +17389,7 @@
                       :rdf/value    "The airport where the flight originates."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/departureAirport,
+   :rdfs/isDefinedBy "http://schema.org/departureAirport",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "departureAirport"},
    :rdfs/range       {:owl/unionOf [:schema/Airport
@@ -17425,7 +17425,7 @@
                       "The stop or station from which the bus departs."},
    :rdfs/domain      {:owl/unionOf [:schema/BusTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/departureBusStop,
+   :rdfs/isDefinedBy "http://schema.org/departureBusStop",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "departureBusStop"},
    :rdfs/range       {:owl/unionOf [:schema/BusStop
@@ -17443,7 +17443,7 @@
                       :rdf/value "Identifier of the flight's departure gate."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/departureGate,
+   :rdfs/isDefinedBy "http://schema.org/departureGate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "departureGate"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17457,7 +17457,7 @@
                       :rdf/value "The platform from which the train departs."},
    :rdfs/domain      {:owl/unionOf [:schema/TrainTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/departurePlatform,
+   :rdfs/isDefinedBy "http://schema.org/departurePlatform",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "departurePlatform"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17471,7 +17471,7 @@
                       :rdf/value "The station from which the train departs."},
    :rdfs/domain      {:owl/unionOf [:schema/TrainTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/departureStation,
+   :rdfs/isDefinedBy "http://schema.org/departureStation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "departureStation"},
    :rdfs/range       {:owl/unionOf [:schema/TrainStation
@@ -17489,7 +17489,7 @@
                       "Identifier of the flight's departure terminal."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/departureTerminal,
+   :rdfs/isDefinedBy "http://schema.org/departureTerminal",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "departureTerminal"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17503,7 +17503,7 @@
                       :rdf/value    "The expected departure time."},
    :rdfs/domain      {:owl/unionOf [:schema/Trip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/departureTime,
+   :rdfs/isDefinedBy "http://schema.org/departureTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "departureTime"},
    :rdfs/range       {:owl/unionOf [:schema/Time :schema/DateTime],
@@ -17518,7 +17518,7 @@
                       "Prerequisites needed to fulfill steps in article."},
    :rdfs/domain      {:owl/unionOf [:schema/TechArticle],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dependencies,
+   :rdfs/isDefinedBy "http://schema.org/dependencies",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dependencies"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17534,7 +17534,7 @@
                                     :schema/Product
                                     :schema/OfferShippingDetails],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/depth,
+   :rdfs/isDefinedBy "http://schema.org/depth",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "depth"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -17552,7 +17552,7 @@
                       :rdf/value    "A description of the item."},
    :rdfs/domain      {:owl/unionOf [:schema/Thing],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/description,
+   :rdfs/isDefinedBy "http://schema.org/description",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "description"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17568,7 +17568,7 @@
     "Device required to run the application. Used in cases where a specific make/model is required to run the application."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/device,
+   :rdfs/isDefinedBy "http://schema.org/device",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "device"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17697,7 +17697,7 @@
                                :schema/VideoGameSeries
                                :schema/VideoObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/director,
+   :rdfs/isDefinedBy "http://schema.org/director",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "director"},
    :rdfs/range
@@ -17722,7 +17722,7 @@
                                :schema/VideoGame
                                :schema/VideoGameSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/directors,
+   :rdfs/isDefinedBy "http://schema.org/directors",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "directors"},
    :rdfs/range
@@ -17740,7 +17740,7 @@
     "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."},
    :rdfs/domain {:owl/unionOf [:schema/Thing],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/disambiguatingDescription,
+   :rdfs/isDefinedBy "http://schema.org/disambiguatingDescription",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "disambiguatingDescription"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17755,7 +17755,7 @@
                       :rdf/value    "Any discount applied (to an Order)."},
    :rdfs/domain      {:owl/unionOf [:schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/discount,
+   :rdfs/isDefinedBy "http://schema.org/discount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "discount"},
    :rdfs/range       {:owl/unionOf [:schema/Number
@@ -17772,7 +17772,7 @@
                       :rdf/value    "Code used to redeem a discount."},
    :rdfs/domain      {:owl/unionOf [:schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/discountCode,
+   :rdfs/isDefinedBy "http://schema.org/discountCode",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "discountCode"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17788,7 +17788,7 @@
     "The currency of the discount.<br/><br/>\n\nUse standard formats: <a href=\"http://en.wikipedia.org/wiki/ISO_4217\">ISO 4217 currency format</a>, e.g. \"USD\"; <a href=\"https://en.wikipedia.org/wiki/List_of_cryptocurrencies\">Ticker symbol</a> for cryptocurrencies, e.g. \"BTC\"; well known names for <a href=\"https://en.wikipedia.org/wiki/Local_exchange_trading_system\">Local Exchange Trading Systems</a> (LETS) and other currency types, e.g. \"Ithaca HOUR\"."},
    :rdfs/domain {:owl/unionOf [:schema/Order],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/discountCurrency,
+   :rdfs/isDefinedBy "http://schema.org/discountCurrency",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "discountCurrency"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -17803,7 +17803,7 @@
     :rdf/value "Specifies the CreativeWork associated with the UserComment."},
    :rdfs/domain {:owl/unionOf [:schema/UserComments],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/discusses,
+   :rdfs/isDefinedBy "http://schema.org/discusses",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "discusses"},
    :rdfs/range
@@ -17820,7 +17820,7 @@
     "A link to the page containing the comments of the CreativeWork."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/discussionUrl,
+   :rdfs/isDefinedBy "http://schema.org/discussionUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "discussionUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -17873,7 +17873,7 @@
                       "The date that this organization was dissolved."},
    :rdfs/domain      {:owl/unionOf [:schema/Organization],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dissolutionDate,
+   :rdfs/isDefinedBy "http://schema.org/dissolutionDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dissolutionDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -17889,7 +17889,7 @@
    :rdfs/domain      {:owl/unionOf [:schema/ExerciseAction
                                     :schema/TravelAction],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/distance,
+   :rdfs/isDefinedBy "http://schema.org/distance",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "distance"},
    :rdfs/range       {:owl/unionOf [:schema/Distance
@@ -17927,7 +17927,7 @@
     "A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information (see also <a href=\"https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution\">DCAT</a> on this point). Different distributions might include or exclude different subsets of the entire dataset, for example."},
    :rdfs/domain {:owl/unionOf [:schema/Dataset],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/distribution,
+   :rdfs/isDefinedBy "http://schema.org/distribution",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "distribution"},
    :rdfs/range
@@ -18045,7 +18045,7 @@
                       :rdf/value    "The time admission will commence."},
    :rdfs/domain      {:owl/unionOf [:schema/Event],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/doorTime,
+   :rdfs/isDefinedBy "http://schema.org/doorTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "doorTime"},
    :rdfs/range       {:owl/unionOf [:schema/Time :schema/DateTime],
@@ -18145,7 +18145,7 @@
                   "If the file can be downloaded, URL to download the binary."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/downloadUrl,
+   :rdfs/isDefinedBy "http://schema.org/downloadUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "downloadUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -18161,7 +18161,7 @@
     "The number of downvotes this question, answer or comment has received from the community."},
    :rdfs/domain {:owl/unionOf [:schema/Comment],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/downvoteCount,
+   :rdfs/isDefinedBy "http://schema.org/downvoteCount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "downvoteCount"},
    :rdfs/range {:owl/unionOf [:schema/Integer],
@@ -18194,7 +18194,7 @@
     "The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/driveWheelConfiguration,
+   :rdfs/isDefinedBy "http://schema.org/driveWheelConfiguration",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "driveWheelConfiguration"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -18211,7 +18211,7 @@
                       :rdf/value    "Where a rental car can be dropped off."},
    :rdfs/domain      {:owl/unionOf [:schema/RentalCarReservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dropoffLocation,
+   :rdfs/isDefinedBy "http://schema.org/dropoffLocation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dropoffLocation"},
    :rdfs/range       {:owl/unionOf [:schema/Place
@@ -18228,7 +18228,7 @@
                       :rdf/value    "When a rental car can be dropped off."},
    :rdfs/domain      {:owl/unionOf [:schema/RentalCarReservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/dropoffTime,
+   :rdfs/isDefinedBy "http://schema.org/dropoffTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "dropoffTime"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime],
@@ -18296,7 +18296,7 @@
     "The Dun &amp; Bradstreet DUNS number for identifying an organization or business person."},
    :rdfs/domain {:owl/unionOf [:schema/Person :schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/duns,
+   :rdfs/isDefinedBy "http://schema.org/duns",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "duns"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -18339,7 +18339,7 @@
                                :schema/Audiobook
                                :schema/Schedule],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/duration,
+   :rdfs/isDefinedBy "http://schema.org/duration",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "duration"},
    :rdfs/range
@@ -18356,7 +18356,7 @@
     "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days."},
    :rdfs/domain {:owl/unionOf [:schema/WarrantyPromise],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/durationOfWarranty,
+   :rdfs/isDefinedBy "http://schema.org/durationOfWarranty",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "durationOfWarranty"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -18375,7 +18375,7 @@
     "A media object representing the circumstances while performing this direction."},
    :rdfs/domain {:owl/unionOf [:schema/HowToDirection],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/duringMedia,
+   :rdfs/isDefinedBy "http://schema.org/duringMedia",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "duringMedia"},
    :rdfs/range
@@ -18425,7 +18425,7 @@
                       "Specifies the Person who edited the CreativeWork."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/editor,
+   :rdfs/isDefinedBy "http://schema.org/editor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "editor"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -18478,7 +18478,7 @@
     "An alignment to an established educational framework.<br/><br/>\n\nThis property should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource <a class=\"localLink\" href=\"https://schema.org/teaches\">teaches</a> or <a class=\"localLink\" href=\"https://schema.org/assesses\">assesses</a> a competency."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork :schema/LearningResource],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/educationalAlignment,
+   :rdfs/isDefinedBy "http://schema.org/educationalAlignment",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "educationalAlignment"},
    :rdfs/range {:owl/unionOf [:schema/AlignmentObject
@@ -18498,7 +18498,7 @@
    :rdfs/domain {:owl/unionOf [:schema/Course
                                :schema/EducationalOccupationalProgram],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/educationalCredentialAwarded,
+   :rdfs/isDefinedBy "http://schema.org/educationalCredentialAwarded",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "educationalCredentialAwarded"},
    :rdfs/range {:owl/unionOf [:schema/URL
@@ -18517,7 +18517,7 @@
     "The framework to which the resource being described is aligned."},
    :rdfs/domain {:owl/unionOf [:schema/AlignmentObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/educationalFramework,
+   :rdfs/isDefinedBy "http://schema.org/educationalFramework",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "educationalFramework"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -18568,7 +18568,7 @@
                       "An educationalRole of an EducationalAudience."},
    :rdfs/domain      {:owl/unionOf [:schema/EducationalAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/educationalRole,
+   :rdfs/isDefinedBy "http://schema.org/educationalRole",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "educationalRole"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -18584,7 +18584,7 @@
     "The purpose of a work in the context of education; for example, 'assignment', 'group work'."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork :schema/LearningResource],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/educationalUse,
+   :rdfs/isDefinedBy "http://schema.org/educationalUse",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "educationalUse"},
    :rdfs/range
@@ -18601,7 +18601,7 @@
     "The elevation of a location (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>). Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters."},
    :rdfs/domain {:owl/unionOf [:schema/GeoShape :schema/GeoCoordinates],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/elevation,
+   :rdfs/isDefinedBy "http://schema.org/elevation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "elevation"},
    :rdfs/range
@@ -18633,7 +18633,7 @@
     :rdf/value "The type(s) of customers for which the given offer is valid."},
    :rdfs/domain {:owl/unionOf [:schema/Offer :schema/Demand],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/eligibleCustomerType,
+   :rdfs/isDefinedBy "http://schema.org/eligibleCustomerType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "eligibleCustomerType"},
    :rdfs/range {:owl/unionOf [:schema/BusinessEntityType
@@ -18651,7 +18651,7 @@
                       "The duration for which the given offer is valid."},
    :rdfs/domain      {:owl/unionOf [:schema/Demand :schema/Offer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/eligibleDuration,
+   :rdfs/isDefinedBy "http://schema.org/eligibleDuration",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "eligibleDuration"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -18671,7 +18671,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Demand :schema/PriceSpecification :schema/Offer],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/eligibleQuantity,
+   :rdfs/isDefinedBy "http://schema.org/eligibleQuantity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "eligibleQuantity"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -18693,7 +18693,7 @@
                                :schema/Offer
                                :schema/ActionAccessSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/eligibleRegion,
+   :rdfs/isDefinedBy "http://schema.org/eligibleRegion",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "eligibleRegion"},
    :rdfs/range
@@ -18713,7 +18713,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Demand :schema/PriceSpecification :schema/Offer],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/eligibleTransactionVolume,
+   :rdfs/isDefinedBy "http://schema.org/eligibleTransactionVolume",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "eligibleTransactionVolume"},
    :rdfs/range {:owl/unionOf [:schema/PriceSpecification
@@ -18732,7 +18732,7 @@
                                     :schema/ContactPoint
                                     :schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/email,
+   :rdfs/isDefinedBy "http://schema.org/email",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "email"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -18748,7 +18748,7 @@
     "A URL pointing to a player for a specific video. In general, this is the information in the <code>src</code> element of an <code>embed</code> tag and should not be the same as the content of the <code>loc</code> tag."},
    :rdfs/domain {:owl/unionOf [:schema/MediaObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/embedUrl,
+   :rdfs/isDefinedBy "http://schema.org/embedUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "embedUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -18796,7 +18796,7 @@
                       :rdf/value    "Someone working for this organization."},
    :rdfs/domain      {:owl/unionOf [:schema/Organization],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/employee,
+   :rdfs/isDefinedBy "http://schema.org/employee",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "employee"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -18813,7 +18813,7 @@
                          :rdf/value    "People working for this organization."},
    :rdfs/domain         {:owl/unionOf [:schema/Organization],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/employees,
+   :rdfs/isDefinedBy    "http://schema.org/employees",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "employees"},
    :rdfs/range          {:owl/unionOf [:schema/Person
@@ -18849,7 +18849,7 @@
     "Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship)."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/employmentType,
+   :rdfs/isDefinedBy "http://schema.org/employmentType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "employmentType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -18900,7 +18900,7 @@
                       "The CreativeWork encoded by this media object."},
    :rdfs/domain      {:owl/unionOf [:schema/MediaObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/encodesCreativeWork,
+   :rdfs/isDefinedBy "http://schema.org/encodesCreativeWork",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "encodesCreativeWork"},
    :rdfs/range       {:owl/unionOf [:schema/CreativeWork
@@ -18920,7 +18920,7 @@
     "A media object that encodes this CreativeWork. This property is a synonym for associatedMedia."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/encoding,
+   :rdfs/isDefinedBy "http://schema.org/encoding",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "encoding"},
    :rdfs/range
@@ -18937,7 +18937,7 @@
     "Media type typically expressed using a MIME format (see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">IANA site</a> and <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types\">MDN reference</a>), e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.<br/><br/>\n\nIn cases where a <a class=\"localLink\" href=\"https://schema.org/CreativeWork\">CreativeWork</a> has several media type representations, <a class=\"localLink\" href=\"https://schema.org/encoding\">encoding</a> can be used to indicate each <a class=\"localLink\" href=\"https://schema.org/MediaObject\">MediaObject</a> alongside particular <a class=\"localLink\" href=\"https://schema.org/encodingFormat\">encodingFormat</a> information.<br/><br/>\n\nUnregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork :schema/MediaObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/encodingFormat,
+   :rdfs/isDefinedBy "http://schema.org/encodingFormat",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "encodingFormat"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -18952,7 +18952,7 @@
                   "The supported encoding type(s) for an EntryPoint request."},
    :rdfs/domain {:owl/unionOf [:schema/EntryPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/encodingType,
+   :rdfs/isDefinedBy "http://schema.org/encodingType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "encodingType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -18967,7 +18967,7 @@
                          "A media object that encodes this CreativeWork."},
    :rdfs/domain         {:owl/unionOf [:schema/CreativeWork],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/encodings,
+   :rdfs/isDefinedBy    "http://schema.org/encodings",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "encodings"},
    :rdfs/range          {:owl/unionOf [:schema/MediaObject
@@ -18994,7 +18994,7 @@
                                :schema/EducationalOccupationalProgram
                                :schema/Schedule],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/endDate,
+   :rdfs/isDefinedBy "http://schema.org/endDate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "endDate"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -19034,7 +19034,7 @@
                                :schema/MediaObject
                                :schema/Schedule],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/endTime,
+   :rdfs/isDefinedBy "http://schema.org/endTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "endTime"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Time],
@@ -19050,7 +19050,7 @@
     "A sub property of participant. The person/organization being supported."},
    :rdfs/domain {:owl/unionOf [:schema/EndorseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/endorsee,
+   :rdfs/isDefinedBy "http://schema.org/endorsee",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "endorsee"},
    :rdfs/range
@@ -19182,7 +19182,7 @@
     "A sub property of location. The entertainment business where the action occurred."},
    :rdfs/domain {:owl/unionOf [:schema/PerformAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/entertainmentBusiness,
+   :rdfs/isDefinedBy "http://schema.org/entertainmentBusiness",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "entertainmentBusiness"},
    :rdfs/range {:owl/unionOf [:schema/EntertainmentBusiness
@@ -19222,7 +19222,7 @@
                                :schema/VideoGameSeries
                                :schema/CreativeWorkSeason],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/episode,
+   :rdfs/isDefinedBy "http://schema.org/episode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "episode"},
    :rdfs/range
@@ -19239,7 +19239,7 @@
     :rdf/value "Position of the episode within an ordered group of episodes."},
    :rdfs/domain {:owl/unionOf [:schema/Episode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/episodeNumber,
+   :rdfs/isDefinedBy "http://schema.org/episodeNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "episodeNumber"},
    :rdfs/range
@@ -19259,7 +19259,7 @@
                                        :schema/VideoGameSeries
                                        :schema/TVSeries],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/episodes,
+   :rdfs/isDefinedBy    "http://schema.org/episodes",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "episodes"},
    :rdfs/range          {:owl/unionOf [:schema/Episode
@@ -19279,7 +19279,7 @@
     "This ordering relation for qualitative values indicates that the subject is equal to the object."},
    :rdfs/domain {:owl/unionOf [:schema/QualitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/equal,
+   :rdfs/isDefinedBy "http://schema.org/equal",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "equal"},
    :rdfs/range {:owl/unionOf [:schema/QualitativeValue
@@ -19298,7 +19298,7 @@
     "For failed actions, more information on the cause of the failure."},
    :rdfs/domain {:owl/unionOf [:schema/Action],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/error,
+   :rdfs/isDefinedBy "http://schema.org/error",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "error"},
    :rdfs/range
@@ -19315,7 +19315,7 @@
     "The estimated cost of the supply or supplies consumed when performing instructions."},
    :rdfs/domain {:owl/unionOf [:schema/HowToSupply :schema/HowTo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/estimatedCost,
+   :rdfs/isDefinedBy "http://schema.org/estimatedCost",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "estimatedCost"},
    :rdfs/range
@@ -19330,7 +19330,7 @@
                       :rdf/value    "The estimated time the flight will take."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/estimatedFlightDuration,
+   :rdfs/isDefinedBy "http://schema.org/estimatedFlightDuration",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "estimatedFlightDuration"},
    :rdfs/range       {:owl/unionOf [:schema/Duration
@@ -19349,7 +19349,7 @@
     "An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value."},
    :rdfs/domain {:owl/unionOf [:schema/Occupation :schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/estimatedSalary,
+   :rdfs/isDefinedBy "http://schema.org/estimatedSalary",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "estimatedSalary"},
    :rdfs/range {:owl/unionOf [:schema/MonetaryAmount
@@ -19411,7 +19411,7 @@
                                :schema/InformAction
                                :schema/JoinAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/event,
+   :rdfs/isDefinedBy "http://schema.org/event",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "event"},
    :rdfs/range
@@ -19464,7 +19464,7 @@
     "An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/eventStatus,
+   :rdfs/isDefinedBy "http://schema.org/eventStatus",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "eventStatus"},
    :rdfs/range {:owl/unionOf [:schema/EventStatusType
@@ -19483,7 +19483,7 @@
     "Upcoming or past events associated with this place or organization."},
    :rdfs/domain {:owl/unionOf [:schema/Place :schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/events,
+   :rdfs/isDefinedBy "http://schema.org/events",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "events"},
    :rdfs/range
@@ -19537,7 +19537,7 @@
     "A creative work that this work is an example/instance/realization/derivation of."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/exampleOfWork,
+   :rdfs/isDefinedBy "http://schema.org/exampleOfWork",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "exampleOfWork"},
    :rdfs/range
@@ -19589,7 +19589,7 @@
                       "Library file name, e.g., mscorlib.dll, system.web.dll."},
    :rdfs/domain      {:owl/unionOf [:schema/APIReference],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/executableLibraryName,
+   :rdfs/isDefinedBy "http://schema.org/executableLibraryName",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "executableLibraryName"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -19605,7 +19605,7 @@
     "A sub property of location. The course where this action was taken."},
    :rdfs/domain {:owl/unionOf [:schema/ExerciseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/exerciseCourse,
+   :rdfs/isDefinedBy "http://schema.org/exerciseCourse",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "exerciseCourse"},
    :rdfs/range
@@ -19672,7 +19672,7 @@
                       :rdf/value    "exif data for this object."},
    :rdfs/domain      {:owl/unionOf [:schema/ImageObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/exifData,
+   :rdfs/isDefinedBy "http://schema.org/exifData",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "exifData"},
    :rdfs/range       {:owl/unionOf [:schema/Text
@@ -19689,7 +19689,7 @@
                       :rdf/value "The earliest date the package may arrive."},
    :rdfs/domain      {:owl/unionOf [:schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/expectedArrivalFrom,
+   :rdfs/isDefinedBy "http://schema.org/expectedArrivalFrom",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "expectedArrivalFrom"},
    :rdfs/range       {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -19703,7 +19703,7 @@
                       :rdf/value    "The latest date the package may arrive."},
    :rdfs/domain      {:owl/unionOf [:schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/expectedArrivalUntil,
+   :rdfs/isDefinedBy "http://schema.org/expectedArrivalUntil",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "expectedArrivalUntil"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -19737,7 +19737,7 @@
                                :schema/ConsumeAction
                                :schema/ActionAccessSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/expectsAcceptanceOf,
+   :rdfs/isDefinedBy "http://schema.org/expectsAcceptanceOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "expectsAcceptanceOf"},
    :rdfs/range
@@ -19770,7 +19770,7 @@
     "Description of skills and experience needed for the position or Occupation."},
    :rdfs/domain {:owl/unionOf [:schema/Occupation :schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/experienceRequirements,
+   :rdfs/isDefinedBy "http://schema.org/experienceRequirements",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "experienceRequirements"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -19803,7 +19803,7 @@
     "Date the content expires and is no longer useful or available. For example a <a class=\"localLink\" href=\"https://schema.org/VideoObject\">VideoObject</a> or <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> whose availability or relevance is time-limited, or a <a class=\"localLink\" href=\"https://schema.org/ClaimReview\">ClaimReview</a> fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/expires,
+   :rdfs/isDefinedBy "http://schema.org/expires",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "expires"},
    :rdfs/range {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -19840,7 +19840,7 @@
                       "Family name. In the U.S., the last name of a Person."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/familyName,
+   :rdfs/isDefinedBy "http://schema.org/familyName",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "familyName"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -19854,7 +19854,7 @@
                       :rdf/value    "The number of grams of fat."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fatContent,
+   :rdfs/isDefinedBy "http://schema.org/fatContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "fatContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -19874,7 +19874,7 @@
                                     :schema/Person
                                     :schema/Place],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/faxNumber,
+   :rdfs/isDefinedBy "http://schema.org/faxNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "faxNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -19890,7 +19890,7 @@
     "Features or modules provided by this application (and possibly required by other applications)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/featureList,
+   :rdfs/isDefinedBy "http://schema.org/featureList",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "featureList"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -19907,7 +19907,7 @@
    :rdfs/domain {:owl/unionOf [:schema/FinancialService
                                :schema/FinancialProduct],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/feesAndCommissionsSpecification,
+   :rdfs/isDefinedBy "http://schema.org/feesAndCommissionsSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "feesAndCommissionsSpecification"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -19921,7 +19921,7 @@
                       :rdf/value    "The number of grams of fiber."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fiberContent,
+   :rdfs/isDefinedBy "http://schema.org/fiberContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "fiberContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -19940,7 +19940,7 @@
     "Media type, typically MIME format (see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">IANA site</a>) of the content, e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fileFormat,
+   :rdfs/isDefinedBy "http://schema.org/fileFormat",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "fileFormat"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -19957,7 +19957,7 @@
     "Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fileSize,
+   :rdfs/isDefinedBy "http://schema.org/fileSize",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "fileSize"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -20007,7 +20007,7 @@
                       "The date and place the work was first performed."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicComposition],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/firstPerformance,
+   :rdfs/isDefinedBy "http://schema.org/firstPerformance",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "firstPerformance"},
    :rdfs/range       {:owl/unionOf [:schema/Event
@@ -20024,7 +20024,7 @@
                       :rdf/value    "The distance of the flight."},
    :rdfs/domain      {:owl/unionOf [:schema/Flight],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/flightDistance,
+   :rdfs/isDefinedBy "http://schema.org/flightDistance",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "flightDistance"},
    :rdfs/range       {:owl/unionOf [:schema/Text
@@ -20043,7 +20043,7 @@
     "The unique identifier for a flight including the airline IATA code. For example, if describing United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'."},
    :rdfs/domain {:owl/unionOf [:schema/Flight],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/flightNumber,
+   :rdfs/isDefinedBy "http://schema.org/flightNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "flightNumber"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -20093,7 +20093,7 @@
     "The size of the accommodation, e.g. in square meter or squarefoot.\nTypical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard"},
    :rdfs/domain {:owl/unionOf [:schema/Accommodation :schema/FloorPlan],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/floorSize,
+   :rdfs/isDefinedBy "http://schema.org/floorSize",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "floorSize"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -20112,7 +20112,7 @@
     "A sub property of object. The person or organization being followed."},
    :rdfs/domain {:owl/unionOf [:schema/FollowAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/followee,
+   :rdfs/isDefinedBy "http://schema.org/followee",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "followee"},
    :rdfs/range
@@ -20130,7 +20130,7 @@
                       "The most generic uni-directional social relation."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/follows,
+   :rdfs/isDefinedBy "http://schema.org/follows",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "follows"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -20165,7 +20165,7 @@
     "A sub property of location. The specific food establishment where the action occurred."},
    :rdfs/domain {:owl/unionOf [:schema/CookAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/foodEstablishment,
+   :rdfs/isDefinedBy "http://schema.org/foodEstablishment",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "foodEstablishment"},
    :rdfs/range {:owl/unionOf [:schema/FoodEstablishment
@@ -20186,7 +20186,7 @@
     "A sub property of location. The specific food event where the action occurred."},
    :rdfs/domain {:owl/unionOf [:schema/CookAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/foodEvent,
+   :rdfs/isDefinedBy "http://schema.org/foodEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "foodEvent"},
    :rdfs/range
@@ -20218,7 +20218,7 @@
                       :rdf/value    "A person who founded this organization."},
    :rdfs/domain      {:owl/unionOf [:schema/Organization],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/founder,
+   :rdfs/isDefinedBy "http://schema.org/founder",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "founder"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -20235,7 +20235,7 @@
                          :rdf/value "A person who founded this organization."},
    :rdfs/domain         {:owl/unionOf [:schema/Organization],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/founders,
+   :rdfs/isDefinedBy    "http://schema.org/founders",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "founders"},
    :rdfs/range          {:owl/unionOf [:schema/Person
@@ -20254,7 +20254,7 @@
                       "The date that this organization was founded."},
    :rdfs/domain      {:owl/unionOf [:schema/Organization],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/foundingDate,
+   :rdfs/isDefinedBy "http://schema.org/foundingDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "foundingDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -20269,7 +20269,7 @@
                       "The place where the Organization was founded."},
    :rdfs/domain      {:owl/unionOf [:schema/Organization],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/foundingLocation,
+   :rdfs/isDefinedBy "http://schema.org/foundingLocation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "foundingLocation"},
    :rdfs/range       {:owl/unionOf [:schema/Place
@@ -20288,7 +20288,7 @@
     "A flag to signal that the item, event, or place is accessible for free."},
    :rdfs/domain {:owl/unionOf [:schema/PublicationEvent],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/free,
+   :rdfs/isDefinedBy "http://schema.org/free",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "free"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -20341,7 +20341,7 @@
                                :schema/ExerciseAction
                                :schema/TransferAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fromLocation,
+   :rdfs/isDefinedBy "http://schema.org/fromLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "fromLocation"},
    :rdfs/range
@@ -20378,7 +20378,7 @@
     "The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).<br/><br/>\n\n<ul>\n<li>Note 1: There are unfortunately no standard unit codes for liters per 100 km.  Use <a class=\"localLink\" href=\"https://schema.org/unitText\">unitText</a> to indicate the unit of measurement, e.g. L/100 km.</li>\n<li>Note 2: There are two ways of indicating the fuel consumption, <a class=\"localLink\" href=\"https://schema.org/fuelConsumption\">fuelConsumption</a> (e.g. 8 liters per 100 km) and <a class=\"localLink\" href=\"https://schema.org/fuelEfficiency\">fuelEfficiency</a> (e.g. 30 miles per gallon). They are reciprocal.</li>\n<li>Note 3: Often, the absolute value is useful only when related to driving speed (\"at 80 km/h\") or usage pattern (\"city traffic\"). You can use <a class=\"localLink\" href=\"https://schema.org/valueReference\">valueReference</a> to link the value for the fuel consumption to another value.</li>\n</ul>\n"},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fuelConsumption,
+   :rdfs/isDefinedBy "http://schema.org/fuelConsumption",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "fuelConsumption"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -20397,7 +20397,7 @@
     "The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).<br/><br/>\n\n<ul>\n<li>Note 1: There are unfortunately no standard unit codes for miles per gallon or kilometers per liter. Use <a class=\"localLink\" href=\"https://schema.org/unitText\">unitText</a> to indicate the unit of measurement, e.g. mpg or km/L.</li>\n<li>Note 2: There are two ways of indicating the fuel consumption, <a class=\"localLink\" href=\"https://schema.org/fuelConsumption\">fuelConsumption</a> (e.g. 8 liters per 100 km) and <a class=\"localLink\" href=\"https://schema.org/fuelEfficiency\">fuelEfficiency</a> (e.g. 30 miles per gallon). They are reciprocal.</li>\n<li>Note 3: Often, the absolute value is useful only when related to driving speed (\"at 80 km/h\") or usage pattern (\"city traffic\"). You can use <a class=\"localLink\" href=\"https://schema.org/valueReference\">valueReference</a> to link the value for the fuel economy to another value.</li>\n</ul>\n"},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fuelEfficiency,
+   :rdfs/isDefinedBy "http://schema.org/fuelEfficiency",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "fuelEfficiency"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -20416,7 +20416,7 @@
     "The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle :schema/EngineSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/fuelType,
+   :rdfs/isDefinedBy "http://schema.org/fuelType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "fuelType"},
    :rdfs/range {:owl/unionOf [:schema/URL
@@ -20483,7 +20483,7 @@
                                :schema/Grant
                                :schema/MonetaryGrant],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/funder,
+   :rdfs/isDefinedBy "http://schema.org/funder",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "funder"},
    :rdfs/range
@@ -20525,7 +20525,7 @@
                       :rdf/value "Video game which is played on this server."},
    :rdfs/domain      {:owl/unionOf [:schema/GameServer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/game,
+   :rdfs/isDefinedBy "http://schema.org/game",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "game"},
    :rdfs/range       {:owl/unionOf [:schema/VideoGame
@@ -20561,7 +20561,7 @@
                       :rdf/value    "The edition of a video game."},
    :rdfs/domain      {:owl/unionOf [:schema/VideoGame],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gameEdition,
+   :rdfs/isDefinedBy "http://schema.org/gameEdition",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "gameEdition"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -20577,7 +20577,7 @@
     "An item is an object within the game world that can be collected by a player or, occasionally, a non-player character."},
    :rdfs/domain {:owl/unionOf [:schema/Game :schema/VideoGameSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gameItem,
+   :rdfs/isDefinedBy "http://schema.org/gameItem",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gameItem"},
    :rdfs/range
@@ -20593,7 +20593,7 @@
                   "Real or fictional location of the game (or part of game)."},
    :rdfs/domain {:owl/unionOf [:schema/Game :schema/VideoGameSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gameLocation,
+   :rdfs/isDefinedBy "http://schema.org/gameLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gameLocation"},
    :rdfs/range
@@ -20611,7 +20611,7 @@
     "The electronic systems used to play <a href=\"http://en.wikipedia.org/wiki/Category:Video_game_platforms\">video games</a>."},
    :rdfs/domain {:owl/unionOf [:schema/VideoGame :schema/VideoGameSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gamePlatform,
+   :rdfs/isDefinedBy "http://schema.org/gamePlatform",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gamePlatform"},
    :rdfs/range
@@ -20628,7 +20628,7 @@
                       "The server on which  it is possible to play the game."},
    :rdfs/domain      {:owl/unionOf [:schema/VideoGame],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gameServer,
+   :rdfs/isDefinedBy "http://schema.org/gameServer",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "gameServer"},
    :rdfs/range       {:owl/unionOf [:schema/GameServer
@@ -20645,7 +20645,7 @@
                       :rdf/value    "Links to tips, tactics, etc."},
    :rdfs/domain      {:owl/unionOf [:schema/VideoGame],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gameTip,
+   :rdfs/isDefinedBy "http://schema.org/gameTip",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "gameTip"},
    :rdfs/range       {:owl/unionOf [:schema/CreativeWork
@@ -20682,7 +20682,7 @@
                                :schema/MusicGroup
                                :schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/genre,
+   :rdfs/isDefinedBy "http://schema.org/genre",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "genre"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -20696,7 +20696,7 @@
                       :rdf/value    "The geo coordinates of the place."},
    :rdfs/domain      {:owl/unionOf [:schema/Place],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geo,
+   :rdfs/isDefinedBy "http://schema.org/geo",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "geo"},
    :rdfs/range       {:owl/unionOf [:schema/GeoCoordinates
@@ -20716,7 +20716,7 @@
     "Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. \"a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a\". As defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>."},
    :rdfs/domain {:owl/unionOf [:schema/Place :schema/GeospatialGeometry],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoContains,
+   :rdfs/isDefinedBy "http://schema.org/geoContains",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoContains"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20736,7 +20736,7 @@
     "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>."},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoCoveredBy,
+   :rdfs/isDefinedBy "http://schema.org/geoCoveredBy",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoCoveredBy"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20756,7 +20756,7 @@
     "Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. \"Every point of b is a point of (the interior or boundary of) a\". As defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>."},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoCovers,
+   :rdfs/isDefinedBy "http://schema.org/geoCovers",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoCovers"},
    :rdfs/range {:owl/unionOf [:schema/Place
@@ -20776,7 +20776,7 @@
     "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: \"a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them\". As defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>."},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoCrosses,
+   :rdfs/isDefinedBy "http://schema.org/geoCrosses",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoCrosses"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20796,7 +20796,7 @@
     "Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: \"they have no point in common. They form a set of disconnected geometries.\" (A symmetric relationship, as defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>.)"},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoDisjoint,
+   :rdfs/isDefinedBy "http://schema.org/geoDisjoint",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoDisjoint"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20816,7 +20816,7 @@
     "Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>. \"Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other\" (a symmetric relationship)."},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoEquals,
+   :rdfs/isDefinedBy "http://schema.org/geoEquals",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoEquals"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20836,7 +20836,7 @@
     "Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>."},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoIntersects,
+   :rdfs/isDefinedBy "http://schema.org/geoIntersects",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoIntersects"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20856,7 +20856,7 @@
     "Indicates the GeoCoordinates at the centre of a GeoShape, e.g. GeoCircle."},
    :rdfs/domain {:owl/unionOf [:schema/GeoCircle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoMidpoint,
+   :rdfs/isDefinedBy "http://schema.org/geoMidpoint",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoMidpoint"},
    :rdfs/range
@@ -20873,7 +20873,7 @@
     "Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>."},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoOverlaps,
+   :rdfs/isDefinedBy "http://schema.org/geoOverlaps",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoOverlaps"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20893,7 +20893,7 @@
     "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation)."},
    :rdfs/domain {:owl/unionOf [:schema/GeoCircle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoRadius,
+   :rdfs/isDefinedBy "http://schema.org/geoRadius",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoRadius"},
    :rdfs/range
@@ -20911,7 +20911,7 @@
     "Represents spatial relations in which two geometries (or the places they represent) touch: \"they have at least one boundary point in common, but no interior points.\" (A symmetric relationship, as defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>.)"},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoTouches,
+   :rdfs/isDefinedBy "http://schema.org/geoTouches",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoTouches"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20931,7 +20931,7 @@
     "Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in <a href=\"https://en.wikipedia.org/wiki/DE-9IM\">DE-9IM</a>."},
    :rdfs/domain {:owl/unionOf [:schema/GeospatialGeometry :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geoWithin,
+   :rdfs/isDefinedBy "http://schema.org/geoWithin",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "geoWithin"},
    :rdfs/range {:owl/unionOf [:schema/GeospatialGeometry
@@ -20950,7 +20950,7 @@
                       "The geographic area associated with the audience."},
    :rdfs/domain      {:owl/unionOf [:schema/Audience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/geographicArea,
+   :rdfs/isDefinedBy "http://schema.org/geographicArea",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "geographicArea"},
    :rdfs/range       {:owl/unionOf [:schema/AdministrativeArea
@@ -20985,7 +20985,7 @@
                       "Given name. In the U.S., the first name of a Person."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/givenName,
+   :rdfs/isDefinedBy "http://schema.org/givenName",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "givenName"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -21002,7 +21002,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Place :schema/Person :schema/Organization],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/globalLocationNumber,
+   :rdfs/isDefinedBy "http://schema.org/globalLocationNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "globalLocationNumber"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -21055,7 +21055,7 @@
     "The person, organization, contact point, or audience that has been granted this permission."},
    :rdfs/domain {:owl/unionOf [:schema/DigitalDocumentPermission],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/grantee,
+   :rdfs/isDefinedBy "http://schema.org/grantee",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "grantee"},
    :rdfs/range {:owl/unionOf [:schema/Audience
@@ -21077,7 +21077,7 @@
     "This ordering relation for qualitative values indicates that the subject is greater than the object."},
    :rdfs/domain {:owl/unionOf [:schema/QualitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/greater,
+   :rdfs/isDefinedBy "http://schema.org/greater",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "greater"},
    :rdfs/range {:owl/unionOf [:schema/QualitativeValue
@@ -21096,7 +21096,7 @@
     "This ordering relation for qualitative values indicates that the subject is greater than or equal to the object."},
    :rdfs/domain {:owl/unionOf [:schema/QualitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/greaterOrEqual,
+   :rdfs/isDefinedBy "http://schema.org/greaterOrEqual",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "greaterOrEqual"},
    :rdfs/range {:owl/unionOf [:schema/QualitativeValue
@@ -21132,7 +21132,7 @@
     "The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."},
    :rdfs/domain {:owl/unionOf [:schema/Product :schema/Demand :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gtin12,
+   :rdfs/isDefinedBy "http://schema.org/gtin12",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gtin12"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -21149,7 +21149,7 @@
     "The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Product :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gtin13,
+   :rdfs/isDefinedBy "http://schema.org/gtin13",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gtin13"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -21166,7 +21166,7 @@
     "The GTIN-14 code of the product, or the product to which the offer refers. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Product :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gtin14,
+   :rdfs/isDefinedBy "http://schema.org/gtin14",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gtin14"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -21183,7 +21183,7 @@
     "The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Product :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/gtin8,
+   :rdfs/isDefinedBy "http://schema.org/gtin8",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "gtin8"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -21321,7 +21321,7 @@
                       :rdf/value "A broadcast channel of a broadcast service."},
    :rdfs/domain      {:owl/unionOf [:schema/BroadcastService],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasBroadcastChannel,
+   :rdfs/isDefinedBy "http://schema.org/hasBroadcastChannel",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "hasBroadcastChannel"},
    :rdfs/range       {:owl/unionOf [:schema/BroadcastChannel
@@ -21376,7 +21376,7 @@
     "An offering of the course at a specific time and place or through specific media or mode of study or to a specific section of students."},
    :rdfs/domain {:owl/unionOf [:schema/Course],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasCourseInstance,
+   :rdfs/isDefinedBy "http://schema.org/hasCourseInstance",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasCourseInstance"},
    :rdfs/range
@@ -21427,7 +21427,7 @@
    :rdfs/domain      {:owl/unionOf [:schema/DeliveryEvent
                                     :schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasDeliveryMethod,
+   :rdfs/isDefinedBy "http://schema.org/hasDeliveryMethod",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "hasDeliveryMethod"},
    :rdfs/range       {:owl/unionOf [:schema/DeliveryMethod
@@ -21446,7 +21446,7 @@
     "A permission related to the access to this document (e.g. permission to read or write an electronic document). For a public document, specify a grantee with an Audience with audienceType equal to \"public\"."},
    :rdfs/domain {:owl/unionOf [:schema/DigitalDocument],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasDigitalDocumentPermission,
+   :rdfs/isDefinedBy "http://schema.org/hasDigitalDocumentPermission",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasDigitalDocumentPermission"},
    :rdfs/range {:owl/unionOf [:schema/DigitalDocumentPermission
@@ -21536,7 +21536,7 @@
                       :rdf/value    "A URL to a map of the place."},
    :rdfs/domain      {:owl/unionOf [:schema/Place],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasMap,
+   :rdfs/isDefinedBy "http://schema.org/hasMap",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "hasMap"},
    :rdfs/range       {:owl/unionOf [:schema/URL
@@ -21575,7 +21575,7 @@
     "Either the actual menu as a structured representation, as text, or a URL of the menu."},
    :rdfs/domain {:owl/unionOf [:schema/FoodEstablishment],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasMenu,
+   :rdfs/isDefinedBy "http://schema.org/hasMenu",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasMenu"},
    :rdfs/range
@@ -21591,7 +21591,7 @@
                   "A food or drink item contained in a menu or menu section."},
    :rdfs/domain {:owl/unionOf [:schema/MenuSection :schema/Menu],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasMenuItem,
+   :rdfs/isDefinedBy "http://schema.org/hasMenuItem",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasMenuItem"},
    :rdfs/range
@@ -21608,7 +21608,7 @@
     "A subgrouping of the menu (by dishes, course, serving time period, etc.)."},
    :rdfs/domain {:owl/unionOf [:schema/MenuSection :schema/Menu],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasMenuSection,
+   :rdfs/isDefinedBy "http://schema.org/hasMenuSection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasMenuSection"},
    :rdfs/range
@@ -21664,7 +21664,7 @@
     "The Person's occupation. For past professions, use Role for expressing dates."},
    :rdfs/domain {:owl/unionOf [:schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasOccupation,
+   :rdfs/isDefinedBy "http://schema.org/hasOccupation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasOccupation"},
    :rdfs/range
@@ -21682,7 +21682,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Service :schema/Organization :schema/Person],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasOfferCatalog,
+   :rdfs/isDefinedBy "http://schema.org/hasOfferCatalog",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasOfferCatalog"},
    :rdfs/range
@@ -21698,7 +21698,7 @@
                   "Points-of-Sales operated by the organization or person."},
    :rdfs/domain {:owl/unionOf [:schema/Person :schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasPOS,
+   :rdfs/isDefinedBy "http://schema.org/hasPOS",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasPOS"},
    :rdfs/range
@@ -21716,7 +21716,7 @@
     "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense)."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hasPart,
+   :rdfs/isDefinedBy "http://schema.org/hasPart",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hasPart"},
    :rdfs/range
@@ -21785,7 +21785,7 @@
                       :rdf/value    "Headline of the article."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/headline,
+   :rdfs/isDefinedBy "http://schema.org/headline",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "headline"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22035,7 +22035,7 @@
                                     :schema/Product
                                     :schema/MediaObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/height,
+   :rdfs/isDefinedBy "http://schema.org/height",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "height"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -22055,7 +22055,7 @@
     "The highest price of all offers available.<br/><br/>\n\nUsage guidelines:<br/><br/>\n\n<ul>\n<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.</li>\n<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>\n</ul>\n"},
    :rdfs/domain {:owl/unionOf [:schema/AggregateOffer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/highPrice,
+   :rdfs/isDefinedBy "http://schema.org/highPrice",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "highPrice"},
    :rdfs/range
@@ -22071,7 +22071,7 @@
                       "Organization or Person offering the job position."},
    :rdfs/domain      {:owl/unionOf [:schema/JobPosting],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hiringOrganization,
+   :rdfs/isDefinedBy "http://schema.org/hiringOrganization",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "hiringOrganization"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -22110,7 +22110,7 @@
                         "A contact location for a person's residence."},
    :rdfs/domain        {:owl/unionOf [:schema/Person],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/homeLocation,
+   :rdfs/isDefinedBy   "http://schema.org/homeLocation",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "homeLocation"},
    :rdfs/range         {:owl/unionOf [:schema/ContactPoint
@@ -22129,7 +22129,7 @@
                         :rdf/value    "The home team in a sports event."},
    :rdfs/domain        {:owl/unionOf [:schema/SportsEvent],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/homeTeam,
+   :rdfs/isDefinedBy   "http://schema.org/homeTeam",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "homeTeam"},
    :rdfs/range         {:owl/unionOf [:schema/SportsTeam
@@ -22150,7 +22150,7 @@
     "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr."},
    :rdfs/domain {:owl/unionOf [:schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/honorificPrefix,
+   :rdfs/isDefinedBy "http://schema.org/honorificPrefix",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "honorificPrefix"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22166,7 +22166,7 @@
     "An honorific suffix following a Person's name such as M.D./PhD/MSCSW."},
    :rdfs/domain {:owl/unionOf [:schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/honorificSuffix,
+   :rdfs/isDefinedBy "http://schema.org/honorificSuffix",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "honorificSuffix"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22198,7 +22198,7 @@
     "The organization (airline, travelers' club, etc.) the membership is made with."},
    :rdfs/domain {:owl/unionOf [:schema/ProgramMembership],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hostingOrganization,
+   :rdfs/isDefinedBy "http://schema.org/hostingOrganization",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hostingOrganization"},
    :rdfs/range
@@ -22216,7 +22216,7 @@
                                :schema/Service
                                :schema/ContactPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/hoursAvailable,
+   :rdfs/isDefinedBy "http://schema.org/hoursAvailable",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hoursAvailable"},
    :rdfs/range {:owl/unionOf [:schema/OpeningHoursSpecification
@@ -22249,7 +22249,7 @@
     "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint. Values are capitalized strings as used in HTTP."},
    :rdfs/domain {:owl/unionOf [:schema/EntryPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/httpMethod,
+   :rdfs/isDefinedBy "http://schema.org/httpMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "httpMethod"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22263,7 +22263,7 @@
                       :rdf/value "IATA identifier for an airline or airport."},
    :rdfs/domain      {:owl/unionOf [:schema/Airline :schema/Airport],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/iataCode,
+   :rdfs/isDefinedBy "http://schema.org/iataCode",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "iataCode"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22277,7 +22277,7 @@
                       :rdf/value    "ICAO identifier for an airport."},
    :rdfs/domain      {:owl/unionOf [:schema/Airport],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/icaoCode,
+   :rdfs/isDefinedBy "http://schema.org/icaoCode",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "icaoCode"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22293,7 +22293,7 @@
     "The identifier property represents any kind of identifier for any kind of <a class=\"localLink\" href=\"https://schema.org/Thing\">Thing</a>, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See <a href=\"/docs/datamodel.html#identifierBg\">background notes</a> for more details."},
    :rdfs/domain {:owl/unionOf [:schema/Thing],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/identifier,
+   :rdfs/isDefinedBy "http://schema.org/identifier",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "identifier"},
    :rdfs/range
@@ -22344,7 +22344,7 @@
                       :rdf/value    "The illustrator of the book."},
    :rdfs/domain      {:owl/unionOf [:schema/Book],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/illustrator,
+   :rdfs/isDefinedBy "http://schema.org/illustrator",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "illustrator"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -22363,7 +22363,7 @@
     "An image of the item. This can be a <a class=\"localLink\" href=\"https://schema.org/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"https://schema.org/ImageObject\">ImageObject</a>."},
    :rdfs/domain {:owl/unionOf [:schema/Thing],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/image,
+   :rdfs/isDefinedBy "http://schema.org/image",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "image"},
    :rdfs/range
@@ -22395,7 +22395,7 @@
                       :rdf/value "The album to which this recording belongs."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicRecording],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/inAlbum,
+   :rdfs/isDefinedBy "http://schema.org/inAlbum",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "inAlbum"},
    :rdfs/range       {:owl/unionOf [:schema/MusicAlbum
@@ -22413,7 +22413,7 @@
                       "The CableOrSatelliteService offering the channel."},
    :rdfs/domain      {:owl/unionOf [:schema/BroadcastChannel],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/inBroadcastLineup,
+   :rdfs/isDefinedBy "http://schema.org/inBroadcastLineup",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "inBroadcastLineup"},
    :rdfs/range       {:owl/unionOf [:schema/CableOrSatelliteService
@@ -22510,7 +22510,7 @@
                                :schema/BroadcastService
                                :schema/PronounceableText],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/inLanguage,
+   :rdfs/isDefinedBy "http://schema.org/inLanguage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "inLanguage"},
    :rdfs/range
@@ -22526,7 +22526,7 @@
                       "The playlist to which this recording belongs."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicRecording],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/inPlaylist,
+   :rdfs/isDefinedBy "http://schema.org/inPlaylist",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "inPlaylist"},
    :rdfs/range       {:owl/unionOf [:schema/MusicPlaylist
@@ -22593,7 +22593,7 @@
     "Description of bonus and commission compensation aspects of the job."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/incentiveCompensation,
+   :rdfs/isDefinedBy "http://schema.org/incentiveCompensation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "incentiveCompensation"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22609,7 +22609,7 @@
     "Description of bonus and commission compensation aspects of the job."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/incentives,
+   :rdfs/isDefinedBy "http://schema.org/incentives",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "incentives"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22626,7 +22626,7 @@
     "Smaller compositions included in this work (e.g. a movement in a symphony)."},
    :rdfs/domain {:owl/unionOf [:schema/MusicComposition],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/includedComposition,
+   :rdfs/isDefinedBy "http://schema.org/includedComposition",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "includedComposition"},
    :rdfs/range {:owl/unionOf [:schema/MusicComposition
@@ -22645,7 +22645,7 @@
     "A data catalog which contains this dataset (this property was previously 'catalog', preferred name is now 'includedInDataCatalog')."},
    :rdfs/domain {:owl/unionOf [:schema/Dataset],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/includedDataCatalog,
+   :rdfs/isDefinedBy "http://schema.org/includedDataCatalog",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "includedDataCatalog"},
    :rdfs/range
@@ -22662,7 +22662,7 @@
                       :rdf/value "A data catalog which contains this dataset."},
    :rdfs/domain      {:owl/unionOf [:schema/Dataset],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/includedInDataCatalog,
+   :rdfs/isDefinedBy "http://schema.org/includedInDataCatalog",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "includedInDataCatalog"},
    :rdfs/range       {:owl/unionOf [:schema/DataCatalog
@@ -22769,7 +22769,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Demand :schema/Offer :schema/ProductCollection],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/includesObject,
+   :rdfs/isDefinedBy "http://schema.org/includesObject",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "includesObject"},
    :rdfs/range {:owl/unionOf [:schema/TypeAndQuantityNode
@@ -22803,7 +22803,7 @@
                       "The industry associated with the job position."},
    :rdfs/domain      {:owl/unionOf [:schema/JobPosting],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/industry,
+   :rdfs/isDefinedBy "http://schema.org/industry",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "industry"},
    :rdfs/range       {:owl/unionOf [:schema/DefinedTerm
@@ -22878,7 +22878,7 @@
     "A single ingredient used in the recipe, e.g. sugar, flour or garlic."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ingredients,
+   :rdfs/isDefinedBy "http://schema.org/ingredients",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ingredients"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -22933,7 +22933,7 @@
     "URL at which the app may be installed, if different from the URL of the item."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/installUrl,
+   :rdfs/isDefinedBy "http://schema.org/installUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "installUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -22949,7 +22949,7 @@
     "A person assigned to instruct or provide instructional assistance for the <a class=\"localLink\" href=\"https://schema.org/CourseInstance\">CourseInstance</a>."},
    :rdfs/domain {:owl/unionOf [:schema/CourseInstance],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/instructor,
+   :rdfs/isDefinedBy "http://schema.org/instructor",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "instructor"},
    :rdfs/range
@@ -22966,7 +22966,7 @@
     "The object that helped the agent perform the action. E.g. John wrote a book with <em>a pen</em>."},
    :rdfs/domain {:owl/unionOf [:schema/Action],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/instrument,
+   :rdfs/isDefinedBy "http://schema.org/instrument",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "instrument"},
    :rdfs/range
@@ -23017,7 +23017,7 @@
    {:rdf/language "en",
     :rdf/value
     "This property is deprecated, alongside the UserInteraction types on which it depended."},
-   :rdfs/isDefinedBy :schema/interactionCount,
+   :rdfs/isDefinedBy "http://schema.org/interactionCount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "interactionCount"},
    :schema/supersededBy :schema/interactionStatistic})
@@ -23032,7 +23032,7 @@
     "The WebSite or SoftwareApplication where the interactions took place."},
    :rdfs/domain {:owl/unionOf [:schema/InteractionCounter],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/interactionService,
+   :rdfs/isDefinedBy "http://schema.org/interactionService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "interactionService"},
    :rdfs/range {:owl/unionOf [:schema/WebSite
@@ -23053,7 +23053,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/CreativeWork :schema/Person :schema/Organization],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/interactionStatistic,
+   :rdfs/isDefinedBy "http://schema.org/interactionStatistic",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "interactionStatistic"},
    :rdfs/range {:owl/unionOf [:schema/InteractionCounter
@@ -23072,7 +23072,7 @@
     "The Action representing the type of interaction. For up votes, +1s, etc. use <a class=\"localLink\" href=\"https://schema.org/LikeAction\">LikeAction</a>. For down votes use <a class=\"localLink\" href=\"https://schema.org/DislikeAction\">DislikeAction</a>. Otherwise, use the most specific Action."},
    :rdfs/domain {:owl/unionOf [:schema/InteractionCounter],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/interactionType,
+   :rdfs/isDefinedBy "http://schema.org/interactionType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "interactionType"},
    :rdfs/range
@@ -23089,7 +23089,7 @@
     "The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/interactivityType,
+   :rdfs/isDefinedBy "http://schema.org/interactivityType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "interactivityType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -23105,7 +23105,7 @@
     "The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate."},
    :rdfs/domain {:owl/unionOf [:schema/FinancialProduct],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/interestRate,
+   :rdfs/isDefinedBy "http://schema.org/interestRate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "interestRate"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -23144,7 +23144,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Demand :schema/Offer :schema/SomeProducts],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/inventoryLevel,
+   :rdfs/isDefinedBy "http://schema.org/inventoryLevel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "inventoryLevel"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -23196,7 +23196,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Event :schema/Place :schema/CreativeWork],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isAccessibleForFree,
+   :rdfs/isDefinedBy "http://schema.org/isAccessibleForFree",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isAccessibleForFree"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -23212,7 +23212,7 @@
     "A pointer to another product (or multiple products) for which this product is an accessory or spare part."},
    :rdfs/domain {:owl/unionOf [:schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isAccessoryOrSparePartFor,
+   :rdfs/isDefinedBy "http://schema.org/isAccessoryOrSparePartFor",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isAccessoryOrSparePartFor"},
    :rdfs/range
@@ -23245,7 +23245,7 @@
     "A resource from which this work is derived or from which it is a modification or adaption."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isBasedOn,
+   :rdfs/isDefinedBy "http://schema.org/isBasedOn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isBasedOn"},
    :rdfs/range {:owl/unionOf [:schema/URL
@@ -23265,7 +23265,7 @@
     "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isBasedOnUrl,
+   :rdfs/isDefinedBy "http://schema.org/isBasedOnUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isBasedOnUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL
@@ -23286,7 +23286,7 @@
     "A pointer to another product (or multiple products) for which this product is a consumable."},
    :rdfs/domain {:owl/unionOf [:schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isConsumableFor,
+   :rdfs/isDefinedBy "http://schema.org/isConsumableFor",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isConsumableFor"},
    :rdfs/range
@@ -23322,7 +23322,7 @@
                                     :schema/Offer
                                     :schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isFamilyFriendly,
+   :rdfs/isDefinedBy "http://schema.org/isFamilyFriendly",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "isFamilyFriendly"},
    :rdfs/range       {:owl/unionOf [:schema/Boolean],
@@ -23338,7 +23338,7 @@
     "Indicates whether the offer was accepted as a gift for someone other than the buyer."},
    :rdfs/domain {:owl/unionOf [:schema/Order],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isGift,
+   :rdfs/isDefinedBy "http://schema.org/isGift",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isGift"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -23372,7 +23372,7 @@
                       :rdf/value "True if the broadcast is of a live event."},
    :rdfs/domain      {:owl/unionOf [:schema/BroadcastEvent],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isLiveBroadcast,
+   :rdfs/isDefinedBy "http://schema.org/isLiveBroadcast",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "isLiveBroadcast"},
    :rdfs/range       {:owl/unionOf [:schema/Boolean],
@@ -23410,7 +23410,7 @@
     "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isPartOf,
+   :rdfs/isDefinedBy "http://schema.org/isPartOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isPartOf"},
    :rdfs/range
@@ -23477,7 +23477,7 @@
     "A pointer to another, somehow related product (or multiple products)."},
    :rdfs/domain {:owl/unionOf [:schema/Service :schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isRelatedTo,
+   :rdfs/isDefinedBy "http://schema.org/isRelatedTo",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isRelatedTo"},
    :rdfs/range
@@ -23511,7 +23511,7 @@
     "A pointer to another, functionally similar product (or multiple products)."},
    :rdfs/domain {:owl/unionOf [:schema/Service :schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isSimilarTo,
+   :rdfs/isDefinedBy "http://schema.org/isSimilarTo",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isSimilarTo"},
    :rdfs/range
@@ -23547,7 +23547,7 @@
     "Indicates the kind of product that this is a variant of. In the case of <a class=\"localLink\" href=\"https://schema.org/ProductModel\">ProductModel</a>, this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a <a class=\"localLink\" href=\"https://schema.org/ProductGroup\">ProductGroup</a>, the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with <a class=\"localLink\" href=\"https://schema.org/ProductGroup\">ProductGroup</a>, this property can apply to any <a class=\"localLink\" href=\"https://schema.org/Product\">Product</a> included in the group."},
    :rdfs/domain {:owl/unionOf [:schema/ProductModel :schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isVariantOf,
+   :rdfs/isDefinedBy "http://schema.org/isVariantOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isVariantOf"},
    :rdfs/range {:owl/unionOf [:schema/ProductModel
@@ -23565,7 +23565,7 @@
                         :rdf/value    "The ISBN of the book."},
    :rdfs/domain        {:owl/unionOf [:schema/Book],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/isbn,
+   :rdfs/isDefinedBy   "http://schema.org/isbn",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "isbn"},
    :rdfs/range         {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -23583,7 +23583,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Place :schema/Organization :schema/Person],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isicV4,
+   :rdfs/isDefinedBy "http://schema.org/isicV4",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isicV4"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -23614,7 +23614,7 @@
     :rdf/value "The International Standard Recording Code for the recording."},
    :rdfs/domain {:owl/unionOf [:schema/MusicRecording],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/isrcCode,
+   :rdfs/isDefinedBy "http://schema.org/isrcCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "isrcCode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -23633,7 +23633,7 @@
                                :schema/Blog
                                :schema/CreativeWorkSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/issn,
+   :rdfs/isDefinedBy "http://schema.org/issn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "issn"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -23650,7 +23650,7 @@
     "Identifies the issue of publication; for example, \"iii\" or \"2\"."},
    :rdfs/domain {:owl/unionOf [:schema/PublicationIssue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/issueNumber,
+   :rdfs/isDefinedBy "http://schema.org/issueNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "issueNumber"},
    :rdfs/range
@@ -23667,7 +23667,7 @@
                       "The organization issuing the ticket or permit."},
    :rdfs/domain      {:owl/unionOf [:schema/Permit :schema/Ticket],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/issuedBy,
+   :rdfs/isDefinedBy "http://schema.org/issuedBy",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "issuedBy"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -23685,7 +23685,7 @@
                       "The service through which the permit was granted."},
    :rdfs/domain      {:owl/unionOf [:schema/Permit],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/issuedThrough,
+   :rdfs/isDefinedBy "http://schema.org/issuedThrough",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "issuedThrough"},
    :rdfs/range       {:owl/unionOf [:schema/Service
@@ -23704,7 +23704,7 @@
     "The International Standard Musical Work Code for the composition."},
    :rdfs/domain {:owl/unionOf [:schema/MusicComposition],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/iswcCode,
+   :rdfs/isDefinedBy "http://schema.org/iswcCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "iswcCode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -23720,7 +23720,7 @@
     "An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')."},
    :rdfs/domain {:owl/unionOf [:schema/ListItem :schema/DataFeedItem],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/item,
+   :rdfs/isDefinedBy "http://schema.org/item",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "item"},
    :rdfs/range
@@ -23740,7 +23740,7 @@
                                :schema/Offer
                                :schema/MerchantReturnPolicy],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/itemCondition,
+   :rdfs/isDefinedBy "http://schema.org/itemCondition",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "itemCondition"},
    :rdfs/range {:owl/unionOf [:schema/OfferItemCondition
@@ -23814,7 +23814,7 @@
     "For itemListElement values, you can use simple strings (e.g. \"Peter\", \"Paul\", \"Mary\"), existing entities, or use ListItem.<br/><br/>\n\nText values are best if the elements in the list are plain strings. Existing entities are best for a simple, unordered list of existing things in your data. ListItem is used with ordered lists when you want to provide additional context about the element in that list or when the same item might be in different places in different lists.<br/><br/>\n\nNote: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a 'position' property in such cases."},
    :rdfs/domain {:owl/unionOf [:schema/ItemList],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/itemListElement,
+   :rdfs/isDefinedBy "http://schema.org/itemListElement",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "itemListElement"},
    :rdfs/range
@@ -23831,7 +23831,7 @@
                   "Type of ordering (e.g. Ascending, Descending, Unordered)."},
    :rdfs/domain {:owl/unionOf [:schema/ItemList],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/itemListOrder,
+   :rdfs/isDefinedBy "http://schema.org/itemListOrder",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "itemListOrder"},
    :rdfs/range {:owl/unionOf [:schema/ItemListOrderType
@@ -23870,7 +23870,7 @@
     "An item being offered (or demanded). The transactional nature of the offer or demand is documented using <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a>, e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/itemOffered,
+   :rdfs/isDefinedBy "http://schema.org/itemOffered",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "itemOffered"},
    :rdfs/range {:owl/unionOf [:schema/Product
@@ -23893,7 +23893,7 @@
                       :rdf/value    "The item that is being reviewed/rated."},
    :rdfs/domain      {:owl/unionOf [:schema/Review :schema/AggregateRating],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/itemReviewed,
+   :rdfs/isDefinedBy "http://schema.org/itemReviewed",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "itemReviewed"},
    :rdfs/range       {:owl/unionOf [:schema/Thing
@@ -23910,7 +23910,7 @@
                       :rdf/value    "Item(s) being shipped."},
    :rdfs/domain      {:owl/unionOf [:schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/itemShipped,
+   :rdfs/isDefinedBy "http://schema.org/itemShipped",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "itemShipped"},
    :rdfs/range       {:owl/unionOf [:schema/Product
@@ -23962,7 +23962,7 @@
                       "Description of benefits associated with the job."},
    :rdfs/domain      {:owl/unionOf [:schema/JobPosting],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/jobBenefits,
+   :rdfs/isDefinedBy "http://schema.org/jobBenefits",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "jobBenefits"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -23994,7 +23994,7 @@
     "A (typically single) geographic location associated with the job position."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/jobLocation,
+   :rdfs/isDefinedBy "http://schema.org/jobLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "jobLocation"},
    :rdfs/range
@@ -24083,7 +24083,7 @@
                                :schema/Event
                                :schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/keywords,
+   :rdfs/isDefinedBy "http://schema.org/keywords",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "keywords"},
    :rdfs/range
@@ -24100,7 +24100,7 @@
     "A textual description of known damages, both repaired and unrepaired."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/knownVehicleDamages,
+   :rdfs/isDefinedBy "http://schema.org/knownVehicleDamages",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "knownVehicleDamages"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -24115,7 +24115,7 @@
                       "The most generic bi-directional social/work relation."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/knows,
+   :rdfs/isDefinedBy "http://schema.org/knows",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "knows"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -24182,7 +24182,7 @@
     "A sub property of participant. The owner of the real estate property."},
    :rdfs/domain {:owl/unionOf [:schema/RentAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/landlord,
+   :rdfs/isDefinedBy "http://schema.org/landlord",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "landlord"},
    :rdfs/range
@@ -24201,7 +24201,7 @@
     "A sub property of instrument. The language used on this action."},
    :rdfs/domain {:owl/unionOf [:schema/CommunicateAction :schema/WriteAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/language,
+   :rdfs/isDefinedBy "http://schema.org/language",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "language"},
    :rdfs/range
@@ -24220,7 +24220,7 @@
     "Date on which the content on this web page was last reviewed for accuracy and/or completeness."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lastReviewed,
+   :rdfs/isDefinedBy "http://schema.org/lastReviewed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "lastReviewed"},
    :rdfs/range {:owl/unionOf [:schema/Date],
@@ -24236,7 +24236,7 @@
     "The latitude of a location. For example <code>37.42242</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)."},
    :rdfs/domain {:owl/unionOf [:schema/Place :schema/GeoCoordinates],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/latitude,
+   :rdfs/isDefinedBy "http://schema.org/latitude",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "latitude"},
    :rdfs/range
@@ -24272,7 +24272,7 @@
     "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'."},
    :rdfs/domain {:owl/unionOf [:schema/LearningResource :schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/learningResourceType,
+   :rdfs/isDefinedBy "http://schema.org/learningResourceType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "learningResourceType"},
    :rdfs/range
@@ -24311,7 +24311,7 @@
     "The official name of the organization, e.g. the registered company name."},
    :rdfs/domain {:owl/unionOf [:schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/legalName,
+   :rdfs/isDefinedBy "http://schema.org/legalName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "legalName"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -24579,7 +24579,7 @@
     "An organization identifier that uniquely identifies a legal entity as defined in ISO 17442."},
    :rdfs/domain {:owl/unionOf [:schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/leiCode,
+   :rdfs/isDefinedBy "http://schema.org/leiCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "leiCode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -24596,7 +24596,7 @@
     "A sub property of participant. The person that lends the object being borrowed."},
    :rdfs/domain {:owl/unionOf [:schema/BorrowAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lender,
+   :rdfs/isDefinedBy "http://schema.org/lender",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "lender"},
    :rdfs/range
@@ -24615,7 +24615,7 @@
     "This ordering relation for qualitative values indicates that the subject is lesser than the object."},
    :rdfs/domain {:owl/unionOf [:schema/QualitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lesser,
+   :rdfs/isDefinedBy "http://schema.org/lesser",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "lesser"},
    :rdfs/range {:owl/unionOf [:schema/QualitativeValue
@@ -24634,7 +24634,7 @@
     "This ordering relation for qualitative values indicates that the subject is lesser than or equal to the object."},
    :rdfs/domain {:owl/unionOf [:schema/QualitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lesserOrEqual,
+   :rdfs/isDefinedBy "http://schema.org/lesserOrEqual",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "lesserOrEqual"},
    :rdfs/range {:owl/unionOf [:schema/QualitativeValue
@@ -24671,7 +24671,7 @@
     "A license document that applies to this content, typically indicated by URL."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/license,
+   :rdfs/isDefinedBy "http://schema.org/license",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "license"},
    :rdfs/range
@@ -24688,7 +24688,7 @@
     "A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space."},
    :rdfs/domain {:owl/unionOf [:schema/GeoShape],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/line,
+   :rdfs/isDefinedBy "http://schema.org/line",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "line"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -24717,7 +24717,7 @@
                       :rdf/value    "An update to the LiveBlog."},
    :rdfs/domain      {:owl/unionOf [:schema/LiveBlogPosting],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/liveBlogUpdate,
+   :rdfs/isDefinedBy "http://schema.org/liveBlogUpdate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "liveBlogUpdate"},
    :rdfs/range       {:owl/unionOf [:schema/BlogPosting
@@ -24805,7 +24805,7 @@
                         "The duration of the loan or credit agreement."},
    :rdfs/domain        {:owl/unionOf [:schema/LoanOrCredit],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/loanTerm,
+   :rdfs/isDefinedBy   "http://schema.org/loanTerm",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "loanTerm"},
    :rdfs/range         {:owl/unionOf [:schema/QuantitativeValue
@@ -24842,7 +24842,7 @@
                                :schema/Organization
                                :schema/InteractionCounter],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/location,
+   :rdfs/isDefinedBy "http://schema.org/location",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "location"},
    :rdfs/range {:owl/unionOf [:schema/Place
@@ -24863,7 +24863,7 @@
     "The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/locationCreated,
+   :rdfs/isDefinedBy "http://schema.org/locationCreated",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "locationCreated"},
    :rdfs/range
@@ -24878,7 +24878,7 @@
                       :rdf/value    "A full description of the lodging unit."},
    :rdfs/domain      {:owl/unionOf [:schema/LodgingReservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lodgingUnitDescription,
+   :rdfs/isDefinedBy "http://schema.org/lodgingUnitDescription",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "lodgingUnitDescription"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -24894,7 +24894,7 @@
     "Textual description of the unit type (including suite vs. room, size of bed, etc.)."},
    :rdfs/domain {:owl/unionOf [:schema/LodgingReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lodgingUnitType,
+   :rdfs/isDefinedBy "http://schema.org/lodgingUnitType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "lodgingUnitType"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -24915,7 +24915,7 @@
                                       :schema/Product
                                       :schema/Place],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/logo,
+   :rdfs/isDefinedBy   "http://schema.org/logo",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "logo"},
    :rdfs/range         {:owl/unionOf [:schema/ImageObject
@@ -24935,7 +24935,7 @@
     "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)."},
    :rdfs/domain {:owl/unionOf [:schema/Place :schema/GeoCoordinates],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/longitude,
+   :rdfs/isDefinedBy "http://schema.org/longitude",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "longitude"},
    :rdfs/range
@@ -24951,7 +24951,7 @@
                   "A sub property of participant. The loser of the action."},
    :rdfs/domain {:owl/unionOf [:schema/WinAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/loser,
+   :rdfs/isDefinedBy "http://schema.org/loser",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "loser"},
    :rdfs/range
@@ -24969,7 +24969,7 @@
     "The lowest price of all offers available.<br/><br/>\n\nUsage guidelines:<br/><br/>\n\n<ul>\n<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.</li>\n<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>\n</ul>\n"},
    :rdfs/domain {:owl/unionOf [:schema/AggregateOffer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lowPrice,
+   :rdfs/isDefinedBy "http://schema.org/lowPrice",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "lowPrice"},
    :rdfs/range
@@ -24984,7 +24984,7 @@
                       :rdf/value    "The person who wrote the words."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicComposition],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lyricist,
+   :rdfs/isDefinedBy "http://schema.org/lyricist",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "lyricist"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -25001,7 +25001,7 @@
                       :rdf/value    "The words in the song."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicComposition],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/lyrics,
+   :rdfs/isDefinedBy "http://schema.org/lyrics",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "lyrics"},
    :rdfs/range       {:owl/unionOf [:schema/CreativeWork
@@ -25020,7 +25020,7 @@
     "Indicates if this web page element is the main subject of the page."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mainContentOfPage,
+   :rdfs/isDefinedBy "http://schema.org/mainContentOfPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mainContentOfPage"},
    :rdfs/range
@@ -25038,7 +25038,7 @@
     "Indicates the primary entity described in some page or other CreativeWork."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mainEntity,
+   :rdfs/isDefinedBy "http://schema.org/mainEntity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mainEntity"},
    :rdfs/range
@@ -25057,7 +25057,7 @@
     "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details."},
    :rdfs/domain {:owl/unionOf [:schema/Thing],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mainEntityOfPage,
+   :rdfs/isDefinedBy "http://schema.org/mainEntityOfPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mainEntityOfPage"},
    :rdfs/range
@@ -25093,7 +25093,7 @@
     "A pointer to products or services offered by the organization or person."},
    :rdfs/domain {:owl/unionOf [:schema/Organization :schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/makesOffer,
+   :rdfs/isDefinedBy "http://schema.org/makesOffer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "makesOffer"},
    :rdfs/range
@@ -25108,7 +25108,7 @@
                       :rdf/value    "The manufacturer of the product."},
    :rdfs/domain      {:owl/unionOf [:schema/Product],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/manufacturer,
+   :rdfs/isDefinedBy "http://schema.org/manufacturer",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "manufacturer"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -25125,7 +25125,7 @@
                          :rdf/value    "A URL to a map of the place."},
    :rdfs/domain         {:owl/unionOf [:schema/Place],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/map,
+   :rdfs/isDefinedBy    "http://schema.org/map",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "map"},
    :rdfs/range          {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -25142,7 +25142,7 @@
     "Indicates the kind of Map, from the MapCategoryType Enumeration."},
    :rdfs/domain {:owl/unionOf [:schema/Map],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mapType,
+   :rdfs/isDefinedBy "http://schema.org/mapType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mapType"},
    :rdfs/range {:owl/unionOf [:schema/MapCategoryType
@@ -25159,7 +25159,7 @@
                          :rdf/value    "A URL to a map of the place."},
    :rdfs/domain         {:owl/unionOf [:schema/Place],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/maps,
+   :rdfs/isDefinedBy    "http://schema.org/maps",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "maps"},
    :rdfs/range          {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -25213,7 +25213,7 @@
     "A material that something is made from, e.g. leather, wool, cotton, paper."},
    :rdfs/domain {:owl/unionOf [:schema/Product :schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/material,
+   :rdfs/isDefinedBy "http://schema.org/material",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "material"},
    :rdfs/range
@@ -25266,7 +25266,7 @@
                       :rdf/value "The highest price if the price is a range."},
    :rdfs/domain      {:owl/unionOf [:schema/PriceSpecification],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/maxPrice,
+   :rdfs/isDefinedBy "http://schema.org/maxPrice",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "maxPrice"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -25284,7 +25284,7 @@
                                     :schema/PropertyValue
                                     :schema/MonetaryAmount],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/maxValue,
+   :rdfs/isDefinedBy "http://schema.org/maxValue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "maxValue"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -25300,7 +25300,7 @@
     "The total number of individuals that may attend an event or venue."},
    :rdfs/domain {:owl/unionOf [:schema/Place :schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/maximumAttendeeCapacity,
+   :rdfs/isDefinedBy "http://schema.org/maximumAttendeeCapacity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "maximumAttendeeCapacity"},
    :rdfs/range {:owl/unionOf [:schema/Integer],
@@ -25388,7 +25388,7 @@
     "Description of the meals that will be provided or available for purchase."},
    :rdfs/domain {:owl/unionOf [:schema/Flight],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mealService,
+   :rdfs/isDefinedBy "http://schema.org/mealService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mealService"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -25507,7 +25507,7 @@
                       :rdf/value    "The median value."},
    :rdfs/domain      {:owl/unionOf [:schema/QuantitativeValueDistribution],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/median,
+   :rdfs/isDefinedBy "http://schema.org/median",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "median"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -25598,7 +25598,7 @@
     "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals."},
    :rdfs/domain {:owl/unionOf [:schema/Organization :schema/ProgramMembership],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/member,
+   :rdfs/isDefinedBy "http://schema.org/member",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "member"},
    :rdfs/range
@@ -25617,7 +25617,7 @@
     "An Organization (or ProgramMembership) to which this Person or Organization belongs."},
    :rdfs/domain {:owl/unionOf [:schema/Organization :schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/memberOf,
+   :rdfs/isDefinedBy "http://schema.org/memberOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "memberOf"},
    :rdfs/range {:owl/unionOf [:schema/Organization
@@ -25636,7 +25636,7 @@
    :rdfs/domain         {:owl/unionOf [:schema/Organization
                                        :schema/ProgramMembership],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/members,
+   :rdfs/isDefinedBy    "http://schema.org/members",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "members"},
    :rdfs/range          {:owl/unionOf [:schema/Organization
@@ -25655,7 +25655,7 @@
                       :rdf/value    "A unique identifier for the membership."},
    :rdfs/domain      {:owl/unionOf [:schema/ProgramMembership],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/membershipNumber,
+   :rdfs/isDefinedBy "http://schema.org/membershipNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "membershipNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -25689,7 +25689,7 @@
                       :rdf/value    "Minimum memory requirements."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/memoryRequirements,
+   :rdfs/isDefinedBy "http://schema.org/memoryRequirements",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "memoryRequirements"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -25705,7 +25705,7 @@
     "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mentions,
+   :rdfs/isDefinedBy "http://schema.org/mentions",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mentions"},
    :rdfs/range
@@ -25722,7 +25722,7 @@
     "Either the actual menu as a structured representation, as text, or a URL of the menu."},
    :rdfs/domain {:owl/unionOf [:schema/FoodEstablishment],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/menu,
+   :rdfs/isDefinedBy "http://schema.org/menu",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "menu"},
    :rdfs/range
@@ -25740,7 +25740,7 @@
     "Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item."},
    :rdfs/domain {:owl/unionOf [:schema/MenuItem],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/menuAddOn,
+   :rdfs/isDefinedBy "http://schema.org/menuAddOn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "menuAddOn"},
    :rdfs/range {:owl/unionOf [:schema/MenuItem
@@ -25759,7 +25759,7 @@
                          "'merchant' is an out-dated term for 'seller'."},
    :rdfs/domain         {:owl/unionOf [:schema/Order],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/merchant,
+   :rdfs/isDefinedBy    "http://schema.org/merchant",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "merchant"},
    :rdfs/range          {:owl/unionOf [:schema/Organization
@@ -25810,7 +25810,7 @@
                       :rdf/value    "A CreativeWork attached to the message."},
    :rdfs/domain      {:owl/unionOf [:schema/Message],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/messageAttachment,
+   :rdfs/isDefinedBy "http://schema.org/messageAttachment",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "messageAttachment"},
    :rdfs/range       {:owl/unionOf [:schema/CreativeWork
@@ -25829,7 +25829,7 @@
     "The total distance travelled by the particular vehicle since its initial production, as read from its odometer.<br/><br/>\n\nTypical unit code(s): KMT for kilometers, SMI for statute miles"},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mileageFromOdometer,
+   :rdfs/isDefinedBy "http://schema.org/mileageFromOdometer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mileageFromOdometer"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -25846,7 +25846,7 @@
                       :rdf/value "The lowest price if the price is a range."},
    :rdfs/domain      {:owl/unionOf [:schema/PriceSpecification],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/minPrice,
+   :rdfs/isDefinedBy "http://schema.org/minPrice",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "minPrice"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -25864,7 +25864,7 @@
                                     :schema/PropertyValue
                                     :schema/MonetaryAmount],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/minValue,
+   :rdfs/isDefinedBy "http://schema.org/minValue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "minValue"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -25878,7 +25878,7 @@
                       :rdf/value "The minimum payment required at this time."},
    :rdfs/domain      {:owl/unionOf [:schema/Invoice],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/minimumPaymentDue,
+   :rdfs/isDefinedBy "http://schema.org/minimumPaymentDue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "minimumPaymentDue"},
    :rdfs/range       {:owl/unionOf [:schema/MonetaryAmount
@@ -25933,7 +25933,7 @@
     "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties."},
    :rdfs/domain {:owl/unionOf [:schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/model,
+   :rdfs/isDefinedBy "http://schema.org/model",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "model"},
    :rdfs/range
@@ -25965,7 +25965,7 @@
                       "The date and time the reservation was modified."},
    :rdfs/domain      {:owl/unionOf [:schema/Reservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/modifiedTime,
+   :rdfs/isDefinedBy "http://schema.org/modifiedTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "modifiedTime"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime],
@@ -26071,7 +26071,7 @@
     "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Product :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/mpn,
+   :rdfs/isDefinedBy "http://schema.org/mpn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "mpn"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -26087,7 +26087,7 @@
     "Whether multiple values are allowed for the property.  Default is false."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/multipleValues,
+   :rdfs/isDefinedBy "http://schema.org/multipleValues",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "multipleValues"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -26116,7 +26116,7 @@
                       "An arrangement derived from the composition."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicComposition],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/musicArrangement,
+   :rdfs/isDefinedBy "http://schema.org/musicArrangement",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "musicArrangement"},
    :rdfs/range       {:owl/unionOf [:schema/MusicComposition
@@ -26141,7 +26141,7 @@
                                     :schema/VideoGameSeries
                                     :schema/VideoObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/musicBy,
+   :rdfs/isDefinedBy "http://schema.org/musicBy",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "musicBy"},
    :rdfs/range       {:owl/unionOf [:schema/MusicGroup
@@ -26161,7 +26161,7 @@
     "The type of composition (e.g. overture, sonata, symphony, etc.)."},
    :rdfs/domain {:owl/unionOf [:schema/MusicComposition],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/musicCompositionForm,
+   :rdfs/isDefinedBy "http://schema.org/musicCompositionForm",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "musicCompositionForm"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -26177,7 +26177,7 @@
     "A member of a music group&#x2014;for example, John, Paul, George, or Ringo."},
    :rdfs/domain {:owl/unionOf [:schema/MusicGroup],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/musicGroupMember,
+   :rdfs/isDefinedBy "http://schema.org/musicGroupMember",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "musicGroupMember"},
    :rdfs/range
@@ -26195,7 +26195,7 @@
     "Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.)."},
    :rdfs/domain {:owl/unionOf [:schema/MusicRelease],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/musicReleaseFormat,
+   :rdfs/isDefinedBy "http://schema.org/musicReleaseFormat",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "musicReleaseFormat"},
    :rdfs/range {:owl/unionOf [:schema/MusicReleaseFormatType
@@ -26213,7 +26213,7 @@
                       "The key, mode, or scale this composition uses."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicComposition],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/musicalKey,
+   :rdfs/isDefinedBy "http://schema.org/musicalKey",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "musicalKey"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -26229,7 +26229,7 @@
     "The North American Industry Classification System (NAICS) code for a particular organization or business person."},
    :rdfs/domain {:owl/unionOf [:schema/Organization :schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/naics,
+   :rdfs/isDefinedBy "http://schema.org/naics",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "naics"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -26243,7 +26243,7 @@
                         :rdf/value    "The name of the item."},
    :rdfs/domain        {:owl/unionOf [:schema/Thing],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/name,
+   :rdfs/isDefinedBy   "http://schema.org/name",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "name"},
    :rdfs/range         {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -26260,7 +26260,7 @@
     "A position played, performed or filled by a person or organization, as part of an organization. For example, an athlete in a SportsTeam might play in the position named 'Quarterback'."},
    :rdfs/domain {:owl/unionOf [:schema/Role],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/namedPosition,
+   :rdfs/isDefinedBy "http://schema.org/namedPosition",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "namedPosition"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -26275,7 +26275,7 @@
                       :rdf/value    "Nationality of the person."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/nationality,
+   :rdfs/isDefinedBy "http://schema.org/nationality",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "nationality"},
    :rdfs/range       {:owl/unionOf [:schema/Country
@@ -26366,7 +26366,7 @@
     "The total financial value of the person as calculated by subtracting assets from liabilities."},
    :rdfs/domain {:owl/unionOf [:schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/netWorth,
+   :rdfs/isDefinedBy "http://schema.org/netWorth",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "netWorth"},
    :rdfs/range {:owl/unionOf [:schema/MonetaryAmount
@@ -26402,7 +26402,7 @@
                       "A link to the ListItem that follows the current one."},
    :rdfs/domain      {:owl/unionOf [:schema/ListItem],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/nextItem,
+   :rdfs/isDefinedBy "http://schema.org/nextItem",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "nextItem"},
    :rdfs/range       {:owl/unionOf [:schema/ListItem
@@ -26439,7 +26439,7 @@
     "This ordering relation for qualitative values indicates that the subject is not equal to the object."},
    :rdfs/domain {:owl/unionOf [:schema/QualitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/nonEqual,
+   :rdfs/isDefinedBy "http://schema.org/nonEqual",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "nonEqual"},
    :rdfs/range {:owl/unionOf [:schema/QualitativeValue
@@ -26524,7 +26524,7 @@
                       :rdf/value "The number of adults staying in the unit."},
    :rdfs/domain      {:owl/unionOf [:schema/LodgingReservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numAdults,
+   :rdfs/isDefinedBy "http://schema.org/numAdults",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "numAdults"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -26542,7 +26542,7 @@
                       :rdf/value "The number of children staying in the unit."},
    :rdfs/domain      {:owl/unionOf [:schema/LodgingReservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numChildren,
+   :rdfs/isDefinedBy "http://schema.org/numChildren",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "numChildren"},
    :rdfs/range       {:owl/unionOf [:schema/Integer
@@ -26577,7 +26577,7 @@
                       "The number of tracks in this album or playlist."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicPlaylist],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numTracks,
+   :rdfs/isDefinedBy "http://schema.org/numTracks",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "numTracks"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -26611,7 +26611,7 @@
                       "The number or type of airbags in the vehicle."},
    :rdfs/domain      {:owl/unionOf [:schema/Vehicle],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfAirbags,
+   :rdfs/isDefinedBy "http://schema.org/numberOfAirbags",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "numberOfAirbags"},
    :rdfs/range       {:owl/unionOf [:schema/Number
@@ -26649,7 +26649,7 @@
     :rdf/value "The number of axles.<br/><br/>\n\nTypical unit code(s): C62"},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfAxles,
+   :rdfs/isDefinedBy "http://schema.org/numberOfAxles",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfAxles"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -26707,7 +26707,7 @@
     "The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment."},
    :rdfs/domain {:owl/unionOf [:schema/BedDetails],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfBeds,
+   :rdfs/isDefinedBy "http://schema.org/numberOfBeds",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfBeds"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -26743,7 +26743,7 @@
     :rdf/value "The number of doors.<br/><br/>\n\nTypical unit code(s): C62"},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfDoors,
+   :rdfs/isDefinedBy "http://schema.org/numberOfDoors",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfDoors"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -26762,7 +26762,7 @@
                   "The number of employees in an organization, e.g. business."},
    :rdfs/domain {:owl/unionOf [:schema/BusinessAudience :schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfEmployees,
+   :rdfs/isDefinedBy "http://schema.org/numberOfEmployees",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfEmployees"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -26783,7 +26783,7 @@
                                     :schema/TVSeries
                                     :schema/CreativeWorkSeason],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfEpisodes,
+   :rdfs/isDefinedBy "http://schema.org/numberOfEpisodes",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "numberOfEpisodes"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -26799,7 +26799,7 @@
     "The total number of forward gears available for the transmission system of the vehicle.<br/><br/>\n\nTypical unit code(s): C62"},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfForwardGears,
+   :rdfs/isDefinedBy "http://schema.org/numberOfForwardGears",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfForwardGears"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -26835,7 +26835,7 @@
     "The number of items in an ItemList. Note that some descriptions might not fully describe all items in a list (e.g., multi-page pagination); in such cases, the numberOfItems would be for the entire list."},
    :rdfs/domain {:owl/unionOf [:schema/ItemList],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfItems,
+   :rdfs/isDefinedBy "http://schema.org/numberOfItems",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfItems"},
    :rdfs/range {:owl/unionOf [:schema/Integer],
@@ -26865,7 +26865,7 @@
                       :rdf/value    "The number of pages in the book."},
    :rdfs/domain      {:owl/unionOf [:schema/Book],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfPages,
+   :rdfs/isDefinedBy "http://schema.org/numberOfPages",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "numberOfPages"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -26897,7 +26897,7 @@
     "Indicate how many people can play this game (minimum, maximum, or range)."},
    :rdfs/domain {:owl/unionOf [:schema/Game :schema/VideoGameSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfPlayers,
+   :rdfs/isDefinedBy "http://schema.org/numberOfPlayers",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfPlayers"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -26916,7 +26916,7 @@
     "The number of owners of the vehicle, including the current one.<br/><br/>\n\nTypical unit code(s): C62"},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfPreviousOwners,
+   :rdfs/isDefinedBy "http://schema.org/numberOfPreviousOwners",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfPreviousOwners"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -26942,7 +26942,7 @@
                                :schema/Suite
                                :schema/FloorPlan],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfRooms,
+   :rdfs/isDefinedBy "http://schema.org/numberOfRooms",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberOfRooms"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -26962,7 +26962,7 @@
                                     :schema/VideoGameSeries
                                     :schema/TVSeries],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberOfSeasons,
+   :rdfs/isDefinedBy "http://schema.org/numberOfSeasons",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "numberOfSeasons"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -26978,7 +26978,7 @@
     "A number associated with a role in an organization, for example, the number on an athlete's jersey."},
    :rdfs/domain {:owl/unionOf [:schema/OrganizationRole],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/numberedPosition,
+   :rdfs/isDefinedBy "http://schema.org/numberedPosition",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "numberedPosition"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -26993,7 +26993,7 @@
                       "Nutrition information about the recipe or menu item."},
    :rdfs/domain      {:owl/unionOf [:schema/MenuItem :schema/Recipe],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/nutrition,
+   :rdfs/isDefinedBy "http://schema.org/nutrition",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "nutrition"},
    :rdfs/range       {:owl/unionOf [:schema/NutritionInformation
@@ -27012,7 +27012,7 @@
     "The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). E.g. John read <em>a book</em>."},
    :rdfs/domain {:owl/unionOf [:schema/Action],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/object,
+   :rdfs/isDefinedBy "http://schema.org/object",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "object"},
    :rdfs/range
@@ -27067,7 +27067,7 @@
                                :schema/Apartment
                                :schema/SingleFamilyResidence],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/occupancy,
+   :rdfs/isDefinedBy "http://schema.org/occupancy",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "occupancy"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -27086,7 +27086,7 @@
     "The region/country for which this occupational description is appropriate. Note that educational requirements and qualifications can vary between jurisdictions."},
    :rdfs/domain {:owl/unionOf [:schema/Occupation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/occupationLocation,
+   :rdfs/isDefinedBy "http://schema.org/occupationLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "occupationLocation"},
    :rdfs/range {:owl/unionOf [:schema/AdministrativeArea
@@ -27143,7 +27143,7 @@
                       :rdf/value    "The number of offers for the product."},
    :rdfs/domain      {:owl/unionOf [:schema/AggregateOffer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/offerCount,
+   :rdfs/isDefinedBy "http://schema.org/offerCount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "offerCount"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -27159,7 +27159,7 @@
                   "A pointer to the organization or person making the offer."},
    :rdfs/domain {:owl/unionOf [:schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/offeredBy,
+   :rdfs/isDefinedBy "http://schema.org/offeredBy",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "offeredBy"},
    :rdfs/range
@@ -27185,7 +27185,7 @@
                                :schema/CreativeWork
                                :schema/EducationalOccupationalProgram],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/offers,
+   :rdfs/isDefinedBy "http://schema.org/offers",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "offers"},
    :rdfs/range
@@ -27218,7 +27218,7 @@
     "The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.<br/><br/>\n\n<ul>\n<li>Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.</li>\n<li>Times are specified using 24:00 format. For example, 3pm is specified as <code>15:00</code>, 10am as <code>10:00</code>. </li>\n<li>Here is an example: <code>&lt;time itemprop=\"openingHours\" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.</li>\n<li>If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.</li>\n</ul>\n"},
    :rdfs/domain {:owl/unionOf [:schema/LocalBusiness :schema/CivicStructure],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/openingHours,
+   :rdfs/isDefinedBy "http://schema.org/openingHours",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "openingHours"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -27232,7 +27232,7 @@
                       :rdf/value    "The opening hours of a certain place."},
    :rdfs/domain      {:owl/unionOf [:schema/Place],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/openingHoursSpecification,
+   :rdfs/isDefinedBy "http://schema.org/openingHoursSpecification",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "openingHoursSpecification"},
    :rdfs/range       {:owl/unionOf [:schema/OpeningHoursSpecification
@@ -27251,7 +27251,7 @@
     "The opening hour of the place or service on the given day(s) of the week."},
    :rdfs/domain {:owl/unionOf [:schema/OpeningHoursSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/opens,
+   :rdfs/isDefinedBy "http://schema.org/opens",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "opens"},
    :rdfs/range {:owl/unionOf [:schema/Time],
@@ -27267,7 +27267,7 @@
     "Operating systems supported (Windows 7, OS X 10.6, Android 1.6)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/operatingSystem,
+   :rdfs/isDefinedBy "http://schema.org/operatingSystem",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "operatingSystem"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -27282,7 +27282,7 @@
     :rdf/value "A sub property of participant. The opponent on this action."},
    :rdfs/domain {:owl/unionOf [:schema/ExerciseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/opponent,
+   :rdfs/isDefinedBy "http://schema.org/opponent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "opponent"},
    :rdfs/range
@@ -27299,7 +27299,7 @@
     :rdf/value "A sub property of object. The options subject to this action."},
    :rdfs/domain {:owl/unionOf [:schema/ChooseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/option,
+   :rdfs/isDefinedBy "http://schema.org/option",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "option"},
    :rdfs/range
@@ -27316,7 +27316,7 @@
                       :rdf/value    "Date order was placed."},
    :rdfs/domain      {:owl/unionOf [:schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/orderDate,
+   :rdfs/isDefinedBy "http://schema.org/orderDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "orderDate"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -27332,7 +27332,7 @@
     "The delivery of the parcel related to this order or order item."},
    :rdfs/domain {:owl/unionOf [:schema/Order :schema/OrderItem],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/orderDelivery,
+   :rdfs/isDefinedBy "http://schema.org/orderDelivery",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "orderDelivery"},
    :rdfs/range
@@ -27347,7 +27347,7 @@
                       :rdf/value    "The identifier of the order item."},
    :rdfs/domain      {:owl/unionOf [:schema/OrderItem],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/orderItemNumber,
+   :rdfs/isDefinedBy "http://schema.org/orderItemNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "orderItemNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -27361,7 +27361,7 @@
                       :rdf/value    "The current status of the order item."},
    :rdfs/domain      {:owl/unionOf [:schema/OrderItem],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/orderItemStatus,
+   :rdfs/isDefinedBy "http://schema.org/orderItemStatus",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "orderItemStatus"},
    :rdfs/range       {:owl/unionOf [:schema/OrderStatus
@@ -27378,7 +27378,7 @@
                         :rdf/value    "The identifier of the transaction."},
    :rdfs/domain        {:owl/unionOf [:schema/Order],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/orderNumber,
+   :rdfs/isDefinedBy   "http://schema.org/orderNumber",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "orderNumber"},
    :rdfs/range         {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -27395,7 +27395,7 @@
     "The number of the item ordered. If the property is not set, assume the quantity is one."},
    :rdfs/domain {:owl/unionOf [:schema/OrderItem],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/orderQuantity,
+   :rdfs/isDefinedBy "http://schema.org/orderQuantity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "orderQuantity"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -27409,7 +27409,7 @@
                       :rdf/value    "The current status of the order."},
    :rdfs/domain      {:owl/unionOf [:schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/orderStatus,
+   :rdfs/isDefinedBy "http://schema.org/orderStatus",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "orderStatus"},
    :rdfs/range       {:owl/unionOf [:schema/OrderStatus
@@ -27426,7 +27426,7 @@
                       :rdf/value    "The item ordered."},
    :rdfs/domain      {:owl/unionOf [:schema/OrderItem :schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/orderedItem,
+   :rdfs/isDefinedBy "http://schema.org/orderedItem",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "orderedItem"},
    :rdfs/range       {:owl/unionOf [:schema/Product
@@ -27445,7 +27445,7 @@
                       :rdf/value    "An organizer of an Event."},
    :rdfs/domain      {:owl/unionOf [:schema/Event],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/organizer,
+   :rdfs/isDefinedBy "http://schema.org/organizer",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "organizer"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -27463,7 +27463,7 @@
                       :rdf/value    "Shipper's address."},
    :rdfs/domain      {:owl/unionOf [:schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/originAddress,
+   :rdfs/isDefinedBy "http://schema.org/originAddress",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "originAddress"},
    :rdfs/range       {:owl/unionOf [:schema/PostalAddress
@@ -27549,7 +27549,7 @@
                       :rdf/value "The date and time of obtaining the product."},
    :rdfs/domain      {:owl/unionOf [:schema/OwnershipInfo],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ownedFrom,
+   :rdfs/isDefinedBy "http://schema.org/ownedFrom",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ownedFrom"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime],
@@ -27564,7 +27564,7 @@
                   "The date and time of giving up ownership on the product."},
    :rdfs/domain {:owl/unionOf [:schema/OwnershipInfo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ownedThrough,
+   :rdfs/isDefinedBy "http://schema.org/ownedThrough",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ownedThrough"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -27601,7 +27601,7 @@
                       "Products owned by the organization or person."},
    :rdfs/domain      {:owl/unionOf [:schema/Organization :schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/owns,
+   :rdfs/isDefinedBy "http://schema.org/owns",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "owns"},
    :rdfs/range       {:owl/unionOf [:schema/Product
@@ -27624,7 +27624,7 @@
                                :schema/Article
                                :schema/Chapter],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/pageEnd,
+   :rdfs/isDefinedBy "http://schema.org/pageEnd",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "pageEnd"},
    :rdfs/range
@@ -27644,7 +27644,7 @@
                                :schema/PublicationIssue
                                :schema/Chapter],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/pageStart,
+   :rdfs/isDefinedBy "http://schema.org/pageStart",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "pageStart"},
    :rdfs/range
@@ -27664,7 +27664,7 @@
                                :schema/Article
                                :schema/Chapter],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/pagination,
+   :rdfs/isDefinedBy "http://schema.org/pagination",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "pagination"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -27678,7 +27678,7 @@
                       :rdf/value    "A parent of this person."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/parent,
+   :rdfs/isDefinedBy "http://schema.org/parent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "parent"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -27696,7 +27696,7 @@
                       "The parent of a question, answer or item in general."},
    :rdfs/domain      {:owl/unionOf [:schema/Comment],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/parentItem,
+   :rdfs/isDefinedBy "http://schema.org/parentItem",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "parentItem"},
    :rdfs/range       {:owl/unionOf [:schema/Comment
@@ -27716,7 +27716,7 @@
     "The larger organization that this organization is a <a class=\"localLink\" href=\"https://schema.org/subOrganization\">subOrganization</a> of, if any."},
    :rdfs/domain {:owl/unionOf [:schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/parentOrganization,
+   :rdfs/isDefinedBy "http://schema.org/parentOrganization",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "parentOrganization"},
    :rdfs/range
@@ -27733,7 +27733,7 @@
     "A broadcast service to which the broadcast service may belong to such as regional variations of a national channel."},
    :rdfs/domain {:owl/unionOf [:schema/BroadcastService],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/parentService,
+   :rdfs/isDefinedBy "http://schema.org/parentService",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "parentService"},
    :rdfs/range {:owl/unionOf [:schema/BroadcastService
@@ -27769,7 +27769,7 @@
                          :rdf/value    "A parents of the person."},
    :rdfs/domain         {:owl/unionOf [:schema/Person],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/parents,
+   :rdfs/isDefinedBy    "http://schema.org/parents",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "parents"},
    :rdfs/range          {:owl/unionOf [:schema/Person
@@ -27787,7 +27787,7 @@
                         :rdf/value "The episode to which this clip belongs."},
    :rdfs/domain        {:owl/unionOf [:schema/Clip],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/partOfEpisode,
+   :rdfs/isDefinedBy   "http://schema.org/partOfEpisode",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "partOfEpisode"},
    :rdfs/range         {:owl/unionOf [:schema/Episode
@@ -27806,7 +27806,7 @@
                   "The order is being paid as part of the referenced Invoice."},
    :rdfs/domain {:owl/unionOf [:schema/Order],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/partOfInvoice,
+   :rdfs/isDefinedBy "http://schema.org/partOfInvoice",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "partOfInvoice"},
    :rdfs/range
@@ -27823,7 +27823,7 @@
     "The overall order the items in this delivery were included in."},
    :rdfs/domain {:owl/unionOf [:schema/ParcelDelivery],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/partOfOrder,
+   :rdfs/isDefinedBy "http://schema.org/partOfOrder",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "partOfOrder"},
    :rdfs/range
@@ -27838,7 +27838,7 @@
                         :rdf/value "The season to which this episode belongs."},
    :rdfs/domain        {:owl/unionOf [:schema/Episode :schema/Clip],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/partOfSeason,
+   :rdfs/isDefinedBy   "http://schema.org/partOfSeason",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "partOfSeason"},
    :rdfs/range         {:owl/unionOf [:schema/CreativeWorkSeason
@@ -27859,7 +27859,7 @@
                                       :schema/Clip
                                       :schema/CreativeWorkSeason],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/partOfSeries,
+   :rdfs/isDefinedBy   "http://schema.org/partOfSeries",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "partOfSeries"},
    :rdfs/range         {:owl/unionOf [:schema/CreativeWorkSeries
@@ -27898,7 +27898,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/TVEpisode :schema/TVClip :schema/TVSeason],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/partOfTVSeries,
+   :rdfs/isDefinedBy "http://schema.org/partOfTVSeries",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "partOfTVSeries"},
    :rdfs/range
@@ -27935,7 +27935,7 @@
     "Other co-agents that participated in the action indirectly. E.g. John wrote a book with <em>Steve</em>."},
    :rdfs/domain {:owl/unionOf [:schema/Action],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/participant,
+   :rdfs/isDefinedBy "http://schema.org/participant",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "participant"},
    :rdfs/range
@@ -27953,7 +27953,7 @@
    :rdfs/domain      {:owl/unionOf [:schema/TaxiReservation
                                     :schema/FoodEstablishmentReservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/partySize,
+   :rdfs/isDefinedBy "http://schema.org/partySize",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "partySize"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -27973,7 +27973,7 @@
     "The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority)."},
    :rdfs/domain {:owl/unionOf [:schema/FlightReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/passengerPriorityStatus,
+   :rdfs/isDefinedBy "http://schema.org/passengerPriorityStatus",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "passengerPriorityStatus"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -27991,7 +27991,7 @@
     :rdf/value "The passenger's sequence number as assigned by the airline."},
    :rdfs/domain {:owl/unionOf [:schema/FlightReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/passengerSequenceNumber,
+   :rdfs/isDefinedBy "http://schema.org/passengerSequenceNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "passengerSequenceNumber"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28060,7 +28060,7 @@
     "Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc."},
    :rdfs/domain {:owl/unionOf [:schema/LocalBusiness],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/paymentAccepted,
+   :rdfs/isDefinedBy "http://schema.org/paymentAccepted",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "paymentAccepted"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28074,7 +28074,7 @@
                          :rdf/value    "The date that payment is due."},
    :rdfs/domain         {:owl/unionOf [:schema/Invoice :schema/Order],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/paymentDue,
+   :rdfs/isDefinedBy    "http://schema.org/paymentDue",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "paymentDue"},
    :rdfs/range          {:owl/unionOf [:schema/DateTime],
@@ -28089,7 +28089,7 @@
                       :rdf/value    "The date that payment is due."},
    :rdfs/domain      {:owl/unionOf [:schema/Invoice :schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/paymentDueDate,
+   :rdfs/isDefinedBy "http://schema.org/paymentDueDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "paymentDueDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -28105,7 +28105,7 @@
     "The name of the credit card or other method of payment for the order."},
    :rdfs/domain {:owl/unionOf [:schema/Invoice :schema/Order],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/paymentMethod,
+   :rdfs/isDefinedBy "http://schema.org/paymentMethod",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "paymentMethod"},
    :rdfs/range
@@ -28122,7 +28122,7 @@
     "An identifier for the method of payment used (e.g. the last 4 digits of the credit card)."},
    :rdfs/domain {:owl/unionOf [:schema/Invoice :schema/Order],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/paymentMethodId,
+   :rdfs/isDefinedBy "http://schema.org/paymentMethodId",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "paymentMethodId"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28138,7 +28138,7 @@
     "The status of payment; whether the invoice has been paid or not."},
    :rdfs/domain {:owl/unionOf [:schema/Invoice],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/paymentStatus,
+   :rdfs/isDefinedBy "http://schema.org/paymentStatus",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "paymentStatus"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -28155,7 +28155,7 @@
                       :rdf/value    "The URL for sending a payment."},
    :rdfs/domain      {:owl/unionOf [:schema/Order],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/paymentUrl,
+   :rdfs/isDefinedBy "http://schema.org/paymentUrl",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "paymentUrl"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -28186,7 +28186,7 @@
                       :rdf/value    "The 10th percentile value."},
    :rdfs/domain      {:owl/unionOf [:schema/QuantitativeValueDistribution],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/percentile10,
+   :rdfs/isDefinedBy "http://schema.org/percentile10",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "percentile10"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -28200,7 +28200,7 @@
                       :rdf/value    "The 25th percentile value."},
    :rdfs/domain      {:owl/unionOf [:schema/QuantitativeValueDistribution],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/percentile25,
+   :rdfs/isDefinedBy "http://schema.org/percentile25",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "percentile25"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -28214,7 +28214,7 @@
                       :rdf/value    "The 75th percentile value."},
    :rdfs/domain      {:owl/unionOf [:schema/QuantitativeValueDistribution],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/percentile75,
+   :rdfs/isDefinedBy "http://schema.org/percentile75",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "percentile75"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -28228,7 +28228,7 @@
                       :rdf/value    "The 90th percentile value."},
    :rdfs/domain      {:owl/unionOf [:schema/QuantitativeValueDistribution],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/percentile90,
+   :rdfs/isDefinedBy "http://schema.org/percentile90",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "percentile90"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -28244,7 +28244,7 @@
     "The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 duration format</a>."},
    :rdfs/domain {:owl/unionOf [:schema/HowTo :schema/HowToDirection],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/performTime,
+   :rdfs/isDefinedBy "http://schema.org/performTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "performTime"},
    :rdfs/range
@@ -28261,7 +28261,7 @@
     "A performer at the event&#x2014;for example, a presenter, musician, musical group or actor."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/performer,
+   :rdfs/isDefinedBy "http://schema.org/performer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "performer"},
    :rdfs/range
@@ -28278,7 +28278,7 @@
                   "Event that this person is a performer or participant in."},
    :rdfs/domain {:owl/unionOf [:schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/performerIn,
+   :rdfs/isDefinedBy "http://schema.org/performerIn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "performerIn"},
    :rdfs/range
@@ -28295,7 +28295,7 @@
     "The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/performers,
+   :rdfs/isDefinedBy "http://schema.org/performers",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "performers"},
    :rdfs/range
@@ -28314,7 +28314,7 @@
     "The type of permission granted the person, organization, or audience."},
    :rdfs/domain {:owl/unionOf [:schema/DigitalDocumentPermission],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/permissionType,
+   :rdfs/isDefinedBy "http://schema.org/permissionType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "permissionType"},
    :rdfs/range {:owl/unionOf [:schema/DigitalDocumentPermissionType
@@ -28333,7 +28333,7 @@
     "Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/permissions,
+   :rdfs/isDefinedBy "http://schema.org/permissions",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "permissions"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28347,7 +28347,7 @@
                       :rdf/value    "The target audience for this permit."},
    :rdfs/domain      {:owl/unionOf [:schema/Permit],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/permitAudience,
+   :rdfs/isDefinedBy "http://schema.org/permitAudience",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "permitAudience"},
    :rdfs/range       {:owl/unionOf [:schema/Audience
@@ -28366,7 +28366,7 @@
     "Indications regarding the permitted usage of the accommodation."},
    :rdfs/domain {:owl/unionOf [:schema/Accommodation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/permittedUsage,
+   :rdfs/isDefinedBy "http://schema.org/permittedUsage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "permittedUsage"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28385,7 +28385,7 @@
                                :schema/FloorPlan
                                :schema/ApartmentComplex],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/petsAllowed,
+   :rdfs/isDefinedBy "http://schema.org/petsAllowed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "petsAllowed"},
    :rdfs/range
@@ -28416,7 +28416,7 @@
                         :rdf/value    "A photograph of this place."},
    :rdfs/domain        {:owl/unionOf [:schema/Place],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/photo,
+   :rdfs/isDefinedBy   "http://schema.org/photo",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "photo"},
    :rdfs/range         {:owl/unionOf [:schema/Photograph
@@ -28435,7 +28435,7 @@
                          :rdf/value    "Photographs of this place."},
    :rdfs/domain         {:owl/unionOf [:schema/Place],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/photos,
+   :rdfs/isDefinedBy    "http://schema.org/photos",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "photos"},
    :rdfs/range          {:owl/unionOf [:schema/ImageObject
@@ -28489,7 +28489,7 @@
    :rdfs/domain {:owl/unionOf [:schema/TaxiReservation
                                :schema/RentalCarReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/pickupLocation,
+   :rdfs/isDefinedBy "http://schema.org/pickupLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "pickupLocation"},
    :rdfs/range
@@ -28507,7 +28507,7 @@
    :rdfs/domain {:owl/unionOf [:schema/RentalCarReservation
                                :schema/TaxiReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/pickupTime,
+   :rdfs/isDefinedBy "http://schema.org/pickupTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "pickupTime"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -28523,7 +28523,7 @@
     "Indicates whether this game is multi-player, co-op or single-player.  The game can be marked as multi-player, co-op and single-player at the same time."},
    :rdfs/domain {:owl/unionOf [:schema/VideoGameSeries :schema/VideoGame],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/playMode,
+   :rdfs/isDefinedBy "http://schema.org/playMode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "playMode"},
    :rdfs/range
@@ -28540,7 +28540,7 @@
     "Player type required&#x2014;for example, Flash or Silverlight."},
    :rdfs/domain {:owl/unionOf [:schema/MediaObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/playerType,
+   :rdfs/isDefinedBy "http://schema.org/playerType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "playerType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28554,7 +28554,7 @@
                       :rdf/value    "Number of players on the server."},
    :rdfs/domain      {:owl/unionOf [:schema/GameServer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/playersOnline,
+   :rdfs/isDefinedBy "http://schema.org/playersOnline",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "playersOnline"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -28570,7 +28570,7 @@
     "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical."},
    :rdfs/domain {:owl/unionOf [:schema/GeoShape],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/polygon,
+   :rdfs/isDefinedBy "http://schema.org/polygon",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "polygon"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28602,7 +28602,7 @@
                   "The position of an item in a series or sequence of items."},
    :rdfs/domain {:owl/unionOf [:schema/ListItem :schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/position,
+   :rdfs/isDefinedBy "http://schema.org/position",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "position"},
    :rdfs/range
@@ -28673,7 +28673,7 @@
                       "The post office box number for PO box addresses."},
    :rdfs/domain      {:owl/unionOf [:schema/PostalAddress],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/postOfficeBoxNumber,
+   :rdfs/isDefinedBy "http://schema.org/postOfficeBoxNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "postOfficeBoxNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28706,7 +28706,7 @@
                                     :schema/GeoShape
                                     :schema/DefinedRegion],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/postalCode,
+   :rdfs/isDefinedBy "http://schema.org/postalCode",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "postalCode"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -28785,7 +28785,7 @@
     "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role."},
    :rdfs/domain {:owl/unionOf [:schema/Thing],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/potentialAction,
+   :rdfs/isDefinedBy "http://schema.org/potentialAction",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "potentialAction"},
    :rdfs/range
@@ -28837,7 +28837,7 @@
     "A pointer from a previous, often discontinued variant of the product to its newer variant."},
    :rdfs/domain {:owl/unionOf [:schema/ProductModel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/predecessorOf,
+   :rdfs/isDefinedBy "http://schema.org/predecessorOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "predecessorOf"},
    :rdfs/range
@@ -28887,7 +28887,7 @@
     "The length of time it takes to prepare the items to be used in instructions or a direction, in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 duration format</a>."},
    :rdfs/domain {:owl/unionOf [:schema/HowToDirection :schema/HowTo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/prepTime,
+   :rdfs/isDefinedBy "http://schema.org/prepTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "prepTime"},
    :rdfs/range
@@ -28954,7 +28954,7 @@
                       "A link to the ListItem that precedes the current one."},
    :rdfs/domain      {:owl/unionOf [:schema/ListItem],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/previousItem,
+   :rdfs/isDefinedBy "http://schema.org/previousItem",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "previousItem"},
    :rdfs/range       {:owl/unionOf [:schema/ListItem
@@ -28973,7 +28973,7 @@
     "Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/previousStartDate,
+   :rdfs/isDefinedBy "http://schema.org/previousStartDate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "previousStartDate"},
    :rdfs/range {:owl/unionOf [:schema/Date],
@@ -28990,7 +28990,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/PriceSpecification :schema/TradeAction :schema/Offer],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/price,
+   :rdfs/isDefinedBy "http://schema.org/price",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "price"},
    :rdfs/range
@@ -29007,7 +29007,7 @@
     "This property links to all <a class=\"localLink\" href=\"https://schema.org/UnitPriceSpecification\">UnitPriceSpecification</a> nodes that apply in parallel for the <a class=\"localLink\" href=\"https://schema.org/CompoundPriceSpecification\">CompoundPriceSpecification</a> node."},
    :rdfs/domain {:owl/unionOf [:schema/CompoundPriceSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/priceComponent,
+   :rdfs/isDefinedBy "http://schema.org/priceComponent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "priceComponent"},
    :rdfs/range {:owl/unionOf [:schema/UnitPriceSpecification
@@ -29049,7 +29049,7 @@
                                :schema/Reservation
                                :schema/PriceSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/priceCurrency,
+   :rdfs/isDefinedBy "http://schema.org/priceCurrency",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "priceCurrency"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29065,7 +29065,7 @@
     "The price range of the business, for example <code>$$$</code>."},
    :rdfs/domain {:owl/unionOf [:schema/LocalBusiness],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/priceRange,
+   :rdfs/isDefinedBy "http://schema.org/priceRange",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "priceRange"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29082,7 +29082,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Demand :schema/Offer :schema/TradeAction],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/priceSpecification,
+   :rdfs/isDefinedBy "http://schema.org/priceSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "priceSpecification"},
    :rdfs/range {:owl/unionOf [:schema/PriceSpecification
@@ -29102,7 +29102,7 @@
    :rdfs/domain {:owl/unionOf [:schema/UnitPriceSpecification
                                :schema/CompoundPriceSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/priceType,
+   :rdfs/isDefinedBy "http://schema.org/priceType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "priceType"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -29120,7 +29120,7 @@
                       "The date after which the price is no longer available."},
    :rdfs/domain      {:owl/unionOf [:schema/Offer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/priceValidUntil,
+   :rdfs/isDefinedBy "http://schema.org/priceValidUntil",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "priceValidUntil"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -29134,7 +29134,7 @@
                       :rdf/value    "Indicates the main image on the page."},
    :rdfs/domain      {:owl/unionOf [:schema/WebPage],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/primaryImageOfPage,
+   :rdfs/isDefinedBy "http://schema.org/primaryImageOfPage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "primaryImageOfPage"},
    :rdfs/range       {:owl/unionOf [:schema/ImageObject
@@ -29170,7 +29170,7 @@
     "The number of the column in which the NewsArticle appears in the print edition."},
    :rdfs/domain {:owl/unionOf [:schema/NewsArticle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/printColumn,
+   :rdfs/isDefinedBy "http://schema.org/printColumn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "printColumn"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29186,7 +29186,7 @@
     "The edition of the print product in which the NewsArticle appears."},
    :rdfs/domain {:owl/unionOf [:schema/NewsArticle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/printEdition,
+   :rdfs/isDefinedBy "http://schema.org/printEdition",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "printEdition"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29202,7 +29202,7 @@
     "If this NewsArticle appears in print, this field indicates the name of the page on which the article is found. Please note that this field is intended for the exact page name (e.g. A5, B18)."},
    :rdfs/domain {:owl/unionOf [:schema/NewsArticle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/printPage,
+   :rdfs/isDefinedBy "http://schema.org/printPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "printPage"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29218,7 +29218,7 @@
     "If this NewsArticle appears in print, this field indicates the print section in which the article appeared."},
    :rdfs/domain {:owl/unionOf [:schema/NewsArticle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/printSection,
+   :rdfs/isDefinedBy "http://schema.org/printSection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "printSection"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29268,7 +29268,7 @@
     :rdf/value "Estimated processing time for the service using this channel."},
    :rdfs/domain {:owl/unionOf [:schema/ServiceChannel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/processingTime,
+   :rdfs/isDefinedBy "http://schema.org/processingTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "processingTime"},
    :rdfs/range
@@ -29285,7 +29285,7 @@
     "Processor architecture required to run the application (e.g. IA64)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/processorRequirements,
+   :rdfs/isDefinedBy "http://schema.org/processorRequirements",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "processorRequirements"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29301,7 +29301,7 @@
     "The person or organization who produced the work (e.g. music album, movie, TV/radio series etc.)."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/producer,
+   :rdfs/isDefinedBy "http://schema.org/producer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "producer"},
    :rdfs/range
@@ -29319,7 +29319,7 @@
     "The tangible thing generated by the service, e.g. a passport, permit, etc."},
    :rdfs/domain {:owl/unionOf [:schema/Service],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/produces,
+   :rdfs/isDefinedBy "http://schema.org/produces",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "produces"},
    :rdfs/range
@@ -29352,7 +29352,7 @@
     "The product identifier, such as ISBN. For example: <code>meta itemprop=\"productID\" content=\"isbn:123-456-789\"</code>."},
    :rdfs/domain {:owl/unionOf [:schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/productID,
+   :rdfs/isDefinedBy "http://schema.org/productID",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "productID"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29402,7 +29402,7 @@
     "The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\")."},
    :rdfs/domain {:owl/unionOf [:schema/ContactPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/productSupported,
+   :rdfs/isDefinedBy "http://schema.org/productSupported",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "productSupported"},
    :rdfs/range
@@ -29426,7 +29426,7 @@
                                :schema/MovieSeries
                                :schema/RadioSeries],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/productionCompany,
+   :rdfs/isDefinedBy "http://schema.org/productionCompany",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "productionCompany"},
    :rdfs/range
@@ -29442,7 +29442,7 @@
                       "The date of production of the item, e.g. vehicle."},
    :rdfs/domain      {:owl/unionOf [:schema/Product :schema/Vehicle],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/productionDate,
+   :rdfs/isDefinedBy "http://schema.org/productionDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "productionDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -29458,7 +29458,7 @@
     "Proficiency needed for this content; expected values: 'Beginner', 'Expert'."},
    :rdfs/domain {:owl/unionOf [:schema/TechArticle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/proficiencyLevel,
+   :rdfs/isDefinedBy "http://schema.org/proficiencyLevel",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "proficiencyLevel"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29474,7 +29474,7 @@
     "Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation."},
    :rdfs/domain {:owl/unionOf [:schema/Reservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/programMembershipUsed,
+   :rdfs/isDefinedBy "http://schema.org/programMembershipUsed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "programMembershipUsed"},
    :rdfs/range {:owl/unionOf [:schema/ProgramMembership
@@ -29491,7 +29491,7 @@
                       :rdf/value    "The program providing the membership."},
    :rdfs/domain      {:owl/unionOf [:schema/ProgramMembership],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/programName,
+   :rdfs/isDefinedBy "http://schema.org/programName",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "programName"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29541,7 +29541,7 @@
                       :rdf/value    "The computer programming language."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareSourceCode],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/programmingLanguage,
+   :rdfs/isDefinedBy "http://schema.org/programmingLanguage",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "programmingLanguage"},
    :rdfs/range       {:owl/unionOf [:schema/Text
@@ -29559,7 +29559,7 @@
                       "Indicates whether API is managed or unmanaged."},
    :rdfs/domain      {:owl/unionOf [:schema/APIReference],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/programmingModel,
+   :rdfs/isDefinedBy "http://schema.org/programmingModel",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "programmingModel"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29575,7 +29575,7 @@
     "A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be\n(1) a prefixed string, mainly meant to be used with standards for product properties; (2) a site-specific, non-prefixed string (e.g. the primary key of the property or the vendor-specific ID of the property), or (3)\na URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).\nStandards bodies should promote a standard prefix for the identifiers of properties from their standards."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/propertyID,
+   :rdfs/isDefinedBy "http://schema.org/propertyID",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "propertyID"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29605,7 +29605,7 @@
                       :rdf/value    "The number of grams of protein."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/proteinContent,
+   :rdfs/isDefinedBy "http://schema.org/proteinContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "proteinContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -29649,7 +29649,7 @@
     "Indicates the mobility of a provided service (e.g. 'static', 'dynamic')."},
    :rdfs/domain {:owl/unionOf [:schema/Service],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/providerMobility,
+   :rdfs/isDefinedBy "http://schema.org/providerMobility",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "providerMobility"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29665,7 +29665,7 @@
                       "The BroadcastService offered on this channel."},
    :rdfs/domain      {:owl/unionOf [:schema/BroadcastChannel],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/providesBroadcastService,
+   :rdfs/isDefinedBy "http://schema.org/providesBroadcastService",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "providesBroadcastService"},
    :rdfs/range       {:owl/unionOf [:schema/BroadcastService
@@ -29682,7 +29682,7 @@
                       :rdf/value    "The service provided by this channel."},
    :rdfs/domain      {:owl/unionOf [:schema/ServiceChannel],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/providesService,
+   :rdfs/isDefinedBy "http://schema.org/providesService",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "providesService"},
    :rdfs/range       {:owl/unionOf [:schema/Service
@@ -29701,7 +29701,7 @@
     "A flag to signal that the <a class=\"localLink\" href=\"https://schema.org/Place\">Place</a> is open to public visitors.  If this property is omitted there is no assumed default boolean value"},
    :rdfs/domain {:owl/unionOf [:schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/publicAccess,
+   :rdfs/isDefinedBy "http://schema.org/publicAccess",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "publicAccess"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -29734,7 +29734,7 @@
                       "A publication event associated with the item."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/publication,
+   :rdfs/isDefinedBy "http://schema.org/publication",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "publication"},
    :rdfs/range       {:owl/unionOf [:schema/PublicationEvent
@@ -29787,7 +29787,7 @@
                   "A broadcast service associated with the publication event."},
    :rdfs/domain {:owl/unionOf [:schema/PublicationEvent],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/publishedOn,
+   :rdfs/isDefinedBy "http://schema.org/publishedOn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "publishedOn"},
    :rdfs/range {:owl/unionOf [:schema/BroadcastService
@@ -29804,7 +29804,7 @@
                       :rdf/value    "The publisher of the creative work."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/publisher,
+   :rdfs/isDefinedBy "http://schema.org/publisher",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "publisher"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -29843,7 +29843,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/Organization :schema/Person :schema/CreativeWork],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/publishingPrinciples,
+   :rdfs/isDefinedBy "http://schema.org/publishingPrinciples",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "publishingPrinciples"},
    :rdfs/range
@@ -29860,7 +29860,7 @@
     "The date the item, e.g. vehicle, was purchased by the current owner."},
    :rdfs/domain {:owl/unionOf [:schema/Product :schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/purchaseDate,
+   :rdfs/isDefinedBy "http://schema.org/purchaseDate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "purchaseDate"},
    :rdfs/range {:owl/unionOf [:schema/Date],
@@ -29910,7 +29910,7 @@
     :rdf/value "A sub property of instrument. The query used on this action."},
    :rdfs/domain {:owl/unionOf [:schema/SearchAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/query,
+   :rdfs/isDefinedBy "http://schema.org/query",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "query"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -29927,7 +29927,7 @@
     "The task that a player-controlled character, or group of characters may complete in order to gain a reward."},
    :rdfs/domain {:owl/unionOf [:schema/VideoGameSeries :schema/Game],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/quest,
+   :rdfs/isDefinedBy "http://schema.org/quest",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "quest"},
    :rdfs/range
@@ -29942,7 +29942,7 @@
                         :rdf/value    "A sub property of object. A question."},
    :rdfs/domain        {:owl/unionOf [:schema/AskAction],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/question,
+   :rdfs/isDefinedBy   "http://schema.org/question",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "question"},
    :rdfs/range         {:owl/unionOf [:schema/Question
@@ -29977,7 +29977,7 @@
                       :rdf/value    "The count of total number of ratings."},
    :rdfs/domain      {:owl/unionOf [:schema/AggregateRating],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ratingCount,
+   :rdfs/isDefinedBy "http://schema.org/ratingCount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ratingCount"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -30009,7 +30009,7 @@
     "The rating for the content.<br/><br/>\n\nUsage guidelines:<br/><br/>\n\n<ul>\n<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.</li>\n<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>\n</ul>\n"},
    :rdfs/domain {:owl/unionOf [:schema/Rating],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ratingValue,
+   :rdfs/isDefinedBy "http://schema.org/ratingValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ratingValue"},
    :rdfs/range
@@ -30045,7 +30045,7 @@
     "Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a \"hidden\" input in an HTML form."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/readonlyValue,
+   :rdfs/isDefinedBy "http://schema.org/readonlyValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "readonlyValue"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -30061,7 +30061,7 @@
     "A sub property of participant. The real estate agent involved in the action."},
    :rdfs/domain {:owl/unionOf [:schema/RentAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/realEstateAgent,
+   :rdfs/isDefinedBy "http://schema.org/realEstateAgent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "realEstateAgent"},
    :rdfs/range {:owl/unionOf [:schema/RealEstateAgent
@@ -30081,7 +30081,7 @@
     "A sub property of instrument. The recipe/instructions used to perform the action."},
    :rdfs/domain {:owl/unionOf [:schema/CookAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recipe,
+   :rdfs/isDefinedBy "http://schema.org/recipe",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recipe"},
    :rdfs/range
@@ -30099,7 +30099,7 @@
     "The category of the recipe—for example, appetizer, entree, etc."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recipeCategory,
+   :rdfs/isDefinedBy "http://schema.org/recipeCategory",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recipeCategory"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -30114,7 +30114,7 @@
     :rdf/value "The cuisine of the recipe (for example, French or Ethiopian)."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recipeCuisine,
+   :rdfs/isDefinedBy "http://schema.org/recipeCuisine",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recipeCuisine"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -30130,7 +30130,7 @@
     "A single ingredient used in the recipe, e.g. sugar, flour or garlic."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recipeIngredient,
+   :rdfs/isDefinedBy "http://schema.org/recipeIngredient",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recipeIngredient"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -30147,7 +30147,7 @@
     "A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recipeInstructions,
+   :rdfs/isDefinedBy "http://schema.org/recipeInstructions",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recipeInstructions"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -30168,7 +30168,7 @@
     "The quantity produced by the recipe (for example, number of people served, number of servings, etc)."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recipeYield,
+   :rdfs/isDefinedBy "http://schema.org/recipeYield",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recipeYield"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -30196,7 +30196,7 @@
                                :schema/SendAction
                                :schema/AuthorizeAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recipient,
+   :rdfs/isDefinedBy "http://schema.org/recipient",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recipient"},
    :rdfs/range {:owl/unionOf [:schema/Organization
@@ -30285,7 +30285,7 @@
                       :rdf/value    "The label that issued the release."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicRelease],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recordLabel,
+   :rdfs/isDefinedBy "http://schema.org/recordLabel",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "recordLabel"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -30303,7 +30303,7 @@
                       :rdf/value    "An audio recording of the work."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicComposition],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recordedAs,
+   :rdfs/isDefinedBy "http://schema.org/recordedAs",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "recordedAs"},
    :rdfs/range       {:owl/unionOf [:schema/MusicRecording
@@ -30323,7 +30323,7 @@
     "The Event where the CreativeWork was recorded. The CreativeWork may capture all or part of the event."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recordedAt,
+   :rdfs/isDefinedBy "http://schema.org/recordedAt",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recordedAt"},
    :rdfs/range
@@ -30340,7 +30340,7 @@
                   "The CreativeWork that captured all or part of this Event."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recordedIn,
+   :rdfs/isDefinedBy "http://schema.org/recordedIn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "recordedIn"},
    :rdfs/range
@@ -30357,7 +30357,7 @@
                       "The composition this track is a recording of."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicRecording],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/recordingOf,
+   :rdfs/isDefinedBy "http://schema.org/recordingOf",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "recordingOf"},
    :rdfs/range       {:owl/unionOf [:schema/MusicComposition
@@ -30392,7 +30392,7 @@
     "The reference quantity for which a certain price applies, e.g. 1 EUR per 4 kWh of electricity. This property is a replacement for unitOfMeasurement for the advanced cases where the price does not relate to a standard unit."},
    :rdfs/domain {:owl/unionOf [:schema/UnitPriceSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/referenceQuantity,
+   :rdfs/isDefinedBy "http://schema.org/referenceQuantity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "referenceQuantity"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
@@ -30411,7 +30411,7 @@
     "The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice."},
    :rdfs/domain {:owl/unionOf [:schema/Invoice],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/referencesOrder,
+   :rdfs/isDefinedBy "http://schema.org/referencesOrder",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "referencesOrder"},
    :rdfs/range
@@ -30465,7 +30465,7 @@
     "The regions where the media is allowed. If not specified, then it's assumed to be allowed everywhere. Specify the countries in <a href=\"http://en.wikipedia.org/wiki/ISO_3166\">ISO 3166 format</a>."},
    :rdfs/domain {:owl/unionOf [:schema/MediaObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/regionsAllowed,
+   :rdfs/isDefinedBy "http://schema.org/regionsAllowed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "regionsAllowed"},
    :rdfs/range
@@ -30539,7 +30539,7 @@
     "A link related to this web page, for example to other related web pages."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/relatedLink,
+   :rdfs/isDefinedBy "http://schema.org/relatedLink",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "relatedLink"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -30591,7 +30591,7 @@
                       :rdf/value    "The most generic familial relation."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/relatedTo,
+   :rdfs/isDefinedBy "http://schema.org/relatedTo",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "relatedTo"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -30610,7 +30610,7 @@
     "The release date of a product or product model. This can be used to distinguish the exact variant of a product."},
    :rdfs/domain {:owl/unionOf [:schema/Product],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/releaseDate,
+   :rdfs/isDefinedBy "http://schema.org/releaseDate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "releaseDate"},
    :rdfs/range {:owl/unionOf [:schema/Date],
@@ -30625,7 +30625,7 @@
                       "Description of what changed in this version."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/releaseNotes,
+   :rdfs/isDefinedBy "http://schema.org/releaseNotes",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "releaseNotes"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -30640,7 +30640,7 @@
                       :rdf/value    "The album this is a release of."},
    :rdfs/domain      {:owl/unionOf [:schema/MusicRelease],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/releaseOf,
+   :rdfs/isDefinedBy "http://schema.org/releaseOf",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "releaseOf"},
    :rdfs/range       {:owl/unionOf [:schema/MusicAlbum
@@ -30659,7 +30659,7 @@
     "The place and time the release was issued, expressed as a PublicationEvent."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/releasedEvent,
+   :rdfs/isDefinedBy "http://schema.org/releasedEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "releasedEvent"},
    :rdfs/range {:owl/unionOf [:schema/PublicationEvent
@@ -30676,7 +30676,7 @@
                       :rdf/value    "The Occupation for the JobPosting."},
    :rdfs/domain      {:owl/unionOf [:schema/JobPosting],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/relevantOccupation,
+   :rdfs/isDefinedBy "http://schema.org/relevantOccupation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "relevantOccupation"},
    :rdfs/range       {:owl/unionOf [:schema/Occupation
@@ -30714,7 +30714,7 @@
     "The number of attendee places for an event that remain unallocated."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/remainingAttendeeCapacity,
+   :rdfs/isDefinedBy "http://schema.org/remainingAttendeeCapacity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "remainingAttendeeCapacity"},
    :rdfs/range {:owl/unionOf [:schema/Integer],
@@ -30798,7 +30798,7 @@
     :rdf/value "A sub property of object. The object that is being replaced."},
    :rdfs/domain {:owl/unionOf [:schema/ReplaceAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/replacee,
+   :rdfs/isDefinedBy "http://schema.org/replacee",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "replacee"},
    :rdfs/range
@@ -30815,7 +30815,7 @@
                         "A sub property of object. The object that replaces."},
    :rdfs/domain        {:owl/unionOf [:schema/ReplaceAction],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/replacer,
+   :rdfs/isDefinedBy   "http://schema.org/replacer",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "replacer"},
    :rdfs/range         {:owl/unionOf [:schema/Thing
@@ -30835,7 +30835,7 @@
     "The URL at which a reply may be posted to the specified UserComment."},
    :rdfs/domain {:owl/unionOf [:schema/UserComments],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/replyToUrl,
+   :rdfs/isDefinedBy "http://schema.org/replyToUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "replyToUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -30851,7 +30851,7 @@
     "The number or other unique designator assigned to a Report by the publishing organization."},
    :rdfs/domain {:owl/unionOf [:schema/Report],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reportNumber,
+   :rdfs/isDefinedBy "http://schema.org/reportNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "reportNumber"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -30867,7 +30867,7 @@
     "Indicates whether this image is representative of the content of the page."},
    :rdfs/domain {:owl/unionOf [:schema/ImageObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/representativeOfPage,
+   :rdfs/isDefinedBy "http://schema.org/representativeOfPage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "representativeOfPage"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -30883,7 +30883,7 @@
     "Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)"},
    :rdfs/domain {:owl/unionOf [:schema/LoanOrCredit],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/requiredCollateral,
+   :rdfs/isDefinedBy "http://schema.org/requiredCollateral",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "requiredCollateral"},
    :rdfs/range
@@ -30898,7 +30898,7 @@
                       :rdf/value    "Audiences defined by a person's gender."},
    :rdfs/domain      {:owl/unionOf [:schema/PeopleAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/requiredGender,
+   :rdfs/isDefinedBy "http://schema.org/requiredGender",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "requiredGender"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -30913,7 +30913,7 @@
                       "Audiences defined by a person's maximum age."},
    :rdfs/domain      {:owl/unionOf [:schema/PeopleAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/requiredMaxAge,
+   :rdfs/isDefinedBy "http://schema.org/requiredMaxAge",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "requiredMaxAge"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -30928,7 +30928,7 @@
                       "Audiences defined by a person's minimum age."},
    :rdfs/domain      {:owl/unionOf [:schema/PeopleAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/requiredMinAge,
+   :rdfs/isDefinedBy "http://schema.org/requiredMinAge",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "requiredMinAge"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -30942,7 +30942,7 @@
                       :rdf/value    "The required quantity of the item(s)."},
    :rdfs/domain      {:owl/unionOf [:schema/HowToItem],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/requiredQuantity,
+   :rdfs/isDefinedBy "http://schema.org/requiredQuantity",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "requiredQuantity"},
    :rdfs/range       {:owl/unionOf [:schema/Text
@@ -30962,7 +30962,7 @@
     "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/requirements,
+   :rdfs/isDefinedBy "http://schema.org/requirements",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "requirements"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -30980,7 +30980,7 @@
    :rdfs/domain {:owl/unionOf [:schema/ActionAccessSpecification
                                :schema/MediaObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/requiresSubscription,
+   :rdfs/isDefinedBy "http://schema.org/requiresSubscription",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "requiresSubscription"},
    :rdfs/range {:owl/unionOf [:schema/MediaSubscription
@@ -30999,7 +30999,7 @@
     :rdf/value "The thing -- flight, event, restaurant, etc. being reserved."},
    :rdfs/domain {:owl/unionOf [:schema/Reservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reservationFor,
+   :rdfs/isDefinedBy "http://schema.org/reservationFor",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "reservationFor"},
    :rdfs/range
@@ -31014,7 +31014,7 @@
                       :rdf/value    "A unique identifier for the reservation."},
    :rdfs/domain      {:owl/unionOf [:schema/Reservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reservationId,
+   :rdfs/isDefinedBy "http://schema.org/reservationId",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "reservationId"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31028,7 +31028,7 @@
                       :rdf/value    "The current status of the reservation."},
    :rdfs/domain      {:owl/unionOf [:schema/Reservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reservationStatus,
+   :rdfs/isDefinedBy "http://schema.org/reservationStatus",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "reservationStatus"},
    :rdfs/range       {:owl/unionOf [:schema/ReservationStatusType
@@ -31045,7 +31045,7 @@
                       :rdf/value "A ticket associated with the reservation."},
    :rdfs/domain      {:owl/unionOf [:schema/Reservation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reservedTicket,
+   :rdfs/isDefinedBy "http://schema.org/reservedTicket",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "reservedTicket"},
    :rdfs/range       {:owl/unionOf [:schema/Ticket
@@ -31063,7 +31063,7 @@
                   "Responsibilities associated with this role or Occupation."},
    :rdfs/domain {:owl/unionOf [:schema/Occupation :schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/responsibilities,
+   :rdfs/isDefinedBy "http://schema.org/responsibilities",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "responsibilities"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31117,7 +31117,7 @@
     "The result produced in the action. E.g. John wrote <em>a book</em>."},
    :rdfs/domain {:owl/unionOf [:schema/Action],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/result,
+   :rdfs/isDefinedBy "http://schema.org/result",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "result"},
    :rdfs/range
@@ -31134,7 +31134,7 @@
     "A sub property of result. The Comment created or sent as a result of this action."},
    :rdfs/domain {:owl/unionOf [:schema/ReplyAction :schema/CommentAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/resultComment,
+   :rdfs/isDefinedBy "http://schema.org/resultComment",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "resultComment"},
    :rdfs/range
@@ -31152,7 +31152,7 @@
     "A sub property of result. The review that resulted in the performing of the action."},
    :rdfs/domain {:owl/unionOf [:schema/ReviewAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/resultReview,
+   :rdfs/isDefinedBy "http://schema.org/resultReview",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "resultReview"},
    :rdfs/range
@@ -31302,7 +31302,7 @@
                                     :schema/Service
                                     :schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/review,
+   :rdfs/isDefinedBy "http://schema.org/review",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "review"},
    :rdfs/range       {:owl/unionOf [:schema/Review
@@ -31321,7 +31321,7 @@
     "This Review or Rating is relevant to this part or facet of the itemReviewed."},
    :rdfs/domain {:owl/unionOf [:schema/Review :schema/Rating :schema/Guide],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reviewAspect,
+   :rdfs/isDefinedBy "http://schema.org/reviewAspect",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "reviewAspect"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31335,7 +31335,7 @@
                       :rdf/value    "The actual body of the review."},
    :rdfs/domain      {:owl/unionOf [:schema/Review],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reviewBody,
+   :rdfs/isDefinedBy "http://schema.org/reviewBody",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "reviewBody"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31349,7 +31349,7 @@
                       :rdf/value    "The count of total number of reviews."},
    :rdfs/domain      {:owl/unionOf [:schema/AggregateRating],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reviewCount,
+   :rdfs/isDefinedBy "http://schema.org/reviewCount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "reviewCount"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -31365,7 +31365,7 @@
     "The rating given in this review. Note that reviews can themselves be rated. The <code>reviewRating</code> applies to rating given by the review. The <a class=\"localLink\" href=\"https://schema.org/aggregateRating\">aggregateRating</a> property applies to the review itself, as a creative work."},
    :rdfs/domain {:owl/unionOf [:schema/Review],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reviewRating,
+   :rdfs/isDefinedBy "http://schema.org/reviewRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "reviewRating"},
    :rdfs/range
@@ -31382,7 +31382,7 @@
     "People or organizations that have reviewed the content on this web page for accuracy and/or completeness."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/reviewedBy,
+   :rdfs/isDefinedBy "http://schema.org/reviewedBy",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "reviewedBy"},
    :rdfs/range
@@ -31402,7 +31402,7 @@
                                        :schema/Place
                                        :schema/Organization],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/reviews,
+   :rdfs/isDefinedBy    "http://schema.org/reviews",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "reviews"},
    :rdfs/range          {:owl/unionOf [:schema/Review
@@ -31456,7 +31456,7 @@
     "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'."},
    :rdfs/domain {:owl/unionOf [:schema/Role],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/roleName,
+   :rdfs/isDefinedBy "http://schema.org/roleName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "roleName"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31489,7 +31489,7 @@
                       :rdf/value "The response (yes, no, maybe) to the RSVP."},
    :rdfs/domain      {:owl/unionOf [:schema/RsvpAction],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/rsvpResponse,
+   :rdfs/isDefinedBy "http://schema.org/rsvpResponse",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "rsvpResponse"},
    :rdfs/range       {:owl/unionOf [:schema/RsvpResponseType
@@ -31525,7 +31525,7 @@
     "Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareSourceCode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/runtime,
+   :rdfs/isDefinedBy "http://schema.org/runtime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "runtime"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31542,7 +31542,7 @@
     "Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareSourceCode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/runtimePlatform,
+   :rdfs/isDefinedBy "http://schema.org/runtimePlatform",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "runtimePlatform"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31588,7 +31588,7 @@
     "The currency (coded using <a href=\"http://en.wikipedia.org/wiki/ISO_4217\">ISO 4217</a>) used for the main salary information in this job posting or for this employee."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting :schema/EmployeeRole],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/salaryCurrency,
+   :rdfs/isDefinedBy "http://schema.org/salaryCurrency",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "salaryCurrency"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31622,7 +31622,7 @@
     "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."},
    :rdfs/domain {:owl/unionOf [:schema/Thing],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sameAs,
+   :rdfs/isDefinedBy "http://schema.org/sameAs",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sameAs"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -31638,7 +31638,7 @@
     "What type of code sample: full (compile ready) solution, code snippet, inline code, scripts, template."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareSourceCode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sampleType,
+   :rdfs/isDefinedBy "http://schema.org/sampleType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sampleType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31653,7 +31653,7 @@
                       :rdf/value    "The number of grams of saturated fat."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/saturatedFatContent,
+   :rdfs/isDefinedBy "http://schema.org/saturatedFatContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "saturatedFatContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -31687,7 +31687,7 @@
                       "The date the invoice is scheduled to be paid."},
    :rdfs/domain      {:owl/unionOf [:schema/Invoice],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/scheduledPaymentDate,
+   :rdfs/isDefinedBy "http://schema.org/scheduledPaymentDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "scheduledPaymentDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -31701,7 +31701,7 @@
                       :rdf/value    "The time the object is scheduled to."},
    :rdfs/domain      {:owl/unionOf [:schema/PlanAction],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/scheduledTime,
+   :rdfs/isDefinedBy "http://schema.org/scheduledTime",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "scheduledTime"},
    :rdfs/range       {:owl/unionOf [:schema/DateTime],
@@ -31717,7 +31717,7 @@
     "Indicates (by URL or string) a particular version of a schema used in some CreativeWork. This property was created primarily to\n    indicate the use of a specific schema.org release, e.g. <code>10.0</code> as a simple string, or more explicitly via URL, <code>https://schema.org/docs/releases.html#v10.0</code>. There may be situations in which other schemas might usefully be referenced this way, e.g. <code>http://dublincore.org/specifications/dublin-core/dces/1999-07-02/</code> but this has not been carefully explored in the community."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/schemaVersion,
+   :rdfs/isDefinedBy "http://schema.org/schemaVersion",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "schemaVersion"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -31748,7 +31748,7 @@
                       :rdf/value "The number of screens in the movie theater."},
    :rdfs/domain      {:owl/unionOf [:schema/MovieTheater],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/screenCount,
+   :rdfs/isDefinedBy "http://schema.org/screenCount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "screenCount"},
    :rdfs/range       {:owl/unionOf [:schema/Number],
@@ -31762,7 +31762,7 @@
                       :rdf/value    "A link to a screenshot image of the app."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/screenshot,
+   :rdfs/isDefinedBy "http://schema.org/screenshot",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "screenshot"},
    :rdfs/range       {:owl/unionOf [:schema/URL
@@ -31832,7 +31832,7 @@
                                        :schema/TVSeries
                                        :schema/RadioSeries],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/season,
+   :rdfs/isDefinedBy    "http://schema.org/season",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "season"},
    :rdfs/range          {:owl/unionOf [:schema/URL
@@ -31852,7 +31852,7 @@
                   "Position of the season within an ordered group of seasons."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWorkSeason],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/seasonNumber,
+   :rdfs/isDefinedBy "http://schema.org/seasonNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "seasonNumber"},
    :rdfs/range
@@ -31870,7 +31870,7 @@
                                        :schema/RadioSeries
                                        :schema/VideoGameSeries],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/seasons,
+   :rdfs/isDefinedBy    "http://schema.org/seasons",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "seasons"},
    :rdfs/range          {:owl/unionOf [:schema/CreativeWorkSeason
@@ -31889,7 +31889,7 @@
                       "The location of the reserved seat (e.g., 27)."},
    :rdfs/domain      {:owl/unionOf [:schema/Seat],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/seatNumber,
+   :rdfs/isDefinedBy "http://schema.org/seatNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "seatNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31904,7 +31904,7 @@
                       "The row location of the reserved seat (e.g., B)."},
    :rdfs/domain      {:owl/unionOf [:schema/Seat],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/seatRow,
+   :rdfs/isDefinedBy "http://schema.org/seatRow",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "seatRow"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31919,7 +31919,7 @@
     :rdf/value "The section location of the reserved seat (e.g. Orchestra)."},
    :rdfs/domain {:owl/unionOf [:schema/Seat],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/seatSection,
+   :rdfs/isDefinedBy "http://schema.org/seatSection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "seatSection"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -31953,7 +31953,7 @@
                       :rdf/value    "The type/class of the seat."},
    :rdfs/domain      {:owl/unionOf [:schema/Seat],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/seatingType,
+   :rdfs/isDefinedBy "http://schema.org/seatingType",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "seatingType"},
    :rdfs/range       {:owl/unionOf [:schema/Text
@@ -32004,7 +32004,7 @@
     :rdf/value "The type of security screening the passenger is subject to."},
    :rdfs/domain {:owl/unionOf [:schema/FlightReservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/securityScreening,
+   :rdfs/isDefinedBy "http://schema.org/securityScreening",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "securityScreening"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32020,7 +32020,7 @@
     "A pointer to products or services sought by the organization or person (demand)."},
    :rdfs/domain {:owl/unionOf [:schema/Organization :schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/seeks,
+   :rdfs/isDefinedBy "http://schema.org/seeks",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "seeks"},
    :rdfs/range
@@ -32041,7 +32041,7 @@
                                :schema/Order
                                :schema/Flight],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/seller,
+   :rdfs/isDefinedBy "http://schema.org/seller",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "seller"},
    :rdfs/range
@@ -32060,7 +32060,7 @@
     "A sub property of participant. The participant who is at the sending end of the action."},
    :rdfs/domain {:owl/unionOf [:schema/Message :schema/ReceiveAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sender,
+   :rdfs/isDefinedBy "http://schema.org/sender",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sender"},
    :rdfs/range {:owl/unionOf [:schema/Audience
@@ -32120,7 +32120,7 @@
    :rdfs/domain
    {:owl/unionOf [:schema/IndividualProduct :schema/Demand :schema/Offer],
     :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serialNumber,
+   :rdfs/isDefinedBy "http://schema.org/serialNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "serialNumber"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32152,7 +32152,7 @@
                       :rdf/value    "Status of a game server."},
    :rdfs/domain      {:owl/unionOf [:schema/GameServer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serverStatus,
+   :rdfs/isDefinedBy "http://schema.org/serverStatus",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "serverStatus"},
    :rdfs/range       {:owl/unionOf [:schema/GameServerStatus
@@ -32169,7 +32169,7 @@
                       :rdf/value    "The cuisine of the restaurant."},
    :rdfs/domain      {:owl/unionOf [:schema/FoodEstablishment],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/servesCuisine,
+   :rdfs/isDefinedBy "http://schema.org/servesCuisine",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "servesCuisine"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32186,7 +32186,7 @@
                                        :schema/Organization
                                        :schema/ContactPoint],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/serviceArea,
+   :rdfs/isDefinedBy    "http://schema.org/serviceArea",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "serviceArea"},
    :rdfs/range          {:owl/unionOf [:schema/AdministrativeArea
@@ -32206,7 +32206,7 @@
                          :rdf/value "The audience eligible for this service."},
    :rdfs/domain         {:owl/unionOf [:schema/Service],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/serviceAudience,
+   :rdfs/isDefinedBy    "http://schema.org/serviceAudience",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "serviceAudience"},
    :rdfs/range          {:owl/unionOf [:schema/Audience
@@ -32226,7 +32226,7 @@
     "The location (e.g. civic structure, local business, etc.) where a person can go to access the service."},
    :rdfs/domain {:owl/unionOf [:schema/ServiceChannel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serviceLocation,
+   :rdfs/isDefinedBy "http://schema.org/serviceLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "serviceLocation"},
    :rdfs/range
@@ -32243,7 +32243,7 @@
     "The operating organization, if different from the provider.  This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor."},
    :rdfs/domain {:owl/unionOf [:schema/GovernmentService],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serviceOperator,
+   :rdfs/isDefinedBy "http://schema.org/serviceOperator",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "serviceOperator"},
    :rdfs/range
@@ -32260,7 +32260,7 @@
     "The tangible thing generated by the service, e.g. a passport, permit, etc."},
    :rdfs/domain {:owl/unionOf [:schema/Service],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serviceOutput,
+   :rdfs/isDefinedBy "http://schema.org/serviceOutput",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "serviceOutput"},
    :rdfs/range
@@ -32276,7 +32276,7 @@
                       "The phone number to use to access the service."},
    :rdfs/domain      {:owl/unionOf [:schema/ServiceChannel],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/servicePhone,
+   :rdfs/isDefinedBy "http://schema.org/servicePhone",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "servicePhone"},
    :rdfs/range       {:owl/unionOf [:schema/ContactPoint
@@ -32294,7 +32294,7 @@
                       "The address for accessing the service by mail."},
    :rdfs/domain      {:owl/unionOf [:schema/ServiceChannel],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/servicePostalAddress,
+   :rdfs/isDefinedBy "http://schema.org/servicePostalAddress",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "servicePostalAddress"},
    :rdfs/range       {:owl/unionOf [:schema/PostalAddress
@@ -32312,7 +32312,7 @@
                       "The number to access the service by text message."},
    :rdfs/domain      {:owl/unionOf [:schema/ServiceChannel],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serviceSmsNumber,
+   :rdfs/isDefinedBy "http://schema.org/serviceSmsNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "serviceSmsNumber"},
    :rdfs/range       {:owl/unionOf [:schema/ContactPoint
@@ -32331,7 +32331,7 @@
     "The type of service being offered, e.g. veterans' benefits, emergency relief, etc."},
    :rdfs/domain {:owl/unionOf [:schema/Service],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serviceType,
+   :rdfs/isDefinedBy "http://schema.org/serviceType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "serviceType"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -32348,7 +32348,7 @@
                       :rdf/value    "The website to access the service."},
    :rdfs/domain      {:owl/unionOf [:schema/ServiceChannel],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/serviceUrl,
+   :rdfs/isDefinedBy "http://schema.org/serviceUrl",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "serviceUrl"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -32363,7 +32363,7 @@
     :rdf/value "The serving size, in terms of the number of volume or mass."},
    :rdfs/domain {:owl/unionOf [:schema/NutritionInformation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/servingSize,
+   :rdfs/isDefinedBy "http://schema.org/servingSize",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "servingSize"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32396,7 +32396,7 @@
     "A CreativeWork such as an image, video, or audio clip shared as part of this posting."},
    :rdfs/domain {:owl/unionOf [:schema/SocialMediaPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sharedContent,
+   :rdfs/isDefinedBy "http://schema.org/sharedContent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sharedContent"},
    :rdfs/range
@@ -32517,7 +32517,7 @@
                       :rdf/value    "A sibling of the person."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sibling,
+   :rdfs/isDefinedBy "http://schema.org/sibling",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "sibling"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -32534,7 +32534,7 @@
                          :rdf/value    "A sibling of the person."},
    :rdfs/domain         {:owl/unionOf [:schema/Person],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/siblings,
+   :rdfs/isDefinedBy    "http://schema.org/siblings",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "siblings"},
    :rdfs/range          {:owl/unionOf [:schema/Person
@@ -32606,7 +32606,7 @@
     "One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/significantLink,
+   :rdfs/isDefinedBy "http://schema.org/significantLink",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "significantLink"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -32622,7 +32622,7 @@
     "The most significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/significantLinks,
+   :rdfs/isDefinedBy "http://schema.org/significantLinks",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "significantLinks"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -32698,7 +32698,7 @@
     "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is desired or required to fulfill this role or to work in this occupation."},
    :rdfs/domain {:owl/unionOf [:schema/Occupation :schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/skills,
+   :rdfs/isDefinedBy "http://schema.org/skills",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "skills"},
    :rdfs/range
@@ -32715,7 +32715,7 @@
     "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers."},
    :rdfs/domain {:owl/unionOf [:schema/Demand :schema/Product :schema/Offer],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sku,
+   :rdfs/isDefinedBy "http://schema.org/sku",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sku"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32734,7 +32734,7 @@
                                     :schema/Brand
                                     :schema/Place],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/slogan,
+   :rdfs/isDefinedBy "http://schema.org/slogan",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "slogan"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32767,7 +32767,7 @@
     "Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room."},
    :rdfs/domain {:owl/unionOf [:schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/smokingAllowed,
+   :rdfs/isDefinedBy "http://schema.org/smokingAllowed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "smokingAllowed"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -32781,7 +32781,7 @@
                       :rdf/value    "The number of milligrams of sodium."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sodiumContent,
+   :rdfs/isDefinedBy "http://schema.org/sodiumContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "sodiumContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -32799,7 +32799,7 @@
                       "Additional content for a software application."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/softwareAddOn,
+   :rdfs/isDefinedBy "http://schema.org/softwareAddOn",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "softwareAddOn"},
    :rdfs/range       {:owl/unionOf [:schema/SoftwareApplication
@@ -32816,7 +32816,7 @@
                       :rdf/value    "Software application help."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/softwareHelp,
+   :rdfs/isDefinedBy "http://schema.org/softwareHelp",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "softwareHelp"},
    :rdfs/range       {:owl/unionOf [:schema/CreativeWork
@@ -32835,7 +32835,7 @@
     "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime)."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareApplication],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/softwareRequirements,
+   :rdfs/isDefinedBy "http://schema.org/softwareRequirements",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "softwareRequirements"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32849,7 +32849,7 @@
                       :rdf/value    "Version of the software instance."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/softwareVersion,
+   :rdfs/isDefinedBy "http://schema.org/softwareVersion",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "softwareVersion"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32864,7 +32864,7 @@
                   "The Organization on whose behalf the creator was working."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sourceOrganization,
+   :rdfs/isDefinedBy "http://schema.org/sourceOrganization",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sourceOrganization"},
    :rdfs/range
@@ -32899,7 +32899,7 @@
     "The \"spatial\" property can be used in cases when more specific properties\n(e.g. <a class=\"localLink\" href=\"https://schema.org/locationCreated\">locationCreated</a>, <a class=\"localLink\" href=\"https://schema.org/spatialCoverage\">spatialCoverage</a>, <a class=\"localLink\" href=\"https://schema.org/contentLocation\">contentLocation</a>) are not known to be appropriate."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/spatial,
+   :rdfs/isDefinedBy "http://schema.org/spatial",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "spatial"},
    :rdfs/range
@@ -32916,7 +32916,7 @@
     "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content. It is a subproperty of\n      contentLocation intended primarily for more technical and detailed materials. For example with a Dataset, it indicates\n      areas that the dataset describes: a dataset of New York weather would have spatialCoverage which was the place: the state of New York."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/spatialCoverage,
+   :rdfs/isDefinedBy "http://schema.org/spatialCoverage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "spatialCoverage"},
    :rdfs/range
@@ -32934,7 +32934,7 @@
     "Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.<br/><br/>\n\nThe <em>speakable</em> property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:<br/><br/>\n\n1.) <em>id-value</em> URL references - uses <em>id-value</em> of an element in the page being annotated. The simplest use of <em>speakable</em> has (potentially relative) URL values, referencing identified sections of the document concerned.<br/><br/>\n\n2.) CSS Selectors - addresses content in the annotated page, e.g. via class attribute. Use the <a class=\"localLink\" href=\"https://schema.org/cssSelector\">cssSelector</a> property.<br/><br/>\n\n3.)  XPaths - addresses content via XPaths (assuming an XML view of the content). Use the <a class=\"localLink\" href=\"https://schema.org/xpath\">xpath</a> property.<br/><br/>\n\nFor more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this\nwe define a supporting type, <a class=\"localLink\" href=\"https://schema.org/SpeakableSpecification\">SpeakableSpecification</a>  which is defined to be a possible value of the <em>speakable</em> property."},
    :rdfs/domain {:owl/unionOf [:schema/Article :schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/speakable,
+   :rdfs/isDefinedBy "http://schema.org/speakable",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "speakable"},
    :rdfs/range {:owl/unionOf [:schema/SpeakableSpecification
@@ -32953,7 +32953,7 @@
     "Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/specialCommitments,
+   :rdfs/isDefinedBy "http://schema.org/specialCommitments",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "specialCommitments"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -32969,7 +32969,7 @@
     "The special opening hours of a certain place.<br/><br/>\n\nUse this to explicitly override general opening hours brought in scope by <a class=\"localLink\" href=\"https://schema.org/openingHoursSpecification\">openingHoursSpecification</a> or <a class=\"localLink\" href=\"https://schema.org/openingHours\">openingHours</a>."},
    :rdfs/domain {:owl/unionOf [:schema/Place],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/specialOpeningHoursSpecification,
+   :rdfs/isDefinedBy "http://schema.org/specialOpeningHoursSpecification",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "specialOpeningHoursSpecification"},
    :rdfs/range {:owl/unionOf [:schema/OpeningHoursSpecification
@@ -32988,7 +32988,7 @@
     "One of the domain specialities to which this web page's content applies."},
    :rdfs/domain {:owl/unionOf [:schema/WebPage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/specialty,
+   :rdfs/isDefinedBy "http://schema.org/specialty",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "specialty"},
    :rdfs/range
@@ -33063,7 +33063,7 @@
                                :schema/MedicalStudy
                                :schema/Grant],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sponsor,
+   :rdfs/isDefinedBy "http://schema.org/sponsor",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sponsor"},
    :rdfs/range
@@ -33096,7 +33096,7 @@
     "A sub property of location. The sports activity location where this action occurred."},
    :rdfs/domain {:owl/unionOf [:schema/ExerciseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sportsActivityLocation,
+   :rdfs/isDefinedBy "http://schema.org/sportsActivityLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sportsActivityLocation"},
    :rdfs/range {:owl/unionOf [:schema/SportsActivityLocation
@@ -33116,7 +33116,7 @@
     "A sub property of location. The sports event where this action occurred."},
    :rdfs/domain {:owl/unionOf [:schema/ExerciseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sportsEvent,
+   :rdfs/isDefinedBy "http://schema.org/sportsEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sportsEvent"},
    :rdfs/range
@@ -33134,7 +33134,7 @@
     "A sub property of participant. The sports team that participated on this action."},
    :rdfs/domain {:owl/unionOf [:schema/ExerciseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sportsTeam,
+   :rdfs/isDefinedBy "http://schema.org/sportsTeam",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "sportsTeam"},
    :rdfs/range
@@ -33150,7 +33150,7 @@
                       :rdf/value    "The person's spouse."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/spouse,
+   :rdfs/isDefinedBy "http://schema.org/spouse",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "spouse"},
    :rdfs/range       {:owl/unionOf [:schema/Person
@@ -33201,7 +33201,7 @@
    :rdfs/domain {:owl/unionOf [:schema/FoodEstablishment
                                :schema/LodgingBusiness],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/starRating,
+   :rdfs/isDefinedBy "http://schema.org/starRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "starRating"},
    :rdfs/range
@@ -33225,7 +33225,7 @@
                                :schema/EducationalOccupationalProgram
                                :schema/Schedule],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/startDate,
+   :rdfs/isDefinedBy "http://schema.org/startDate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "startDate"},
    :rdfs/range {:owl/unionOf [:schema/DateTime :schema/Date],
@@ -33265,7 +33265,7 @@
                                :schema/FoodEstablishmentReservation
                                :schema/Schedule],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/startTime,
+   :rdfs/isDefinedBy "http://schema.org/startTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "startTime"},
    :rdfs/range {:owl/unionOf [:schema/Time :schema/DateTime],
@@ -33301,7 +33301,7 @@
     "The position of the steering wheel or similar device (mostly for cars)."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/steeringPosition,
+   :rdfs/isDefinedBy "http://schema.org/steeringPosition",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "steeringPosition"},
    :rdfs/range {:owl/unionOf [:schema/SteeringPositionValue
@@ -33320,7 +33320,7 @@
     "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection."},
    :rdfs/domain {:owl/unionOf [:schema/HowTo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/step,
+   :rdfs/isDefinedBy "http://schema.org/step",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "step"},
    :rdfs/range {:owl/unionOf [:schema/HowToSection
@@ -33341,7 +33341,7 @@
     "The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/stepValue,
+   :rdfs/isDefinedBy "http://schema.org/stepValue",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "stepValue"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -33357,7 +33357,7 @@
     "A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred)."},
    :rdfs/domain {:owl/unionOf [:schema/HowToSection :schema/HowTo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/steps,
+   :rdfs/isDefinedBy "http://schema.org/steps",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "steps"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -33376,7 +33376,7 @@
                       :rdf/value "Storage requirements (free space required)."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/storageRequirements,
+   :rdfs/isDefinedBy "http://schema.org/storageRequirements",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "storageRequirements"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -33391,7 +33391,7 @@
                   "The street address. For example, 1600 Amphitheatre Pkwy."},
    :rdfs/domain {:owl/unionOf [:schema/PostalAddress],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/streetAddress,
+   :rdfs/isDefinedBy "http://schema.org/streetAddress",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "streetAddress"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -33542,7 +33542,7 @@
     "An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/subEvent,
+   :rdfs/isDefinedBy "http://schema.org/subEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "subEvent"},
    :rdfs/range
@@ -33559,7 +33559,7 @@
     "Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/subEvents,
+   :rdfs/isDefinedBy "http://schema.org/subEvents",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "subEvents"},
    :rdfs/range
@@ -33578,7 +33578,7 @@
     "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property."},
    :rdfs/domain {:owl/unionOf [:schema/Organization],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/subOrganization,
+   :rdfs/isDefinedBy "http://schema.org/subOrganization",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "subOrganization"},
    :rdfs/range
@@ -33595,7 +33595,7 @@
     "The individual reservations included in the package. Typically a repeated property."},
    :rdfs/domain {:owl/unionOf [:schema/ReservationPackage],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/subReservation,
+   :rdfs/isDefinedBy "http://schema.org/subReservation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "subReservation"},
    :rdfs/range
@@ -33679,7 +33679,7 @@
                       :rdf/value "A CreativeWork or Event about this Thing."},
    :rdfs/domain      {:owl/unionOf [:schema/Thing],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/subjectOf,
+   :rdfs/isDefinedBy "http://schema.org/subjectOf",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "subjectOf"},
    :rdfs/range       {:owl/unionOf [:schema/Event
@@ -33719,7 +33719,7 @@
     "A pointer from a newer variant of a product  to its previous, often discontinued predecessor."},
    :rdfs/domain {:owl/unionOf [:schema/ProductModel],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/successorOf,
+   :rdfs/isDefinedBy "http://schema.org/successorOf",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "successorOf"},
    :rdfs/range
@@ -33734,7 +33734,7 @@
                       :rdf/value    "The number of grams of sugar."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/sugarContent,
+   :rdfs/isDefinedBy "http://schema.org/sugarContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "sugarContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -33773,7 +33773,7 @@
     "An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site."},
    :rdfs/domain {:owl/unionOf [:schema/Question],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/suggestedAnswer,
+   :rdfs/isDefinedBy "http://schema.org/suggestedAnswer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "suggestedAnswer"},
    :rdfs/range
@@ -33792,7 +33792,7 @@
    :rdfs/domain {:owl/unionOf [:schema/PeopleAudience
                                :schema/SizeSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/suggestedGender,
+   :rdfs/isDefinedBy "http://schema.org/suggestedGender",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "suggestedGender"},
    :rdfs/range
@@ -33808,7 +33808,7 @@
                   "Maximum recommended age in years for the audience or user."},
    :rdfs/domain {:owl/unionOf [:schema/PeopleAudience],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/suggestedMaxAge,
+   :rdfs/isDefinedBy "http://schema.org/suggestedMaxAge",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "suggestedMaxAge"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -33843,7 +33843,7 @@
                   "Minimum recommended age in years for the audience or user."},
    :rdfs/domain {:owl/unionOf [:schema/PeopleAudience],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/suggestedMinAge,
+   :rdfs/isDefinedBy "http://schema.org/suggestedMinAge",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "suggestedMinAge"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -33859,7 +33859,7 @@
     "Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc."},
    :rdfs/domain {:owl/unionOf [:schema/Recipe :schema/MenuItem],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/suitableForDiet,
+   :rdfs/isDefinedBy "http://schema.org/suitableForDiet",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "suitableForDiet"},
    :rdfs/range
@@ -33877,7 +33877,7 @@
     "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/superEvent,
+   :rdfs/isDefinedBy "http://schema.org/superEvent",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "superEvent"},
    :rdfs/range
@@ -33916,7 +33916,7 @@
     "A sub-property of instrument. A supply consumed when performing instructions or a direction."},
    :rdfs/domain {:owl/unionOf [:schema/HowTo :schema/HowToDirection],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/supply,
+   :rdfs/isDefinedBy "http://schema.org/supply",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "supply"},
    :rdfs/range
@@ -33950,7 +33950,7 @@
                       :rdf/value "Supporting data for a SoftwareApplication."},
    :rdfs/domain      {:owl/unionOf [:schema/SoftwareApplication],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/supportingData,
+   :rdfs/isDefinedBy "http://schema.org/supportingData",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "supportingData"},
    :rdfs/range       {:owl/unionOf [:schema/DataFeed
@@ -33969,7 +33969,7 @@
     "A material used as a surface in some artwork, e.g. Canvas, Paper, Wood, Board, etc."},
    :rdfs/domain {:owl/unionOf [:schema/VisualArtwork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/surface,
+   :rdfs/isDefinedBy "http://schema.org/surface",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "surface"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -33986,7 +33986,7 @@
                       "Indicates a target EntryPoint, or url, for an Action."},
    :rdfs/domain      {:owl/unionOf [:schema/Action],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/target,
+   :rdfs/isDefinedBy "http://schema.org/target",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "target"},
    :rdfs/range       {:owl/unionOf [:schema/URL
@@ -34005,7 +34005,7 @@
     "A sub property of object. The collection target of the action."},
    :rdfs/domain {:owl/unionOf [:schema/UpdateAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/targetCollection,
+   :rdfs/isDefinedBy "http://schema.org/targetCollection",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "targetCollection"},
    :rdfs/range
@@ -34023,7 +34023,7 @@
     "The description of a node in an established educational framework."},
    :rdfs/domain {:owl/unionOf [:schema/AlignmentObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/targetDescription,
+   :rdfs/isDefinedBy "http://schema.org/targetDescription",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "targetDescription"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34038,7 +34038,7 @@
     :rdf/value "The name of a node in an established educational framework."},
    :rdfs/domain {:owl/unionOf [:schema/AlignmentObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/targetName,
+   :rdfs/isDefinedBy "http://schema.org/targetName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "targetName"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34054,7 +34054,7 @@
     "Type of app development: phone, Metro style, desktop, XBox, etc."},
    :rdfs/domain {:owl/unionOf [:schema/APIReference],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/targetPlatform,
+   :rdfs/isDefinedBy "http://schema.org/targetPlatform",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "targetPlatform"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34086,7 +34086,7 @@
     "Target Operating System / Product to which the code applies.  If applies to several versions, just the product name can be used."},
    :rdfs/domain {:owl/unionOf [:schema/SoftwareSourceCode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/targetProduct,
+   :rdfs/isDefinedBy "http://schema.org/targetProduct",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "targetProduct"},
    :rdfs/range {:owl/unionOf [:schema/SoftwareApplication
@@ -34104,7 +34104,7 @@
                   "The URL of a node in an established educational framework."},
    :rdfs/domain {:owl/unionOf [:schema/AlignmentObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/targetUrl,
+   :rdfs/isDefinedBy "http://schema.org/targetUrl",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "targetUrl"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -34120,7 +34120,7 @@
     "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain."},
    :rdfs/domain {:owl/unionOf [:schema/Organization :schema/Person],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/taxID,
+   :rdfs/isDefinedBy "http://schema.org/taxID",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "taxID"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34192,7 +34192,7 @@
                                     :schema/ContactPoint
                                     :schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/telephone,
+   :rdfs/isDefinedBy "http://schema.org/telephone",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "telephone"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34208,7 +34208,7 @@
     "The \"temporal\" property can be used in cases where more specific properties\n(e.g. <a class=\"localLink\" href=\"https://schema.org/temporalCoverage\">temporalCoverage</a>, <a class=\"localLink\" href=\"https://schema.org/dateCreated\">dateCreated</a>, <a class=\"localLink\" href=\"https://schema.org/dateModified\">dateModified</a>, <a class=\"localLink\" href=\"https://schema.org/datePublished\">datePublished</a>) are not known to be appropriate."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/temporal,
+   :rdfs/isDefinedBy "http://schema.org/temporal",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "temporal"},
    :rdfs/range
@@ -34225,7 +34225,7 @@
     "The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in <a href=\"https://en.wikipedia.org/wiki/ISO_8601#Time_intervals\">ISO 8601 time interval format</a>. In\n      the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written \"2011/2012\"). Other forms of content, e.g. ScholarlyArticle, Book, TVSeries or TVEpisode, may indicate their temporalCoverage in broader terms - textually or via well-known URL.\n      Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via \"1939/1945\".<br/><br/>\n\nOpen-ended date ranges can be written with \"..\" in place of the end date. For example, \"2015-11/..\" indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/temporalCoverage,
+   :rdfs/isDefinedBy "http://schema.org/temporalCoverage",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "temporalCoverage"},
    :rdfs/range
@@ -34304,7 +34304,7 @@
                       :rdf/value "The textual content of this CreativeWork."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/text,
+   :rdfs/isDefinedBy "http://schema.org/text",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "text"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34332,7 +34332,7 @@
                       :rdf/value    "Thumbnail image for an image or video."},
    :rdfs/domain      {:owl/unionOf [:schema/ImageObject :schema/VideoObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/thumbnail,
+   :rdfs/isDefinedBy "http://schema.org/thumbnail",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "thumbnail"},
    :rdfs/range       {:owl/unionOf [:schema/ImageObject
@@ -34349,7 +34349,7 @@
                       :rdf/value    "A thumbnail image relevant to the Thing."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/thumbnailUrl,
+   :rdfs/isDefinedBy "http://schema.org/thumbnailUrl",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "thumbnailUrl"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -34365,7 +34365,7 @@
     "The exchange traded instrument associated with a Corporation object. The tickerSymbol is expressed as an exchange and an instrument name separated by a space character. For the exchange component of the tickerSymbol attribute, we recommend using the controlled vocabulary of Market Identifier Codes (MIC) specified in ISO 15022."},
    :rdfs/domain {:owl/unionOf [:schema/Corporation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/tickerSymbol,
+   :rdfs/isDefinedBy "http://schema.org/tickerSymbol",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "tickerSymbol"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34379,7 +34379,7 @@
                       :rdf/value    "The unique identifier for the ticket."},
    :rdfs/domain      {:owl/unionOf [:schema/Ticket],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ticketNumber,
+   :rdfs/isDefinedBy "http://schema.org/ticketNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ticketNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34395,7 +34395,7 @@
     "Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance."},
    :rdfs/domain {:owl/unionOf [:schema/Ticket],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ticketToken,
+   :rdfs/isDefinedBy "http://schema.org/ticketToken",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ticketToken"},
    :rdfs/range {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -34409,7 +34409,7 @@
                       :rdf/value    "The seat associated with the ticket."},
    :rdfs/domain      {:owl/unionOf [:schema/Ticket],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/ticketedSeat,
+   :rdfs/isDefinedBy "http://schema.org/ticketedSeat",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "ticketedSeat"},
    :rdfs/range       {:owl/unionOf [:schema/Seat
@@ -34444,7 +34444,7 @@
     "Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'PT30M', 'PT1H25M'."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/timeRequired,
+   :rdfs/isDefinedBy "http://schema.org/timeRequired",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "timeRequired"},
    :rdfs/range
@@ -34491,7 +34491,7 @@
                       :rdf/value    "The title of the job."},
    :rdfs/domain      {:owl/unionOf [:schema/JobPosting],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/title,
+   :rdfs/isDefinedBy "http://schema.org/title",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "title"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34527,7 +34527,7 @@
                                :schema/InsertAction
                                :schema/ExerciseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/toLocation,
+   :rdfs/isDefinedBy "http://schema.org/toLocation",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "toLocation"},
    :rdfs/range
@@ -34545,7 +34545,7 @@
     "A sub property of recipient. The recipient who was directly sent the message."},
    :rdfs/domain {:owl/unionOf [:schema/Message],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/toRecipient,
+   :rdfs/isDefinedBy "http://schema.org/toRecipient",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "toRecipient"},
    :rdfs/range {:owl/unionOf [:schema/Person
@@ -34622,7 +34622,7 @@
     "A sub property of instrument. An object used (but not consumed) when performing instructions or a direction."},
    :rdfs/domain {:owl/unionOf [:schema/HowToDirection :schema/HowTo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/tool,
+   :rdfs/isDefinedBy "http://schema.org/tool",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "tool"},
    :rdfs/range
@@ -34673,7 +34673,7 @@
                       :rdf/value    "The total amount due."},
    :rdfs/domain      {:owl/unionOf [:schema/Invoice],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/totalPaymentDue,
+   :rdfs/isDefinedBy "http://schema.org/totalPaymentDue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "totalPaymentDue"},
    :rdfs/range       {:owl/unionOf [:schema/MonetaryAmount
@@ -34693,7 +34693,7 @@
     "The total price for the reservation or ticket, including applicable taxes, shipping, etc.<br/><br/>\n\nUsage guidelines:<br/><br/>\n\n<ul>\n<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.</li>\n<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>\n</ul>\n"},
    :rdfs/domain {:owl/unionOf [:schema/Reservation :schema/Ticket],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/totalPrice,
+   :rdfs/isDefinedBy "http://schema.org/totalPrice",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "totalPrice"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -34713,7 +34713,7 @@
     "The total time required to perform instructions or a direction (including time to prepare the supplies), in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 duration format</a>."},
    :rdfs/domain {:owl/unionOf [:schema/HowToDirection :schema/HowTo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/totalTime,
+   :rdfs/isDefinedBy "http://schema.org/totalTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "totalTime"},
    :rdfs/range
@@ -34749,7 +34749,7 @@
                                :schema/TouristTrip
                                :schema/TouristDestination],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/touristType,
+   :rdfs/isDefinedBy "http://schema.org/touristType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "touristType"},
    :rdfs/range
@@ -34766,7 +34766,7 @@
     "A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording."},
    :rdfs/domain {:owl/unionOf [:schema/MusicPlaylist :schema/MusicGroup],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/track,
+   :rdfs/isDefinedBy "http://schema.org/track",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "track"},
    :rdfs/range {:owl/unionOf [:schema/ItemList
@@ -34784,7 +34784,7 @@
                       :rdf/value    "Shipper tracking number."},
    :rdfs/domain      {:owl/unionOf [:schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/trackingNumber,
+   :rdfs/isDefinedBy "http://schema.org/trackingNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "trackingNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34798,7 +34798,7 @@
                       :rdf/value    "Tracking url for the parcel delivery."},
    :rdfs/domain      {:owl/unionOf [:schema/ParcelDelivery],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/trackingUrl,
+   :rdfs/isDefinedBy "http://schema.org/trackingUrl",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "trackingUrl"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -34813,7 +34813,7 @@
                   "A music recording (track)&#x2014;usually a single song."},
    :rdfs/domain {:owl/unionOf [:schema/MusicPlaylist :schema/MusicGroup],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/tracks,
+   :rdfs/isDefinedBy "http://schema.org/tracks",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "tracks"},
    :rdfs/range
@@ -34838,7 +34838,7 @@
                                :schema/Episode
                                :schema/VideoGame],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/trailer,
+   :rdfs/isDefinedBy "http://schema.org/trailer",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "trailer"},
    :rdfs/range
@@ -34873,7 +34873,7 @@
                       "The name of the train (e.g. The Orient Express)."},
    :rdfs/domain      {:owl/unionOf [:schema/TrainTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/trainName,
+   :rdfs/isDefinedBy "http://schema.org/trainName",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "trainName"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34887,7 +34887,7 @@
                       :rdf/value    "The unique identifier for the train."},
    :rdfs/domain      {:owl/unionOf [:schema/TrainTrip],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/trainNumber,
+   :rdfs/isDefinedBy "http://schema.org/trainNumber",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "trainNumber"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -34920,7 +34920,7 @@
                       :rdf/value    "The number of grams of trans fat."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/transFatContent,
+   :rdfs/isDefinedBy "http://schema.org/transFatContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "transFatContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -34939,7 +34939,7 @@
     "If this MediaObject is an AudioObject or VideoObject, the transcript of that object."},
    :rdfs/domain {:owl/unionOf [:schema/VideoObject :schema/AudioObject],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/transcript,
+   :rdfs/isDefinedBy "http://schema.org/transcript",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "transcript"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35009,7 +35009,7 @@
     "Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork :schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/translator,
+   :rdfs/isDefinedBy "http://schema.org/translator",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "translator"},
    :rdfs/range
@@ -35097,7 +35097,7 @@
     "The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity."},
    :rdfs/domain {:owl/unionOf [:schema/BedDetails],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/typeOfBed,
+   :rdfs/isDefinedBy "http://schema.org/typeOfBed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "typeOfBed"},
    :rdfs/range
@@ -35114,7 +35114,7 @@
    :rdfs/domain {:owl/unionOf [:schema/TypeAndQuantityNode
                                :schema/OwnershipInfo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/typeOfGood,
+   :rdfs/isDefinedBy "http://schema.org/typeOfGood",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "typeOfGood"},
    :rdfs/range
@@ -35131,7 +35131,7 @@
                       "The typical expected age range, e.g. '7-9', '11-'."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork :schema/Event],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/typicalAgeRange,
+   :rdfs/isDefinedBy "http://schema.org/typicalAgeRange",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "typicalAgeRange"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35182,7 +35182,7 @@
     :rdf/value "The person or organization the reservation or ticket is for."},
    :rdfs/domain {:owl/unionOf [:schema/Ticket :schema/Reservation],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/underName,
+   :rdfs/isDefinedBy "http://schema.org/underName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "underName"},
    :rdfs/range
@@ -35203,7 +35203,7 @@
                                :schema/TypeAndQuantityNode
                                :schema/UnitPriceSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/unitCode,
+   :rdfs/isDefinedBy "http://schema.org/unitCode",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "unitCode"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35222,7 +35222,7 @@
                                :schema/PropertyValue
                                :schema/TypeAndQuantityNode],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/unitText,
+   :rdfs/isDefinedBy "http://schema.org/unitText",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "unitText"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35255,7 +35255,7 @@
                       :rdf/value    "The number of grams of unsaturated fat."},
    :rdfs/domain      {:owl/unionOf [:schema/NutritionInformation],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/unsaturatedFatContent,
+   :rdfs/isDefinedBy "http://schema.org/unsaturatedFatContent",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "unsaturatedFatContent"},
    :rdfs/range       {:owl/unionOf [:schema/Mass
@@ -35273,7 +35273,7 @@
                       "Date when this media object was uploaded to this site."},
    :rdfs/domain      {:owl/unionOf [:schema/MediaObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/uploadDate,
+   :rdfs/isDefinedBy "http://schema.org/uploadDate",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "uploadDate"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -35289,7 +35289,7 @@
     "The number of upvotes this question, answer or comment has received from the community."},
    :rdfs/domain {:owl/unionOf [:schema/Comment],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/upvoteCount,
+   :rdfs/isDefinedBy "http://schema.org/upvoteCount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "upvoteCount"},
    :rdfs/range {:owl/unionOf [:schema/Integer],
@@ -35303,7 +35303,7 @@
                       :rdf/value    "URL of the item."},
    :rdfs/domain      {:owl/unionOf [:schema/Thing],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/url,
+   :rdfs/isDefinedBy "http://schema.org/url",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "url"},
    :rdfs/range       {:owl/unionOf [:schema/URL :schema/Text :schema/Role],
@@ -35319,7 +35319,7 @@
     "An url template (RFC6570) that will be used to construct the target of the execution of the action."},
    :rdfs/domain {:owl/unionOf [:schema/EntryPoint],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/urlTemplate,
+   :rdfs/isDefinedBy "http://schema.org/urlTemplate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "urlTemplate"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35369,7 +35369,7 @@
     "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication."},
    :rdfs/domain {:owl/unionOf [:schema/InteractionCounter],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/userInteractionCount,
+   :rdfs/isDefinedBy "http://schema.org/userInteractionCount",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "userInteractionCount"},
    :rdfs/range {:owl/unionOf [:schema/Integer],
@@ -35434,7 +35434,7 @@
    :rdfs/domain      {:owl/unionOf [:schema/Permit
                                     :schema/EducationalOccupationalCredential],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/validFor,
+   :rdfs/isDefinedBy "http://schema.org/validFor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "validFor"},
    :rdfs/range       {:owl/unionOf [:schema/Duration
@@ -35457,7 +35457,7 @@
                                     :schema/Permit
                                     :schema/Offer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/validFrom,
+   :rdfs/isDefinedBy "http://schema.org/validFrom",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "validFrom"},
    :rdfs/range       {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -35473,7 +35473,7 @@
    :rdfs/domain {:owl/unionOf [:schema/Permit
                                :schema/EducationalOccupationalCredential],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/validIn,
+   :rdfs/isDefinedBy "http://schema.org/validIn",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "validIn"},
    :rdfs/range {:owl/unionOf [:schema/AdministrativeArea
@@ -35498,7 +35498,7 @@
                                :schema/LocationFeatureSpecification
                                :schema/OpeningHoursSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/validThrough,
+   :rdfs/isDefinedBy "http://schema.org/validThrough",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "validThrough"},
    :rdfs/range {:owl/unionOf [:schema/Date :schema/DateTime],
@@ -35512,7 +35512,7 @@
                       :rdf/value "The date when the item is no longer valid."},
    :rdfs/domain      {:owl/unionOf [:schema/Permit],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/validUntil,
+   :rdfs/isDefinedBy "http://schema.org/validUntil",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "validUntil"},
    :rdfs/range       {:owl/unionOf [:schema/Date],
@@ -35530,7 +35530,7 @@
                                :schema/QuantitativeValue
                                :schema/MonetaryAmount],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/value,
+   :rdfs/isDefinedBy "http://schema.org/value",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "value"},
    :rdfs/range {:owl/unionOf [:schema/StructuredValue
@@ -35551,7 +35551,7 @@
     "Specifies whether the applicable value-added tax (VAT) is included in the price specification or not."},
    :rdfs/domain {:owl/unionOf [:schema/PriceSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/valueAddedTaxIncluded,
+   :rdfs/isDefinedBy "http://schema.org/valueAddedTaxIncluded",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valueAddedTaxIncluded"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -35567,7 +35567,7 @@
     "Specifies the allowed range for number of characters in a literal value."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/valueMaxLength,
+   :rdfs/isDefinedBy "http://schema.org/valueMaxLength",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valueMaxLength"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -35583,7 +35583,7 @@
     "Specifies the minimum allowed range for number of characters in a literal value."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/valueMinLength,
+   :rdfs/isDefinedBy "http://schema.org/valueMinLength",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valueMinLength"},
    :rdfs/range {:owl/unionOf [:schema/Number],
@@ -35599,7 +35599,7 @@
     "Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/valueName,
+   :rdfs/isDefinedBy "http://schema.org/valueName",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valueName"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35615,7 +35615,7 @@
     "Specifies a regular expression for testing literal values according to the HTML spec."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/valuePattern,
+   :rdfs/isDefinedBy "http://schema.org/valuePattern",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valuePattern"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35633,7 +35633,7 @@
                                :schema/PropertyValue
                                :schema/QuantitativeValue],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/valueReference,
+   :rdfs/isDefinedBy "http://schema.org/valueReference",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valueReference"},
    :rdfs/range {:owl/unionOf [:schema/Enumeration
@@ -35658,7 +35658,7 @@
     "Whether the property must be filled in to complete the action.  Default is false."},
    :rdfs/domain {:owl/unionOf [:schema/PropertyValueSpecification],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/valueRequired,
+   :rdfs/isDefinedBy "http://schema.org/valueRequired",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "valueRequired"},
    :rdfs/range {:owl/unionOf [:schema/Boolean],
@@ -35740,7 +35740,7 @@
                       "The Value-added Tax ID of the organization or person."},
    :rdfs/domain      {:owl/unionOf [:schema/Organization :schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vatID,
+   :rdfs/isDefinedBy "http://schema.org/vatID",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "vatID"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35756,7 +35756,7 @@
     "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleConfiguration,
+   :rdfs/isDefinedBy "http://schema.org/vehicleConfiguration",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleConfiguration"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35771,7 +35771,7 @@
                   "Information about the engine or engines of the vehicle."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleEngine,
+   :rdfs/isDefinedBy "http://schema.org/vehicleEngine",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleEngine"},
    :rdfs/range {:owl/unionOf [:schema/EngineSpecification
@@ -35790,7 +35790,7 @@
     "The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleIdentificationNumber,
+   :rdfs/isDefinedBy "http://schema.org/vehicleIdentificationNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleIdentificationNumber"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35807,7 +35807,7 @@
     "The color or color combination of the interior of the vehicle."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleInteriorColor,
+   :rdfs/isDefinedBy "http://schema.org/vehicleInteriorColor",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleInteriorColor"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35823,7 +35823,7 @@
     "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleInteriorType,
+   :rdfs/isDefinedBy "http://schema.org/vehicleInteriorType",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleInteriorType"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -35839,7 +35839,7 @@
     "The release date of a vehicle model (often used to differentiate versions of the same make and model)."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleModelDate,
+   :rdfs/isDefinedBy "http://schema.org/vehicleModelDate",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleModelDate"},
    :rdfs/range {:owl/unionOf [:schema/Date],
@@ -35855,7 +35855,7 @@
     "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.<br/><br/>\n\nTypical unit code(s): C62 for persons."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleSeatingCapacity,
+   :rdfs/isDefinedBy "http://schema.org/vehicleSeatingCapacity",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleSeatingCapacity"},
    :rdfs/range {:owl/unionOf [:schema/Number
@@ -35892,7 +35892,7 @@
     "The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (\"gearbox\" for cars)."},
    :rdfs/domain {:owl/unionOf [:schema/Vehicle],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/vehicleTransmission,
+   :rdfs/isDefinedBy "http://schema.org/vehicleTransmission",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "vehicleTransmission"},
    :rdfs/range {:owl/unionOf [:schema/Text
@@ -35910,7 +35910,7 @@
                          "'vendor' is an earlier term for 'seller'."},
    :rdfs/domain         {:owl/unionOf [:schema/BuyAction],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/vendor,
+   :rdfs/isDefinedBy    "http://schema.org/vendor",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "vendor"},
    :rdfs/range          {:owl/unionOf [:schema/Organization
@@ -35951,7 +35951,7 @@
     "The version of the CreativeWork embodied by a specified resource."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/version,
+   :rdfs/isDefinedBy "http://schema.org/version",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "version"},
    :rdfs/range
@@ -35966,7 +35966,7 @@
                       :rdf/value    "An embedded video object."},
    :rdfs/domain      {:owl/unionOf [:schema/CreativeWork],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/video,
+   :rdfs/isDefinedBy "http://schema.org/video",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "video"},
    :rdfs/range       {:owl/unionOf [:schema/VideoObject
@@ -35988,7 +35988,7 @@
                                :schema/BroadcastService
                                :schema/ScreeningEvent],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/videoFormat,
+   :rdfs/isDefinedBy "http://schema.org/videoFormat",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "videoFormat"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -36002,7 +36002,7 @@
                       :rdf/value    "The frame size of the video."},
    :rdfs/domain      {:owl/unionOf [:schema/VideoObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/videoFrameSize,
+   :rdfs/isDefinedBy "http://schema.org/videoFrameSize",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "videoFrameSize"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -36016,7 +36016,7 @@
                       :rdf/value    "The quality of the video."},
    :rdfs/domain      {:owl/unionOf [:schema/VideoObject],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/videoQuality,
+   :rdfs/isDefinedBy "http://schema.org/videoQuality",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "videoQuality"},
    :rdfs/range       {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -36032,7 +36032,7 @@
     "Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\"."},
    :rdfs/domain {:owl/unionOf [:schema/PublicationVolume],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/volumeNumber,
+   :rdfs/isDefinedBy "http://schema.org/volumeNumber",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "volumeNumber"},
    :rdfs/range
@@ -36064,7 +36064,7 @@
                       "The warranty promise(s) included in the offer."},
    :rdfs/domain      {:owl/unionOf [:schema/Demand :schema/Offer],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/warranty,
+   :rdfs/isDefinedBy "http://schema.org/warranty",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "warranty"},
    :rdfs/range       {:owl/unionOf [:schema/WarrantyPromise
@@ -36082,7 +36082,7 @@
                          "The warranty promise(s) included in the offer."},
    :rdfs/domain         {:owl/unionOf [:schema/SellAction :schema/BuyAction],
                          :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy    :schema/warrantyPromise,
+   :rdfs/isDefinedBy    "http://schema.org/warrantyPromise",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "warrantyPromise"},
    :rdfs/range          {:owl/unionOf [:schema/WarrantyPromise
@@ -36100,7 +36100,7 @@
                       :rdf/value    "The scope of the warranty promise."},
    :rdfs/domain      {:owl/unionOf [:schema/WarrantyPromise],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/warrantyScope,
+   :rdfs/isDefinedBy "http://schema.org/warrantyScope",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "warrantyScope"},
    :rdfs/range       {:owl/unionOf [:schema/WarrantyScope
@@ -36118,7 +36118,7 @@
     :rdf/value "The time when a passenger can check into the flight online."},
    :rdfs/domain {:owl/unionOf [:schema/Flight],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/webCheckinTime,
+   :rdfs/isDefinedBy "http://schema.org/webCheckinTime",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "webCheckinTime"},
    :rdfs/range {:owl/unionOf [:schema/DateTime],
@@ -36152,7 +36152,7 @@
                                     :schema/Product
                                     :schema/OfferShippingDetails],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/weight,
+   :rdfs/isDefinedBy "http://schema.org/weight",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "weight"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -36210,7 +36210,7 @@
                                     :schema/MediaObject
                                     :schema/OfferShippingDetails],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/width,
+   :rdfs/isDefinedBy "http://schema.org/width",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "width"},
    :rdfs/range       {:owl/unionOf [:schema/Distance
@@ -36229,7 +36229,7 @@
                   "A sub property of participant. The winner of the action."},
    :rdfs/domain {:owl/unionOf [:schema/LoseAction],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/winner,
+   :rdfs/isDefinedBy "http://schema.org/winner",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "winner"},
    :rdfs/range
@@ -36246,7 +36246,7 @@
                       "The number of words in the text of the Article."},
    :rdfs/domain      {:owl/unionOf [:schema/Article],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/wordCount,
+   :rdfs/isDefinedBy "http://schema.org/wordCount",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "wordCount"},
    :rdfs/range       {:owl/unionOf [:schema/Integer],
@@ -36263,7 +36263,7 @@
     "Example/instance/realization/derivation of the concept of this creative work. E.g. the paperback edition, first edition, or e-book."},
    :rdfs/domain {:owl/unionOf [:schema/CreativeWork],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/workExample,
+   :rdfs/isDefinedBy "http://schema.org/workExample",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "workExample"},
    :rdfs/range
@@ -36280,7 +36280,7 @@
     "A work featured in some event, e.g. exhibited in an ExhibitionEvent.\n       Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent)."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/workFeatured,
+   :rdfs/isDefinedBy "http://schema.org/workFeatured",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "workFeatured"},
    :rdfs/range
@@ -36297,7 +36297,7 @@
     "The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm)."},
    :rdfs/domain {:owl/unionOf [:schema/JobPosting],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/workHours,
+   :rdfs/isDefinedBy "http://schema.org/workHours",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "workHours"},
    :rdfs/range {:owl/unionOf [:schema/Text :schema/URL :schema/Role],
@@ -36312,7 +36312,7 @@
                         "A contact location for a person's place of work."},
    :rdfs/domain        {:owl/unionOf [:schema/Person],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/workLocation,
+   :rdfs/isDefinedBy   "http://schema.org/workLocation",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "workLocation"},
    :rdfs/range         {:owl/unionOf [:schema/ContactPoint
@@ -36333,7 +36333,7 @@
     "A work performed in some event, for example a play performed in a TheaterEvent."},
    :rdfs/domain {:owl/unionOf [:schema/Event],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/workPerformed,
+   :rdfs/isDefinedBy "http://schema.org/workPerformed",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "workPerformed"},
    :rdfs/range
@@ -36349,7 +36349,7 @@
                         :rdf/value    "The movie presented during this event."},
    :rdfs/domain        {:owl/unionOf [:schema/ScreeningEvent],
                         :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy   :schema/workPresented,
+   :rdfs/isDefinedBy   "http://schema.org/workPresented",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "workPresented"},
    :rdfs/range         {:owl/unionOf [:schema/Movie
@@ -36405,7 +36405,7 @@
                       :rdf/value    "Organizations that the person works for."},
    :rdfs/domain      {:owl/unionOf [:schema/Person],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/worksFor,
+   :rdfs/isDefinedBy "http://schema.org/worksFor",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "worksFor"},
    :rdfs/range       {:owl/unionOf [:schema/Organization
@@ -36424,7 +36424,7 @@
     "The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed."},
    :rdfs/domain {:owl/unionOf [:schema/Rating],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/worstRating,
+   :rdfs/isDefinedBy "http://schema.org/worstRating",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "worstRating"},
    :rdfs/range
@@ -36442,7 +36442,7 @@
    :rdfs/domain {:owl/unionOf [:schema/SpeakableSpecification
                                :schema/WebPageElement],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/xpath,
+   :rdfs/isDefinedBy "http://schema.org/xpath",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "xpath"},
    :rdfs/range
@@ -36473,7 +36473,7 @@
                       :rdf/value "The size of the business in annual revenue."},
    :rdfs/domain      {:owl/unionOf [:schema/BusinessAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/yearlyRevenue,
+   :rdfs/isDefinedBy "http://schema.org/yearlyRevenue",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "yearlyRevenue"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -36490,7 +36490,7 @@
                       :rdf/value    "The age of the business."},
    :rdfs/domain      {:owl/unionOf [:schema/BusinessAudience],
                       :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/yearsInOperation,
+   :rdfs/isDefinedBy "http://schema.org/yearsInOperation",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "yearsInOperation"},
    :rdfs/range       {:owl/unionOf [:schema/QuantitativeValue
@@ -36509,7 +36509,7 @@
     "The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles."},
    :rdfs/domain {:owl/unionOf [:schema/HowTo],
                  :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy :schema/yield,
+   :rdfs/isDefinedBy "http://schema.org/yield",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "yield"},
    :rdfs/range {:owl/unionOf [:schema/QuantitativeValue
