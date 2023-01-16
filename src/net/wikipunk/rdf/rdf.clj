@@ -124,7 +124,9 @@
 
 (def direction
   "The base direction component of a CompoundLiteral."
-  {:db/ident :rdf/direction,
+  {:db/ident :rdf/direction
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/string
    :rdf/type :rdf/Property,
    :rdfs/comment "The base direction component of a CompoundLiteral.",
    :rdfs/domain :rdf/CompoundLiteral,
@@ -136,6 +138,8 @@
 (def first
   "The first item in the subject RDF list."
   {:db/ident         :rdf/first,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The first item in the subject RDF list.",
    :rdfs/domain      :rdf/List,
@@ -156,6 +160,8 @@
 (def language
   "The language component of a CompoundLiteral."
   {:db/ident :rdf/language,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/string
    :rdf/type :rdf/Property,
    :rdfs/comment "The language component of a CompoundLiteral.",
    :rdfs/domain :rdf/CompoundLiteral,
@@ -176,6 +182,8 @@
 (def object
   "The object of the subject RDF statement."
   {:db/ident         :rdf/object,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The object of the subject RDF statement.",
    :rdfs/domain      :rdf/Statement,
@@ -186,6 +194,8 @@
 (def predicate
   "The predicate of the subject RDF statement."
   {:db/ident         :rdf/predicate,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The predicate of the subject RDF statement.",
    :rdfs/domain      :rdf/Statement,
@@ -196,6 +206,8 @@
 (def rest
   "The rest of the subject RDF list after the first item."
   {:db/ident         :rdf/rest,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The rest of the subject RDF list after the first item.",
    :rdfs/domain      :rdf/List,
@@ -206,6 +218,8 @@
 (def subject
   "The subject of the subject RDF statement."
   {:db/ident         :rdf/subject,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The subject of the subject RDF statement.",
    :rdfs/domain      :rdf/Statement,
@@ -216,6 +230,8 @@
 (def type
   "The subject is an instance of a class."
   {:db/ident         :rdf/type,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The subject is an instance of a class.",
    :rdfs/domain      :rdfs/Resource,
@@ -226,6 +242,8 @@
 (def value
   "Idiomatic property used for structured values."
   {:db/ident         :rdf/value,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/string
    :rdf/type         :rdf/Property,
    :rdfs/comment     "Idiomatic property used for structured values.",
    :rdfs/domain      :rdfs/Resource,

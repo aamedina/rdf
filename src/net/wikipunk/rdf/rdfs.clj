@@ -72,6 +72,8 @@
 (def comment
   "A description of the subject resource."
   {:db/ident         :rdfs/comment,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/string
    :rdf/type         :rdf/Property,
    :rdfs/comment     "A description of the subject resource.",
    :rdfs/domain      :rdfs/Resource,
@@ -82,6 +84,8 @@
 (def domain
   "A domain of the subject property."
   {:db/ident         :rdfs/domain,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "A domain of the subject property.",
    :rdfs/domain      :rdf/Property,
@@ -92,6 +96,8 @@
 (def isDefinedBy
   "The defininition of the subject resource."
   {:db/ident           :rdfs/isDefinedBy,
+   :db/cardinality     :db.cardinality/many
+   :db/valueType       :db.type/string
    :rdf/type           :rdf/Property,
    :rdfs/comment       "The defininition of the subject resource.",
    :rdfs/domain        :rdfs/Resource,
@@ -103,6 +109,8 @@
 (def label
   "A human-readable name for the subject."
   {:db/ident         :rdfs/label,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/string
    :rdf/type         :rdf/Property,
    :rdfs/comment     "A human-readable name for the subject.",
    :rdfs/domain      :rdfs/Resource,
@@ -113,6 +121,8 @@
 (def member
   "A member of the subject resource."
   {:db/ident         :rdfs/member,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "A member of the subject resource.",
    :rdfs/domain      :rdfs/Resource,
@@ -123,6 +133,8 @@
 (def range
   "A range of the subject property."
   {:db/ident         :rdfs/range,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "A range of the subject property.",
    :rdfs/domain      :rdf/Property,
@@ -133,6 +145,8 @@
 (def seeAlso
   "Further information about the subject resource."
   {:db/ident         :rdfs/seeAlso,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/string
    :rdf/type         :rdf/Property,
    :rdfs/comment     "Further information about the subject resource.",
    :rdfs/domain      :rdfs/Resource,
@@ -143,6 +157,8 @@
 (def subClassOf
   "The subject is a subclass of a class."
   {:db/ident         :rdfs/subClassOf,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The subject is a subclass of a class.",
    :rdfs/domain      :rdfs/Class,
@@ -153,6 +169,8 @@
 (def subPropertyOf
   "The subject is a subproperty of a property."
   {:db/ident         :rdfs/subPropertyOf,
+   :db/cardinality   :db.cardinality/many
+   :db/valueType     :db.type/ref
    :rdf/type         :rdf/Property,
    :rdfs/comment     "The subject is a subproperty of a property.",
    :rdfs/domain      :rdf/Property,
