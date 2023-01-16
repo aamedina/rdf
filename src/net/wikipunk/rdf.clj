@@ -696,6 +696,13 @@
       :else nil)))
 
 (extend-protocol clojure.core.protocols/Datafiable
-  clojure.lang.Keyword
+  clojure.lang.Named
   (datafy [ident]
-    (find-metaobject ident)))
+    (cond
+      (qualified-keyword? ident)
+      (find-metaobject ident)
+
+      (qualified-symbol? ident)
+      (resolve ident)
+
+      :else (find-ns (symbol ident)))))
