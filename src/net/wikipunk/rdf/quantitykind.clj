@@ -139,7 +139,7 @@
    :qudt/latexSymbol "\\(\\alpha\\)",
    :qudt/plainTextDescription
    "Absorptance is the ratio of the radiation absorbed by a surface to that incident upon it. Also known as absorbance.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -289,7 +289,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T0D1,
    :qudt/informativeReference ["https://en.wikipedia.org/wiki/PH"
                                "https://en.wikipedia.org/wiki/Acid"],
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Chemicals or substances having a pH less than 7 are said to be acidic; lower pH means higher acidity.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -1881,7 +1881,7 @@
    :qudt/informativeReference
    ["https://en.wikipedia.org/wiki/PH"
     "https://en.wikipedia.org/wiki/Base_(chemistry)"],
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Chemicals or substances having a pH higher than 7 are said to be basic; higher pH means higher basicity.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -2815,7 +2815,8 @@
                          :unit/ARE
                          :unit/YD2
                          :unit/NanoM2],
-   :qudt/hasDimension [:qudt/DIM_USCUSTOMARY-L2 :qudt/DIM_CGS-L2],
+   :qudt/hasDimension ["http://qudt.org/2.1/schema/qudt/DIM_USCUSTOMARY-L2"
+                       "http://qudt.org/2.1/schema/qudt/DIM_CGS-L2"],
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M0H0T0D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Area",
    :qudt/latexDefinition
@@ -4919,7 +4920,7 @@
    :qudt/latexSymbol "\\(\\delta\\)",
    :qudt/plainTextDescription
    "Dissipance, or dissipation factor for sound power, is the ratio of dissipated sound power to incident sound power. The dissipation factor (DF) is a measure of loss-rate of energy of a mode of oscillation (mechanical, electrical, or electromechanical) in a dissipative system. It is the reciprocal of quality factor, which represents the quality of oscillation.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -5510,7 +5511,7 @@
    :qudt/latexDefinition
    "\\(\\frac{-dN_j}{dt} = A_jkN_j\\), where \\(-dN_j\\) is the number of molecules spontaneously leaving the state j for the state k during a time interval of duration \\(dt\\), \\(N_j\\) is the number of molecules in the state j, and \\(E_j > E_k\\).",
    :qudt/symbol "A_jkN_j",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -6664,7 +6665,7 @@
    :qudt/latexDefinition
    "\\(\\varepsilon = \\frac{M}{M_b}\\), where \\(M\\) is the radiant exitance of a thermal radiator and \\(M_b\\) is the radiant exitance of a blackbody at the same temperature.",
    :qudt/latexSymbol "\\(\\varepsilon\\)",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -9394,7 +9395,7 @@
    :qudt/informativeReference
    ["https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcheatingvaluemeasure.htm"
     "https://en.wikipedia.org/wiki/Heat_of_combustion"],
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The heating value (or energy value or calorific value) of a substance, usually a fuel or food (see food energy), is the amount of heat released during the combustion of a specified amount of it. ",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -9447,12 +9448,12 @@
                          :unit/MI_N
                          :unit/PCA],
    :qudt/dbpediaMatch   "http://dbpedia.org/resource/Height",
-   :qudt/hasDimension   [:qudt/DIM_Planck-L
-                         :qudt/DIM_SI-L
-                         :qudt/DIM_USCUSTOMARY-L
-                         :qudt/DIM_CGS-ESU_L
-                         :qudt/DIM_CGS-L
-                         :qudt/DIM_CGS-EMU_L],
+   :qudt/hasDimension   ["http://qudt.org/2.1/schema/qudt/DIM_Planck-L"
+                         "http://qudt.org/2.1/schema/qudt/DIM_SI-L"
+                         "http://qudt.org/2.1/schema/qudt/DIM_USCUSTOMARY-L"
+                         "http://qudt.org/2.1/schema/qudt/DIM_CGS-ESU_L"
+                         "http://qudt.org/2.1/schema/qudt/DIM_CGS-L"
+                         "http://qudt.org/2.1/schema/qudt/DIM_CGS-EMU_L"],
    :qudt/hasDimensionVector :qkdv/A0E0L1I0M0H0T0D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Height",
    :qudt/normativeReference
@@ -10385,7 +10386,7 @@
                          :unit/PER-MilliM3
                          :unit/PER-L
                          :unit/PER-IN3],
-   :qudt/hasDimension :qudt/DIM_SI-m-3,
+   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_SI-m-3"
    :qudt/hasDimensionVector :qkdv/A0E0L-3I0M0H0T0D0,
    :rdf/type          :qudt/QuantityKind,
    :rdfs/isDefinedBy  "http://qudt.org/2.1/vocab/quantitykind",
@@ -10813,7 +10814,7 @@
                          :unit/KiloBTU_TH
                          :unit/PlanckEnergy],
    :qudt/dbpediaMatch "http://dbpedia.org/resource/Kinetic_energy",
-   :qudt/hasDimension :qudt/DIM_ISO-L2MT-2,
+   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-L2MT-2",
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M1H0T-2D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Kinetic_energy",
    :qudt/latexDefinition
@@ -11278,7 +11279,7 @@
    :qudt/latexSymbol "\\(\\mu\\)",
    :qudt/plainTextDescription
    "The Linear Absorption Coefficient is a quantity that characterizes how easily a material or medium can be penetrated by a beam of light, sound, particles, or other energy or matter.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -11315,7 +11316,7 @@
    :qudt/latexSymbol "\\(\\mu\\)",
    :qudt/plainTextDescription
    "\"Linear Attenuation Coefficient\", also called the attenuation coefficient,  narrow beam attenuation coefficient, or absorption coefficient, is a quantity that characterizes how easily a material or medium can be penetrated by a beam of light, sound, particles, or other energy or matter.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -11994,7 +11995,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T0D1,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcluminousintensitydistributionmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "\"Luminous Intensity Distribution\" is a measure of the luminous intensity of a light source that changes according to the direction of the ray. It is normally based on some standardized distribution light distribution curves. Usually measured in Candela/Lumen (cd/lm) or (cd/klm).",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -12750,7 +12751,7 @@
    :qudt/latexSymbol "\\(a_m\\)",
    :qudt/plainTextDescription
    "The mass absorption coefficient is the linear absorption coefficient divided by the density of the absorber.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -12791,7 +12792,7 @@
    :qudt/latexSymbol "\\(\\mu_m\\)",
    :qudt/plainTextDescription
    "\"Mass Attenuation Coefficient\" is a measurement of how strongly a chemical species or substance absorbs or scatters light at a given wavelength, per unit mass.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -14414,7 +14415,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusoflinearsubgradereactionmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Modulus of Linear Subgrade Reaction is a measure for modulus of linear subgrade reaction, which expresses the elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in N/m^2",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -14429,7 +14430,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofrotationalsubgradereactionmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Modulus of Rotational Subgrade Reaction is a measure for modulus of rotational subgrade reaction, which expresses the rotational elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in Nm/(m*rad).",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -14444,7 +14445,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofsubgradereactionmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Modulus of Subgrade Reaction is a geotechnical measure describing interaction between foundation structures and the soil. May also be known as bedding measure. Usually measured in N/m3.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -14592,7 +14593,7 @@
    :qudt/plainTextDescription
    "\"Molar Absorption Coefficient\" is a spectrophotometric unit indicating the light a substance absorbs with respect to length, usually centimeters, and concentration, usually moles per liter.",
    :qudt/symbol "x",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -14840,7 +14841,7 @@
                          :unit/NUM-PER-M3
                          :unit/NUM-PER-L
                          :unit/NUM-PER-MicroL],
-   :qudt/hasDimension :qudt/DIM_ISO-L-3,
+   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-L-3"
    :qudt/hasDimensionVector :qkdv/A0E0L-3I0M0H0T0D0,
    :qudt/informativeReference
    "http://en.wikipedia.org/wiki/Molar_concentration",
@@ -15101,7 +15102,7 @@
    :qudt/plainTextDescription
    "Napierian Absorbance is the natural (Napierian) logarithm of the reciprocal of the spectral internal transmittance.",
    :qudt/symbol "A_e, B",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -15954,7 +15955,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T0D1,
    :qudt/informativeReference ["https://en.wikipedia.org/wiki/PH"
                                "https://en.wikipedia.org/wiki/Acid"],
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Chemicals or substances having a pH less than 7 are said to be acidic; more than 7 means basic.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -17115,7 +17116,7 @@
                          :unit/V-A_Reactive-HR
                          :unit/MegaTOE],
    :qudt/dbpediaMatch "http://dbpedia.org/resource/Potential_energy",
-   :qudt/hasDimension :qudt/DIM_ISO-L2MT-2,
+   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-L2MT-2",
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M1H0T-2D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Potential_energy",
    :qudt/latexDefinition
@@ -17444,7 +17445,7 @@
    :qudt/applicableUnit :unit/KiloGM-PER-M2-SEC2,
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference "https://en.wikipedia.org/wiki/Friction_loss",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "\"Pressure Loss per Length\" refers to the power lost in overcoming the friction between two moving surfaces. Also referred to as \"Friction Loss\".",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -17856,7 +17857,7 @@
    :qudt/latexSymbol "\\(\\beta\\)",
    :qudt/plainTextDescription
    "Radiance Factor is the ratio of the radiance of the surface element in the given direction to that of a perfect reflecting or transmitting diffuser identically irradiated unit.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -17949,7 +17950,7 @@
    :qudt/plainTextDescription
    "In radiometry,\"Radiant Energy} is the energy of electromagnetic waves. The quantity of radiant energy may be calculated by integrating radiant flux (or power) with respect to time.  In nuclear physics, \\textit{Radiant Energy\" is energy, excluding rest energy, of the particles that are emitted, transferred, or received.",
    :qudt/symbol ["Q_e" "R"],
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -17971,7 +17972,7 @@
    :qudt/latexSymbol "\\(w, \\rho\\)",
    :qudt/plainTextDescription
    "\"Radiant Energy Density\", or radiant power, is the radiant energy per unit volume.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18017,7 +18018,7 @@
    :qudt/plainTextDescription
    "Radiant fluence rate, or spherical irradiance, is equal to the total radiant flux incident on a small sphere divided by the area of the diametrical cross-section of the sphere.",
    :qudt/symbol "H_e,0",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18049,7 +18050,7 @@
    :qudt/plainTextDescription
    "Radiant fluence rate, or spherical irradiance, is equal to the total radiant flux incident on a small sphere divided by the area of the diametrical cross-section of the sphere.",
    :qudt/symbol "E_e,0",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18504,7 +18505,7 @@
    :qudt/latexSymbol "\\(\\rho\\)",
    :qudt/plainTextDescription
    "Refectance and reflectivity generally refer to the fraction of incident electromagnetic power that is reflected at an interface, while the term \"reflection coefficient\" is used for the fraction of electric field reflected. Reflectance is always a positive real number.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18521,7 +18522,7 @@
    :qudt/plainTextDescription
    "Reflectance, or reflection factor for sound power, is the ratio of reflected sound power to incident sound power.",
    :qudt/symbol "r",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18540,7 +18541,7 @@
    :qudt/plainTextDescription
    "Reflectance Factor is the measure of the ability of a surface to reflect light or other electromagnetic radiation, equal to the ratio of the reflected flux to the incident flux.",
    :qudt/symbol "R",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -19312,7 +19313,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M1H0T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcrotationalmassmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "\"Rotational Mass\" denotes the inertia of a body with respect to angular acceleration. It is usually measured in kg*m^2.",
    :rdf/type         :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -19452,7 +19453,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L5I0M0H0T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcsectionalareaintegralmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The sectional area integral measure is typically used in torsional analysis. It is usually measured in M⁵.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -20961,7 +20962,7 @@
    :qudt/plainTextDescription
    "The Spectral Luminous Efficiency is a measure of how well a light source produces visible light. It is the ratio of luminous flux to power. A common choice is to choose units such that the maximum possible efficacy, 683 lm/W, corresponds to an efficiency of 100%.",
    :qudt/symbol "V",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -20975,7 +20976,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/plainTextDescription
    "\"Spectral Radiant Energy Density\" is the spectral concentration of radiant energy density (in terms of wavelength), or the spectral radiant energy density (in terms of wave length).",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -21802,7 +21803,7 @@
                          :unit/PicoPA-PER-KiloM
                          :unit/W-SEC-PER-M2
                          :unit/KiloW-HR-PER-M2],
-   :qudt/hasDimension :qudt/DIM_ISO-MT-2,
+   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-MT-2"
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M1H0T-2D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Surface_tension",
    :qudt/latexDefinition
@@ -21996,7 +21997,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-1I0M0H1T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifctemperaturegradientmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The temperature gradient measures the difference of a temperature per length, as for instance used in an external wall or its layers. It is usually measured in K/m.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -22056,7 +22057,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H1T-1D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifctemperaturerateofchangemeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The \"Temperature Rate of Change\" measures the difference of a temperature per time (positive: rise, negative: fall), as for instance used with heat sensors. It is for example measured in K/s.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -22133,7 +22134,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M1H-1T-3D0,
    :qudt/informativeReference
    "https://en.wikipedia.org/wiki/Thermal_conductivity",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The heat transfer coefficient is also known as thermal admittance in the sense that the material may be seen as admitting heat to flow.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -22352,7 +22353,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H-1T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcthermalexpansioncoefficientmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The \"Thermal Expansion Coefficient\" is a measure of the thermal expansion coefficient of a material, which expresses its elongation (as a ratio) per temperature difference. It is usually measured in 1/K. A positive elongation per (positive) rise of temperature is expressed by a positive value.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -22428,7 +22429,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M1H-1T-3D0,
    :qudt/informativeReference
    "https://en.wikipedia.org/wiki/Thermal_transmittance",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Thermal transmittance is the rate of transfer of heat through matter. The thermal transmittance of a material (such as insulation or concrete) or an assembly (such as a wall or window) is expressed as a U-value. The concept of thermal transmittance is closely related to that of thermal resistance. The thermal resistance of a structure is the reciprocal of its thermal transmittance.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -23206,7 +23207,7 @@
    :qudt/latexSymbol "\\(\\tau, T\\)",
    :qudt/plainTextDescription
    "Transmittance is the fraction of incident light (electromagnetic radiation) at a specified wavelength that passes through a sample.",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -23223,7 +23224,7 @@
    :qudt/plainTextDescription
    "Transmittance is the fraction of incident light (electromagnetic radiation) at a specified wavelength that passes through a sample.",
    :qudt/symbol "A_10, D",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -23353,7 +23354,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-1I0M0H0T1D0,
    :qudt/informativeReference
    "https://www.designingbuildings.co.uk/wiki/Vapour_Permeability",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "Vapour permeability, or \"Breathability\" in a building refers to the ease with which water vapour passes through building elements. Building elements where vapour permeability is poorly designed can result in condensation, leading to unhealthy living environments and degradation of fabric.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -23636,7 +23637,7 @@
    :qudt/plainTextDescription
    "\"Visible Radiant Energy\", also known as luminous energy, is the energy of electromagnetic waves. It is energy of the particles that are emitted, transferred, or received as radiation.",
    :qudt/symbol "Q",
-   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
+   :qudt/systemDerivedQuantityKind :soqk/SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -24095,7 +24096,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L6I0M0H0T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingconstantmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The \"Warping Constant\" is a measure for the warping constant or warping resistance of a cross section under torsional loading. It is usually measured in m⁶.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -24109,7 +24110,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-1I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingmomentmeasure.htm",
-   :qudt/plaintextDescription
+   :qudt/plainTextDescription
    "The warping moment measure is a measure for the warping moment, which occurs in warping torsional analysis. It is usually measured in kNm².",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
