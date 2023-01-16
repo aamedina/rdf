@@ -68,7 +68,7 @@
      "ActivityInfluence provides additional descriptions of an Activity's binary influence upon any other kind of resource. Instances of ActivityInfluence use the prov:activity property to cite the influencing Activity."}],
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
    :rdfs/label "ActivityInfluence",
-   :rdfs/seeAlso :prov/activity,
+   :rdfs/seeAlso "http://www.w3.org/ns/prov#activity"
    :rdfs/subClassOf [{:owl/maxCardinality 0,
                       :owl/onProperty     :prov/hadActivity,
                       :rdf/type           :owl/Restriction}
@@ -108,7 +108,7 @@
      "AgentInfluence provides additional descriptions of an Agent's binary influence upon any other kind of resource. Instances of AgentInfluence use the prov:agent property to cite the influencing Agent."}],
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
    :rdfs/label "AgentInfluence",
-   :rdfs/seeAlso :prov/agent,
+   :rdfs/seeAlso "http://www.w3.org/ns/prov#agent"
    :rdfs/subClassOf :prov/Influence})
 
 (def Association
@@ -446,7 +446,7 @@
      "EntityInfluence provides additional descriptions of an Entity's binary influence upon any other kind of resource. Instances of EntityInfluence use the prov:entity property to cite the influencing Entity."}],
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
    :rdfs/label "EntityInfluence",
-   :rdfs/seeAlso :prov/entity,
+   :rdfs/seeAlso "http://www.w3.org/ns/prov#entity"
    :rdfs/subClassOf :prov/Influence})
 
 (def Generation
@@ -601,7 +601,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
    :rdfs/label "Location",
-   :rdfs/seeAlso :prov/atLocation})
+   :rdfs/seeAlso "http://www.w3.org/ns/prov#atLocation"})
 
 (def Modify
   "Activity that identifies the modification of a resource."
@@ -825,7 +825,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
    :rdfs/label "Role",
-   :rdfs/seeAlso :prov/hadRole})
+   :rdfs/seeAlso "http://www.w3.org/ns/prov#hadRole"})
 
 (def ServiceDescription
   "Type for a generic provenance query service. Mainly for use in RDF provenance query service descriptions, to facilitate discovery in linked data environments."
@@ -1008,7 +1008,7 @@
                       "http://www.w3.org/ns/prov-o#"],
    :rdfs/label "alternateOf",
    :rdfs/range :prov/Entity,
-   :rdfs/seeAlso :prov/specializationOf})
+   :rdfs/seeAlso "http://www.w3.org/ns/prov#specializationOf"})
 
 (def aq
   {:db/ident         :prov/aq,
@@ -2236,7 +2236,7 @@
                       "http://www.w3.org/ns/prov-o#"],
    :rdfs/label "specializationOf",
    :rdfs/range :prov/Entity,
-   :rdfs/seeAlso :prov/alternateOf,
+   :rdfs/seeAlso "http://www.w3.org/ns/prov#alternateOf",
    :rdfs/subPropertyOf [:owl/topObjectProperty :prov/alternateOf]})
 
 (def started

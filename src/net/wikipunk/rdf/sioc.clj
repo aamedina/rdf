@@ -729,7 +729,7 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "has subscriber"},
    :rdfs/range       :sioc/UserAccount,
-   :rdfs/seeAlso     :sioc/feed})
+   :rdfs/seeAlso     "http://rdfs.org/sioc/ns#feed"})
 
 (def has_usergroup
   "Points to a Usergroup that has certain access to this Space."
@@ -1259,7 +1259,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "shared by"},
    :rdfs/range :sioc/UserAccount,
-   :rdfs/seeAlso :sioc/sibling})
+   :rdfs/seeAlso "http://rdfs.org/sioc/ns#sibling"})
 
 (def sibling
   "An Item may have a sibling or a twin that exists in a different Container, but the siblings may differ in some small way (for example, language, category, etc.). The sibling of this Item should be self-describing (that is, it should contain all available information)."
@@ -1316,7 +1316,7 @@
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "subscriber of"},
    :rdfs/range       :sioc/Container,
-   :rdfs/seeAlso     :sioc/feed})
+   :rdfs/seeAlso     "http://rdfs.org/sioc/ns#feed"})
 
 (def title
   "This is the title (subject line) of the Post. Note that for a Post within a threaded discussion that has no parents, it would detail the topic thread."

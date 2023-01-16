@@ -1182,7 +1182,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "has nickname"},
-   :rdfs/seeAlso :vcard/nickname})
+   :rdfs/seeAlso "http://www.w3.org/2006/vcard/ns#nickname"})
 
 (def hasNote
   "Used to support property parameters for the note data property"

@@ -194,7 +194,7 @@
     "Specifies a maximum numeric value, representing an exclusive upper limit. Only applicable for associated number or integer types."},
    :rdfs/label "exclusiveMaximum",
    :rdfs/range :xsd/decimal,
-   :rdfs/seeAlso :schema/maxValue,
+   :rdfs/seeAlso "http://schema.org/maxValue"
    :schema/domainIncludes [:jsonschema/IntegerSchema :jsonschema/NumberSchema]})
 
 (def exclusiveMinimum
@@ -207,7 +207,7 @@
     "Specifies a minimum numeric value, representing an exclusive lower limit. Only applicable for associated number or integer types."},
    :rdfs/label "exclusiveMinimum",
    :rdfs/range :xsd/decimal,
-   :rdfs/seeAlso :schema/minValue,
+   :rdfs/seeAlso "http://schema.org/minValue"
    :schema/domainIncludes [:jsonschema/IntegerSchema :jsonschema/NumberSchema]})
 
 (def format
@@ -267,7 +267,7 @@
     "Specifies a maximum numeric value, representing an inclusive upper limit. Only applicable for associated number or integer types."},
    :rdfs/label "maximum",
    :rdfs/range :xsd/decimal,
-   :rdfs/seeAlso :schema/maxValue,
+   :rdfs/seeAlso "http://schema.org/maxValue"
    :schema/domainIncludes [:jsonschema/IntegerSchema :jsonschema/NumberSchema]})
 
 (def minItems
@@ -304,7 +304,7 @@
     "Specifies a minimum numeric value, representing an inclusive lower limit. Only applicable for associated number or integer types."},
    :rdfs/label "minimum",
    :rdfs/range :xsd/decimal,
-   :rdfs/seeAlso :schema/minValue,
+   :rdfs/seeAlso "http://schema.org/minValue"
    :schema/domainIncludes [:jsonschema/IntegerSchema :jsonschema/NumberSchema]})
 
 (def multipleOf

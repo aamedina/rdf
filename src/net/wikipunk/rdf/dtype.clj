@@ -240,7 +240,7 @@
                       "http://www.linkedmodel.org/schema/dtype"],
    :rdfs/label "order",
    :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/seeAlso :dtype/orderIndex,
+   :rdfs/seeAlso "http://www.linkedmodel.org/schema/dtype#orderIndex",
    :vaem/comment
    "The property \"dtype:order\" provides a means to specify a precedence. One use of order is in specifying ordered enumerations such as \"voag:ConfidentialityLevel\".  A similar property, but with an important type difference, is \"vaem:orderIndex\". This is for use on property occurrences in class axioms where it can be placed on a restriction to specify how that property may be transformed into other representations where ordering has some importance, for example, in XML Schema sequences.  Whereas \"vaem:order\" is a datatype property, \"vaem:orderIndex\" is an annotation property."})
 

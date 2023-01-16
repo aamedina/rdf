@@ -32,7 +32,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Address Book"},
-   :rdfs/seeAlso :foaf/Agent,
+   :rdfs/seeAlso "http://xmlns.com/foaf/0.1/Agent"
    :rdfs/subClassOf :sioc/Container})
 
 (def AnnotationSet
@@ -46,7 +46,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Annotation Set"},
-   :rdfs/seeAlso :annotation/Annotation,
+   :rdfs/seeAlso "http://www.w3.org/2000/10/annotation-ns#Annotation"
    :rdfs/subClassOf :sioc/Container})
 
 (def Answer
@@ -85,7 +85,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Audio Channel"},
-   :rdfs/seeAlso :dcmitype/Sound,
+   :rdfs/seeAlso "http://purl.org/dc/dcmitype/Sound"
    :rdfs/subClassOf :sioc/Container})
 
 (def BestAnswer
@@ -111,7 +111,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Blog Post"},
-   :rdfs/seeAlso :sioc.types/Weblog,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#Weblog"
    :rdfs/subClassOf :sioc/Post})
 
 (def BoardPost
@@ -125,7 +125,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Board Post"},
-   :rdfs/seeAlso :sioc.types/MessageBoard,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#MessageBoard",
    :rdfs/subClassOf :sioc/Post})
 
 (def BookmarkFolder
@@ -137,7 +137,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Bookmark Folder"},
-   :rdfs/seeAlso     :annotea/Bookmark,
+   :rdfs/seeAlso     "http://www.w3.org/2002/01/bookmark#Bookmark"
    :rdfs/subClassOf  :sioc/Container})
 
 (def Briefcase
@@ -149,7 +149,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Briefcase"},
-   :rdfs/seeAlso     :foaf/Document,
+   :rdfs/seeAlso     "http://xmlns.com/foaf/0.1/Document"
    :rdfs/subClassOf  :sioc/Container})
 
 (def Category
@@ -176,7 +176,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Chat Channel"},
-   :rdfs/seeAlso :sioc.types/InstantMessage,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#InstantMessage"
    :rdfs/subClassOf :sioc/Forum})
 
 (def Comment
@@ -190,7 +190,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Comment"},
-   :rdfs/seeAlso :sioc.types/Forum,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#Forum"
    :rdfs/subClassOf :sioc/Post})
 
 (def EventCalendar
@@ -202,7 +202,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Event Calendar"},
-   :rdfs/seeAlso     :cal/Vevent
+   :rdfs/seeAlso     "http://www.w3.org/2002/12/cal/icaltzd#Vevent"
    :rdfs/subClassOf  :sioc/Container})
 
 (def FavouriteThings
@@ -227,7 +227,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Image Gallery"},
-   :rdfs/seeAlso :exif/IFD,
+   :rdfs/seeAlso "http://www.w3.org/2003/12/exif/ns#IFD"
    :rdfs/subClassOf :sioc/Container})
 
 (def InstantMessage
@@ -240,7 +240,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Instant Message"},
-   :rdfs/seeAlso     :sioc.types/ChatChannel,
+   :rdfs/seeAlso     "http://rdfs.org/sioc/types#ChatChannel"
    :rdfs/subClassOf  :sioc/Post})
 
 (def MailMessage
@@ -254,7 +254,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mail Message"},
-   :rdfs/seeAlso :sioc.types/MailingList,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#MailingList"
    :rdfs/subClassOf :sioc/Post})
 
 (def MailingList
@@ -266,7 +266,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Mailing List"},
-   :rdfs/seeAlso     :sioc.types/MailMessage,
+   :rdfs/seeAlso     "http://rdfs.org/sioc/types#MailMessage"
    :rdfs/subClassOf  :sioc/Forum})
 
 (def MessageBoard
@@ -280,7 +280,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Message Board"},
-   :rdfs/seeAlso :sioc.types/BoardPost,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#BoardPost"
    :rdfs/subClassOf :sioc/Forum})
 
 (def Microblog
@@ -294,7 +294,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Microblog"},
-   :rdfs/seeAlso :sioc.types/MicroblogPost,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#MicroblogPost"
    :rdfs/subClassOf :sioc/Forum})
 
 (def MicroblogPost
@@ -307,7 +307,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Microblog Post"},
-   :rdfs/seeAlso :sioc.types/Microblog,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#Microblog"
    :rdfs/subClassOf :sioc/Post})
 
 (def OfferList
@@ -346,7 +346,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Poll"},
-   :rdfs/seeAlso :sioc.types/SurveyCollection,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#SurveyCollection"
    :rdfs/subClassOf :sioc/Item})
 
 (def ProjectDirectory
@@ -358,7 +358,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Project Directory"},
-   :rdfs/seeAlso     :doap/Project,
+   :rdfs/seeAlso     "http://usefulinc.com/ns/doap#Project"
    :rdfs/subClassOf  :sioc/Container})
 
 (def Question
@@ -394,7 +394,6 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Resume Bank"},
-   :rdfs/seeAlso     :resume/Resume,
    :rdfs/subClassOf  :sioc/Container})
 
 (def ReviewArea
@@ -406,7 +405,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Review Area"},
-   :rdfs/seeAlso     [:rev/Review],
+   :rdfs/seeAlso     "http://purl.org/stuff/rev#Review",
    :rdfs/subClassOf  :sioc/Container})
 
 (def SubscriptionList
@@ -432,7 +431,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Survey Collection"},
-   :rdfs/seeAlso :sioc.types/Poll,
+   :rdfs/seeAlso "http://rdfs.org/sioc/types#Poll"
    :rdfs/subClassOf :sioc/Container})
 
 (def Tag
@@ -458,7 +457,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Video Channel"},
-   :rdfs/seeAlso :dcmitype/MovingImage,
+   :rdfs/seeAlso "http://purl.org/dc/dcmitype/MovingImage"
    :rdfs/subClassOf :sioc/Container})
 
 (def Weblog
@@ -471,7 +470,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Weblog"},
-   :rdfs/seeAlso     :sioc.types/BlogPost,
+   :rdfs/seeAlso     "http://rdfs.org/sioc/types#BlogPost"
    :rdfs/subClassOf  :sioc/Forum})
 
 (def Wiki
@@ -483,7 +482,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Wiki"},
-   :rdfs/seeAlso     :sioc.types/WikiArticle,
+   :rdfs/seeAlso     "http://rdfs.org/sioc/types#WikiArticle"
    :rdfs/subClassOf  :sioc/Container})
 
 (def WikiArticle
@@ -495,7 +494,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Wiki Article"},
-   :rdfs/seeAlso     :sioc.types/Wiki,
+   :rdfs/seeAlso     "http://rdfs.org/sioc/types#Wiki"
    :rdfs/subClassOf  :sioc/Item})
 
 (def WishList

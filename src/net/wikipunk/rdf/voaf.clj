@@ -487,7 +487,7 @@
                  :rdf/value    "liste des choses à faire"}
                 {:rdf/language "en",
                  :rdf/value    "to-do list"}],
-   :rdfs/range "http://www.w3.org/2002/12/cal/ical#Vtodo",
+   :rdfs/range :cal/Vtodo
    :vs/term_status "stable"})
 
 (def usageInDataset

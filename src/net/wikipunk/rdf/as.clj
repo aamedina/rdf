@@ -625,7 +625,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accuracy"},
    :rdfs/range {:owl/onDatatype :xsd/float,
-                :owl/withRestrictions [{:xsd/minInclusive 0.0}],
+                :owl/withRestrictions [{:xsd/minInclusive 0}],
                 :rdf/type       :rdfs/Datatype}})
 
 (def actor
@@ -1154,7 +1154,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "radius"},
    :rdfs/range {:owl/onDatatype :xsd/float,
-                :owl/withRestrictions [{:xsd/minInclusive 0.0}],
+                :owl/withRestrictions [{:xsd/minInclusive 0}],
                 :rdf/type       :rdfs/Datatype}})
 
 (def rating
@@ -1170,8 +1170,8 @@
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "rating"},
    :rdfs/range   {:owl/onDatatype :xsd/float,
-                  :owl/withRestrictions [{:xsd/minInclusive 0.0}
-                                         {:xsd/maxInclusive 5.0}],
+                  :owl/withRestrictions [{:xsd/minInclusive 0}
+                                         {:xsd/maxInclusive 5}],
                   :rdf/type       :rdfs/Datatype}})
 
 (def rel
@@ -1328,7 +1328,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "units"},
    :rdfs/range {:owl/unionOf [{:owl/oneOf
-                               ["inches" "feet" "miles" "cm" "m" "km"],
+                               [:unit/IN :unit/FT :unit/MI :unit/CentiM :unit/M :unit/KiloM],
                                :rdf/type :rdfs/Datatype}
                               :xsd/anyURI],
                 :rdf/type    :rdfs/Datatype}})

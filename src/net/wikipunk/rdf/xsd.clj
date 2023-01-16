@@ -70,6 +70,12 @@
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "date time"})
 
+(def dateTimeStamp
+  "xsd:dateTimeStamp"
+  {:db/ident        :xsd/dateTimeStamp
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
 (def decimal
   "A subset of the real numbers, which can be represented by decimal numerals."
   {:db/ident :xsd/decimal,
@@ -124,6 +130,31 @@
    :rdfs/label "fraction digits",
    :rdfs/range :xsd/nonNegativeInteger})
 
+(def gDay
+  {:db/ident        :xsd/gDay
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gMonth
+  {:db/ident        :xsd/gMonth
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gYear
+  {:db/ident        :xsd/gYear
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gMonthDay
+  {:db/ident        :xsd/gMonthDay
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gYearMonth
+  {:db/ident        :xsd/gYearMonth
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
 (def hexBinary
   "Hex-encoded arbitrary binary data."
   {:db/ident             :xsd/hexBinary,
@@ -167,14 +198,18 @@
 
 (def maxExclusive
   "The exclusive upper bound of an ordered datatype."
-  {:db/ident     :xsd/maxExclusive,
-   :rdf/type     [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment "The exclusive upper bound of an ordered datatype.",
-   :rdfs/label   "max exclusive"})
+  {:db/ident       :xsd/maxExclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/long
+   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment   "The exclusive upper bound of an ordered datatype.",
+   :rdfs/label     "max exclusive"})
 
 (def maxInclusive
   "The inclusive upper bound of an ordered datatype."
   {:db/ident     :xsd/maxInclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/long
    :rdf/type     [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment "The inclusive upper bound of an ordered datatype.",
    :rdfs/label   "max inclusive"})
@@ -182,16 +217,20 @@
 (def minExclusive
   "The exclusive lower bound of an ordered datatype."
   {:db/ident     :xsd/minExclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/long
    :rdf/type     [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment "The exclusive lower bound of an ordered datatype.",
    :rdfs/label   "min exclusive"})
 
 (def minInclusive
   "The inclusive lower bound of an ordered datatype."
-  {:db/ident     :xsd/minInclusive,
-   :rdf/type     [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment "The inclusive lower bound of an ordered datatype.",
-   :rdfs/label   "min inclusive"})
+  {:db/ident       :xsd/minInclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/long
+   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment   "The inclusive lower bound of an ordered datatype.",
+   :rdfs/label     "min inclusive"})
 
 (def negativeInteger
   {:db/ident       :xsd/negativeInteger,
@@ -225,10 +264,12 @@
 
 (def pattern
   "A regular expression that matches complete valid literals."
-  {:db/ident     :xsd/pattern,
-   :rdf/type     [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment "A regular expression that matches complete valid literals.",
-   :rdfs/label   "pattern"})
+  {:db/ident       :xsd/pattern,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
+   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment   "A regular expression that matches complete valid literals.",
+   :rdfs/label     "pattern"})
 
 (def positiveInteger
   {:db/ident       :xsd/positiveInteger,

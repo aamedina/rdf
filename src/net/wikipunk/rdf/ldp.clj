@@ -338,7 +338,7 @@
    :rdfs/domain :ldp/PageSortCriterion,
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "pageSortOrder",
-   :rdfs/range :rdf/Resource,
+   :rdfs/range :rdfs/Resource,
    :vs/term_status "testing"})
 
 (def pageSortPredicate
