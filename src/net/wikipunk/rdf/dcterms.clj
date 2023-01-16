@@ -637,7 +637,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Access Rights"},
-   :rdfs/subPropertyOf [:dcterms/rights :dcterms/rights]})
+   :rdfs/subPropertyOf [:dc11/rights :dcterms/rights]})
 
 (def accrualMethod
   "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)]."
@@ -708,7 +708,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Alternative Title"},
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/title :dcterms/title]})
+   :rdfs/subPropertyOf [:dc11/title :dcterms/title]})
 
 (def audience
   "Recommended practice is to use this property with non-literal values from a vocabulary of audience types."

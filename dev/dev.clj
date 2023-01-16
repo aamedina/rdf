@@ -10,6 +10,7 @@
    [arachne.aristotle.query :as q]
    [arachne.aristotle.registry :as reg]
    [arachne.aristotle.graph :as g]
+   [clojure.datafy :refer [datafy]]
    [clojure.edn :as edn]
    [clojure.java.io :as io]
    [clojure.java.javadoc :refer [javadoc]]
