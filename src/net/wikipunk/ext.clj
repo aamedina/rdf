@@ -361,3 +361,13 @@
   {:rdfa/uri    "http://rdfs.org/sioc/types#",
    :rdfa/prefix "sioc.types",
    :rdf/type    :rdfa/PrefixMapping})
+
+(def annotea
+  {:rdfa/uri    "http://www.w3.org/2002/01/bookmark#"
+   :rdfa/prefix "annotea",
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def annotation
+  {:rdfa/uri    "http://www.w3.org/2000/10/annotation-ns#"
+   :rdfa/prefix "annotation",
+   :rdf/type    :rdfa/PrefixMapping})
