@@ -167,7 +167,7 @@
    :qudt/id              "T010-01",
    :qudt/literal         "B1",
    :qudt/mySQLName       "BIT(1)",
-   :qudt/rdfsDatatype    :qudt/BitField1,
+   :qudt/rdfsDatatype    :qudt/BitField01,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 01"})
@@ -182,7 +182,7 @@
    :qudt/id              "T010-02",
    :qudt/literal         "B2",
    :qudt/mySQLName       "BIT(2)",
-   :qudt/rdfsDatatype    :qudt/BitField2,
+   :qudt/rdfsDatatype    :qudt/BitField02,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 02"})
@@ -197,7 +197,7 @@
    :qudt/id              "T010-03",
    :qudt/literal         "B3",
    :qudt/mySQLName       "BIT(3)",
-   :qudt/rdfsDatatype    :qudt/BitField3,
+   :qudt/rdfsDatatype    :qudt/BitField03,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 03"})
@@ -212,7 +212,7 @@
    :qudt/id              "T010-04",
    :qudt/literal         "B4",
    :qudt/mySQLName       "BIT(4)",
-   :qudt/rdfsDatatype    :qudt/BitField4,
+   :qudt/rdfsDatatype    :qudt/BitField04,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 04"})
@@ -227,7 +227,7 @@
    :qudt/id              "T010-05",
    :qudt/literal         "B5",
    :qudt/mySQLName       "BIT(5)",
-   :qudt/rdfsDatatype    :qudt/BitField5,
+   :qudt/rdfsDatatype    :qudt/BitField05,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 05"})
@@ -242,7 +242,7 @@
    :qudt/id              "T010-06",
    :qudt/literal         "B6",
    :qudt/mySQLName       "BIT(6)",
-   :qudt/rdfsDatatype    :qudt/BitField6,
+   :qudt/rdfsDatatype    :qudt/BitField06,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 06"})
@@ -257,7 +257,7 @@
    :qudt/id              "T010-07",
    :qudt/literal         "B7",
    :qudt/mySQLName       "BIT(7)",
-   :qudt/rdfsDatatype    :qudt/BitField7,
+   :qudt/rdfsDatatype    :qudt/BitField07,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 07"})
@@ -272,7 +272,7 @@
    :qudt/id              "T010-08",
    :qudt/literal         "B8",
    :qudt/mySQLName       "BIT(8)",
-   :qudt/rdfsDatatype    :qudt/BitField8,
+   :qudt/rdfsDatatype    :qudt/BitField08,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 08"})
@@ -287,7 +287,7 @@
    :qudt/id              "T010-09",
    :qudt/literal         "B9",
    :qudt/mySQLName       "BIT(9)",
-   :qudt/rdfsDatatype    :qudt/BitField9,
+   :qudt/rdfsDatatype    :qudt/BitField09,
    :rdf/type             [:qudt/BitFieldType :owl/NamedIndividual],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label           "Bit Field 09"})
