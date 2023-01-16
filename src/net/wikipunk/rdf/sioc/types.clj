@@ -3,8 +3,7 @@
   {:rdf/ns-prefix-map
    {"annotation" "http://www.w3.org/2000/10/annotation-ns#",
     "annotea" "http://www.w3.org/2002/01/bookmark#",
-    "atom" "http://atomowl.org/ontologies/atomrdf#",
-    "calendar" "http://www.w3.org/2002/12/cal/icaltzd#",
+    "cal" "http://www.w3.org/2002/12/cal/icaltzd#",
     "dcterms" "http://purl.org/dc/terms/",
     "doap" "http://usefulinc.com/ns/doap#",
     "exif" "http://www.w3.org/2003/12/exif/ns/",
@@ -13,13 +12,9 @@
     "owl" "http://www.w3.org/2002/07/owl#",
     "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-    "resume" "http://captsolo.net/semweb/resume/cv.rdfs#",
-    "review"
-    "http://www.isi.edu/webscripter/communityreview/abstract-review-o#",
     "sioc" "http://rdfs.org/sioc/ns#",
     "sioc.types" "http://rdfs.org/sioc/types#",
     "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-    "wikiont" "http://sw.deri.org/2005/04/wikipedia/wikiont.owl",
     "wot" "http://xmlns.com/wot/0.1/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "http://rdfs.org/sioc/ns#",
@@ -77,7 +72,6 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Argumentative Discussion"},
-   :rdfs/seeAlso :ibis/Idea,
    :rdfs/subClassOf :sioc/Forum})
 
 (def AudioChannel
@@ -208,7 +202,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Event Calendar"},
-   :rdfs/seeAlso     :calendar/VEVENT,
+   :rdfs/seeAlso     :cal/Vevent
    :rdfs/subClassOf  :sioc/Container})
 
 (def FavouriteThings
@@ -412,7 +406,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Review Area"},
-   :rdfs/seeAlso     [:rev/Review :review/Review],
+   :rdfs/seeAlso     [:rev/Review],
    :rdfs/subClassOf  :sioc/Container})
 
 (def SubscriptionList
@@ -425,7 +419,6 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "Subscription List"},
-   :rdfs/seeAlso     :atom/Feed,
    :rdfs/subClassOf  :sioc/Container})
 
 (def SurveyCollection
