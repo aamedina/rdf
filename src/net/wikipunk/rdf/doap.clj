@@ -434,7 +434,7 @@
                        :rdf/value    "blog"}
                       {:rdf/language "en",
                        :rdf/value    "blog"}],
-   :rdfs/range       ["http://rdfs.org/sioc/types#Weblog" :rdfs/Resource]})
+   :rdfs/range       [:sioc.types/Weblog :rdfs/Resource]})
 
 (def browse
   "Web browser interface to repository."
@@ -995,7 +995,7 @@
                  :rdf/value    "Mailing Liste"}
                 {:rdf/language "cs",
                  :rdf/value    "e–mailová diskuse"}],
-   :rdfs/range "http://rdfs.org/sioc/types#MailingList"})
+   :rdfs/range :sioc.types/MailingList})
 
 (def maintainer
   "Maintainer of a project, a project leader."
@@ -1582,4 +1582,4 @@
                  :rdf/value    "wiki"}
                 {:rdf/language "en",
                  :rdf/value    "wiki"}],
-   :rdfs/range "http://rdfs.org/sioc/types#Wiki"})
+   :rdfs/range :sioc.types/Wiki})
