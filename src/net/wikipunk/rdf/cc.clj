@@ -213,7 +213,7 @@
    :rdfs/domain :cc/License,
    :rdfs/label  {:rdf/language "en-US",
                  :rdf/value    "deprecated\n\t\t  on"},
-   :rdfs/range  "http://www.w3.org/2001/XMLSchema-datatypes#date"})
+   :rdfs/range  :xsd/date})
 
 (def jurisdiction
   {:db/ident    :cc/jurisdiction,

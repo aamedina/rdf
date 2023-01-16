@@ -865,16 +865,16 @@
 
 (def unionOf
   "The property that determines the collection of classes or data ranges that build a union."
-  {:db/ident :owl/unionOf,
+  {:db/ident         :owl/unionOf,
    :db/cardinality   :db.cardinality/many
    :db/valueType     :db.type/ref
-   :rdf/type :rdf/Property,
+   :rdf/type         :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of classes or data ranges that build a union.",
-   :rdfs/domain :rdfs/Class,
+   :rdfs/domain      :rdfs/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
-   :rdfs/label "unionOf",
-   :rdfs/range :rdf/List})
+   :rdfs/label       "unionOf",
+   :rdfs/range       :rdf/List})
 
 (def versionIRI
   "The property that identifies the version IRI of an ontology."

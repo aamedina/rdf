@@ -350,3 +350,14 @@
   {:rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "fressian",
    :rdfa/uri "https://wikipunk.net/fressian#"})
+
+(def daq
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/daq/versions/2015-04-01.n3"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/prefix      "daq"
+   :rdfa/uri         "http://purl.org/eis/vocab/daq#"})
+
+(def sioc.types
+  {:rdfa/uri    "http://rdfs.org/sioc/types#",
+   :rdfa/prefix "sioc.types",
+   :rdf/type    :rdfa/PrefixMapping})
