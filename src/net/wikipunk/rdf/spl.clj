@@ -334,12 +334,12 @@
    [{:rdf/type      :spl/Argument,
      :rdfs/comment  "The maximum number of values that the property must have.",
      :spl/optional  true,
-     :spl/predicate :arg/maxCount,
+     :spl/predicate :spl/maxCount,
      :spl/valueType :xsd/integer}
     {:rdf/type      :spl/Argument,
      :rdfs/comment  "The minimum number of values that the property must have.",
      :spl/optional  true,
-     :spl/predicate :arg/minCount,
+     :spl/predicate :spl/minCount,
      :spl/valueType :xsd/integer}]})
 
 (def DateFunctions
@@ -694,12 +694,12 @@
    [{:rdf/type     :sp/Ask,
      :rdfs/comment "rdfs:label cannot be used as primary key",
      :sp/where     [{:sp/object    :rdfs/label,
-                     :sp/predicate :arg/property,
+                     :sp/predicate :sp/arg,
                      :sp/subject   :spin/_this}]}
     {:rdf/type :spl/Argument,
      :rdfs/comment
      "The start of the URIs of well-formed instances of the associated class.",
-     :spl/predicate :arg/uriStart,
+     :spl/predicate :sp/arg,
      :spl/valueType :xsd/string}],
    :spin/labelTemplate
    "The property {?property} is the primary key and URIs start with {?uriStart}"})
@@ -715,7 +715,7 @@
    :spin/abstract true,
    :spin/constraint {:rdf/type      :spl/Argument,
                      :rdfs/comment  "The property being constrained.",
-                     :spl/predicate :arg/property,
+                     :spl/predicate :sp/arg,
                      :spl/valueType :rdf/Property}})
 
 (def PropertyPairConstraintTemplates
@@ -729,7 +729,7 @@
    :spin/abstract true,
    :spin/constraint {:rdf/type      :spl/Argument,
                      :rdfs/comment  "The \"other\" property.",
-                     :spl/predicate :arg/otherProperty,
+                     :spl/predicate :sp/arg/otherProperty,
                      :spl/valueType :rdf/Property}})
 
 (def RangePropertyConstraint
@@ -791,12 +791,12 @@
    :spin/constraint [{:rdf/type      :spl/Argument,
                       :rdfs/comment  "The maximum value.",
                       :spl/optional  true,
-                      :spl/predicate :arg/max,
+                      :spl/predicate :spl/max,
                       :spl/valueType :rdfs/Literal}
                      {:rdf/type      :spl/Argument,
                       :rdfs/comment  "The minimum value.",
                       :spl/optional  true,
-                      :spl/predicate :arg/min,
+                      :spl/predicate :spl/min,
                       :spl/valueType :rdfs/Literal}],
    :spin/labelTemplate
    "Values of {?property} must be within the interval [ {?min} , {?max} ]"})
@@ -844,7 +844,7 @@
                     :sp/variable   {:sp/varName "message"}}]},
    :spin/constraint {:rdf/type      :spl/Argument,
                      :rdfs/comment  "The regular expression to match.",
-                     :spl/predicate :arg/pattern,
+                     :spl/predicate :xsd/pattern,
                      :spl/valueType :xsd/string},
    :spin/labelTemplate
    "Values of {?property} must match the regular expression {?pattern}"})
@@ -1015,12 +1015,12 @@
    [{:rdf/type      :spl/Argument,
      :rdfs/comment  "The maximum number of characters (defaults to unlimited).",
      :spl/optional  true,
-     :spl/predicate :arg/maxLength,
+     :spl/predicate :spl/maxLength,
      :spl/valueType :xsd/integer}
     {:rdf/type      :spl/Argument,
      :rdfs/comment  "The minimum number of characters (default to 0).",
      :spl/optional  true,
-     :spl/predicate :arg/minLength,
+     :spl/predicate :spl/minLength,
      :spl/valueType :xsd/integer}],
    :spin/labelTemplate
    "Values of {?property} must have between {?minLength} and {?maxLength} characters"})
@@ -1188,7 +1188,7 @@
    {:rdf/type :spl/Argument,
     :rdfs/comment
     "The class that the values must have as their rdf:type (or a subclass thereof).",
-    :spl/predicate :arg/type,
+    :spl/predicate :rdf/type,
     :spl/valueType :rdfs/Class},
    :spin/labelTemplate "Values of {?property} must have the type {?type}"})
 
@@ -1363,7 +1363,7 @@
    :rdfs/subClassOf :spl/OntologyFunctions,
    :spin/body {:rdf/type :sp/Ask,
                :sp/where [{:rdf/type      :sp/Bind,
-                           :sp/expression {:arg/class {:sp/varName "class"},
+                           :sp/expression {:spl/class {:sp/varName "class"},
                                            :rdf/type  :spl/primaryKeyProperty},
                            :sp/variable   {:sp/varName "primaryKey"}}
                           {:rdf/type      :sp/Filter,
@@ -1372,7 +1372,7 @@
                                                       "primaryKey"}}}]},
    :spin/constraint {:rdf/type      :spl/Argument,
                      :rdfs/comment  "The class to get the primary key of.",
-                     :spl/predicate :arg/class,
+                     :spl/predicate :spl/class,
                      :spl/valueType :rdfs/Class},
    :spin/returnType :xsd/boolean})
 
@@ -1542,7 +1542,7 @@
                            :sp/predicate :rdf/type,
                            :sp/subject   {:sp/varName "instance"}}
                           {:rdf/type      :sp/Bind,
-                           :sp/expression {:arg/class {:sp/varName "type"},
+                           :sp/expression {:spl/class {:sp/varName "type"},
                                            :rdf/type  :spl/primaryKeyProperty},
                            :sp/variable   {:sp/varName "pk"}}
                           {:rdf/type      :sp/Filter,
@@ -1551,12 +1551,12 @@
                                            :sp/arg2  {:sp/varName "pk"}}}]},
    :spin/constraint [{:rdf/type      :spl/Argument,
                       :rdfs/comment  "The instance to check.",
-                      :spl/predicate :arg/instance,
+                      :spl/predicate :spl/instance,
                       :spl/valueType :rdfs/Resource}
                      {:rdf/type :spl/Argument,
                       :rdfs/comment
                       "The property that may or may not be the primary key.",
-                      :spl/predicate :arg/property,
+                      :spl/predicate :sp/arg,
                       :spl/valueType :rdf/Property}],
    :spin/returnType :xsd/boolean})
 
@@ -1805,11 +1805,11 @@
                            :sp/predicate :rdf/type,
                            :sp/subject   {:sp/varName "constraint"}}
                           {:sp/object    {:sp/varName "property"},
-                           :sp/predicate :arg/property,
+                           :sp/predicate :sp/arg,
                            :sp/subject   {:sp/varName "constraint"}}]},
    :spin/constraint {:rdf/type      :spl/Argument,
                      :rdfs/comment  "The class to get the primary key of.",
-                     :spl/predicate :arg/class,
+                     :spl/predicate :spl/class,
                      :spl/valueType :rdfs/Class},
    :spin/returnType :rdf/Property})
 
@@ -1837,11 +1837,11 @@
                            :sp/predicate :rdf/type,
                            :sp/subject   {:sp/varName "constraint"}}
                           {:sp/object    {:sp/varName "result"},
-                           :sp/predicate :arg/uriStart,
+                           :sp/predicate :sp/arg,
                            :sp/subject   {:sp/varName "constraint"}}]},
    :spin/constraint {:rdf/type      :spl/Argument,
                      :rdfs/comment  "The class to get the primary key of.",
-                     :spl/predicate :arg/class,
+                     :spl/predicate :spl/class,
                      :spl/valueType :rdfs/Class},
    :spin/returnType :rdf/Property})
 

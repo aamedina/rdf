@@ -411,3 +411,14 @@
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/2011/http#"
    :rdfa/prefix      "http"})
+
+(def afn
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://jena.hpl.hp.com/ARQ/function#"
+   :rdfa/prefix "afn"})
+
+(def ogc
+  {:dcat/downloadURL "https://raw.githubusercontent.com/facebookarchive/open-graph-protocol/master/ns/ogp.me.rdf"
+   :rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://ogp.me/ns/class#"
+   :rdfa/prefix "ogc"})

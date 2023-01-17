@@ -37,7 +37,7 @@
 (def Ascending
   "Ascending order."
   {:db/ident         :ldp/Ascending,
-   :rdf/type         :owl/Individual,
+   :rdf/type         :owl/NamedIndividual,
    :rdfs/comment     "Ascending order.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label       "Ascending",
@@ -68,7 +68,7 @@
 (def Descending
   "Descending order."
   {:db/ident         :ldp/Descending,
-   :rdf/type         :owl/Individual,
+   :rdf/type         :owl/NamedIndividual,
    :rdfs/comment     "Descending order.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label       "Descending",
@@ -99,7 +99,7 @@
 (def MemberSubject
   "Used to indicate default and typical behavior for ldp:insertedContentRelation, where the member-URI value in the membership triple added when a creation request is successful is the URI assigned to the newly created resource."
   {:db/ident :ldp/MemberSubject,
-   :rdf/type :owl/Individual,
+   :rdf/type :owl/NamedIndividual,
    :rdfs/comment
    "Used to indicate default and typical behavior for ldp:insertedContentRelation, where the member-URI value in the membership triple added when a creation request is successful is the URI assigned to the newly created resource.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
@@ -140,7 +140,7 @@
 (def PreferContainment
   "URI identifying a LDPC's containment triples, for example to allow clients to express interest in receiving them."
   {:db/ident :ldp/PreferContainment,
-   :rdf/type :owl/Individual,
+   :rdf/type :owl/NamedIndividual,
    :rdfs/comment
    "URI identifying a LDPC's containment triples, for example to allow clients to express interest in receiving them.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
@@ -151,7 +151,7 @@
   "Archaic alias for ldp:PreferMinimalContainer"
   {:db/ident               :ldp/PreferEmptyContainer,
    :owl/equivalentProperty :ldp/PreferMinimalContainer,
-   :rdf/type               :owl/Individual,
+   :rdf/type               :owl/NamedIndividual,
    :rdfs/comment           "Archaic alias for ldp:PreferMinimalContainer",
    :rdfs/isDefinedBy       "http://www.w3.org/ns/ldp#",
    :rdfs/label             "PreferEmptyContainer",
@@ -161,7 +161,7 @@
 (def PreferMembership
   "URI identifying a LDPC's membership triples, for example to allow clients to express interest in receiving them."
   {:db/ident :ldp/PreferMembership,
-   :rdf/type :owl/Individual,
+   :rdf/type :owl/NamedIndividual,
    :rdfs/comment
    "URI identifying a LDPC's membership triples, for example to allow clients to express interest in receiving them.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
@@ -171,7 +171,7 @@
 (def PreferMinimalContainer
   "URI identifying the subset of a LDPC's triples present in an empty LDPC, for example to allow clients to express interest in receiving them. Currently this excludes containment and membership triples, but in the future other exclusions might be added. This definition is written to automatically exclude those new classes of triples."
   {:db/ident :ldp/PreferMinimalContainer,
-   :rdf/type :owl/Individual,
+   :rdf/type :owl/NamedIndividual,
    :rdfs/comment
    "URI identifying the subset of a LDPC's triples present in an empty LDPC, for example to allow clients to express interest in receiving them.  Currently this excludes containment and membership triples, but in the future other exclusions might be added.  This definition is written to automatically exclude those new classes of triples.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",

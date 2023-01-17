@@ -1,6 +1,6 @@
 (ns net.wikipunk.rdf.gen
   "http://www.w3.org/2006/gen/ont#"
-  {:rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/elements/1.1/",
+  {:rdf/ns-prefix-map {"dc11" "http://purl.org/dc/elements/1.1/",
                        "doc"     "http://www.w3.org/2000/10/swap/pim/doc#",
                        "gen"     "http://www.w3.org/2006/gen/ont#",
                        "owl"     "http://www.w3.org/2002/07/owl#",

@@ -1288,12 +1288,14 @@
 
 (def entityOfInfluence
   {:db/ident         :prov/entityOfInfluence,
+   :rdf/type :owl/ObjectProperty
    :owl/inverseOf    :prov/entity,
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o-inverses#",
    :rdfs/label       "entityOfInfluence"})
 
 (def generalizationOf
   {:db/ident         :prov/generalizationOf,
+   :rdf/type :owl/ObjectProperty
    :owl/inverseOf    :prov/specializationOf,
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o-inverses#",
    :rdfs/label       "generalizationOf"})

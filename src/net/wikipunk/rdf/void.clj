@@ -322,7 +322,7 @@
 (def uriRegexPattern
   "Defines a regular expression pattern matching URIs in the dataset."
   {:db/ident :void/uriRegexPattern,
-   :rdf/type :rdf/DatatypeProperty,
+   :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Defines a regular expression pattern matching URIs in the dataset.",
    :rdfs/domain :void/Dataset,

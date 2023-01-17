@@ -1566,7 +1566,7 @@
    :qudt/quantityValue   :constant/Value_ElementaryCharge,
    :qudt/symbol          "e",
    :qudt/ucumCode        "[e]",
-   :rdf/type             [:qudt/AtomicUnit :qudt/PhysicalConstant],
+   :rdf/type             [#_:qudt/AtomicUnit :qudt/PhysicalConstant],
    :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/constant",
    :rdfs/label           {:rdf/language "en",
                           :rdf/value    "Elementary Charge"}})
@@ -1728,7 +1728,7 @@
    "\\(E_H= \\frac{e^2}{4\\pi \\varepsilon_0 a_0 }\\), where \\(e\\) is the elementary charge, \\(\\varepsilon_0\\) is the electric constant, and \\(a_0\\) is the Bohr radius.",
    :qudt/latexSymbol "\\(E_h\\)",
    :qudt/quantityValue :constant/Value_HartreeEnergy,
-   :rdf/type [:qudt/PhysicalConstant :qudt/AtomicUnit],
+   :rdf/type [:qudt/PhysicalConstant #_:qudt/AtomicUnit],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/constant",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Hartree Energy"}})

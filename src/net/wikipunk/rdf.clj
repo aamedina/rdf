@@ -136,7 +136,8 @@
         (if (or subClassOf
                 equivalentClass
                 (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
-          (deriving h entity (concat (filter #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
+          (deriving h entity (concat #_(filter #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
+                                     type
                                      (filter keyword? subClassOf)
                                      (filter keyword? equivalentClass)))
           h)))

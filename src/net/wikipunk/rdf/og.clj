@@ -96,7 +96,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "country name"},
-   :rdfs/seeAlso :vcard/country-name})
+   :rdfs/seeAlso "http://www.w3.org/2006/vcard/ns#country-name"})
 
 (def description
   "A one to two sentence description of your object."
@@ -134,7 +134,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label       {:rdf/language "en-US",
                       :rdf/value    "email"},
-   :rdfs/seeAlso     :foaf/mbox})
+   :rdfs/seeAlso     "http://xmlns.com/foaf/0.1/mbox"})
 
 (def fax_number
   "[DEPRECATED] Fax number of the contact for your object."
@@ -146,7 +146,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "fax number"},
-   :rdfs/seeAlso :foaf/phone})
+   :rdfs/seeAlso "http://xmlns.com/foaf/0.1/phone"})
 
 (def image
   "An image URL which should represent your object within the graph."
@@ -160,7 +160,7 @@
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "image"},
    :rdfs/range :ogc/url,
-   :rdfs/seeAlso :foaf/depiction})
+   :rdfs/seeAlso "http://xmlns.com/foaf/0.1/depiction"})
 
 (def image:height
   "The height of an image."
@@ -185,7 +185,7 @@
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "image secure url"},
    :rdfs/range :ogc/url,
-   :rdfs/seeAlso :foaf/depiction})
+   :rdfs/seeAlso "http://xmlns.com/foaf/0.1/depiction"})
 
 (def image:type
   "The mime type of an image."
@@ -222,7 +222,7 @@
                  :rdf/value    "International Standard Book Number"}
                 {:rdf/language "en-US",
                  :rdf/value    "isbn"}],
-   :rdfs/seeAlso :bibo/isbn})
+   :rdfs/seeAlso "http://purl.org/ontology/bibo/isbn"})
 
 (def latitude
   "[DEPRECATED] The latitude of the resource e.g., the latitude of a company."
@@ -235,7 +235,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "latitude"},
-   :rdfs/seeAlso :geo/lat})
+   :rdfs/seeAlso "http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
 
 (def locale
   "A Unix locale in which this markup is rendered."
@@ -259,7 +259,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "locality"},
-   :rdfs/seeAlso :vcard/locality})
+   :rdfs/seeAlso "http://www.w3.org/2006/vcard/ns#locality"})
 
 (def longitude
   "[DEPRECATED] The longitude of the resource e.g., the longitude of a company."
@@ -272,7 +272,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "longitude"},
-   :rdfs/seeAlso :geo/long})
+   :rdfs/seeAlso "http://www.w3.org/2003/01/geo/wgs84_pos#long"})
 
 (def phone_number
   "[DEPRECATED] Phone number of the contact for your object."
@@ -284,7 +284,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "phone number"},
-   :rdfs/seeAlso :foaf/phone})
+   :rdfs/seeAlso "http://xmlns.com/foaf/0.1/phone"})
 
 (def postal-code
   "[DEPRECATED] The postal code of the resource e.g., \"94304\""
@@ -296,7 +296,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "postal code"},
-   :rdfs/seeAlso :vcard/postal-code})
+   :rdfs/seeAlso "http://www.w3.org/2006/vcard/ns#postal-code"})
 
 (def region
   "[DEPRECATED] The region of the resource e.g., \"CA\""
@@ -308,7 +308,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label       {:rdf/language "en-US",
                       :rdf/value    "region"},
-   :rdfs/seeAlso     :vcard/region})
+   :rdfs/seeAlso     "http://www.w3.org/2006/vcard/ns#region"})
 
 (def site_name
   "If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., \"IMDb\"."
@@ -334,7 +334,7 @@
    :rdfs/isDefinedBy "http://ogp.me/ns#",
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "street address"},
-   :rdfs/seeAlso :vcard/street-address})
+   :rdfs/seeAlso "http://www.w3.org/2006/vcard/ns#street-address"})
 
 (def title
   "The title of the object as it should appear within the graph, e.g., \"The Rock\"."
@@ -362,7 +362,7 @@
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "type"},
    :rdfs/range :ogc/string,
-   :rdfs/seeAlso :rdf/type})
+   :rdfs/seeAlso "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"})
 
 (def upc
   "[DEPRECATED] Universal Product Code for your object."
@@ -375,7 +375,7 @@
                    :rdf/value    "universal product code"}
                   {:rdf/language "en-US",
                    :rdf/value    "upc"}],
-   :rdfs/seeAlso :gr/hasEAN_UCC-13})
+   :rdfs/seeAlso "http://purl.org/goodrelations/v1#hasEAN_UCC-13"})
 
 (def url
   "The canonical URL of your object that will be used as its permanent ID in the graph, e.g., \"http://www.imdb.com/title/tt0117500/\"."
@@ -389,7 +389,8 @@
    :rdfs/label {:rdf/language "en-US",
                 :rdf/value    "url"},
    :rdfs/range :ogc/url,
-   :rdfs/seeAlso [:foaf/homepage :dcterms/identifier]})
+   :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/homepage"
+                  "http://purl.org/dc/terms/identifier"]})
 
 (def video
   "A relevant video URL for your object."

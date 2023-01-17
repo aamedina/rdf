@@ -50,7 +50,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "alternative label"},
    :rdfs/range :skosxl/Label,
-   :rdfs/seeAlso :skos/altLabel,
+   :rdfs/seeAlso "http://www.w3.org/2004/02/skos/core#altLabel",
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -68,7 +68,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "hidden label"},
    :rdfs/range :skosxl/Label,
-   :rdfs/seeAlso :skos/hiddenLabel,
+   :rdfs/seeAlso "http://www.w3.org/2004/02/skos/core#hiddenLabel"
    :skos/definition
    {:rdf/language "en",
     :rdf/value
@@ -124,7 +124,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "preferred label"},
    :rdfs/range :skosxl/Label,
-   :rdfs/seeAlso :skos/prefLabel,
+   :rdfs/seeAlso "http://www.w3.org/2004/02/skos/core#prefLabel",
    :skos/definition
    {:rdf/language "en",
     :rdf/value
