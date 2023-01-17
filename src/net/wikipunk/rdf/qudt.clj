@@ -80,7 +80,7 @@
    "<p>An \"Algebraic Datatype\" is a datatype each of whose values are data from other data types wrapped in one of the constructors of the data type. Any wrapped datum is an argument to the constructor. In contrast to other data types, the constructor is not executed and the only way to operate on the data is to unwrap the constructor using pattern matching.</p>\n\n<p>The most common algebraic data type is a list with two constructors: Nil or [] for an empty list, and Cons (an abbreviation of constructor), ::, or : for the combination of a new element with a shorter list (for example (Cons 1 '(2 3 4)) or 1:[2,3,4]).</p>\n\n<p>Special cases of algebraic types are product types i.e. records (only one constructor) and enumerated types (many constructors with no arguments). Algebraic types are one kind of composite type (i.e. a type formed by combining other types).</p>\n\n<p>An algebraic data type may also be an abstract data type (ADT) if it is exported from a module without its constructors. Values of such a type can only be manipulated using functions defined in the same module as the type itself.</p>",
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Algebraic Datatype",
-   :rdfs/seeAlso :qudt/AbstractDatatype,
+   :rdfs/seeAlso "http://qudt.org/2.1/schema/qudt/AbstractDatatype"
    :rdfs/subClassOf :qudt/StructuredDatatype})
 
 (def AlignmentType
@@ -2993,7 +2993,9 @@
     "<p>The interval type allows for the degree of difference between items, but not the ratio between them. Examples include temperature with the Celsius scale, which has two defined points (the freezing and boiling point of water at specific conditions) and then separated into 100 intervals, date when measured from an arbitrary epoch (such as AD), percentage such as a percentage return on a stock,[16] location in Cartesian coordinates, and direction measured in degrees from true or magnetic north. Ratios are not meaningful since 20 °C cannot be said to be \"twice as hot\" as 10 °C, nor can multiplication/division be carried out between any two dates directly. However, ratios of differences can be expressed; for example, one difference can be twice another. Interval type variables are sometimes also called \"scaled variables\", but the formal mathematical term is an affine space (in this case an affine line).</p>\n<p>Characteristics: median, percentile &amp; Monotonic increasing (order (&lt;) &amp; totally ordered set</p>"],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "Interval scale",
-   :rdfs/seeAlso [:qudt/OrdinalScale :qudt/RatioScale :qudt/NominalScale],
+   :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/OrdinalScale"
+                  "http://qudt.org/2.1/schema/qudt/RatioScale"
+                  "http://qudt.org/2.1/schema/qudt/NominalScale"]
    :rdfs/subClassOf :qudt/Scale})
 
 (def KinestheticCue
@@ -3693,7 +3695,9 @@
    "A nominal scale differentiates between items or subjects based only on their names or (meta-)categories and other qualitative classifications they belong to; thus dichotomous data involves the construction of classifications as well as the classification of items. Discovery of an exception to a classification can be viewed as progress. Numbers may be used to represent the variables but the numbers do not have numerical value or relationship: For example, a Globally unique identifier. Examples of these classifications include gender, nationality, ethnicity, language, genre, style, biological species, and form. In a university one could also use hall of affiliation as an example.",
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "Nominal scale",
-   :rdfs/seeAlso [:qudt/RatioScale :qudt/OrdinalScale :qudt/IntervalScale],
+   :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/RatioScale"
+                  "http://qudt.org/2.1/schema/qudt/OrdinalScale"
+                  "http://qudt.org/2.1/schema/qudt/IntervalScale"]
    :rdfs/subClassOf :qudt/Scale})
 
 (def NonModifiableParameter
@@ -3964,7 +3968,9 @@
    "The ordinal type allows for rank order (1st, 2nd, 3rd, etc.) by which data can be sorted, but still does not allow for relative degree of difference between them. Examples include, on one hand, dichotomous data with dichotomous (or dichotomized) values such as 'sick' vs. 'healthy' when measuring health, 'guilty' vs. 'innocent' when making judgments in courts, 'wrong/false' vs. 'right/true' when measuring truth value, and, on the other hand, non-dichotomous data consisting of a spectrum of values, such as 'completely agree', 'mostly agree', 'mostly disagree', 'completely disagree' when measuring opinion.",
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "Ordinal scale",
-   :rdfs/seeAlso [:qudt/NominalScale :qudt/IntervalScale :qudt/RatioScale],
+   :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/NominalScale"
+                  "http://qudt.org/2.1/schema/qudt/IntervalScale"
+                  "http://qudt.org/2.1/schema/qudt/RatioScale"]
    :rdfs/subClassOf [:qudt/Scale
                      {:owl/cardinality 1,
                       :owl/onProperty  :qudt/order,
@@ -4541,7 +4547,9 @@
    "The ratio type takes its name from the fact that measurement is the estimation of the ratio between a magnitude of a continuous quantity and a unit magnitude of the same kind (Michell, 1997, 1999). A ratio scale possesses a meaningful (unique and non-arbitrary) zero value. Most measurement in the physical sciences and engineering is done on ratio scales. Examples include mass, length, duration, plane angle, energy and electric charge. In contrast to interval scales, ratios are now meaningful because having a non-arbitrary zero point makes it meaningful to say, for example, that one object has \"twice the length\" of another (= is \"twice as long\"). Very informally, many ratio scales can be described as specifying \"how much\" of something (i.e. an amount or magnitude) or \"how many\" (a count). The Kelvin temperature scale is a ratio scale because it has a unique, non-arbitrary zero point called absolute zero.",
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt",
    :rdfs/label "Ratio scale",
-   :rdfs/seeAlso [:qudt/OrdinalScale :qudt/NominalScale :qudt/IntervalScale],
+   :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/OrdinalScale"
+                  "http://qudt.org/2.1/schema/qudt/NominalScale"
+                  "http://qudt.org/2.1/schema/qudt/IntervalScale"]
    :rdfs/subClassOf :qudt/Scale})
 
 (def RawValueTupleMember
