@@ -19,11 +19,11 @@
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "DDI-RDF Discovery Vocabulary"},
    :owl/versionInfo "Version 0.6 - 2013-09-30",
-   :rdf/about "http://rdf-vocabulary.ddialliance.org/discovery",
    :rdf/ns-prefix-map {"adms" "http://www.w3.org/ns/adms#",
                        "dcat" "http://www.w3.org/ns/dcat#",
                        "dcmitype" "http://purl.org/dc/terms/DCMIType",
-                       "dcterms" "http://purl.org/dc/elements/1.1/",
+                       "dc11" "http://purl.org/dc/elements/1.1/",
+                       "dcterms" "http://purl.org/dc/terms/",
                        "disco"
                        "http://rdf-vocabulary.ddialliance.org/discovery#",
                        "foaf" "http://xmlns.com/foaf/0.1/",
@@ -37,6 +37,7 @@
                        "xkos" "http://purl.org/linked-data/xkos#",
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
+   :rdf/uri "http://rdf-vocabulary.ddialliance.org/discovery",
    :rdfa/prefix "disco",
    :rdfa/uri "http://rdf-vocabulary.ddialliance.org/discovery#",
    :rdfs/comment
@@ -46,7 +47,7 @@
 
 (def AnalysisUnit
   "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons."
-  {:rdf/about :disco/AnalysisUnit,
+  {:db/ident :disco/AnalysisUnit,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -61,7 +62,7 @@
 
 (def CategoryStatistics
   "For CategoryStatistics, frequencies, percentages, and weighted percentages can be defined."
-  {:rdf/about :disco/CategoryStatistics,
+  {:db/ident :disco/CategoryStatistics,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -74,7 +75,7 @@
 
 (def DataFile
   "The class DataFile, which is also a dcmitype:Dataset, represents all the data files containing the microdata datasets."
-  {:rdf/about :disco/DataFile,
+  {:db/ident :disco/DataFile,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -89,7 +90,7 @@
 
 (def DescriptiveStatistics
   "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both DescriptiveStatistics."
-  {:rdf/about :disco/DescriptiveStatistics,
+  {:db/ident :disco/DescriptiveStatistics,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -103,7 +104,7 @@
 
 (def Instrument
   "The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions."
-  {:rdf/about :disco/Instrument,
+  {:db/ident :disco/Instrument,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -117,7 +118,7 @@
 
 (def LogicalDataSet
   "Each study has a set of logical metadata associated with the processing of data, at the time of collection or later during cleaning, and re-coding. LogicalDataSet represents the microdata dataset."
-  {:rdf/about :disco/LogicalDataSet,
+  {:db/ident :disco/LogicalDataSet,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -132,7 +133,7 @@
 
 (def Mapping
   "This class is for representing mappings betwenn DDI-RDF and DDI-XML. See Section 10 in the specification for more details and examples."
-  {:rdf/about :disco/Mapping,
+  {:db/ident :disco/Mapping,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -144,7 +145,7 @@
 
 (def Question
   "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent."
-  {:rdf/about :disco/Question,
+  {:db/ident :disco/Question,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -159,7 +160,7 @@
 
 (def Questionnaire
   "A questionnaire contains a flow of questions. Questionnaires must contain 1 to n questions using the object property question. Particular questions may be contained in 0 to n questionnaires."
-  {:rdf/about :disco/Questionnaire,
+  {:db/ident :disco/Questionnaire,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -174,7 +175,7 @@
 
 (def Representation
   "Representation of a variable or question definition."
-  {:rdf/about        :disco/Representation,
+  {:db/ident         :disco/Representation,
    :rdf/type         [:owl/Class :rdfs/Class],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
@@ -190,7 +191,7 @@
 
 (def RepresentedVariable
   "RepresentedVariables encompasse study-independent, re-usable parts of variables like occupation classification."
-  {:rdf/about :disco/RepresentedVariable,
+  {:db/ident :disco/RepresentedVariable,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -204,7 +205,7 @@
 
 (def Study
   "A Study represents the process by which a data set was generated or collected."
-  {:rdf/about :disco/Study,
+  {:db/ident :disco/Study,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -218,7 +219,7 @@
 
 (def StudyGroup
   "In some cases, where data collection is cyclic or on-going, data sets may be released as a StudyGroup, where each cycle or wave of the data collection activity produces one or more data sets. This is typical for longitudinal studies, panel studies, and other types of series (to use the DDI term). In this case, a number of Study objects would be collected into a single StudyGroup."
-  {:rdf/about :disco/StudyGroup,
+  {:db/ident :disco/StudyGroup,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -232,7 +233,7 @@
 
 (def SummaryStatistics
   "For SummaryStatistics, maximum values, minimum values, and standard deviations can be defined."
-  {:rdf/about :disco/SummaryStatistics,
+  {:db/ident :disco/SummaryStatistics,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -245,7 +246,7 @@
 
 (def Universe
   "A Universe is the total membership or population of a defined class of people, objects or events."
-  {:rdf/about :disco/Universe,
+  {:db/ident :disco/Universe,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -260,8 +261,8 @@
 
 (def Variable
   "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables."
-  {:owl/equivalentClass "http://semanticscience.org/resource/SIO_000367",
-   :rdf/about :disco/Variable,
+  {:db/ident :disco/Variable,
+   :owl/equivalentClass "http://semanticscience.org/resource/SIO_000367",
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",
@@ -276,7 +277,7 @@
 
 (def aggregation
   "This property points to the aggregated data set of a microdata data set. The aggregated data set is a qb:DataSet of the RDF Data Cube Vocabulary."
-  {:rdf/about :disco/aggregation,
+  {:db/ident :disco/aggregation,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -290,7 +291,7 @@
 
 (def analysisUnit
   "This property links to the analysis unit of a Study, a StudyGroup, or a Variable."
-  {:rdf/about :disco/analysisUnit,
+  {:db/ident :disco/analysisUnit,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -307,7 +308,7 @@
 
 (def basedOn
   "This property points to the RepresentedVariable the Variable is based on."
-  {:rdf/about :disco/basedOn,
+  {:db/ident :disco/basedOn,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -323,7 +324,7 @@
 
 (def caseQuantity
   "This property is used for representing the case quantity of a DataFile."
-  {:rdf/about :disco/caseQuantity,
+  {:db/ident :disco/caseQuantity,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -339,7 +340,7 @@
 
 (def collectionMode
   "This property points to the mode of collection of a Questionnaire which is a skos:Concept."
-  {:rdf/about :disco/collectionMode,
+  {:db/ident :disco/collectionMode,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -355,7 +356,7 @@
 
 (def computationBase
   "computationBase expresses if the cases - which are the basis of the computation of a statistics value - are valid, invalid or the total of both. The usage of computationBase for frequency differs from the usage for the percentage statistics and the summary statistics. A distinction regarding computationBase doesn’t apply to frequency as category statistic. Please find more details in Section 6.3 of the specification."
-  {:rdf/about :disco/computationBase,
+  {:db/ident :disco/computationBase,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -371,7 +372,7 @@
 
 (def concept
   "This property points to the DDI concept of a RepresentedVariable, a Variable, or a Question"
-  {:rdf/about :disco/concept,
+  {:db/ident :disco/concept,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -389,7 +390,7 @@
 
 (def context
   "context specifies conditions which have to be fulfilled for particular mappings. Context information can be either a SPARQL query or an informal description as plain literal."
-  {:rdf/about :disco/context,
+  {:db/ident :disco/context,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -405,7 +406,7 @@
 
 (def cumulativePercentage
   "This property is used to describe the cumulative percentages within category statistics. See Sections 6 and 7 more more details and examples."
-  {:rdf/about :disco/cumulativePercentage,
+  {:db/ident :disco/cumulativePercentage,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -419,7 +420,7 @@
 
 (def dataFile
   "This property points to the DataFile of a Study or a LogicalDataSet."
-  {:rdf/about :disco/dataFile,
+  {:db/ident :disco/dataFile,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -436,7 +437,7 @@
 
 (def ddifile
   "This property points from a Study or a StudyGroup to the original DDI file which is a foaf:Document."
-  {:rdf/about :disco/ddifile,
+  {:db/ident :disco/ddifile,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -453,7 +454,7 @@
 
 (def endDate
   "Defines the end date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property."
-  {:rdf/about :disco/endDate,
+  {:db/ident :disco/endDate,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -467,7 +468,7 @@
 
 (def externalDocumentation
   "This property points from an Instrument to a foaf:Document which is the external documentation of the Instrument."
-  {:rdf/about :disco/externalDocumentation,
+  {:db/ident :disco/externalDocumentation,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -483,7 +484,7 @@
 
 (def frequency
   "This property is used to describe the frequencies within category statistics. See Sections 6 and 7 more more details and examples."
-  {:rdf/about :disco/frequency,
+  {:db/ident :disco/frequency,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -499,7 +500,7 @@
 
 (def fundedBy
   "This property points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person or a org:Organization."
-  {:rdf/about :disco/fundedBy,
+  {:db/ident :disco/fundedBy,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -515,7 +516,7 @@
 
 (def hadRole
   "This property indicates the role of an Agent, e.g. analyst, data modeler, programmer, co-investigator or others."
-  {:rdf/about :disco/hadRole,
+  {:db/ident :disco/hadRole,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -529,7 +530,7 @@
 
 (def inGroup
   "This property points from a Study to the StudyGroup which contains the Study."
-  {:rdf/about :disco/inGroup,
+  {:db/ident :disco/inGroup,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -543,7 +544,7 @@
 
 (def inputVariable
   "This property indicates the original Variable of an aggregated qb:DataSet. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property."
-  {:rdf/about :disco/inputVariable,
+  {:db/ident :disco/inputVariable,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -559,7 +560,7 @@
 
 (def instrument
   "This property indicates the Instrument of a Study or a LogicalDataSet."
-  {:rdf/about :disco/instrument,
+  {:db/ident :disco/instrument,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -576,7 +577,7 @@
 
 (def isPublic
   "This property is used as a flag indicating if the microdata dataset is publicly available. The value true indicates that the dataset can be accessed (usually downloaded) by anyone."
-  {:rdf/about :disco/isPublic,
+  {:db/ident :disco/isPublic,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -592,7 +593,7 @@
 
 (def isValid
   "Indicates if the code (represented by skos:Concept) is valid or missing. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property."
-  {:rdf/about :disco/isValid,
+  {:db/ident :disco/isValid,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -606,7 +607,7 @@
 
 (def kindOfData
   "The general kind of data (e.g. geospatial, register, survey) collected in this study, given either as a skos:Concept, or as a blank node with attached free-text rdfs:label."
-  {:rdf/about :disco/kindOfData,
+  {:db/ident :disco/kindOfData,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    "The general kind of data (e.g. geospatial, register, survey) collected in this study, given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.",
@@ -619,7 +620,7 @@
 
 (def mappingDDI-C
   "Mapping from and to DDI-C. See Section 10 in the specification for more details and examples."
-  {:rdf/about :disco/mappingDDI-C,
+  {:db/ident :disco/mappingDDI-C,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -633,7 +634,7 @@
 
 (def mappingDDI-L
   "Mapping from and to DDI-L. See Section 10 in the specification for more details and examples."
-  {:rdf/about :disco/mappingDDI-L,
+  {:db/ident :disco/mappingDDI-L,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -647,7 +648,7 @@
 
 (def percentage
   "This property is used to describe the percentages within category statistics. See Sections 6 and 7 more more details and examples."
-  {:rdf/about :disco/percentage,
+  {:db/ident :disco/percentage,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -663,7 +664,7 @@
 
 (def product
   "This property indicates the LogicalDataSets of a Study."
-  {:rdf/about :disco/product,
+  {:db/ident :disco/product,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment {:rdf/language "en",
                   :rdf/value
@@ -678,7 +679,7 @@
 
 (def purpose
   "The purpose of a Study of a StudyGroup."
-  {:rdf/about        :disco/purpose,
+  {:db/ident         :disco/purpose,
    :rdf/type         [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "The purpose of a Study of a StudyGroup."},
@@ -693,7 +694,7 @@
 
 (def question
   "This property indicates the Questions associated to Variables or contained in Questionnaires."
-  {:rdf/about :disco/question,
+  {:db/ident :disco/question,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -710,7 +711,7 @@
 
 (def questionText
   "This property contains the actual text of a question as string. See Section 8.2 for examples."
-  {:rdf/about :disco/questionText,
+  {:db/ident :disco/questionText,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -726,7 +727,7 @@
 
 (def representation
   "RepresentedVariables and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists)."
-  {:rdf/about :disco/representation,
+  {:db/ident :disco/representation,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -745,7 +746,7 @@
 
 (def responseDomain
   "The response domain of questions. The response domain has to be an instance of the class Representation."
-  {:rdf/about :disco/responseDomain,
+  {:db/ident :disco/responseDomain,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -759,7 +760,7 @@
 
 (def startDate
   "Defines the start date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property."
-  {:rdf/about :disco/startDate,
+  {:db/ident :disco/startDate,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -773,7 +774,7 @@
 
 (def statisticsCategory
   "This property points to the skos:Concept (representing codes and categories) of a specific CategoryStatistics individual."
-  {:rdf/about :disco/statisticsCategory,
+  {:db/ident :disco/statisticsCategory,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -789,7 +790,7 @@
 
 (def statisticsDataFile
   "This property indicates the DataFile of a specific DesciptiveStatistics individual. DescriptiveStatistics may have statisticsDataFile relations to 0 to n data files (DataFile) and data files (DataFile) may be in 0 to n statisticsDataFile relations to DescriptiveStatistics individuals."
-  {:rdf/about :disco/statisticsDataFile,
+  {:db/ident :disco/statisticsDataFile,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -805,7 +806,7 @@
 
 (def statisticsVariable
   "This property indicates the Variable of a specific SummaryStatistics individual. SummaryStatistics point to 0 to n variables (Variable) using the object property statisticsVariable."
-  {:rdf/about :disco/statisticsVariable,
+  {:db/ident :disco/statisticsVariable,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -821,7 +822,7 @@
 
 (def subtitle
   "The sub-title of a Study of a StudyGroup."
-  {:rdf/about        :disco/subtitle,
+  {:db/ident         :disco/subtitle,
    :rdf/type         [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value "The sub-title of a Study of a StudyGroup."},
@@ -836,7 +837,7 @@
 
 (def summaryStatisticsType
   "This property points to the summary statistics type of a Questionnaire which is a skos:Concept."
-  {:rdf/about :disco/summaryStatisticsType,
+  {:db/ident :disco/summaryStatisticsType,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -850,7 +851,7 @@
 
 (def universe
   "This property indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables, Questions, and LogicalDataSets."
-  {:rdf/about :disco/universe,
+  {:db/ident :disco/universe,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -872,7 +873,7 @@
 
 (def variable
   "This property indicates the Variable of a Study and points to Variable contained in the LogicalDataSet."
-  {:rdf/about :disco/variable,
+  {:db/ident :disco/variable,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -889,7 +890,7 @@
 
 (def variableQuantity
   "This property can be used when (1) no variable level information is available and when (2) only a stub of the RDF is requested e.g when returning basic information on a study of file, no information on potentially hundreds or thousands of variables references or metadata has to be returned."
-  {:rdf/about :disco/variableQuantity,
+  {:db/ident :disco/variableQuantity,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
@@ -904,7 +905,7 @@
 
 (def weightedBy
   "SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable."
-  {:rdf/about :disco/weightedBy,
+  {:db/ident :disco/weightedBy,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
    {:rdf/language "en",
