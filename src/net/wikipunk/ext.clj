@@ -1,6 +1,7 @@
 (ns net.wikipunk.ext
   "Beyond the RDFa 1.1 / JSON-LD initial context."
-  {:rdf/type :jsonld/Context})
+  {:rdf/type :jsonld/Context}
+  (:refer-clojure :exclude [keys]))
 
 (def acl
   {:rdfa/uri    "http://www.w3.org/ns/auth/acl#"
@@ -422,3 +423,20 @@
    :rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://ogp.me/ns/class#"
    :rdfa/prefix "ogc"})
+
+(def sim
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/sim/versions/2010-03-10.n3"
+   :rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://purl.org/ontology/similarity/"
+   :rdfa/prefix "sim"})
+
+(def pointers
+  {:rdfa/uri    "http://www.w3.org/2009/pointers#"
+   :rdfa/prefix "pointers"
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def keys
+  {:dcat/downloadURL "https://motools.sourceforge.net/keys/keys.owl"
+   :rdfa/prefix      "keys"
+   :rdfa/uri         "http://purl.org/NET/c4dm/keys.owl#"
+   :rdf/type         :rdfa/PrefixMapping})

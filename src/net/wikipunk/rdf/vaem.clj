@@ -28,7 +28,8 @@
   "VAEM Governed Object class is a placeholder for concepts that are fully defined by the voag:GovernedObject concept hierarchy for building a catalog of ontologies and graphs"
   {:db/ident :vaem/CatalogEntry,
    :dcterms/description
-   "VAEM Governed Object class is a placeholder for concepts that are fully defined by the voag:GovernedObject concept hierarchy for building a catalog of ontologies and graphs"})
+   "VAEM Governed Object class is a placeholder for concepts that are fully defined by the voag:GovernedObject concept hierarchy for building a catalog of ontologies and graphs"
+   :rdf/type :rdfs/Class})
 
 (def CollectionGraph
   "A \"vaem:CollectionGraph\" is a graph that aggregates other graphs using \"owl:imports\" statements"
