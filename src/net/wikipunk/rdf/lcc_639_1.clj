@@ -53,7 +53,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Abchasisch"},
    :lcc-lr/hasIndigenousName "apṕsua bysžwa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ab",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -71,7 +70,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Danakil-Sprache"},
    :lcc-lr/hasIndigenousName "afar",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/aa",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -89,7 +87,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Afrikaans"},
    :lcc-lr/hasIndigenousName "Afrikaans",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/af",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -107,7 +104,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Akan-Sprache"},
    :lcc-lr/hasIndigenousName "akana",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ak",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/Macrolanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -125,7 +121,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Albanisch"},
    :lcc-lr/hasIndigenousName "shqip",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sq",
    :rdf/type
    [:lcc-lr/Macrolanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -143,7 +138,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Amharisch"},
    :lcc-lr/hasIndigenousName "amarinja",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/am",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -161,7 +155,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Arabisch"},
    :lcc-lr/hasIndigenousName "'arabiy",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ar",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/Macrolanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -178,7 +171,6 @@
                           :rdf/value    "aragonais"},
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Aragonesisch"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/an",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -196,7 +188,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Armenisch"},
    :lcc-lr/hasIndigenousName "hayeren lezow",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/hy",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -214,7 +205,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Assamesisch"},
    :lcc-lr/hasIndigenousName "asamī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/as",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -232,7 +222,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Awarisch"},
    :lcc-lr/hasIndigenousName "avar mac‡",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/av",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -249,7 +238,6 @@
                           :rdf/value    "avestique"},
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Avestisch"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ae",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/AncientLanguage],
    :rdfs/isDefinedBy
@@ -267,7 +255,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Aymará-Sprache"},
    :lcc-lr/hasIndigenousName "aymara",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ay",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/Macrolanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -285,7 +272,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Aserbeidschanisch"},
    :lcc-lr/hasIndigenousName "azǝrbaycan dil",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/az",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -303,7 +289,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bambara-Sprache"},
    :lcc-lr/hasIndigenousName "bambankan",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/bm",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -321,7 +306,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Baschkirisch"},
    :lcc-lr/hasIndigenousName "bašǩort",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ba",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -339,7 +323,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Baskisch"},
    :lcc-lr/hasIndigenousName ["euskera" "euskara"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/eu",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -357,7 +340,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Weißrussisch"},
    :lcc-lr/hasIndigenousName "belaruskaâ mova",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/be",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -375,7 +357,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bengali"},
    :lcc-lr/hasIndigenousName "bāṅlā",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/bn",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -393,7 +374,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bihari (Andere)"},
    :lcc-lr/hasIndigenousName "bihārī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/bh",
    :rdf/type [:lcc-lr/LanguageFamily :owl/NamedIndividual],
    :rdfs/isDefinedBy
    "https://www.omg.org/spec/LCC/Languages/ISO639-1-LanguageCodes/",
@@ -409,7 +389,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Beach-la-mar"},
    :lcc-lr/hasIndigenousName "bislama",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/bi",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -427,7 +406,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bosnisch"},
    :lcc-lr/hasIndigenousName "bosanski (jezik)",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/bs",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -445,7 +423,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bretonisch"},
    :lcc-lr/hasIndigenousName "Brezhoneg",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/br",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -463,7 +440,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bulgarisch"},
    :lcc-lr/hasIndigenousName "b\"lgarski ezik",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/bg",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -481,7 +457,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Birmanisch"},
    :lcc-lr/hasIndigenousName "myanmasa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/my",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -503,7 +478,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Katalanisch"},
    :lcc-lr/hasIndigenousName "català",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ca",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -521,7 +495,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kambodschanisch"},
    :lcc-lr/hasIndigenousName "khmêr",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/km",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -538,7 +511,6 @@
                           :rdf/value    "chamorro"},
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Chamorro-Sprache"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ch",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -556,7 +528,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tschetschenisch"},
    :lcc-lr/hasIndigenousName ["nohčijn mott" "noxçiyn mott"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ce",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -582,7 +553,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Nyanja-Sprache"},
    :lcc-lr/hasIndigenousName ["tshichewa" "tshinyanja"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ny",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -600,7 +570,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Chinesisch"},
    :lcc-lr/hasIndigenousName "zhongwen",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/zh",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -632,7 +601,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kirchenslawisch"},
    :lcc-lr/hasIndigenousName "cerkovno-slavânskij",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/cu",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/AncientLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -650,7 +618,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tschuwaschisch"},
    :lcc-lr/hasIndigenousName "čǎvaš čělhi",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/cv",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -668,7 +635,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kornisch"},
    :lcc-lr/hasIndigenousName "Kernewek",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kw",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -686,7 +652,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Korsisch"},
    :lcc-lr/hasIndigenousName "corsu",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/co",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -704,7 +669,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Cree-Sprache"},
    :lcc-lr/hasIndigenousName "nêhiyawa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/cr",
    :rdf/type
    [:lcc-lr/Macrolanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -722,7 +686,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kroatisch"},
    :lcc-lr/hasIndigenousName "hrvatski jezik",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/hr",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -740,7 +703,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tschechisch"},
    :lcc-lr/hasIndigenousName "český jazyk",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/cs",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -758,7 +720,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Dänisch"},
    :lcc-lr/hasIndigenousName "dansk",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/da",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -780,7 +741,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Maledivisch"},
    :lcc-lr/hasIndigenousName "dhivehi",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/dv",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -802,7 +762,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Niederländisch"},
    :lcc-lr/hasIndigenousName "Nederlands",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/nl",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -820,7 +779,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Dzongkha"},
    :lcc-lr/hasIndigenousName "dzongkha",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/dz",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -838,7 +796,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Englisch"},
    :lcc-lr/hasIndigenousName "English",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/en",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -856,7 +813,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Esperanto"},
    :lcc-lr/hasIndigenousName "esperanto",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/eo",
    :rdf/type
    [:lcc-lr/ArtificialLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -874,7 +830,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Estnisch"},
    :lcc-lr/hasIndigenousName "eesti keel",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/et",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -892,7 +847,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ewe-Sprache"},
    :lcc-lr/hasIndigenousName "eve",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ee",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -910,7 +864,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Färöisch"},
    :lcc-lr/hasIndigenousName "føroyskt",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/fo",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -928,7 +881,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Fidschi-Sprache"},
    :lcc-lr/hasIndigenousName "Na Vosa Vakaviti",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/fj",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -946,7 +898,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Finnisch"},
    :lcc-lr/hasIndigenousName ["suomi" "suomen kieli"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/fi",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -964,7 +915,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Französisch"},
    :lcc-lr/hasIndigenousName "français",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/fr",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -982,7 +932,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ful"},
    :lcc-lr/hasIndigenousName "fulfulde",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ff",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -1004,7 +953,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Gälisch-Schottisch"},
    :lcc-lr/hasIndigenousName "Gàidhlig",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/gd",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1022,7 +970,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Galicisch"},
    :lcc-lr/hasIndigenousName "galego",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/gl",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1040,7 +987,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ganda-Sprache"},
    :lcc-lr/hasIndigenousName "luganda",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/lg",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1058,7 +1004,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Georgisch"},
    :lcc-lr/hasIndigenousName "k'art'uli ena",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ka",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1076,7 +1021,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Deutsch"},
    :lcc-lr/hasIndigenousName "Deutsch",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/de",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1094,7 +1038,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Guaraní-Sprache"},
    :lcc-lr/hasIndigenousName "guarani",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/gn",
    :rdf/type
    [:lcc-lr/Macrolanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1112,7 +1055,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Gujarati-Sprache"},
    :lcc-lr/hasIndigenousName "gujarātī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/gu",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1133,7 +1075,6 @@
                            :rdf/value    "haïtien"}],
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Haïtien (Haiti-Kreolisch)"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ht",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1151,7 +1092,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Haussa-Sprache"},
    :lcc-lr/hasIndigenousName "hausa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ha",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1169,7 +1109,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Hebräisch"},
    :lcc-lr/hasIndigenousName "ivrit",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/he",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1187,7 +1126,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Herero-Sprache"},
    :lcc-lr/hasIndigenousName "otshiherero",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/hz",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1205,7 +1143,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Hindi"},
    :lcc-lr/hasIndigenousName "hindī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/hi",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1223,7 +1160,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Hiri-Motu"},
    :lcc-lr/hasIndigenousName "Hiri Motu",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ho",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1241,7 +1177,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ungarisch"},
    :lcc-lr/hasIndigenousName "magyar nyelv",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/hu",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1273,7 +1208,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Isländisch"},
    :lcc-lr/hasIndigenousName "íslenska",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/is",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1291,7 +1225,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ido"},
    :lcc-lr/hasIndigenousName "ido ",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/io",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/ArtificialLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1309,7 +1242,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ibo-Sprache"},
    :lcc-lr/hasIndigenousName "igbo",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ig",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1327,7 +1259,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bahasa Indonesia"},
    :lcc-lr/hasIndigenousName "bahasa Indonesia",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/id",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1347,7 +1278,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Interlingua"},
    :lcc-lr/hasIndigenousName "interlingua",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ia",
    :rdf/type
    [:lcc-lr/ArtificialLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1368,7 +1298,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Interlingue"},
    :lcc-lr/hasIndigenousName "interlingue",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ie",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/ArtificialLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1386,7 +1315,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Inuktitut"},
    :lcc-lr/hasIndigenousName "inuktitut",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/iu",
    :rdf/type
    [:lcc-lr/Macrolanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1404,7 +1332,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Inupik"},
    :lcc-lr/hasIndigenousName "inupiaq",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ik",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -1422,7 +1349,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Irisch"},
    :lcc-lr/hasIndigenousName "Gaeilge",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ga",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1440,7 +1366,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Italienisch"},
    :lcc-lr/hasIndigenousName "italiano",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/it",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1458,7 +1383,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Japanisch"},
    :lcc-lr/hasIndigenousName ["nippongo" "nihongo"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ja",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1476,7 +1400,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Javanisch"},
    :lcc-lr/hasIndigenousName "bahasa Jawa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/jv",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1496,7 +1419,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Grönländisch"},
    :lcc-lr/hasIndigenousName "kalaallisut",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kl",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1514,7 +1436,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kannada"},
    :lcc-lr/hasIndigenousName "kannaḍa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kn",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1532,7 +1453,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kanuri-Sprache"},
    :lcc-lr/hasIndigenousName "kanuri",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kr",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/Macrolanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1550,7 +1470,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kaschmiri"},
    :lcc-lr/hasIndigenousName "kaśmīrī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ks",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1568,7 +1487,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kasachisch"},
    :lcc-lr/hasIndigenousName "ķazaķ (tili)",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kk",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1588,7 +1506,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kikuyu-Sprache"},
    :lcc-lr/hasIndigenousName "Gikuyu",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ki",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1606,7 +1523,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Rwanda-Sprache"},
    :lcc-lr/hasIndigenousName "kinyarwanda",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/rw",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1626,7 +1542,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kirgisisch"},
    :lcc-lr/hasIndigenousName "kyrgyz tili",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ky",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1644,7 +1559,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Komi-Sprache"},
    :lcc-lr/hasIndigenousName "komi kyv",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kv",
    :rdf/type
    [:lcc-lr/Macrolanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1662,7 +1576,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kongo-Sprache"},
    :lcc-lr/hasIndigenousName "kikongo",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kg",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/Macrolanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1680,7 +1593,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Koreanisch"},
    :lcc-lr/hasIndigenousName ["hanguk-o" "choson-o"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ko",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1702,7 +1614,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kwanyama-Sprache"},
    :lcc-lr/hasIndigenousName "oshikwanyama",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/kj",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1720,7 +1631,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kurdisch"},
    :lcc-lr/hasIndigenousName "zimany kurdy",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ku",
    :rdf/type
    [:lcc-lr/Macrolanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1738,7 +1648,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Laotisch"},
    :lcc-lr/hasIndigenousName "pha xa lao",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/lo",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1756,7 +1665,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Latein"},
    :lcc-lr/hasIndigenousName "lingua latina",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/la",
    :rdf/type
    [:lcc-lr/AncientLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1774,7 +1682,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Lettisch"},
    :lcc-lr/hasIndigenousName "latviešu valoda",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/lv",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1795,7 +1702,6 @@
                           :rdf/value    "limbourgeois"},
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Limburgisch"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/li",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1813,7 +1719,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Lingala"},
    :lcc-lr/hasIndigenousName "lingala",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ln",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -1831,7 +1736,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Litauisch"},
    :lcc-lr/hasIndigenousName "lietuvių kalba",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/lt",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1849,7 +1753,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Luba-Katanga-Sprache"},
    :lcc-lr/hasIndigenousName "tshiluba",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/lu",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1869,7 +1772,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Luxemburgisch"},
    :lcc-lr/hasIndigenousName "lëtzebuergesch",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/lb",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1887,7 +1789,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Makedonisch"},
    :lcc-lr/hasIndigenousName "makedonski",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/mk",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1905,7 +1806,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Malagassi-Sprache"},
    :lcc-lr/hasIndigenousName "malagasy",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/mg",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -1923,7 +1823,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Malaiisch"},
    :lcc-lr/hasIndigenousName "bahasa Malaysia",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ms",
    :rdf/type
    [:lcc-lr/Macrolanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1941,7 +1840,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Malayalam"},
    :lcc-lr/hasIndigenousName "malayāḷaṁ",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ml",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -1959,7 +1857,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Maltesisch"},
    :lcc-lr/hasIndigenousName "il-Malti",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/mt",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1979,7 +1876,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Manx"},
    :lcc-lr/hasIndigenousName "Gaelg",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/gv",
    :rdf/type
    [:lcc-lr/ExtinctLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -1997,7 +1893,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Maori-Sprache"},
    :lcc-lr/hasIndigenousName "māori",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/mi",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2015,7 +1910,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Marathi"},
    :lcc-lr/hasIndigenousName "marāṭī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/mr",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2033,7 +1927,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Marschallesisch"},
    :lcc-lr/hasIndigenousName "M̧ajeł",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/mh",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2051,7 +1944,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Neugriechisch"},
    :lcc-lr/hasIndigenousName "elliniká",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/el",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2069,7 +1961,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Mongolisch"},
    :lcc-lr/hasIndigenousName "mongol",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/mn",
    :rdf/type
    [:lcc-lr/Macrolanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2087,7 +1978,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Nauruanisch"},
    :lcc-lr/hasIndigenousName "nauru",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/na",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2107,7 +1997,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Navajo-Sprache"},
    :lcc-lr/hasIndigenousName "diné bizaad",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/nv",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2125,7 +2014,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ndonga"},
    :lcc-lr/hasIndigenousName "oshindonga",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ng",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2143,7 +2031,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Nepali"},
    :lcc-lr/hasIndigenousName "nepālī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ne",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2163,7 +2050,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ndebele-Sprache (Simbabwe)"},
    :lcc-lr/hasIndigenousName "isiNdebele",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/nd",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2181,7 +2067,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Nordsaamisch"},
    :lcc-lr/hasIndigenousName "davvisámegiella",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/se",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2199,7 +2084,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Norwegisch"},
    :lcc-lr/hasIndigenousName "norsk",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/no",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -2219,7 +2103,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Bokmål"},
    :lcc-lr/hasIndigenousName "bokmål",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/nb",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2239,7 +2122,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Nynorsk"},
    :lcc-lr/hasIndigenousName "nynorsk",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/nn",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2248,6 +2130,7 @@
    :skos/definition "Norwegian Nynorsk language"})
 
 (def Nyanja
+  "Nyanja"
   {:db/ident       :lcc-639-1/Nyanja,
    :owl/deprecated true,
    :owl/sameAs     :lcc-639-1/Chichewa,
@@ -2263,7 +2146,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Okzitanisch"},
    :lcc-lr/hasIndigenousName "occitan",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/oc",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2281,7 +2163,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ojibwa-Sprache"},
    :lcc-lr/hasIndigenousName ["ojibwe" "chippewa"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/oj",
    :rdf/type
    [:lcc-lr/Macrolanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2299,7 +2180,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Oriya-Sprache"},
    :lcc-lr/hasIndigenousName "oṛiā",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/or",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2317,7 +2197,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Galla-Sprache"},
    :lcc-lr/hasIndigenousName "(afan) oromo",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/om",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -2337,7 +2216,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ossetisch"},
    :lcc-lr/hasIndigenousName "iron avzæg",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/os",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2355,7 +2233,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Pali"},
    :lcc-lr/hasIndigenousName "pāli bhāsa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/pi",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/AncientLanguage],
    :rdfs/isDefinedBy
@@ -2375,7 +2252,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Pandschabi-Sprache"},
    :lcc-lr/hasIndigenousName "paṁjābī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/pa",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2393,7 +2269,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Persisch"},
    :lcc-lr/hasIndigenousName "fârsy",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/fa",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -2411,7 +2286,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Polnisch"},
    :lcc-lr/hasIndigenousName "(język) polski",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/pl",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2429,7 +2303,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Portugiesisch"},
    :lcc-lr/hasIndigenousName "português",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/pt",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2449,7 +2322,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Paschtu"},
    :lcc-lr/hasIndigenousName "pashto",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ps",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/Macrolanguage],
    :rdfs/isDefinedBy
@@ -2469,7 +2341,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Quechua-Sprache"},
    :lcc-lr/hasIndigenousName "qhëtshwa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/qu",
    :rdf/type
    [:lcc-lr/Macrolanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2493,7 +2364,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Rumänisch"},
    :lcc-lr/hasIndigenousName ["(limba) moldoveanǎ" "(limba) română"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ro",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2511,7 +2381,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Rätoromanisch"},
    :lcc-lr/hasIndigenousName "romontsch",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/rm",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2529,7 +2398,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Rundi-Sprache"},
    :lcc-lr/hasIndigenousName "kirundi",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/rn",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2547,7 +2415,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Russisch"},
    :lcc-lr/hasIndigenousName "russkij (âzyk)",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ru",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2565,7 +2432,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Samoanisch"},
    :lcc-lr/hasIndigenousName "samoa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sm",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2583,7 +2449,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Sango-Sprache"},
    :lcc-lr/hasIndigenousName "sango",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sg",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2601,7 +2466,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Sanskrit"},
    :lcc-lr/hasIndigenousName "saṁskr̥tam",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sa",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/AncientLanguage],
    :rdfs/isDefinedBy
@@ -2619,7 +2483,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Sardisch"},
    :lcc-lr/hasIndigenousName "sardu",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sc",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/Macrolanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2628,6 +2491,7 @@
    :skos/definition "Sardinian languages"})
 
 (def ScottishGaelic
+  "ScottishGaelic"
   {:db/ident       :lcc-639-1/ScottishGaelic,
    :owl/deprecated true,
    :owl/sameAs     :lcc-639-1/Gaelic,
@@ -2643,7 +2507,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Serbisch"},
    :lcc-lr/hasIndigenousName "srpski (jezik)",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sr",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2661,7 +2524,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Schona-Sprache"},
    :lcc-lr/hasIndigenousName "chiShona",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sn",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2680,7 +2542,6 @@
                           :rdf/value    "yi de Sichuan"},
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Lalo-Sprache"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ii",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2698,7 +2559,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Sindhi-Sprache"},
    :lcc-lr/hasIndigenousName "sindhī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sd",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2718,7 +2578,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Singhalesisch"},
    :lcc-lr/hasIndigenousName "siṁhala",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/si",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2736,7 +2595,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Slowakisch"},
    :lcc-lr/hasIndigenousName "slovenský (jazyk)",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sk",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2754,7 +2612,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Slowenisch"},
    :lcc-lr/hasIndigenousName "slovenski (jezik)",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sl",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2772,7 +2629,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Somali"},
    :lcc-lr/hasIndigenousName "soomaali",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/so",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2792,7 +2648,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ndebele-Sprache (Transvaal)"},
    :lcc-lr/hasIndigenousName "isiNdebele",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/nr",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2812,7 +2667,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Süd-Sotho-Sprache"},
    :lcc-lr/hasIndigenousName "Sesotho",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/st",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2834,7 +2688,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Spanisch"},
    :lcc-lr/hasIndigenousName ["castellano" "español"],
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/es",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2852,7 +2705,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Sundanesisch"},
    :lcc-lr/hasIndigenousName "bahasa Sunda",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/su",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2870,7 +2722,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Swahili"},
    :lcc-lr/hasIndigenousName "Kiswahili",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sw",
    :rdf/type
    [:lcc-lr/Macrolanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2888,7 +2739,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Swasi-Sprache"},
    :lcc-lr/hasIndigenousName "siSwati",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ss",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2906,7 +2756,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Schwedisch"},
    :lcc-lr/hasIndigenousName "svenska",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/sv",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2924,7 +2773,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tagalog"},
    :lcc-lr/hasIndigenousName "tagalog",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/tl",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2941,7 +2789,6 @@
                           :rdf/value    "tahitien"},
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tahitisch"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ty",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -2959,7 +2806,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tadschikisch"},
    :lcc-lr/hasIndigenousName "toçikī",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/tg",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -2977,7 +2823,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tamil"},
    :lcc-lr/hasIndigenousName "tamiḻ",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ta",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -2995,7 +2840,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tatarisch"},
    :lcc-lr/hasIndigenousName "tatar tele",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/tt",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3013,7 +2857,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Telugu-Sprache"},
    :lcc-lr/hasIndigenousName "telugu",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/te",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3031,7 +2874,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Thailändisch"},
    :lcc-lr/hasIndigenousName "thai",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/th",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -3049,7 +2891,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tibetisch"},
    :lcc-lr/hasIndigenousName "bod skad",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/bo",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3067,7 +2908,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tigrinja-Sprache"},
    :lcc-lr/hasIndigenousName "tigriña",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ti",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3085,7 +2925,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tongaisch"},
    :lcc-lr/hasIndigenousName "tonga",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/to",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3103,7 +2942,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tsonga-Sprache"},
    :lcc-lr/hasIndigenousName "Xitsonga",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ts",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -3121,7 +2959,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Tswana-Sprache"},
    :lcc-lr/hasIndigenousName "Setswana",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/tn",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3139,7 +2976,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Türkisch"},
    :lcc-lr/hasIndigenousName "türkçe",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/tr",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -3156,7 +2992,6 @@
                           :rdf/value    "turkmène"},
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Turkmenisch"},
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/tk",
    :rdf/type
    [:lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3174,7 +3009,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Twi-Sprache"},
    :lcc-lr/hasIndigenousName "twi",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/tw",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -3194,7 +3028,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Uigurisch"},
    :lcc-lr/hasIndigenousName "oyghurqǝ",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ug",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -3212,7 +3045,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Ukrainisch"},
    :lcc-lr/hasIndigenousName "ukraïns'ka mova",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/uk",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -3230,7 +3062,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Urdu"},
    :lcc-lr/hasIndigenousName "urdū",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ur",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3248,7 +3079,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Usbekisch"},
    :lcc-lr/hasIndigenousName "oʻzbek tili",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/uz",
    :rdf/type
    [:lcc-lr/Macrolanguage :lcc-lr/LivingLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3266,7 +3096,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Venda-Sprache"},
    :lcc-lr/hasIndigenousName "Tshivenḓa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/ve",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -3284,7 +3113,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Vietnamesisch"},
    :lcc-lr/hasIndigenousName "Tiếng Việt Nam",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/vi",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3302,7 +3130,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Volapük"},
    :lcc-lr/hasIndigenousName "volapük",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/vo",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/ArtificialLanguage],
    :rdfs/isDefinedBy
@@ -3320,7 +3147,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Wallonisch"},
    :lcc-lr/hasIndigenousName "wallon",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/wa",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3338,7 +3164,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Kymrisch"},
    :lcc-lr/hasIndigenousName "Cymraeg",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/cy",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -3356,7 +3181,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Friesisch"},
    :lcc-lr/hasIndigenousName "frysk",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/fy",
    :rdf/type
    [:lcc-lr/IndividualLanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -3374,7 +3198,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Wolof-Sprache"},
    :lcc-lr/hasIndigenousName "wolof",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/wo",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/IndividualLanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -3392,7 +3215,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Xhosa-Sprache"},
    :lcc-lr/hasIndigenousName "isiXhosa",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/xh",
    :rdf/type
    [:lcc-lr/LivingLanguage :owl/NamedIndividual :lcc-lr/IndividualLanguage],
    :rdfs/isDefinedBy
@@ -3410,7 +3232,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Jiddisch"},
    :lcc-lr/hasIndigenousName "yidiš",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/yi",
    :rdf/type
    [:owl/NamedIndividual :lcc-lr/Macrolanguage :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -3428,7 +3249,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Yoruba-Sprache"},
    :lcc-lr/hasIndigenousName "Yorùbá",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/yo",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -3450,7 +3270,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Zhuang"},
    :lcc-lr/hasIndigenousName "cuengh",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/za",
    :rdf/type
    [:lcc-lr/Macrolanguage :owl/NamedIndividual :lcc-lr/LivingLanguage],
    :rdfs/isDefinedBy
@@ -3468,7 +3287,6 @@
    :lcc-lr/hasGermanName {:rdf/language "de",
                           :rdf/value    "Zulu-Sprache"},
    :lcc-lr/hasIndigenousName "isiZulu",
-   :owl/sameAs "https://id.loc.gov/vocabulary/iso639-1/zu",
    :rdf/type
    [:lcc-lr/LivingLanguage :lcc-lr/IndividualLanguage :owl/NamedIndividual],
    :rdfs/isDefinedBy

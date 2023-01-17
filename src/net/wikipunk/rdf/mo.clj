@@ -5,15 +5,15 @@
    :dcterms/description
    "\n        The Music Ontology Specification provides main concepts and \n        properties fo describing music (i.e. artists, albums and tracks) \n        on the Semantic Web. \n    ",
    :dcterms/title "The Music Ontology",
-   :foaf/maker [{:foaf/homepage "http://simon-reinhardt.de/",
-                 :foaf/name     "Simon Reinhardt"}
-                "http://www.talkdigger.com/foaf/fgiasson"
-                {:foaf/name "George Fazekas"}
+   :foaf/maker ["http://www.talkdigger.com/foaf/fgiasson"
                 {:foaf/homepage "http://apassant.net/",
                  :foaf/name     "Alexandre Passant"}
                 "http://raimond.me.uk/foaf.rdf#moustaki"
                 "http://foaf.me/zazi#me"
-                "http://kurtisrandom.com/foaf.rdf#kurtjx"],
+                {:foaf/name "George Fazekas"}
+                "http://kurtisrandom.com/foaf.rdf#kurtjx"
+                {:foaf/homepage "http://simon-reinhardt.de/",
+                 :foaf/name     "Simon Reinhardt"}],
    :owl/imports ["http://purl.org/vocab/bio/0.1/"
                  "http://purl.org/NET/c4dm/event.owl"
                  "http://purl.org/ontology/ao/core"
@@ -86,6 +86,7 @@
    :vs/term_status "stable"})
 
 (def Arranger
+  "arranger"
   {:db/ident            :mo/Arranger,
    :mo/level            "2",
    :owl/equivalentClass {:owl/onProperty     :event/isAgentIn,
@@ -121,6 +122,7 @@
    :vs/term_status "unstable"})
 
 (def Composer
+  "composer"
   {:db/ident            :mo/Composer,
    :mo/level            "2",
    :owl/equivalentClass {:owl/onProperty     :event/isAgentIn,
@@ -144,6 +146,7 @@
    :vs/term_status "stable"})
 
 (def Conductor
+  "conductor"
   {:db/ident            :mo/Conductor,
    :mo/level            "2",
    :owl/equivalentClass {:owl/onProperty     :mo/conducted,
@@ -257,7 +260,7 @@
    "\n        Any of various devices or contrivances that can be used to produce musical tones or sound.\n        \n        Any taxonomy can be used to subsume this concept. The default one is one extracted by Ivan Herman\n        from the Musicbrainz instrument taxonomy, conforming to SKOS. This concept holds a seeAlso link \n        towards this taxonomy.\n    ",
    :rdfs/isDefinedBy "http://purl.org/ontology/mo/",
    :rdfs/label "Instrument",
-   :rdfs/seeAlso :mo/mit#,
+   :rdfs/seeAlso ["http://purl.org/ontology/mo/mit#"],
    :vs/term_status "stable"})
 
 (def Instrumentation
@@ -296,6 +299,7 @@
    :vs/term_status   "stable"})
 
 (def Listener
+  "listened"
   {:db/ident            :mo/Listener,
    :mo/level            "2",
    :owl/equivalentClass {:owl/onProperty     :mo/listened,
@@ -472,6 +476,7 @@
    :vs/term_status "stable"})
 
 (def Performer
+  "performer"
   {:db/ident            :mo/Performer,
    :mo/level            "2",
    :owl/equivalentClass {:owl/onProperty     :mo/performed,
@@ -681,6 +686,7 @@
    :vs/term_status "stable"})
 
 (def SoundEngineer
+  "sound engineer"
   {:db/ident            :mo/SoundEngineer,
    :mo/level            "2",
    :owl/equivalentClass {:owl/onProperty     :mo/engineered,

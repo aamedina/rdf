@@ -550,3 +550,8 @@
    :rdfa/prefix      "lcc-3166-2-us"
    :rdfa/uri         "https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-US/"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def iso639-1
+  {:rdfa/prefix "iso639-1"
+   :rdfa/uri    "https://id.loc.gov/vocabulary/iso639-1/"
+   :rdf/type    :rdfa/PrefixMapping})

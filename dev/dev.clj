@@ -26,7 +26,8 @@
    [com.walmartlabs.schematic :as sc]
    [net.wikipunk.boot :as boot]
    [net.wikipunk.ext :as ext]
-   [net.wikipunk.rdf :as rdf :refer [doc]]))
+   [net.wikipunk.rdf :as rdf :refer [doc]]
+   [zprint.core :as zprint]))
 
 (set-init
   (fn [_]

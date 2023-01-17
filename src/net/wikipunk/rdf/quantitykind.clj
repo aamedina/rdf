@@ -5832,7 +5832,6 @@
    :qudt/plainTextDescription
    "\"Electric Current per Unit Temperature\" is used to express how a current is subject to temperature. Originally used in Wien's Law to describe phenomena related to filaments. One use today is to express how a current generator derates with temperature.",
    :rdf/type :qudt/QuantityKind,
-   :rdfs/isDefinedBy :quantitykind/all,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Current per Unit Temperature"}})
 
