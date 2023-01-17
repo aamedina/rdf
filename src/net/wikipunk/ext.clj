@@ -147,6 +147,16 @@
    :rdfa/prefix "spin"
    :rdf/type    :rdfa/PrefixMapping})
 
+(def sp
+  {:rdfa/uri    "http://spinrdf.org/sp#"
+   :rdfa/prefix "sp"
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def spl
+  {:rdfa/uri    "http://spinrdf.org/spl#"
+   :rdfa/prefix "spl"
+   :rdf/type    :rdfa/PrefixMapping})
+
 (def svcs
   {:rdfa/uri         "http://rdfs.org/sioc/services#"
    :rdfa/prefix      "svcs"
@@ -395,3 +405,9 @@
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://purl.org/NET/c4dm/event.owl#"
    :rdfa/prefix      "event"})
+
+(def http
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/http/versions/2011-04-29.n3"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://www.w3.org/2011/http#"
+   :rdfa/prefix      "http"})
