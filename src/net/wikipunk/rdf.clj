@@ -421,6 +421,10 @@
   (box [val]))
 
 (extend-protocol Box
+  Boolean
+  (box [val]
+    {:xsd/boolean val})
+  
   Number
   (box [n]
     (cond
@@ -449,7 +453,6 @@
 
 (defn box-value
   [form f k]
-  (println "boxing" form f k)
   (f form k box))
 
 (defn box-values
@@ -460,7 +463,16 @@
       (box-value update :owl/hasValue)
 
       (:owl/oneOf form)
-      (box-value update :owl/oneOf))
+      (box-value update :owl/oneOf)
+
+      ;; special case coerce these to doubles 
+      (some #{:xsd/minExclusive :xsd/minInclusive
+              :xsd/maxExclusive :xsd/maxInclusive}
+            form)
+      (update (some #{:xsd/minExclusive :xsd/minInclusive
+                      :xsd/maxExclusive :xsd/maxInclusive}
+                    form)
+              double))
     form))
 
 (defn unroll-forms

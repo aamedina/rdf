@@ -50,7 +50,7 @@
 (def byte
   {:db/ident       :xsd/byte,
    :owl/onDatatype :xsd/short,
-   :owl/withRestrictions [{:xsd/maxInclusive 127} {:xsd/minInclusive -128}],
+   :owl/withRestrictions [{:xsd/maxInclusive 127.0} {:xsd/minInclusive -128.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "byte"})
 
@@ -169,8 +169,8 @@
 (def int
   {:db/ident       :xsd/int,
    :owl/onDatatype :xsd/long,
-   :owl/withRestrictions [{:xsd/maxInclusive 2147483647}
-                          {:xsd/minInclusive -2147483648}],
+   :owl/withRestrictions [{:xsd/maxInclusive 2147483647.0}
+                          {:xsd/minInclusive -2147483648.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "int"})
 
@@ -195,8 +195,8 @@
    :db/cardinality       :db.cardinality/one
    :db/valueType         :db.type/long
    :owl/onDatatype :xsd/integer,
-   :owl/withRestrictions [{:xsd/maxInclusive 9223372036854775807}
-                          {:xsd/minInclusive -9223372036854775808}],
+   :owl/withRestrictions [{:xsd/maxInclusive 9223372036854775807.0}
+                          {:xsd/minInclusive -9223372036854775808.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "long"})
 
@@ -239,21 +239,21 @@
 (def negativeInteger
   {:db/ident       :xsd/negativeInteger,
    :owl/onDatatype :xsd/nonPositiveInteger,
-   :owl/withRestrictions [{:xsd/maxInclusive -1}],
+   :owl/withRestrictions [{:xsd/maxInclusive -1.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "negative integer"})
 
 (def nonNegativeInteger
   {:db/ident       :xsd/nonNegativeInteger,
    :owl/onDatatype :xsd/integer,
-   :owl/withRestrictions [{:xsd/pattern "[+]?[0-9]+"} {:xsd/minInclusive 0}],
+   :owl/withRestrictions [{:xsd/pattern "[+]?[0-9]+"} {:xsd/minInclusive 0.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "non-negative integer"})
 
 (def nonPositiveInteger
   {:db/ident       :xsd/nonPositiveInteger,
    :owl/onDatatype :xsd/integer,
-   :owl/withRestrictions [{:xsd/pattern "(0|-[0-9]+)"} {:xsd/maxInclusive 0}],
+   :owl/withRestrictions [{:xsd/pattern "(0|-[0-9]+)"} {:xsd/maxInclusive 0.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "non-positive integer"})
 
@@ -279,14 +279,14 @@
   {:db/ident       :xsd/positiveInteger,
    :owl/onDatatype :xsd/nonNegativeInteger,
    :owl/withRestrictions [{:xsd/pattern "[+]?[0-9]*[1-9]+[0-9]*"}
-                          {:xsd/minInclusive 1}],
+                          {:xsd/minInclusive 1.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "positive integer"})
 
 (def short
   {:db/ident       :xsd/short,
    :owl/onDatatype :xsd/int,
-   :owl/withRestrictions [{:xsd/maxInclusive 32767} {:xsd/minInclusive -32768}],
+   :owl/withRestrictions [{:xsd/maxInclusive 32767.0} {:xsd/minInclusive -32768.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "short"})
 
@@ -321,28 +321,28 @@
 (def unsignedByte
   {:db/ident       :xsd/unsignedByte,
    :owl/onDatatype :xsd/unsignedShort,
-   :owl/withRestrictions [{:xsd/maxInclusive 255}],
+   :owl/withRestrictions [{:xsd/maxInclusive 255.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "unsigned byte"})
 
 (def unsignedInt
   {:db/ident       :xsd/unsignedInt,
    :owl/onDatatype :xsd/unsignedLong,
-   :owl/withRestrictions [{:xsd/maxInclusive 4294967295}],
+   :owl/withRestrictions [{:xsd/maxInclusive 4294967295.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "unsigned int"})
 
 (def unsignedLong
   {:db/ident       :xsd/unsignedLong,
    :owl/onDatatype :xsd/nonNegativeInteger,
-   :owl/withRestrictions [{:xsd/maxInclusive 18446744073709551615}],
+   :owl/withRestrictions [{:xsd/maxInclusive 18446744073709551615.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "unsigned long"})
 
 (def unsignedShort
   {:db/ident       :xsd/unsignedShort,
    :owl/onDatatype :xsd/unsignedInt,
-   :owl/withRestrictions [{:xsd/maxInclusive 65535}],
+   :owl/withRestrictions [{:xsd/maxInclusive 65535.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "unsigned short"})
 

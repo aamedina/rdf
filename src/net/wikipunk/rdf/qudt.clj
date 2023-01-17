@@ -929,8 +929,8 @@
   "CRC-32"
   {:db/ident            :qudt/CRC32,
    :owl/equivalentClass {:owl/onDatatype :xsd/integer,
-                         :owl/withRestrictions [{:xsd/minInclusive 0}
-                                                {:xsd/maxInclusive 4294967295}],
+                         :owl/withRestrictions [{:xsd/minInclusive 0.0}
+                                                {:xsd/maxInclusive 4294967295.0}],
                          :rdf/type       :rdfs/Datatype},
    :rdf/type            [:owl/DataRange :rdfs/Datatype],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
@@ -8394,8 +8394,8 @@
   "integer 1..12"
   {:db/ident            :qudt/integer1to12,
    :owl/equivalentClass {:owl/onDatatype :xsd/integer,
-                         :owl/withRestrictions [{:xsd/minInclusive 1}
-                                                {:xsd/maxInclusive 12}],
+                         :owl/withRestrictions [{:xsd/minInclusive 1.0}
+                                                {:xsd/maxInclusive 12.0}],
                          :rdf/type       :rdfs/Datatype},
    :rdf/type            [:owl/DataRange :rdfs/Datatype],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
@@ -8406,8 +8406,8 @@
   "integer 1..31"
   {:db/ident            :qudt/integer1to31,
    :owl/equivalentClass {:owl/onDatatype :xsd/integer,
-                         :owl/withRestrictions [{:xsd/minInclusive 1}
-                                                {:xsd/maxInclusive 31}],
+                         :owl/withRestrictions [{:xsd/minInclusive 1.0}
+                                                {:xsd/maxInclusive 31.0}],
                          :rdf/type       :rdfs/Datatype},
    :rdf/type            [:owl/DataRange :rdfs/Datatype],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
@@ -8418,8 +8418,8 @@
   "integer percentage"
   {:db/ident            :qudt/integerPercentage,
    :owl/equivalentClass {:owl/onDatatype :xsd/integer,
-                         :owl/withRestrictions [{:xsd/minInclusive 0}
-                                                {:xsd/maxInclusive 100}],
+                         :owl/withRestrictions [{:xsd/minInclusive 0.0}
+                                                {:xsd/maxInclusive 100.0}],
                          :rdf/type :rdfs/Datatype,
                          :rdfs/isDefinedBy "http://qudt.org/2.1/schema/qudt"},
    :rdf/type            :rdfs/Datatype,

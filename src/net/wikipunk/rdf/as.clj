@@ -109,6 +109,7 @@
    :rdfs/subClassOf :as/Document})
 
 (def Block
+  "Block"
   {:db/ident        :as/Block,
    :rdf/type        :owl/Class,
    :rdfs/label      {:rdf/language "en",
@@ -348,6 +349,7 @@
    :rdfs/subClassOf :as/Object})
 
 (def ObjectClass
+  "Object"
   {:db/ident   :as/Object,
    :rdf/type   :owl/Class,
    :rdfs/label {:rdf/language "en",
@@ -625,7 +627,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "accuracy"},
    :rdfs/range {:owl/onDatatype :xsd/float,
-                :owl/withRestrictions [{:xsd/minInclusive 0}],
+                :owl/withRestrictions [{:xsd/minInclusive 0.0}],
                 :rdf/type       :rdfs/Datatype}})
 
 (def actor
@@ -669,6 +671,7 @@
                 :rdf/type    :owl/Class}})
 
 (def attachment
+  "attachment"
   {:db/ident    :as/attachment,
    :owl/equivalentProperty :as/attachments,
    :rdf/type    :owl/ObjectProperty,
@@ -679,6 +682,7 @@
                  :rdf/type    :owl/Class}})
 
 (def attachments
+  "attachments"
   {:db/ident    :as/attachments,
    :rdf/type    [:owl/DeprecatedProperty :owl/ObjectProperty],
    :rdfs/domain :as/Object,
@@ -702,6 +706,7 @@
                   :rdf/type    :owl/Class}})
 
 (def audience
+  "audience"
   {:db/ident    :as/audience,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -726,6 +731,7 @@
    :rdfs/subPropertyOf :as/attributedTo})
 
 (def bcc
+  "bcc"
   {:db/ident    :as/bcc,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -735,6 +741,7 @@
                  :rdf/type    :owl/Class}})
 
 (def bto
+  "bto"
   {:db/ident    :as/bto,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -744,6 +751,7 @@
                  :rdf/type    :owl/Class}})
 
 (def cc
+  "cc"
   {:db/ident    :as/cc,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -779,6 +787,7 @@
                 :rdf/type    :owl/Class}})
 
 (def current
+  "current"
   {:db/ident    :as/current,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/Collection,
@@ -813,6 +822,7 @@
    :rdfs/range :as/Object})
 
 (def downstreamDuplicates
+  "downstreamDuplicates"
   {:db/ident    :as/downstreamDuplicates,
    :rdf/type    [:owl/DeprecatedProperty :owl/DatatypeProperty],
    :rdfs/domain :as/Object,
@@ -843,6 +853,7 @@
    :rdfs/range   :xsd/dateTime})
 
 (def first
+  "first"
   {:db/ident    :as/first,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/Collection,
@@ -865,6 +876,7 @@
    :rdfs/range :as/Object})
 
 (def generator
+  "generator"
   {:db/ident    :as/generator,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -909,6 +921,7 @@
    :rdfs/range   :xsd/language})
 
 (def icon
+  "icon"
   {:db/ident    :as/icon,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -918,6 +931,7 @@
                  :rdf/type    :owl/Class}})
 
 (def id
+  "id"
   {:db/ident    :as/id,
    :rdf/type    [:owl/DeprecatedProperty
                  :owl/FunctionalProperty
@@ -929,6 +943,7 @@
    :rdfs/range  :xsd/anyURI})
 
 (def image
+  "image"
   {:db/ident    :as/image,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -938,6 +953,7 @@
                  :rdf/type    :owl/Class}})
 
 (def inReplyTo
+  "inReplyTo"
   {:db/ident    :as/inReplyTo,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -961,6 +977,7 @@
                 :rdf/type    :owl/Class}})
 
 (def items
+  "items"
   {:db/ident    :as/items,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Collection,
@@ -972,6 +989,7 @@
                  :rdf/type    :owl/Class}})
 
 (def last
+  "last"
   {:db/ident    :as/last,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/Collection,
@@ -992,6 +1010,7 @@
    :rdfs/range   :xsd/float})
 
 (def location
+  "location"
   {:db/ident    :as/location,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -1024,6 +1043,7 @@
    :rdfs/range   :xsd/string})
 
 (def name
+  "name"
   {:db/ident    :as/name,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/domain {:owl/unionOf [:as/Object :as/Link],
@@ -1037,6 +1057,7 @@
                  :rdf/type    :owl/Class}})
 
 (def next
+  "next"
   {:db/ident    :as/next,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/CollectionPage,
@@ -1046,6 +1067,7 @@
                  :rdf/type    :owl/Class}})
 
 (def object
+  "object"
   {:db/ident    :as/object,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain {:owl/unionOf [:as/Activity :as/Relationship],
@@ -1056,6 +1078,7 @@
                  :rdf/type    :owl/Class}})
 
 (def objectType
+  "objectType"
   {:db/ident    :as/objectType,
    :rdf/type    [:owl/DeprecatedProperty
                  :owl/FunctionalProperty
@@ -1094,6 +1117,7 @@
                 :rdf/type    :owl/Class}})
 
 (def partOf
+  "partOf"
   {:db/ident    :as/partOf,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/CollectionPage,
@@ -1103,6 +1127,7 @@
                  :rdf/type    :owl/Class}})
 
 (def prev
+  "prev"
   {:db/ident    :as/prev,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/CollectionPage,
@@ -1112,6 +1137,7 @@
                  :rdf/type    :owl/Class}})
 
 (def preview
+  "preview"
   {:db/ident    :as/preview,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain {:owl/unionOf [:as/Object :as/Link],
@@ -1122,6 +1148,7 @@
                  :rdf/type    :owl/Class}})
 
 (def provider
+  "provider"
   {:db/ident    :as/provider,
    :rdf/type    [:owl/DeprecatedProperty :owl/ObjectProperty],
    :rdfs/domain :as/Object,
@@ -1154,7 +1181,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "radius"},
    :rdfs/range {:owl/onDatatype :xsd/float,
-                :owl/withRestrictions [{:xsd/minInclusive 0}],
+                :owl/withRestrictions [{:xsd/minInclusive 0.0}],
                 :rdf/type       :rdfs/Datatype}})
 
 (def rating
@@ -1170,8 +1197,8 @@
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "rating"},
    :rdfs/range   {:owl/onDatatype :xsd/float,
-                  :owl/withRestrictions [{:xsd/minInclusive 0}
-                                         {:xsd/maxInclusive 5}],
+                  :owl/withRestrictions [{:xsd/minInclusive 0.0}
+                                         {:xsd/maxInclusive 5.0}],
                   :rdf/type       :rdfs/Datatype}})
 
 (def rel
@@ -1200,6 +1227,7 @@
    :rdfs/subPropertyOf :rdf/predicate})
 
 (def replies
+  "replies"
   {:db/ident    :as/replies,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -1208,6 +1236,7 @@
    :rdfs/range  :as/Collection})
 
 (def result
+  "result"
   {:db/ident    :as/result,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Activity,
@@ -1268,6 +1297,7 @@
                   :rdf/type    :owl/Class}})
 
 (def tag
+  "tag"
   {:db/ident    :as/tag,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -1277,6 +1307,7 @@
                  :rdf/type    :owl/Class}})
 
 (def tags
+  "tags"
   {:db/ident    :as/tags,
    :owl/equivalentProperty :as/tag,
    :rdf/type    [:owl/DeprecatedProperty :owl/ObjectProperty],
@@ -1287,6 +1318,7 @@
                  :rdf/type    :owl/Class}})
 
 (def target
+  "target"
   {:db/ident    :as/target,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Activity,
@@ -1296,6 +1328,7 @@
                  :rdf/type    :owl/Class}})
 
 (def to
+  "to"
   {:db/ident    :as/to,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
@@ -1327,9 +1360,13 @@
    :rdfs/domain :as/Place,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "units"},
-   :rdfs/range {:owl/unionOf [{:owl/oneOf
-                               [:unit/IN :unit/FT :unit/MI :unit/CentiM :unit/M :unit/KiloM],
-                               :rdf/type :rdfs/Datatype}
+   :rdfs/range {:owl/unionOf [{:owl/oneOf [{:xsd/string "inches"}
+                                           {:xsd/string "feet"}
+                                           {:xsd/string "miles"}
+                                           {:xsd/string "cm"}
+                                           {:xsd/string "m"}
+                                           {:xsd/string "km"}],
+                               :rdf/type  :rdfs/Datatype}
                               :xsd/anyURI],
                 :rdf/type    :rdfs/Datatype}})
 
@@ -1345,6 +1382,7 @@
    :rdfs/range   :xsd/dateTime})
 
 (def upstreamDuplicates
+  "upstreamDuplicates"
   {:db/ident    :as/upstreamDuplicates,
    :rdf/type    [:owl/DeprecatedProperty :owl/DatatypeProperty],
    :rdfs/domain :as/Object,
@@ -1366,6 +1404,7 @@
                 :rdf/type    :owl/Class}})
 
 (def verb
+  "verb"
   {:db/ident    :as/verb,
    :rdf/type    [:owl/DeprecatedProperty
                  :owl/FunctionalProperty
