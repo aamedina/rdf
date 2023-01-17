@@ -276,7 +276,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Behavioral"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Activity",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Activity"],
    :rdfs/subClassOf :dpvo-pd/External,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -394,7 +394,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Browsing Behavior"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#OnlineActivity",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#OnlineActivity"],
    :rdfs/subClassOf :dpvo-pd/Behavioral,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -503,7 +503,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Communications Metadata"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Interactive",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Interactive"],
    :rdfs/subClassOf :dpvo-pd/PublicLife,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -542,7 +542,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Contact"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Physical",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Physical"],
    :rdfs/subClassOf :dpvo-pd/Tracking,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -700,7 +700,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Criminal"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Judicial",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Judicial"],
    :rdfs/subClassOf :dpvo-pd/Social,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -870,7 +870,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Device Based"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Computer",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Computer"],
    :rdfs/subClassOf :dpvo-pd/Tracking,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -1391,7 +1391,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Financial"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Financial",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Financial"],
    :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -1623,7 +1623,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Health"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Health",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Health"],
    :rdfs/subClassOf :dpvo-pd/MedicalHealth,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -2031,7 +2031,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Link Clicked"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Navigation",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Navigation"],
    :rdfs/subClassOf :dpvo-pd/Behavioral,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -2068,7 +2068,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Location"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Location",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Location"],
    :rdfs/subClassOf :dpvo-pd/Tracking,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -2211,7 +2211,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Official ID"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Government",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Government"],
    :rdfs/subClassOf :dpvo-pd/Identifying,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -2524,7 +2524,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Physical Characteristic"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Demographic",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Demographic"],
    :rdfs/subClassOf :dpvo-pd/External,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -2615,7 +2615,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Political Affiliation"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Political",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Political"],
    :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/SpecialCategoryPersonalData],
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -2651,7 +2651,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Preference"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Preference",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Preference"],
    :rdfs/subClassOf :dpvo-pd/Internal,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -2846,7 +2846,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Purchase"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Purchase",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Purchase"],
    :rdfs/subClassOf :dpvo-pd/Transactional,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -3241,7 +3241,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Social Media Communication"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#Social",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Social"],
    :rdfs/subClassOf :dpvo-pd/Communication,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
@@ -3469,7 +3469,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "UID"},
-   :rdfs/seeAlso "https://specialprivacy.ercim.eu/vocabs/data#UniqueId",
+   :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#UniqueId"],
    :rdfs/subClassOf :dpvo-pd/Identifying,
    :vs/term_status {:rdf/language "en",
                     :rdf/value    "accepted"}})
