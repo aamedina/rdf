@@ -526,7 +526,7 @@
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "has container"},
    :rdfs/range         :sioc/Container,
-   :rdfs/subPropertyOf :dcterms/partOf})
+   :rdfs/subPropertyOf :dcterms/isPartOf})
 
 (def has_creator
   "This is the UserAccount that made this resource."
@@ -659,7 +659,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "has parent"},
    :rdfs/range :sioc/Container,
-   :rdfs/subPropertyOf :dcterms/partOf})
+   :rdfs/subPropertyOf :dcterms/isPartOf})
 
 (def has_part
   "An resource that is a part of this subject."
@@ -714,7 +714,7 @@
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "has space"},
    :rdfs/range         :sioc/Space,
-   :rdfs/subPropertyOf :dcterms/partOf})
+   :rdfs/subPropertyOf :dcterms/isPartOf})
 
 (def has_subscriber
   "A UserAccount that is subscribed to this Container."

@@ -84,7 +84,7 @@
   "Represents quality annotations, including ratings, quality certificates or feedback that can be associated to datasets or distributions. Quality annotations must have one oa:motivatedBy statement with an instance of oa:Motivation (and skos:Concept) that reflects a quality assessment purpose. We define this instance as dqv:qualityAssessment."
   {:db/ident :dqv/QualityAnnotation,
    :owl/equivalentClass {:owl/hasValue   :dqv/qualityAssessment,
-                         :owl/onProperty :oa/motivation,
+                         :owl/onProperty :oa/motivatedBy
                          :rdf/type       :owl/Restriction},
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment

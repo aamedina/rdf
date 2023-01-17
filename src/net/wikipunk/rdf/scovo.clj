@@ -12,7 +12,7 @@
    :dcterms/description
    "A vocabulary for representing statistical data on the Web.\r\n\r\n<div style=\"border: 2px solid red; padding: 0.4em 0.7em; background: #fcc\">Note: The SCOVO vocabulary is deprecated. We strongly advise to use the <a href=\"http://www.w3.org/TR/vocab-data-cube/\">Data Cube Vocabulary</a> instead.</div>",
    :dcterms/modified #inst "2012-08-09T00:00:00.000-04:00",
-   :dcterms/partOf "http://vocab.deri.ie",
+   :dcterms/isPartOf "http://vocab.deri.ie",
    :dcterms/publisher "http://vocab.deri.ie/scovo#LiDRC",
    :dcterms/status "http://purl.org/adms/status/UnderDevelopment",
    :dcterms/title "The Statistical Core Vocabulary (SCOVO)",

@@ -30551,7 +30551,7 @@
   {:db/ident :d3fend/related,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment "x related y: x has a symmetric associative relation to y.",
-   :rdfs/isDefinedBy :skos/related,
+   :rdfs/isDefinedBy "http://www.w3.org/2004/02/skos/core#related",
    :rdfs/label "related",
    :rdfs/subPropertyOf :d3fend/semantic-relation})
 

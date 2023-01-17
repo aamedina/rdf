@@ -442,7 +442,7 @@
 (def disjointWith
   "The property that determines that two given classes are disjoint."
   {:db/ident :owl/disjointWith,
-   :db/cardinality   :db.cardinality/one
+   :db/cardinality   :db.cardinality/many
    :db/valueType     :db.type/ref
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -468,7 +468,7 @@
 (def equivalentClass
   "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions."
   {:db/ident :owl/equivalentClass,
-   :db/cardinality   :db.cardinality/one
+   :db/cardinality   :db.cardinality/many
    :db/valueType     :db.type/ref
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -481,7 +481,7 @@
 (def equivalentProperty
   "The property that determines that two given properties are equivalent."
   {:db/ident :owl/equivalentProperty,
-   :db/cardinality   :db.cardinality/one
+   :db/cardinality   :db.cardinality/many
    :db/valueType     :db.type/ref
    :rdf/type :rdf/Property,
    :rdfs/comment

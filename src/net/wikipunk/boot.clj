@@ -78,7 +78,7 @@
 
 (def foaf
   "FOAF"
-  {:dcat/downloadURL "https://gitlab.com/lv2/lv2/-/raw/master/schemas.lv2/foaf.ttl"
+  {:dcat/downloadURL "https://raw.githubusercontent.com/arachne-framework/aristotle/main/test/foaf.rdf"
    :rdfa/uri         "http://xmlns.com/foaf/0.1/",
    :rdfa/prefix      "foaf",
    :rdfs/isDefinedBy {:rdf/uri "http://xmlns.com/foaf/spec/"},
@@ -334,7 +334,8 @@
 
 (def xhv
   "RDFa Default Prefix"
-  {:rdfa/uri         "http://www.w3.org/1999/xhtml/vocab#",
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/xhv/versions/2010-01-27.n3"
+   :rdfa/uri         "http://www.w3.org/1999/xhtml/vocab#",
    :rdfa/prefix      "xhv",
    :rdfs/isDefinedBy {:rdf/uri "http://www.w3.org/TR/rdfa-core/"},
    :rdf/type         :rdfa/PrefixMapping})

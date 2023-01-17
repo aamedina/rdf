@@ -39,11 +39,13 @@
    :rdfs/label "base64 binary"})
 
 (def boolean
-  {:db/ident       :xsd/boolean,
-   :owl/onDatatype :xsd/anySimpleType,
+  {:db/ident             :xsd/boolean,
+   :db/cardinality       :db.cardinality/one
+   :db/valueType         :db.type/boolean
+   :owl/onDatatype       :xsd/anySimpleType,
    :owl/withRestrictions [{:xsd/pattern "(true|false|0|1)"}],
-   :rdf/type       :rdfs/Datatype,
-   :rdfs/label     "boolean"})
+   :rdf/type             :rdfs/Datatype,
+   :rdfs/label           "boolean"})
 
 (def byte
   {:db/ident       :xsd/byte,
@@ -190,6 +192,8 @@
 
 (def long
   {:db/ident       :xsd/long,
+   :db/cardinality       :db.cardinality/one
+   :db/valueType         :db.type/long
    :owl/onDatatype :xsd/integer,
    :owl/withRestrictions [{:xsd/maxInclusive 9223372036854775807}
                           {:xsd/minInclusive -9223372036854775808}],
@@ -289,6 +293,8 @@
 (def string
   "A character string."
   {:db/ident       :xsd/string,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
    :owl/onDatatype :xsd/anySimpleType,
    :rdf/type       :rdfs/Datatype,
    :rdfs/comment   "A character string.",

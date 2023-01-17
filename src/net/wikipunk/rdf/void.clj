@@ -35,7 +35,7 @@
    :dcterms/description
    "The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets. This document provides a formal definition of the new RDF classes and properties introduced for VoID. It is a companion to the main specification document for VoID, <em><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></em>.",
    :dcterms/modified #inst "2011-03-06T00:00:00.000-05:00",
-   :dcterms/partOf "http://vocab.deri.ie",
+   :dcterms/isPartOf "http://vocab.deri.ie",
    :dcterms/publisher
    {:rdfs/seeAlso ["http://www.deri.ie/" "http://www.insight-centre.org"],
     :schema/identifier

@@ -9269,7 +9269,7 @@
   {:db/ident           :qudt/stringValue,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         "string value",
-   :rdfs/subPropertyOf :qudt/scalarValue})
+   :rdfs/subPropertyOf :qudt/value})
 
 (def supercededBy
   "This property is used to refer to the most current definition of an entity, when needed."

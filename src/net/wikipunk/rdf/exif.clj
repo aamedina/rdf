@@ -1983,7 +1983,7 @@
                         :rdf/value    "DateTime subseconds"},
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "SubSecTime"},
-   :rdfs/subPropertyOf [:exif/subsecond :exif/dateAndOrTime]})
+   :rdfs/subPropertyOf [:exif/subseconds :exif/dateAndOrTime]})
 
 (def subSecTimeDigitized
   "DateTimeDigitized subseconds"
@@ -1995,7 +1995,7 @@
                         :rdf/value    "DateTimeDigitized subseconds"},
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "SubSecTimeDigitized"},
-   :rdfs/subPropertyOf [:exif/subsecond :exif/dateAndOrTime]})
+   :rdfs/subPropertyOf [:exif/subseconds :exif/dateAndOrTime]})
 
 (def subSecTimeOriginal
   "DateTimeOriginal subseconds"
@@ -2007,7 +2007,7 @@
                         :rdf/value    "DateTimeOriginal subseconds"},
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "SubSecTimeOriginal"},
-   :rdfs/subPropertyOf [:exif/subsecond :exif/dateAndOrTime]})
+   :rdfs/subPropertyOf [:exif/subseconds :exif/dateAndOrTime]})
 
 (def subjectArea
   "The location and area of the main subject in the overall scene."
