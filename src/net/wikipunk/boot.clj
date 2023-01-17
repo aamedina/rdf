@@ -33,7 +33,8 @@
 
 (def ctag
   "Common Tag Ontology"
-  {:rdfa/uri         "http://commontag.org/ns#",
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/ctag/versions/2009-06-08.n3"
+   :rdfa/uri         "http://commontag.org/ns#",
    :rdfa/prefix      "ctag",
    :rdfs/isDefinedBy {:rdf/uri "http://commontag.org/Specification"},
    :rdf/type         :rdfa/PrefixMapping})
@@ -86,7 +87,8 @@
 
 (def gr
   "GoodRelations Ontology"
-  {:rdfa/uri         "http://purl.org/goodrelations/v1#",
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/gr/versions/2011-10-01.n3"
+   :rdfa/uri         "http://purl.org/goodrelations/v1#",
    :rdfa/prefix      "gr",
    :rdfs/isDefinedBy {:rdf/uri
                       "http://www.heppnetz.de/ontologies/goodrelations/v1"},
@@ -146,7 +148,8 @@
 
 (def og
   "Facebook's Open Graph protocol"
-  {:rdfa/uri         "http://ogp.me/ns#",
+  {:dcat/downloadURL "https://raw.githubusercontent.com/facebookarchive/open-graph-protocol/master/ns/ogp.me.rdf"
+   :rdfa/uri         "http://ogp.me/ns#",
    :rdfa/prefix      "og",
    :rdfs/isDefinedBy {:rdf/uri "http://ogp.me/"},
    :rdf/type         :rdfa/PrefixMapping})

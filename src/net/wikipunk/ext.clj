@@ -378,4 +378,8 @@
    :rdfa/prefix      "scovo",
    :rdf/type         :rdfa/PrefixMapping})
 
-
+(def spdx
+  {:dcat/downloadURL "https://raw.githubusercontent.com/spdx/spdx-spec/v2.3/ontology/spdx-ontology.owl.xml"
+   :rdfa/uri         "http://spdx.org/rdf/terms#",
+   :rdfa/prefix      "spdx",
+   :rdf/type         :rdfa/PrefixMapping})
