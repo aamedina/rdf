@@ -54,7 +54,7 @@
     "PAV is a lightweight ontology for tracking Provenance, Authoring and Versioning. PAV specializes the W3C provenance ontology PROV-O in order to describe authorship, curation and digital creation of online resources.\n\n          This ontology describes the defined PAV properties and their usage. Note that PAV does not define any explicit classes or domain/ranges, as every property is meant to be used directly on the described online resource.\n\n          Cite as: Paolo Ciccarese, Stian Soiland-Reyes, Khalid Belhajjame, Alasdair JG Gray, Carole Goble, Tim Clark (2013): PAV ontology: provenance, authoring and versioning. Journal of biomedical semantics 4 (1), 37. doi:10.1186/2041-1480-4-37\n        "},
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Provenance, Authoring and Versioning (PAV)"},
-   :rdfs/seeAlso [:pav/doc
+   :rdfs/seeAlso ["http://purl.org/pav/doc"
                   "http://www.w3.org/ns/prov#"
                   "http://code.google.com/p/pav-ontology/"
                   "https://code.google.com/p/pav-ontology/wiki/Versions"
@@ -72,7 +72,8 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Authored by"},
-   :rdfs/seeAlso [:pav/createdBy :pav/authoredOn],
+   :rdfs/seeAlso ["http://purl.org/pav/createdBy"
+                  "http://purl.org/pav/authoredOn"],
    :rdfs/subPropertyOf [:pav/contributedBy :dcterms/creator]})
 
 (def authoredOn
@@ -86,7 +87,9 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Authored on"},
-   :rdfs/seeAlso [:pav/createdOn :pav/createdBy :pav/authoredBy],
+   :rdfs/seeAlso ["http://purl.org/pav/createdOn"
+                  "http://purl.org/pav/createdBy"
+                  "http://purl.org/pav/authoredBy"],
    :rdfs/subPropertyOf :pav/contributedOn})
 
 (def contributedBy
@@ -101,7 +104,8 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Contributed by"},
-   :rdfs/seeAlso [:pav/createdBy :pav/contributedOn],
+   :rdfs/seeAlso ["http://purl.org/pav/createdBy"
+                  "http://purl.org/pav/contributedOn"],
    :rdfs/subPropertyOf [:prov/wasAttributedTo :dcterms/contributor]})
 
 (def contributedOn
@@ -116,7 +120,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Contributed on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso :pav/contributedBy})
+   :rdfs/seeAlso ["http://purl.org/pav/contributedBy"]})
 
 (def createdAt
   "The geo-location of the agents when creating the resource (pav:createdBy). For instance a photographer takes a picture of the Eiffel Tower while standing in front of it."
@@ -129,7 +133,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Created at"},
-   :rdfs/seeAlso :pav/createdBy})
+   :rdfs/seeAlso ["http://purl.org/pav/createdBy"]})
 
 (def createdBy
   "An agent primary responsible for making the digital artifact or resource representation. This property is distinct from forming the content, which is indicated with pav:contributedBy or its subproperties; pav:authoredBy, which identifies who authored the knowledge expressed by this resource; and pav:curatedBy, which identifies who curated the knowledge into its current form. pav:createdBy is more specific than its superproperty dct:creator - which might or might not be interpreted to cover this creator. For instance, the author wrote 'this species has bigger wings than normal' in his log book. The curator, going through the log book and identifying important knowledge, formalizes this as 'locus perculus has wingspan > 0.5m'. The creator enters this knowledge as a digital resource in the knowledge system, thus creating the digital artifact (say as JSON, RDF, XML or HTML). A different example is a news article. pav:authoredBy indicates the journalist who wrote the article. pav:contributedBy can indicate the artist who added an illustration. pav:curatedBy can indicate the editor who made the article conform to the news paper's style. pav:createdBy can indicate who put the article on the web site. The software tool used by the creator to make the digital resource (say Protege, Wordpress or OpenOffice) can be indicated with pav:createdWith. The date the digital resource was created can be indicated with pav:createdOn. The location the agent was at when creating the digital resource can be made using pav:createdAt."
@@ -143,7 +147,10 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Created by"},
-   :rdfs/seeAlso [:pav/createdAt :pav/curatedBy :pav/createdOn :pav/authoredBy],
+   :rdfs/seeAlso ["http://purl.org/pav/createdAt"
+                  "http://purl.org/pav/curatedBy"
+                  "http://purl.org/pav/createdOn"
+                  "http://purl.org/pav/authoredBy"],
    :rdfs/subPropertyOf [:dcterms/creator :prov/wasAttributedTo]})
 
 (def createdOn
@@ -159,7 +166,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Created on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso :pav/createdBy})
+   :rdfs/seeAlso ["http://purl.org/pav/createdBy"]})
 
 (def createdWith
   "The software/tool used by the creator (pav:createdBy) when making the digital resource, for instance a word processor or an annotation tool. A more independent software agent that creates the resource without direct interaction by a human creator should instead should instead by indicated using pav:createdBy."
@@ -172,7 +179,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Created with"},
-   :rdfs/seeAlso :pav/createdBy,
+   :rdfs/seeAlso ["http://purl.org/pav/createdBy"],
    :rdfs/subPropertyOf :prov/wasAttributedTo})
 
 (def curatedBy
@@ -187,7 +194,8 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Curated by"},
-   :rdfs/seeAlso [:pav/curatedOn :pav/createdBy],
+   :rdfs/seeAlso ["http://purl.org/pav/curatedOn"
+                  "http://purl.org/pav/createdBy"],
    :rdfs/subPropertyOf :pav/contributedBy})
 
 (def curatedOn
@@ -201,7 +209,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Curated on"},
-   :rdfs/seeAlso :pav/curatedBy,
+   :rdfs/seeAlso ["http://purl.org/pav/curatedBy"],
    :rdfs/subPropertyOf :pav/contributedOn})
 
 (def curates
@@ -229,7 +237,8 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Derived from"},
-   :rdfs/seeAlso [:pav/previousVersion :pav/importedFrom],
+   :rdfs/seeAlso ["http://purl.org/pav/previousVersion"
+                  "http://purl.org/pav/importedFrom"],
    :rdfs/subPropertyOf :prov/wasDerivedFrom})
 
 (def hasCurrentVersion
@@ -268,7 +277,8 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Has version"},
-   :rdfs/seeAlso [:pav/previousVersion :pav/hasCurrentVersion],
+   :rdfs/seeAlso ["http://purl.org/pav/previousVersion"
+                  "http://purl.org/pav/hasCurrentVersion"],
    :rdfs/subPropertyOf [:prov/generalizationOf :dcterms/hasVersion]})
 
 (def importedBy
@@ -283,7 +293,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Imported by"},
-   :rdfs/seeAlso :pav/importedFrom,
+   :rdfs/seeAlso ["http://purl.org/pav/importedFrom"],
    :rdfs/subPropertyOf :prov/wasAttributedTo})
 
 (def importedFrom
@@ -298,8 +308,10 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Imported from"},
-   :rdfs/seeAlso
-   [:pav/importedOn :pav/importedBy :pav/derivedFrom :pav/retrievedFrom],
+   :rdfs/seeAlso ["http://purl.org/pav/importedOn"
+                  "http://purl.org/pav/importedBy"
+                  "http://purl.org/pav/derivedFrom"
+                  "http://purl.org/pav/retrievedFrom"],
    :rdfs/subPropertyOf :prov/wasDerivedFrom})
 
 (def importedOn
@@ -315,7 +327,8 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Imported on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso [:pav/importedFrom :pav/importedBy]})
+   :rdfs/seeAlso ["http://purl.org/pav/importedFrom"
+                  "http://purl.org/pav/importedBy"]})
 
 (def lastRefreshedOn
   "The date of the last re-import of the resource. This property is used in addition to pav:importedOn if this version has been updated due to a re-import. If the re-import created a new resource rather than refreshing an existing resource, then instead use pav:importedOn together with pav:previousVersion. This property is normally used in a functional way, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -330,8 +343,10 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Last refreshed on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso
-   [:pav/previousVersion :pav/importedOn :pav/importedBy :pav/importedFrom]})
+   :rdfs/seeAlso ["http://purl.org/pav/previousVersion"
+                  "http://purl.org/pav/importedOn"
+                  "http://purl.org/pav/importedBy"
+                  "http://purl.org/pav/importedFrom"]})
 
 (def lastUpdateOn
   "The date of the last update of the resource. An update is a change which did not warrant making a new resource related using pav:previousVersion, for instance correcting a spelling mistake. This property is normally used in a functional way, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -346,7 +361,8 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Last updated on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso [:pav/previousVersion :pav/createdOn]})
+   :rdfs/seeAlso ["http://purl.org/pav/previousVersion"
+                  "http://purl.org/pav/createdOn"]})
 
 (def previousVersion
   "The previous version of a resource in a lineage. For instance a news article updated to correct factual information would point to the previous version of the article with pav:previousVersion. If however the content has significantly changed so that the two resources no longer share lineage (say a new article that talks about the same facts), they can instead be related using pav:derivedFrom. This property is normally used in a functional way, although PAV does not formally restrict this. Earlier versions which are not direct ancestors of this resource may instead be provided using the superproperty pav:hasEarlierVersion. A version number of this resource can be provided using the data property pav:version. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. \"Weather Today\" vs. \"Weather Today on 2013-12-07\", see pav:hasVersion. Note that it might be confusing to indicate pav:previousVersion from a resource that also has pav:hasVersion or pav:hasCurrentVersion relations, as such resources are intended to be a long-living and \"unversioned\", while pav:previousVersion is intended for use between permalink-like \"snapshots\" arranged in a linear history."
@@ -360,7 +376,9 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Previous version"},
-   :rdfs/seeAlso [:pav/derivedFrom :pav/version :pav/hasVersion],
+   :rdfs/seeAlso ["http://purl.org/pav/derivedFrom"
+                  "http://purl.org/pav/version"
+                  "http://purl.org/pav/hasVersion"],
    :rdfs/subPropertyOf [:pav/hasEarlierVersion :prov/wasRevisionOf]})
 
 (def providedBy
@@ -374,7 +392,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Provided by"},
-   :rdfs/seeAlso :dcterms/publisher})
+   :rdfs/seeAlso ["http://purl.org/dc/terms/publisher"]})
 
 (def retrievedBy
   "An entity responsible for retrieving the data from an external source. The retrieving agent is usually a software entity, which has done the retrieval from the original source without performing any transcription. The source that was retrieved should be given with pav:retrievedFrom. The time of the retrieval should be indicated using pav:retrievedOn. See pav:importedFrom for a discussion of import vs. retrieve vs. derived."
@@ -387,7 +405,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Retrieved by"},
-   :rdfs/seeAlso :pav/importedFrom,
+   :rdfs/seeAlso ["http://purl.org/pav/importedFrom"],
    :rdfs/subPropertyOf :prov/wasAttributedTo})
 
 (def retrievedFrom
@@ -401,7 +419,8 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Retrieved from"},
-   :rdfs/seeAlso [:pav/retrievedOn :pav/retrievedBy],
+   :rdfs/seeAlso ["http://purl.org/pav/retrievedOn"
+                  "http://purl.org/pav/retrievedBy"],
    :rdfs/subPropertyOf :prov/wasDerivedFrom})
 
 (def retrievedOn
@@ -416,7 +435,8 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Retrieved on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso [:pav/retrievedFrom :pav/retrievedBy]})
+   :rdfs/seeAlso ["http://purl.org/pav/retrievedFrom"
+                  "http://purl.org/pav/retrievedBy"]})
 
 (def sourceAccessedAt
   "The resource is related to a given source which was accessed or consulted (but not retrieved, imported or derived from). This access can be detailed with pav:sourceAccessedBy and pav:sourceAccessedOn. For instance, a curator (pav:curatedBy) might have consulted figures in a published paper to confirm that a dataset was correctly pav:importedFrom the paper's supplementary CSV file. Another example: I can access the page for tomorrow weather in Boston (http://www.weather.com/weather/tomorrow/Boston+MA+02143) and I can blog ‘tomorrow is going to be nice’. The source does not make any claims about the nice weather, that is my interpretation; therefore the blog post has pav:sourceAccessedAt the weather page."
@@ -429,11 +449,11 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Source accessed at"},
-   :rdfs/seeAlso [:pav/sourceLastAccessedOn
-                  :pav/sourceAccessedBy
-                  :pav/retrievedFrom
-                  :pav/importedFrom
-                  :pav/sourceAccessedOn],
+   :rdfs/seeAlso ["http://purl.org/pav/sourceLastAccessedOn"
+                  "http://purl.org/pav/sourceAccessedBy"
+                  "http://purl.org/pav/retrievedFrom"
+                  "http://purl.org/pav/importedFrom"
+                  "http://purl.org/pav/sourceAccessedOn"],
    :rdfs/subPropertyOf :prov/wasInfluencedBy})
 
 (def sourceAccessedBy
@@ -447,7 +467,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Source accessed by"},
-   :rdfs/seeAlso :pav/sourceAccessedAt})
+   :rdfs/seeAlso ["http://purl.org/pav/sourceAccessedAt"]})
 
 (def sourceAccessedOn
   "The resource is related to a source which was originally accessed or consulted on the given date as part of creating or authoring the resource. The source(s) should be specified using pav:sourceAccessedAt. For instance, if the source accessed described the weather forecast for the next day, the time of source access can be crucial information. This property is normally used in a functional way, although PAV does not formally restrict this. If the source is subsequently checked again (say to verify validity), this should be indicated with pav:sourceLastAccessedOn. In the case multiple sources being accessed at different times or by different agents, PAV does not distinguish who accessed when what. If such details are required, they may be provided by additionally using prov:qualifiedInfluence. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -462,10 +482,10 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Source accessed on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso [:pav/createdAt
-                  :pav/sourceAccessedBy
-                  :pav/sourceLastAccessedOn
-                  :pav/sourceAccessedAt]})
+   :rdfs/seeAlso ["http://purl.org/pav/createdAt"
+                  "http://purl.org/pav/sourceAccessedBy"
+                  "http://purl.org/pav/sourceLastAccessedOn"
+                  "http://purl.org/pav/sourceAccessedAt"]})
 
 (def sourceLastAccessedOn
   "The resource is related to a source which was last accessed or consulted on the given date. The source(s) should be specified using pav:sourceAccessedAt. Usage of this property indicates that the source has been checked previously, which the initial time should be indicated with pav:sourceAccessedOn. This property can be useful together with pav:lastRefreshedOn or pav:lastUpdateOn in order to indicate a re-import or update, but could also be used alone, for instance when a source was simply verified and no further action was taken for the resource. This property is normally used in a functional way, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -480,7 +500,9 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Source last accessed on"},
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso [:pav/sourceAccessedBy :pav/sourceAccessedAt :pav/createdAt]})
+   :rdfs/seeAlso ["http://purl.org/pav/sourceAccessedBy"
+                  "http://purl.org/pav/sourceAccessedAt"
+                  "http://purl.org/pav/createdAt"]})
 
 (def version
   "The version number of a resource. This is a freetext string, typical values are \"1.5\" or \"21\". The URI identifying the previous version can be provided using prov:previousVersion. This property is normally used in a functional way, although PAV does not formally restrict this."
@@ -493,4 +515,4 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Version"},
    :rdfs/range :xsd/string,
-   :rdfs/seeAlso :pav/previousVersion})
+   :rdfs/seeAlso ["http://purl.org/pav/previousVersion"]})

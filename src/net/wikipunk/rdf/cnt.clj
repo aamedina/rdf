@@ -168,7 +168,7 @@
    :rdfs/domain  :cnt/ContentAsXML,
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "XML leading misc"},
-   :rdfs/range   :rdfs/XMLLiteral})
+   :rdfs/range   :rdf/XMLLiteral})
 
 (def publicId
   "The document type declarations's public identifier."
@@ -192,7 +192,7 @@
    :rdfs/domain  :cnt/ContentAsXML,
    :rdfs/label   {:rdf/language "en",
                   :rdf/value    "XML rest"},
-   :rdfs/range   :rdfs/XMLLiteral})
+   :rdfs/range   :rdf/XMLLiteral})
 
 (def standalone
   "The standalone declaration in the XML declaration."

@@ -401,6 +401,22 @@
     (into (vector-of :byte) form)
     form))
 
+(defn walk-seeAlso
+  [form]
+  (if (and (map? form)
+           (contains? form :rdfs/seeAlso))
+    (let [seeAlso  (:rdfs/seeAlso form)
+          seeAlso  (if (coll? seeAlso)
+                    seeAlso
+                    [seeAlso])
+          seeAlso' (mapv (fn [x]
+                           (if (keyword? x)
+                             (reg/iri x)
+                             x))
+                         seeAlso)]
+      (assoc form :rdfs/seeAlso seeAlso'))
+    form))
+
 (defn unroll-forms
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
@@ -415,6 +431,7 @@
                             (walk/prewalk (partial walk-blanks index))
                             (walk/postwalk walk-dcterms)
                             (walk/postwalk walk-bytes)
+                            (walk/postwalk walk-seeAlso)
                             (map (fn [[k v]]
                                    (cond
                                      (qualified-keyword? k)

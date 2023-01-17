@@ -1835,7 +1835,7 @@
    :rdfs/domain      :voag/LicenseModel,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "deprecated on",
-   :rdfs/range       :vaem/dateUnion})
+   :rdfs/range       :vaem/date})
 
 (def derivedFrom
   "derived from"
@@ -1887,7 +1887,7 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "end date",
-   :rdfs/range       :vaem/dateUnion})
+   :rdfs/range       :vaem/date})
 
 (def eventDate
   "event date"
@@ -1895,7 +1895,7 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "event date",
-   :rdfs/range       :vaem/dateUnion})
+   :rdfs/range       :vaem/date})
 
 (def exclude
   "exclude"
@@ -2461,7 +2461,7 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "release date",
-   :rdfs/range       :vaem/dateUnion})
+   :rdfs/range       :vaem/date})
 
 (def requires
   "requires"
@@ -2515,7 +2515,7 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "start date",
-   :rdfs/range       :vaem/dateUnion})
+   :rdfs/range       :vaem/date})
 
 (def subject
   "subject"
