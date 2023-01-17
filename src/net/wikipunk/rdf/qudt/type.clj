@@ -1211,7 +1211,7 @@
    :rdf/type [:qudt/NonRotatingInertialFrame :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Earth True Equator and Prime Meridian of Epoch",
-   :rdfs/seeAlso :qudt/IERS-TN-32-2004,
+   :rdfs/seeAlso "http://qudt.org/2.1/schema/qudt/IERS-TN-32-2004"
    :skos/prefLabel "Earth True Equator and Prime Meridian of Epoch"})
 
 (def NRIF_ICRF
@@ -1451,7 +1451,7 @@
    :rdf/type [:qudt/OrderedCollection :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "Priority Queue",
-   :rdfs/seeAlso :qudt/HEAP})
+   :rdfs/seeAlso "http://qudt.org/2.1/schema/qudt/HEAP"})
 
 (def PadWithAny
   "Pad with either a one or a zero. In other words, this is the \"don't care\" situation."
@@ -1648,7 +1648,7 @@
    :rdf/type [:qudt/RotatingReferenceFrame :owl/NamedIndividual],
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/datatype",
    :rdfs/label "International Terrestrial Reference Frame",
-   :rdfs/seeAlso :qudt.type/RRF_ICRF,
+   :rdfs/seeAlso "http://qudt.org/2.1/schema/type/RRF_ICRF"
    :skos/prefLabel "International Terrestrial Reference Frame"})
 
 (def RRF_LMEBF
