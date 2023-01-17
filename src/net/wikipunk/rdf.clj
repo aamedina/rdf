@@ -4,7 +4,8 @@
    [arachne.aristotle.registry :as reg]
    [arachne.aristotle.graph :as g]
    [clojure.core.memoize :as memo]
-   [clojure.core.protocols :refer [coll-reduce]]   
+   [clojure.core.protocols :refer [coll-reduce]]
+   [clojure.datafy :refer [datafy]]
    [clojure.java.io :as io]
    [clojure.set :as set]
    [clojure.string :as str]
@@ -34,6 +35,10 @@
 
 (defprotocol NamespaceSpitter
   (emit [x arg-map]))
+
+(defprotocol Seed
+  "Helper protocol to bootstrap attributes from loaded metaobjects."
+  (select-attributes [x]))
 
 (def ^:dynamic *classes*
   "rdfs:Class|owl:Class|rdfs:Datatype"
@@ -706,3 +711,138 @@
       (resolve ident)
 
       :else (find-ns (symbol ident)))))
+
+(defn unroll-langString
+  [form]
+  (if (and (:rdf/language form) (:rdf/value form))
+    (str (:rdf/value form) "@" (:rdf/language form))
+    form))
+
+(defn unroll-blank
+  [form]
+  (if (and (map? form)
+           (and (not (contains? form :db/ident))
+                (not (contains? form :db/id))))
+    (assoc form :db/id (str (random-uuid)))
+    form))
+
+(def ^:dynamic *boot-keys*
+  [:db/ident
+   :db/cardinality
+   :db/valueType
+   :db/isComponent
+   :db/fulltext
+   :owl/annotatedTarget
+   :owl/sourceIndividual
+   :owl/propertyChainAxiom
+   :owl/members
+   :owl/onProperty
+   :owl/hasKey
+   :owl/cardinality
+   :owl/oneOf
+   :owl/backwardCompatibleWith
+   :owl/disjointWith
+   :owl/assertionProperty
+   :owl/withRestrictions
+   :owl/targetValue
+   :owl/priorVersion
+   :owl/hasSelf
+   :owl/equivalentProperty
+   :owl/onDataRange
+   :owl/targetIndividual
+   :owl/onDatatype
+   :owl/minCardinality
+   :owl/propertyDisjointWith
+   :owl/qualifiedCardinality
+   :owl/maxQualifiedCardinality
+   :owl/disjointUnionOf
+   :owl/annotatedSource
+   :owl/annotatedProperty
+   :owl/unionOf
+   :owl/distinctMembers
+   :owl/maxCardinality
+   :owl/imports
+   :owl/incompatibleWith
+   :owl/intersectionOf
+   :owl/datatypeComplementOf
+   :owl/equivalentClass
+   :owl/someValuesFrom
+   :owl/complementOf
+   :owl/deprecated
+   :owl/sameAs
+   :owl/versionIRI
+   :owl/onClass
+   :owl/allValuesFrom
+   :owl/versionInfo
+   :owl/inverseOf
+   :owl/hasValue
+   :owl/differentFrom
+   :owl/minQualifiedCardinality
+   :owl/onProperties
+   :rdfs/domain
+   :rdfs/range
+   :rdfs/seeAlso
+   :rdfs/subPropertyOf
+   :rdfs/subClassOf
+   :rdfs/isDefinedBy
+   :rdfs/member
+   :rdfs/label
+   :rdfs/comment
+   :rdf/first
+   :rdf/predicate
+   :rdf/subject
+   :rdf/object
+   :rdf/rest
+   :rdf/direction
+   :rdf/value
+   :rdf/type
+   :rdf/language
+   :fressian/tag])
+
+(extend-protocol Seed
+  clojure.lang.Namespace
+  (select-attributes [ns]
+    (when (isa? *classes* (:rdf/type (meta ns)) :owl/Ontology)
+      (seq (keep select-attributes (vals (ns-publics ns))))))
+
+  clojure.lang.Var
+  (select-attributes [v]
+    (when (map? @v)
+      (select-attributes @v)))
+
+  clojure.lang.Named
+  (select-attributes [ident]
+    (some-> (datafy ident)
+            (select-attributes)))
+
+  clojure.lang.IPersistentMap
+  (select-attributes [m]
+    (some->> (not-empty (select-keys m *boot-keys*))
+             (walk/prewalk unroll-langString)
+             (walk/prewalk unroll-blank)))
+
+  Boolean
+  (select-attributes [bootstrap?]
+    (let [xs (->> (all-ns)
+                  (remove #(re-find #"^net.wikipunk.rdf.db" (name (ns-name %))))
+                  (mapcat select-attributes))]
+      (if bootstrap?
+        ;; when bootstrapping filter for attributes
+        (filter (every-pred :db/ident :db/cardinality :db/valueType) xs)
+        ;; when not bootstrapping include all entities with :db/ident
+        (filter :db/ident xs)))))
+
+(defn select-classes
+  ([]
+   (select-classes false))
+  ([x]
+   (->> (select-attributes x)
+        (filter #(or (identical? (:db/ident %) :rdfs/Class)
+                     (contains? (:parents *classes*) (:db/ident %)))))))
+
+(defn select-properties
+  ([]
+   (select-properties false))
+  ([x]
+   (->> (select-attributes x)
+        (filter #(contains? (:parents *properties*) (:db/ident %))))))
