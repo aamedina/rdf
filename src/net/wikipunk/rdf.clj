@@ -459,10 +459,10 @@
   [form]
   (if (map? form)
     (cond-> form
-      (:owl/hasValue form)
+      (some? (:owl/hasValue form))
       (box-value update :owl/hasValue)
 
-      (:owl/oneOf form)
+      (seq (:owl/oneOf form))
       (box-value update :owl/oneOf)
 
       ;; special case coerce these to doubles 
