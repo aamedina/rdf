@@ -108,7 +108,8 @@
     :rdfs/subClassOf
     :rdfs/subPropertyOf
     :owl/equivalentClass
-    :owl/equivalentProperty})
+    :owl/equivalentProperty
+    :skos/broader})
 
 (def cat-rdf-idents
   (comp
