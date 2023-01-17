@@ -163,7 +163,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Category"},
-   :rdfs/subClassOf "http://www.w3.org/2008/05/skos#Concept"})
+   :rdfs/subClassOf :skos/Concept})
 
 (def ChatChannel
   "Describes a channel for chat or instant messages, for example, via IRC or IM."

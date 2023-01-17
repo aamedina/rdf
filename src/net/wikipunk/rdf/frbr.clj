@@ -164,7 +164,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "event"},
    :rdfs/subClassOf [:frbr/Subject
-                     "http://www.isi.edu/~pan/damltime/time-entry.owl#Event"],
+                     #_"http://www.isi.edu/~pan/damltime/time-entry.owl#Event"],
    :skos/changeNote [{:dcterms/creator "Ian Davis",
                       :dcterms/date "2005-08-09",
                       :rdf/value "Extracted definition from existing comment"}
@@ -421,7 +421,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "work"},
-   :rdfs/subClassOf [:frbr/Endeavour "http://xmlns.com/wordnet/1.6/Work~2"],
+   :rdfs/subClassOf [:frbr/Endeavour #_"http://xmlns.com/wordnet/1.6/Work~2"],
    :skos/changeNote
    [{:dcterms/creator "Ian Davis",
      :dcterms/date    "2005-08-08",

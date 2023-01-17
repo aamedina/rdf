@@ -68,10 +68,10 @@
 (def Vocabulary
   "A vocabulary used in the linked data cloud. An instance of voaf:Vocabulary relies on or is used by at least another instance of voaf:Vocabulary"
   {:db/ident :voaf/Vocabulary,
-   :owl/unionOf [{:owl/minCardinality "1",
+   :owl/unionOf [{:owl/minCardinality 1,
                   :owl/onProperty     :voaf/reliesOn,
                   :rdf/type           :owl/Restriction}
-                 {:owl/minCardinality "1",
+                 {:owl/minCardinality 1,
                   :owl/onProperty     :voaf/usedBy,
                   :rdf/type           :owl/Restriction}],
    :rdf/type :owl/Class,

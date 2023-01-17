@@ -261,7 +261,7 @@
                        :rdf/value    "Projekt"}
                       {:rdf/language "de",
                        :rdf/value    "Projekt"}],
-   :rdfs/subClassOf  ["http://xmlns.com/wordnet/1.6/Project" :foaf/Project]})
+   :rdfs/subClassOf  [:foaf/Project]})
 
 (def Repository
   "Source code repository."
