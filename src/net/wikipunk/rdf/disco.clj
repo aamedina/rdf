@@ -675,7 +675,7 @@
                  :rdf/value    "Produkt"}
                 {:rdf/language "en",
                  :rdf/value    "product"}],
-   :rdfs/range :qb/LogicalDataSet})
+   :rdfs/range :disco/LogicalDataSet})
 
 (def purpose
   "The purpose of a Study of a StudyGroup."
