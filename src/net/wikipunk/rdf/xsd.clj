@@ -56,6 +56,8 @@
 
 (def date
   {:db/ident       :xsd/date,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/instant
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -65,6 +67,8 @@
 
 (def dateTime
   {:db/ident       :xsd/dateTime,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/instant
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -75,12 +79,14 @@
 (def dateTimeStamp
   "xsd:dateTimeStamp"
   {:db/ident        :xsd/dateTimeStamp
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/instant
    :rdf/type        :rdfs/Datatype
    :rdfs/subClassOf :rdfs/Literal})
 
 (def decimal
   "A subset of the real numbers, which can be represented by decimal numerals."
-  {:db/ident :xsd/decimal,
+  {:db/ident :xsd/decimal,   
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -93,6 +99,8 @@
 (def double
   "IEEE double-precision 64-bit floating point."
   {:db/ident :xsd/double,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/double
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -114,6 +122,8 @@
 (def float
   "IEEE single-precision 32-bit floating point."
   {:db/ident :xsd/float,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/float
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -183,6 +193,8 @@
 
 (def language
   {:db/ident       :xsd/language,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/string
    :owl/onDatatype :xsd/token,
    :owl/withRestrictions
    [{:xsd/pattern
