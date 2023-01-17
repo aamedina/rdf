@@ -441,6 +441,9 @@
   clojure.lang.IPersistentMap
   (box [m] m)
 
+  Object
+  (box [o] o)
+
   nil
   (box [_] :rdf/nil))
 
