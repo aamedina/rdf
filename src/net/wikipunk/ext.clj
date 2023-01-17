@@ -389,3 +389,9 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/prefix "mop"
    :rdfa/uri    "https://wikipunk.net/mop#"})
+
+(def event
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/event/versions/2007-10-25.n3"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://purl.org/NET/c4dm/event.owl#"
+   :rdfa/prefix      "event"})

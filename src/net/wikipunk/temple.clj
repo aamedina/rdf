@@ -5,7 +5,6 @@
   (:require
    [clojure.set :as set]
    [com.stuartsierra.component :as com]
-   [datomic.client.api :as d]
    [net.wikipunk.boot]
    [net.wikipunk.ext]))
 
