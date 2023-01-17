@@ -204,7 +204,7 @@
   "The exclusive upper bound of an ordered datatype."
   {:db/ident       :xsd/maxExclusive,
    :db/cardinality :db.cardinality/one
-   :db/valueType   :db.type/long
+   :db/valueType   :db.type/double
    :rdf/type       [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment   "The exclusive upper bound of an ordered datatype.",
    :rdfs/label     "max exclusive"})
@@ -213,7 +213,7 @@
   "The inclusive upper bound of an ordered datatype."
   {:db/ident     :xsd/maxInclusive,
    :db/cardinality :db.cardinality/one
-   :db/valueType   :db.type/long
+   :db/valueType   :db.type/double
    :rdf/type     [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment "The inclusive upper bound of an ordered datatype.",
    :rdfs/label   "max inclusive"})
@@ -222,7 +222,7 @@
   "The exclusive lower bound of an ordered datatype."
   {:db/ident     :xsd/minExclusive,
    :db/cardinality :db.cardinality/one
-   :db/valueType   :db.type/long
+   :db/valueType   :db.type/double
    :rdf/type     [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment "The exclusive lower bound of an ordered datatype.",
    :rdfs/label   "min exclusive"})
@@ -231,7 +231,7 @@
   "The inclusive lower bound of an ordered datatype."
   {:db/ident       :xsd/minInclusive,
    :db/cardinality :db.cardinality/one
-   :db/valueType   :db.type/long
+   :db/valueType   :db.type/double
    :rdf/type       [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment   "The inclusive lower bound of an ordered datatype.",
    :rdfs/label     "min inclusive"})

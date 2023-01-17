@@ -417,6 +417,49 @@
       (assoc form :rdfs/seeAlso seeAlso'))
     form))
 
+(defprotocol Box
+  (box [val]))
+
+(extend-protocol Box
+  Number
+  (box [n]
+    (cond
+      (float? n)
+      {:xsd/double n}
+      (int? n)
+      {:xsd/long n}
+      :else {:owl/real n}))
+
+  String
+  (box [s]
+    {:xsd/string s})
+
+  clojure.lang.Sequential
+  (box [xs]
+    (mapv box xs))
+
+  clojure.lang.IPersistentMap
+  (box [m] m)
+
+  nil
+  (box [_] :rdf/nil))
+
+(defn box-value
+  [form f k]
+  (println "boxing" form f k)
+  (f form k box))
+
+(defn box-values
+  [form]
+  (if (map? form)
+    (cond-> form
+      (:owl/hasValue form)
+      (box-value update :owl/hasValue)
+
+      (:owl/oneOf form)
+      (box-value update :owl/oneOf))
+    form))
+
 (defn unroll-forms
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
@@ -428,7 +471,7 @@
         model-by-ident (update-vals (group-by :db/ident model) first)
         index          (update-vals model-by-ident #(dissoc % :db/ident))
         forms          (->> index
-                            (walk/prewalk (partial walk-blanks index))
+                            (walk/prewalk (partial walk-blanks index))                            
                             (walk/postwalk walk-dcterms)
                             (walk/postwalk walk-bytes)
                             (walk/postwalk walk-seeAlso)
@@ -441,7 +484,10 @@
                                      (assoc v :rdf/uri k)
 
                                      :else v)))
-                            (map (fn [form] (walk/postwalk walk-rdf-list form))))
+                            (map (fn [form]
+                                   (->> form
+                                        (walk/postwalk walk-rdf-list)
+                                        (walk/prewalk box-values)))))
         public?    (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
         ontologies (->> (remove public? forms)
                         (filter :rdf/type)

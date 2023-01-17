@@ -534,7 +534,7 @@
   "The property that is used for importing other ontologies into a given ontology."
   {:db/ident :owl/imports,
    :db/cardinality   :db.cardinality/many
-   :db/valueType     :db.type/ref
+   :db/valueType     :db.type/string
    :rdf/type :owl/OntologyProperty,
    :rdfs/comment
    "The property that is used for importing other ontologies into a given ontology.",

@@ -51,7 +51,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/sou",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CGS System of Units"},
-   :rdfs/seeAlso [:sou/CGS-EMU :sou/CGS-GAUSS :sou/CGS-ESU]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/sou/CGS-EMU"
+                  "http://qudt.org/2.1/vocab/sou/CGS-GAUSS"
+                  "http://qudt.org/2.1/vocab/sou/CGS-ESU"]})
 
 (def CGS-EMU
   "The units in this system are formed in a manner similar to that of the cgs electrostatic system of units: the unit of electric current was defined using the law that describes the force between current-carrying wires. To do this, the permeability of free space (the magnetic constant, relating the magnetic flux density in a vacuum to the strength of the external magnetic field), was set at 1. To distinguish cgs electromagnetic units from units in the international system, they were often given the prefix “ab-”. However, most are often referred to purely descriptively as the 'e.m. unit of capacitance', etc."
@@ -94,7 +96,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/sou",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "CGS System of Units - Gaussian"},
-   :rdfs/seeAlso :sou/CGS})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/sou/CGS"]})
 
 (def IMPERIAL
   "A system of units formerly widely used in the UK and the rest of the English-speaking world. It includes the pound (lb), quarter (qt), hundredweight (cwt), and ton (ton); the foot (ft), yard (yd), and mile (mi); and the gallon (gal), British thermal unit (btu), etc. These units have been largely replaced by metric units, although Imperial units persist in some contexts. In January 2000 an EU regulation outlawing the sale of goods in Imperial measures was adopted into British law; an exception was made for the sale of beer and milk in pints."
@@ -185,7 +187,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "Astronomical System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/ASU})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/ASU"]})
 
 (def SOU_CGS
   "CGS System of Units (deprecated URI)"
@@ -193,7 +195,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "CGS System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/CGS})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/CGS"]})
 
 (def SOU_CGS-EMU
   "CGS-EMU System of Units (deprecated URI)"
@@ -201,7 +203,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "CGS-EMU System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/CGS-EMU})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/CGS-EMU"]})
 
 (def SOU_CGS-ESU
   "CGS-ESU System of Units (deprecated URI)"
@@ -209,7 +211,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "CGS-ESU System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/CGS-ESU})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/CGS-ESU"]})
 
 (def SOU_CGS-GAUSS
   "CGS-Gauss System of Units (deprecated URI)"
@@ -217,7 +219,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "CGS-Gauss System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/CGS-GAUSS})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/CGS-GAUSS"]})
 
 (def SOU_IMPERIAL
   "Imperial System of Units (deprecated URI)"
@@ -225,7 +227,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "Imperial System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/IMPERIAL})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/IMPERIAL"]})
 
 (def SOU_PLANCK
   "Planck System of Units (deprecated URI)"
@@ -233,7 +235,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "Planck System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/PLANCK})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/PLANCK"]})
 
 (def SOU_SI
   "SI System of Units (deprecated URI)"
@@ -241,7 +243,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "SI System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/SI})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/SI"]})
 
 (def SOU_USCS
   "US Customary System of Units (deprecated URI)"
@@ -249,7 +251,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfUnits,
    :rdfs/label     "US Customary System of Units (deprecated URI)",
-   :rdfs/seeAlso   :sou/USCS})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/sou/USCS"]})
 
 (def USCS
   "United States customary units are a system of measurements commonly used in the United States. Many U.S. units are virtually identical to their imperial counterparts, but the U.S. customary system developed from English units used in the British Empire before the system of imperial units was standardized in 1824. Several numerical differences from the imperial system are present. The vast majority of U.S. customary units have been defined in terms of the meter and the kilogram since the Mendenhall Order of 1893 (and, in practice, for many years before that date). These definitions were refined in 1959. The United States is the only industrialized nation that does not mainly use the metric system in its commercial and standards activities, although the International System of Units (SI, often referred to as \"metric\") is commonly used in the U.S. Armed Forces, in fields relating to science, and increasingly in medicine, aviation, and government as well as various sectors of industry. [Wikipedia]"
