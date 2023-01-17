@@ -1,9 +1,9 @@
 (ns net.wikipunk.rdf.ldp
   "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace."
   {:dcterms/created #inst "2015-02-26T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name "Steve Speicher"}
-                     {:foaf/name "Ashok Malhotra"}
-                     {:foaf/name "John Arwe"}],
+   :dcterms/creator [{:foaf/name "Ashok Malhotra"}
+                     {:foaf/name "John Arwe"}
+                     {:foaf/name "Steve Speicher"}],
    :dcterms/description
    "Vocabulary URIs defined in the Linked Data Platform (LDP) namespace.",
    :dcterms/publisher "http://www.w3.org/data#W3C",
@@ -155,7 +155,7 @@
    :rdfs/comment           "Archaic alias for ldp:PreferMinimalContainer",
    :rdfs/isDefinedBy       "http://www.w3.org/ns/ldp#",
    :rdfs/label             "PreferEmptyContainer",
-   :rdfs/seeAlso           :ldp/PreferMinimalContainer,
+   :rdfs/seeAlso           ["http://www.w3.org/ns/ldp#PreferMinimalContainer"],
    :vs/term_status         "archaic"})
 
 (def PreferMembership
