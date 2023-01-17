@@ -109,6 +109,7 @@
     :rdfs/subPropertyOf
     :owl/equivalentClass
     :owl/equivalentProperty
+    :owl/sameAs
     :skos/broader})
 
 (def cat-rdf-idents
@@ -131,13 +132,15 @@
     (completing
       (fn [h {:db/keys   [ident]
               :rdf/keys  [type]
-              :rdfs/keys [subClassOf equivalentClass]
+              :rdfs/keys [subClassOf]
+              :owl/keys  [sameAs equivalentClass]
               :as        entity}]
         (if (or subClassOf
                 equivalentClass
                 (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
           (deriving h entity (concat #_(filter #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
-                                     type
+                                     (filter keyword? type)
+                                     (filter keyword? sameAs)
                                      (filter keyword? subClassOf)
                                      (filter keyword? equivalentClass)))
           h)))
@@ -151,13 +154,15 @@
     (completing
       (fn [h {:db/keys   [ident]
               :rdf/keys  [type]
-              :rdfs/keys [subPropertyOf equivalentProperty]
+              :rdfs/keys [subPropertyOf]
+              :owl/keys  [sameAs equivalentProperty]
               :as        entity}]
         (if (or subPropertyOf
                 equivalentProperty
                 (some #(isa? classes % :rdf/Property) type))
           (deriving h entity (concat (filter #(isa? classes % :rdf/Property)
                                              type)
+                                     (filter keyword? sameAs)
                                      (filter keyword? subPropertyOf)
                                      (filter keyword? equivalentProperty)))
           h)))
@@ -173,21 +178,15 @@
 
 (defn compute-class-precedence-list
   [tag]
-  (let [supers (into [tag]
-                     (sort-by identity
-                              (comparator (partial isa? *classes*))
-                              (ancestors *classes* tag)))]
-    (when (identical? (peek supers) :rdfs/Class)
-      supers)))
+  (into [tag] (sort-by identity
+                       (comparator (partial isa? *classes*))
+                       (disj (ancestors *classes* tag) :owl/Thing))))
 
 (defn compute-property-precedence-list
   [tag]
-  (let [supers (into [tag]
-                     (sort-by identity
-                              (comparator (partial isa? *properties*))
-                              (ancestors *properties* tag)))]
-    (when (isa? *classes* (peek supers) :rdf/Property)
-      supers)))
+  (into [tag] (sort-by identity
+                       (comparator (partial isa? *properties*))
+                       (ancestors *properties* tag))))
 
 (defrecord UniversalTranslator [ns-prefix target boot]
   com/Lifecycle
@@ -443,7 +442,16 @@
     (mapv box xs))
 
   clojure.lang.IPersistentMap
-  (box [m] m)
+  (box [m]
+    ;; special case coerce these to doubles 
+    (if (some #{:xsd/minExclusive :xsd/minInclusive
+                :xsd/maxExclusive :xsd/maxInclusive}
+              (keys m))
+      (update m (some #{:xsd/minExclusive :xsd/minInclusive
+                        :xsd/maxExclusive :xsd/maxInclusive}
+                      (keys m))
+              double)
+      m))
 
   Object
   (box [o] o)
@@ -465,14 +473,8 @@
       (seq (:owl/oneOf form))
       (box-value update :owl/oneOf)
 
-      ;; special case coerce these to doubles 
-      (some #{:xsd/minExclusive :xsd/minInclusive
-              :xsd/maxExclusive :xsd/maxInclusive}
-            form)
-      (update (some #{:xsd/minExclusive :xsd/minInclusive
-                      :xsd/maxExclusive :xsd/maxInclusive}
-                    form)
-              double))
+      (seq (:owl/withRestrictions form))
+      (box-value update :owl/withRestrictions))
     form))
 
 (defn unroll-forms

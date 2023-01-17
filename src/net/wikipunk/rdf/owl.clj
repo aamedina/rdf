@@ -780,7 +780,7 @@
 (def sameAs
   "The property that determines that two given individuals are equal."
   {:db/ident :owl/sameAs,
-   :db/cardinality   :db.cardinality/one
+   :db/cardinality   :db.cardinality/many
    :db/valueType     :db.type/ref
    :rdf/type :rdf/Property,
    :rdfs/comment

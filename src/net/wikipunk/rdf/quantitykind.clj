@@ -80,7 +80,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Absolute Humidity"},
-   :rdfs/seeAlso :quantitykind/RelativeHumidity,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/RelativeHumidity"],
    :skos/broader :quantitykind/Density})
 
 (def AbsorbedDose
@@ -139,7 +139,7 @@
    :qudt/latexSymbol "\\(\\alpha\\)",
    :qudt/plainTextDescription
    "Absorptance is the ratio of the radiation absorbed by a surface to that incident upon it. Also known as absorbance.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -289,7 +289,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T0D1,
    :qudt/informativeReference ["https://en.wikipedia.org/wiki/PH"
                                "https://en.wikipedia.org/wiki/Acid"],
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Chemicals or substances having a pH less than 7 are said to be acidic; lower pH means higher acidity.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -406,7 +406,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Active Energy"},
-   :rdfs/seeAlso :quantitykind/InstantaneousPower,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/InstantaneousPower"],
    :skos/broader :quantitykind/Energy})
 
 (def ActivePower
@@ -434,7 +434,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Active Power"},
-   :rdfs/seeAlso [:quantitykind/InstantaneousPower :quantitykind/ComplexPower],
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/InstantaneousPower"
+                  "http://qudt.org/2.1/vocab/quantitykind/ComplexPower"],
    :skos/broader :quantitykind/ComplexPower})
 
 (def Activity
@@ -554,7 +555,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Admittance"},
-   :rdfs/seeAlso :quantitykind/Impedance})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Impedance"]})
 
 (def AlphaDisintegrationEnergy
   "The \"Alpha Disintegration Energy\" is the sum of the kinetic energy of the \\(\\alpha\\)-particle produced in the disintegration process and the recoil energy of the product atom in the reference frame in which the emitting nucleus is at rest before its disintegration."
@@ -1208,7 +1209,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Apparent Power"},
-   :rdfs/seeAlso [:quantitykind/Voltage :quantitykind/ElectricCurrent],
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Voltage"
+                  "http://qudt.org/2.1/vocab/quantitykind/ElectricCurrent"],
    :skos/broader :quantitykind/ComplexPower})
 
 (def Area
@@ -1881,7 +1883,7 @@
    :qudt/informativeReference
    ["https://en.wikipedia.org/wiki/PH"
     "https://en.wikipedia.org/wiki/Base_(chemistry)"],
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Chemicals or substances having a pH higher than 7 are said to be basic; higher pH means higher basicity.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -2066,7 +2068,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Blood Glucose Level"},
-   :rdfs/seeAlso :quantitykind/BloodGlucoseLevel_Mass})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/BloodGlucoseLevel_Mass"]})
 
 (def BloodGlucoseLevel_Mass
   "The blood sugar level, blood sugar concentration, or blood glucose level is the amount of glucose present in the blood of humans and other animals. Glucose is a simple sugar and approximately 4 grams of glucose are present in the blood of humans at all times. The body tightly regulates blood glucose levels as a part of metabolic homeostasis. Glucose is stored in skeletal muscle and liver cells in the form of glycogen;[2] in fasted individuals, blood glucose is maintained at a constant level at the expense of glycogen stores in the liver and skeletal muscle. [Wikipedia] \\(\\\\\\) There are two main methods of describing concentrations: by weight, and by molecular count. Weights are in grams, molecular counts in moles. A mole is \\(6.022\\times 10^{23}\\) molecules.) In both cases, the unit is usually modified by \\(milli-\\) or \\(micro-\\) or other prefix, and is always \\(per\\) some volume, often a liter. Conversion factors depend on the molecular weight of the substance in question. \\(\\\\\\) \\(mmol/L\\) is millimoles/liter, and is the world standard unit for measuring glucose in blood. Specifically, it is the designated SI (Systeme International) unit. 'World standard' is not universal; not only the US but a number of other countries use mg/dl. A mole is about \\(6\\times 10^{23}\\) molecules. \\(\\\\\\) \\(mg/dL\\) (milligrams/deciliter) is the traditional unit for measuring bG (blood glucose). There is a trend toward using \\(mmol/L\\) however mg/dL is much in practice. Some use is made of \\(mmol/L\\) as the primary unit with \\(mg/dL\\) quoted in parentheses. This acknowledges the large base of health care providers, researchers and patients who are already familiar with \\(mg/dL|)."
@@ -2082,7 +2085,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Blood Glucose Level by Mass"},
-   :rdfs/seeAlso :quantitykind/BloodGlucoseLevel})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/BloodGlucoseLevel"]})
 
 (def BodyMassIndex
   "\\(\\textit{Body Mass Index}\\), BMI, is an index of weight for height, calculated as: \\(BMI = \\frac{M_{body}}{H^2}\\), where \\(M_{body}\\) is body mass in kg, and \\(H\\) is height in metres. The BMI has been used as a guideline for defining whether a person is overweight because it minimizes the effect of height, but it does not take into consideration other important factors, such as age and body build. The BMI has also been used as an indicator of obesity on the assumption that the higher the index, the greater the level of body fat."
@@ -2815,8 +2818,7 @@
                          :unit/ARE
                          :unit/YD2
                          :unit/NanoM2],
-   :qudt/hasDimension ["http://qudt.org/2.1/schema/qudt/DIM_USCUSTOMARY-L2"
-                       "http://qudt.org/2.1/schema/qudt/DIM_CGS-L2"],
+   :qudt/hasDimension [:qudt/DIM_USCUSTOMARY-L2 :qudt/DIM_CGS-L2],
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M0H0T0D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Area",
    :qudt/latexDefinition
@@ -3329,7 +3331,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Coercivity"},
-   :rdfs/seeAlso :quantitykind/MagneticFieldStrength_H})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"]})
 
 (def CoherenceLength
   "Coherence Length"
@@ -3443,8 +3446,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Complex Power"},
-   :rdfs/seeAlso [:quantitykind/VoltagePhasor
-                  :quantitykind/ElectricCurrentPhasor],
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/VoltagePhasor"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricCurrentPhasor"],
    :skos/broader :quantitykind/ElectricPower})
 
 (def Compressibility
@@ -3525,7 +3529,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Conductance"},
-   :rdfs/seeAlso :quantitykind/Admittance})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Admittance"]})
 
 (def ConductionSpeed
   "Conduction Speed"
@@ -3585,8 +3589,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Conductivity"},
-   :rdfs/seeAlso [:quantitykind/ElectricCurrentDensity
-                  :quantitykind/ElectricFieldStrength]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricCurrentDensity"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricFieldStrength"]})
 
 (def ConvectiveHeatTransfer
   "Convective Heat Transfer"
@@ -3619,7 +3624,7 @@
                           :rdf/value    "Correlated Colour Temperature"}
                          {:rdf/language "en-us",
                           :rdf/value    "Correlated Color Temperature"}],
-   :rdfs/seeAlso        :quantitykind/Duv,
+   :rdfs/seeAlso        ["http://qudt.org/2.1/vocab/quantitykind/Duv"],
    :skos/broader        :quantitykind/ThermodynamicTemperature})
 
 (def CouplingFactor
@@ -4489,7 +4494,7 @@
 
 (def DiastolicBloodPressure
   "Diastolic Blood Pressure"
-  {:db/ident            :quantitykind/DiastolicBloodPressure,
+  {:db/ident :quantitykind/DiastolicBloodPressure,
    :qudt/applicableUnit [:unit/DYN-PER-CentiM2
                          :unit/N-PER-MilliM2
                          :unit/BARAD
@@ -4546,12 +4551,13 @@
    "http://www.oxfordreference.com/view/10.1093/acref/9780199549351.001.0001/acref-9780199549351-e-1162",
    :qudt/plainTextDescription
    "The pressure of blood in the arteries which rises to a maximum as blood is pumped out by the left ventricle (systole) and drops to a minimum in diastole. The systolic/diastolic pressure is normally ~120/80 mmHg in a young adult.",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Diastolic Blood Pressure"},
-   :rdfs/seeAlso        :quantitykind/SystolicBloodPressure,
-   :skos/broader        :quantitykind/Pressure})
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Diastolic Blood Pressure"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SystolicBloodPressure"],
+   :skos/broader :quantitykind/Pressure})
 
 (def DiffusionArea
   "Diffusion Area"
@@ -4834,7 +4840,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Displacement Current"},
-   :rdfs/seeAlso :quantitykind/ElectricFluxDensity})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricFluxDensity"]})
 
 (def DisplacementCurrentDensity
   "\\(\\textbf{Displacement Current Density}\\) is the time rate of change of the \\(\\textit{Electric Flux Density}\\). This is a measure of how quickly the electric field changes if we observe it as a function of time. This is different than if we look at how the electric field changes spatially, that is, over a region of space for a fixed amount of time."
@@ -4854,7 +4861,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Displacement Current Density"},
-   :rdfs/seeAlso :quantitykind/ElectricFluxDensity})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricFluxDensity"]})
 
 (def DisplacementVectorOfIon
   "Displacement Vector of Ion"
@@ -4920,7 +4928,7 @@
    :qudt/latexSymbol "\\(\\delta\\)",
    :qudt/plainTextDescription
    "Dissipance, or dissipation factor for sound power, is the ratio of dissipated sound power to incident sound power. The dissipation factor (DF) is a measure of loss-rate of energy of a mode of oscillation (mechanical, electrical, or electromechanical) in a dissipative system. It is the reciprocal of quality factor, which represents the quality of oscillation.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -5161,7 +5169,7 @@
 
 (def Duv
   "Delta u,v"
-  {:db/ident            :quantitykind/Duv,
+  {:db/ident :quantitykind/Duv,
    :qudt/applicableUnit :unit/UNITLESS,
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T0D1,
    :qudt/informativeReference
@@ -5169,11 +5177,12 @@
     "https://www.waveformlighting.com/tech/calculate-duv-from-cie-1931-xy-coordinates"],
    :qudt/plainTextDescription
    "Duv is a metric that is short for Delta u,v (not to be confused with Delta u',v') and describes the distance of a light color point from the black body curve.",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Delta u,v"},
-   :rdfs/seeAlso        :quantitykind/CorrelatedColorTemperature})
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Delta u,v"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/CorrelatedColorTemperature"]})
 
 (def DynamicFriction
   "Dynamic Friction"
@@ -5511,7 +5520,7 @@
    :qudt/latexDefinition
    "\\(\\frac{-dN_j}{dt} = A_jkN_j\\), where \\(-dN_j\\) is the number of molecules spontaneously leaving the state j for the state k during a time interval of duration \\(dt\\), \\(N_j\\) is the number of molecules in the state j, and \\(E_j > E_k\\).",
    :qudt/symbol "A_jkN_j",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -5565,7 +5574,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Charge"},
-   :rdfs/seeAlso :quantitykind/ElectricCurrent})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/ElectricCurrent"]})
 
 (def ElectricChargeDensity
   "Electric Charge Density"
@@ -5586,7 +5595,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Charge Density"},
-   :rdfs/seeAlso :quantitykind/ElectricChargeSurfaceDensity})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricChargeSurfaceDensity"]})
 
 (def ElectricChargeLineDensity
   "In electromagnetism, charge density is a measure of electric charge per unit volume of space, in one, two or three dimensions. More specifically: the linear, surface, or volume charge density is the amount of electric charge per unit length, surface area, or volume, respectively. The respective SI units are \\(C \\cdot \\), \\(m^{-1}\\), \\(C \\cdot m^{-2}\\) or \\(C \\cdot m^{-3}\\)."
@@ -5620,7 +5630,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Charge Linear Density"},
-   :rdfs/seeAlso :quantitykind/ElectricChargeDensity})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricChargeDensity"]})
 
 (def ElectricChargePerAmountOfSubstance
   "\"Electric Charge Per Amount Of Substance\" is the charge assocated with a given amount of substance. Un the ISO and SI systems this is \\(1 mol\\)."
@@ -5693,7 +5704,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Charge Surface Density"},
-   :rdfs/seeAlso :quantitykind/ElectricChargeDensity})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricChargeDensity"]})
 
 (def ElectricChargeVolumeDensity
   "In electromagnetism, charge density is a measure of electric charge per unit volume of space, in one, two or three dimensions. More specifically: the linear, surface, or volume charge density is the amount of electric charge per unit length, surface area, or volume, respectively. The respective SI units are \\(C \\cdot m^{-1}\\), \\(C \\cdot m^{-2}\\) or \\(C \\cdot m^{-3}\\)."
@@ -5974,7 +5986,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Flux"},
-   :rdfs/seeAlso :quantitykind/ElectricFluxDensity})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricFluxDensity"]})
 
 (def ElectricFluxDensity
   "\\(\\textbf{Electric Flux Density}\\), also referred to as \\(\\textit{Electric Displacement}\\), is related to electric charge density by the following equation: \\(\\text{div} \\; D = \\rho\\), where \\(\\text{div}\\) denotes the divergence."
@@ -6040,8 +6053,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Polarization"},
-   :rdfs/seeAlso [:quantitykind/ElectricChargeDensity
-                  :quantitykind/ElectricDipoleMoment]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricChargeDensity"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricDipoleMoment"]})
 
 (def ElectricPotential
   "The Electric Potential is a scalar valued quantity associated with an electric field. The electric potential \\(\\phi(x)\\) at a point, \\(x\\), is formally defined as the line integral of the electric field taken along a path from x to the point at infinity. If the electric field is static, that is time independent, then the choice of the path is arbitrary; however if the electric field is time dependent, taking the integral a different paths will produce different results."
@@ -6249,8 +6263,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electric Susceptibility"},
-   :rdfs/seeAlso [:quantitykind/ElectricPolarization
-                  :quantitykind/ElectricFieldStrength]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricPolarization"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricFieldStrength"]})
 
 (def ElectricalPowerToMassRatio
   "Electrical Power To Mass Ratio"
@@ -6300,10 +6315,11 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Electromagnetic Energy Density"},
-   :rdfs/seeAlso [:quantitykind/MagneticFieldStrength_H
-                  :quantitykind/MagneticFluxDensity
-                  :quantitykind/ElectricFluxDensity
-                  :quantitykind/ElectricFieldStrength]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"
+    "http://qudt.org/2.1/vocab/quantitykind/MagneticFluxDensity"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricFluxDensity"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricFieldStrength"]})
 
 (def ElectromagneticPermeability
   "\"Permeability} is the degree of magnetization of a material that responds linearly to an applied magnetic field. In general permeability is a tensor-valued quantity. The definition given applies to an isotropic medium. For an anisotropic medium permeability is a second order tensor. In electromagnetism, permeability is the measure of the ability of a material to support the formation of a magnetic field within itself. In other words, it is the degree of magnetization that a material obtains in response to an applied magnetic field. Magnetic permeability is typically represented by the Greek letter \\(\\mu\\). The term was coined in September, 1885 by Oliver Heaviside. The reciprocal of magnetic permeability is \\textit{Magnetic Reluctivity\"."
@@ -6325,10 +6341,11 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Permeability"},
-   :rdfs/seeAlso [:quantitykind/MagneticFluxDensity
-                  :constant/ElectromagneticPermeabilityOfVacuum
-                  :quantitykind/MagneticFieldStrength_H
-                  :constant/MagneticConstant]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MagneticFluxDensity"
+    "http://qudt.org/2.1/vocab/constant/ElectromagneticPermeabilityOfVacuum"
+    "http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"
+    "http://qudt.org/2.1/vocab/constant/MagneticConstant"]})
 
 (def ElectromagneticPermeabilityRatio
   "Electromagnetic Permeability Ratio"
@@ -6665,7 +6682,7 @@
    :qudt/latexDefinition
    "\\(\\varepsilon = \\frac{M}{M_b}\\), where \\(M\\) is the radiant exitance of a thermal radiator and \\(M_b\\) is the radiant exitance of a blackbody at the same temperature.",
    :qudt/latexSymbol "\\(\\varepsilon\\)",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -6730,12 +6747,12 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Energy"},
-   :rdfs/seeAlso [:quantitykind/Entropy
-                  :quantitykind/GibbsEnergy
-                  :quantitykind/Work
-                  :quantitykind/Enthalpy
-                  :quantitykind/InternalEnergy
-                  :quantitykind/HelmholtzEnergy]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Entropy"
+                  "http://qudt.org/2.1/vocab/quantitykind/GibbsEnergy"
+                  "http://qudt.org/2.1/vocab/quantitykind/Work"
+                  "http://qudt.org/2.1/vocab/quantitykind/Enthalpy"
+                  "http://qudt.org/2.1/vocab/quantitykind/InternalEnergy"
+                  "http://qudt.org/2.1/vocab/quantitykind/HelmholtzEnergy"]})
 
 (def EnergyDensity
   "Energy Density"
@@ -7248,7 +7265,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Enthalpy"},
-   :rdfs/seeAlso :quantitykind/InternalEnergy,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/InternalEnergy"],
    :skos/broader :quantitykind/Energy})
 
 (def Entropy
@@ -7285,8 +7302,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Equilibrium Constant"},
-   :rdfs/seeAlso [:quantitykind/EquilibriumConstantOnPressureBasis
-                  :quantitykind/EquilibriumConstantOnConcentrationBasis]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/EquilibriumConstantOnPressureBasis"
+    "http://qudt.org/2.1/vocab/quantitykind/EquilibriumConstantOnConcentrationBasis"]})
 
 (def EquilibriumConstantOnConcentrationBasis
   "The unit is unit:MOL-PER-M3 raised to the N where N is the summation of stoichiometric numbers. I don't know what to do with this."
@@ -8862,10 +8880,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Gibbs Energy"},
-   :rdfs/seeAlso [:quantitykind/HelmholtzEnergy
-                  :quantitykind/InternalEnergy
-                  :quantitykind/Energy
-                  :quantitykind/Enthalpy],
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/HelmholtzEnergy"
+                  "http://qudt.org/2.1/vocab/quantitykind/InternalEnergy"
+                  "http://qudt.org/2.1/vocab/quantitykind/Energy"
+                  "http://qudt.org/2.1/vocab/quantitykind/Enthalpy"],
    :skos/broader :quantitykind/Energy})
 
 (def GrandCanonicalPartitionFunction
@@ -9395,7 +9413,7 @@
    :qudt/informativeReference
    ["https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcheatingvaluemeasure.htm"
     "https://en.wikipedia.org/wiki/Heat_of_combustion"],
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The heating value (or energy value or calorific value) of a substance, usually a fuel or food (see food energy), is the amount of heat released during the combustion of a specified amount of it. ",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -9448,12 +9466,12 @@
                          :unit/MI_N
                          :unit/PCA],
    :qudt/dbpediaMatch   "http://dbpedia.org/resource/Height",
-   :qudt/hasDimension   ["http://qudt.org/2.1/schema/qudt/DIM_Planck-L"
-                         "http://qudt.org/2.1/schema/qudt/DIM_SI-L"
-                         "http://qudt.org/2.1/schema/qudt/DIM_USCUSTOMARY-L"
-                         "http://qudt.org/2.1/schema/qudt/DIM_CGS-ESU_L"
-                         "http://qudt.org/2.1/schema/qudt/DIM_CGS-L"
-                         "http://qudt.org/2.1/schema/qudt/DIM_CGS-EMU_L"],
+   :qudt/hasDimension   [:qudt/DIM_Planck-L
+                         :qudt/DIM_SI-L
+                         :qudt/DIM_USCUSTOMARY-L
+                         :qudt/DIM_CGS-ESU_L
+                         :qudt/DIM_CGS-L
+                         :qudt/DIM_CGS-EMU_L],
    :qudt/hasDimensionVector :qkdv/A0E0L1I0M0H0T0D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Height",
    :qudt/normativeReference
@@ -9528,10 +9546,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Helmholtz Energy"},
-   :rdfs/seeAlso [:quantitykind/Enthalpy
-                  :quantitykind/InternalEnergy
-                  :quantitykind/Energy
-                  :quantitykind/GibbsEnergy],
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Enthalpy"
+                  "http://qudt.org/2.1/vocab/quantitykind/InternalEnergy"
+                  "http://qudt.org/2.1/vocab/quantitykind/Energy"
+                  "http://qudt.org/2.1/vocab/quantitykind/GibbsEnergy"],
    :skos/broader :quantitykind/Energy})
 
 (def HenrysLawVolatilityConstant
@@ -9762,8 +9780,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Impedance"},
-   :rdfs/seeAlso [:quantitykind/VoltagePhasor
-                  :quantitykind/ElectricCurrentPhasor]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/VoltagePhasor"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricCurrentPhasor"]})
 
 (def Incidence
   "Incidence"
@@ -9783,8 +9802,8 @@
 
 (def IncidenceProportion
   "Incidence Proportion"
-  {:db/ident             :quantitykind/IncidenceProportion,
-   :qudt/applicableUnit  :unit/CASES-PER-1000I-YR,
+  {:db/ident :quantitykind/IncidenceProportion,
+   :qudt/applicableUnit :unit/CASES-PER-1000I-YR,
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T-1D0,
    :qudt/informativeReference
    ["https://en.wikipedia.org/wiki/Incidence_(epidemiology)"
@@ -9792,31 +9811,31 @@
    :qudt/plainTextDescription
    "Incidence proportion (also known as cumulative incidence) is the number of new cases within a specified time period divided by the size of the population initially at risk. For example, if a population initially contains 1,000 non-diseased persons and 28 develop a condition over two years of observation, the incidence proportion is 28 cases per 1,000 persons per two years, i.e. 2.8% per two years.",
    :qudt/qkdvDenominator :qkdv/A0E0L0I0M0H0T1D0,
-   :qudt/qkdvNumerator   :qkdv/A0E0L0I0M0H0T0D1,
-   :rdf/type             :qudt/QuantityKind,
-   :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label           {:rdf/language "en",
-                          :rdf/value    "Incidence Proportion"},
-   :rdfs/seeAlso         :quantitykind/IncidenceRate,
-   :skos/broader         :quantitykind/Incidence})
+   :qudt/qkdvNumerator :qkdv/A0E0L0I0M0H0T0D1,
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Incidence Proportion"},
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/IncidenceRate"],
+   :skos/broader :quantitykind/Incidence})
 
 (def IncidenceRate
   "Incidence Rate"
-  {:db/ident             :quantitykind/IncidenceRate,
-   :qudt/applicableUnit  :unit/CASES-PER-1000I-YR,
+  {:db/ident :quantitykind/IncidenceRate,
+   :qudt/applicableUnit :unit/CASES-PER-1000I-YR,
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T-1D0,
    :qudt/informativeReference
    "https://en.wikipedia.org/wiki/Incidence_(epidemiology)",
    :qudt/plainTextDescription
    "The incidence rate is a measure of the frequency with which a disease or other incident occurs over a specified time period. It is also known as the incidence density rate or person-time incidence rate, when the denominator is the combined person-time of the population at risk (the sum of the time duration of exposure across all persons exposed)",
    :qudt/qkdvDenominator :qkdv/A0E0L0I0M0H0T1D0,
-   :qudt/qkdvNumerator   :qkdv/A0E0L0I0M0H0T0D1,
-   :rdf/type             :qudt/QuantityKind,
-   :rdfs/isDefinedBy     "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label           {:rdf/language "en",
-                          :rdf/value    "Incidence Rate"},
-   :rdfs/seeAlso         :quantitykind/IncidenceProportion,
-   :skos/broader         :quantitykind/Incidence})
+   :qudt/qkdvNumerator :qkdv/A0E0L0I0M0H0T0D1,
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Incidence Rate"},
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/IncidenceProportion"],
+   :skos/broader :quantitykind/Incidence})
 
 (def Inductance
   "Inductance"
@@ -9842,7 +9861,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Inductance"},
-   :rdfs/seeAlso :quantitykind/MutualInductance})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/MutualInductance"]})
 
 (def InfiniteMultiplicationFactor
   "Infinite Multiplication Factor"
@@ -10202,10 +10221,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Internal Energy"},
-   :rdfs/seeAlso [:quantitykind/GibbsEnergy
-                  :quantitykind/Enthalpy
-                  :quantitykind/Energy
-                  :quantitykind/HelmholtzEnergy],
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/GibbsEnergy"
+                  "http://qudt.org/2.1/vocab/quantitykind/Enthalpy"
+                  "http://qudt.org/2.1/vocab/quantitykind/Energy"
+                  "http://qudt.org/2.1/vocab/quantitykind/HelmholtzEnergy"],
    :skos/broader :quantitykind/Energy})
 
 (def IntinsicCarrierDensity
@@ -10386,7 +10405,7 @@
                          :unit/PER-MilliM3
                          :unit/PER-L
                          :unit/PER-IN3],
-   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_SI-m-3"
+   :qudt/hasDimension :qudt/DIM_SI-m-3,
    :qudt/hasDimensionVector :qkdv/A0E0L-3I0M0H0T0D0,
    :rdf/type          :qudt/QuantityKind,
    :rdfs/isDefinedBy  "http://qudt.org/2.1/vocab/quantitykind",
@@ -10670,7 +10689,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Isentropic Exponent"},
-   :rdfs/seeAlso :quantitykind/IsentropicCompressibility})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/IsentropicCompressibility"]})
 
 (def IsothermalCompressibility
   "Isothermal compressibility"
@@ -10814,7 +10834,7 @@
                          :unit/KiloBTU_TH
                          :unit/PlanckEnergy],
    :qudt/dbpediaMatch "http://dbpedia.org/resource/Kinetic_energy",
-   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-L2MT-2",
+   :qudt/hasDimension :qudt/DIM_ISO-L2MT-2,
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M1H0T-2D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Kinetic_energy",
    :qudt/latexDefinition
@@ -11279,7 +11299,7 @@
    :qudt/latexSymbol "\\(\\mu\\)",
    :qudt/plainTextDescription
    "The Linear Absorption Coefficient is a quantity that characterizes how easily a material or medium can be penetrated by a beam of light, sound, particles, or other energy or matter.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -11316,7 +11336,7 @@
    :qudt/latexSymbol "\\(\\mu\\)",
    :qudt/plainTextDescription
    "\"Linear Attenuation Coefficient\", also called the attenuation coefficient,  narrow beam attenuation coefficient, or absorption coefficient, is a quantity that characterizes how easily a material or medium can be penetrated by a beam of light, sound, particles, or other energy or matter.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -11394,8 +11414,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Linear Electric Current Density"},
-   :rdfs/seeAlso [:quantitykind/ElectricChargeSurfaceDensity
-                  :quantitykind/ElectricCurrentDensity]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricChargeSurfaceDensity"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricCurrentDensity"]})
 
 (def LinearEnergyTransfer
   "Linear Energy Transfer"
@@ -11831,9 +11852,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Loss Factor"},
-   :rdfs/seeAlso [:quantitykind/Resistance
-                  :quantitykind/QualityFactor
-                  :quantitykind/Reactance]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Resistance"
+                  "http://qudt.org/2.1/vocab/quantitykind/QualityFactor"
+                  "http://qudt.org/2.1/vocab/quantitykind/Reactance"]})
 
 (def LowerCriticalMagneticFluxDensity
   "Lower Critical Magnetic Flux Density"
@@ -11995,7 +12016,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T0D1,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcluminousintensitydistributionmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "\"Luminous Intensity Distribution\" is a measure of the luminous intensity of a light source that changes according to the direction of the ray. It is normally based on some standardized distribution light distribution curves. Usually measured in Candela/Lumen (cd/lm) or (cd/klm).",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -12475,7 +12496,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Magnetic flux density"},
-   :rdfs/seeAlso :quantitykind/MagneticField})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/MagneticField"]})
 
 (def MagneticFluxPerUnitLength
   "Magnetic flux per unit length"
@@ -12524,9 +12545,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Magnetic Polarization"},
-   :rdfs/seeAlso [:constant/MagneticConstant
-                  :quantitykind/MagneticFieldStrength_H
-                  :quantitykind/Magnetization]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/constant/MagneticConstant"
+    "http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"
+    "http://qudt.org/2.1/vocab/quantitykind/Magnetization"]})
 
 (def MagneticQuantumNumber
   "Magnetic Quantum Number"
@@ -12550,18 +12572,19 @@
 
 (def MagneticReluctivity
   "Magnetic Reluctivity"
-  {:db/ident            :quantitykind/MagneticReluctivity,
+  {:db/ident :quantitykind/MagneticReluctivity,
    :qudt/applicableUnit :unit/PER-T-M,
    :qudt/hasDimensionVector :qkdv/A0E1L-1I0M-1H0T2D0,
    :qudt/informativeReference
    "http://en.wikipedia.org/wiki/Permeability_(electromagnetism)",
    :qudt/plainTextDescription
    "\"Length Per Unit Magnetic Flux} is the the resistance of a material to the establishment of a magnetic field in it. It is the reciprocal of \\textit{Magnetic Permeability\", the inverse of the measure of the ability of a material to support the formation of a magnetic field within itself.",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Magnetic Reluctivity"},
-   :rdfs/seeAlso        :quantitykind/ElectromagneticPermeability})
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Magnetic Reluctivity"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectromagneticPermeability"]})
 
 (def MagneticSusceptability
   "\"Magnetic Susceptability\" is a scalar or tensor quantity the product of which by the magnetic constant \\(\\mu_0\\) and by the magnetic field strength \\(H\\) is equal to the magnetic polarization \\(J\\). The definition given applies to an isotropic medium. For an anisotropic medium permeability is a second order tensor."
@@ -12581,9 +12604,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Magnetic Susceptability"},
-   :rdfs/seeAlso [:constant/MagneticConstant
-                  :quantitykind/Magnetization
-                  :quantitykind/MagneticFieldStrength_H]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/constant/MagneticConstant"
+    "http://qudt.org/2.1/vocab/quantitykind/Magnetization"
+    "http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"]})
 
 (def MagneticTension
   "Magnetic Tension"
@@ -12602,7 +12626,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Magnetic Tension"},
-   :rdfs/seeAlso :quantitykind/MagneticFieldStrength_H})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"]})
 
 (def MagneticVectorPotential
   "Magnetic Vector Potential"
@@ -12622,7 +12647,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Magnetic Vector Potential"},
-   :rdfs/seeAlso :quantitykind/MagneticFluxDensity})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MagneticFluxDensity"]})
 
 (def Magnetization
   "Magnetization"
@@ -12679,7 +12705,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Magnetomotive Force"},
-   :rdfs/seeAlso :quantitykind/MagneticFieldStrength_H})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"]})
 
 (def Mass
   "In physics, mass, more specifically inertial mass, can be defined as a quantitative measure of an object's resistance to acceleration. The SI unit of mass is the kilogram (\\(kg\\))"
@@ -12751,7 +12778,7 @@
    :qudt/latexSymbol "\\(a_m\\)",
    :qudt/plainTextDescription
    "The mass absorption coefficient is the linear absorption coefficient divided by the density of the absorber.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -12792,7 +12819,7 @@
    :qudt/latexSymbol "\\(\\mu_m\\)",
    :qudt/plainTextDescription
    "\"Mass Attenuation Coefficient\" is a measurement of how strongly a chemical species or substance absorbs or scatters light at a given wavelength, per unit mass.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -13112,7 +13139,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mass Flow Rate"},
-   :rdfs/seeAlso :quantitykind/SpecificImpulse})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/SpecificImpulse"]})
 
 (def MassFraction
   "Mass Fraction"
@@ -13149,7 +13176,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mass Fraction of Dry Matter"},
-   :rdfs/seeAlso :quantitykind/MassFractionOfWater})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MassFractionOfWater"]})
 
 (def MassFractionOfWater
   "Mass Fraction of Water"
@@ -13167,7 +13195,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mass Fraction of Water"},
-   :rdfs/seeAlso :quantitykind/MassFractionOfDryMatter})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MassFractionOfDryMatter"]})
 
 (def MassNumber
   "The \"Mass Number\" (A), also called atomic mass number or nucleon number, is the total number of protons and neutrons (together known as nucleons) in an atomic nucleus. Nuclides with the same value of \\(A\\) are called isobars."
@@ -13566,12 +13595,13 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Massieu Function"},
-   :rdfs/seeAlso [:quantitykind/SpecificInternalEnergy
-                  :quantitykind/PlanckFunction
-                  :quantitykind/SpecificEnergy
-                  :quantitykind/SpecificGibbsEnergy
-                  :quantitykind/SpecificEnthalpy
-                  :quantitykind/SpecificHelmholtzEnergy]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificInternalEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/PlanckFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificGibbsEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnthalpy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHelmholtzEnergy"]})
 
 (def MaxExpectedOperatingThrust
   "Maximum Expected Operating Thrust"
@@ -14368,7 +14398,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Modulus Of Admittance"},
-   :rdfs/seeAlso :quantitykind/Admittance})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Admittance"]})
 
 (def ModulusOfElasticity
   "Modulus of Elasticity"
@@ -14406,7 +14436,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Modulus Of Impedance"},
-   :rdfs/seeAlso :quantitykind/Impedance})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Impedance"]})
 
 (def ModulusOfLinearSubgradeReaction
   "Modulus of Linear Subgrade Reaction"
@@ -14415,7 +14445,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusoflinearsubgradereactionmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Modulus of Linear Subgrade Reaction is a measure for modulus of linear subgrade reaction, which expresses the elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in N/m^2",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -14430,7 +14460,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofrotationalsubgradereactionmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Modulus of Rotational Subgrade Reaction is a measure for modulus of rotational subgrade reaction, which expresses the rotational elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in Nm/(m*rad).",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -14445,7 +14475,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofsubgradereactionmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Modulus of Subgrade Reaction is a geotechnical measure describing interaction between foundation structures and the soil. May also be known as bedding measure. Usually measured in N/m3.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -14593,7 +14623,7 @@
    :qudt/plainTextDescription
    "\"Molar Absorption Coefficient\" is a spectrophotometric unit indicating the light a substance absorbs with respect to length, usually centimeters, and concentration, usually moles per liter.",
    :qudt/symbol "x",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -14841,7 +14871,7 @@
                          :unit/NUM-PER-M3
                          :unit/NUM-PER-L
                          :unit/NUM-PER-MicroL],
-   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-L-3"
+   :qudt/hasDimension :qudt/DIM_ISO-L-3,
    :qudt/hasDimensionVector :qkdv/A0E0L-3I0M0H0T0D0,
    :qudt/informativeReference
    "http://en.wikipedia.org/wiki/Molar_concentration",
@@ -15031,7 +15061,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mutual Inductance"},
-   :rdfs/seeAlso :quantitykind/Inductance,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Inductance"],
    :skos/broader :quantitykind/Inductance})
 
 (def NOMINAL-ASCENT-PROPELLANT-MASS
@@ -15102,7 +15132,7 @@
    :qudt/plainTextDescription
    "Napierian Absorbance is the natural (Napierian) logarithm of the reciprocal of the spectral internal transmittance.",
    :qudt/symbol "A_e, B",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -15285,7 +15315,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Non-active Power"},
-   :rdfs/seeAlso [:quantitykind/ApparentPower :quantitykind/ActivePower]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/ApparentPower"
+                  "http://qudt.org/2.1/vocab/quantitykind/ActivePower"]})
 
 (def NormalStress
   "Normal Stress"
@@ -15955,7 +15986,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H0T0D1,
    :qudt/informativeReference ["https://en.wikipedia.org/wiki/PH"
                                "https://en.wikipedia.org/wiki/Acid"],
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Chemicals or substances having a pH less than 7 are said to be acidic; more than 7 means basic.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -16527,7 +16558,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Permeance"},
-   :rdfs/seeAlso :quantitykind/Reluctance})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Reluctance"]})
 
 (def Permittivity
   "Permittivity"
@@ -16575,7 +16606,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Permittivity Ratio"},
-   :rdfs/seeAlso :quantitykind/Permittivity,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Permittivity"],
    :skos/broader :quantitykind/DimensionlessRatio})
 
 (def PhaseCoefficient
@@ -16861,12 +16892,13 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Planck Function"},
-   :rdfs/seeAlso [:quantitykind/SpecificInternalEnergy
-                  :quantitykind/SpecificEnergy
-                  :quantitykind/SpecificEnthalpy
-                  :quantitykind/SpecificGibbsEnergy
-                  :quantitykind/MassieuFunction
-                  :quantitykind/SpecificHelmholtzEnergy]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificInternalEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnthalpy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificGibbsEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/MassieuFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHelmholtzEnergy"]})
 
 (def PlaneAngle
   "The inclination to each other of two intersecting lines, measured by the arc of a circle intercepted between the two lines forming the angle, the center of the circle being the point of intersection. An acute angle is less than \\(90^\\circ\\), a right angle \\(90^\\circ\\); an obtuse angle, more than \\(90^\\circ\\) but less than \\(180^\\circ\\); a straight angle, \\(180^\\circ\\); a reflex angle, more than \\(180^\\circ\\) but less than \\(360^\\circ\\); a perigon, \\(360^\\circ\\). Any angle not a multiple of \\(90^\\circ\\) is an oblique angle. If the sum of two angles is \\(90^\\circ\\), they are complementary angles; if \\(180^\\circ\\), supplementary angles; if \\(360^\\circ\\), explementary angles."
@@ -17116,7 +17148,7 @@
                          :unit/V-A_Reactive-HR
                          :unit/MegaTOE],
    :qudt/dbpediaMatch "http://dbpedia.org/resource/Potential_energy",
-   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-L2MT-2",
+   :qudt/hasDimension :qudt/DIM_ISO-L2MT-2,
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M1H0T-2D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Potential_energy",
    :qudt/latexDefinition
@@ -17230,7 +17262,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Power Factor"},
-   :rdfs/seeAlso [:quantitykind/ApparentPower :quantitykind/ActivePower]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/ApparentPower"
+                  "http://qudt.org/2.1/vocab/quantitykind/ActivePower"]})
 
 (def PowerPerArea
   "Power Per Area"
@@ -17445,7 +17478,7 @@
    :qudt/applicableUnit :unit/KiloGM-PER-M2-SEC2,
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/informativeReference "https://en.wikipedia.org/wiki/Friction_loss",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "\"Pressure Loss per Length\" refers to the power lost in overcoming the friction between two moving surfaces. Also referred to as \"Friction Loss\".",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -17659,7 +17692,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Quality Factor"},
-   :rdfs/seeAlso [:quantitykind/Impedance :quantitykind/Resistance],
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Impedance"
+                  "http://qudt.org/2.1/vocab/quantitykind/Resistance"],
    :vaem/todo "Resolve Quality Facor - electronics and also doses"})
 
 (def QuantumNumber
@@ -17857,7 +17891,7 @@
    :qudt/latexSymbol "\\(\\beta\\)",
    :qudt/plainTextDescription
    "Radiance Factor is the ratio of the radiance of the surface element in the given direction to that of a perfect reflecting or transmitting diffuser identically irradiated unit.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -17950,7 +17984,7 @@
    :qudt/plainTextDescription
    "In radiometry,\"Radiant Energy} is the energy of electromagnetic waves. The quantity of radiant energy may be calculated by integrating radiant flux (or power) with respect to time.  In nuclear physics, \\textit{Radiant Energy\" is energy, excluding rest energy, of the particles that are emitted, transferred, or received.",
    :qudt/symbol ["Q_e" "R"],
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -17972,7 +18006,7 @@
    :qudt/latexSymbol "\\(w, \\rho\\)",
    :qudt/plainTextDescription
    "\"Radiant Energy Density\", or radiant power, is the radiant energy per unit volume.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18018,7 +18052,7 @@
    :qudt/plainTextDescription
    "Radiant fluence rate, or spherical irradiance, is equal to the total radiant flux incident on a small sphere divided by the area of the diametrical cross-section of the sphere.",
    :qudt/symbol "H_e,0",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18050,7 +18084,7 @@
    :qudt/plainTextDescription
    "Radiant fluence rate, or spherical irradiance, is equal to the total radiant flux incident on a small sphere divided by the area of the diametrical cross-section of the sphere.",
    :qudt/symbol "E_e,0",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18300,7 +18334,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Ratio of Specific Heat Capacities"},
-   :rdfs/seeAlso :quantitykind/IsentropicExponent})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/IsentropicExponent"]})
 
 (def Reactance
   "Reactance"
@@ -18321,7 +18355,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Reactance"},
-   :rdfs/seeAlso :quantitykind/Impedance})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Impedance"]})
 
 (def ReactionEnergy
   "Reaction Energy"
@@ -18402,7 +18436,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Reactive Power"},
-   :rdfs/seeAlso :quantitykind/ComplexPower,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/ComplexPower"],
    :skos/broader :quantitykind/ComplexPower})
 
 (def Reactivity
@@ -18505,7 +18539,7 @@
    :qudt/latexSymbol "\\(\\rho\\)",
    :qudt/plainTextDescription
    "Refectance and reflectivity generally refer to the fraction of incident electromagnetic power that is reflected at an interface, while the term \"reflection coefficient\" is used for the fraction of electric field reflected. Reflectance is always a positive real number.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18522,7 +18556,7 @@
    :qudt/plainTextDescription
    "Reflectance, or reflection factor for sound power, is the ratio of reflected sound power to incident sound power.",
    :qudt/symbol "r",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18541,7 +18575,7 @@
    :qudt/plainTextDescription
    "Reflectance Factor is the measure of the ability of a surface to reflect light or other electromagnetic radiation, equal to the ratio of the reflected flux to the incident flux.",
    :qudt/symbol "R",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -18609,7 +18643,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Relative Humidity"},
-   :rdfs/seeAlso :quantitykind/AbsoluteHumidity,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/AbsoluteHumidity"],
    :skos/altLabel "RH",
    :skos/broader :quantitykind/RelativePartialPressure})
 
@@ -18645,7 +18679,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Relative Mass Concentration of Vapour"},
-   :rdfs/seeAlso :quantitykind/RelativePartialPressure})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/RelativePartialPressure"]})
 
 (def RelativeMassDefect
   "Relative Mass Defect"
@@ -18677,7 +18712,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Relative Mass Defect"},
-   :rdfs/seeAlso :quantitykind/MassDefect,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/MassDefect"],
    :skos/broader :quantitykind/DimensionlessRatio})
 
 (def RelativeMassDensity
@@ -18862,7 +18897,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Reluctance"},
-   :rdfs/seeAlso [:quantitykind/MagneticTension :quantitykind/MagneticFlux]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/MagneticTension"
+                  "http://qudt.org/2.1/vocab/quantitykind/MagneticFlux"]})
 
 (def ResidualResistivity
   "Residual Resistivity"
@@ -18908,9 +18944,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Resistance"},
-   :rdfs/seeAlso [:quantitykind/Impedance
-                  :quantitykind/InstantaneousPower
-                  :quantitykind/ElectricCurrent]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Impedance"
+                  "http://qudt.org/2.1/vocab/quantitykind/InstantaneousPower"
+                  "http://qudt.org/2.1/vocab/quantitykind/ElectricCurrent"]})
 
 (def ResistancePercentage
   "Resistance Percentage"
@@ -18942,7 +18978,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Resistivity"},
-   :rdfs/seeAlso :quantitykind/Conductivity})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Conductivity"]})
 
 (def ResonanceEnergy
   "Resonance Energy"
@@ -19313,7 +19349,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M1H0T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcrotationalmassmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "\"Rotational Mass\" denotes the inertia of a body with respect to angular acceleration. It is usually measured in kg*m^2.",
    :rdf/type         :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -19351,7 +19387,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Scalar Magnetic Potential"},
-   :rdfs/seeAlso :quantitykind/MagneticFieldStrength_H})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"]})
 
 (def SecondAxialMomentOfArea
   "Second Axial Moment of Area"
@@ -19453,7 +19490,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L5I0M0H0T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcsectionalareaintegralmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The sectional area integral measure is typically used in torsional analysis. It is usually measured in M⁵.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -20480,15 +20517,16 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Energy"},
-   :rdfs/seeAlso [:quantitykind/SpecificGibbsEnergy
-                  :quantitykind/SpecificHelmholtzEnergy
-                  :quantitykind/MassieuFunction
-                  :quantitykind/Enthalpy
-                  :unit/SV
-                  :quantitykind/SpecificInternalEnergy
-                  :quantitykind/PlanckFunction
-                  :quantitykind/SpecificEnthalpy
-                  :unit/GRAY]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificGibbsEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHelmholtzEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/MassieuFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/Enthalpy"
+    "http://qudt.org/2.1/vocab/unit/SV"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificInternalEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/PlanckFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnthalpy"
+    "http://qudt.org/2.1/vocab/unit/GRAY"]})
 
 (def SpecificEnergyImparted
   "Specific Energy Imparted"
@@ -20540,13 +20578,14 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Enthalpy"},
-   :rdfs/seeAlso [:quantitykind/PlanckFunction
-                  :quantitykind/SpecificEnergy
-                  :quantitykind/MassieuFunction
-                  :quantitykind/SpecificInternalEnergy
-                  :quantitykind/SpecificGibbsEnergy
-                  :quantitykind/SpecificHelmholtzEnergy
-                  :quantitykind/Enthalpy]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/PlanckFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/MassieuFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificInternalEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificGibbsEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHelmholtzEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/Enthalpy"]})
 
 (def SpecificEntropy
   "Specific Entropy"
@@ -20565,7 +20604,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Entropy"},
-   :rdfs/seeAlso :quantitykind/Entropy})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Entropy"]})
 
 (def SpecificGibbsEnergy
   "Specific Gibbs Energy"
@@ -20584,16 +20623,17 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Gibbs Energy"},
-   :rdfs/seeAlso [:quantitykind/SpecificEnthalpy
-                  :quantitykind/SpecificEnergy
-                  :quantitykind/SpecificInternalEnergy
-                  :quantitykind/PlanckFunction
-                  :quantitykind/SpecificHelmholtzEnergy
-                  :quantitykind/MassieuFunction]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificEnthalpy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificInternalEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/PlanckFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHelmholtzEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/MassieuFunction"]})
 
 (def SpecificHeatCapacity
   "Specific Heat Capacity"
-  {:db/ident            :quantitykind/SpecificHeatCapacity,
+  {:db/ident :quantitykind/SpecificHeatCapacity,
    :qudt/applicableUnit [:unit/CAL_TH-PER-GM-DEG_C
                          :unit/CAL_IT-PER-GM-K
                          :unit/BTU_IT-PER-LB_F-DEG_R
@@ -20605,53 +20645,54 @@
                          :unit/J-PER-KiloGM-K
                          :unit/BTU_TH-PER-LB-DEG_F
                          :unit/BTU_IT-PER-LB-DEG_R],
-   :qudt/dbpediaMatch   "http://dbpedia.org/resource/Specific_heat_capacity",
+   :qudt/dbpediaMatch "http://dbpedia.org/resource/Specific_heat_capacity",
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M0H-1T-2D0,
    :qudt/informativeReference "http://www.taftan.com/thermodynamics/CP.HTM",
    :qudt/plainTextDescription
    "\"Specific Heat Capacity} of a solid or liquid is defined as the heat required to raise unit mass of substance by one degree of temperature. This is \\textit{Heat Capacity} divied by \\textit{Mass\". Note that there are corresponding molar quantities.",
-   :qudt/symbol         "c",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Specific Heat Capacity"},
-   :rdfs/seeAlso        [:quantitykind/Mass
-                         :quantitykind/HeatCapacity
-                         :quantitykind/SpecificHeatCapacityAtSaturation
-                         :quantitykind/SpecificHeatCapacityAtConstantVolume
-                         :quantitykind/SpecificHeatCapacityAtConstantPressure]})
+   :qudt/symbol "c",
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Specific Heat Capacity"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/Mass"
+    "http://qudt.org/2.1/vocab/quantitykind/HeatCapacity"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtSaturation"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtConstantVolume"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtConstantPressure"]})
 
 (def SpecificHeatCapacityAtConstantPressure
   "Specific heat capacity at constant pressure"
-  {:db/ident            :quantitykind/SpecificHeatCapacityAtConstantPressure,
+  {:db/ident :quantitykind/SpecificHeatCapacityAtConstantPressure,
    :qudt/applicableUnit [:unit/J-PER-KiloGM-K-PA :unit/J-PER-KiloGM-K],
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M0H-1T-2D0,
    :qudt/plainTextDescription "Specific heat at a constant pressure.",
-   :qudt/symbol         "c_p",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value
-                         "Specific heat capacity at constant pressure"},
-   :rdfs/seeAlso        [:quantitykind/SpecificHeatCapacity
-                         :quantitykind/SpecificHeatCapacityAtConstantVolume
-                         :quantitykind/SpecificHeatCapacityAtSaturation]})
+   :qudt/symbol "c_p",
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Specific heat capacity at constant pressure"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacity"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtConstantVolume"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtSaturation"]})
 
 (def SpecificHeatCapacityAtConstantVolume
   "Specific heat capacity at constant volume"
-  {:db/ident            :quantitykind/SpecificHeatCapacityAtConstantVolume,
+  {:db/ident :quantitykind/SpecificHeatCapacityAtConstantVolume,
    :qudt/applicableUnit [:unit/J-PER-KiloGM-K-M3 :unit/J-PER-KiloGM-K],
    :qudt/hasDimensionVector :qkdv/A0E0L2I0M0H-1T-2D0,
    :qudt/plainTextDescription "Specific heat per constant volume.",
-   :qudt/symbol         "c_v",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value
-                         "Specific heat capacity at constant volume"},
-   :rdfs/seeAlso        [:quantitykind/SpecificHeatCapacityAtConstantPressure
-                         :quantitykind/SpecificHeatCapacityAtSaturation
-                         :quantitykind/SpecificHeatCapacity]})
+   :qudt/symbol "c_v",
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Specific heat capacity at constant volume"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtConstantPressure"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtSaturation"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacity"]})
 
 (def SpecificHeatCapacityAtSaturation
   "Specific Heat Capacity at Saturation"
@@ -20666,9 +20707,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Heat Capacity at Saturation"},
-   :rdfs/seeAlso [:quantitykind/SpecificHeatCapacity
-                  :quantitykind/SpecificHeatCapacityAtConstantVolume
-                  :quantitykind/SpecificHeatCapacityAtConstantPressure]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacity"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtConstantVolume"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHeatCapacityAtConstantPressure"]})
 
 (def SpecificHeatPressure
   "Specific Heat Pressure"
@@ -20732,12 +20774,13 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Helmholtz Energy"},
-   :rdfs/seeAlso [:quantitykind/SpecificEnergy
-                  :quantitykind/SpecificEnthalpy
-                  :quantitykind/SpecificGibbsEnergy
-                  :quantitykind/SpecificInternalEnergy
-                  :quantitykind/MassieuFunction
-                  :quantitykind/PlanckFunction]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnthalpy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificGibbsEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificInternalEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/MassieuFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/PlanckFunction"]})
 
 (def SpecificImpulse
   "The impulse produced by a rocket divided by the mass \\(mp\\) of propellant consumed. Specific impulse \\({I_{sp}}\\) is a widely used measure of performance for chemical, nuclear, and electric rockets. It is usually given in seconds for both U.S. Customary and International System (SI) units. The impulse produced by a rocket is the thrust force \\(F\\) times its duration \\(t\\) in seconds. \\(I_{sp}\\) is the thrust per unit mass flowrate, but with \\(g_o\\), is the thrust per weight flowrate. The specific impulse is given by the equation: \\(I_{sp} = \\frac{F}{\\dot{m}g_o}\\)."
@@ -20751,7 +20794,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Impulse"},
-   :rdfs/seeAlso :quantitykind/MassFlowRate})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/MassFlowRate"]})
 
 (def SpecificImpulseByMass
   "Specific Impulse by Mass"
@@ -20850,13 +20893,14 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Internal Energy"},
-   :rdfs/seeAlso [:quantitykind/SpecificEnergy
-                  :quantitykind/SpecificEnthalpy
-                  :quantitykind/PlanckFunction
-                  :quantitykind/SpecificHelmholtzEnergy
-                  :quantitykind/InternalEnergy
-                  :quantitykind/MassieuFunction
-                  :quantitykind/SpecificGibbsEnergy]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/SpecificEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificEnthalpy"
+    "http://qudt.org/2.1/vocab/quantitykind/PlanckFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificHelmholtzEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/InternalEnergy"
+    "http://qudt.org/2.1/vocab/quantitykind/MassieuFunction"
+    "http://qudt.org/2.1/vocab/quantitykind/SpecificGibbsEnergy"]})
 
 (def SpecificOpticalRotatoryPower
   "Specific Optical Rotatory Power"
@@ -20878,18 +20922,18 @@
 
 (def SpecificThrust
   "Specific thrust"
-  {:db/ident          :quantitykind/SpecificThrust,
+  {:db/ident :quantitykind/SpecificThrust,
    :qudt/dbpediaMatch "http://dbpedia.org/resource/Specific_thrust",
    :qudt/hasDimensionVector :qkdv/A0E0L1I0M0H0T-1D0,
-   :qudt/id           "Q-160-100",
+   :qudt/id "Q-160-100",
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Specific_thrust",
    :qudt/plainTextDescription
    "Specific impulse (usually abbreviated Isp) is a way to describe the efficiency of rocket and jet engines. It represents the force with respect to the amount of propellant used per unit time.[1] If the \"amount\" of propellant is given in terms of mass (such as kilograms), then specific impulse has units of velocity. If it is given in terms of Earth-weight (such as kiloponds), then specific impulse has units of time. The conversion constant between the two versions of specific impulse is g. The higher the specific impulse, the lower the propellant flow rate required for a given thrust, and in the case of a rocket the less propellant is needed for a given delta-v per the Tsiolkovsky rocket equation.",
-   :rdf/type          :qudt/QuantityKind,
-   :rdfs/isDefinedBy  "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label        {:rdf/language "en",
-                       :rdf/value    "Specific thrust"},
-   :rdfs/seeAlso      :quantitykind/SpecificImpulse})
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Specific thrust"},
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/SpecificImpulse"]})
 
 (def SpecificVolume
   "\"Specific Volume\" (\\(\\nu\\)) is the volume occupied by a unit of mass of a material. It is equal to the inverse of density."
@@ -20910,7 +20954,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Specific Volume"},
-   :rdfs/seeAlso :quantitykind/Density})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Density"]})
 
 (def SpectralAngularCrossSection
   "\"Spectral Angular Cross-section\" is the cross-section for ejecting or scattering a particle into an elementary cone with energy \\(E\\) in an energy interval, divided by the solid angle \\(d\\Omega\\) of that cone and the range \\(dE\\) of that interval."
@@ -20962,7 +21006,7 @@
    :qudt/plainTextDescription
    "The Spectral Luminous Efficiency is a measure of how well a light source produces visible light. It is the ratio of luminous flux to power. A common choice is to choose units such that the maximum possible efficacy, 683 lm/W, corresponds to an efficiency of 100%.",
    :qudt/symbol "V",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -20976,7 +21020,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-2I0M1H0T-2D0,
    :qudt/plainTextDescription
    "\"Spectral Radiant Energy Density\" is the spectral concentration of radiant energy density (in terms of wavelength), or the spectral radiant energy density (in terms of wave length).",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -21021,9 +21065,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Speed of Light"},
-   :rdfs/seeAlso [:constant/MagneticConstant
-                  :constant/PermittivityOfVacuum
-                  :constant/SpeedOfLight_Vacuum],
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/constant/MagneticConstant"
+                  "http://qudt.org/2.1/vocab/constant/PermittivityOfVacuum"
+                  "http://qudt.org/2.1/vocab/constant/SpeedOfLight_Vacuum"],
    :skos/broader :quantitykind/Speed})
 
 (def SpeedOfSound
@@ -21803,7 +21847,7 @@
                          :unit/PicoPA-PER-KiloM
                          :unit/W-SEC-PER-M2
                          :unit/KiloW-HR-PER-M2],
-   :qudt/hasDimension "http://qudt.org/2.1/schema/qudt/DIM_ISO-MT-2"
+   :qudt/hasDimension :qudt/DIM_ISO-MT-2,
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M1H0T-2D0,
    :qudt/informativeReference "http://en.wikipedia.org/wiki/Surface_tension",
    :qudt/latexDefinition
@@ -21837,11 +21881,12 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Susceptance"},
-   :rdfs/seeAlso [:quantitykind/Conductance :quantitykind/Impedance]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/Conductance"
+                  "http://qudt.org/2.1/vocab/quantitykind/Impedance"]})
 
 (def SystolicBloodPressure
   "Systolic Blood Pressure"
-  {:db/ident            :quantitykind/SystolicBloodPressure,
+  {:db/ident :quantitykind/SystolicBloodPressure,
    :qudt/applicableUnit [:unit/GigaPA
                          :unit/PA
                          :unit/MilliM_HG
@@ -21898,12 +21943,13 @@
    "http://www.oxfordreference.com/view/10.1093/acref/9780199549351.001.0001/acref-9780199549351-e-1162",
    :qudt/plainTextDescription
    "The pressure of blood in the arteries which rises to a maximum as blood is pumped out by the left ventricle (systole) and drops to a minimum in diastole. The systolic/diastolic pressure is normally ~120/80 mmHg in a young adult.",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Systolic Blood Pressure"},
-   :rdfs/seeAlso        :quantitykind/DiastolicBloodPressure,
-   :skos/broader        :quantitykind/Pressure})
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Systolic Blood Pressure"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/DiastolicBloodPressure"],
+   :skos/broader :quantitykind/Pressure})
 
 (def TARGET-BOGIE-MASS
   "Target Bogie Mass"
@@ -21963,22 +22009,23 @@
 
 (def Temperature
   "Temperature"
-  {:db/ident            :quantitykind/Temperature,
+  {:db/ident :quantitykind/Temperature,
    :qudt/applicableUnit [:unit/DEG_C
                          :unit/K
                          :unit/DEG_R
                          :unit/PlanckTemperature
                          :unit/DEG_F
                          :unit/MilliDEG_C],
-   :qudt/dbpediaMatch   "http://dbpedia.org/resource/Temperature",
+   :qudt/dbpediaMatch "http://dbpedia.org/resource/Temperature",
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H1T0D0,
    :qudt/plainTextDescription
    "Temperature is a physical property of matter that quantitatively expresses the common notions of hot and cold. Objects of low temperature are cold, while various degrees of higher temperatures are referred to as warm or hot. Heat spontaneously flows from bodies of a higher temperature to bodies of lower temperature, at a rate that increases with the temperature difference and the thermal conductivity.",
-   :rdf/type            :qudt/QuantityKind,
-   :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Temperature"},
-   :rdfs/seeAlso        :quantitykind/ThermodynamicTemperature})
+   :rdf/type :qudt/QuantityKind,
+   :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Temperature"},
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ThermodynamicTemperature"]})
 
 (def TemperatureAmountOfSubstance
   "Temperature Amount of Substance"
@@ -21997,7 +22044,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-1I0M0H1T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifctemperaturegradientmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The temperature gradient measures the difference of a temperature per length, as for instance used in an external wall or its layers. It is usually measured in K/m.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -22057,7 +22104,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H1T-1D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifctemperaturerateofchangemeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The \"Temperature Rate of Change\" measures the difference of a temperature per time (positive: rise, negative: fall), as for instance used with heat sensors. It is for example measured in K/s.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -22134,7 +22181,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M1H-1T-3D0,
    :qudt/informativeReference
    "https://en.wikipedia.org/wiki/Thermal_conductivity",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The heat transfer coefficient is also known as thermal admittance in the sense that the material may be seen as admitting heat to flow.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -22159,7 +22206,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Thermal Conductance"},
-   :rdfs/seeAlso :quantitykind/CoefficientOfHeatTransfer})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/CoefficientOfHeatTransfer"]})
 
 (def ThermalConductivity
   "In physics, thermal conductivity, \\(k\\) (also denoted as \\(\\lambda\\)), is the property of a material's ability to conduct heat. It appears primarily in Fourier's Law for heat conduction and is the areic heat flow rate divided by temperature gradient."
@@ -22353,7 +22401,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M0H-1T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcthermalexpansioncoefficientmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The \"Thermal Expansion Coefficient\" is a measure of the thermal expansion coefficient of a material, which expresses its elongation (as a ratio) per temperature difference. It is usually measured in 1/K. A positive elongation per (positive) rise of temperature is expressed by a positive value.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -22381,7 +22429,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Thermal Insulance"},
-   :rdfs/seeAlso :quantitykind/CoefficientOfHeatTransfer})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/CoefficientOfHeatTransfer"]})
 
 (def ThermalResistance
   "\\(\\textit{Thermal Resistance}\\) is a heat property and a measure of a temperature difference by which an object or material resists a heat flow (heat per time unit or thermal resistance). Thermal resistance is the reciprocal thermal conductance. the thermodynamic temperature difference divided by heat flow rate. Thermal resistance \\(R\\) has the units \\(\\frac{m^2 \\cdot K}{W}\\)."
@@ -22399,9 +22448,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Thermal Resistance"},
-   :rdfs/seeAlso [:quantitykind/ThermodynamicTemperature
-                  :quantitykind/HeatFlowRate
-                  :quantitykind/ThermalInsulance]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ThermodynamicTemperature"
+    "http://qudt.org/2.1/vocab/quantitykind/HeatFlowRate"
+    "http://qudt.org/2.1/vocab/quantitykind/ThermalInsulance"]})
 
 (def ThermalResistivity
   "The reciprocal of thermal conductivity is thermal resistivity, measured in \\(kelvin-metres\\) per watt (\\(K \\cdot m/W\\))."
@@ -22429,7 +22479,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L0I0M1H-1T-3D0,
    :qudt/informativeReference
    "https://en.wikipedia.org/wiki/Thermal_transmittance",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Thermal transmittance is the rate of transfer of heat through matter. The thermal transmittance of a material (such as insulation or concrete) or an assembly (such as a wall or window) is expressed as a U-value. The concept of thermal transmittance is closely related to that of thermal resistance. The thermal resistance of a structure is the reciprocal of its thermal transmittance.",
    :rdf/type            :qudt/QuantityKind,
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
@@ -22594,7 +22644,7 @@
    :rdfs/isDefinedBy    "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label          {:rdf/language "en",
                          :rdf/value    "Thermodynamic Temperature"},
-   :rdfs/seeAlso        :quantitykind/Temperature,
+   :rdfs/seeAlso        ["http://qudt.org/2.1/vocab/quantitykind/Temperature"],
    :skos/broader        :quantitykind/Temperature})
 
 (def Thickness
@@ -23039,8 +23089,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Total Current"},
-   :rdfs/seeAlso [:quantitykind/DisplacementCurrent
-                  :quantitykind/ElectricCurrent]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/DisplacementCurrent"
+                  "http://qudt.org/2.1/vocab/quantitykind/ElectricCurrent"]})
 
 (def TotalCurrentDensity
   "Total Current Density"
@@ -23058,8 +23108,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Total Current Density"},
-   :rdfs/seeAlso [:quantitykind/DisplacementCurrentDensity
-                  :quantitykind/ElectricCurrentDensity]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/DisplacementCurrentDensity"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricCurrentDensity"]})
 
 (def TotalIonization
   "\"Total Ionization\" by a particle, total mean charge, divided by the elementary charge, \\(e\\), of all positive ions produced by an ionizing charged particle along its entire path and along the paths of any secondary charged particles."
@@ -23207,7 +23258,7 @@
    :qudt/latexSymbol "\\(\\tau, T\\)",
    :qudt/plainTextDescription
    "Transmittance is the fraction of incident light (electromagnetic radiation) at a specified wavelength that passes through a sample.",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -23224,7 +23275,7 @@
    :qudt/plainTextDescription
    "Transmittance is the fraction of incident light (electromagnetic radiation) at a specified wavelength that passes through a sample.",
    :qudt/symbol "A_10, D",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -23354,7 +23405,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-1I0M0H0T1D0,
    :qudt/informativeReference
    "https://www.designingbuildings.co.uk/wiki/Vapour_Permeability",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "Vapour permeability, or \"Breathability\" in a building refers to the ease with which water vapour passes through building elements. Building elements where vapour permeability is poorly designed can result in condensation, leading to unhealthy living environments and degradation of fabric.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -23637,7 +23688,7 @@
    :qudt/plainTextDescription
    "\"Visible Radiant Energy\", also known as luminous energy, is the energy of electromagnetic waves. It is energy of the particles that are emitted, transferred, or received as radiation.",
    :qudt/symbol "Q",
-   :qudt/systemDerivedQuantityKind :soqk/SI,
+   :qudt/systemDerivedQuantityKind :qudt/SOQ_SI,
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
@@ -24048,10 +24099,11 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Volumic Electromagnetic Energy"},
-   :rdfs/seeAlso [:quantitykind/ElectricFluxDensity
-                  :quantitykind/ElectricFieldStrength
-                  :quantitykind/MagneticFieldStrength_H
-                  :quantitykind/MagneticFluxDensity]})
+   :rdfs/seeAlso
+   ["http://qudt.org/2.1/vocab/quantitykind/ElectricFluxDensity"
+    "http://qudt.org/2.1/vocab/quantitykind/ElectricFieldStrength"
+    "http://qudt.org/2.1/vocab/quantitykind/MagneticFieldStrength_H"
+    "http://qudt.org/2.1/vocab/quantitykind/MagneticFluxDensity"]})
 
 (def Vorticity
   "Vorticity"
@@ -24096,7 +24148,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L6I0M0H0T0D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingconstantmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The \"Warping Constant\" is a measure for the warping constant or warping resistance of a cross section under torsional loading. It is usually measured in m⁶.",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -24110,7 +24162,7 @@
    :qudt/hasDimensionVector :qkdv/A0E0L-1I0M1H0T-2D0,
    :qudt/informativeReference
    "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingmomentmeasure.htm",
-   :qudt/plainTextDescription
+   :qudt/plaintextDescription
    "The warping moment measure is a measure for the warping moment, which occurs in warping torsional analysis. It is usually measured in kNm².",
    :rdf/type :qudt/QuantityKind,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
@@ -24248,7 +24300,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/quantitykind",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Wavenumber"},
-   :rdfs/seeAlso :quantitykind/AngularWavenumber,
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/AngularWavenumber"],
    :skos/broader :quantitykind/InverseLength})
 
 (def WebTime
