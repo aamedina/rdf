@@ -440,3 +440,49 @@
    :rdfa/prefix      "keys"
    :rdfa/uri         "http://purl.org/NET/c4dm/keys.owl#"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def ^{:media-types
+       {"JSON-LD"                "http://www.w3.org/ns/formats/JSON-LD",
+        "LD Patch"               "http://www.w3.org/ns/formats/LD_Patch",
+        "Microdata"              "http://www.w3.org/ns/formats/microdata",
+        "N-Quads"                "http://www.w3.org/ns/formats/N-Quads",
+        "N-Triples"              "http://www.w3.org/ns/formats/N-Triples",
+        "N3"                     "http://www.w3.org/ns/formats/N3",
+        "OWL Functional Syntax"  "http://www.w3.org/ns/formats/OWL_Functional",
+        "OWL Manchester Syntax"  "http://www.w3.org/ns/formats/OWL_Manchester",
+        "OWL XML Serialization"  "http://www.w3.org/ns/formats/OWL_XML",
+        "POWDER"                 "http://www.w3.org/ns/formats/POWDER",
+        "POWDER-S"               "http://www.w3.org/ns/formats/POWDER-S",
+        "PROV-N"                 "http://www.w3.org/ns/formats/PROV-N",
+        "PROV-XML"               "http://www.w3.org/ns/formats/PROV-XML",
+        "RDF/JSON"               "http://www.w3.org/ns/formats/RDF_JSON",
+        "RDF/XML"                "http://www.w3.org/ns/formats/RDF_XML",
+        "RDFa"                   "http://www.w3.org/ns/formats/RDFa",
+        "RIF XML Syntax"         "http://www.w3.org/ns/formats/RIF_XML",
+        "SPARQL Results in CSV"  "http://www.w3.org/ns/formats/SPARQL_Results_CSV",
+        "SPARQL Results in JSON" "http://www.w3.org/ns/formats/SPARQL_Results_JSON",
+        "SPARQL Results in TSV"  "http://www.w3.org/ns/formats/SPARQL_Results_TSV",
+        "TriG"                   "http://www.w3.org/ns/formats/TriG",
+        "Turtle"                 "http://www.w3.org/ns/formats/Turtle"}}
+  formats
+  {:rdfa/prefix "formats"
+   :rdfa/uri    "http://www.w3.org/ns/formats/"
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def rel
+  {:dcat/downloadURL "https://vocab.org/relationship/rel-vocab-20100607.rdf"
+   :rdfa/prefix      "rel"
+   :rdfa/uri         "http://purl.org/vocab/relationship/"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def label
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/label/versions/2004-03-28.n3"
+   :rdfa/prefix      "label"
+   :rdfa/uri         "http://purl.org/net/vocab/2004/03/label#"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def ov
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/ov/versions/2011-11-25.n3"
+   :rdfa/prefix      "ov"
+   :rdfa/uri         "http://open.vocab.org/terms/"
+   :rdf/type         :rdfa/PrefixMapping})

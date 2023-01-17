@@ -1451,7 +1451,7 @@
   "instance"
   {:db/ident           :spl/instance,
    :rdf/type           :rdf/Property,
-   :rdfs/domain        :sp/ModuleCall,
+   :rdfs/domain        :sp/Query,
    :rdfs/label         "instance",
    :rdfs/subPropertyOf :sp/arg})
 

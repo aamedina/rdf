@@ -36,38 +36,22 @@
                       :rdf/value
                       "Batch of revisions based on community feedback"}
                      {:dcterms/creator "Ian Davis",
-                      :dcterms/date "2009-05-19",
-                      :rdf/value "Minor changes to improve publishing process"}
-                     {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2005-04-01",
                       :rdf/value       "Added examples"}
                      {:dcterms/creator "Ian Davis",
-                      :dcterms/date    "2010-04-20",
-                      :rdf/value       "Added change history"}
+                      :dcterms/date "2009-05-19",
+                      :rdf/value "Minor changes to improve publishing process"}
                      {:dcterms/creator "Ian Davis",
                       :dcterms/date    "2004-03-05",
                       :rdf/value       "Added Creative Commons license"}
+                     {:dcterms/creator "Ian Davis",
+                      :dcterms/date    "2010-04-20",
+                      :rdf/value       "Added change history"}
                      {:dcterms/creator "Ian Davis",
                       :dcterms/date "2011-06-14",
                       :rdf/value "Expanded description and added diagrams"}],
    :skos/historyNote
    [{:dcterms/creator "Ian Davis",
-     :dcterms/date "2010-06-06",
-     :rdf/value
-     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2010-05-10",
-     :rdf/value       "Major expansion of properties and classes"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-10",
-     :rdf/value       "Added bio:Performance event"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-14",
-     :rdf/value       "Added bio:Relationship class and properties"}
-    {:dcterms/creator "Ian Davis",
-     :dcterms/date    "2011-06-10",
-     :rdf/value       "Added bio:Formation and bio:Disbanding events"}
-    {:dcterms/creator "Ian Davis",
      :dcterms/date    "2010-06-05",
      :rdf/value       "Added biography property"}
     {:dcterms/creator "Alexandre Passant",
@@ -76,15 +60,26 @@
      "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
     {:dcterms/creator "Ian Davis",
      :dcterms/date    "2003-07-28",
-     :rdf/value       "Added keywords property"}],
+     :rdf/value       "Added keywords property"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2011-06-10",
+     :rdf/value       "Added bio:Formation and bio:Disbanding events"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2011-06-10",
+     :rdf/value       "Added bio:Performance event"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2011-06-14",
+     :rdf/value       "Added bio:Relationship class and properties"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date "2010-06-06",
+     :rdf/value
+     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
+    {:dcterms/creator "Ian Davis",
+     :dcterms/date    "2010-05-10",
+     :rdf/value       "Major expansion of properties and classes"}],
    :vann/example "http://purl.org/vocab/bio/examples/1",
    :vann/preferredNamespacePrefix "bio",
-   :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
-   :vann/termGroup [:bio/termgroup2
-                    :bio/termgroup5
-                    :bio/termgroup4
-                    :bio/termgroup1
-                    :bio/termgroup3]}
+   :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/"}
   (:refer-clojure :exclude [agent]))
 
 (def Accession
@@ -208,11 +203,6 @@
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2010-05-04",
                      :rdf/value       "Marked as testing"},
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Birth \n    ; dc:date \"1879-03-14\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:parent &lt;http://dbpedia.org/resource/Pauline_Koch&gt;\n    ; bio:parent &lt;http://dbpedia.org/resource/Hermann_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Ulm&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The birth of Albert Einstein"},
    :vs/term_status "testing"})
 
 (def Burial
@@ -257,12 +247,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Cremation"},
-   :rdfs/subClassOf :bio/IndividualEvent,
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Cremation \n    ; dc:date \"1955-04-18\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The cremation of Albert Einstein"},
+   :rdfs/subClassOf :bio/IndividualEvent,,
    :vs/term_status "unstable"})
 
 (def Death
@@ -277,12 +262,7 @@
    :rdfs/subClassOf :bio/IndividualEvent,
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2010-05-04",
-                     :rdf/value       "Marked as a stable term"},
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Death \n    ; dc:date \"1955-04-18\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The death of Albert Einstein"},
+                     :rdf/value       "Marked as a stable term"},,
    :vs/term_status "stable"})
 
 (def Demotion
@@ -340,11 +320,6 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Divorce"},
    :rdfs/subClassOf :bio/GroupEvent,
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Divorce \n    ; dc:date \"1919-02-14\"\n    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Zurich&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The divorce of Albert Einstein and Mileva Marić"},
    :vs/term_status "unstable"})
 
 (def Emigration
@@ -359,12 +334,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Emigration"},
-   :rdfs/subClassOf :bio/IndividualEvent,
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Emigration \n    ; dc:date \"1933\"^^xsd:gYear\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "Albert Einstein emigrating to the United States"},
+   :rdfs/subClassOf :bio/IndividualEvent,,
    :vs/term_status "unstable"})
 
 (def Employment
@@ -487,12 +457,6 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Graduation"},
    :rdfs/subClassOf :bio/IndividualEvent,
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Graduation \n    ; dc:date \"1905\"^^xsd:gYear\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:organization &lt;http://dbpedia.org/resource/University_of_Zurich&gt;\n    .</code></pre>\n        ",
-    :rdfs/label
-    "Albert Einstein receiving his Doctorate from the University of Zurich"},
    :vs/term_status "unstable"})
 
 (def GroupEvent
@@ -607,12 +571,7 @@
                      :rdf/value       "Marked as a stable term"},
    :skos/historyNote {:dcterms/creator "Ian Davis",
                       :dcterms/date "2010-05-04",
-                      :rdf/value "Made equivalent to cyc:WeddingEvent_Generic"},
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Marriage \n    ; dc:date \"1903\"\n    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Bern&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The marriage of Albert Einstein and Mileva Marić"},
+                      :rdf/value "Made equivalent to cyc:WeddingEvent_Generic"},,
    :vs/term_status "stable"})
 
 (def Murder
@@ -655,12 +614,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Naturalization"},
-   :rdfs/subClassOf :bio/IndividualEvent,
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Emigration \n    ; dc:date \"1940\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "Albert Einstein becoming a citizen of the United States"},
+   :rdfs/subClassOf :bio/IndividualEvent,,
    :vs/term_status "unstable"})
 
 (def Ordination
@@ -743,7 +697,7 @@
   "A particular type of connection existing between people, groups or organizations related to or having dealings with each other."
   {:db/ident :bio/Relationship,
    :dcterms/issued "2011-06-14",
-   :owl/equivalentClass "http://purl.org/vocab/relationship/Relationship",
+   :owl/equivalentClass :rel/Relationship,
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",
@@ -845,7 +799,7 @@
    :dcterms/issued "2010-05-03",
    :label/plural {:rdf/language "en",
                   :rdf/value    "Children"},
-   :owl/equivalentProperty "http://purl.org/vocab/relationship/parentOf",
+   :owl/equivalentProperty :rel/parentOf,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment {:rdf/language "en",
                   :rdf/value    "A biological child of a person. "},
@@ -911,7 +865,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Date"},
-   :rdfs/subPropertyOf :dcterms/date,
+   :rdfs/subPropertyOf :dc11/date,
    :skos/changeNote [{:dcterms/creator "Ian Davis",
                       :dcterms/date    "2010-05-04",
                       :rdf/value       "Marked as a stable term"}
@@ -979,11 +933,11 @@
                      :dcterms/date    "2010-05-03",
                      :rdf/value       "Added a plural label"},
    :skos/historyNote [{:dcterms/creator "Ian Davis",
-                       :dcterms/date "2010-05-03",
-                       :rdf/value "Made a subproperty of owl:differentFrom"}
-                      {:dcterms/creator "Ian Davis",
                        :dcterms/date    "2011-06-14",
-                       :rdf/value       "Changed domain to foaf:Agent"}]})
+                       :rdf/value       "Changed domain to foaf:Agent"}
+                      {:dcterms/creator "Ian Davis",
+                       :dcterms/date "2010-05-03",
+                       :rdf/value "Made a subproperty of owl:differentFrom"}]})
 
 (def eventInterval
   "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."
@@ -1014,8 +968,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Father"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf ["http://purl.org/vocab/relationship/childOf"
-                        :owl/differentFrom],
+   :rdfs/subPropertyOf [:rel/childOf :owl/differentFrom],
    :skos/historyNote
    {:dcterms/creator "Ian Davis",
     :dcterms/date "2010-06-06",
@@ -1124,7 +1077,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Key Words"},
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dcterms/subject,
+   :rdfs/subPropertyOf :dc11/subject,
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2010-05-04",
                      :rdf/value       "Marked as a stable term"},
@@ -1147,8 +1100,7 @@
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Mother"},
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom
-                        "http://purl.org/vocab/relationship/childOf"],
+   :rdfs/subPropertyOf [:owl/differentFrom :rel/childOf],
    :skos/historyNote
    {:dcterms/creator "Ian Davis",
     :dcterms/date "2010-06-06",
@@ -1234,7 +1186,7 @@
    :dcterms/issued "2011-06-14",
    :label/plural {:rdf/language "en",
                   :rdf/value    "Participants"},
-   :owl/equivalentProperty "http://purl.org/vocab/relationship/participant",
+   :owl/equivalentProperty :rel/participant,
    :owl/inverseOf :bio/relationship,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -1347,7 +1299,7 @@
    :dcterms/issued "2011-06-14",
    :label/plural {:rdf/language "en",
                   :rdf/value    "Relationships"},
-   :owl/equivalentProperty "http://purl.org/vocab/relationship/participantIn",
+   :owl/equivalentProperty :rel/participantIn,
    :owl/inverseOf :bio/participant,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
@@ -1397,6 +1349,7 @@
    :rdfs/subPropertyOf :bio/agent})
 
 (def termgroup1
+  "Properties of a person"
   {:db/ident   :bio/termgroup1,
    :rdf/_1     :bio/olb,
    :rdf/_2     :bio/biography,
@@ -1412,6 +1365,7 @@
                 :rdf/value    "Properties of a person"}})
 
 (def termgroup2
+  "Types of event"
   {:db/ident   :bio/termgroup2,
    :rdf/_1     :bio/Event,
    :rdf/_10    :bio/BasMitzvah,
@@ -1455,6 +1409,7 @@
                 :rdf/value    "Types of event"}})
 
 (def termgroup3
+  "Properties of an event"
   {:db/ident   :bio/termgroup3,
    :rdf/_1     :bio/date,
    :rdf/_2     :bio/place,
@@ -1465,6 +1420,7 @@
                 :rdf/value    "Properties of an event"}})
 
 (def termgroup4
+  "Properties that relate an event to an agent"
   {:db/ident   :bio/termgroup4,
    :rdf/_1     :bio/agent,
    :rdf/_2     :bio/parent,
@@ -1480,6 +1436,7 @@
                 :rdf/value    "Properties that relate an event to an agent"}})
 
 (def termgroup5
+  "Properties that relate an event to another event"
   {:db/ident   :bio/termgroup5,
    :rdf/_1     :bio/concurrentEvent,
    :rdf/_2     :bio/followingEvent,

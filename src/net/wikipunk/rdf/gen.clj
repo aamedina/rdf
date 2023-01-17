@@ -104,7 +104,7 @@
 (def contentTypeSpecific
   "Content-Type specific"
   {:db/ident           :gen/contentTypeSpecific,
-   :owl/inverseOf      :gen/ContentTypeGeneric,
+   :owl/inverseOf      :gen/contentTypeGeneric,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :gen/ContentTypeGenericResource,
    :rdfs/label         "Content-Type specific",

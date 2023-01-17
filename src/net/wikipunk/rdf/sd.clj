@@ -290,7 +290,7 @@
    "Relates an instance of sd:Service to a format that is supported for parsing RDF input; for example, via a SPARQL 1.1 Update LOAD statement, or when URIs are dereferenced in FROM/FROM NAMED/USING/USING NAMED clauses.",
    :rdfs/domain :sd/Service,
    :rdfs/label "input format",
-   :rdfs/range "http://www.w3.org/ns/formats/Format"})
+   :rdfs/range :formats/Format})
 
 (def languageExtension
   "Relates an instance of sd:Service to a resource representing an implemented extension to the SPARQL Query or Update language."
@@ -341,7 +341,7 @@
    "Relates an instance of sd:Service to a format that is supported for serializing query results.",
    :rdfs/domain :sd/Service,
    :rdfs/label "result format",
-   :rdfs/range "http://www.w3.org/ns/formats/Format"})
+   :rdfs/range :formats/Format})
 
 (def supportedEntailmentProfile
   "Relates a named graph description with a resource representing a supported profile of the entailment regime (as declared by sd:entailmentRegime) used for basic graph pattern matching over that graph."

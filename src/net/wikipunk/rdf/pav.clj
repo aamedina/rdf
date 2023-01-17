@@ -33,7 +33,7 @@
    :owl/priorVersion "http://purl.org/pav/2.2",
    :owl/versionIRI "http://purl.org/pav/2.3",
    :owl/versionInfo "2.3.1",
-   :prov/has_provenance :pav/provenance.ttl,
+   :prov/has_provenance "http://purl.org/pav/provenance.ttl"
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/elements/1.1/",
                        "foaf" "http://xmlns.com/foaf/0.1/",
                        "owl" "http://www.w3.org/2002/07/owl#",
@@ -63,7 +63,6 @@
 (def authoredBy
   "An agent that originated or gave existence to the work that is expressed by the digital resource. The author of the content of a resource may be different from the creator of the resource representation (although they are often the same). See pav:createdBy for a discussion. pav:authoredBy is more specific than its superproperty dct:creator - which might or might not be interpreted to also cover the creation of the representation of the artifact. The author is usually not a software agent (which would be indicated with pav:createdWith, pav:createdBy or pav:importedBy), unless the software actually authored the content itself; for instance an artificial intelligence algorithm which authored a piece of music or a machine learning algorithm that authored a classification of a tumor sample. The date of authoring can be expressed using pav:authoredOn - note however in the case of multiple authors that there is no relationship in PAV identifying which agent contributed when or what. If capturing such lineage is desired, it should be additionally expressed using PROV relationships like prov:qualifiedAttribution or prov:wasGeneratedBy."
   {:db/ident :pav/authoredBy,
-   :owl/equivalentProperty :pav1/authoredBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -95,7 +94,6 @@
 (def contributedBy
   "The resource was contributed to by the given agent. Specifies an agent that provided any sort of help in conceiving the work that is expressed by the digital artifact. Contributions can take many forms, of which PAV define the subproperties pav:authoredBy and pav:curatedBy; however other specific roles could also be specified by pav:contributedBy or custom subproperties, such as illustrating, investigating or managing the underlying data source. Contributions can additionally be expressed in detail using prov:qualifiedAttribution and prov:hadRole. Note that pav:contributedBy identifies only agents that contributed to the work, knowledge or intellectual property, and not agents that made the digital artifact or representation (pav:createdBy), thus the considerations for software agents is similar to for pav:authoredBy and pav:curatedBy. pav:contributedBy is more specific than its superproperty dct:contributor - which might or might not be interpreted to also cover contributions to making the representation of the artifact. The date of contribution can be expressed using pav:contributedOn - note however in the case of multiple contributors that there is no relationship in PAV identifying which agent contributed when or what. If capturing such lineage is desired, it should be additionally expressed using PROV relationships like prov:qualifiedAttribution or prov:wasGeneratedBy."
   {:db/ident :pav/contributedBy,
-   :owl/equivalentProperty :pav1/contributedBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -138,7 +136,6 @@
 (def createdBy
   "An agent primary responsible for making the digital artifact or resource representation. This property is distinct from forming the content, which is indicated with pav:contributedBy or its subproperties; pav:authoredBy, which identifies who authored the knowledge expressed by this resource; and pav:curatedBy, which identifies who curated the knowledge into its current form. pav:createdBy is more specific than its superproperty dct:creator - which might or might not be interpreted to cover this creator. For instance, the author wrote 'this species has bigger wings than normal' in his log book. The curator, going through the log book and identifying important knowledge, formalizes this as 'locus perculus has wingspan > 0.5m'. The creator enters this knowledge as a digital resource in the knowledge system, thus creating the digital artifact (say as JSON, RDF, XML or HTML). A different example is a news article. pav:authoredBy indicates the journalist who wrote the article. pav:contributedBy can indicate the artist who added an illustration. pav:curatedBy can indicate the editor who made the article conform to the news paper's style. pav:createdBy can indicate who put the article on the web site. The software tool used by the creator to make the digital resource (say Protege, Wordpress or OpenOffice) can be indicated with pav:createdWith. The date the digital resource was created can be indicated with pav:createdOn. The location the agent was at when creating the digital resource can be made using pav:createdAt."
   {:db/ident :pav/createdBy,
-   :owl/equivalentProperty :pav1/createdBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -156,7 +153,6 @@
 (def createdOn
   "The date of creation of the resource representation. The agents responsible can be indicated with pav:createdBy. This property is normally used in a functional way, indicating the time of creation, although PAV does not formally restrict this. pav:lastUpdateOn can be used to indicate minor updates that did not affect the creating date. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
   {:db/ident :pav/createdOn,
-   :owl/equivalentProperty :pav1/createdOn,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -185,7 +181,6 @@
 (def curatedBy
   "Specifies an agent specialist responsible for shaping the expression in an appropriate format. Often the primary agent responsible for ensuring the quality of the representation. The curator may be different from the author (pav:authoredBy) and creator of the digital resource (pav:createdBy). The curator may in some cases be a software agent, for instance text mining software which adds hyperlinks for recognized genome names. The date of curating can be expressed using pav:curatedOn - note however in the case of multiple curators that there is no relationship in PAV identifying which agent contributed when or what. If capturing such lineage is desired, it should be additionally expressed using PROV relationships like prov:qualifiedAttribution or prov:wasGeneratedBy."
   {:db/ident :pav/curatedBy,
-   :owl/equivalentProperty :pav1/curatedBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -284,7 +279,6 @@
 (def importedBy
   "An entity responsible for importing the data. The importer is usually a software entity which has done the transcription from the original source. Note that pav:importedBy may overlap with pav:createdWith. The source for the import should be given with pav:importedFrom. The time of the import should be given with pav:importedOn. See pav:importedFrom for a discussion of import vs. retrieve vs. derived."
   {:db/ident :pav/importedBy,
-   :owl/equivalentProperty :pav1/importedBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -299,7 +293,6 @@
 (def importedFrom
   "The original source of imported information. Import means that the content has been preserved, but transcribed somehow, for instance to fit a different representation model by converting formats. Examples of import are when the original was JSON and the current resource is RDF, or where the original was an document scan, and this resource is the plain text found through OCR. The imported resource does not have to be complete, but should be consistent with the knowledge conveyed by the original resource. If additional knowledge has been contributed, pav:derivedFrom would be more appropriate. If the resource has been copied verbatim from the original representation (e.g. downloaded), use pav:retrievedFrom. To indicate which agent(s) performed the import, use pav:importedBy. Use pav:importedOn to indicate when it happened."
   {:db/ident :pav/importedFrom,
-   :owl/equivalentProperty :pav1/importedFromSource,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -317,7 +310,6 @@
 (def importedOn
   "The date this resource was imported from a source (pav:importedFrom). Note that pav:importedOn may overlap with pav:createdOn, but in cases where they differ, the import time indicates the time of the retrieval and transcription of the original source, while the creation time indicates when the final resource was made, for instance after user approval. This property is normally used in a functional way, indicating the first import date, although PAV does not formally restrict this. If the resource is later reimported, this should instead be indicated with pav:lastRefreshedOn. The source of the import should be given with pav:importedFrom. The agent that performed the import should be given with pav:importedBy. See pav:importedFrom for a discussion about import vs. retrieval. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
   {:db/ident :pav/importedOn,
-   :owl/equivalentProperty :pav1/importedOn,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -333,7 +325,6 @@
 (def lastRefreshedOn
   "The date of the last re-import of the resource. This property is used in addition to pav:importedOn if this version has been updated due to a re-import. If the re-import created a new resource rather than refreshing an existing resource, then instead use pav:importedOn together with pav:previousVersion. This property is normally used in a functional way, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
   {:db/ident :pav/lastRefreshedOn,
-   :owl/equivalentProperty :pav1/importedLastOn,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -351,7 +342,6 @@
 (def lastUpdateOn
   "The date of the last update of the resource. An update is a change which did not warrant making a new resource related using pav:previousVersion, for instance correcting a spelling mistake. This property is normally used in a functional way, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
   {:db/ident :pav/lastUpdateOn,
-   :owl/equivalentProperty :pav1/lastUpdateOn,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -367,7 +357,6 @@
 (def previousVersion
   "The previous version of a resource in a lineage. For instance a news article updated to correct factual information would point to the previous version of the article with pav:previousVersion. If however the content has significantly changed so that the two resources no longer share lineage (say a new article that talks about the same facts), they can instead be related using pav:derivedFrom. This property is normally used in a functional way, although PAV does not formally restrict this. Earlier versions which are not direct ancestors of this resource may instead be provided using the superproperty pav:hasEarlierVersion. A version number of this resource can be provided using the data property pav:version. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. \"Weather Today\" vs. \"Weather Today on 2013-12-07\", see pav:hasVersion. Note that it might be confusing to indicate pav:previousVersion from a resource that also has pav:hasVersion or pav:hasCurrentVersion relations, as such resources are intended to be a long-living and \"unversioned\", while pav:previousVersion is intended for use between permalink-like \"snapshots\" arranged in a linear history."
   {:db/ident :pav/previousVersion,
-   :owl/equivalentProperty :pav1/previousVersion,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -472,7 +461,6 @@
 (def sourceAccessedOn
   "The resource is related to a source which was originally accessed or consulted on the given date as part of creating or authoring the resource. The source(s) should be specified using pav:sourceAccessedAt. For instance, if the source accessed described the weather forecast for the next day, the time of source access can be crucial information. This property is normally used in a functional way, although PAV does not formally restrict this. If the source is subsequently checked again (say to verify validity), this should be indicated with pav:sourceLastAccessedOn. In the case multiple sources being accessed at different times or by different agents, PAV does not distinguish who accessed when what. If such details are required, they may be provided by additionally using prov:qualifiedInfluence. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
   {:db/ident :pav/sourceAccessedOn,
-   :owl/equivalentProperty [:pav1/sourceAccessedOn :pav1/sourceFirstAccessedOn],
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -490,7 +478,6 @@
 (def sourceLastAccessedOn
   "The resource is related to a source which was last accessed or consulted on the given date. The source(s) should be specified using pav:sourceAccessedAt. Usage of this property indicates that the source has been checked previously, which the initial time should be indicated with pav:sourceAccessedOn. This property can be useful together with pav:lastRefreshedOn or pav:lastUpdateOn in order to indicate a re-import or update, but could also be used alone, for instance when a source was simply verified and no further action was taken for the resource. This property is normally used in a functional way, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
   {:db/ident :pav/sourceLastAccessedOn,
-   :owl/equivalentProperty :pav1/sourceLastAccessedOn,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    {:rdf/language "en",
@@ -507,7 +494,6 @@
 (def version
   "The version number of a resource. This is a freetext string, typical values are \"1.5\" or \"21\". The URI identifying the previous version can be provided using prov:previousVersion. This property is normally used in a functional way, although PAV does not formally restrict this."
   {:db/ident :pav/version,
-   :owl/equivalentProperty :pav1/versionNumber,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "The version number of a resource. This is a freetext string, typical values are \"1.5\" or \"21\". The URI identifying the previous version can be provided using prov:previousVersion.\n\nThis property is normally used in a functional way, although PAV does not formally restrict this.",
