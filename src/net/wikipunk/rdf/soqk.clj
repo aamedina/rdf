@@ -696,7 +696,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "CGS System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/CGS})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/CGS"]})
 
 (def SOQK_CGS-EMU
   "CGS-EMU System of Quantity Kinds (deprecated URI)"
@@ -704,7 +704,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "CGS-EMU System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/CGS-EMU})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/CGS-EMU"]})
 
 (def SOQK_CGS-ESU
   "CGS-ESU System of Quantity Kinds (deprecated URI)"
@@ -712,7 +712,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "CGS-ESU System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/CGS-ESU})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/CGS-ESU"]})
 
 (def SOQK_CGS-Gauss
   "CGS-Gauss System of Quantity Kinds (deprecated URI)"
@@ -720,7 +720,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "CGS-Gauss System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/CGS-Gauss})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/CGS-Gauss"]})
 
 (def SOQK_IMPERIAL
   "Imperial System of Quantity Kinds (deprecated URI)"
@@ -728,7 +728,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "Imperial System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/IMPERIAL})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/IMPERIAL"]})
 
 (def SOQK_ISQ
   "ISQ System of Quantity Kinds (deprecated URI)"
@@ -736,7 +736,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "ISQ System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/ISQ})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/ISQ"]})
 
 (def SOQK_Planck
   "Planck System of Quantity Kinds (deprecated URI)"
@@ -744,7 +744,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "Planck System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/Planck})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/Planck"]})
 
 (def SOQK_SI
   "SI System of Quantity Kinds (deprecated URI)"
@@ -752,7 +752,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "SI System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/SI})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/SI"]})
 
 (def SOQK_USCS
   "US Customary System of Quantity Kinds (deprecated URI)"
@@ -760,7 +760,7 @@
    :owl/deprecated true,
    :rdf/type       :qudt/SystemOfQuantityKinds,
    :rdfs/label     "US Customary System of Quantity Kinds (deprecated URI)",
-   :rdfs/seeAlso   :soqk/USCS})
+   :rdfs/seeAlso   ["http://qudt.org/2.1/vocab/soqk/USCS"]})
 
 (def USCS
   "US Customary System of Quantity Kinds"

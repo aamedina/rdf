@@ -3319,9 +3319,9 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/constant",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Permittivity of Vacuum"},
-   :rdfs/seeAlso [:quantitykind/ElectricFieldStrength
-                  :quantitykind/ElectricFluxDensity
-                  :quantitykind/Permittivity]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/quantitykind/ElectricFieldStrength"
+                  "http://qudt.org/2.1/vocab/quantitykind/ElectricFluxDensity"
+                  "http://qudt.org/2.1/vocab/quantitykind/Permittivity"]})
 
 (def PlanckConstant
   "The \"Planck Constant\" is a physical constant that is the quantum of action in quantum mechanics. The Planck constant was first described as the proportionality constant between the energy (\\(E\\)) of a photon and the frequency (\\(\\nu\\)) of its associated electromagnetic wave."
@@ -4079,7 +4079,8 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/constant",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Speed of Light (vacuum)"},
-   :rdfs/seeAlso [:constant/PermittivityOfVacuum :constant/MagneticConstant]})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/constant/PermittivityOfVacuum"
+                  "http://qudt.org/2.1/vocab/constant/MagneticConstant"]})
 
 (def StandardAccelerationOfGravity
   "standard acceleration of gravity"

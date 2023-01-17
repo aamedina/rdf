@@ -136,6 +136,8 @@
 (def fractionDigits
   "The total number of digits to the right of the decimal point required to represent a value."
   {:db/ident :xsd/fractionDigits,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/long
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    "The total number of digits to the right of the decimal point required to represent a value.",
@@ -361,6 +363,8 @@
 (def whiteSpace
   "A string that describes whitespace normalization for a string type."
   {:db/ident :xsd/whiteSpace,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/string
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    "A string that describes whitespace normalization for a string type.",

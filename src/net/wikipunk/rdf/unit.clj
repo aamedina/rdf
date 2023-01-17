@@ -9586,7 +9586,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/unit",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Gross Tonnage"},
-   :rdfs/seeAlso :unit/RT})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/unit/RT"]})
 
 (def Gamma
   "\"Gamma\" is a C.G.S System unit for 'Magnetic Field'."
@@ -26922,7 +26922,8 @@
    :rdf/type :qudt/Unit,
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/unit",
    :rdfs/label "Practical salinity unit",
-   :rdfs/seeAlso ["https://en.wikipedia.org/wiki/Salinity#PSU" :unit/PPTH]})
+   :rdfs/seeAlso ["https://en.wikipedia.org/wiki/Salinity#PSU"
+                  "http://qudt.org/2.1/vocab/unit/PPTH"]})
 
 (def PT
   "In typography, a point is the smallest unit of measure, being a subdivision of the larger pica. It is commonly abbreviated as pt. The point has long been the usual unit for measuring font size and leading and other minute items on a printed page."
@@ -28623,7 +28624,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/vocab/unit",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Register Ton"},
-   :rdfs/seeAlso :unit/GT})
+   :rdfs/seeAlso ["http://qudt.org/2.1/vocab/unit/GT"]})
 
 (def Riel
   "Cambodia"
