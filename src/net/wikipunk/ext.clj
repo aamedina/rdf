@@ -486,3 +486,8 @@
    :rdfa/prefix      "ov"
    :rdfa/uri         "http://open.vocab.org/terms/"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def cmns-av
+  {:rdfa/prefix "cmns-av"
+   :rdfa/uri    "https://www.omg.org/spec/Commons/AnnotationVocabulary/"
+   :rdf/type    :rdfa/PrefixMapping})
