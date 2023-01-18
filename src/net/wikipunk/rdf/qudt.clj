@@ -80,7 +80,7 @@
    "<p>An \"Algebraic Datatype\" is a datatype each of whose values are data from other data types wrapped in one of the constructors of the data type. Any wrapped datum is an argument to the constructor. In contrast to other data types, the constructor is not executed and the only way to operate on the data is to unwrap the constructor using pattern matching.</p>\n\n<p>The most common algebraic data type is a list with two constructors: Nil or [] for an empty list, and Cons (an abbreviation of constructor), ::, or : for the combination of a new element with a shorter list (for example (Cons 1 '(2 3 4)) or 1:[2,3,4]).</p>\n\n<p>Special cases of algebraic types are product types i.e. records (only one constructor) and enumerated types (many constructors with no arguments). Algebraic types are one kind of composite type (i.e. a type formed by combining other types).</p>\n\n<p>An algebraic data type may also be an abstract data type (ADT) if it is exported from a module without its constructors. Values of such a type can only be manipulated using functions defined in the same module as the type itself.</p>",
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Algebraic Datatype",
-   :rdfs/seeAlso "http://qudt.org/2.1/schema/qudt/AbstractDatatype"
+   :rdfs/seeAlso "http://qudt.org/2.1/schema/qudt/AbstractDatatype",
    :rdfs/subClassOf :qudt/StructuredDatatype})
 
 (def AlignmentType
@@ -438,10 +438,10 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Big Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   8,
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/long 8},
                       :owl/onProperty :qudt/octets,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   64,
+                     {:owl/hasValue   {:xsd/long 64},
                       :owl/onProperty :qudt/bits,
                       :rdf/type       :owl/Restriction}
                      :qudt/IntegerDatatype],
@@ -930,7 +930,8 @@
   {:db/ident            :qudt/CRC32,
    :owl/equivalentClass {:owl/onDatatype :xsd/integer,
                          :owl/withRestrictions [{:xsd/minInclusive 0.0}
-                                                {:xsd/maxInclusive 4294967295.0}],
+                                                {:xsd/maxInclusive
+                                                 4.294967295E9}],
                          :rdf/type       :rdfs/Datatype},
    :rdf/type            [:owl/DataRange :rdfs/Datatype],
    :rdfs/isDefinedBy    "http://qudt.org/2.1/schema/datatype",
@@ -1263,7 +1264,7 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Container",
    :rdfs/subClassOf [:qudt/AbstractDatatype
-                     {:owl/hasValue   1,
+                     {:owl/hasValue   {:xsd/long 1},
                       :owl/onProperty :qudt/elementTypeCount,
                       :rdf/type       :owl/Restriction}],
    :sh/property :qudt/Container-elementTypeCount})
@@ -1465,7 +1466,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Coordinates-2D-DoublePrecision-Double_Y,})
+   :sh/path     :qudt/Coordinates-2D-DoublePrecision-Double_Y})
 
 (def Coordinates-2D-SinglePrecision
   "2D coordinates in single floating point precision for locating a point in physical space"
@@ -1563,7 +1564,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_X,})
+   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_X})
 
 (def Coordinates-3D-DoublePrecision-Double_Y
   "Coordinates-3D-DoublePrecision-Double_Y"
@@ -1572,7 +1573,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_Y,})
+   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_Y})
 
 (def Coordinates-3D-DoublePrecision-Double_Z
   "Coordinates-3D-DoublePrecision-Double_Z"
@@ -1581,7 +1582,7 @@
    :sh/datatype :xsd/double,
    :sh/maxCount 1,
    :sh/minCount 1,
-   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_Z,})
+   :sh/path     :qudt/Coordinates-3D-DoublePrecision-Double_Z})
 
 (def Coordinates-3D-DoublePrecision-Type
   "3D coordinates in double floating point precision for locating a point in physical space"
@@ -2994,7 +2995,7 @@
    :rdfs/label "Interval scale",
    :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/OrdinalScale"
                   "http://qudt.org/2.1/schema/qudt/RatioScale"
-                  "http://qudt.org/2.1/schema/qudt/NominalScale"]
+                  "http://qudt.org/2.1/schema/qudt/NominalScale"],
    :rdfs/subClassOf :qudt/Scale})
 
 (def KinestheticCue
@@ -3136,10 +3137,10 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Long Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   4,
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/long 4},
                       :owl/onProperty :qudt/octets,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   32,
+                     {:owl/hasValue   {:xsd/long 32},
                       :owl/onProperty :qudt/bits,
                       :rdf/type       :owl/Restriction}
                      :qudt/IntegerDatatype],
@@ -3248,17 +3249,6 @@
   {:db/ident   :qudt/MATRIX,
    :rdf/type   [:qudt/MatrixType :owl/NamedIndividual],
    :rdfs/label "MATRIX"})
-
-#_(def MATRIX-TYPE_2x4
-  "Matrix type 2x4"
-  {:db/ident            :qudt/MATRIX-TYPE_2x4,
-   :qudt/byRow          true,
-   :qudt/columns        4,
-   :qudt/dimensionVector :qudt/DV_2x4,
-   :qudt/dimensionality 2,
-   :qudt/rows           [4 2],
-   :rdf/type            :qudt/MatrixType,
-   :rdfs/label          "Matrix type  2x4"})
 
 (def MKS-Unit
   "A sub-type of 'Standards unit'. Detailed desciption to be provided in a future version."
@@ -3696,7 +3686,7 @@
    :rdfs/label "Nominal scale",
    :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/RatioScale"
                   "http://qudt.org/2.1/schema/qudt/OrdinalScale"
-                  "http://qudt.org/2.1/schema/qudt/IntervalScale"]
+                  "http://qudt.org/2.1/schema/qudt/IntervalScale"],
    :rdfs/subClassOf :qudt/Scale})
 
 (def NonModifiableParameter
@@ -3969,7 +3959,7 @@
    :rdfs/label "Ordinal scale",
    :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/NominalScale"
                   "http://qudt.org/2.1/schema/qudt/IntervalScale"
-                  "http://qudt.org/2.1/schema/qudt/RatioScale"]
+                  "http://qudt.org/2.1/schema/qudt/RatioScale"],
    :rdfs/subClassOf [:qudt/Scale
                      {:owl/cardinality 1,
                       :owl/onProperty  :qudt/order,
@@ -4548,7 +4538,7 @@
    :rdfs/label "Ratio scale",
    :rdfs/seeAlso ["http://qudt.org/2.1/schema/qudt/OrdinalScale"
                   "http://qudt.org/2.1/schema/qudt/NominalScale"
-                  "http://qudt.org/2.1/schema/qudt/IntervalScale"]
+                  "http://qudt.org/2.1/schema/qudt/IntervalScale"],
    :rdfs/subClassOf :qudt/Scale})
 
 (def RawValueTupleMember
@@ -5169,13 +5159,13 @@
    :rdfs/label "Signed Big Integer Type",
    :rdfs/subClassOf [:qudt/BigIntegerType
                      :qudt/SignedIntegerType
-                     {:owl/hasValue   "-2^{63}",
+                     {:owl/hasValue   {:xsd/string "-2^{63}"},
                       :owl/onProperty :qudt/minInclusive,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "2^{63}-1",
+                     {:owl/hasValue   {:xsd/string "2^{63}-1"},
                       :owl/onProperty :qudt/maxInclusive,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "SI64",
+                     {:owl/hasValue   {:xsd/string "SI64"},
                       :owl/onProperty :dtype/literal,
                       :rdf/type       :owl/Restriction}],
    :sh/property [:qudt/SignedBigIntegerType-minInclusive
@@ -5234,15 +5224,15 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Signed Long Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "-2^{31}",
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/string "-2^{31}"},
                       :owl/onProperty :qudt/minInclusive,
                       :rdf/type       :owl/Restriction}
                      :qudt/LongIntegerType
                      :qudt/SignedIntegerType
-                     {:owl/hasValue   "2^{31}-1",
+                     {:owl/hasValue   {:xsd/string "2^{31}-1"},
                       :owl/onProperty :qudt/maxInclusive,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "UI32",
+                     {:owl/hasValue   {:xsd/string "UI32"},
                       :owl/onProperty :dtype/literal,
                       :rdf/type       :owl/Restriction}],
    :sh/property [:qudt/SignedLongIntegerType-abbreviation
@@ -5281,14 +5271,14 @@
    "A \"Signed Medium Integers\" is an integer of 24 bits that can take on both positive and negative values.",
    :owl/equivalentClass {:owl/intersectionOf [:qudt/IntegerDatatype
                                               :qudt/SignedType
-                                              {:owl/hasValue 3,
+                                              {:owl/hasValue {:xsd/long 3},
                                                :owl/onProperty :qudt/bytes,
                                                :rdf/type :owl/Restriction}],
                          :rdf/type :owl/Class},
    :rdf/type         [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "Signed Integer Type",
-   :rdfs/subClassOf  [{:owl/hasValue   3,
+   :rdfs/subClassOf  [{:owl/hasValue   {:xsd/long 3},
                        :owl/onProperty :qudt/bytes,
                        :rdf/type       :owl/Restriction}
                       :qudt/SignedIntegerType]})
@@ -5301,7 +5291,7 @@
    :rdf/type [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Signed Short Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "SI16",
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/string "SI16"},
                       :owl/onProperty :dtype/literal,
                       :rdf/type       :owl/Restriction}
                      :qudt/SignedIntegerType
@@ -5542,7 +5532,7 @@
    :rdfs/subClassOf [{:owl/maxCardinality 1,
                       :owl/onProperty     :qudt/maxLength,
                       :rdf/type           :owl/Restriction}
-                     {:owl/hasValue   1,
+                     {:owl/hasValue   {:xsd/long 1},
                       :owl/onProperty :qudt/dimensionality,
                       :rdf/type       :owl/Restriction}
                      :qudt/ScalarDatatype
@@ -5757,17 +5747,6 @@
                       :rdf/type          :owl/Restriction}
                      :qudt/Concept]})
 
-#_(def TABLE-TYPE_2x4
-  "Table type 2x4"
-  {:db/ident            :qudt/TABLE-TYPE_2x4,
-   :qudt/byRow          true,
-   :qudt/columns        4,
-   :qudt/dimensionVector :qudt/DV_2x4,
-   :qudt/dimensionality 2,
-   :qudt/rows           2,
-   :rdf/type            :qudt/TableType,
-   :rdfs/label          "Table type  2x4"})
-
 (def TIME
   "Time in hh:mm:ss[Z|(+|-)hh:mm]format."
   {:db/ident          :qudt/TIME,
@@ -5797,7 +5776,7 @@
    :rdfs/subClassOf [{:owl/maxCardinality 1,
                       :owl/onProperty     :qudt/byRow,
                       :rdf/type           :owl/Restriction}
-                     {:owl/hasValue   2,
+                     {:owl/hasValue   {:xsd/long 2},
                       :owl/onProperty :qudt/dimensionality,
                       :rdf/type       :owl/Restriction}
                      {:owl/cardinality 1,
@@ -5911,7 +5890,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Three-Tuple Type",
-   :rdfs/subClassOf [{:owl/hasValue   3,
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/long 3},
                       :owl/onProperty :qudt/elementTypeCount,
                       :rdf/type       :owl/Restriction}
                      {:owl/cardinality 3,
@@ -6238,7 +6217,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Two-Tuple Type",
-   :rdfs/subClassOf [{:owl/hasValue   2,
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/long 2},
                       :owl/onProperty :qudt/elementTypeCount,
                       :rdf/type       :owl/Restriction}
                      {:owl/cardinality 2,
@@ -6586,14 +6565,14 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Unsigned Big Integer Type",
    :rdfs/subClassOf [:qudt/UnsignedIntegerType
-                     {:owl/hasValue   "UI64",
+                     {:owl/hasValue   {:xsd/string "UI64"},
                       :owl/onProperty :dtype/literal,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "0",
+                     {:owl/hasValue   {:xsd/string "0"},
                       :owl/onProperty :qudt/minInclusive,
                       :rdf/type       :owl/Restriction}
                      :qudt/BigIntegerType
-                     {:owl/hasValue   "2^{64}-1",
+                     {:owl/hasValue   {:xsd/string "2^{64}-1"},
                       :owl/onProperty :qudt/maxInclusive,
                       :rdf/type       :owl/Restriction}],
    :sh/property [:qudt/UnsignedBigIntegerType-maxInclusive
@@ -6656,15 +6635,15 @@
    :rdf/type [:owl/Class :sh/NodeShape],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Unsigned Long Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "0",
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/string "0"},
                       :owl/onProperty :qudt/minInclusive,
                       :rdf/type       :owl/Restriction}
                      :qudt/UnsignedIntegerType
                      :qudt/LongIntegerType
-                     {:owl/hasValue   "UI32",
+                     {:owl/hasValue   {:xsd/string "UI32"},
                       :owl/onProperty :dtype/literal,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "2^{32}-1",
+                     {:owl/hasValue   {:xsd/string "2^{32}-1"},
                       :owl/onProperty :qudt/maxInclusive,
                       :rdf/type       :owl/Restriction}],
    :sh/property [:qudt/UnsignedLongIntegerType-minInclusive
@@ -6673,7 +6652,7 @@
 
 (def UnsignedLongIntegerType-literal
   "UnsignedLongIntegerType-literal"
-  {:db/ident :qudt/UnsignedLongIntegerType-literal
+  {:db/ident :qudt/UnsignedLongIntegerType-literal,
    :rdf/type :sh/PropertyShape,
    :sh/path  :dtype/literal})
 
@@ -6707,7 +6686,7 @@
    :rdf/type         [:sh/NodeShape :owl/Class],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label       "Signed Integer Type",
-   :rdfs/subClassOf  [{:owl/hasValue   3,
+   :rdfs/subClassOf  [{:owl/hasValue   {:xsd/long 3},
                        :owl/onProperty :qudt/bytes,
                        :rdf/type       :owl/Restriction}
                       :qudt/UnsignedIntegerType]})
@@ -6720,14 +6699,14 @@
    :rdf/type [:owl/Class :sh/NodeShape],
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Unsigned Short Integer Type",
-   :rdfs/subClassOf [{:owl/hasValue   "UI16",
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/string "UI16"},
                       :owl/onProperty :dtype/literal,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   "0",
+                     {:owl/hasValue   {:xsd/string "0"},
                       :owl/onProperty :qudt/minInclusive,
                       :rdf/type       :owl/Restriction}
                      :qudt/ShortIntegerType
-                     {:owl/hasValue   "2^{16}-1",
+                     {:owl/hasValue   {:xsd/string "2^{16}-1"},
                       :owl/onProperty :qudt/maxInclusive,
                       :rdf/type       :owl/Restriction}
                      :qudt/UnsignedIntegerType],
@@ -6862,10 +6841,10 @@
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Variable Length Integer Type",
    :rdfs/subClassOf [:qudt/IntegerDatatype
-                     {:owl/hasValue   64,
+                     {:owl/hasValue   {:xsd/long 64},
                       :owl/onProperty :qudt/maxBits,
                       :rdf/type       :owl/Restriction}
-                     {:owl/hasValue   1,
+                     {:owl/hasValue   {:xsd/long 1},
                       :owl/onProperty :qudt/minBits,
                       :rdf/type       :owl/Restriction}],
    :sh/property [:qudt/VariableLengthIntegerType-maxBits
@@ -6895,7 +6874,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Vector Type",
-   :rdfs/subClassOf [{:owl/hasValue   1,
+   :rdfs/subClassOf [{:owl/hasValue   {:xsd/long 1},
                       :owl/onProperty :qudt/dimensionality,
                       :rdf/type       :owl/Restriction}
                      {:owl/maxCardinality 1,
@@ -7360,34 +7339,39 @@
    :rdfs/subPropertyOf :qudt/coherentUnitOfSystem})
 
 (def baseImperialUnitDimensions
-  {:db/ident :qudt/baseImperialUnitDimensions
-   :rdf/type :owl/ObjectProperty
-   :rdfs/domain :qudt/QuantityKind
-   :rdfs/range :xsd/string})
+  "baseImperialUnitDimensions"
+  {:db/ident    :qudt/baseImperialUnitDimensions,
+   :rdf/type    :owl/ObjectProperty,
+   :rdfs/domain :qudt/QuantityKind,
+   :rdfs/range  :xsd/string})
 
 (def baseSIUnitDimensions
-  {:db/ident :qudt/baseSIUnitDimensions
-   :rdf/type :owl/ObjectProperty
-   :rdfs/domain :qudt/QuantityKind
-   :rdfs/range :xsd/string})
+  "baseSIUnitDimensions"
+  {:db/ident    :qudt/baseSIUnitDimensions,
+   :rdf/type    :owl/ObjectProperty,
+   :rdfs/domain :qudt/QuantityKind,
+   :rdfs/range  :xsd/string})
 
 (def baseCGSUnitDimensions
-  {:db/ident :qudt/baseCGSUnitDimensions
-   :rdf/type :owl/ObjectProperty
-   :rdfs/domain :qudt/QuantityKind
-   :rdfs/range :xsd/string})
+  "baseCGSUnitDimensions"
+  {:db/ident    :qudt/baseCGSUnitDimensions,
+   :rdf/type    :owl/ObjectProperty,
+   :rdfs/domain :qudt/QuantityKind,
+   :rdfs/range  :xsd/string})
 
 (def baseISOUnitDimensions
-  {:db/ident :qudt/baseISOUnitDimensions
-   :rdf/type :owl/ObjectProperty
-   :rdfs/domain :qudt/QuantityKind
-   :rdfs/range :xsd/string})
+  "baseISOUnitDimensions"
+  {:db/ident    :qudt/baseISOUnitDimensions,
+   :rdf/type    :owl/ObjectProperty,
+   :rdfs/domain :qudt/QuantityKind,
+   :rdfs/range  :xsd/string})
 
 (def baseUSCustomaryUnitDimensions
-  {:db/ident :qudt/baseISOUnitDimensions
-   :rdf/type :owl/ObjectProperty
-   :rdfs/domain :qudt/QuantityKind
-   :rdfs/range :xsd/string})
+  "baseUSCustomaryUnitDimensions"
+  {:db/ident    :qudt/baseUSCustomaryUnitDimensions
+   :rdf/type    :owl/ObjectProperty,
+   :rdfs/domain :qudt/QuantityKind,
+   :rdfs/range  :xsd/string})
 
 (def basis
   "basis"

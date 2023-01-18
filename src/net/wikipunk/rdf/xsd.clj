@@ -204,6 +204,12 @@
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "language"})
 
+(def length
+  {:db/ident        :xsd/length,
+   :db/cardinality  :db.cardinality/one
+   :db/valueType    :db.type/long
+   :rdf/type        :rdfs/Datatype})
+
 (def long
   {:db/ident       :xsd/long,
    :db/cardinality       :db.cardinality/one

@@ -378,10 +378,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Event"},
-   :rdfs/subClassOf [:event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
+   :rdfs/subClassOf [:event/Event :dcmitype/Event],
    :skos/changeNote [{:dcterms/creator "Ian Davis",
                       :dcterms/date    "2010-05-20",
                       :rdf/value       "Marked as testing status"}
@@ -555,8 +552,6 @@
 (def Marriage
   "The event of creating uniting the participants into a new family unit, sometimes accompanied by a formal wedding ceremony. This is intended to cover a broad range of marriages including those given formal legal standing, common-law, or by convention. It is not restricted to marriages of two people of the opposite gender, but also includes polygamous and same-sex unions."
   {:db/ident :bio/Marriage,
-   :owl/equivalentClass
-   "http://sw.opencyc.org/2009/04/07/concept/en/WeddingEvent_Generic",
    :rdf/type :owl/Class,
    :rdfs/comment
    {:rdf/language "en",

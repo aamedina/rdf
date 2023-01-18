@@ -925,6 +925,8 @@
 (def description
   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
   {:db/ident :dcterms/description,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/string
    :dcterms/description
    {:rdf/language "en",
     :rdf/value
