@@ -265,7 +265,7 @@
 (def allValuesFrom
   "The property that determines the class that a universal property restriction refers to."
   {:db/ident         :owl/allValuesFrom,
-   :db/cardinality   :db.cardinality/one
+   :db/cardinality   :db.cardinality/many
    :db/valueType     :db.type/ref
    :db/isComponent   true
    :rdf/type         :rdf/Property,

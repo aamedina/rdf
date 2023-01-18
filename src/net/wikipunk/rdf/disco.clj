@@ -262,7 +262,6 @@
 (def Variable
   "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables."
   {:db/ident :disco/Variable,
-   :owl/equivalentClass "http://semanticscience.org/resource/SIO_000367",
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    {:rdf/language "en",

@@ -405,7 +405,7 @@
   (if (and (map? form)
            (contains? form :rdfs/seeAlso))
     (let [seeAlso  (:rdfs/seeAlso form)
-          seeAlso  (if (coll? seeAlso)
+          seeAlso  (if (sequential? seeAlso)
                     seeAlso
                     [seeAlso])
           seeAlso' (mapv (fn [x]
@@ -413,7 +413,7 @@
                              (reg/iri x)
                              x))
                          seeAlso)]
-      (assoc form :rdfs/seeAlso seeAlso'))
+      (assoc form :rdfs/seeAlso (filterv string? seeAlso')))
     form))
 
 (defprotocol Box
@@ -491,7 +491,6 @@
                             (walk/prewalk (partial walk-blanks index))                            
                             (walk/postwalk walk-dcterms)
                             (walk/postwalk walk-bytes)
-                            (walk/postwalk walk-seeAlso)
                             (map (fn [[k v]]
                                    (cond
                                      (qualified-keyword? k)
@@ -504,6 +503,7 @@
                             (map (fn [form]
                                    (->> form
                                         (walk/postwalk walk-rdf-list)
+                                        (walk/postwalk walk-seeAlso)
                                         (walk/prewalk box-values)))))
         public?    (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
         ontologies (->> (remove public? forms)
