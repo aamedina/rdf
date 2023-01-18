@@ -928,3 +928,49 @@
   ([x]
    (->> (select-attributes x)
         (filter #(contains? (:parents *properties*) (:db/ident %))))))
+
+(defn bootstrap
+  "warning: very experimental
+
+  requires datomic.client.api on the classpath"
+  ([conn]
+   (bootstrap conn false))
+  ([conn force?]
+   (let [db-stats   (requiring-resolve 'datomic.client.api/db-stats)
+         db         (requiring-resolve 'datomic.client.api/db)
+         transact   (requiring-resolve 'datomic.client.api/transact)
+         bootstrap? (or force? (== (:datoms (db-stats (db conn))) 217))
+         tx-data    (select-attributes bootstrap?)
+         root       *boot-keys*]
+     (binding [*boot-keys* (if bootstrap?
+                             [:db/ident :db/cardinality :db/valueType :db/isComponent]
+                             root)]
+       (when bootstrap?
+         (doseq [part (partition-all 512 tx-data)]
+           (transact conn {:tx-data part}))
+         (doseq [part (->> (select-attributes false)
+                           (partition-all 512))]
+           (transact conn {:tx-data part}))
+         (doseq [part (->> (select-classes)
+                           (partition-all 512))]
+           (transact conn {:tx-data part}))
+         (doseq [part (->> (select-properties)
+                           (partition-all 512))]
+           (transact conn {:tx-data part}))
+         (set! *boot-keys* root)
+         (doseq [part (->> (select-properties)
+                           (remove :rdfs/subPropertyOf)
+                           (partition-all 512))]
+           (transact conn {:tx-data part}))
+         (doseq [part (->> (select-properties)
+                           (filter :rdfs/subPropertyOf)
+                           (partition-all 512))]
+           (transact conn {:tx-data part}))
+         (doseq [part (->> (select-classes)
+                           (remove :rdfs/subClassOf)
+                           (partition-all 512))]
+           (transact conn {:tx-data part}))
+         (doseq [part (->> (select-classes)
+                           (filter :rdfs/subClassOf)
+                           (partition-all 512))]
+           (transact conn {:tx-data part})))))))

@@ -3872,7 +3872,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://qudt.org/2.1/schema/datatype",
    :rdfs/label "Ordered Collection Type",
-   :rdfs/subClassOf [{:owl/allValuesFrom :dtype/ComparisonOperator,
+   :rdfs/subClassOf [{:owl/allValuesFrom {:owl/oneOf [{:xsd/string ">"} {:xsd/string "<"}]
+                                          :rdf/type :owl/Class}
                       :owl/onProperty    :qudt/orderingRelation,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :qudt/OrderedCollection,
@@ -3894,7 +3895,8 @@
   "OrderedCollection-orderingRelation"
   {:db/ident    :qudt/OrderedCollection-orderingRelation,
    :rdf/type    :sh/PropertyShape,
-   :sh/class    :dtype/ComparisonOperator,
+   :sh/class    {:owl/oneOf [{:xsd/string ">"} {:xsd/string "<"}]
+                 :rdf/type  :owl/Class}
    :sh/maxCount 1,
    :sh/path     :qudt/orderingRelation})
 
