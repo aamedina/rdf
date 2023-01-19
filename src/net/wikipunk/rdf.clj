@@ -787,7 +787,12 @@
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
-      (find-metaobject ident)
+      (dissoc (find-metaobject ident)
+              :mop/class-default-initargs
+              :mop/class-direct-default-initargs
+              :mop/class-direct-slots
+              :mop/class-precedence-list
+              :mop/class-slots)
 
       (qualified-symbol? ident)
       (resolve ident)
