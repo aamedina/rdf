@@ -601,7 +601,11 @@
                                    (list 'def sym docstring (dissoc v :lv2/documentation))
                                    (list 'def sym v))))))]
     (if prefix
-      (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
+      (cons `(~'ns ~(symbol (str *ns-prefix*
+                                 (let [s (str/split prefix #"\.")]
+                                   (if (seq s)
+                                     (peek s)
+                                     prefix))))
               ~@(let [docstring (or (get-in md [:lv2/project :lv2/documentation])
                                     (:dcterms/abstract md)
                                     (:dcterms/description md)
@@ -656,7 +660,12 @@
       (if-some [prefix (or (:rdfa/prefix md)
                            (:vann/preferredNamespacePrefix md))]
         (spit (str (or (:target arg-map) *target*)
-                   (namespace-munge prefix) ".clj")
+                   (let [p (namespace-munge prefix)
+                         s (str/split p #"\.")]
+                     (if (seq s)
+                       (peek s)
+                       p))
+                   ".clj")
               (binding [*print-namespace-maps* nil]
                 (zprint/zprint-file-str  (apply str (unroll-ns model))
                                          "file:"
