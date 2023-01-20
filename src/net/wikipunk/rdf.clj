@@ -662,7 +662,7 @@
       (if-some [prefix (or (:rdfa/prefix md)
                            (:vann/preferredNamespacePrefix md))]
         (spit (str (or (:target arg-map) *target*)
-                   (str/replace prefix #"\." "/")
+                   (namespace-munge (str/replace prefix #"\." "/"))
                    #_(let [p (namespace-munge prefix)
                          s (str/split p #"\.")]
                      (if (seq s)
