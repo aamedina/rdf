@@ -135,9 +135,10 @@
               :rdfs/keys [subClassOf]
               :owl/keys  [sameAs equivalentClass]
               :as        entity}]
-        (if (or subClassOf
-                equivalentClass
-                (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
+        (if (and (or subClassOf
+                     equivalentClass
+                     (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
+                 (not (some #(isa? h % :rdf/Property) type)))
           (deriving h entity (concat #_(filter #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
                                      (filter keyword? type)
                                      (filter keyword? sameAs)
@@ -160,8 +161,9 @@
         (if (or subPropertyOf
                 equivalentProperty
                 (some #(isa? classes % :rdf/Property) type))
-          (deriving h entity (concat (filter #(isa? classes % :rdf/Property)
+          (deriving h entity (concat #_(filter #(isa? classes % :rdf/Property)
                                              type)
+                                     (filter keyword? type)
                                      (filter keyword? sameAs)
                                      (filter keyword? subPropertyOf)
                                      (filter keyword? equivalentProperty)))
@@ -169,12 +171,46 @@
     (make-hierarchy)
     (all-ns)))
 
+(defn make-metaobject-hierarchy
+  "Derives metaobjects from classes and properties and adds named
+  individuals."
+  ([]
+   (make-metaobject-hierarchy *classes* *properties*))
+  ([classes properties]
+   (transduce
+     cat-rdf-idents
+     (completing
+       (fn [h {:db/keys   [ident]
+               :rdf/keys  [type]
+               :rdfs/keys [subClassOf equivalentClass
+                           subPropertyOf equivalentProperty]
+               :skos/keys [broader]
+               :as        entity}]
+         (cond-> h
+           (seq (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
+           (deriving entity (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
+           
+           (seq (filter keyword? broader))
+           (deriving entity (filter keyword? broader))
+           
+           (or subPropertyOf
+               equivalentProperty
+               (some #(isa? classes % :rdf/Property) type))
+           (deriving entity
+                     (distinct
+                       (concat (filter keyword? subPropertyOf)
+                               (filter keyword? equivalentProperty)))))))
+     classes
+     (all-ns))))
+
 (defn make-hierarchies
   []
-  (let [classes    (make-class-hierarchy)
-        properties (make-property-hierarchy classes)]
-    {:classes    classes
-     :properties properties}))
+  (let [classes     (make-class-hierarchy)
+        properties  (make-property-hierarchy classes)
+        metaobjects (make-metaobject-hierarchy classes properties)]
+    {:classes     classes
+     :properties  properties
+     :metaobjects metaobjects}))
 
 (defn compute-class-precedence-list
   [tag]
@@ -188,22 +224,22 @@
                        (comparator (partial isa? *properties*))
                        (ancestors *properties* tag))))
 
-(defrecord UniversalTranslator [ns-prefix target boot]
+(defrecord UniversalTranslator [ns-prefix target boot metaobjects]
   com/Lifecycle
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
       (let [{:keys [registry ns-aliases]} (make-boot-context)
-            {:keys [classes properties]} (make-hierarchies)]
+            {:keys [classes properties metaobjects]} (make-hierarchies)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
-        (alter-var-root #'*properties* (constantly properties)))
-      this))
+        (alter-var-root #'*properties* (constantly properties))
+        (assoc this :metaobjects metaobjects))))
   (stop [this]
     (alter-var-root #'*classes* (constantly (make-hierarchy)))
     (alter-var-root #'*properties* (constantly (make-hierarchy)))
-    this)
+    (assoc this :metaobjects nil))
 
   NamespaceSpitter
   (emit [_ arg-map]
@@ -905,7 +941,9 @@
    :rdf/value
    :rdf/type
    :rdf/language
-   :fressian/tag])
+   :fressian/tag
+   :schema/rangeIncludes
+   :schema/domainIncludes])
 
 (extend-protocol Seed
   clojure.lang.Namespace
@@ -941,27 +979,27 @@
         (filter :db/ident xs)))))
 
 (defn select-classes
-  ([]
-   (select-classes false))
-  ([x]
+  ([h]
+   (select-classes h false))
+  ([h x]
    (->> (select-attributes x)
-        (filter #(or (identical? (:db/ident %) :rdfs/Class)
-                     (contains? (:parents *classes*) (:db/ident %)))))))
+        (filter #(isa? h (:db/ident %) :rdfs/Class)))))
 
 (defn select-properties
-  ([]
-   (select-properties false))
-  ([x]
+  ([h]
+   (select-properties h false))
+  ([h x]
    (->> (select-attributes x)
-        (filter #(contains? (:parents *properties*) (:db/ident %))))))
+        (filter #(isa? h (:db/ident %) :rdf/Property)))))
 
 (defn bootstrap
   "warning: very experimental
 
   requires datomic.client.api on the classpath"
   ([conn]
-   (bootstrap conn false))
-  ([conn force?]
+   (bootstrap (requiring-resolve 'net.wikipunk.temple/*tree-of-life*) conn
+              :force? false))
+  ([h conn & {:keys [force?]}]
    (let [db-stats   (requiring-resolve 'datomic.client.api/db-stats)
          db         (requiring-resolve 'datomic.client.api/db)
          transact   (requiring-resolve 'datomic.client.api/transact)
@@ -977,26 +1015,26 @@
          (doseq [part (->> (select-attributes false)
                            (partition-all 512))]
            (transact conn {:tx-data part}))
-         (doseq [part (->> (select-classes)
+         (doseq [part (->> (select-classes h)
                            (partition-all 512))]
            (transact conn {:tx-data part}))
-         (doseq [part (->> (select-properties)
+         (doseq [part (->> (select-properties h)
                            (partition-all 512))]
            (transact conn {:tx-data part}))
          (set! *boot-keys* root)
-         (doseq [part (->> (select-properties)
+         (doseq [part (->> (select-properties h)
                            (remove :rdfs/subPropertyOf)
                            (partition-all 512))]
            (transact conn {:tx-data part}))
-         (doseq [part (->> (select-properties)
+         (doseq [part (->> (select-properties h)
                            (filter :rdfs/subPropertyOf)
                            (partition-all 512))]
            (transact conn {:tx-data part}))
-         (doseq [part (->> (select-classes)
+         (doseq [part (->> (select-classes h)
                            (remove :rdfs/subClassOf)
                            (partition-all 512))]
            (transact conn {:tx-data part}))
-         (doseq [part (->> (select-classes)
+         (doseq [part (->> (select-classes h)
                            (filter :rdfs/subClassOf)
                            (partition-all 512))]
            (transact conn {:tx-data part})))))))

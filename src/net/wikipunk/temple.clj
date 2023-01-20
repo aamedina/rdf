@@ -22,15 +22,14 @@
   com/Lifecycle
   (start [this]
     (require init-ns :reload)
-    (let [metaobjects ((ns-resolve init-ns 'setup-canvas))
-          indexes     ((ns-resolve init-ns 'setup-indexes))]
-      (alter-var-root #'*tree-of-life* (constantly metaobjects))
+    (let [indexes ((ns-resolve init-ns 'setup-indexes))]
+      (alter-var-root #'*tree-of-life* (constantly (:metaobjects vocab)))
       (alter-var-root #'*indexes* (constantly indexes))
       ((ns-resolve init-ns 'finalize))
       (when-some [conn (:conn rdf)]
-        (rdf/bootstrap conn))
-      (assoc this :metaobjects metaobjects :indexes indexes)))
+        (rdf/bootstrap (:metaobjects vocab) conn :force? false))
+      (assoc this :indexes indexes)))
   (stop [this]
     (alter-var-root #'*tree-of-life* (constantly (make-hierarchy)))
     (alter-var-root #'*indexes* (constantly {}))
-    (assoc this :metaobjects nil :indexes nil)))
+    (assoc this :indexes nil)))

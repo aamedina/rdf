@@ -23,6 +23,10 @@
    :rdfs/seeAlso "http://www.w3.org/TR/json-ld11"}
   (:refer-clojure :exclude [import reverse type]))
 
+(def ContainerType
+  {:db/ident :jsonld/ContainerType
+   :rdf/type :rdfs/Class})
+
 (def Context
   "Defines term definitions and other aspects of a JSON-LD `Context`. A [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`."
   {:db/ident :jsonld/Context,
@@ -75,7 +79,7 @@
                 :rdf/value    "base"},
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#context-definitions",
    :schema/domainIncludes :jsonld/Context,
-   :schema/rangeIncludes :xsd/anyUri})
+   :schema/rangeIncludes :xsd/anyURI})
 
 (def compacted
   "This profile IRI is used to request or specify compacted JSON-LD document form."
@@ -118,7 +122,7 @@
                 :rdf/value    "context"},
    :rdfs/seeAlso
    "https://www.w3.org/TR/json-ld11/#interpreting-json-as-json-ld",
-   :schema/rangeIncludes [:xsd/anyUri :jsonld/Context]})
+   :schema/rangeIncludes [:xsd/anyURI :jsonld/Context]})
 
 (def definition
   "Term definition(s) associated with this context."
@@ -203,7 +207,7 @@
 (def graphContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/graphContainerType,
-   :rdf/type "http://www.w3.org/ns/ContainerType",
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -225,12 +229,12 @@
                 :rdf/value    "id"},
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#expanded-term-definition",
    :schema/domainIncludes [:jsonld/PrefixDefinition :jsonld/TermDefinition],
-   :schema/rangeIncludes :xsd/anyUri})
+   :schema/rangeIncludes :xsd/anyURI})
 
 (def idContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/idContainerType,
-   :rdf/type "http://www.w3.org/ns/ContainerType",
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -253,12 +257,12 @@
                 :rdf/value    "import"},
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#context-definitions",
    :schema/domainIncludes :jsonld/Context,
-   :schema/rangeIncludes :xsd/anyUri})
+   :schema/rangeIncludes :xsd/anyURI})
 
 (def indexContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/indexContainerType,
-   :rdf/type "http://www.w3.org/ns/ContainerType",
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -286,7 +290,7 @@
 (def languageContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/languageContainerType,
-   :rdf/type "http://www.w3.org/ns/ContainerType",
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -299,7 +303,7 @@
 (def listContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/listContainerType,
-   :rdf/type "http://www.w3.org/ns/ContainerType",
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -382,12 +386,12 @@
                 :rdf/value    "reverse"},
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#expanded-term-definition",
    :schema/domainIncludes :jsonld/TermDefinition,
-   :schema/rangeIncludes :xsd/anyUri})
+   :schema/rangeIncludes :xsd/anyURI})
 
 (def setContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/setContainerType,
-   :rdf/type "http://www.w3.org/ns/ContainerType",
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -439,12 +443,12 @@
                 :rdf/value    "type"},
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#context-definitions",
    :schema/domainIncludes [:jsonld/TermDefinition :jsonld/Context],
-   :schema/rangeIncludes [:xsd/string :xsd/anyUri]})
+   :schema/rangeIncludes [:xsd/string :xsd/anyURI]})
 
 (def typeContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/typeContainerType,
-   :rdf/type "http://www.w3.org/ns/ContainerType",
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
@@ -482,4 +486,4 @@
                 :rdf/value    "vocab"},
    :rdfs/seeAlso "https://www.w3.org/TR/json-ld11/#default-vocabulary",
    :schema/domainIncludes :jsonld/Context,
-   :schema/rangeIncludes :xsd/anyUri})
+   :schema/rangeIncludes :xsd/anyURI})
