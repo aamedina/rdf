@@ -332,12 +332,13 @@
                                            (catch org.apache.jena.riot.RiotException ex
                                              ;; ...try RDF/XML?
                                              (.toGraph (doto parser (.lang Lang/RDFXML)))))))
-          ns-prefix-map              (set/rename-keys (dissoc (into (cond-> (:rdf/ns-prefix-map md {})
-                                                                      (and prefix uri)
-                                                                      (assoc prefix uri))
-                                                                    (.getNsPrefixMap (.getPrefixMapping g)))
-                                                              "ruleml")
-                                                      {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"})]
+          ns-prefix-map              (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
+                                         (set/rename-keys (dissoc (into (if (and prefix uri)
+                                                                          {prefix uri}
+                                                                          {})
+                                                                        (.getNsPrefixMap (.getPrefixMapping g)))
+                                                                  "ruleml")
+                                                          {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"}))]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
                       (map (fn [[subject triples]]
@@ -602,10 +603,11 @@
                                    (list 'def sym v))))))]
     (if prefix
       (cons `(~'ns ~(symbol (str *ns-prefix*
-                                 (let [s (str/split prefix #"\.")]
-                                   (if (seq s)
-                                     (peek s)
-                                     prefix))))
+                                 prefix
+                                 #_(let [s (str/split prefix #"\.")]
+                                     (if (seq s)
+                                       (peek s)
+                                       prefix))))
               ~@(let [docstring (or (get-in md [:lv2/project :lv2/documentation])
                                     (:dcterms/abstract md)
                                     (:dcterms/description md)
@@ -660,7 +662,8 @@
       (if-some [prefix (or (:rdfa/prefix md)
                            (:vann/preferredNamespacePrefix md))]
         (spit (str (or (:target arg-map) *target*)
-                   (let [p (namespace-munge prefix)
+                   (str/replace prefix #"\." "/")
+                   #_(let [p (namespace-munge prefix)
                          s (str/split p #"\.")]
                      (if (seq s)
                        (peek s)
