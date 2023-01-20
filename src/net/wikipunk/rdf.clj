@@ -450,7 +450,16 @@
       (update m (some #{:xsd/minExclusive :xsd/minInclusive
                         :xsd/maxExclusive :xsd/maxInclusive}
                       (keys m))
-              double)
+              (fn [x]
+                (if (string? x)
+                  (try
+                    (Long/parseLong x)
+                    (catch Throwable ex
+                      (try
+                        (Double/parseDouble x)
+                        (catch Throwable ex
+                          (double (read-string (str "0x" x)))))))
+                  (double x))))
       m))
 
   Object
