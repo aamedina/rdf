@@ -605,7 +605,7 @@
                                            (= (name sym) "nil")
                                            'null
 
-                                           :else (symbol (str/replace (name sym) #"^#" "")))
+                                           :else (symbol (str/replace (name sym) #"#" "")))
                                      docstring (or (some-> (:lv2/documentation v))
                                                    (:dcterms/abstract v)
                                                    (:dcterms/description v)
@@ -686,7 +686,11 @@
 (extend-protocol NamespaceSpitter
   clojure.lang.IPersistentCollection
   (emit [xs arg-map]
-    (dorun (pmap #(emit % arg-map) xs)))
+    (dorun (pmap #(try
+                    (emit % arg-map)
+                    (catch Throwable ex
+                      (println % (.getMessage ex))))
+                 xs)))
 
   String
   (emit [s arg-map]
@@ -762,7 +766,7 @@
 
     :else
     (-> (name ident)
-        (str/replace #"^#" "")
+        (str/replace #"#" "")
         (symbol))))
 
 (defn find-obo-metaobject
