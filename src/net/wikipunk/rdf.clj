@@ -774,7 +774,8 @@
   [ident]
   (when-some [prefix (first (str/split (name ident) #"_"))]
     (or (ns-resolve (get *ns-aliases* prefix) (unmunge ident))
-        (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident)))))
+        (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident))
+        (ns-resolve (get *ns-aliases* (str/upper-case prefix)) (unmunge ident)))))
 
 (defn find-metaobject
   [ident]
