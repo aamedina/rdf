@@ -51,6 +51,11 @@
 (def ^:dynamic *ns-aliases*
   {})
 
+(def ^:dynamic *env*
+  "An environment to resolve metaobject idents. Could be nil (search
+  namespaces) or a datomic database."
+  nil)
+
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *target* "src/net/wikipunk/rdf/")
 
@@ -763,23 +768,25 @@
 (defn find-obo-metaobject
   "Find a metaobject in the OBO namespace."
   [ident]
-  (when-some [prefix (str/lower-case (first (str/split (name ident) #"_")))]
+  (when-some [prefix (first (str/split (name ident) #"_"))]
     (ns-resolve (get *ns-aliases* prefix) (unmunge ident))))
 
 (defn find-metaobject
   [ident]
   (when (qualified-keyword? ident)
-    (when-some [var (if (= (namespace ident) "obo")
-                      (find-obo-metaobject ident)
-                      (resolve
-                        (symbol
-                          (str (or (get *ns-aliases* (namespace ident))
-                                   (get (ns-aliases *ns*) (symbol (namespace ident)))))
-                          (name (unmunge ident)))))]
-      (with-meta @var {:var var :type (or (and (keyword? (type var))
-                                               (type var))
-                                          (:type (alter-meta! var assoc :type (type-of @var)))
-                                          :rdfs/Resource)}))))
+    (if *env*
+      ((requiring-resolve 'datomic.client.api/pull) *env* '[*] ident)
+      (when-some [var (if (= (namespace ident) "obo")
+                        (find-obo-metaobject ident)
+                        (resolve
+                          (symbol
+                            (str (or (get *ns-aliases* (namespace ident))
+                                     (get (ns-aliases *ns*) (symbol (namespace ident)))))
+                            (name (unmunge ident)))))]
+        (with-meta @var {:var var :type (or (and (keyword? (type var))
+                                                 (type var))
+                                            (:type (alter-meta! var assoc :type (type-of @var)))
+                                            :rdfs/Resource)})))))
 
 (extend-protocol LinkedData
   clojure.lang.IPersistentCollection
