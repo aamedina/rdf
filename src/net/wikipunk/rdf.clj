@@ -773,7 +773,8 @@
   "Find a metaobject in the OBO namespace."
   [ident]
   (when-some [prefix (first (str/split (name ident) #"_"))]
-    (ns-resolve (get *ns-aliases* prefix) (unmunge ident))))
+    (or (ns-resolve (get *ns-aliases* prefix) (unmunge ident))
+        (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident)))))
 
 (defn find-metaobject
   [ident]
