@@ -317,11 +317,17 @@
   Node_URI
   (data [n]
     (let [uri (.getURI n)]
-      (or (when-some [k (reg/kw uri)]
+      (or (when-some [k (try
+                          (reg/kw uri)
+                          (catch Throwable ex
+                            (println ex)))]
             (cond
               ;; Do not return blank qualified keyword names
               (or (str/blank? (namespace k)) (str/blank? (name k)))
               nil
+              
+              (str/ends-with? (name k) ".owl")
+              nil              
 
               (and (Character/isDigit (first (name k)))
                    (= (last (name k)) \/))
@@ -331,6 +337,9 @@
                    (Character/isDigit (last (name k))))
               nil
 
+              (str/ends-with? (name k) ")")
+              (keyword (namespace k) (str/replace (name k) #"\)$" ""))
+
               ;; Since these are not readable wrap in CL-inspired || 
               (Character/isDigit (first (name k)))
               (keyword (namespace k) (str \| (name k) \|))
@@ -338,7 +347,7 @@
               (re-find #"," (name k))
               (keyword (namespace k) (str/replace (name k) #"," ""))
 
-              :else k))
+              :else (keyword (namespace k) (str/replace (name k) #"#" ""))))
           uri)))
 
   Node_Blank
@@ -569,11 +578,14 @@
                        (first (filter :rdf/uri (remove public? forms))))
         publics (filter (fn [form]
                           (or (public? form)
-                              (and (:db/ident form)
-                                   (or (str/starts-with? (namespace (:db/ident form)) "obo")
-                                       (str/starts-with? (namespace (:db/ident form)) "resource"))
-                                   (or (str/starts-with? (name (:db/ident form)) prefix)
-                                       (str/starts-with? (name (:db/ident form)) (str/upper-case prefix))))))
+                              (and (keyword? (:db/ident form))
+                                   (not (contains? #{"rdf" "rdfs" "owl" "xsd" "dcterms" "dc11"}
+                                                   (namespace (:db/ident form)))))
+                              #_(and (keyword? (:db/ident form))
+                                     (or (= (namespace (:db/ident form)) "obo")
+                                         (str/starts-with? (namespace (:db/ident form)) "resource")
+                                         (str/starts-with? (name (:db/ident form)) prefix)
+                                         (str/starts-with? (name (:db/ident form)) (str/upper-case prefix))))))
                         forms)]
     (with-meta (sort-by :db/ident publics)
       (merge md the-ont))))
@@ -715,16 +727,30 @@
                        p))
                    ".clj")
               (binding [*print-namespace-maps* nil]
-                (zprint/zprint-file-str  (apply str (unroll-ns model))
-                                         "file:"
-                                         {:parse  {:interpose "\n\n"}
-                                          :map    {:justify?      true
-                                                   :nl-separator? false
-                                                   :hang?         true
-                                                   :indent        0
-                                                   :sort-in-code? true
-                                                   :force-nl?     true}
-                                          :vector {:wrap? false}})))
+                (let [forms (unroll-ns model)]
+                  (try
+                    (zprint/zprint-file-str  (apply str forms)
+                                             "file:"
+                                             {:parse  {:interpose "\n\n"}
+                                              :map    {:justify?      true
+                                                       :nl-separator? false
+                                                       :hang?         true
+                                                       :indent        0
+                                                       :sort-in-code? true
+                                                       :force-nl?     true}
+                                              :vector {:wrap? false}})
+                    (catch Throwable ex
+                      ;; sometimes zprint has trouble with otherwise fine files
+                      (with-out-str
+                        (doseq [form forms]
+                          (zprint/zprint form {:map    {:justify?      true
+                                                        :nl-separator? false
+                                                        :hang?         true
+                                                        :indent        0
+                                                        :sort-in-code? true
+                                                        :force-nl?     true}
+                                               :vector {:wrap? false}})
+                          (newline))))))))
         (zprint/zprint (unroll-forms model))))))
 
 (defmulti type-of
