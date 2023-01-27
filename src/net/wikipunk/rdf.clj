@@ -217,16 +217,26 @@
      :properties  properties
      :metaobjects metaobjects}))
 
+(defn comp-isa?
+  "isa? comparator"
+  ([h x y]
+   (cond
+     (identical? x y) 0
+     (= x y) 0
+     (isa? h x y) -1
+     (isa? h y x) 1
+     :else -1)))
+
 (defn compute-class-precedence-list
   [tag]
   (into [tag] (sort-by identity
-                       (comparator (partial isa? *classes*))
+                       (partial comp-isa? *classes*)
                        (disj (ancestors *classes* tag) :owl/Thing))))
 
 (defn compute-property-precedence-list
   [tag]
   (into [tag] (sort-by identity
-                       (comparator (partial isa? *properties*))
+                       (partial comp-isa? *properties*)
                        (ancestors *properties* tag))))
 
 (defrecord UniversalTranslator [ns-prefix target boot metaobjects]
@@ -326,7 +336,8 @@
               (or (str/blank? (namespace k)) (str/blank? (name k)))
               nil
               
-              (str/ends-with? (name k) ".owl")
+              (or (str/ends-with? (name k) ".owl")
+                  (str/ends-with? (name k) ".owl/"))
               nil              
 
               (and (Character/isDigit (first (name k)))
@@ -565,7 +576,12 @@
                                         (walk/postwalk walk-rdf-list)
                                         (walk/postwalk walk-seeAlso)
                                         (walk/prewalk box-values)))))
-        public?    (every-pred :db/ident (comp (partial = prefix) namespace :db/ident))
+        public?    (fn [form]
+                     (and (:db/ident form)
+                          (let [ns-name (namespace (:db/ident form))]
+                            (or (= prefix ns-name)
+                                (and (= ns-name "obo")
+                                     (= prefix (first (str/split (name (:db/ident form)) #"_"))))))))
         ontologies (->> (remove public? forms)
                         (filter :rdf/type)
                         (filter (fn [form]
@@ -576,18 +592,15 @@
                                           [(:rdf/type form)])))))
         the-ont    (or (first ontologies)
                        (first (filter :rdf/uri (remove public? forms))))
-        publics (filter (fn [form]
-                          (or (public? form)
-                              (and (keyword? (:db/ident form))
-                                   (not (contains? #{"rdf" "rdfs" "owl" "xsd" "dcterms" "dc11"}
-                                                   (namespace (:db/ident form)))))
-                              #_(and (keyword? (:db/ident form))
-                                     (or (= (namespace (:db/ident form)) "obo")
-                                         (str/starts-with? (namespace (:db/ident form)) "resource")
-                                         (str/starts-with? (name (:db/ident form)) prefix)
-                                         (str/starts-with? (name (:db/ident form)) (str/upper-case prefix))))))
-                        forms)]
-    (with-meta (sort-by :db/ident publics)
+        forms (filter #(keyword? (:db/ident %)) forms)
+        publics (filter public? forms)
+        privates (->> (remove public? forms)
+                      (remove (fn [form]
+                                (contains? #{"rdf" "rdfs" "owl" "xsd" "dcterms" "dc11"}
+                                           (namespace (:db/ident form)))))
+                      (map #(assoc % :private true)))]
+    (with-meta (concat (sort-by :db/ident publics)
+                       (sort-by :db/ident privates))
       (merge md the-ont))))
 
 (defn unroll-ns
@@ -618,6 +631,8 @@
                                            'null
 
                                            :else (symbol (str/replace (name sym) #"#" "")))
+                                     sym (if (:private v) (with-meta sym {:private true}) sym)
+                                     v (if (:private v) (dissoc v :private) v)
                                      docstring (or (some-> (:lv2/documentation v))
                                                    (:dcterms/abstract v)
                                                    (:dcterms/description v)
@@ -655,12 +670,7 @@
                                    (list 'def sym docstring (dissoc v :lv2/documentation))
                                    (list 'def sym v))))))]
     (if prefix
-      (cons `(~'ns ~(symbol (str *ns-prefix*
-                                 prefix
-                                 #_(let [s (str/split prefix #"\.")]
-                                     (if (seq s)
-                                       (peek s)
-                                       prefix))))
+      (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
               ~@(let [docstring (or (get-in md [:lv2/project :lv2/documentation])
                                     (:dcterms/abstract md)
                                     (:dcterms/description md)
@@ -726,7 +736,8 @@
                        (peek s)
                        p))
                    ".clj")
-              (binding [*print-namespace-maps* nil]
+              (binding [*print-namespace-maps* nil
+                        *print-meta*           true]
                 (let [forms (unroll-ns model)]
                   (try
                     (zprint/zprint-file-str  (apply str forms)
@@ -764,7 +775,7 @@
   [m]
   (let [rdf-type (:rdf/type m)]
     (if (coll? rdf-type)
-      (first (sort-by identity (comparator (partial isa? *classes*)) rdf-type))
+      (first (sort-by identity (partial comp-isa? *classes*) rdf-type))
       rdf-type)))
 
 (defmethod type-of clojure.lang.Keyword
@@ -799,9 +810,20 @@
   "Find a metaobject in the OBO namespace."
   [ident]
   (when-some [prefix (first (str/split (name ident) #"_"))]
-    (or (ns-resolve (get *ns-aliases* prefix) (unmunge ident))
-        (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident))
-        (ns-resolve (get *ns-aliases* (str/upper-case prefix)) (unmunge ident)))))
+    (try
+      (if (= prefix "APOLLO")
+        (ns-resolve (get *ns-aliases* "APOLLO_SV") (unmunge ident))
+        (or (ns-resolve (get *ns-aliases* prefix) (unmunge ident))
+            (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident))
+            (ns-resolve (get *ns-aliases* (str/upper-case prefix)) (unmunge ident))))
+      (catch Throwable ex
+        (if (and (contains? *ns-aliases* prefix)
+                 (nil? (get *ns-aliases* prefix)))
+          (do
+            (println "requiring" (str "net.wikipunk.rdf." prefix))
+            (require (symbol (str "net.wikipunk.rdf." prefix)))
+            (ns-resolve (symbol (str "net.wikipunk.rdf." prefix)) (unmunge ident)))
+          (throw (ex-info "Could not resolve OBO metaobject" {:ident ident} ex)))))))
 
 (defn find-metaobject
   [ident]
@@ -848,7 +870,9 @@
     (println (:db/ident metaobject))
     (when-some [doc (:doc (meta (:var (meta metaobject))))]
       (println "  " doc))
-    (when-some [supers (next (if (isa? *classes* (type metaobject) :rdf/Property)
+    (when-some [supers (next ((requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list)
+                              (:db/ident metaobject))
+                             #_(if (isa? *classes* (type metaobject) :rdf/Property)
                                (compute-property-precedence-list (:db/ident metaobject))
                                (compute-class-precedence-list (:db/ident metaobject))))]
       (println "  isa?")
@@ -1036,7 +1060,7 @@
 
   requires datomic.client.api on the classpath"
   ([conn]
-   (bootstrap (requiring-resolve 'net.wikipunk.temple/*tree-of-life*) conn
+   (bootstrap @(requiring-resolve 'net.wikipunk.temple/*tree-of-life*) conn
               :force? false))
   ([h conn & {:keys [force?]}]
    (let [db-stats   (requiring-resolve 'datomic.client.api/db-stats)
