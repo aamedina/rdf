@@ -903,7 +903,8 @@
       (qualified-keyword? ident)
       (-> (find-metaobject ident)
           (dissoc :mop/class-default-initargs
-                  :mop/class-direct-default-initargs)
+                  :mop/class-direct-default-initargs
+                  :mop/slot-initfunction)
           (update :mop/class-slots #(mapv :db/ident %))
           (update :mop/class-direct-slots #(mapv :db/ident %)))
 
