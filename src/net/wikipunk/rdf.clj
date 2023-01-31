@@ -5,11 +5,12 @@
    [arachne.aristotle.graph :as g]
    [clojure.core.memoize :as memo]
    [clojure.core.protocols :refer [coll-reduce]]
+   [clojure.core.reducers :as r :refer [fold]]
    [clojure.datafy :refer [datafy]]
    [clojure.java.io :as io]
    [clojure.set :as set]
    [clojure.string :as str]
-   [clojure.walk :as walk]
+   [clojure.walk :as walk]   
    [com.stuartsierra.component :as com]
    [net.wikipunk.boot :as boot]
    [zprint.core :as zprint])
@@ -108,7 +109,7 @@
                 h)))
           h xs))
 
-(def ^:private +props+
+(def +props+
   #{:rdf/type
     :rdfs/subClassOf
     :rdfs/subPropertyOf
@@ -127,117 +128,114 @@
     (filter (comp qualified-keyword? :db/ident))
     (map (fn [entity]
            (reduce (fn [entity term]
-                     (update entity term #(if (coll? %) % [%])))
+                     (update entity term #(cond (coll? %) % (nil? %) [] :else [%])))
                    entity +props+)))))
 
 (defn make-class-hierarchy
   []
-  (transduce
-    cat-rdf-idents
-    (completing
-      (fn [h {:db/keys   [ident]
-              :rdf/keys  [type]
-              :rdfs/keys [subClassOf]
-              :owl/keys  [sameAs equivalentClass]
-              :as        entity}]
-        (if (and (or subClassOf
-                     equivalentClass
-                     (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
-                 (not (some #(isa? h % :rdf/Property) type)))
-          (deriving h entity (concat #_(filter #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
-                                     (filter keyword? type)
-                                     (filter keyword? sameAs)
-                                     (filter keyword? subClassOf)
-                                     (filter keyword? equivalentClass)))
-          h)))
-    (derive (make-hierarchy) :rdfs/Resource :rdfs/Class)
-    (all-ns)))
+  (->> (all-ns)
+       (filter (comp :rdf/type meta))
+       (map ns-publics)
+       (mapcat vals)
+       (filter #(some +props+ (keys @%)))
+       (filter (comp qualified-keyword? :db/ident deref))
+       (pmap (fn [v]
+               (reduce (fn [entity term]
+                         (update entity term #(if (coll? %) % [%])))
+                       @v +props+)))
+       (reduce
+         (fn [h {:db/keys   [ident]
+                 :rdf/keys  [type]
+                 :rdfs/keys [subClassOf]
+                 :owl/keys  [sameAs equivalentClass]
+                 :as        entity}]
+           (if (and (or subClassOf
+                        equivalentClass
+                        (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
+                    (not (some #(isa? h % :rdf/Property) type)))
+             (deriving h entity (concat (filter keyword? type)
+                                        (filter keyword? subClassOf)))
+             h))
+         (derive (make-hierarchy) :rdfs/Resource :rdfs/Class))))
 
 (defn make-property-hierarchy
   [classes]
-  (transduce
-    cat-rdf-idents
-    (completing
-      (fn [h {:db/keys   [ident]
-              :rdf/keys  [type]
-              :rdfs/keys [subPropertyOf]
-              :owl/keys  [sameAs equivalentProperty]
-              :as        entity}]
-        (if (or subPropertyOf
-                equivalentProperty
-                (some #(isa? classes % :rdf/Property) type))
-          (deriving h entity (concat #_(filter #(isa? classes % :rdf/Property)
-                                             type)
-                                     (filter keyword? type)
-                                     (filter keyword? sameAs)
-                                     (filter keyword? subPropertyOf)
-                                     (filter keyword? equivalentProperty)))
-          h)))
-    (make-hierarchy)
-    (all-ns)))
+  (->> (all-ns)
+       (filter (comp :rdf/type meta))
+       (map ns-publics)
+       (mapcat vals)
+       (filter #(some +props+ (keys @%)))
+       (filter (comp qualified-keyword? :db/ident deref))
+       (pmap (fn [v]
+               (reduce (fn [entity term]
+                         (update entity term #(if (coll? %) % [%])))
+                       @v +props+)))
+       (reduce
+         (fn [h {:db/keys   [ident]
+                 :rdf/keys  [type]
+                 :rdfs/keys [subPropertyOf]
+                 :owl/keys  [equivalentProperty]
+                 :as        entity}]
+           (if (or subPropertyOf
+                   equivalentProperty
+                   (some #(isa? classes % :rdf/Property) type))
+             (deriving h entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
+                                        (filter keyword? subPropertyOf)))
+             h))
+         (make-hierarchy))))
 
 (defn make-metaobject-hierarchy
-  "Derives metaobjects from classes and properties and adds named
-  individuals."
-  ([]
-   (make-metaobject-hierarchy *classes* *properties*))
-  ([classes properties]
-   (transduce
-     cat-rdf-idents
-     (completing
-       (fn [h {:db/keys   [ident]
-               :rdf/keys  [type]
-               :rdfs/keys [subClassOf equivalentClass
-                           subPropertyOf equivalentProperty]
-               :skos/keys [broader]
-               :as        entity}]
-         (cond-> h
-           (seq (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
-           (deriving entity (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
-           
-           (seq (filter keyword? broader))
-           (deriving entity (filter keyword? broader))
-           
-           (or subPropertyOf
-               equivalentProperty
-               (some #(isa? classes % :rdf/Property) type))
-           (deriving entity
-                     (distinct
-                       (concat (filter keyword? subPropertyOf)
-                               (filter keyword? equivalentProperty)))))))
-     classes
-     (all-ns))))
+  [classes properties]
+  (->> (all-ns)
+       (filter (comp :rdf/type meta))
+       (map ns-publics)
+       (mapcat vals)
+       (filter #(some +props+ (keys @%)))
+       (filter (comp qualified-keyword? :db/ident deref))
+       (pmap (fn [v]
+               (reduce (fn [entity term]
+                         (update entity term #(if (coll? %) % [%])))
+                       @v +props+)))
+       (reduce
+         (fn [h {:db/keys   [ident]
+                 :rdf/keys  [type]
+                 :rdfs/keys [subClassOf equivalentClass
+                             subPropertyOf equivalentProperty]
+                 :skos/keys [broader]
+                 :as        entity}]
+           (cond-> h
+             (seq (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
+             (deriving entity (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
+             
+             (seq (filter keyword? broader))
+             (deriving entity (filter keyword? broader))
+             
+             (or subPropertyOf
+                 equivalentProperty
+                 (some #(isa? classes % :rdf/Property) type))
+             (deriving entity
+                       (distinct
+                         (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
+                                 (filter keyword? subPropertyOf))))))
+         classes)))
 
 (defn make-hierarchies
   []
-  (let [classes     (make-class-hierarchy)
-        properties  (make-property-hierarchy classes)
-        metaobjects (make-metaobject-hierarchy classes properties)]
-    {:classes     classes
-     :properties  properties
-     :metaobjects metaobjects}))
+  (let [classes     (future (make-class-hierarchy))
+        properties  (future (make-property-hierarchy @classes))
+        metaobjects (future (make-metaobject-hierarchy @classes properties))]
+    {:classes     @classes
+     :properties  @properties
+     :metaobjects @metaobjects}))
 
 (defn comp-isa?
   "isa? comparator"
   ([h x y]
    (cond
-     (identical? x y) 0
-     (= x y) 0
+     (= x y)      0
      (isa? h x y) -1
      (isa? h y x) 1
-     :else -1)))
-
-(defn compute-class-precedence-list
-  [tag]
-  (into [tag] (sort-by identity
-                       (partial comp-isa? *classes*)
-                       (disj (ancestors *classes* tag) :owl/Thing))))
-
-(defn compute-property-precedence-list
-  [tag]
-  (into [tag] (sort-by identity
-                       (partial comp-isa? *properties*)
-                       (ancestors *properties* tag))))
+     :else        -1)))
 
 (defrecord UniversalTranslator [ns-prefix target boot metaobjects]
   com/Lifecycle
@@ -249,7 +247,7 @@
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
-        (alter-var-root #'*properties* (constantly properties))
+        (alter-var-root #'*properties* (constantly properties))        
         (assoc this :metaobjects metaobjects))))
   (stop [this]
     (alter-var-root #'*classes* (constantly (make-hierarchy)))
@@ -398,7 +396,9 @@
                                                                           {prefix uri}
                                                                           {})
                                                                         (.getNsPrefixMap (.getPrefixMapping g)))
-                                                                  "ruleml")
+                                                                  "ruleml"
+                                                                  "obo1"
+                                                                  "oboInOwl2")
                                                           {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"}))]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
@@ -730,11 +730,6 @@
                            (:vann/preferredNamespacePrefix md))]
         (spit (str (or (:target arg-map) *target*)
                    (namespace-munge (str/replace prefix #"\." "/"))
-                   #_(let [p (namespace-munge prefix)
-                         s (str/split p #"\.")]
-                     (if (seq s)
-                       (peek s)
-                       p))
                    ".clj")
               (binding [*print-namespace-maps* nil
                         *print-meta*           true]
@@ -774,8 +769,8 @@
 (defmethod type-of clojure.lang.IPersistentMap
   [m]
   (let [rdf-type (:rdf/type m)]
-    (if (coll? rdf-type)
-      (first (sort-by identity (partial comp-isa? *classes*) rdf-type))
+    (if (sequential? rdf-type)
+      (first rdf-type)
       rdf-type)))
 
 (defmethod type-of clojure.lang.Keyword
@@ -870,11 +865,10 @@
     (println (:db/ident metaobject))
     (when-some [doc (:doc (meta (:var (meta metaobject))))]
       (println "  " doc))
-    (when-some [supers (next ((requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list)
-                              (:db/ident metaobject))
-                             #_(if (isa? *classes* (type metaobject) :rdf/Property)
-                               (compute-property-precedence-list (:db/ident metaobject))
-                               (compute-class-precedence-list (:db/ident metaobject))))]
+    (when-some [supers (some-> (:db/ident metaobject)
+                               ((requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list))
+                               (rest)
+                               (seq))]
       (println "  isa?")
       (reduce (fn [cnt class]
                 (println (str (apply str (repeat cnt \space)) class))
@@ -907,12 +901,11 @@
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
-      (dissoc (find-metaobject ident)
-              :mop/class-default-initargs
-              :mop/class-direct-default-initargs
-              :mop/class-direct-slots
-              :mop/class-precedence-list
-              :mop/class-slots)
+      (-> (find-metaobject ident)
+          (dissoc :mop/class-default-initargs
+                  :mop/class-direct-default-initargs)
+          (update :mop/class-slots #(mapv :db/ident %))
+          (update :mop/class-direct-slots #(mapv :db/ident %)))
 
       (qualified-symbol? ident)
       (resolve ident)
@@ -933,12 +926,24 @@
     (assoc form :db/id (str (random-uuid)))
     form))
 
+(defn unroll-missing-uris
+  [form]
+  (if (sequential? form)
+    (filterv (some-fn keyword? map?) form)
+    form))
+
 (def ^:dynamic *boot-keys*
-  [:db/ident
+  [:db/id
+   :db/ident
    :db/cardinality
    :db/valueType
    :db/isComponent
    :db/fulltext
+   :db/tupleAttrs
+   :db/tupleType
+   :db/tupleTypes
+   :db/fulltext
+   :db/unique
    :owl/annotatedTarget
    :owl/sourceIndividual
    :owl/propertyChainAxiom
@@ -1008,6 +1013,12 @@
    :schema/rangeIncludes
    :schema/domainIncludes])
 
+(defn unroll-nested-maps
+  [form]
+  (if (map? form)
+    (select-keys form *boot-keys*)
+    form))
+
 (extend-protocol Seed
   clojure.lang.Namespace
   (select-attributes [ns]
@@ -1029,7 +1040,7 @@
     (some->> (not-empty (select-keys m *boot-keys*))
              (walk/prewalk unroll-langString)
              (walk/prewalk unroll-blank)))
-
+  
   Boolean
   (select-attributes [bootstrap?]
     (let [xs (->> (all-ns)
@@ -1070,34 +1081,87 @@
          tx-data    (select-attributes bootstrap?)
          root       *boot-keys*]
      (binding [*boot-keys* (if bootstrap?
-                             [:db/ident :db/cardinality :db/valueType :db/isComponent]
+                             [:db/id
+                              :db/ident
+                              :db/cardinality
+                              :db/valueType
+                              :db/isComponent
+                              :db/fulltext
+                              :db/tupleAttrs
+                              :db/tupleType
+                              :db/tupleTypes
+                              :db/fulltext
+                              :db/unique]
                              root)]
        (when bootstrap?
          (doseq [part (partition-all 512 tx-data)]
            (transact conn {:tx-data part}))
          (doseq [part (->> (select-attributes false)
+                           (map #(select-keys % *boot-keys*))
                            (partition-all 512))]
            (transact conn {:tx-data part}))
          (doseq [part (->> (select-classes h)
+                           (map #(select-keys % *boot-keys*))
                            (partition-all 512))]
            (transact conn {:tx-data part}))
          (doseq [part (->> (select-properties h)
+                           (map #(select-keys % *boot-keys*))
                            (partition-all 512))]
            (transact conn {:tx-data part}))
          (set! *boot-keys* root)
          (doseq [part (->> (select-properties h)
                            (remove :rdfs/subPropertyOf)
+                           (map #(select-keys % *boot-keys*))
                            (partition-all 512))]
            (transact conn {:tx-data part}))
          (doseq [part (->> (select-properties h)
                            (filter :rdfs/subPropertyOf)
+                           (map #(select-keys % *boot-keys*))
                            (partition-all 512))]
            (transact conn {:tx-data part}))
          (doseq [part (->> (select-classes h)
                            (remove :rdfs/subClassOf)
+                           (map #(select-keys % *boot-keys*))
                            (partition-all 512))]
            (transact conn {:tx-data part}))
          (doseq [part (->> (select-classes h)
                            (filter :rdfs/subClassOf)
+                           (map #(select-keys % *boot-keys*))
                            (partition-all 512))]
            (transact conn {:tx-data part})))))))
+
+(defn test-bootstrap
+  [h conn]
+  (when-some [with-db (requiring-resolve 'datomic.client.api/with-db)]
+    (let [with (requiring-resolve 'datomic.client.api/with)
+          root *boot-keys*
+          rf (fn [db tx-data]
+              (try
+                (:db-after (with db {:tx-data [tx-data]}))
+                (catch Throwable ex
+                  (zprint/zprint (ex-data ex))
+                  (reduced tx-data))))]
+      (binding [*boot-keys* [:db/id
+                             :db/ident
+                             :db/cardinality
+                             :db/valueType
+                             :db/isComponent
+                             :db/fulltext
+                             :db/tupleAttrs
+                             :db/tupleType
+                             :db/tupleTypes
+                             :db/fulltext
+                             :db/unique]]
+        (as-> (reduce rf (with-db conn) (select-attributes true)) db
+          (reduce rf db (select-attributes false))
+          (reduce rf db (select-classes h))
+          (reduce rf db (select-properties h))
+          (do (set! *boot-keys* root) db)
+          (reduce rf db (->> (select-properties h)
+                             (remove :rdfs/subPropertyOf)))
+          (reduce rf db (->> (select-properties h)
+                             (filter :rdfs/subPropertyOf)))
+          (reduce rf db (->> (select-classes h)
+                             (remove :rdfs/subClassOf)))
+          (reduce rf db (->> (select-classes h)
+                             (filter :rdfs/subClassOf))))))))
