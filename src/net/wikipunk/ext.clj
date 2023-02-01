@@ -555,3 +555,14 @@
   {:rdfa/prefix "iso639-1"
    :rdfa/uri    "https://id.loc.gov/vocabulary/iso639-1/"
    :rdf/type    :rdfa/PrefixMapping})
+
+(def loc
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://id.loc.gov/vocabulary/identifiers"
+   :rdfa/prefix "loc"})
+
+(def mads
+  {:dcat/downloadURL "resources/mads.rdf"
+   :rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.loc.gov/mads/rdf/v1#"
+   :rdfa/prefix "mads"})

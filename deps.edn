@@ -14,7 +14,7 @@
   {:mvn/version "1.2.4"}
   zprint/zprint
   {:mvn/version "1.2.4"}}
- :paths ["src" "classes"]
+ :paths ["src" "classes" "resources"]
  :aliases
  {:dev
   {:extra-deps
