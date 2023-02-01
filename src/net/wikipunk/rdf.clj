@@ -923,12 +923,12 @@
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
-      (->> (some-> (find-metaobject ident)
-                   (dissoc :mop/class-default-initargs
-                           :mop/class-direct-default-initargs
-                           :mop/slot-initfunction)
+      (->> (when-some [mo (find-metaobject ident)]
+             (if (isa? *properties* ident :rdf/Property)
+               (dissoc mo :mop/slot-initfunction)
+               (-> mo
                    (update :mop/class-slots #(mapv :db/ident %))
-                   (update :mop/class-direct-slots #(mapv :db/ident %)))
+                   (update :mop/class-direct-slots #(mapv :db/ident %)))))
            (walk/prewalk unroll-langString))
 
       (qualified-symbol? ident)
