@@ -870,7 +870,7 @@
     (println (:db/ident metaobject))
     (when-some [doc (:doc (meta (:var (meta metaobject))))]
       (println "  " doc))
-    (when-some [supers (next (:mop/class-precedence-list metaobject))]
+    (when-some [supers (next ((requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list) metaobject))]
       (println "  isa?")
       (reduce (fn [cnt class]
                 (println (str (apply str (repeat cnt \space)) class))
