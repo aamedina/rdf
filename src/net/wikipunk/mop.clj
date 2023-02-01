@@ -462,11 +462,7 @@
     [ident (type env)])
   :hierarchy #'net.wikipunk.temple/*tree-of-life*)
 
-(defmethod find-class-using-env [:rdfs/Class nil]
-  [ident env]
-  (rdf/find-metaobject ident))
-
-(defmethod find-class-using-env [:rdf/Property nil]
+(defmethod find-class-using-env :default
   [ident env]
   (rdf/find-metaobject ident))
 

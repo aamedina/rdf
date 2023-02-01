@@ -815,30 +815,32 @@
             (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident))
             (ns-resolve (get *ns-aliases* (str/upper-case prefix)) (unmunge ident))))
       (catch Throwable ex
-        (if (and (contains? *ns-aliases* prefix)
+        #_(if (and (contains? *ns-aliases* prefix)
                  (nil? (get *ns-aliases* prefix)))
           (do
             (println "requiring" (str "net.wikipunk.rdf." prefix))
             (require (symbol (str "net.wikipunk.rdf." prefix)))
             (ns-resolve (symbol (str "net.wikipunk.rdf." prefix)) (unmunge ident)))
-          (throw (ex-info "Could not resolve OBO metaobject" {:ident ident} ex)))))))
+          (throw (ex-info "Could not resolve OBO metaobject" {:ident ident})))
+        nil))))
 
 (defn find-metaobject
   [ident]
   (when (qualified-keyword? ident)
-    (if *env*
-      ((requiring-resolve 'datomic.client.api/pull) *env* '[*] ident)
-      (when-some [var (if (= (namespace ident) "obo")
-                        (find-obo-metaobject ident)
+    (when-some [var (if (= (namespace ident) "obo")
+                      (find-obo-metaobject ident)
+                      (try
                         (resolve
                           (symbol
                             (str (or (get *ns-aliases* (namespace ident))
                                      (get (ns-aliases *ns*) (symbol (namespace ident)))))
-                            (name (unmunge ident)))))]
-        (with-meta @var {:var var :type (or (and (keyword? (type var))
-                                                 (type var))
-                                            (:type (alter-meta! var assoc :type (type-of @var)))
-                                            :rdfs/Resource)})))))
+                            (name (unmunge ident))))
+                        (catch Throwable ex
+                          nil)))]
+      (with-meta @var {:var var :type (or (and (keyword? (type var))
+                                               (type var))
+                                          (:type (alter-meta! var assoc :type (type-of @var)))
+                                          :rdfs/Resource)}))))
 
 (extend-protocol LinkedData
   clojure.lang.IPersistentCollection
@@ -868,10 +870,7 @@
     (println (:db/ident metaobject))
     (when-some [doc (:doc (meta (:var (meta metaobject))))]
       (println "  " doc))
-    (when-some [supers (some-> (:db/ident metaobject)
-                               ((requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list))
-                               (rest)
-                               (seq))]
+    (when-some [supers (next (:mop/class-precedence-list metaobject))]
       (println "  isa?")
       (reduce (fn [cnt class]
                 (println (str (apply str (repeat cnt \space)) class))
@@ -899,23 +898,6 @@
       (resolve name) `(#'clojure.repl/print-doc (meta (var ~name)))
       :else nil)))
 
-(extend-protocol clojure.core.protocols/Datafiable
-  clojure.lang.Named
-  (datafy [ident]
-    (cond
-      (qualified-keyword? ident)
-      (-> (find-metaobject ident)
-          (dissoc :mop/class-default-initargs
-                  :mop/class-direct-default-initargs
-                  :mop/slot-initfunction)
-          (update :mop/class-slots #(mapv :db/ident %))
-          (update :mop/class-direct-slots #(mapv :db/ident %)))
-
-      (qualified-symbol? ident)
-      (resolve ident)
-
-      :else (find-ns (symbol ident)))))
-
 (defn unroll-langString
   [form]
   (if (and (:rdf/language form) (:rdf/value form))
@@ -935,6 +917,24 @@
   (if (sequential? form)
     (filterv (some-fn keyword? map?) form)
     form))
+
+(extend-protocol clojure.core.protocols/Datafiable
+  clojure.lang.Named
+  (datafy [ident]
+    (cond
+      (qualified-keyword? ident)
+      (->> (some-> (find-metaobject ident)
+                   (dissoc :mop/class-default-initargs
+                           :mop/class-direct-default-initargs
+                           :mop/slot-initfunction)
+                   (update :mop/class-slots #(mapv :db/ident %))
+                   (update :mop/class-direct-slots #(mapv :db/ident %)))
+           (walk/prewalk unroll-langString))
+
+      (qualified-symbol? ident)
+      (resolve ident)
+
+      :else (find-ns (symbol ident)))))
 
 (def ^:dynamic *boot-keys*
   [:db/id
