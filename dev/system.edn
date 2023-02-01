@@ -70,4 +70,5 @@
                         net.wikipunk.ext/lcc-3166-2-ca
                         net.wikipunk.ext/lcc-3166-2-gb
                         net.wikipunk.ext/lcc-3166-2-mx
-                        net.wikipunk.ext/lcc-3166-2-us]}}
+                        net.wikipunk.ext/lcc-3166-2-us]
+         :init-ns      net.wikipunk.mop.init}}

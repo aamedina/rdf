@@ -6,8 +6,7 @@
   Docstrings based on AMOP."
   {:rdfs/seeAlso ["http://www.lispworks.com/documentation/lw80/MOP/mop/index.html"]}
   (:require
-   [net.wikipunk.temple :as temple]
-   [net.wikipunk.rdf :as rdf])
+   [net.wikipunk.temple :as temple])
   (:refer-clojure :exclude [isa? ancestors parents descendants]))
 
 (defn isa?
@@ -462,10 +461,6 @@
     [ident (type env)])
   :hierarchy #'net.wikipunk.temple/*tree-of-life*)
 
-(defmethod find-class-using-env :default
-  [ident env]
-  (rdf/find-metaobject ident))
-
 (defn find-class
   "Finds a class by name."
   ([ident]
@@ -586,7 +581,7 @@
 (defn slot-bound?
   "Returns true if the slot named slot-name in instance is bound; otherwise, returns false."
   [object slot-name]
-  (slot-bound-using-class? (class-of object) object (rdf/find-metaobject slot-name)))
+  (slot-bound-using-class? (class-of object) object (find-class slot-name)))
 
 (defmulti slot-definition-allocation
   "Returns the allocation of slot. This is a symbol. This is the
@@ -680,7 +675,7 @@
 (defn slot-exists?
   "Returns true if the object has a slot named slot-name."
   [object slot-name]
-  (slot-exists-using-class? (class-of object) object (rdf/find-metaobject slot-name)))
+  (slot-exists-using-class? (class-of object) object (find-class slot-name)))
 
 (defmulti slot-makunbound-using-class
   "This multimethod implements the behavior of the
@@ -702,7 +697,7 @@
 (defn slot-makunbound
   "Restores a slot of the name slot-name in an instance to the unbound state."
   [instance slot-name]
-  (slot-makunbound-using-class (class-of instance) instance (rdf/find-metaobject slot-name)))
+  (slot-makunbound-using-class (class-of instance) instance (find-class slot-name)))
 
 (defmulti slot-missing
   "The multimethod slot-missing is invoked when an attempt is
@@ -744,7 +739,7 @@
 
 (defn slot-value
   [object slot-name]
-  (slot-value-using-class (class-of object) object (rdf/find-metaobject slot-name)))
+  (slot-value-using-class (class-of object) object (find-class slot-name)))
 
 (defmulti set-slot-value-using-class
   "The multimethod set-slot-value-using-class implements the behavior
@@ -767,7 +762,7 @@
 (defn set-slot-value
   "(setf slot-value)"
   [object slot-name slot-value]
-  (set-slot-value-using-class (class-of object) object (rdf/find-metaobject slot-name) slot-value))
+  (set-slot-value-using-class (class-of object) object (find-class slot-name) slot-value))
 
 (defmulti update-dependent
   "This multimethod is called to update a dependent of

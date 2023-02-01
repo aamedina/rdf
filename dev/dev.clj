@@ -27,7 +27,9 @@
    [net.wikipunk.boot :as boot]
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
-   [zprint.core :as zprint]))
+   [net.wikipunk.mop :as mop :refer [isa? descendants parents ancestors]]
+   [zprint.core :as zprint])
+  (:refer-clojure :exclude [isa? descendants parents ancestors]))
 
 (set-init
   (fn [_]

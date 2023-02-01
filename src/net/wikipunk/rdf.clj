@@ -13,6 +13,11 @@
    [clojure.walk :as walk]   
    [com.stuartsierra.component :as com]
    [net.wikipunk.boot :as boot]
+   [net.wikipunk.mop :as mop]
+   [net.wikipunk.rdf.rdf]
+   [net.wikipunk.rdf.rdfs]
+   [net.wikipunk.rdf.owl]
+   [net.wikipunk.rdf.xsd]
    [zprint.core :as zprint])
   (:import
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
@@ -48,6 +53,15 @@
 (def ^:dynamic *properties*
   "rdf:Property"
   (make-hierarchy))
+
+(def ^:dynamic *metaobjects*
+  "A Clojure multimethod hierarchy combining rdf/*classes*,
+  rdf/*properties*, and instances of :owl/NamedIndividual."
+  (make-hierarchy))
+
+(def ^:dynamic *indexes*
+  "A map of useful indexes."
+  {})
 
 (def ^:dynamic *ns-aliases*
   {})
@@ -240,7 +254,9 @@
      (isa? h y x) 1
      :else        -1)))
 
-(defrecord UniversalTranslator [ns-prefix target boot metaobjects]
+(declare finalize setup-indexes)
+
+(defrecord UniversalTranslator [ns-prefix target boot init-ns]
   com/Lifecycle
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
@@ -250,12 +266,20 @@
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
-        (alter-var-root #'*properties* (constantly properties))        
-        (assoc this :metaobjects metaobjects))))
+        (alter-var-root #'*properties* (constantly properties))
+        (alter-var-root #'*metaobjects* (constantly metaobjects))
+        (when-let [init-ns (and (symbol? init-ns)
+                                (do (require init-ns :reload)
+                                    (find-ns init-ns)))]
+          (alter-var-root (requiring-resolve 'net.wikipunk.temple/*tree-of-life*) (constantly metaobjects))
+          (let [indexes (setup-indexes classes properties)]
+            (alter-var-root #'*indexes* (constantly indexes))
+            (finalize)))
+        this)))
   (stop [this]
     (alter-var-root #'*classes* (constantly (make-hierarchy)))
     (alter-var-root #'*properties* (constantly (make-hierarchy)))
-    (assoc this :metaobjects nil))
+    this)
 
   NamespaceSpitter
   (emit [_ arg-map]
@@ -815,13 +839,14 @@
             (ns-resolve (get *ns-aliases* (str/lower-case prefix)) (unmunge ident))
             (ns-resolve (get *ns-aliases* (str/upper-case prefix)) (unmunge ident))))
       (catch Throwable ex
-        #_(if (and (contains? *ns-aliases* prefix)
-                 (nil? (get *ns-aliases* prefix)))
-          (do
-            (println "requiring" (str "net.wikipunk.rdf." prefix))
-            (require (symbol (str "net.wikipunk.rdf." prefix)))
-            (ns-resolve (symbol (str "net.wikipunk.rdf." prefix)) (unmunge ident)))
-          (throw (ex-info "Could not resolve OBO metaobject" {:ident ident})))
+        (when (= *assert* :obo)
+          (if (and (contains? *ns-aliases* prefix)
+                   (nil? (get *ns-aliases* prefix)))
+            (do
+              (println "requiring" (str "net.wikipunk.rdf." prefix))
+              (require (symbol (str "net.wikipunk.rdf." prefix)))
+              (ns-resolve (symbol (str "net.wikipunk.rdf." prefix)) (unmunge ident)))
+            (throw (ex-info "Could not resolve OBO metaobject" {:ident ident}))))
         nil))))
 
 (defn find-metaobject
@@ -924,11 +949,10 @@
     (cond
       (qualified-keyword? ident)
       (->> (when-some [mo (find-metaobject ident)]
-             (if (isa? *properties* ident :rdf/Property)
-               (dissoc mo :mop/slot-initfunction)
-               (-> mo
-                   (update :mop/class-slots #(mapv :db/ident %))
-                   (update :mop/class-direct-slots #(mapv :db/ident %)))))
+             (-> mo
+                 (dissoc :mop/slot-initfunction)
+                 (update :mop/class-slots #(mapv :db/ident %))
+                 (update :mop/class-direct-slots #(mapv :db/ident %))))
            (walk/prewalk unroll-langString))
 
       (qualified-symbol? ident)
@@ -1074,9 +1098,7 @@
   "warning: very experimental
 
   requires datomic.client.api on the classpath"
-  ([conn]
-   (bootstrap @(requiring-resolve 'net.wikipunk.temple/*tree-of-life*) conn
-              :force? false))
+  ([conn] (bootstrap *metaobjects* conn :force? false))
   ([h conn & {:keys [force?]}]
    (let [db-stats   (requiring-resolve 'datomic.client.api/db-stats)
          db         (requiring-resolve 'datomic.client.api/db)
@@ -1169,3 +1191,90 @@
                              (remove :rdfs/subClassOf)))
           (reduce rf db (->> (select-classes h)
                              (filter :rdfs/subClassOf))))))))
+
+(defn- unroll-term
+  [x]
+  (cond
+    (keyword? x) #{x}
+    
+    (map? x) (or (:owl/unionOf x)
+                 (:owl/intersectionOf x)
+                 (:owl/oneOf x))
+    
+    (sequential? x) (into #{} (mapcat unroll-term) x)
+
+    :else #{}))
+
+(defn- unroll-for-index
+  [ident]
+  (reduce (fn [mo term]
+            (if (contains? mo term)
+              (let [mo' (update mo term unroll-term)]
+                (if (get mo' term)
+                  mo'
+                  (dissoc mo' term)))
+              mo))
+          (find-metaobject ident)
+          #{:rdf/type
+            :rdfs/domain
+            :rdfs/range
+            :schema/domainIncludes
+            :schema/rangeIncludes
+            :rdfs/subClassOf
+            :rdfs/subPropertyOf
+            :d3fend/identifies
+            :skos/broader}))
+
+(defn setup-indexes
+  ([]
+   (setup-indexes *classes* *properties*))
+  ([classes properties]
+   (let [classes (into [] (pmap unroll-for-index (keys (:parents classes))))
+         slots   (into [] (pmap unroll-for-index (keys (:parents properties))))]
+     {:classes/by-type
+      (dissoc (group-by :rdf/type classes) nil)
+      :classes/by-subclass
+      (dissoc (group-by :rdfs/subClassOf classes) nil)
+      :slots/by-type
+      (dissoc (group-by :rdf/type slots) nil)
+      :slots/by-domain
+      (reduce-kv (fn [m domain slots]
+                   (reduce (fn [m k]
+                             (update m k (fnil into []) slots))
+                           m domain))
+                 {}
+                 (dissoc (group-by (fn [slot]
+                                     (set/union (:rdfs/domain slot)
+                                                (:schema/domainIncludes slot)
+                                                (:d3fend/identifies slot)))
+                                   slots)
+                         nil))
+      :slots/by-range
+      (reduce-kv (fn [m domain slots]
+                   (reduce (fn [m k]
+                             (update m k (fnil into []) slots))
+                           m domain))
+                 {}
+                 (dissoc (group-by (fn [slot]
+                                     (set/union (:rdfs/range slot)
+                                                (:schema/rangeIncludes slot)))
+                                   slots)
+                         nil))
+      
+      :slots/by-subproperty
+      (dissoc (group-by :rdfs/subPropertyOf slots) nil)})))
+
+
+(defn finalize
+  "Finalizes all of the loaded classes."
+  ([] (finalize true (keys (:parents *metaobjects*))))
+  ([force? metaobjects]
+   (dorun
+     (pmap (fn [ident]
+             (if-some [mo (find-metaobject ident)]
+               (do
+                 (when (or force? (not (mop/class-finalized? mo)))
+                   (mop/finalize-inheritance mo)))
+               (throw (ex-info "Could not locate metaobject" {:ident ident}))))
+           metaobjects))))
+

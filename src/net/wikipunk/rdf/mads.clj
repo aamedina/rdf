@@ -952,7 +952,7 @@
 (def gender
   "The gender with which a person identifies."
   {:db/ident     :mads/gender,
-   :rdf/type     :owl/DataTypeProperty,
+   :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment "The gender with which a person identifies. ",
    :rdfs/domain  :mads/RWO,
    :rdfs/label   "Gender"})
