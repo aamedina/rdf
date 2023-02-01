@@ -558,7 +558,7 @@
 
 (def loc
   {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://id.loc.gov/vocabulary/identifiers"
+   :rdfa/uri    "http://id.loc.gov/vocabulary/identifiers/"
    :rdfa/prefix "loc"})
 
 (def mads
@@ -566,3 +566,9 @@
    :rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.loc.gov/mads/rdf/v1#"
    :rdfa/prefix "mads"})
+
+(def bibframe
+  {:dcat/downloadURL "https://id.loc.gov/ontologies/bibframe.rdf"
+   :rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://id.loc.gov/ontologies/bibframe/"
+   :rdfa/prefix "bibframe"})
