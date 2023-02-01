@@ -154,7 +154,8 @@
                         (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
                     (not (some #(isa? h % :rdf/Property) type)))
              (deriving h entity (concat (filter keyword? type)
-                                        (filter keyword? subClassOf)))
+                                        (filter keyword? subClassOf)
+                                        (filter keyword? equivalentClass)))
              h))
          (derive (make-hierarchy) :rdfs/Resource :rdfs/Class))))
 
@@ -180,7 +181,8 @@
                    equivalentProperty
                    (some #(isa? classes % :rdf/Property) type))
              (deriving h entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
-                                        (filter keyword? subPropertyOf)))
+                                        (filter keyword? subPropertyOf)
+                                        (filter keyword? equivalentProperty)))
              h))
          (make-hierarchy))))
 
@@ -216,7 +218,8 @@
              (deriving entity
                        (distinct
                          (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
-                                 (filter keyword? subPropertyOf))))))
+                                 (filter keyword? subPropertyOf)
+                                 (filter keyword? equivalentProperty))))))
          classes)))
 
 (defn make-hierarchies
