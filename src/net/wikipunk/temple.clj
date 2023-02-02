@@ -15,7 +15,6 @@
   com/Lifecycle
   (start [this]
     (let []
-      #_(alter-var-root #'*tree-of-life* (constantly rdf/*metaobjects*))
       (when-some [conn (:conn rdf)]
         ((requiring-resolve 'net.wikipunk.rdf/bootstrap) *tree-of-life* conn :force? false))
       this))

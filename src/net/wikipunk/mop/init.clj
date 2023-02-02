@@ -3,7 +3,6 @@
   (:require
    [clojure.datafy :refer [datafy]]
    [clojure.set :as set]
-   [datomic.client.api :as d]
    [net.wikipunk.mop :as mop :refer [isa? ancestors descendants parents]]
    [net.wikipunk.rdf :as rdf])
   (:refer-clojure :exclude [isa? ancestors descendants parents]))
@@ -372,14 +371,6 @@
 (defmethod mop/compute-class-precedence-list clojure.lang.Keyword
   [class]
   (mop/compute-class-precedence-list (mop/find-class class)))
-
-(defmethod mop/find-class-using-env [:rdfs/Class datomic.client.api.protocols.Connection]
-  [ident conn]
-  (mop/find-class-using-env ident (d/db conn)))
-
-(defmethod mop/find-class-using-env [:rdfs/Class datomic.client.api.protocols.Db]
-  [ident db]
-  (d/pull db '[*] ident))
 
 (defmethod mop/make-instances-obsolete clojure.lang.Keyword
   [class]
