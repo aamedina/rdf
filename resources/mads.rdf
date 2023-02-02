@@ -563,7 +563,7 @@
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The gender with which a person identifies. </rdfs:comment>
     <rdfs:domain rdf:resource="http://www.loc.gov/mads/rdf/v1#RWO"/>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gender</rdfs:label>
-  </owl:DataTypeProperty>
+  </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://www.loc.gov/mads/rdf/v1#hasAbbreviationVariant" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns="http://www.loc.gov/mads/rdf/v1#">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Has Abbreviation Variant</rdfs:label>
     <rdfs:subPropertyOf rdf:resource="http://www.loc.gov/mads/rdf/v1#hasVariant"/>

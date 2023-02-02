@@ -561,20 +561,24 @@
    :rdfa/uri    "http://id.loc.gov/vocabulary/identifiers/"
    :rdfa/prefix "loc"})
 
-(def mads
+(def madsrdf
   {:dcat/downloadURL "resources/mads.rdf"
    :rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.loc.gov/mads/rdf/v1#"
-   :rdfa/prefix "mads"})
+   :rdfa/prefix "madsrdf"})
 
 (def bibframe
   {:dcat/downloadURL "https://id.loc.gov/ontologies/bibframe.rdf"
    :rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://id.loc.gov/ontologies/bibframe/"
-   :rdfa/prefix "bibframe"})
+   :rdfa/prefix "bf"})
 
 (def premis
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.loc.gov/premis/rdf/v3/"
    :rdfa/prefix "premis"})
 
+(def bflc
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://id.loc.gov/ontologies/bflc/"
+   :rdfa/prefix "bflc"})
