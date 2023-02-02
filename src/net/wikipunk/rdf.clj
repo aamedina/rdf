@@ -3,6 +3,7 @@
   (:require
    [arachne.aristotle.registry :as reg]
    [arachne.aristotle.graph :as g]
+   [clojure.tools.logging :as log]
    [clojure.core.memoize :as memo]
    [clojure.core.protocols :refer [coll-reduce]]
    [clojure.core.reducers :as r :refer [fold]]
@@ -108,9 +109,9 @@
                                     :prefixes' {}
                                     :aliases   {}
                                     :aliases'  {}}
-                                 true
-                                 "dcterms"
-                                 "http://purl.org/dc/terms/")
+                                   true
+                                   "dcterms"
+                                   "http://purl.org/dc/terms/")
        :ns-aliases {}}
       (all-ns))))
 
@@ -261,7 +262,7 @@
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [{:keys [registry ns-aliases]} (make-boot-context)
+      (let [{:keys [registry ns-aliases]}            (make-boot-context)
             {:keys [classes properties metaobjects]} (make-hierarchies)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
@@ -392,15 +393,19 @@
 
   Node_Literal
   (data [n]
-    (if (= XSDDatatype/XSDdateTime (.getLiteralDatatype n))
-      (.getTime (.asCalendar ^XSDDateTime (.getLiteralValue n)))
-      (if-let [lang (not-empty (.getLiteralLanguage n))]
-        {:rdf/value    (.getLiteralValue n)
-         :rdf/language lang}
-        (let [value (.getLiteralValue n)]
-          (if (instance? BaseDatatype$TypedValue value)
-            (.-lexicalValue value)
-            value))))))
+    (try
+      (if (= XSDDatatype/XSDdateTime (.getLiteralDatatype n))
+        (.getTime (.asCalendar ^XSDDateTime (.getLiteralValue n)))
+        (if-let [lang (not-empty (.getLiteralLanguage n))]
+          {:rdf/value    (.getLiteralValue n)
+           :rdf/language lang}
+          (let [value (.getLiteralValue n)]
+            (if (instance? BaseDatatype$TypedValue value)
+              (.-lexicalValue value)
+              value))))
+      (catch org.apache.jena.datatypes.DatatypeFormatException ex
+        (log/warn (.getMessage ex))
+        (str n)))))
 
 (extend-protocol Parsable
   clojure.lang.IPersistentMap
@@ -439,6 +444,10 @@
                                                  objects)])))
                                    (group-by #(.getPredicate ^Triple %) triples))))
                       (group-by #(.getSubject ^Triple %) (into [] g))))))
+
+  clojure.lang.Keyword
+  (parse [ident]
+    (parse (reg/iri ident)))
 
   clojure.lang.Named
   (parse [ident]
@@ -495,8 +504,8 @@
            (contains? form :rdfs/seeAlso))
     (let [seeAlso  (:rdfs/seeAlso form)
           seeAlso  (if (sequential? seeAlso)
-                    seeAlso
-                    [seeAlso])
+                     seeAlso
+                     [seeAlso])
           seeAlso' (mapv (fn [x]
                            (if (keyword? x)
                              (reg/iri x)
@@ -619,13 +628,13 @@
                                           [(:rdf/type form)])))))
         the-ont    (or (first ontologies)
                        (first (filter :rdf/uri (remove public? forms))))
-        forms (filter #(keyword? (:db/ident %)) forms)
-        publics (filter public? forms)
-        privates (->> (remove public? forms)
-                      (remove (fn [form]
-                                (contains? #{"rdf" "rdfs" "owl" "xsd" "dcterms" "dc11"}
-                                           (namespace (:db/ident form)))))
-                      (map #(assoc % :private true)))]
+        forms      (filter #(keyword? (:db/ident %)) forms)
+        publics    (filter public? forms)
+        privates   (->> (remove public? forms)
+                        (remove (fn [form]
+                                  (contains? #{"rdf" "rdfs" "owl" "xsd" "dcterms" "dc11"}
+                                             (namespace (:db/ident form)))))
+                        (map #(assoc % :private true)))]
     (with-meta (concat (sort-by :db/ident publics)
                        (sort-by :db/ident privates))
       (merge md the-ont))))
@@ -636,6 +645,20 @@
   [model]
   (let [forms      (unroll-forms model)
         md         (meta forms)
+        forms      (->> forms
+                        ;; todo: refactor this into a multimethod
+                        (map (fn [form]
+                               (if (isa? *classes* (:rdf/type form) :madsrdf/Authority)
+                                 (try
+                                   (-> (group-by :db/ident (unroll-forms (parse (reg/iri (:db/ident form)))))
+                                       (get (:db/ident form))
+                                       (first)
+                                       (merge form)
+                                       (dissoc :private))
+                                   (catch Throwable ex
+                                     (println (:db/ident form) (.getMessage ex))
+                                     form))
+                                 form))))        
         exclusions (->> forms
                         (filter (comp qualified-keyword? :db/ident))
                         (map (comp symbol name :db/ident))
@@ -658,8 +681,8 @@
                                            'null
 
                                            :else (symbol (str/replace (name sym) #"#" "")))
-                                     sym (if (:private v) (with-meta sym {:private true}) sym)
-                                     v (if (:private v) (dissoc v :private) v)
+                                     sym       (if (:private v) (with-meta sym {:private true}) sym)
+                                     v         (if (:private v) (dissoc v :private) v)
                                      docstring (or (some-> (:lv2/documentation v))
                                                    (:dcterms/abstract v)
                                                    (:dcterms/description v)
@@ -917,14 +940,14 @@
     `(#'clojure.repl/print-doc (#'clojure.repl/special-doc '~special-name))
     (cond
       (@#'clojure.repl/special-doc-map name) `(#'clojure.repl/print-doc (#'clojure.repl/special-doc '~name))
-      (qualified-keyword? name) `(#'print-doc ~name)
-      (keyword? name) `(when-some [ns# (get *ns-aliases* (clojure.core/name ~name))]
-                         (#'clojure.repl/print-doc (#'clojure.repl/namespace-doc ns#)))
-      (find-ns name) `(some-> (find-ns '~name)
-                              (#'clojure.repl/namespace-doc)
-                              (#'clojure.repl/print-doc))
-      (resolve name) `(#'clojure.repl/print-doc (meta (var ~name)))
-      :else nil)))
+      (qualified-keyword? name)              `(#'print-doc ~name)
+      (keyword? name)                        `(when-some [ns# (get *ns-aliases* (clojure.core/name ~name))]
+                                                (#'clojure.repl/print-doc (#'clojure.repl/namespace-doc ns#)))
+      (find-ns name)                         `(some-> (find-ns '~name)
+                                                      (#'clojure.repl/namespace-doc)
+                                                      (#'clojure.repl/print-doc))
+      (resolve name)                         `(#'clojure.repl/print-doc (meta (var ~name)))
+      :else                                  nil)))
 
 (defn unroll-langString
   [form]
@@ -1164,12 +1187,12 @@
   (when-some [with-db (requiring-resolve 'datomic.client.api/with-db)]
     (let [with (requiring-resolve 'datomic.client.api/with)
           root *boot-keys*
-          rf (fn [db tx-data]
-              (try
-                (:db-after (with db {:tx-data [tx-data]}))
-                (catch Throwable ex
-                  (zprint/zprint (ex-data ex))
-                  (reduced tx-data))))]
+          rf   (fn [db tx-data]
+                 (try
+                   (:db-after (with db {:tx-data [tx-data]}))
+                   (catch Throwable ex
+                     (zprint/zprint (ex-data ex))
+                     (reduced tx-data))))]
       (binding [*boot-keys* [:db/id
                              :db/ident
                              :db/cardinality
