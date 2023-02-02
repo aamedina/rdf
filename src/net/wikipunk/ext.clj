@@ -572,3 +572,9 @@
    :rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://id.loc.gov/ontologies/bibframe/"
    :rdfa/prefix "bibframe"})
+
+(def premis
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.loc.gov/premis/rdf/v3/"
+   :rdfa/prefix "premis"})
+
