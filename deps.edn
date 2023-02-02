@@ -4,7 +4,7 @@
   io.github.arachne-framework/aristotle
   {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
   org.apache.jena/apache-jena-libs
-  {:mvn/version "4.6.1"
+  {:mvn/version "4.7.0"
    :extension   "pom"}
   org.clojure/clojure
   {:mvn/version "1.11.1"}
