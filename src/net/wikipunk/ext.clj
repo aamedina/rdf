@@ -556,11 +556,6 @@
    :rdfa/uri    "https://id.loc.gov/vocabulary/iso639-1/"
    :rdf/type    :rdfa/PrefixMapping})
 
-(def loc
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://id.loc.gov/vocabulary/identifiers/"
-   :rdfa/prefix "loc"})
-
 (def madsrdf
   {:dcat/downloadURL "resources/mads.rdf"
    :rdf/type    :rdfa/PrefixMapping
@@ -582,3 +577,10 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://id.loc.gov/ontologies/bflc/"
    :rdfa/prefix "bflc"})
+
+(def changeset
+  {:dcat/downloadURL "https://vocab.org/changeset/schema-20090518.rdf"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://purl.org/vocab/changeset/schema#"
+   :rdfa/prefix      "changeset"})
+
