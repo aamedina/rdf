@@ -582,5 +582,5 @@
   {:dcat/downloadURL "https://vocab.org/changeset/schema-20090518.rdf"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://purl.org/vocab/changeset/schema#"
-   :rdfa/prefix      "changeset"})
+   :rdfa/prefix      "cs"})
 

@@ -1,4 +1,4 @@
-(ns net.wikipunk.rdf.changeset
+(ns net.wikipunk.rdf.cs
   "Changeset"
   {:dcat/downloadURL "https://vocab.org/changeset/schema-20090518.rdf",
    :dcterms/creator ["http://iandavis.com/id/me" "Sam Tunnicliffe"],
@@ -10,19 +10,19 @@
    :dcterms/rights "Copyright © 2005 Talis Information Ltd.",
    :dcterms/title {:rdf/language "en",
                    :rdf/value    "Changeset"},
-   :rdf/ns-prefix-map {"cc" "http://web.resource.org/cc/",
-                       "changeset" "http://purl.org/vocab/changeset/schema#",
+   :rdf/ns-prefix-map {"cc"       "http://web.resource.org/cc/",
+                       "cs"       "http://purl.org/vocab/changeset/schema#",
                        "dcmitype" "http://purl.org/dc/dcmitype/",
-                       "dcterms" "http://purl.org/dc/terms/",
-                       "foaf" "http://xmlns.com/foaf/0.1/",
-                       "owl" "http://www.w3.org/2002/07/owl#",
-                       "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
-                       "skos" "http://www.w3.org/2004/02/skos/core#",
-                       "vann" "http://purl.org/vocab/vann/"},
+                       "dcterms"  "http://purl.org/dc/terms/",
+                       "foaf"     "http://xmlns.com/foaf/0.1/",
+                       "owl"      "http://www.w3.org/2002/07/owl#",
+                       "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
+                       "skos"     "http://www.w3.org/2004/02/skos/core#",
+                       "vann"     "http://purl.org/vocab/vann/"},
    :rdf/type :owl/Ontology,
    :rdf/uri "http://purl.org/vocab/changeset/schema",
-   :rdfa/prefix "changeset",
+   :rdfa/prefix "cs",
    :rdfa/uri "http://purl.org/vocab/changeset/schema#",
    :rdfs/comment
    [{:rdf/language "en",
@@ -32,23 +32,23 @@
      :rdf/value
      "\n      This vocabulary defines a set of terms for describing changes to resource descriptions.\n    "}],
    :skos/changeNote [{:dcterms/creator "http://iandavis.com/id/me",
-                      :dcterms/date    "2006-06-23",
-                      :rdfs/label      {:rdf/language "en",
-                                        :rdf/value    "Fixed invalid RDF"}}
-                     {:dcterms/creator "http://iandavis.com/id/me",
                       :dcterms/date    "2006-03-21",
                       :rdfs/label      {:rdf/language "en",
-                                        :rdf/value "Improved documentation"}}],
+                                        :rdf/value    "Improved documentation"}}
+                     {:dcterms/creator "http://iandavis.com/id/me",
+                      :dcterms/date    "2006-06-23",
+                      :rdfs/label      {:rdf/language "en",
+                                        :rdf/value    "Fixed invalid RDF"}}],
    :skos/historyNote
    [{:dcterms/creator "http://iandavis.com/id/me",
-     :dcterms/date    "2006-03-21",
-     :rdfs/label      {:rdf/language "en",
-                       :rdf/value    "Introduced statement property"}}
-    {:dcterms/creator "http://iandavis.com/id/me",
      :dcterms/date    "2009-05-18",
      :rdfs/label      {:rdf/language "en",
                        :rdf/value
-                       "Updated dublin core properties to new namespace"}}],
+                       "Updated dublin core properties to new namespace"}}
+    {:dcterms/creator "http://iandavis.com/id/me",
+     :dcterms/date    "2006-03-21",
+     :rdfs/label      {:rdf/language "en",
+                       :rdf/value    "Introduced statement property"}}],
    :vann/example
    ["http://vocab.org/changeset/changesets-example-20060321.html"
     "http://vocab.org/changeset/changesets-example2-20060321.html"
@@ -58,31 +58,31 @@
 
 (def ChangeSet
   "The encapsulation of a delta between two versions of a resource description"
-  {:db/ident :changeset/ChangeSet,
+  {:db/ident :cs/ChangeSet,
    :dcterms/issued "2005-12-14",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "ChangeSet"},
-   :rdfs/subClassOf {:owl/intersectionOf
-                     [{:owl/minCardinality 1,
-                       :owl/onProperty     :changeset/statement,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :changeset/previousChangeSet,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :changeset/subjectOfChange,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :changeset/createdDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :changeset/creatorName,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :changeset/changeReason,
-                       :rdf/type           :owl/Restriction}],
+   :rdfs/subClassOf {:owl/intersectionOf [{:owl/minCardinality 1,
+                                           :owl/onProperty     :cs/statement,
+                                           :rdf/type           :owl/Restriction}
+                                          {:owl/maxCardinality 1,
+                                           :owl/onProperty
+                                           :cs/previousChangeSet,
+                                           :rdf/type :owl/Restriction}
+                                          {:owl/maxCardinality 1,
+                                           :owl/onProperty :cs/subjectOfChange,
+                                           :rdf/type :owl/Restriction}
+                                          {:owl/maxCardinality 1,
+                                           :owl/onProperty     :cs/createdDate,
+                                           :rdf/type           :owl/Restriction}
+                                          {:owl/maxCardinality 1,
+                                           :owl/onProperty     :cs/creatorName,
+                                           :rdf/type           :owl/Restriction}
+                                          {:owl/maxCardinality 1,
+                                           :owl/onProperty :cs/changeReason,
+                                           :rdf/type :owl/Restriction}],
                      :rdf/type :owl/Class},
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2006-03-21",
@@ -97,19 +97,19 @@
 
 (def addition
   "a triple to be added to the resource description"
-  {:db/ident :changeset/addition,
+  {:db/ident :cs/addition,
    :dcterms/issued "2005-12-14",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "\n      By convention the subject of the triple being added should be the same as the subjectOfChange\n    "},
-   :rdfs/domain :changeset/ChangeSet,
+   :rdfs/domain :cs/ChangeSet,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "addition"},
    :rdfs/range :rdf/Statement,
-   :rdfs/subPropertyOf :changeset/statement,
+   :rdfs/subPropertyOf :cs/statement,
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2006-03-21",
                      :rdf/value       "Added definitition and documentation"},
@@ -125,10 +125,10 @@
 
 (def changeReason
   "a short, human readable description of the purpose for the changeset"
-  {:db/ident :changeset/changeReason,
+  {:db/ident :cs/changeReason,
    :dcterms/issued "2005-12-14",
    :rdf/type :owl/DatatypeProperty,
-   :rdfs/domain :changeset/ChangeSet,
+   :rdfs/domain :cs/ChangeSet,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "changeReason"},
@@ -143,13 +143,13 @@
 
 (def createdDate
   "the date that the changeset was created"
-  {:db/ident           :changeset/createdDate,
+  {:db/ident           :cs/createdDate,
    :dcterms/issued     "2005-12-14",
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/comment       {:rdf/language "en",
                         :rdf/value
                         "\n      The date should be in W3CDTF format\n    "},
-   :rdfs/domain        :changeset/ChangeSet,
+   :rdfs/domain        :cs/ChangeSet,
    :rdfs/isDefinedBy   "http://purl.org/vocab/changeset/schema",
    :rdfs/label         {:rdf/language "en",
                         :rdf/value    "createdDate"},
@@ -162,10 +162,10 @@
 
 (def creatorName
   "the name of the entity responsible for creating the changeset"
-  {:db/ident :changeset/creatorName,
+  {:db/ident :cs/creatorName,
    :dcterms/issued "2005-12-14",
    :rdf/type :owl/DatatypeProperty,
-   :rdfs/domain :changeset/ChangeSet,
+   :rdfs/domain :cs/ChangeSet,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "creatorName"},
@@ -179,7 +179,7 @@
 
 (def precedingChangeSet
   "the changeset that immediately precedes this one"
-  {:db/ident :changeset/precedingChangeSet,
+  {:db/ident :cs/precedingChangeSet,
    :dcterms/issued "2005-12-14",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -189,11 +189,11 @@
     {:rdf/language "en",
      :rdf/value
      "\n      In systems that assume a closed world, the most recent ChangeSet for a particular resource description \n      can be discovered by looking for the ChangeSet that is not the value of a precedingChangeSet property. \n      Conversely, the earliest ChangeSet is the one that is not the subject of a precedingChangeSet property.\n    "}],
-   :rdfs/domain :changeset/ChangeSet,
+   :rdfs/domain :cs/ChangeSet,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "precedingChangeSet"},
-   :rdfs/range :changeset/ChangeSet,
+   :rdfs/range :cs/ChangeSet,
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2006-03-21",
                      :rdf/value       "Added definitition and documentation"},
@@ -206,19 +206,19 @@
 
 (def removal
   "a triple to be removed from the resource description"
-  {:db/ident :changeset/removal,
+  {:db/ident :cs/removal,
    :dcterms/issued "2005-12-14",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    {:rdf/language "en",
     :rdf/value
     "\n      By convention the subject of the triple being removed should be the same as the subjectOfChange\n    "},
-   :rdfs/domain :changeset/ChangeSet,
+   :rdfs/domain :cs/ChangeSet,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "removal"},
    :rdfs/range :rdf/Statement,
-   :rdfs/subPropertyOf :changeset/statement,
+   :rdfs/subPropertyOf :cs/statement,
    :skos/changeNote {:dcterms/creator "Ian Davis",
                      :dcterms/date    "2006-03-21",
                      :rdf/value       "Added definitition and documentation"},
@@ -234,10 +234,10 @@
 
 (def statement
   "a triple included in this set of changes"
-  {:db/ident         :changeset/statement,
+  {:db/ident         :cs/statement,
    :dcterms/issued   "2006-03-21",
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/domain      :changeset/ChangeSet,
+   :rdfs/domain      :cs/ChangeSet,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "statement"},
@@ -247,10 +247,10 @@
 
 (def subjectOfChange
   "the resource to which this set of changes applies"
-  {:db/ident         :changeset/subjectOfChange,
+  {:db/ident         :cs/subjectOfChange,
    :dcterms/issued   "2005-12-14",
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/domain      :changeset/ChangeSet,
+   :rdfs/domain      :cs/ChangeSet,
    :rdfs/isDefinedBy "http://purl.org/vocab/changeset/schema",
    :rdfs/label       {:rdf/language "en",
                       :rdf/value    "subjectOfChange"},
