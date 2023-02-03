@@ -261,14 +261,17 @@
                                             :owl/Thing
                                             :owl/NamedIndividual}
                                           (:rdfs/domain %))
-                                   dslots))))
-        (distinct))
+                                   dslots)))))
       (completing
         (fn [effective-slots slot]
-          (conj effective-slots
-                (mop/compute-effective-slot-definition class
-                                                       slot
-                                                       class-direct-slots))))
+          (if (some #(identical? (:db/ident slot)
+                                 (:db/ident %))
+                    effective-slots)
+            effective-slots
+            (conj effective-slots
+                  (mop/compute-effective-slot-definition class
+                                                         slot
+                                                         class-direct-slots)))))
       class-direct-slots
       class-precedence-list)))
 

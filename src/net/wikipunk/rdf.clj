@@ -643,7 +643,8 @@
                         (filter :rdf/type)
                         (filter (fn [form]
                                   (some #(or (isa? *classes* % :owl/Ontology)
-                                             (isa? *classes* % :voaf/Vocabulary))
+                                             (isa? *classes* % :voaf/Vocabulary)
+                                             (isa? *classes* % :madsrdf/MADSScheme))
                                         (if (coll? (:rdf/type form))
                                           (:rdf/type form)
                                           [(:rdf/type form)])))))
