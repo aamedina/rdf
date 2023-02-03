@@ -447,7 +447,8 @@
 
   clojure.lang.Keyword
   (parse [ident]
-    (parse (reg/iri ident)))
+    (when-some [iri (reg/iri ident)]
+      (parse iri)))
 
   clojure.lang.Named
   (parse [ident]
@@ -648,13 +649,18 @@
         forms      (->> forms
                         ;; todo: refactor this into a multimethod
                         (map (fn [form]
-                               (if (isa? *classes* (:rdf/type form) :madsrdf/Authority)
+                               (if (some #(isa? *classes* % :madsrdf/Authority)
+                                         (if (sequential? (:rdf/type form))
+                                           (:rdf/type form)
+                                           [(:rdf/type form)]))
                                  (try
-                                   (-> (group-by :db/ident (unroll-forms (parse (reg/iri (:db/ident form)))))
-                                       (get (:db/ident form))
-                                       (first)
-                                       (merge form)
-                                       (dissoc :private))
+                                   (when-some [x (parse (:db/ident form))]
+                                     (or (some-> (group-by :db/ident (unroll-forms x))
+                                                 (get (:db/ident form))
+                                                 (first)
+                                                 (merge form)
+                                                 (dissoc :private))
+                                         form))
                                    (catch Throwable ex
                                      (println (:db/ident form) (.getMessage ex))
                                      form))
