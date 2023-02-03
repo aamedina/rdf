@@ -927,7 +927,13 @@
 
   clojure.lang.Keyword
   (sniff [k]
-    (find-metaobject k))
+    (or (find-metaobject k)
+        (try
+          (when-some [model (parse k)]
+            (unroll-forms model))
+          (catch Throwable ex
+            (log/debug (.getMessage ex))
+            nil))))
 
   nil
   (sniff [_] nil))
