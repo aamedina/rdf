@@ -640,6 +640,8 @@
                        (sort-by :db/ident privates))
       (merge md the-ont))))
 
+(def ^:dynamic *recurse* true)
+
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
@@ -649,10 +651,11 @@
         forms      (->> forms
                         ;; todo: refactor this into a multimethod
                         (map (fn [form]
-                               (if (some #(isa? *classes* % :madsrdf/Authority)
-                                         (if (sequential? (:rdf/type form))
-                                           (:rdf/type form)
-                                           [(:rdf/type form)]))
+                               (if (and *recurse*
+                                        (some #(isa? *classes* % :madsrdf/Authority)
+                                              (if (sequential? (:rdf/type form))
+                                                (:rdf/type form)
+                                                [(:rdf/type form)])))
                                  (try
                                    (when-some [x (parse (:db/ident form))]
                                      (or (some-> (group-by :db/ident (unroll-forms x))
