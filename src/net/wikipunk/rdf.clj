@@ -77,6 +77,23 @@
 
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
+(defn unmunge
+  [ident]
+  (cond
+    (= (name ident) "Class")
+    'T
+    
+    (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
+    (symbol (str (name ident) "Class"))
+
+    (= (name ident) "nil")
+    'null
+
+    :else
+    (-> (name ident)
+        (str/replace #"#" "")
+        (symbol))))
+
 (defn make-boot-context
   []
   (let [ns-prefixes (->> (all-ns)
@@ -447,7 +464,10 @@
 
   clojure.lang.Keyword
   (parse [ident]
-    (when-some [iri (reg/iri ident)]
+    (when-some [iri (reg/iri (keyword (namespace ident)
+                                      (-> (name ident)
+                                          (str/replace #"^\|" "")
+                                          (str/replace #"\|$" ""))))]
       (parse iri)))
 
   clojure.lang.Named
@@ -845,23 +865,6 @@
     :rdf/Property
 
     :else :rdfs/Resource))
-
-(defn unmunge
-  [ident]
-  (cond
-    (= (name ident) "Class")
-    'T
-    
-    (get clojure.lang.RT/DEFAULT_IMPORTS (symbol (name ident)))
-    (symbol (str (name ident) "Class"))
-
-    (= (name ident) "nil")
-    'null
-
-    :else
-    (-> (name ident)
-        (str/replace #"#" "")
-        (symbol))))
 
 (defn find-obo-metaobject
   "Find a metaobject in the OBO namespace."
