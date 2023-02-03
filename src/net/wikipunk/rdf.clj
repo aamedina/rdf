@@ -439,7 +439,11 @@
                                            (.toGraph (doto parser (.lang Lang/TTL)))
                                            (catch org.apache.jena.riot.RiotException ex
                                              ;; ...try RDF/XML?
-                                             (.toGraph (doto parser (.lang Lang/RDFXML)))))))
+                                             (try
+                                               (.toGraph (doto parser (.lang Lang/RDFXML)))
+                                               (catch org.apache.jena.riot.RiotException ex
+                                                 ;; ...try JSONLD?
+                                                 (.toGraph (doto parser (.lang Lang/JSONLD)))))))))
           ns-prefix-map              (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
                                          (set/rename-keys (dissoc (into (if (and prefix uri)
                                                                           {prefix uri}
@@ -451,16 +455,17 @@
                                                           {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"}))]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
-                      (map (fn [[subject triples]]
-                             (into {:db/ident (g/data subject)}
-                                   (map (fn [[pred triples]]
-                                          (let [k       (g/data pred)
-                                                objects (mapv #(g/data (.getObject ^Triple %)) triples)]
-                                            [k (if (= 1 (count objects))
-                                                 (first objects)
-                                                 objects)])))
-                                   (group-by #(.getPredicate ^Triple %) triples))))
-                      (group-by #(.getSubject ^Triple %) (into [] g))))))
+                      (->> (into [] g)
+                           (group-by #(.getSubject ^Triple %))
+                           (pmap (fn [[subject triples]]
+                                   (into {:db/ident (g/data subject)}
+                                         (map (fn [[pred triples]]
+                                                (let [k       (g/data pred)
+                                                      objects (mapv #(g/data (.getObject ^Triple %)) triples)]
+                                                  [k (if (= 1 (count objects))
+                                                       (first objects)
+                                                       objects)])))
+                                         (group-by #(.getPredicate ^Triple %) triples)))))))))
 
   clojure.lang.Keyword
   (parse [ident]
@@ -628,7 +633,7 @@
                                      (assoc v :rdf/uri k)
 
                                      :else v)))
-                            (map (fn [form]
+                            (pmap (fn [form]
                                    (->> form
                                         (walk/postwalk walk-rdf-list)
                                         (walk/postwalk walk-seeAlso)
@@ -656,9 +661,9 @@
                         (remove (fn [form]
                                   (contains? #{"rdf" "rdfs" "owl" "xsd" "dcterms" "dc11"}
                                              (namespace (:db/ident form)))))
-                        (map #(assoc % :private true)))]
-    (with-meta (concat (sort-by :db/ident publics)
-                       (sort-by :db/ident privates))
+                        (pmap #(assoc % :private true)))]
+    (with-meta (into (vec (sort-by :db/ident publics))
+                     (sort-by :db/ident privates))
       (merge md the-ont))))
 
 (def ^:dynamic *recurse* true)
@@ -671,24 +676,24 @@
         md         (meta forms)
         forms      (->> forms
                         ;; todo: refactor this into a multimethod
-                        (map (fn [form]
-                               (if (and *recurse*
-                                        (some #(isa? *classes* % :madsrdf/Authority)
-                                              (if (sequential? (:rdf/type form))
-                                                (:rdf/type form)
-                                                [(:rdf/type form)])))
-                                 (try
-                                   (when-some [x (parse (:db/ident form))]
-                                     (or (some-> (group-by :db/ident (unroll-forms x))
-                                                 (get (:db/ident form))
-                                                 (first)
-                                                 ((fn [a b] (merge b a)) form)
-                                                 (dissoc :private))
-                                         form))
-                                   (catch Throwable ex
-                                     (println (:db/ident form) (.getMessage ex))
-                                     form))
-                                 form))))        
+                        (pmap (fn [form]
+                                (if (and *recurse*
+                                         (some #(isa? *classes* % :madsrdf/Authority)
+                                               (if (sequential? (:rdf/type form))
+                                                 (:rdf/type form)
+                                                 [(:rdf/type form)])))
+                                  (try
+                                    (when-some [x (parse (:db/ident form))]
+                                      (or (some-> (group-by :db/ident (unroll-forms x))
+                                                  (get (:db/ident form))
+                                                  (first)
+                                                  ((fn [a b] (merge b a)) form)
+                                                  (dissoc :private))
+                                          form))
+                                    (catch Throwable ex
+                                      (println (:db/ident form) (.getMessage ex))
+                                      form))
+                                  form))))        
         exclusions (->> forms
                         (filter (comp qualified-keyword? :db/ident))
                         (map (comp symbol name :db/ident))
@@ -697,7 +702,7 @@
         prefix     (or (:rdfa/prefix md)
                        (:vann/preferredNamespacePrefix md))        
         forms      (->> forms
-                        (map (fn [v]
+                        (pmap (fn [v]
                                (let [k   (:db/ident v)
                                      sym (symbol (name k))
                                      sym (cond
