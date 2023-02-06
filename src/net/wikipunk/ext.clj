@@ -686,4 +686,5 @@
                        "simulation" "https://www.w3id.org/simulation/ontology/",
                        "vann"       "http://purl.org/vocab/vann/",
                        "xhv"        "https://www.w3.org/1999/xhtml/vocab#",
+                       "prov"       "https://www.w3.org/ns/prov-o-inverses#"
                        "xsd"        "http://www.w3.org/2001/XMLSchema#"}})

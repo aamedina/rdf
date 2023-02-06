@@ -22,15 +22,16 @@
    :rdf/ns-prefix-map
    {"cpannotationschema"
     "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#",
-    "dcterms"    "http://purl.org/dc/terms/",
-    "owl"        "http://www.w3.org/2002/07/owl#",
-    "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
-    "schema"     "http://schema.org/",
+    "dcterms" "http://purl.org/dc/terms/",
+    "owl" "http://www.w3.org/2002/07/owl#",
+    "prov" "https://www.w3.org/ns/prov-o-inverses#",
+    "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+    "schema" "http://schema.org/",
     "simulation" "https://www.w3id.org/simulation/ontology/",
-    "vann"       "http://purl.org/vocab/vann/",
-    "xhv"        "https://www.w3.org/1999/xhtml/vocab#",
-    "xsd"        "http://www.w3.org/2001/XMLSchema#"},
+    "vann" "http://purl.org/vocab/vann/",
+    "xhv" "https://www.w3.org/1999/xhtml/vocab#",
+    "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdf/uri "https://www.w3id.org/simulation/ontology/",
    :rdfa/prefix "simulation",
@@ -243,21 +244,21 @@
    :rdfs/isDefinedBy :simulation/SimulationOntology,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Simulation"},
-   :rdfs/subClassOf [{:owl/onClass    :simulation/Simulacrum,
-                      :owl/onProperty :simulation/hasSimulacrum,
-                      :owl/qualifiedCardinality 1,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onProperty     :simulation/hasRealityCounterpart,
+   :rdfs/subClassOf [{:owl/onProperty     :simulation/hasRealityCounterpart,
                       :owl/someValuesFrom :simulation/RealityCounterpart,
                       :rdf/type           :owl/Restriction}
+                     {:owl/intersectionOf [:situation/Situation :prov/Entity],
+                      :rdf/type :owl/Class}
                      {:owl/onProperty     :simulation/hasContext,
                       :owl/someValuesFrom :simulation/Context,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onClass    :simulation/Simulacrum,
+                      :owl/onProperty :simulation/hasSimulacrum,
+                      :owl/qualifiedCardinality 1,
+                      :rdf/type       :owl/Restriction}
                      {:owl/onProperty     :prov/wasDerivedFrom,
                       :owl/someValuesFrom :simulation/Source,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/intersectionOf [:situation/Situation :prov/Entity],
-                      :rdf/type :owl/Class}]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SimulationOntology
   {:db/ident :simulation/SimulationOntology,
@@ -274,10 +275,9 @@
    :rdfs/isDefinedBy :simulation/SimulationOntology,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Source"},
-   :rdfs/subClassOf [{:owl/onProperty
-                      "https://www.w3.org/ns/prov-o-inverses#hadDerivation",
+   :rdfs/subClassOf [{:owl/onProperty     :prov/hadDerivation,
                       :owl/someValuesFrom :simulation/Simulation,
-                      :rdf/type :owl/Restriction}
+                      :rdf/type           :owl/Restriction}
                      :prov/Entity]})
 
 (def easedRealityCounterpart
@@ -641,3 +641,88 @@
                 :rdf/value    "Symbolic Meaning"},
    :rdfs/range :simulation/RealityCounterpart,
    :rdfs/subPropertyOf [:owl/topObjectProperty :semiotics/denotes]})
+
+(def ^{:private true} isSpecializationOf
+  {:db/ident :cpannotationschema/isSpecializationOf,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} relatedCPs
+  {:db/ident :cpannotationschema/relatedCPs,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} Entity
+  "Entity"
+  {:db/ident   :prov/Entity,
+   :rdf/type   :owl/Class,
+   :rdfs/label "Entity"})
+
+(def ^{:private true} hadDerivation
+  "Inverse of wasDerivedFrom"
+  {:db/ident     :prov/hadDerivation,
+   :rdf/type     :owl/ObjectProperty,
+   :rdfs/comment "Inverse of wasDerivedFrom",
+   :rdfs/domain  :prov/Entity,
+   :rdfs/label   "had derivation",
+   :rdfs/range   :prov/Entity})
+
+(def ^{:private true} wasDerivedFrom
+  "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity. In the context of the Simulation ontology this property links a Simulation to its source"
+  {:db/ident :prov/wasDerivedFrom,
+   :owl/inverseOf :prov/hadDerivation,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity. In the context of the Simulation ontology this property links a Simulation to its source"},
+   :rdfs/domain :prov/Entity,
+   :rdfs/label "was derived from",
+   :rdfs/range :prov/Entity})
+
+(def ^{:private true} citation
+  {:db/ident :schema/citation,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} Expression
+  {:db/ident :semiotics/Expression,
+   :rdf/type :owl/Class})
+
+(def ^{:private true} Reference
+  {:db/ident :semiotics/Reference,
+   :rdf/type :owl/Class})
+
+(def ^{:private true} denotes
+  {:db/ident :semiotics/denotes,
+   :rdf/type :owl/ObjectProperty})
+
+(def ^{:private true} isDenotedBy
+  {:db/ident :semiotics/isDenotedBy,
+   :rdf/type :owl/ObjectProperty})
+
+(def ^{:private true} Situation
+  {:db/ident :situation/Situation,
+   :rdf/type :owl/Class})
+
+(def ^{:private true} hasSetting
+  {:db/ident :situation/hasSetting,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/subPropertyOf :owl/topObjectProperty})
+
+(def ^{:private true} isSettingFor
+  {:db/ident :situation/isSettingFor,
+   :rdf/type :owl/ObjectProperty})
+
+(def ^{:private true} preferredNamespacePrefix
+  {:db/ident :vann/preferredNamespacePrefix,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} preferredNamespaceUri
+  {:db/ident :vann/preferredNamespaceUri,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} dct:rights
+  {:db/ident :xhv/dct:rights,
+   :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} license
+  {:db/ident :xhv/license,
+   :rdf/type :owl/AnnotationProperty})
