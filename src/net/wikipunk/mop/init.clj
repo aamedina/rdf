@@ -363,13 +363,9 @@
 (defmethod mop/compute-class-precedence-list :rdfs/Class
   [{:db/keys [ident]}]
   (into [ident] (sort isa? (disj (ancestors ident)
-                                 :sh/NodeShape
-                                 :sh/Shape
                                  :owl/Thing
                                  :oboInOwl/ObsoleteClass
-                                 :oboInOwl/ObsoleteProperty
-                                 :schema/Thing
-                                 :rdfs/Resource))))
+                                 :oboInOwl/ObsoleteProperty))))
 
 (defmethod mop/compute-class-precedence-list clojure.lang.Keyword
   [class]
