@@ -381,8 +381,15 @@
       (re-find #"^ns\d*$" (namespace k))
       nil
 
-      (and (Character/isDigit (first (name k)))
-           (= (last (name k)) \/))
+      ;; can't represent this easily
+      (re-find #"\(" (name k))
+      nil
+
+      ;; if it's just a file leave it as URI
+      (re-find #"\.\w+$" (name k))
+      nil
+
+      (= (last (name k)) \/)
       nil
 
       (str/ends-with? (name k) ")")
