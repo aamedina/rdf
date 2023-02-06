@@ -1,6 +1,8 @@
 (ns net.wikipunk.openai
   "OpenAI API"
   (:require
+   [clojure.datafy :refer [datafy]]
+   [clojure.edn :as edn]
    [clojure.string :as str]
    [clojure.walk :as walk]
    [clj-http.client :as http]
@@ -61,7 +63,7 @@
 
 (defmethod sniff :default
   [ident]
-  (dissoc (let [e  (rdf/sniff ident)
+  (dissoc (let [e  (or (datafy ident) (rdf/sniff ident))
                 md (meta e)]
             (->> (walk/postwalk (fn [form]
                                   (if-some [label (some-> (get md form) :rdfs/label)]
@@ -100,7 +102,11 @@
           :skos/altLabel
           :madsrdf/hasVariant
           :skos/editorial
-          :madsrdf/editorialNote))
+          :madsrdf/editorialNote
+          :mop/class-slots
+          :mop/class-direct-slots
+          :mop/class-default-initargs
+          :mop/class-direct-default-initargs))
 
 (defn prompt
   "Given a prompt string in natural language and a namespace-qualified
@@ -108,8 +114,44 @@
   text."
   [component prompt ident & {:as params}]
   (let [{:strs [choices]} (completions component (assoc params :prompt (with-out-str
-                                                                         (println "### " prompt ":")
+                                                                         (println "### " prompt)
                                                                          (prn (sniff ident)))))
         choices-index     (group-by #(get % "finish_reason") choices)
         stop              (first (get choices-index "stop"))]
     (str/trim (get stop "text"))))
+
+(defn edn
+  "Given a prompt string in natural language and a namespace-qualified
+  keyword naming a concept use the OpenAI completion AI to generate EDN."
+  [component prompt ident & {:as params}]
+  (let [{:strs [choices]
+         :as m}
+        (completions component (assoc params
+                                      :prompt (with-out-str
+                                                (println "##### " prompt)
+                                                (println "### Clojure")
+                                                (prn (sniff ident))
+                                                (println "### Clojure")
+                                                (print "{"))
+                                      :model (or (:model params) "code-davinci-002")))]
+    (if-some [choice (some-> (first choices)
+                             (get "text"))]
+      (try
+        (or (edn/read-string (str "{" choice)) choice)
+        (catch Throwable ex
+          choice))
+      choices)))
+
+(comment
+  (def openai
+    (com.stuartsierra.component/start 
+      (net.wikipunk.openai/map->OpenAI {:base-uri "https://api.openai.com/v1"
+                                        :api-key  "YOUR_OPENAPI_KEY"
+                                        :model    "text-davinci-003"})))
+
+  (net.wikipunk.openai/edn openai
+                           "Write related example instances or subclasses as Clojure data (EDN)"
+                           :simulation/EmblematicSimulation
+                           :temperature 0.8
+                           :frequency_penalty 0.1
+                           :stop "###"))
