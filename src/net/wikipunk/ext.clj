@@ -671,3 +671,19 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/classification.owl#"
    :rdfa/prefix "classification"})
+
+(def simulation
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "https://www.w3id.org/simulation/ontology/"
+   :rdfa/prefix "simulation"
+   :rdf/ns-prefix-map {"cpannotationschema"
+                       "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#",
+                       "dcterms"    "http://purl.org/dc/terms/",
+                       "owl"        "http://www.w3.org/2002/07/owl#",
+                       "rdf"        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
+                       "schema"     "http://schema.org/",
+                       "simulation" "https://www.w3id.org/simulation/ontology/",
+                       "vann"       "http://purl.org/vocab/vann/",
+                       "xhv"        "https://www.w3.org/1999/xhtml/vocab#",
+                       "xsd"        "http://www.w3.org/2001/XMLSchema#"}})
