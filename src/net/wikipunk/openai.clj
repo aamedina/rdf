@@ -152,6 +152,6 @@
   (net.wikipunk.openai/edn openai
                            "Write related example instances or subclasses as Clojure data (EDN)"
                            :simulation/EmblematicSimulation
-                           :temperature 0.8
+                           :top_p 1.0
                            :frequency_penalty 0.1
                            :stop "###"))
