@@ -91,7 +91,6 @@
 
     :else
     (-> (name ident)
-        (str/replace #"#" "")
         (symbol))))
 
 (defn make-boot-context
@@ -366,43 +365,39 @@
   [^org.apache.jena.datatypes.xsd.XSDDateTime x ^java.io.Writer writer]
   (print-method x writer))
 
+(defn kw
+  "returns a keyword for IRI"
+  [iri]
+  (when-some [k (try
+                  (reg/kw iri)
+                  (catch Throwable ex
+                    (log/warn ex (.getMessage ex))))]
+    (cond
+      ;; Do not return blank qualified keyword names
+      (or (str/blank? (namespace k)) (str/blank? (name k)))
+      nil
+
+      (and (Character/isDigit (first (name k)))
+           (= (last (name k)) \/))
+      nil
+
+      (str/ends-with? (name k) ")")
+      (keyword (namespace k) (str/replace (name k) #"\)$" ""))
+
+      ;; Since these are not readable wrap in CL-inspired || 
+      (Character/isDigit (first (name k)))
+      (keyword (namespace k) (str \| (name k) \|))
+
+      (re-find #"," (name k))
+      (keyword (namespace k) (str/replace (name k) #"," ""))
+
+      :else k)))
+
 (extend-protocol g/AsClojureData
   Node_URI
   (data [n]
     (let [uri (.getURI n)]
-      (or (when-some [k (try
-                          (reg/kw uri)
-                          (catch Throwable ex
-                            (println ex)))]
-            (cond
-              ;; Do not return blank qualified keyword names
-              (or (str/blank? (namespace k)) (str/blank? (name k)))
-              nil
-              
-              (or (str/ends-with? (name k) ".owl")
-                  (str/ends-with? (name k) ".owl/"))
-              nil              
-
-              (and (Character/isDigit (first (name k)))
-                   (= (last (name k)) \/))
-              nil
-
-              (and (Character/isDigit (first (name k)))
-                   (Character/isDigit (last (name k))))
-              nil
-
-              (str/ends-with? (name k) ")")
-              (keyword (namespace k) (str/replace (name k) #"\)$" ""))
-
-              ;; Since these are not readable wrap in CL-inspired || 
-              (Character/isDigit (first (name k)))
-              (keyword (namespace k) (str \| (name k) \|))
-
-              (re-find #"," (name k))
-              (keyword (namespace k) (str/replace (name k) #"," ""))
-
-              :else (keyword (namespace k) (str/replace (name k) #"#" ""))))
-          uri)))
+      (or (kw uri) uri)))
 
   Node_Blank
   (data [n]
@@ -423,6 +418,14 @@
       (catch org.apache.jena.datatypes.DatatypeFormatException ex
         (log/warn (.getMessage ex))
         (str n)))))
+
+(defn iri
+  "returns IRI for ident using aristotle's registry"
+  [ident]
+  (reg/iri (keyword (namespace ident)
+                    (-> (name (unmunge ident))
+                        (str/replace #"^\|" "")
+                        (str/replace #"\|$" "")))))
 
 (extend-protocol Parsable
   clojure.lang.IPersistentMap
@@ -469,11 +472,9 @@
 
   clojure.lang.Keyword
   (parse [ident]
-    (when-some [iri (reg/iri (keyword (namespace ident)
-                                      (-> (name ident)
-                                          (str/replace #"^\|" "")
-                                          (str/replace #"\|$" ""))))]
-      (parse iri)))
+    (when-some [url (iri ident)]
+      (parse {:rdfa/prefix      (namespace ident)
+              :dcat/downloadURL url})))
 
   clojure.lang.Named
   (parse [ident]
@@ -911,33 +912,6 @@
                                           (:type (alter-meta! var assoc :type (type-of @var)))
                                           :rdfs/Resource)}))))
 
-(extend-protocol LinkedData
-  clojure.lang.IPersistentCollection
-  (sniff [coll]
-    (pmap #(sniff %) coll))
-
-  String
-  (sniff [s]
-    (sniff {:dcat/downloadURL s}))
-  
-  clojure.lang.IPersistentMap
-  (sniff [m]
-    (let [model (mem-parse m)]
-      (unroll-forms model)))
-
-  clojure.lang.Keyword
-  (sniff [k]
-    (or (find-metaobject k)
-        (try
-          (when-some [model (parse k)]
-            (unroll-forms model))
-          (catch Throwable ex
-            (log/debug (.getMessage ex))
-            nil))))
-
-  nil
-  (sniff [_] nil))
-
 (defn print-doc
   [ident]
   (when-some [metaobject (find-metaobject ident)]
@@ -992,23 +966,6 @@
   (if (sequential? form)
     (filterv (some-fn keyword? map?) form)
     form))
-
-(extend-protocol clojure.core.protocols/Datafiable
-  clojure.lang.Named
-  (datafy [ident]
-    (cond
-      (qualified-keyword? ident)
-      (->> (when-some [mo (find-metaobject ident)]
-             (-> mo
-                 (dissoc :mop/slot-initfunction)
-                 (update :mop/class-slots #(mapv :db/ident %))
-                 (update :mop/class-direct-slots #(mapv :db/ident %))))
-           (walk/prewalk unroll-langString))
-
-      (qualified-symbol? ident)
-      (resolve ident)
-
-      :else (find-ns (symbol ident)))))
 
 (def ^:dynamic *boot-keys*
   [:db/id
@@ -1328,3 +1285,47 @@
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
 
+
+(extend-protocol clojure.core.protocols/Datafiable
+  clojure.lang.Named
+  (datafy [ident]
+    (cond
+      (qualified-keyword? ident)
+      (->> (when-some [mo (find-metaobject ident)]
+             (-> mo
+                 (dissoc :mop/slot-initfunction)
+                 (update :mop/class-slots #(mapv :db/ident %))
+                 (update :mop/class-direct-slots #(mapv :db/ident %))))
+           (walk/prewalk unroll-langString))
+
+      (qualified-symbol? ident)
+      (resolve ident)
+
+      :else (find-ns (symbol ident)))))
+
+(extend-protocol LinkedData
+  clojure.lang.IPersistentCollection
+  (sniff [coll]
+    (pmap #(sniff %) coll))
+
+  String
+  (sniff [s]
+    (sniff {:dcat/downloadURL s}))
+  
+  clojure.lang.IPersistentMap
+  (sniff [m]
+    (let [model (mem-parse m)]
+      (unroll-forms model)))
+
+  clojure.lang.Keyword
+  (sniff [k]
+    (try
+      (when-some [model (mem-parse k)]
+        (let [idx (walk/postwalk unroll-langString
+                                 (group-by :db/ident (mapv #(dissoc % :private) (unroll-forms model))))]
+          (with-meta (first (get idx k)) (update-vals (dissoc idx k) first))          ))
+      (catch Throwable ex
+        (log/debug (.getMessage ex)))))
+
+  nil
+  (sniff [_] nil))
