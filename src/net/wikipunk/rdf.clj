@@ -377,6 +377,10 @@
       (or (str/blank? (namespace k)) (str/blank? (name k)))
       nil
 
+      ;; ignore unidentified namespaces
+      (re-find #"^ns\d*$" (namespace k))
+      nil
+
       (and (Character/isDigit (first (name k)))
            (= (last (name k)) \/))
       nil
@@ -1324,9 +1328,10 @@
   (sniff [k]
     (try
       (when-some [model (mem-parse k)]
-        (let [idx (walk/postwalk unroll-langString
-                                 (group-by :db/ident (mapv #(dissoc % :private) (unroll-forms model))))]
-          (with-meta (first (get idx k)) (update-vals (dissoc idx k) first))          ))
+        (let [idx (group-by :db/ident (mapv #(dissoc % :private) (unroll-forms model)))]
+          (with-meta (first (get idx k))
+            (merge (meta model)
+                   (update-vals (dissoc idx k) first)))))
       (catch Throwable ex
         (log/debug (.getMessage ex)))))
 
