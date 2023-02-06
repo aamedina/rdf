@@ -584,3 +584,90 @@
    :rdfa/uri         "http://purl.org/vocab/changeset/schema#"
    :rdfa/prefix      "cs"})
 
+(def dbo
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://dbpedia.org/ontology/"
+   :rdfa/prefix "dbo"})
+
+(def dbc
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://dbpedia.org/resource/Category:"
+   :rdfa/prefix "dbc"})
+
+(def dbp
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://dbpedia.org/property/"
+   :rdfa/prefix "dbp"})
+
+(def dbr
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://dbpedia.org/resource/"
+   :rdfa/prefix "dbr"})
+
+(def dbt
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://dbpedia.org/resource/Template:"
+   :rdfa/prefix "dbt"})
+
+(def yago
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://dbpedia.org/class/yago/"
+   :rdfa/prefix "yago"})
+
+(def wikidata
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.wikidata.org/entity/"
+   :rdfa/prefix "wd"
+   :rdf/ns-prefix-map {"cc"       "http://creativecommons.org/ns#",
+                       "dcterms"  "http://purl.org/dc/terms/",
+                       "geo"      "http://www.opengis.net/ont/geosparql#",
+                       "ontolex"  "http://www.w3.org/ns/lemon/ontolex#",
+                       "owl"      "http://www.w3.org/2002/07/owl#",
+                       "prov"     "http://www.w3.org/ns/prov#",
+                       "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs"     "http://www.w3.org/2000/01/rdf-schema#"
+                       "schema"   "http://schema.org/",
+                       "skos"     "http://www.w3.org/2004/02/skos/core#",
+                       "wd"       "http://www.wikidata.org/entity/",
+                       "wikibase" "http://wikiba.se/ontology#",
+                       "xsd"      "http://www.w3.org/2001/XMLSchema#"}})
+
+(def wikibase
+  {:rdf/type          :rdfa/PrefixMapping
+   :rdfa/uri          "http://wikiba.se/ontology#"
+   :rdfa/prefix       "wikibase"})
+
+(def ontolex
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/ns/lemon/ontolex#"
+   :rdfa/prefix "ontolex"})
+
+(def semiotics
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#"
+   :rdfa/prefix "semiotics"})
+
+(def agentrole
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#"
+   :rdfa/prefix "agentrole"})
+
+(def objectrole
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#"
+   :rdfa/prefix "objectrole"})
+
+(def cpannotationschema
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+   :rdfa/prefix "cpannotationschema"})
+
+(def situation
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#"
+   :rdfa/prefix "situation"})
+
+(def classification
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/classification.owl#"
+   :rdfa/prefix "classification"})
