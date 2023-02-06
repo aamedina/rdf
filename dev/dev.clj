@@ -28,6 +28,7 @@
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
    [net.wikipunk.mop :as mop :refer [isa? descendants parents ancestors]]
+   [net.wikipunk.openai :as openai]
    [zprint.core :as zprint])
   (:refer-clojure :exclude [isa? descendants parents ancestors]))
 
