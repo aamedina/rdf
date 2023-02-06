@@ -49,7 +49,7 @@
   (make-request component
                 :post "/completions"
                 {:form-params  (assoc params
-                                      :model (:model component)
+                                      :model (:model params (:model component "text-ada-001"))
                                       :temperature (:temperature params 0.7)
                                       :max_tokens (:max_tokens params 1024))
                  :content-type :json}))
