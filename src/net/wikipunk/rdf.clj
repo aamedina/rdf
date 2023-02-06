@@ -391,6 +391,9 @@
       (re-find #"," (name k))
       (keyword (namespace k) (str/replace (name k) #"," ""))
 
+      (str/starts-with? (name k) "#")
+      (keyword (namespace k) (str \| (name k) \|))
+
       :else k)))
 
 (extend-protocol g/AsClojureData
@@ -716,7 +719,7 @@
                                            (= (name sym) "nil")
                                            'null
 
-                                           :else (symbol (str/replace (name sym) #"#" "")))
+                                           :else sym)
                                      sym       (if (:private v) (with-meta sym {:private true}) sym)
                                      v         (if (:private v) (dissoc v :private) v)
                                      docstring (or (some-> (:lv2/documentation v))
