@@ -657,6 +657,11 @@
    :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#"
    :rdfa/prefix "objectrole"})
 
+(def dul
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+   :rdfa/prefix "dul"})
+
 (def cpannotationschema
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
