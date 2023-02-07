@@ -5,6 +5,7 @@
    [clojure.edn :as edn]
    [clojure.string :as str]
    [clojure.walk :as walk]
+   [clojure.tools.logging :as log]
    [clj-http.client :as http]
    [clj-http.conn-mgr :as conn-mgr]
    [com.stuartsierra.component :as com]
@@ -104,7 +105,8 @@
           :skos/editorial
           :madsrdf/editorialNote
           :mop/class-slots
-          :mop/class-direct-slots
+          :mop/class-direct-subclasses
+          :mop/class-direct-superclasses
           :mop/class-default-initargs
           :mop/class-direct-default-initargs))
 
@@ -115,7 +117,8 @@
   [component prompt ident & {:as params}]
   (let [{:strs [choices]} (completions component (assoc params :prompt (with-out-str
                                                                          (println "### " prompt)
-                                                                         (prn (sniff ident)))))
+                                                                         (when ident
+                                                                           (prn (sniff ident))))))
         choices-index     (group-by #(get % "finish_reason") choices)
         stop              (first (get choices-index "stop"))]
     (str/trim (get stop "text"))))
@@ -126,20 +129,46 @@
   [component prompt ident & {:as params}]
   (let [{:strs [choices]
          :as m}
-        (completions component (assoc params
+        (completions component (assoc (dissoc params :edn-prompt)
                                       :prompt (with-out-str
                                                 (println "##### " prompt)
                                                 (println "### Clojure")
                                                 (prn (sniff ident))
                                                 (println "### Clojure")
-                                                (print "{"))
+                                                (print (or (:edn-prompt params) "{")))
                                       :model (or (:model params) "code-davinci-002")))]
     (if-some [choice (some-> (first choices)
                              (get "text"))]
       (try
-        (or (edn/read-string (str "{" choice)) choice)
+        (dissoc (edn/read-string (str (or (:edn-prompt params) "{") choice)) :mop/class-direct-slots)
         (catch Throwable ex
+          (log/warn (.getMessage ex))
           choice))
+      choices)))
+
+(defn transmutate
+  "Transmutate one metaobject into another."
+  [component from to & {:as params}]
+  (let [{:strs [choices]
+         :as   m}
+        (completions component (assoc params
+                                      :prompt (with-out-str
+                                                (when-some [prompt (:prompt params)]
+                                                  (println "##### " (:prompt params)))
+                                                (println "### Clojure")
+                                                (prn (sniff from))
+                                                (println "### Clojure")
+                                                (print (str "{:db/ident " to ",")))
+                                      :model (or (:model params) "code-davinci-002")
+                                      :stop (or (:stop params) "###")
+                                      :top_p (or (:top_p params) 1.0)))]
+    (if-some [choice (some-> (first choices)
+                             (get "text"))]
+      (try
+        (edn/read-string (str "{:db/ident " to "," (str/replace choice #"@en" "")))
+        (catch Throwable ex
+          (log/warn (.getMessage ex) choice)
+          nil))
       choices)))
 
 (comment

@@ -201,7 +201,15 @@
   {:dcat/downloadURL "https://d3fend.mitre.org/ontologies/d3fend.owl"
    :rdfa/uri    "http://d3fend.mitre.org/ontologies/d3fend.owl#"
    :rdfa/prefix "d3fend"
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :rdf/ns-prefix-map {"d3fend"
+                       "http://d3fend.mitre.org/ontologies/d3fend.owl#",
+                       "dcterms" "http://purl.org/dc/terms/",
+                       "owl"     "http://www.w3.org/2002/07/owl#",
+                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
+                       "skos"    "http://www.w3.org/2004/02/skos/core#",
+                       "xsd"     "http://www.w3.org/2001/XMLSchema#"}})
 
 (def qudt
   {:dcat/downloadURL "https://qudt.org/2.1/schema/qudt.ttl"
@@ -693,3 +701,62 @@
                        "xhv"        "https://www.w3.org/1999/xhtml/vocab#",
                        "prov"       "https://www.w3.org/ns/prov-o-inverses#"
                        "xsd"        "http://www.w3.org/2001/XMLSchema#"}})
+
+(def hyperreal
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "https://www.w3id.org/simulation/data/"
+   :rdfa/prefix "hyperreal"
+   :rdf/ns-prefix-map
+   {"dcterms"    "http://purl.org/dc/terms/",
+    "hyperreal"  "https://w3id.org/simulation/data/",
+    "owl"        "http://www.w3.org/2002/07/owl#",
+    "prov"       "http://www.w3.org/ns/prov#",
+    "rdfs"       "http://www.w3.org/2000/01/rdf-schema#",
+    "schema"     "http://schema.org/",
+    "simulation" "https://w3id.org/simulation/ontology/"}})
+
+(def wn
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/ontology#"
+   :rdfa/prefix "wn"})
+
+(def isocat
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.isocat.org/ns/dcr.rdf#"
+   :rdfa/prefix "isocat"})
+
+(def wn.id
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/id/"
+   :rdfa/prefix "wn.id"})
+
+(def wn.lemma
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/rdf/lemma/"
+   :rdfa/prefix "wn.lemma"})
+
+(def wn.ttl
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/ttl/lemma/"
+   :rdfa/prefix "wn.ttl"})
+
+(def wn30
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/wn30/"
+   :rdfa/prefix "wn30"})
+
+(def synsem
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/ns/lemon/synsem#"
+   :rdfa/prefix "synsem"})
+
+(def lime
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/ns/lemon/lime#"
+   :rdfa/prefix "lime"})
+
+(def ili
+  {:dcat/downloadURL "https://raw.githubusercontent.com/globalwordnet/cili/master/ili.ttl"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://globalwordnet.org/ili/"
+   :rdfa/prefix      "ili"})

@@ -381,31 +381,28 @@
       (re-find #"^ns\d*$" (namespace k))
       nil
 
-      ;; can't represent this easily
-      (re-find #"\(" (name k))
-      nil
-
       ;; if it's just a file leave it as URI
-      (re-find #"\.\w+$" (name k))
+      (re-find #"\.\w\w+$" (name k))
       nil
 
       (= (last (name k)) \/)
       nil
 
-      (str/ends-with? (name k) ")")
-      (keyword (namespace k) (str/replace (name k) #"\)$" ""))
-
       ;; Since these are not readable wrap in CL-inspired || 
-      (Character/isDigit (first (name k)))
+      (or (re-find #"^\d" (name k))
+          (re-find #"^#" (name k)))
       (keyword (namespace k) (str \| (name k) \|))
 
-      (re-find #"," (name k))
-      (keyword (namespace k) (str/replace (name k) #"," ""))
+      (re-find #"[\s\(\)!,]" (name k))
+      (keyword (namespace k) (java.net.URLEncoder/encode (name k)))
 
-      (str/starts-with? (name k) "#")
-      (keyword (namespace k) (str \| (name k) \|))
+      (re-find #"[\s\(\)!,]" (java.net.URLDecoder/decode (name k)))
+      k
 
-      :else k)))
+      :else (keyword (namespace k) (try
+                                     (java.net.URLDecoder/decode (name k))
+                                     (catch Throwable ex
+                                       (name k)))))))
 
 (extend-protocol g/AsClojureData
   Node_URI
@@ -437,9 +434,13 @@
   "returns IRI for ident using aristotle's registry"
   [ident]
   (reg/iri (keyword (namespace ident)
-                    (-> (name (unmunge ident))
-                        (str/replace #"^\|" "")
-                        (str/replace #"\|$" "")))))
+                    (let [n (-> (name (unmunge ident))
+                                (str/replace #"^\|" "")
+                                (str/replace #"\|$" ""))]
+                      (try
+                        (java.net.URLDecoder/decode n)
+                        (catch Throwable ex
+                          n))))))
 
 (extend-protocol Parsable
   clojure.lang.IPersistentMap
@@ -469,7 +470,7 @@
                                                                   "ruleml"
                                                                   "obo1"
                                                                   "oboInOwl2")
-                                                          {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs"}))]
+                                                          {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30"}))]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
                       (->> (into [] g)
@@ -549,7 +550,7 @@
                      [seeAlso])
           seeAlso' (mapv (fn [x]
                            (if (keyword? x)
-                             (reg/iri x)
+                             (iri x)
                              x))
                          seeAlso)]
       (assoc form :rdfs/seeAlso (filterv string? seeAlso')))
@@ -1335,10 +1336,13 @@
   (sniff [k]
     (try
       (when-some [model (mem-parse k)]
-        (let [idx (group-by :db/ident (mapv #(dissoc % :private) (unroll-forms model)))]
-          (with-meta (first (get idx k))
-            (merge (meta model)
-                   (update-vals (dissoc idx k) first)))))
+        (let [forms (mapv #(dissoc % :private) (unroll-forms model))
+              idx   (group-by :db/ident forms)]
+          (if-some [val (get idx k)]
+            (with-meta (first val)
+              (merge (meta model)
+                     (update-vals (dissoc idx k) first)))
+            (with-meta forms (meta model)))))
       (catch Throwable ex
         (log/debug (.getMessage ex)))))
 
