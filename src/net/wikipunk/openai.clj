@@ -66,6 +66,7 @@ of repetition."
   [component method path & {:as opts}]
   (let [res (http/request
               (assoc (merge {:method method :url (str (:base-uri component) path)} opts)
+                     :http-client (:http-client component)
                      :connection-manager (:conn-mgr component)
                      :oauth-token (:api-key component)
                      :as :json-string-keys))]
