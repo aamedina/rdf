@@ -439,7 +439,7 @@
           :skos/altLabel
           :madsrdf/hasVariant
           :skos/editorial
-          :madsrdf/editorialNote
+          :madsrdf/editorialNote          
           :mop/class-slots
           :mop/class-direct-slots
           :mop/class-direct-subclasses

@@ -63,14 +63,15 @@
         reasons (group-by #(get % "finish_reason") choices)]
     (if-some [choice (some-> (get reasons "stop") (first) (get "text"))]
       (try
-        (dissoc (edn/read-string (str prefix (str/replace choice #"\"@(\w+)," "\",") suffix))
-                :mop/class-precedence-list
-                :mop/class-slots
-                :mop/class-direct-slots
-                :mop/class-direct-subclasses
-                :mop/class-direct-superclasses
-                :mop/class-default-initargs
-                :mop/class-direct-default-initargs)
+        (let [val (edn/read-string (str prefix (str/replace choice #"\"@(\w+)," "\",") suffix))]
+          (cond-> val
+            (map? val) (dissoc :mop/class-precedence-list
+                               :mop/class-slots
+                               :mop/class-direct-slots
+                               :mop/class-direct-subclasses
+                               :mop/class-direct-superclasses
+                               :mop/class-default-initargs
+                               :mop/class-direct-default-initargs)))
         (catch Throwable ex
           (log/warn (.getMessage ex) choice)
           nil))

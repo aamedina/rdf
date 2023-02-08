@@ -60,7 +60,6 @@
                 :post "/completions"
                 {:form-params  (select-keys (assoc params
                                                    :model (:model params (:model component "text-ada-001"))
-                                                   :temperature (:temperature params 0.7)
                                                    :max_tokens (:max_tokens params 1024))
                                             [:model
                                              :temperature
@@ -78,4 +77,21 @@
                                              :best_of
                                              :logit-bias
                                              :user])
+                 :content-type :json}))
+
+(defn edits
+  "Creates a new edit for the provided input, instruction, and parameters."
+  [component instruction & {:as params}]
+  (make-request component
+                :post "/edits"
+                {:form-params  (select-keys (assoc params
+                                                   :model (or (:model params) "text-davinci-edit-001")
+                                                   :instruction instruction
+                                                   :max_tokens (:max_tokens params 1024))
+                                            [:model
+                                             :temperature
+                                             :input
+                                             :top_p
+                                             :n
+                                             :instruction])
                  :content-type :json}))
