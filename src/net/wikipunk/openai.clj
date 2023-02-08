@@ -70,7 +70,7 @@ of repetition."
                      :connection-manager (:conn-mgr component)
                      :oauth-token (:api-key component)
                      :as :json-string-keys))]
-    (with-meta (:body res {}) (:headers res))))
+    (with-meta (:body res {}) (dissoc res :body :http-client))))
 
 (defn models
   "Retrieves a model instance, providing basic information about the model such as the owner and permissioning."
