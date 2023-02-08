@@ -4,9 +4,11 @@
   cheshire/cheshire
   {:mvn/version "5.11.0"}
   com.apicatalog/titanium-json-ld
-  {:mvn/version "1.3.1"}
+  {:mvn/version "1.3.1"}  
   com.stuartsierra/component
   {:mvn/version "1.1.0"}
+  com.taoensso/nippy
+  {:mvn/version "3.2.0"}
   io.github.arachne-framework/aristotle
   {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
   org.apache.jena/apache-jena-libs
@@ -14,12 +16,24 @@
    :extension   "pom"}
   org.clojure/clojure
   {:mvn/version "1.11.1"}
+  org.clojure/core.async
+  {:mvn/version "1.6.673"}
   org.clojure/core.memoize
   {:mvn/version "1.0.257"}
+  org.clojure/data.fressian
+  {:mvn/version "1.0.0"}
+  org.clojure/data.int-map
+  {:mvn/version "1.2.0"}
+  org.clojure/data.json
+  {:mvn/version "2.4.0"}
+  org.clojure/data.xml
+  {:mvn/version "0.2.0-alpha8"}
+  org.clojure/math.combinatorics
+  {:mvn/version "0.1.6"}
   org.clojure/tools.logging
   {:mvn/version "1.2.4"}
   org.glassfish/jakarta.json
-  {:mvn/version "2.0.1"}
+  {:mvn/version "2.0.1"}  
   zprint/zprint
   {:mvn/version "1.2.4"}}
  :paths ["src" "classes" "resources"]
@@ -35,7 +49,9 @@
     org.clojure/tools.namespace
     {:mvn/version "1.3.0"}
     org.slf4j/slf4j-simple
-    {:mvn/version "1.7.36"}}
+    {:mvn/version "1.7.36"}
+    vlaaad/reveal
+    {:mvn/version "1.3.277"}}
    :extra-paths ["dev"]
    :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"
                  "-XX:+HeapDumpOnOutOfMemoryError"

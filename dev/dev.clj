@@ -40,5 +40,12 @@
           (sc/assemble-system))
       (throw (ex-info "system.edn is not on classpath" {})))))
 
+(defmacro inspect
+  "Evaluate forms in an implicit do and inspect the value of the last
+  expression using Reveal."
+  [& body]
+  `(do (@user/reveal (do ~@body))
+       true))
+
 (comment
   (rdf/emit (:vocab system) nil))

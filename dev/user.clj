@@ -15,3 +15,15 @@
         (let [msg (str "Uncaught exception on " (.getName thread))]
           (println msg)
           (clojure.repl/pst ex))))))
+
+(def reveal
+  (delay
+    (doto ((requiring-resolve 'vlaaad.reveal/ui))
+      (add-tap))))
+
+(defn reset-reveal
+  []
+  ((requiring-resolve 'vlaaad.reveal/close-all-views))
+  (alter-var-root #'reveal (constantly (delay
+                                         (doto ((requiring-resolve 'vlaaad.reveal/ui))
+                                           (add-tap))))))
