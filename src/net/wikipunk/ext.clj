@@ -685,6 +685,12 @@
    :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/classification.owl#"
    :rdfa/prefix "classification"})
 
+(def cco
+  {:dcat/downloadURL "http://purl.org/ontology/cco/cognitivecharacteristics.owl"
+   :rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://purl.org/ontology/cco/core#"
+   :rdfa/prefix "cco"})
+
 (def simulation
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "https://www.w3id.org/simulation/ontology/"
