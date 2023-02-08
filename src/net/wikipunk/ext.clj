@@ -687,9 +687,42 @@
 
 (def cco
   {:dcat/downloadURL "http://purl.org/ontology/cco/cognitivecharacteristics.owl"
-   :rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://purl.org/ontology/cco/core#"
-   :rdfa/prefix "cco"})
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://purl.org/ontology/cco/core#"
+   :rdfa/prefix      "cco"
+   :rdf/ns-prefix-map
+   {"ao"    "http://purl.org/ontology/ao/core#",
+    "cco"   "http://purl.org/ontology/cco/core#",
+    "dc11"  "http://purl.org/dc/elements/1.1/",
+    "event" "http://purl.org/NET/c4dm/event.owl#",
+    "foaf"  "http://xmlns.com/foaf/0.1/",
+    "owl"   "http://www.w3.org/2002/07/owl#",
+    "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+    "scovo" "http://purl.org/NET/scovo#",
+    "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "time"  "http://www.w3.org/2006/time#",
+    "vann"  "http://purl.org/vocab/vann/",
+    "wo"    "http://purl.org/ontology/wo/core#",
+    "xsd"   "http://www.w3.org/2001/XMLSchema#"}})
+
+(def wo
+  {:dcat/downloadURL "http://purl.org/ontology/wo/weightingontology.owl"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://purl.org/ontology/wo/core#"
+   :rdfa/prefix      "wo"
+   :rdf/ns-prefix-map
+   {"dc11"  "http://purl.org/dc/elements/1.1/",
+    "event" "http://purl.org/NET/c4dm/event.owl#",
+    "owl"   "http://www.w3.org/2002/07/owl#",
+    "rdf"   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs"  "http://www.w3.org/2000/01/rdf-schema#",
+    "rev"   "http://purl.org/stuff/rev#",
+    "scovo" "http://purl.org/NET/scovo#",
+    "vs"    "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "vann"  "http://purl.org/vocab/vann/",
+    "wo"    "http://purl.org/ontology/wo/core#",
+    "xsd"   "http://www.w3.org/2001/XMLSchema#"}})
 
 (def simulation
   {:rdf/type    :rdfa/PrefixMapping
