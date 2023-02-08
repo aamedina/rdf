@@ -1,2 +1,3 @@
-{:vocab {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-         :init-ns      net.wikipunk.mop.init}}
+{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+          :init-ns      net.wikipunk.mop.init}
+ :openai {:sc/create-fn net.wikipunk.openai/map->Client}}

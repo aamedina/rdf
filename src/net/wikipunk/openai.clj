@@ -1,6 +1,7 @@
 (ns net.wikipunk.openai
   "OpenAI API"
   (:require
+   [clojure.core.memoize :as memo]
    [clojure.datafy :refer [datafy]]
    [clojure.edn :as edn]
    [clojure.string :as str]
@@ -8,23 +9,29 @@
    [clojure.tools.logging :as log]
    [clj-http.client :as http]
    [clj-http.conn-mgr :as conn-mgr]
-   [com.stuartsierra.component :as com]
-   [net.wikipunk.rdf :as rdf]))
+   [com.stuartsierra.component :as com]))
 
-(defrecord OpenAI [base-uri api-key model conn-mgr http-client]
+(defrecord Client [base-uri api-key model conn-mgr http-client]
   com/Lifecycle
   (start [this]
-    (let [cm  (conn-mgr/make-reusable-conn-manager {})
-          res (http/get (str base-uri "/models")
-                        {:oauth-token        api-key
-                         :as                 :json-string-keys
-                         :connection-manager cm})]
+    (let [api-key  (or api-key (System/getenv "OPENAI_API_KEY"))
+          base-uri (or base-uri "https://api.openai.com/v1")
+          cm       (conn-mgr/make-reusable-conn-manager {})
+          res      (when api-key
+                     ;; only create the http-client when there is an
+                     ;; api-key provided by the user
+                     (http/get (str base-uri "/models")
+                               {:oauth-token        api-key
+                                :as                 :json-string-keys
+                                :connection-manager cm}))]
       (assoc this
+             :base-uri base-uri
+             :api-key api-key
              :conn-mgr cm
              :http-client (:http-client res))))
   (stop [this]
-    (when ^java.io.Closeable conn-mgr
-      (.close conn-mgr))
+    (when conn-mgr
+      (.close ^java.io.Closeable conn-mgr))
     (assoc this :conn-mgr nil :http-client nil)))
 
 (defn make-request
@@ -51,136 +58,24 @@
   [component & {:as params}]
   (make-request component
                 :post "/completions"
-                {:form-params  (assoc params
-                                      :model (:model params (:model component "text-ada-001"))
-                                      :temperature (:temperature params 0.7)
-                                      :max_tokens (:max_tokens params 1024))
+                {:form-params  (select-keys (assoc params
+                                                   :model (:model params (:model component "text-ada-001"))
+                                                   :temperature (:temperature params 0.7)
+                                                   :max_tokens (:max_tokens params 1024))
+                                            [:model
+                                             :temperature
+                                             :prompt
+                                             :max_tokens
+                                             :suffix
+                                             :top_p
+                                             :n
+                                             :stream
+                                             :logprobs
+                                             :echo
+                                             :stop
+                                             :presence_penalty
+                                             :frequency_penalty
+                                             :best_of
+                                             :logit-bias
+                                             :user])
                  :content-type :json}))
-
-(defmulti sniff
-  "Locates a model for GPT-3 by type."
-  rdf/type-of
-  :hierarchy #'net.wikipunk.rdf/*metaobjects*)
-
-(defmethod sniff :default
-  [ident]
-  (dissoc (let [e  (or (datafy ident) (rdf/sniff ident))
-                md (meta e)]
-            (->> (walk/postwalk (fn [form]
-                                  (if-some [label (some-> (get md form) :rdfs/label)]
-                                    label
-                                    form))
-                                e)
-                 (walk/postwalk (fn [form]
-                                  (if (qualified-keyword? form)
-                                    (if (contains? #{"loc.works" "loc.instances" "loc.subjects"}
-                                                   (str/starts-with? (namespace form) "loc"))
-                                      (rdf/iri form)
-                                      form)
-                                    form)))
-                 (walk/postwalk (fn [form]
-                                  (if (and (:rdf/language form)
-                                           (:rdf/value form)
-                                           (str/starts-with? (:rdf/language form) "en"))
-                                    (:rdf/value form)
-                                    form)))
-                 (walk/postwalk (fn [form]
-                                  (if (sequential? form)
-                                    (filterv (complement :rdf/language) form)
-                                    form)))))
-          :madsrdf/adminMetadata
-          :madsrdf/elementList
-          :madsrdf/hasBroaderAuthority
-          :madsrdf/hasCloseExternalAuthority
-          :madsrdf/hasNarrowerAuthority
-          :madsrdf/isMemberOfMADSCollection
-          :madsrdf/isMemberOfMADSScheme
-          :bf/adminMetadata
-          :bf/contribution
-          :bf/content
-          :skos/changeNote
-          :skosxl/altLabel
-          :skos/altLabel
-          :madsrdf/hasVariant
-          :skos/editorial
-          :madsrdf/editorialNote
-          :mop/class-slots
-          :mop/class-direct-subclasses
-          :mop/class-direct-superclasses
-          :mop/class-default-initargs
-          :mop/class-direct-default-initargs))
-
-(defn prompt
-  "Given a prompt string in natural language and a namespace-qualified
-  keyword naming a concept use the OpenAI completion AI to generate
-  text."
-  [component prompt ident & {:as params}]
-  (let [{:strs [choices]} (completions component (assoc params :prompt (with-out-str
-                                                                         (println "### " prompt)
-                                                                         (when ident
-                                                                           (prn (sniff ident))))))
-        choices-index     (group-by #(get % "finish_reason") choices)
-        stop              (first (get choices-index "stop"))]
-    (str/trim (get stop "text"))))
-
-(defn edn
-  "Given a prompt string in natural language and a namespace-qualified
-  keyword naming a concept use the OpenAI completion AI to generate EDN."
-  [component prompt ident & {:as params}]
-  (let [{:strs [choices]
-         :as m}
-        (completions component (assoc (dissoc params :edn-prompt)
-                                      :prompt (with-out-str
-                                                (println "##### " prompt)
-                                                (println "### Clojure")
-                                                (prn (sniff ident))
-                                                (println "### Clojure")
-                                                (print (or (:edn-prompt params) "{")))
-                                      :model (or (:model params) "code-davinci-002")))]
-    (if-some [choice (some-> (first choices)
-                             (get "text"))]
-      (try
-        (dissoc (edn/read-string (str (or (:edn-prompt params) "{") choice)) :mop/class-direct-slots)
-        (catch Throwable ex
-          (log/warn (.getMessage ex))
-          choice))
-      choices)))
-
-(defn transmutate
-  "Transmutate one metaobject into another."
-  [component from to & {:as params}]
-  (let [{:strs [choices]
-         :as   m}
-        (completions component (assoc params
-                                      :prompt (with-out-str
-                                                (when-some [prompt (:prompt params)]
-                                                  (println "##### " (:prompt params)))
-                                                (println "### Clojure")
-                                                (prn (sniff from))
-                                                (println "### Clojure")
-                                                (print (str "{:db/ident " to ",")))
-                                      :model (or (:model params) "code-davinci-002")
-                                      :stop (or (:stop params) "###")
-                                      :top_p (or (:top_p params) 1.0)))]
-    (if-some [choice (some-> (first choices)
-                             (get "text"))]
-      (try
-        (edn/read-string (str "{:db/ident " to "," (str/replace choice #"@en" "")))
-        (catch Throwable ex
-          (log/warn (.getMessage ex) choice)
-          nil))
-      choices)))
-
-(comment
-  (def openai
-    (com.stuartsierra.component/start 
-      (net.wikipunk.openai/map->OpenAI {:base-uri "https://api.openai.com/v1"
-                                        :api-key  "YOUR_OPENAPI_KEY"
-                                        :model    "text-davinci-003"})))
-
-  (net.wikipunk.openai/edn openai
-                           "Write related example instances or subclasses as Clojure data (EDN)"
-                           :simulation/EmblematicSimulation
-                           :top_p 1.0
-                           :frequency_penalty 0.1
-                           :stop "###"))

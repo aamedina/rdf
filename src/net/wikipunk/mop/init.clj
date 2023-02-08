@@ -3,8 +3,11 @@
   (:require
    [clojure.datafy :refer [datafy]]
    [clojure.set :as set]
+   [clojure.string :as str]
+   [clojure.walk :as walk]
    [net.wikipunk.mop :as mop :refer [isa? ancestors descendants parents]]
-   [net.wikipunk.rdf :as rdf])
+   [net.wikipunk.rdf :as rdf]
+   [net.wikipunk.temple :as temple])
   (:refer-clojure :exclude [isa? ancestors descendants parents]))
 
 (defmethod mop/find-class-using-env :default
@@ -394,3 +397,52 @@
 (defmethod mop/class-slots clojure.lang.Keyword
   [class]
   (mop/class-slots (mop/find-class class)))
+
+(defmethod mop/sniff :default
+  [ident]
+  (dissoc (let [e  (or (datafy ident) (rdf/sniff ident))
+                md (meta e)]
+            (->> (walk/postwalk (fn [form]
+                                  (if-some [label (some-> (get md form) :rdfs/label)]
+                                    label
+                                    form))
+                                e)
+                 (walk/postwalk (fn [form]
+                                  (if (qualified-keyword? form)
+                                    (if (contains? #{"loc.works" "loc.instances" "loc.subjects"}
+                                                   (str/starts-with? (namespace form) "loc"))
+                                      (rdf/iri form)
+                                      form)
+                                    form)))
+                 (walk/postwalk (fn [form]
+                                  (if (and (:rdf/language form)
+                                           (:rdf/value form)
+                                           (str/starts-with? (:rdf/language form) "en"))
+                                    (:rdf/value form)
+                                    form)))
+                 (walk/postwalk (fn [form]
+                                  (if (sequential? form)
+                                    (filterv (complement :rdf/language) form)
+                                    form)))))
+          :madsrdf/adminMetadata
+          :madsrdf/elementList
+          :madsrdf/hasBroaderAuthority
+          :madsrdf/hasCloseExternalAuthority
+          :madsrdf/hasNarrowerAuthority
+          :madsrdf/isMemberOfMADSCollection
+          :madsrdf/isMemberOfMADSScheme
+          :bf/adminMetadata
+          :bf/contribution
+          :bf/content
+          :skos/changeNote
+          :skosxl/altLabel
+          :skos/altLabel
+          :madsrdf/hasVariant
+          :skos/editorial
+          :madsrdf/editorialNote
+          :mop/class-slots
+          :mop/class-direct-slots
+          :mop/class-direct-subclasses
+          :mop/class-direct-superclasses
+          :mop/class-default-initargs
+          :mop/class-direct-default-initargs))

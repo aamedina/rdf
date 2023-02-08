@@ -53,10 +53,32 @@
        (find-class class error? env)
        class))))
 
-(defn type-of
+(defmulti type-of
   "Dispatch function for the multimethods of the metaobject protocol."
-  [x & args]
-  (type x))
+  (fn [obj & args]
+    (type obj)))
+
+(defmethod type-of :default
+  [obj & args]
+  (type obj))
+
+(defmethod type-of clojure.lang.IPersistentMap
+  [m & args]
+  (let [rdf-type (:rdf/type m)]
+    (if (sequential? rdf-type)
+      (first (sort isa? rdf-type))
+      rdf-type)))
+
+(defmethod type-of clojure.lang.Keyword
+  [obj & args]
+  (cond
+    (isa? temple/*tree-of-life* obj :rdf/Property)
+    :rdf/Property
+    
+    (isa? temple/*tree-of-life* obj :rdfs/Class)
+    :rdfs/Class    
+
+    :else :rdfs/Resource))
 
 (defmulti add-dependent
   "This multimethod adds dependent to the dependents of
@@ -881,4 +903,9 @@
   {:arglists '([class superclass])}
   (fn [class superclass]
     [(type-of class) (type-of superclass)])
+  :hierarchy #'net.wikipunk.temple/*tree-of-life*)
+
+(defmulti sniff
+  "Follow your nose."
+  type-of
   :hierarchy #'net.wikipunk.temple/*tree-of-life*)
