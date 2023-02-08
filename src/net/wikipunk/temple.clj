@@ -57,7 +57,8 @@
                                  :model (or (:model params) "code-davinci-002")
                                  :stop (str suffix \newline)
                                  :suffix suffix
-                                 :top_p (or (:top_p params) 1.0))
+                                 :top_p (or (:top_p params) 1.0)
+                                 :frequency_penalty 0.1)
         {:strs [choices]} (openai/completions component params')
         reasons (group-by #(get % "finish_reason") choices)]
     (if-some [choice (some-> (get reasons "stop") (first) (get "text"))]
