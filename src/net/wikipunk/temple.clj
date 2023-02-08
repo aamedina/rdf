@@ -29,6 +29,8 @@
 
 (def sniff (memo/memo (requiring-resolve 'net.wikipunk.mop/sniff)))
 
+(set! *print-namespace-maps* nil)
+
 (defn transmutate
   "Transmutate metaobjects into new forms.
 
@@ -40,12 +42,12 @@
   desired child, you should probably include at least a :db/ident."
   [component & {:keys [parents child]
                 :as   params}]
-  (let [suffix            (or (:suffix params) "}")
+  (let [suffix            "}"
         prefix            (when child
                             (str/replace (pr-str child) (re-pattern (str suffix "$")) ","))
         prompt            (with-out-str
-                            (when-some [prompt (:prompt params)]
-                              (println "##### " (:prompt params)))
+                            (when-some [prompt (:prompt params "Create an RDF resource")]
+                              (println "##### " prompt))
                             (println "### Clojure")
                             (doseq [parent parents]
                               (prn (sniff parent)))
@@ -55,15 +57,16 @@
         params'           (assoc params
                                  :prompt prompt
                                  :model (or (:model params) "code-davinci-002")
-                                 :stop (str suffix \newline)
-                                 :suffix suffix
-                                 :top_p (or (:top_p params) 1.0)
-                                 :frequency_penalty 0.1)
-        {:strs [choices]} (openai/completions component params')
+                                 :stop (or (:stop params)
+                                           (str suffix \newline))
+                                 :frequency_penalty 0.1
+                                 :max_tokens 1024)
+        {:strs [choices] :as res} (openai/completions component params')
         reasons (group-by #(get % "finish_reason") choices)]
     (if-some [choice (some-> (get reasons "stop") (first) (get "text"))]
       (try
-        (let [val (edn/read-string (str prefix (str/replace choice #"\"@(\w+)," "\",") suffix))]
+        (let [val (with-meta (edn/read-string (str prefix choice suffix))
+                    res)]
           (cond-> val
             (map? val) (dissoc :mop/class-precedence-list
                                :mop/class-slots
@@ -74,7 +77,14 @@
                                :mop/class-direct-default-initargs)))
         (catch Throwable ex
           (log/warn (.getMessage ex) choice)
-          nil))
+          (let [{:strs [choices]}
+                (openai/edits component (assoc params'
+                                               :input (str prefix choice suffix)
+                                               :instruction (str "Use this error message to fix the Clojure map so that it can be read by the Clojure reader and remove all key-value pairs with reader-macros that are not built into Clojure:" (.getMessage ex))
+                                               :model "code-davinci-edit-001"))]
+            (if-some [text (get (nth choices 0) "text")]
+              (edn/read-string text)
+              choices))))
       choices)))
 
 (defn prompt
