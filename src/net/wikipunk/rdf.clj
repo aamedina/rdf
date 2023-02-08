@@ -1342,7 +1342,8 @@
             (with-meta (first val)
               (merge (meta model)
                      (update-vals (dissoc idx k) first)))
-            (with-meta forms (meta model)))))
+            (with-meta (peek forms)
+              (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
       (catch Throwable ex
         (log/debug (.getMessage ex)))))
 
