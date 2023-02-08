@@ -46,7 +46,7 @@
         prefix            (when child
                             (str/replace (pr-str child) (re-pattern (str suffix "$")) ","))
         prompt            (with-out-str
-                            (when-some [prompt (:prompt params "Create an RDF resource")]
+                            (when-some [prompt (:prompt params "Return a RDF resource as a Clojure map")]
                               (println "##### " prompt))
                             (println "### Clojure")
                             (doseq [parent parents]
@@ -80,10 +80,15 @@
           (let [{:strs [choices]}
                 (openai/edits component (assoc params'
                                                :input (str prefix choice suffix)
-                                               :instruction (str "Use this error message to fix the Clojure map so that it can be read by the Clojure reader and remove all key-value pairs with reader-macros that are not built into Clojure:" (.getMessage ex))
+                                               :instruction (str "Fix the Clojure data so that it can be read by the Clojure EDN reader, a map must have no duplicate keys, and maps must contain an even number of forms, remove '@' from all symbols, remove unsupported escape characters from all strings and symbols, and use this error message as additional context for the fix '" (.getMessage ex) "'.")
                                                :model "code-davinci-edit-001"))]
-            (if-some [text (get (nth choices 0) "text")]
-              (edn/read-string text)
+            (if-some [text (some-> choices
+                                   (first)
+                                   (get "text"))]
+              (try
+                (edn/read-string text)
+                (catch Throwable ex
+                  (log/warn (.getMessage ex) choice)))
               choices))))
       choices)))
 
@@ -105,14 +110,11 @@
   ;; assuming the system is started in the dev namespace
 
   (temple/transmutate (:openai system)
-                      :prompt "Write related example instances or subclasses as Clojure data (EDN)"
-                      :parents [:simulation/EmblematicSimulation
+                      :parents [:simulation/Simulation
                                 :simulation/Simulacrum]
-                      :child {:db/ident :simulation/HumorSimulation}
-                      :temperature 0.9
-                      :frequency_penalty 0.1)
+                      :child {:db/ident :hyperreal/HumorSimulation}
+                      :temperature 0.9)
 
-  ;; This is a cherry-picked but nevertheless real example!
   {:db/ident                  :simulation/HumorSimulation,
    :mop/class-precedence-list [:simulation/HumorSimulation
                                :simulation/EmblematicSimulation
@@ -121,4 +123,115 @@
    :rdfs/comment              "A specific kind of Emblematic Simulation in which a funny event in the Game design is mapped to the real world, like a funny or embarrassing situation in the player's life. A Humor Simulation is usually bound to tell something about the player, based on the embodied interaction paradigm.@en",
    :rdfs/isDefinedBy          :simulation/SimulationOntology,
    :rdfs/label                "Humor Simulation@en",
-   :rdfs/subClassOf           :simulation/EmblematicSimulation})
+   :rdfs/subClassOf           :simulation/EmblematicSimulation}
+
+  {:db/ident              :hyperreal/HumorSimulation,
+   :rdf/type              :simulation/Simulation,
+   :simulation/hasContext {:db/ident                  :simulation/Situation,
+                           :mop/class-precedence-list [:situation/Situation
+                                                       :prov/Entity :owl/Thing
+                                                       :rdfs/Resource],
+                           :rdf/type                  :situation/Situation},
+   :simulation/hasRealityCounterpart
+   {:db/ident :simulation/Humor,
+    :mop/class-precedence-list
+    [:simulation/Humor :simulation/RealityCounterpart :semiotics/Expression
+     :semiotics/InformationEntity :owl/Class :rdfs/Class],
+    :rdf/type :simulation/Humor},
+   :simulation/hasSimulacrum
+   {:db/ident :simulation/Joke,
+    :mop/class-precedence-list
+    [:simulation/Joke :simulation/Simulacrum :semiotics/Expression
+     "http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#InformationObject"
+     :owl/Class :rdfs/Class],
+    :rdf/type :simulation/Joke}}
+
+  {:db/ident                         :hyperreal/HumorSimulation,
+   :rdf/type                         :owl/NamedIndividual,
+   :rdfs/comment
+   "Humor is, I have understood, that which is absurd. A joke, for example, can be absurd. There are jokes that are not humorous, and this, I have understood, is the reason why: humor comes from the juxtaposition between the personal reality of an individual and the hyperreality that is imposed to us by societal and cultural norms.@en",
+   :rdfs/isDefinedBy                 :hyperreal/HyperrealOntology,
+   :rdfs/label                       "Humor@en",
+   :simulation/hasRealityCounterpart :hyperreal/Humor,
+   :simulation/hasSimulacrum         :hyperreal/TheJoker}
+
+  {:db/ident   :hyperreal/HumorSimulation,
+   :rdf/type   :simulation/Simulation,
+   :rdfs/comment
+   "A gateway drug to parody and satire. Frequently used by comics to make a story or statement more acceptable or palatable to the average audience so they can stand to hear the message.@en",
+   :rdfs/label "Humor@en"}
+
+  {:db/ident :hyperreal/HumorSimulation,
+   :rdf/type :owl/Class,
+   :rdfs/comment
+   "A simulation of the concept of humor. It is the symbolic relationship that happens between a certain type of joke and its symbolic meaning, namely laughing.@en",
+   :rdfs/label "Humor Simulation@en",
+   :rdfs/subClassOf [:simulation/Simulation
+                     {:owl/onProperty     :simulation/hasContext,
+                      :owl/someValuesFrom :hyperreal/HumorContext,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :simulation/hasRealityCounterpart,
+                      :owl/someValuesFrom :hyperreal/HumorRealityCounterpart,
+                      :rdf/type           :owl/Restriction}]}
+
+  {:db/ident                         :hyperreal/HumorSimulation,
+   :mop/class-precedence-list        [:hyperreal/HumorSimulation :simulation/Simulation
+                                      :owl/Class :rdfs/Class],
+   :rdfs/comment                     "Simulation of humor by cultural hybrids@en",
+   :rdfs/label                       "Hyperreal Humor Simulation@en",
+   :simulation/hasContext
+   {:db/ident             :hyperreal/InterpretationBasedOriginationContext,
+    :prov/wasAttributedTo "http://dbpedia.org/resource/Burp@en",
+    :rdf/type             :simulation/Context},
+   :simulation/hasRealityCounterpart [:hyperreal/HyperReality],
+   :simulation/hasSimulacrum
+   {:db/ident                  :hyperreal/Symbol,
+    :mop/class-precedence-list [:semiotics//Expression
+                                :semiotics//InformationEntity],
+    :semiotics//denotes        {:db/ident :hyperreal/Meaning,
+                                :mop/class-precedence-list
+                                [:semiotics//Expression
+                                 :semiotics//InformationEntity]}}}
+
+  {:db/ident                 :hyperreal/HumorSimulation,
+   :mop/class-links          [:simulation/Simulacrum],
+   :mop/function-links       [:simulation/isSimulacrumOf],
+   :mop/function-precedence  [:hyperreal/HumorSimulation],
+   :owl/onProperty           :simulation/isSimulacrumOf,
+   :owl/qualifiedCardinality 1,
+   :rdf/type                 :owl/ObjectProperty,
+   :rdfs/comment             "A simulation which produces a hyperreal humor.@en",
+   :rdfs/domain              :simulation/Simulation,
+   :rdfs/isDefinedBy         :simulation/SimulationOntology,
+   :rdfs/label               "Hyperreal Humor Simulation@en",
+   :rdfs/range               :simulation/Humor}
+
+  {:db/ident         :hyperreal/HumorSimulation,
+   :rdf/type         :owl/Class,
+   :rdfs/comment
+   "A humor simulation uses fictional events and makes them appear real. It is based on the First-Order Simulation.@en",
+   :rdfs/isDefinedBy :hyperreal/HyperrealityOntology,
+   :rdfs/label       "HumorSimulation@en",
+   :rdfs/subClassOf
+   {:owl/intersectionOf
+    [:simulation/Simulation
+     {:owl/intersectionOf
+      [{:owl/onProperty     :situation/hasBeginTime,
+        :owl/someValuesFrom {:owl/oneOf
+                             [:situation/presentTime
+                              :ontology_of_space_time_paradoxes/present]},
+        :rdf/type           :owl/Restriction}
+       {:owl/onProperty     :situation/hasEndTime,
+        :owl/someValuesFrom {:owl/oneOf
+                             [:situation/presentTime
+                              :ontology_of_space_time_paradoxes/present]},
+        :rdf/type           :owl/Restriction}]}
+     {:owl/intersectionOf
+      [{:owl/allValuesFrom :ontology_of_space_time_paradoxes/DoomedStar,
+        :owl/onProperty
+        :ontology_of_space_time_paradoxes/isSpaceTimeObjectivePresentationOf,
+        :rdf/type          :owl/Restriction}
+       {:owl/onClass              :literal_semantics_for_time#ObjectivePresentation,
+        :owl/onProperty           :simulation/hasSimulacrum,
+        :owl/qualifiedCardinality 1,
+        :rdf/type                 :owl/Restriction}]}]}})
