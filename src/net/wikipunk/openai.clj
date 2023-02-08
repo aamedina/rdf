@@ -95,3 +95,12 @@
                                              :n
                                              :instruction])
                  :content-type :json}))
+
+(defn moderations
+  "Classifies if text violates OpenAI's Content Policy"
+  [component input & {:keys [model]
+                      :or   {model "text-moderation-latest"}}]
+  (make-request component
+                :post "/moderations"
+                {:form-params  {:model model :input input}
+                 :content-type :json}))
