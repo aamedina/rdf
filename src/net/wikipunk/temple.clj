@@ -29,6 +29,8 @@
 
 (def sniff (memo/memo (requiring-resolve 'net.wikipunk.mop/sniff)))
 
+(def cpl (memo/memo (requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list)))
+
 (set! *print-namespace-maps* nil)
 
 (defn transmutate
@@ -42,61 +44,68 @@
   desired child, you should probably include at least a :db/ident."
   [component & {:keys [parents child]
                 :as   params}]
-  (let [suffix            "}"
+  (let [child-str         (pr-str child)
+        suffix            (last child-str)
         prefix            (when child
-                            (str/replace (pr-str child) (re-pattern (str suffix "$")) ","))
+                            (str/replace child-str (re-pattern (str suffix "$")) ""))
         prompt            (with-out-str
-                            (when-some [prompt (:prompt params "Return a RDF resource as a Clojure map")]
-                              (println "##### " prompt))
-                            (println "### Clojure")
-                            (doseq [parent parents]
-                              (prn (sniff parent)))
-                            (println "### Clojure")
+                            (doseq [parent (->> parents
+                                                ;; mop/compute-class-precedence-list
+                                                (mapcat cpl)
+                                                (distinct)
+                                                (sort (partial isa? *tree-of-life*))
+                                                (reverse)
+                                                ;; mop/sniff
+                                                (map sniff))]
+                              (println "```clojure")
+                              (prn (sniff parent))
+                              (println "```"))
+                            (println "```clojure")
                             (when prefix
-                              (print prefix)))
+                              (println prefix)))
         params'           (assoc params
                                  :prompt prompt
                                  :model (or (:model params) "code-davinci-002")
-                                 :stop (or (:stop params)
-                                           (str suffix \newline))
-                                 :frequency_penalty 0.1
-                                 :max_tokens 1024)
+                                 :stop (or (:stop params) "```")
+                                 :frequency_penalty (or (:frequency_penalty params) 0.1)
+                                 :max_tokens (or (:max_tokens params) 1024))
         {:strs [choices] :as res} (openai/completions component params')
         reasons (group-by #(get % "finish_reason") choices)]
     (if-some [choice (some-> (get reasons "stop") (first) (get "text"))]
-      (try
-        (let [val (with-meta (edn/read-string (str prefix choice suffix))
-                    res)]
-          (cond-> val
-            (map? val) (dissoc :mop/class-precedence-list
-                               :mop/class-slots
-                               :mop/class-direct-slots
-                               :mop/class-direct-subclasses
-                               :mop/class-direct-superclasses
-                               :mop/class-default-initargs
-                               :mop/class-direct-default-initargs)))
-        (catch Throwable ex
-          (log/warn (.getMessage ex) choice)
-          (let [{:strs [choices]}
-                (openai/edits component (assoc params'
-                                               :input (str prefix choice suffix)
-                                               :instruction (str "Fix the Clojure data so that it can be read by the Clojure EDN reader, a map must have no duplicate keys, and maps must contain an even number of forms, remove '@' from all symbols, remove unsupported escape characters from all strings and symbols, and use this error message as additional context for the fix '" (.getMessage ex) "'.")
-                                               :model "code-davinci-edit-001"))]
-            (if-some [text (some-> choices
-                                   (first)
-                                   (get "text"))]
-              (try
-                (edn/read-string text)
-                (catch Throwable ex
-                  (log/warn (.getMessage ex) choice)))
-              choices))))
+      (let [s (str prefix choice suffix)]
+        (try
+          (let [val (with-meta (edn/read-string s)
+                      res)]
+            (cond-> val
+              (map? val) (dissoc :mop/class-precedence-list
+                                 :mop/class-slots
+                                 :mop/class-direct-slots
+                                 :mop/class-direct-subclasses
+                                 :mop/class-direct-superclasses
+                                 :mop/class-default-initargs
+                                 :mop/class-direct-default-initargs)))
+          (catch Throwable ex
+            (log/warn (.getMessage ex) choice)
+            (let [{:strs [choices]}
+                  (openai/edits component (assoc params'
+                                                 :instruction (str "Fix the Clojure (EDN) data so that it can be read by the Clojure reader, a map must have no duplicate keys, and maps must contain an even number of forms, remove '@' from all symbols, remove unsupported escape characters from all strings and symbols, and use this error message as additional context:" (.getMessage ex) ", or return `:openai.error/unreadable`")
+                                                 :input s
+                                                 :model "code-davinci-edit-001"))]
+              (if-some [text (some-> choices
+                                     (first)
+                                     (get "text"))]
+                (try
+                  (edn/read-string text)
+                  (catch Throwable ex
+                    (log/warn (.getMessage ex) choice)))
+                choices)))))
       choices)))
 
 (defn prompt
   "Given a prompt string in natural language and a namespace-qualified
   keyword naming a concept use the OpenAI completion AI to generate
   text."
-  [component prompt ident & {:as params}]
+  [component & {:keys [prompt ident] :as params}]
   (let [{:strs [choices]} (openai/completions component
                                               (assoc params :prompt (with-out-str
                                                                       (println "### " prompt)
@@ -104,7 +113,9 @@
                                                                         (prn (sniff ident))))))
         choices-index     (group-by #(get % "finish_reason") choices)
         stop              (first (get choices-index "stop"))]
-    (str/trim (get stop "text"))))
+    (if-some [txt (get stop "text")]
+      (str/trim txt)
+      choices)))
 
 (comment
   ;; assuming the system is started in the dev namespace
