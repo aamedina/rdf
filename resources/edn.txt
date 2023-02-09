@@ -1,0 +1,106 @@
+EDN is an extensible data notation. A superset of EDN is used by
+Clojure to represent programs, and it is used by Datomic and other
+applications as a data transfer format.
+
+EDN is a system for the conveyance of _values_.
+
+EDN is a set of definitions for acceptable _elements_. A use of EDN
+might be a stream or file containing elements, but it could be as
+small as the conveyance of a single element in e.g. an HTTP query
+param.
+
+There is no enclosing element at the top level.
+
+EDN elements, streams and files should be encoded using UTF-8
+
+Elements are generally separated by whitespace. Whitespace, other than
+within strings, is not otherwise significant, nor need redundant
+whitespace be preserved during transmissions. Commas `,` are also
+considered whitespace, other than within strings.
+
+The delimiters `{ } ( ) [ ]` need not be separated from adjacent
+elements by whitespace.
+
+Tokens beginning with `#` are reserved. The character following `#`
+determines the behavior. The dispatch `#{` (sets) is defined
+below. `#` is not a delimiter.
+
+`nil` represents nil, null or nothing. It should be read as an object
+with similar meaning on the target platform.
+
+`true` and `false` should be mapped to booleans.
+
+If a platform has canonic values for true and false, it is a further
+semantic of booleans that all instances of `true` yield that
+(identical) value, and similarly for `false`.
+
+Strings are enclosed in `"double quotes"`. May span multiple
+lines. Standard C/Java escape characters `\t, \r, \n, \\ and \"` are
+supported.
+
+Characters are preceded by a backslash: `\c`, `\newline`, `\return`,
+`\space` and `\tab` yield the corresponding characters. Unicode
+characters are represented with \uNNNN as in Java. Backslash cannot be
+followed by whitespace.
+
+Symbols are used to represent identifiers, and should map to something
+other than strings, if possible.
+
+Symbols begin with a non-numeric character and can contain
+alphanumeric characters and `. * + ! - _ ?  $ % & = < >`. If `-`, `+`
+or `.` are the first character, the second character (if any) must be
+non-numeric. Additionally, `: #` are allowed as constituent characters
+in symbols other than as the first character.
+
+`/` has special meaning in symbols. It can be used once only in the
+middle of a symbol to separate the _prefix_ (often a namespace) from
+the _name_, e.g. `my-namespace/foo`. `/` by itself is a legal symbol,
+but otherwise neither the _prefix_ nor the _name_ part can be empty
+when the symbol contains `/`.
+
+If a symbol has a _prefix_ and `/`, the following _name_ component
+should follow the first-character restrictions for symbols as a whole.
+
+Keywords are identifiers that typically designate themselves. They are
+semantically akin to enumeration values. Keywords follow the rules of
+symbols, except they can (and must) begin with `:`, e.g. `:fred` or
+`:my/fred`. If the target platform does not have a keyword type
+distinct from a symbol type, the same type can be used without
+conflict, since the mandatory leading `:` of keywords is disallowed
+for symbols. Per the symbol rules above, :/ and :/anything are not
+legal keywords.  A keyword cannot begin with ::
+
+Integers consist of the digits `0` - `9`, optionally prefixed by `-`
+to indicate a negative number, or (redundantly) by `+`. No integer
+other than 0 may begin with 0. 64-bit (signed integer) precision is
+expected. An integer can have the suffix `N` to indicate that
+arbitrary precision is desired. -0 is a valid integer not distinct
+from 0.
+
+For floating point numbers 64-bit (double) precision is expected. In
+addition, a floating-point number may have the suffix `M` to indicate
+that exact precision is desired.
+
+A list is a sequence of values. Lists are represented by zero or more
+elements enclosed in parentheses `()`. Note that lists can be
+heterogeneous. This is an example list: `(a b 42)`
+     
+A vector is a sequence of values that supports random access. Vectors
+are represented by zero or more elements enclosed in square brackets
+`[]`. Note that vectors can be heterogeneous. This an example vector:
+`[a b 42]`
+
+A map is a collection of associations between keys and values. Maps
+are represented by zero or more key and value pairs enclosed in curly
+braces `{}`. Each key should appear at most once. No semantics should
+be associated with the order in which the pairs appear. This is an
+example map: `{:a 1, "foo" :bar, [1 2 3] four}`
+
+Note that keys and values can be elements of any type. The use of
+commas above is optional, as they are parsed as whitespace.
+
+A set is a collection of unique values. Sets are represented by zero
+or more elements enclosed in curly braces preceded by `#` `#{}`. No
+semantics should be associated with the order in which the elements
+appear. Note that sets can be heterogeneous. This is an example set:
+`#{a b [1 2 3]}`.

@@ -156,7 +156,7 @@ of repetition."
   (make-request component
                 :post "/completions"
                 {:form-params  (select-keys (cond-> (assoc params :model (or (:model params) "text-ada-001"))
-                                              (sequential? (:stop params))
+                                              (vector? (:stop params))
                                               (update :stop (partial str/join \,)))
                                            [:model
                                             :temperature
