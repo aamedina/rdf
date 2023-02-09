@@ -88,9 +88,10 @@
             (log/warn (.getMessage ex) choice)
             (let [{:strs [choices]}
                   (openai/edits component (assoc params'
-                                                 :instruction (str "Fix the Clojure (EDN) data so that it can be read by the Clojure reader, a map must have no duplicate keys, and maps must contain an even number of forms, remove '@' from all symbols, remove unsupported escape characters from all strings and symbols, make sure all dates are formatted as with the tag #inst, and use this error message as additional context:" (.getMessage ex) ", or return `:openai.error/unreadable`")
+                                                 :instruction (str "Fix the Clojure (EDN) data so that it can be read by the Clojure reader, a map must have no duplicate keys, and maps must contain an even number of forms, remove '@' from all symbols, remove values with ellipsis (`...`), remove all Clojure symbols that begin with `#`, remove unsupported escape characters from all strings and symbols, and use this error message as additional context " (.getMessage ex) ":")
                                                  :input s
-                                                 :model "code-davinci-edit-001"))]
+                                                 :model "code-davinci-edit-001"
+                                                 :top_p 1.0))]
               (if-some [text (some-> choices
                                      (first)
                                      (get "text"))]
