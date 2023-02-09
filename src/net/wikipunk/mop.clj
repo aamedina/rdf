@@ -69,17 +69,6 @@
       (first (sort isa? rdf-type))
       rdf-type)))
 
-(defmethod type-of clojure.lang.Keyword
-  [obj & args]
-  (cond
-    (isa? temple/*tree-of-life* obj :rdf/Property)
-    :rdf/Property
-    
-    (isa? temple/*tree-of-life* obj :rdfs/Class)
-    :rdfs/Class    
-
-    :else :rdfs/Resource))
-
 (defmulti add-dependent
   "This multimethod adds dependent to the dependents of
   metaobject. If dependent is already in the set of dependents it is
