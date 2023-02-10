@@ -48,43 +48,43 @@
   desired child, you should probably include at least a :db/ident."
   [component & {:keys [parents child]
                 :as   params}]
-  (let [child-str         (pr-str child)
-        suffix            (last child-str)
-        prefix            (when child
-                            (str/replace child-str (re-pattern (str suffix "$")) ""))
-        prompt            (with-out-str
-                            (println "Context:")
-                            (doseq [parent (->> parents
-                                                ;; mop/compute-class-precedence-list
-                                                (mapcat @cpl)
-                                                (distinct)
-                                                (sort (partial isa? *tree-of-life*))
-                                                (reverse)
-                                                ;; mop/sniff
-                                                (map @sniff))]
-                              (println "```clojure")
-                              (prn (@sniff parent))
-                              (println "```"))
-                            (println "```clojure")
-                            (when prefix
-                              (println prefix)))
-        params'           (assoc params
-                                 :prompt prompt
-                                 :model (or (:model params) "code-davinci-002")
-                                 :stop (or (:stop params) "```")
-                                 :frequency_penalty (or (:frequency_penalty params) 0.1)
-                                 :max_tokens (or (:max_tokens params) 1024))
-        {:strs [choices] :as res} (openai/completions component params')
-        reasons (group-by #(get % "finish_reason") choices)]
+  (let [child-str   (pr-str child)
+        suffix      (last child-str)
+        prefix      (when child
+                      (str/replace child-str (re-pattern (str suffix "$")) ","))
+        prompt      (with-out-str
+                      (println "Create an RDF resource with these classes as inspiration and context:")
+                      (doseq [parent (->> parents
+                                          ;; mop/compute-class-precedence-list
+                                          (mapcat @cpl)
+                                          (distinct)
+                                          (sort (partial isa? *tree-of-life*))
+                                          (reverse)
+                                          ;; mop/sniff
+                                          (map @sniff))]
+                        (println "```clojure")
+                        (prn (@sniff parent))
+                        (println "```"))
+                      (println "```clojure")
+                      (when prefix
+                        (println prefix)))
+        params'     (assoc params
+                           :prompt prompt
+                           :model (or (:model params) "code-davinci-002")
+                           :stop (or (:stop params) "```")
+                           :frequency_penalty (or (:frequency_penalty params) 0.1)
+                           :max_tokens (or (:max_tokens params) 1024))
+        {:strs [choices]
+         :as   res} (openai/completions component params')
+        reasons     (group-by #(get % "finish_reason") choices)]
     (if-some [choice (some-> (get reasons "stop") (first) (get "text"))]
       (let [s (str prefix choice suffix)]
         (try
-          (let [val (with-meta (edn/read-string s)
+          (let [val (with-meta (edn/read-string (-> (str/replace s #"@en" "")))
                       res)]
             (cond-> val
               (map? val) (dissoc :mop/class-precedence-list
                                  :mop/class-slots
-                                 :mop/class-direct-slots
                                  :mop/class-direct-subclasses
                                  :mop/class-direct-superclasses
                                  :mop/class-default-initargs
@@ -93,7 +93,7 @@
             (log/warn (.getMessage ex) choice)
             (let [{:strs [choices]}
                   (openai/edits component (assoc params'
-                                                 :instruction (str "Fix the Clojure (EDN) data so that it can be read by the Clojure reader, a map must have no duplicate keys, maps must contain an even number of forms, remove `@` from all symbols, remove pairs with any ellipsis anywhere (`...`), remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex))
+                                                 :instruction (str "Fix the Clojure (EDN) data so that it can be read by the Clojure reader, a map must have no duplicate keys, maps must contain an even number of forms, remove `@` from all symbols, remove pairs with any ellipsis anywhere (`...`), remove tagged literals (anything started with # that isn't a set), remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex))
                                                  :input s
                                                  :model "code-davinci-edit-001"))]
               (if-some [text (some-> choices
@@ -177,11 +177,11 @@
    "A gateway drug to parody and satire. Frequently used by comics to make a story or statement more acceptable or palatable to the average audience so they can stand to hear the message.@en",
    :rdfs/label "Humor@en"}
 
-  {:db/ident :hyperreal/HumorSimulation,
-   :rdf/type :owl/Class,
+  {:db/ident        :hyperreal/HumorSimulation,
+   :rdf/type        :owl/Class,
    :rdfs/comment
    "A simulation of the concept of humor. It is the symbolic relationship that happens between a certain type of joke and its symbolic meaning, namely laughing.@en",
-   :rdfs/label "Humor Simulation@en",
+   :rdfs/label      "Humor Simulation@en",
    :rdfs/subClassOf [:simulation/Simulation
                      {:owl/onProperty     :simulation/hasContext,
                       :owl/someValuesFrom :hyperreal/HumorContext,
