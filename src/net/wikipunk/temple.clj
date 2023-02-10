@@ -141,27 +141,6 @@
    :rdfs/label                "Humor Simulation@en",
    :rdfs/subClassOf           :simulation/EmblematicSimulation}
 
-  {:db/ident              :hyperreal/HumorSimulation,
-   :rdf/type              :simulation/Simulation,
-   :simulation/hasContext {:db/ident                  :simulation/Situation,
-                           :mop/class-precedence-list [:situation/Situation
-                                                       :prov/Entity :owl/Thing
-                                                       :rdfs/Resource],
-                           :rdf/type                  :situation/Situation},
-   :simulation/hasRealityCounterpart
-   {:db/ident :simulation/Humor,
-    :mop/class-precedence-list
-    [:simulation/Humor :simulation/RealityCounterpart :semiotics/Expression
-     :semiotics/InformationEntity :owl/Class :rdfs/Class],
-    :rdf/type :simulation/Humor},
-   :simulation/hasSimulacrum
-   {:db/ident :simulation/Joke,
-    :mop/class-precedence-list
-    [:simulation/Joke :simulation/Simulacrum :semiotics/Expression
-     "http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#InformationObject"
-     :owl/Class :rdfs/Class],
-    :rdf/type :simulation/Joke}}
-
   {:db/ident                         :hyperreal/HumorSimulation,
    :rdf/type                         :owl/NamedIndividual,
    :rdfs/comment
@@ -190,25 +169,6 @@
                       :owl/someValuesFrom :hyperreal/HumorRealityCounterpart,
                       :rdf/type           :owl/Restriction}]}
 
-  {:db/ident                         :hyperreal/HumorSimulation,
-   :mop/class-precedence-list        [:hyperreal/HumorSimulation :simulation/Simulation
-                                      :owl/Class :rdfs/Class],
-   :rdfs/comment                     "Simulation of humor by cultural hybrids@en",
-   :rdfs/label                       "Hyperreal Humor Simulation@en",
-   :simulation/hasContext
-   {:db/ident             :hyperreal/InterpretationBasedOriginationContext,
-    :prov/wasAttributedTo "http://dbpedia.org/resource/Burp@en",
-    :rdf/type             :simulation/Context},
-   :simulation/hasRealityCounterpart [:hyperreal/HyperReality],
-   :simulation/hasSimulacrum
-   {:db/ident                  :hyperreal/Symbol,
-    :mop/class-precedence-list [:semiotics//Expression
-                                :semiotics//InformationEntity],
-    :semiotics//denotes        {:db/ident :hyperreal/Meaning,
-                                :mop/class-precedence-list
-                                [:semiotics//Expression
-                                 :semiotics//InformationEntity]}}}
-
   {:db/ident                 :hyperreal/HumorSimulation,
    :mop/class-links          [:simulation/Simulacrum],
    :mop/function-links       [:simulation/isSimulacrumOf],
@@ -222,32 +182,23 @@
    :rdfs/label               "Hyperreal Humor Simulation@en",
    :rdfs/range               :simulation/Humor}
 
-  {:db/ident         :hyperreal/HumorSimulation,
-   :rdf/type         :owl/Class,
+  {:db/ident                   :hyperreal/HumorSimulation,
+   :hyperreal/hasMetaFacets
+   [{:console/fold :hyperreal/RIDICULE}
+    {:console/fold :hyperreal/IRONY,
+     :console/overrideFolds
+     [:hyperreal/MIME_SCREENPLAY_EXCERPT
+      :hyperreal/POLITICAL_IMPOSTURE
+      :hyperreal/TRADITIONAL_JEST
+      :hyperreal/_JOKE_MARGIN]}
+    {:console/fold          :hyperreal/_SATIRE,
+     :console/overrideFolds [:hyperreal/SOCIAL_SATIRUM
+                             :hyperreal/MORAL_PENETRATION]}
+    {:console/fold          :hyperreal/_COMEDY,
+     :console/overrideFolds [:hyperreal/_SLAPSTICK_COMEDY :hyperreal/_PARODY]}],
+   :hyperreal/restoredEntities #{:hyperspecificity/REDEMPTION},
+   :rdf/type                   [:owl/Class :hyperreal/MetaSimulation],
    :rdfs/comment
-   "A humor simulation uses fictional events and makes them appear real. It is based on the First-Order Simulation.@en",
-   :rdfs/isDefinedBy :hyperreal/HyperrealityOntology,
-   :rdfs/label       "HumorSimulation@en",
-   :rdfs/subClassOf
-   {:owl/intersectionOf
-    [:simulation/Simulation
-     {:owl/intersectionOf
-      [{:owl/onProperty     :situation/hasBeginTime,
-        :owl/someValuesFrom {:owl/oneOf
-                             [:situation/presentTime
-                              :ontology_of_space_time_paradoxes/present]},
-        :rdf/type           :owl/Restriction}
-       {:owl/onProperty     :situation/hasEndTime,
-        :owl/someValuesFrom {:owl/oneOf
-                             [:situation/presentTime
-                              :ontology_of_space_time_paradoxes/present]},
-        :rdf/type           :owl/Restriction}]}
-     {:owl/intersectionOf
-      [{:owl/allValuesFrom :ontology_of_space_time_paradoxes/DoomedStar,
-        :owl/onProperty
-        :ontology_of_space_time_paradoxes/isSpaceTimeObjectivePresentationOf,
-        :rdf/type          :owl/Restriction}
-       {:owl/onClass              :literal_semantics_for_time#ObjectivePresentation,
-        :owl/onProperty           :simulation/hasSimulacrum,
-        :owl/qualifiedCardinality 1,
-        :rdf/type                 :owl/Restriction}]}]}})
+   "a metadata simulation instance simulating possible values of :simulation/hasSimulacrum.",
+   :rdfs/isDefinedBy           :hyperreal/HyperrealOntology,
+   :rdfs/label                 "humor simulation"})
