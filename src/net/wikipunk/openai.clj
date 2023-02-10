@@ -155,9 +155,7 @@ of repetition."
   [component & {:as params}]
   (make-request component
                 :post "/completions"
-                {:form-params  (select-keys (cond-> (assoc params :model (or (:model params) "text-ada-001"))
-                                              (vector? (:stop params))
-                                              (update :stop (partial str/join \,)))
+                {:form-params  (select-keys params
                                            [:model
                                             :temperature
                                             :prompt
@@ -202,7 +200,7 @@ of repetition."
   [component & {:as params}]
   (make-request component
                 :post "/edits"
-                {:form-params  (select-keys (assoc params :model (or (:model params) "text-davinci-edit-001"))
+                {:form-params  (select-keys params
                                             [:model
                                              :temperature
                                              :input
@@ -213,9 +211,88 @@ of repetition."
 
 (defn moderations
   "Classifies if text violates OpenAI's Content Policy"
-  [component input & {:keys [model]
-                      :or   {model "text-moderation-latest"}}]
+  [component & {:keys [model input]
+                :or   {model "text-moderation-latest"}}]
   (make-request component
                 :post "/moderations"
                 {:form-params  {:model model :input input}
+                 :content-type :json}))
+
+(defn embeddings
+  "Creates an embedding vector representing the input text.
+
+  :model -- ID of the model to use.
+
+  :input -- Input text to get embeddings for, encoded as a string or
+  array of tokens. To get embeddings for multiple inputs in a single
+  request, pass an array of strings or array of token arrays.
+  Each input must not exceed 8192 tokens in length."
+  [component & {:keys [model input]}]
+  (make-request component
+                :post "/embeddings"
+                {:form-params  {:model model :input input}
+                 :content-type :json}))
+
+(defn files
+  "Returns a list of files that belong to the user's organization."
+  [component]
+  (make-request component :get "/files"))
+
+(defn upload-file
+  "Upload a file that contains document(s) to be used across various
+  endpoints/features. Currently, the size of all the files uploaded by
+  one organization can be up to 1 GB. Please contact us if you need to
+  increase the storage limit.
+
+  :file -- If the purpose is set to \"fine-tune\", each line is a JSON
+  record with \"prompt\" and \"completion\" fields representing your
+  training examples.
+
+  :purpose -- The intended purpose of the uploaded documents.
+
+  Use \"fine-tune\" for Fine-tuning."
+  [component & {:keys [file purpose]}]
+  (make-request component
+                :post "/files"
+                {:form-params  {:file file :purpose purpose}
+                 :content-type :json}))
+
+(defn get-file
+  "Returns information about a specific file.
+
+  :file_id -- The ID of the file to use for this request"
+  [component & {:keys [file_id]}]
+  (make-request component
+                :post "/files"
+                {:form-params  {:file_id file_id}
+                 :content-type :json}))
+
+(defn delete-file
+  "Delete a file.
+
+  :file_id -- The ID of the file to use for this request"
+  [component & {:keys [file_id]}]
+  (make-request component
+                :post "/files"
+                {:form-params  {:file_id file_id}
+                 :content-type :json}))
+
+(defn generate-image
+  "Creates an image given a prompt.
+
+  :prompt -- A text description of the desired image(s). 
+  The maximum length is 1000 characters.
+
+  :n -- The number of images to generate. 
+  Must be between 1 and 10.
+
+  :size -- The size of the generated images. 
+  Must be one of 256x256, 512x512, or 1024x1024.
+
+  :response_format -- The format in which the generated images are returned. 
+  Must be one of url or b64_json."
+  [component & {:keys [prompt n size response_format] :as params}]
+  (make-request component
+                :post "/images/generations"
+                {:form-params  params
                  :content-type :json}))

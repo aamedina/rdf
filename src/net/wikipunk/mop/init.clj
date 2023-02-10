@@ -442,7 +442,7 @@
           :madsrdf/editorialNote
           :mop/class-precedence-list
           :mop/class-slots
-          :mop/class-direct-slots
+          #_:mop/class-direct-slots
           :mop/class-direct-subclasses
           :mop/class-direct-superclasses
           :mop/class-default-initargs
