@@ -27,9 +27,13 @@
     (alter-var-root #'*tree-of-life* (constantly (make-hierarchy)))
     this))
 
-(def sniff (memo/memo (requiring-resolve 'net.wikipunk.mop/sniff)))
+(def sniff
+  (delay
+    (memo/memo (requiring-resolve 'net.wikipunk.mop/sniff))))
 
-(def cpl (memo/memo (requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list)))
+(def cpl
+  (delay
+    (memo/memo (requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list))))
 
 (set! *print-namespace-maps* nil)
 
@@ -51,14 +55,14 @@
         prompt            (with-out-str
                             (doseq [parent (->> parents
                                                 ;; mop/compute-class-precedence-list
-                                                (mapcat cpl)
+                                                (mapcat @cpl)
                                                 (distinct)
                                                 (sort (partial isa? *tree-of-life*))
                                                 (reverse)
                                                 ;; mop/sniff
-                                                (map sniff))]
+                                                (map @sniff))]
                               (println "```clojure")
-                              (prn (sniff parent))
+                              (prn (@sniff parent))
                               (println "```"))
                             (println "```clojure")
                             (when prefix
@@ -111,7 +115,7 @@
                                               (assoc params :prompt (with-out-str
                                                                       (println "### " prompt)
                                                                       (when ident
-                                                                        (prn (sniff ident))))))
+                                                                        (prn (@sniff ident))))))
         choices-index     (group-by #(get % "finish_reason") choices)
         stop              (first (get choices-index "stop"))]
     (if-some [txt (get stop "text")]
