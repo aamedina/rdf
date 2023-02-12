@@ -274,10 +274,10 @@
                       :owl/onProperty :ontolex/isSenseOf,
                       :owl/qualifiedCardinality 1,
                       :rdf/type       :owl/Restriction}
-                     :semiotics/Meaning
                      {:owl/cardinality 1,
                       :owl/onProperty  :ontolex/reference,
-                      :rdf/type        :owl/Restriction}],
+                      :rdf/type        :owl/Restriction}
+                     :semiotics/Meaning],
    :vs/term_status "stable"})
 
 (def MultiWordExpression
@@ -688,8 +688,7 @@
                  :rdf/value    "este referință a(l)"}
                 {:rdf/language "de",
                  :rdf/value    "ist Referenz von"}],
-   :rdfs/range {:owl/unionOf [:ontolex/LexicalSense
-                              "http://www.w3.org/ns/lemon/synsem#OntoMap"],
+   :rdfs/range {:owl/unionOf [:ontolex/LexicalSense :synsem/OntoMap],
                 :rdf/type    :owl/Class},
    :vs/term_status "stable"})
 
@@ -924,8 +923,7 @@
     {:rdf/language "en",
      :rdf/value
      "The 'reference' property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry. "}],
-   :rdfs/domain {:owl/unionOf [:ontolex/LexicalSense
-                               "http://www.w3.org/ns/lemon/synsem#OntoMap"],
+   :rdfs/domain {:owl/unionOf [:ontolex/LexicalSense :synsem/OntoMap],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://www.w3.org/ns/lemon/ontolex",
    :rdfs/label [{:rdf/language "ro",
@@ -1145,6 +1143,10 @@
    :rdf/type   :owl/ObjectProperty,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "in scheme"}})
+
+(def ^{:private true} OntoMap
+  {:db/ident :synsem/OntoMap,
+   :rdf/type :owl/Class})
 
 (def ^{:private true} Vocabulary
   {:db/ident :voaf/Vocabulary,
