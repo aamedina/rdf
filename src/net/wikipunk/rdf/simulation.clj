@@ -224,12 +224,11 @@
    :rdfs/isDefinedBy :simulation/SimulationOntology,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Simulacrum"},
-   :rdfs/subClassOf
-   [{:owl/onProperty     :simulation/isSimulacrumOf,
-     :owl/someValuesFrom :simulation/Simulation,
-     :rdf/type           :owl/Restriction}
-    :semiotics/Expression
-    "http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#InformationObject"]})
+   :rdfs/subClassOf [{:owl/onProperty     :simulation/isSimulacrumOf,
+                      :owl/someValuesFrom :simulation/Simulation,
+                      :rdf/type           :owl/Restriction}
+                     :semiotics/Expression
+                     :informationrealization/InformationObject]})
 
 (def Simulation
   "A simulation is the symbolic relationship that happens between a symbol and its symbolic meaning. The term is taken from Baudrillard's Simulacra and Simulation philosophical theory."
@@ -244,21 +243,21 @@
    :rdfs/isDefinedBy :simulation/SimulationOntology,
    :rdfs/label {:rdf/language "en",
                 :rdf/value    "Simulation"},
-   :rdfs/subClassOf [{:owl/onProperty     :simulation/hasRealityCounterpart,
+   :rdfs/subClassOf [{:owl/onProperty     :prov/wasDerivedFrom,
+                      :owl/someValuesFrom :simulation/Source,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :simulation/hasRealityCounterpart,
                       :owl/someValuesFrom :simulation/RealityCounterpart,
                       :rdf/type           :owl/Restriction}
-                     {:owl/intersectionOf [:situation/Situation :prov/Entity],
-                      :rdf/type :owl/Class}
                      {:owl/onProperty     :simulation/hasContext,
                       :owl/someValuesFrom :simulation/Context,
                       :rdf/type           :owl/Restriction}
+                     {:owl/intersectionOf [:situation/Situation :prov/Entity],
+                      :rdf/type :owl/Class}
                      {:owl/onClass    :simulation/Simulacrum,
                       :owl/onProperty :simulation/hasSimulacrum,
                       :owl/qualifiedCardinality 1,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/onProperty     :prov/wasDerivedFrom,
-                      :owl/someValuesFrom :simulation/Source,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type       :owl/Restriction}]})
 
 (def SimulationOntology
   {:db/ident :simulation/SimulationOntology,
@@ -649,6 +648,10 @@
 (def ^{:private true} relatedCPs
   {:db/ident :cpannotationschema/relatedCPs,
    :rdf/type :owl/AnnotationProperty})
+
+(def ^{:private true} InformationObject
+  {:db/ident :informationrealization/InformationObject,
+   :rdf/type :owl/Class})
 
 (def ^{:private true} Entity
   "Entity"

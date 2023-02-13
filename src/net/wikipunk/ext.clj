@@ -685,6 +685,11 @@
    :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/classification.owl#"
    :rdfa/prefix "classification"})
 
+(def informationrealization
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#"
+   :rdfa/prefix "informationrealization"})
+
 (def cco
   {:dcat/downloadURL "http://purl.org/ontology/cco/cognitivecharacteristics.owl"
    :rdf/type         :rdfa/PrefixMapping
@@ -799,3 +804,4 @@
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://globalwordnet.org/ili/"
    :rdfa/prefix      "ili"})
+

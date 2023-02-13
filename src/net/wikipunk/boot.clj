@@ -4,7 +4,11 @@
   (:refer-clojure :exclude [time keys]))
 
 (def initial-context
-  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"})
+  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"
+   :prefixes         #{"as" "cc" "csvw" "ctag" "dc" "dc11" "dcat" "dcterms" "dqv" "duv" "foaf" "gr"
+                       "grddl" "ical" "jsonld" "ldp" "ma" "oa" "odrl" "og" "org" "owl" "prov" "qb"
+                       "rdf" "rdfa" "rdfs" "rev" "rif" "rr" "schema" "sd" "sioc" "skos" "skosxl"
+                       "sosa" "ssn" "time" "v" "vcard" "void" "wdr" "wdrs" "xhv" "xml" "xsd"}})
 
 (def as
   "Activity Vocabulary"
