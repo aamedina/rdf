@@ -805,3 +805,7 @@
    :rdfa/uri         "http://globalwordnet.org/ili/"
    :rdfa/prefix      "ili"})
 
+(def hydra
+  {:rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://www.w3.org/ns/hydra/core#"
+   :rdfa/prefix      "hydra"})
