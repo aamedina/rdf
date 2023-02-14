@@ -1285,10 +1285,11 @@
 
 (defn finalize
   "Finalizes all of the loaded classes."
-  ([] (finalize true (set/difference (conj (descendants *metaobjects* :rdfs/Class) :rdfs/Class)
+  ([] (finalize true (set/difference (conj (descendants *classes* :rdfs/Class) :rdfs/Class)
                                      (descendants *metaobjects* :skos/Concept)
                                      (descendants *properties* :rdf/Property)
-                                     (descendants *metaobjects* :owl/NamedIndividual))))
+                                     (descendants *metaobjects* :owl/NamedIndividual)
+                                     (descendants *metaobjects* :owl/AnnotationProperty))))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
