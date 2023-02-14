@@ -7,7 +7,8 @@
    [clojure.walk :as walk]
    [net.wikipunk.mop :as mop :refer [isa? ancestors descendants parents]]
    [net.wikipunk.rdf :as rdf]
-   [net.wikipunk.temple :as temple])
+   [net.wikipunk.temple :as temple]
+   [net.wikipunk.boot])
   (:refer-clojure :exclude [isa? ancestors descendants parents]))
 
 (defmethod mop/find-class-using-env :default
@@ -40,8 +41,8 @@
 (defmethod mop/update-instance-for-different-class [Object Object]
   [previous current & {:as initargs}]
   (let [current-slots       (mop/class-slots (mop/class-of current))
-        previous-slot-names (map mop/slot-definition-name
-                                 (mop/class-slots (mop/class-of previous)))
+        previous-slot-names (mapv mop/slot-definition-name
+                                  (mop/class-slots (mop/class-of previous)))
         added-slots         (reduce (fn [added-slots slot]
                                       (let [n (mop/slot-definition-name slot)]
                                         (if (and (not (contains? previous-slot-names n))
@@ -93,7 +94,7 @@
                      :else (filter #((set slot-names) (:db/ident %)) all-slots))]
     (doseq [[initarg initform] initargs
             :when              initarg
-            :when              (not (some #(= (:db/ident %) initarg) init-slots))]
+            :when              (not (some #(= % initarg) init-slots))]
       (mop/slot-missing class instance initarg))
     (alter-instance instance
                     (fn [obj]
@@ -154,7 +155,12 @@
 
 (defmethod mop/class-direct-slots :rdfs/Class
   [class]
-  (not-empty (:mop/class-direct-slots class)))
+  (or (not-empty (:mop/class-direct-slots class))
+      (get-in @(requiring-resolve 'net.wikipunk.rdf/*indexes*) [:slots/by-domain (:db/ident class)])))
+
+(defmethod mop/class-direct-slots clojure.lang.Keyword
+  [class]
+  (mop/class-direct-slots (mop/find-class class)))
 
 (defmethod mop/class-default-initargs :rdfs/Class
   [class]
@@ -162,7 +168,8 @@
 
 (defmethod mop/class-slots :rdfs/Class
   [class]
-  (:mop/class-slots class []))
+  (assert (mop/class-finalized? class))
+  (:mop/class-slots class))
 
 (defmethod mop/add-direct-subclass [:rdfs/Class :rdfs/Class]
   [superclass subclass]
@@ -213,13 +220,11 @@
   [class]
   (let [{:keys [ns name]} (meta (:var (meta class)))
         class             (assoc class
-                                 :mop/class-direct-slots                                 
-                                 (get-in @(requiring-resolve 'net.wikipunk.rdf/*indexes*)
-                                         [:slots/by-domain (:db/ident class)] []))
-        direct-slots      (:mop/class-direct-slots class)
+                                 :mop/class-direct-slots
+                                 (mop/class-direct-slots class))
         class             (assoc class
                                  :mop/class-direct-default-initargs
-                                 (let [d (filter :sh/defaultValue direct-slots)]
+                                 (let [d (filter :sh/defaultValue (:mop/class-direct-slots class))]
                                    (zipmap (map :db/ident d)
                                            (map :sh/defaultValue d))))
         class             (assoc class
@@ -245,38 +250,31 @@
   [{:mop/keys [class-precedence-list
                class-direct-slots]
     :db/keys  [ident]
+    :rdf/keys [type]
     :as       class}]
-  (if (contains? #{:owl/Class
-                   :rdfs/Class
-                   :owl/Thing
-                   :owl/NamedIndividual}
-                 ident)
-    class-direct-slots
-    (transduce
-      (comp
-        (keep mop/find-class)
-        (map mop/class-direct-slots)
-        (mapcat (fn [dslots]
-                  (sort-by :db/ident
-                           isa?
-                           (remove #(some #{:owl/Class
-                                            :rdfs/Class
-                                            :owl/Thing
-                                            :owl/NamedIndividual}
-                                          (:rdfs/domain %))
-                                   dslots)))))
-      (completing
-        (fn [effective-slots slot]
-          (if (some #(identical? (:db/ident slot)
-                                 (:db/ident %))
-                    effective-slots)
-            effective-slots
-            (conj effective-slots
-                  (mop/compute-effective-slot-definition class
-                                                         slot
-                                                         class-direct-slots)))))
-      class-direct-slots
-      class-precedence-list)))
+  (transduce
+    (comp
+      (mapcat mop/class-direct-slots))
+    (completing
+      (fn [effective-slots slot]
+        (if (some #(identical? (:db/ident slot) (:db/ident %)) effective-slots)
+          effective-slots
+          (conj effective-slots
+                (mop/compute-effective-slot-definition class
+                                                       slot
+                                                       class-direct-slots)))))
+    []
+    (cond
+      (isa? type :rdf/Property)
+      nil
+
+      (contains? #{:owl/Class :rdfs/Class} ident)
+      class-precedence-list
+      
+      (isa? type :rdfs/Class)
+      (take-while (complement (conj #{:owl/Class :rdfs/Class} type)) class-precedence-list)
+
+      :else class-precedence-list)))
 
 (defmethod mop/slot-definition-initfunction clojure.lang.Keyword
   [slot]
@@ -294,13 +292,25 @@
   [class]
   (:mop/slot-initargs class #{}))
 
+(defmethod mop/slot-definition-initargs clojure.lang.Keyword
+  [class]
+  (mop/slot-definition-initargs (mop/find-class class)))
+
 (defmethod mop/slot-definition-initform :rdfs/Class
   [class]
   (:mop/slot-initform class))
 
+(defmethod mop/slot-definition-initform clojure.lang.Keyword
+  [class]
+  (mop/slot-definition-initform (mop/find-class class)))
+
 (defmethod mop/slot-definition-allocation :rdfs/Class
   [class]
   (:mop/slot-allocation class :mop/instance))
+
+(defmethod mop/slot-definition-allocation clojure.lang.Keyword
+  [class]
+  (mop/slot-definition-allocation (mop/find-class class)))
 
 (defmethod mop/slot-definition-type :rdfs/Class
   [class]
@@ -325,11 +335,9 @@
           slot
           direct-slot-definitions))
 
-(def T (mop/find-class :rdfs/Class))
-
 (defmethod mop/validate-superclass [:rdfs/Class :rdfs/Class]
   [class superclass]
-  (or (identical? superclass T)
+  (or (identical? (:db/ident superclass) :rdfs/Class)
       (identical? (mop/class-of class) (mop/class-of superclass))))
 
 (defmethod mop/make-instances-obsolete :rdfs/Class
@@ -382,10 +390,6 @@
   [class]
   (mop/class-direct-default-initargs (mop/find-class class)))
 
-(defmethod mop/class-direct-slots clojure.lang.Keyword
-  [class]
-  (mop/class-direct-slots (mop/find-class class)))
-
 (defmethod mop/class-default-initargs clojure.lang.Keyword
   [class]
   (mop/class-default-initargs (mop/find-class class)))
@@ -401,49 +405,58 @@
 (defmethod mop/sniff :default
   [ident]
   (dissoc (let [e  (or (datafy ident) (rdf/sniff ident))
-                md (meta e)]
-            (->> (walk/postwalk (fn [form]
-                                  (if-some [label (some-> (get md form) :rdfs/label)]
-                                    label
-                                    form))
-                                e)
-                 (walk/postwalk (fn [form]
-                                  (if (qualified-keyword? form)
-                                    (if (contains? #{"loc.works" "loc.instances" "loc.subjects"}
-                                                   (str/starts-with? (namespace form) "loc"))
-                                      (rdf/iri form)
-                                      form)
-                                    form)))
-                 (walk/postwalk (fn [form]
-                                  (if (and (:rdf/language form)
+                md (meta e)
+                e' (->> (walk/postwalk (fn [form]
+                                         (if-some [label (some-> (get md form) :rdfs/label)]
+                                           label
+                                           form))
+                                       e)
+                        (walk/postwalk (fn [form]
+                                         (if (qualified-keyword? form)
+                                           (if (contains? #{"loc.works" "loc.instances" "loc.subjects"}
+                                                          (str/starts-with? (namespace form) "loc"))
+                                             (rdf/iri form)
+                                             form)
+                                           form)))
+                        (walk/postwalk (fn [form]
+                                         (if (and (:rdf/language form)
+                                                  (:rdf/value form)
+                                                  (str/starts-with? (:rdf/language form) "en"))
                                            (:rdf/value form)
-                                           (str/starts-with? (:rdf/language form) "en"))
-                                    (:rdf/value form)
-                                    form)))
-                 (walk/postwalk (fn [form]
-                                  (if (sequential? form)
-                                    (filterv (complement :rdf/language) form)
-                                    form)))))
-          :madsrdf/adminMetadata
-          :madsrdf/elementList
-          :madsrdf/hasBroaderAuthority
-          :madsrdf/hasCloseExternalAuthority
-          :madsrdf/hasNarrowerAuthority
-          :madsrdf/isMemberOfMADSCollection
-          :madsrdf/isMemberOfMADSScheme
-          :bf/adminMetadata
-          :bf/contribution
-          :bf/content
-          :skos/changeNote
-          :skosxl/altLabel
-          :skos/altLabel
-          :madsrdf/hasVariant
-          :skos/editorial
-          :madsrdf/editorialNote
-          :mop/class-precedence-list
-          :mop/class-slots
-          #_:mop/class-direct-slots
-          :mop/class-direct-subclasses
-          :mop/class-direct-superclasses
-          :mop/class-default-initargs
-          :mop/class-direct-default-initargs))
+                                           form)))
+                        (walk/postwalk (fn [form]
+                                         (if (sequential? form)
+                                           (filterv (complement :rdf/language) form)
+                                           form))))]
+            (reduce-kv (fn [m k v]
+                         (case k
+                           (:db/ident :db/cardinality :db/valueType)
+                           (assoc m k v)
+                           #_:rdfs/subClassOf
+                           #_(assoc m k (reduce (fn [subClassOf {:db/keys [ident] :as slot}]
+                                                (if (some #(cond
+                                                             (map? %)
+                                                             (identical? (:owl/onProperty %) ident)
+                                                             
+                                                             (keyword? %)
+                                                             (identical? % ident)
+                                                             :else nil)
+                                                          subClassOf)
+                                                  subClassOf
+                                                  (conj subClassOf {:rdf/type           :owl/Restriction
+                                                                    :owl/onProperty     ident
+                                                                    :owl/someValuesFrom (:rdfs/range slot)})))
+                                              (if (sequential? v) v [v])
+                                              (map datafy (:mop/class-direct-slots e))))
+                           (cond
+                             (contains? (:prefixes net.wikipunk.boot/initial-context) (namespace k))
+                             (assoc m k v)
+
+                             (= (namespace k) "mop")
+                             (case k
+                               :mop/class-direct-slots m
+                               :mop/class-slots        m
+                               m)
+                             
+                             :else m)))
+                       {} e'))))

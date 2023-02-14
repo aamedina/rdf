@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.rdfs
   "The RDF Schema vocabulary (RDFS)"
   {:dcterms/title     "The RDF Schema vocabulary (RDFS)",
-   :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/elements/1.1/",
-                       "owl"     "http://www.w3.org/2002/07/owl#",
-                       "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-                       "rdfs"    "http://www.w3.org/2000/01/rdf-schema#"},
+   :rdf/ns-prefix-map {"dc11" "http://purl.org/dc/elements/1.1/",
+                       "owl"  "http://www.w3.org/2002/07/owl#",
+                       "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                       "rdfs" "http://www.w3.org/2000/01/rdf-schema#"},
    :rdf/type          :owl/Ontology,
    :rdf/uri           "http://www.w3.org/2000/01/rdf-schema#",
    :rdfa/prefix       "rdfs",
@@ -34,13 +34,13 @@
 
 (def ContainerMembershipProperty
   "The class of container membership properties, rdf:_1, rdf:_2, ..., all of which are sub-properties of 'member'."
-  {:db/ident :rdfs/ContainerMembershipProperty,
-   :rdf/type :rdfs/Class,
+  {:db/ident         :rdfs/ContainerMembershipProperty,
+   :rdf/type         :rdfs/Class,
    :rdfs/comment
    "The class of container membership properties, rdf:_1, rdf:_2, ...,\n                    all of which are sub-properties of 'member'.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/01/rdf-schema#",
-   :rdfs/label "ContainerMembershipProperty",
-   :rdfs/subClassOf :rdf/Property})
+   :rdfs/label       "ContainerMembershipProperty",
+   :rdfs/subClassOf  :rdf/Property})
 
 (def Datatype
   "The class of RDF datatypes."
@@ -53,13 +53,13 @@
 
 (def Literal
   "The class of literal values, eg. textual strings and integers."
-  {:db/ident :rdfs/Literal,
-   :rdf/type :rdfs/Class,
+  {:db/ident         :rdfs/Literal,
+   :rdf/type         :rdfs/Class,
    :rdfs/comment
    "The class of literal values, eg. textual strings and integers.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/01/rdf-schema#",
-   :rdfs/label "Literal",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/label       "Literal",
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def Resource
   "The class resource, everything."

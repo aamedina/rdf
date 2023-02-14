@@ -146,8 +146,7 @@
     :rdfs/subPropertyOf
     :owl/equivalentClass
     :owl/equivalentProperty
-    :owl/sameAs
-    :skos/broader})
+    :owl/sameAs})
 
 (def cat-rdf-idents
   (comp
@@ -234,14 +233,10 @@
                  :rdf/keys  [type]
                  :rdfs/keys [subClassOf equivalentClass
                              subPropertyOf equivalentProperty]
-                 :skos/keys [broader]
                  :as        entity}]
            (cond-> h
              (seq (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
              (deriving entity (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
-             
-             (seq (filter keyword? broader))
-             (deriving entity (filter keyword? broader))
              
              (or subPropertyOf
                  equivalentProperty
@@ -252,6 +247,8 @@
                                  (filter keyword? subPropertyOf)
                                  (filter keyword? equivalentProperty))))))
          classes)))
+
+(declare find-metaobject)
 
 (defn make-hierarchies
   []
@@ -272,6 +269,8 @@
      :else        -1)))
 
 (declare finalize setup-indexes)
+
+;; TODO: Document the Universal Translator
 
 (defrecord UniversalTranslator [ns-prefix target boot init-ns]
   com/Lifecycle
@@ -379,10 +378,6 @@
 
       ;; ignore unidentified namespaces
       (re-find #"^ns\d*$" (namespace k))
-      nil
-
-      ;; if it's just a file leave it as URI
-      (re-find #"\.\w\w+$" (name k))
       nil
 
       (= (last (name k)) \/)
@@ -626,6 +621,8 @@
       (box-value update :owl/withRestrictions))
     form))
 
+(def ^:dynamic *recurse* 2)
+
 (defn unroll-forms
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
@@ -650,10 +647,35 @@
 
                                      :else v)))
                             (pmap (fn [form]
-                                   (->> form
-                                        (walk/postwalk walk-rdf-list)
-                                        (walk/postwalk walk-seeAlso)
-                                        (walk/prewalk box-values)))))
+                                    (->> form
+                                         (walk/postwalk walk-rdf-list)
+                                         (walk/postwalk walk-seeAlso)
+                                         (walk/prewalk box-values)))))
+        concepts   (->> forms
+                        (map (fn [form]
+                               (reduce (fn [form term]
+                                         (if (contains? form term)
+                                           (update form term #(cond (coll? %) % (nil? %) [] :else [%]))
+                                           form))
+                                       form +props+)))
+                        (mapcat (some-fn :madsrdf/hasMADSSchemeMember
+                                         :skos/member
+                                         :skos/broader))
+                        (distinct)
+                        (pmap (fn [ident]
+                                (when (pos? *recurse*)
+                                  (try
+                                    (binding [*recurse* (and (pos? *recurse*)
+                                                             (dec *recurse*))]
+                                      (let [x  (sniff ident)
+                                            md (meta x)]
+                                        (into [(with-meta x {})]
+                                              (map #(with-meta % {}))
+                                              (vals (dissoc md :dcat/downloadURL :rdf/ns-prefix-map :rdfa/prefix)))))
+                                    (catch Throwable ex
+                                      (println ident (.getMessage ex))
+                                      nil))))))
+        forms      (into (vec forms) cat concepts)
         public?    (fn [form]
                      (and (:db/ident form)
                           (let [ns-name (namespace (:db/ident form))]
@@ -682,8 +704,6 @@
                      (sort-by :db/ident privates))
       (merge md the-ont))))
 
-(def ^:dynamic *recurse* true)
-
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
@@ -693,8 +713,9 @@
         forms      (->> forms
                         ;; todo: refactor this into a multimethod
                         (pmap (fn [form]
-                                (if (and *recurse*
-                                         (some #(isa? *classes* % :madsrdf/Authority)
+                                (if (and (pos? *recurse*)
+                                         (some #(or (isa? *classes* % :skos/Concept)
+                                                    (isa? *classes* % :skos/ConceptScheme))
                                                (if (sequential? (:rdf/type form))
                                                  (:rdf/type form)
                                                  [(:rdf/type form)])))
@@ -709,7 +730,7 @@
                                     (catch Throwable ex
                                       (println (:db/ident form) (.getMessage ex))
                                       form))
-                                  form))))        
+                                  form))))
         exclusions (->> forms
                         (filter (comp qualified-keyword? :db/ident))
                         (map (comp symbol name :db/ident))
@@ -890,7 +911,7 @@
     (when-some [var (if (= (namespace ident) "obo")
                       (find-obo-metaobject ident)
                       (try
-                        (resolve
+                        (requiring-resolve
                           (symbol
                             (str (or (get *ns-aliases* (namespace ident))
                                      (get (ns-aliases *ns*) (symbol (namespace ident)))))
@@ -1264,11 +1285,14 @@
 
 (defn finalize
   "Finalizes all of the loaded classes."
-  ([] (finalize true (keys (:parents *metaobjects*))))
+  ([] (finalize true (set/difference (conj (descendants *metaobjects* :rdfs/Class) :rdfs/Class)
+                                     (descendants *metaobjects* :skos/Concept)
+                                     (descendants *properties* :rdf/Property)
+                                     (descendants *metaobjects* :owl/NamedIndividual))))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
-             (if-some [mo (find-metaobject ident)]
+             (if-some [mo (mop/find-class ident)]
                (do
                  (when (or force? (not (mop/class-finalized? mo)))
                    (mop/finalize-inheritance mo)))
@@ -1281,12 +1305,15 @@
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
-      (->> (when-some [mo (find-metaobject ident)]
-             (-> mo
-                 (dissoc :mop/slot-initfunction)
-                 (update :mop/class-slots #(mapv :db/ident %))
-                 (update :mop/class-direct-slots #(mapv :db/ident %))))
-           (walk/prewalk unroll-langString))
+      (reduce-kv (fn [m k v]
+                   (try
+                     (if (not= (namespace k) "mop")
+                       (assoc m k v)
+                       m)
+                     (catch Throwable ex
+                       (println m k v)
+                       m)))
+                 {} (find-metaobject ident))
 
       (qualified-symbol? ident)
       (resolve ident)

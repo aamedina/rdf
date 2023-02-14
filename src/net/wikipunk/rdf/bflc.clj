@@ -371,7 +371,7 @@
    :rdfs/comment "Used with Work, Instance or Item",
    :rdfs/label "Distribution statement",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :bflc/provisionActivityStatement,
+   :rdfs/subPropertyOf :bf/provisionActivityStatement,
    :skos/definition
    "Statement related to the distribution of the resource; usually transcribed."})
 
@@ -415,7 +415,7 @@
    :rdfs/comment "Used with Work, Instance or Item",
    :rdfs/label "Manufacture statement",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :bflc/provisionActivityStatement,
+   :rdfs/subPropertyOf :bf/provisionActivityStatement,
    :skos/definition
    "Statement related to the manufacture of the resource; usually transcribed."})
 
@@ -571,7 +571,7 @@
    :rdfs/comment "Used with Work, Instance or Item",
    :rdfs/label "Production statement",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :bflc/provisionActivityStatement,
+   :rdfs/subPropertyOf :bf/provisionActivityStatement,
    :skos/definition
    "Statement related to the production of the resource; usually transcribed."})
 
@@ -604,7 +604,7 @@
    :rdfs/comment "Used with Work, Instance or Item",
    :rdfs/label "Publication statement",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :bflc/provisionActivityStatement,
+   :rdfs/subPropertyOf :bf/provisionActivityStatement,
    :skos/definition
    "Statement related to the publication of the resource; ususally transcribed."})
 
