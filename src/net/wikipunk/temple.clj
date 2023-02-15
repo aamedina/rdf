@@ -51,7 +51,7 @@
                        (str/replace #"\\\"" "\"")
                        (str/replace #":(\w+/?)@(\w+)" ":$1$2")
                        (str/replace #"(:\w+/\w+)/(\w+)" "$1$2")
-                       (str/replace #"(:\w+/)(\d\w+)" "$1|$2|"))))
+                       (str/replace #"(:\w+/)(\d\w*)" "$1|$2|"))))
 
 (defn transmutate
   "Transmutate metaobjects into new forms.
@@ -95,6 +95,7 @@ To generate the EDN maps, you should follow these guidelines:
     4. All keywords must be namespace qualified. Keywords must have namespaces and names which begin with a non-numeric character and may contain alphanumeric characters and *, +, !, -, _, ', ?, <, > and =.
     5. No values in the map should be left ungenerated.
     6. Duplicate keys are never allowed in the same EDN map.
+    7. Do not include any values associated with these keys: :db/id.
 
 Create RDF resources similar to the following examples:")
                       (doseq [parent parents]
