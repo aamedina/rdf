@@ -48,7 +48,6 @@
   [s]
   (edn/read-string (-> s
                        (str/replace #"^^(\w+)" "")
-                       #_(str/replace #"\\\"" "\"")
                        (str/replace #":(\w*/?)@(\w+)" ":$1$2")
                        (str/replace #"(:\w+/\w+)/(\w+)" "$1$2")
                        (str/replace #"(:\w+/)(\d\w*)" "$1|$2|")
@@ -65,7 +64,7 @@
   desired child.
 
   :prompt -- an optional instruction to refine the transmutation"
-  [component & {:keys [parents child debug prompt]
+  [component & {:keys [parents child debug prompt retry]
                 :as   params}]
   (let [[child slots] (reduce-kv (fn [[child slots] k v]
                                    [(assoc child k v) (conj slots k)])
@@ -98,7 +97,8 @@ To generate the EDN maps, you should follow these guidelines:
     6. Duplicate keys are never allowed in the same EDN map.
     7. Do not include any keys or values with #db/id or :db/id.
     8. If a keyword looks like an HTTP URL, make it a string instead.
-    9. Do not include any values with ellipses anywhere or summarize anything. Be descriptive.
+    9. Do not include any values with ellipses anywhere or summarize anything.
+    10. All maps should include a good summary and description of the resource.
 
 Create RDF resources inspired by the following examples:")
                       (doseq [parent parents]
@@ -136,25 +136,14 @@ Create RDF resources inspired by the following examples:")
                 (try
                   (read-edn-string text)
                   (catch Throwable ex
-                    (log/error (.getMessage ex) text)))
+                    (log/error (.getMessage ex) text)
+                    (when (and retry (pos? retry))
+                      (transmutate component (update params :retry dec)))))
                 choices)))))
-      choices)))
-
-(defn prompt
-  "Given a prompt string in natural language and a namespace-qualified
-  keyword naming a concept use the OpenAI completion AI to generate
-  text."
-  [component & {:keys [prompt ident] :as params}]
-  (let [{:strs [choices]} (openai/completions component
-                                              (assoc params :prompt (with-out-str
-                                                                      (println "### " prompt)
-                                                                      (when ident
-                                                                        (prn (datafy ident))))))
-        choices-index     (group-by #(get % "finish_reason") choices)
-        stop              (first (get choices-index "stop"))]
-    (if-some [txt (get stop "text")]
-      (str/trim txt)
-      choices)))
+      (when (and retry (pos? retry))
+        (transmutate component (-> params
+                                   (update :retry dec)
+                                   (update :max_tokens (fnil + 1024) 256)))))))
 
 (comment
   ;; assuming the system is started in the dev namespace
