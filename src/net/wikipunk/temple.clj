@@ -4,12 +4,14 @@
    :dcterms/creator "Adrian Medina"}
   (:require
    [clojure.core.memoize :as memo]
+   [clojure.datafy :refer [datafy]]
    [clojure.edn :as edn]
    [clojure.set :as set]
    [clojure.string :as str]
    [clojure.tools.logging :as log]
    [com.stuartsierra.component :as com]
-   [net.wikipunk.openai :as openai]))
+   [net.wikipunk.openai :as openai]
+   [zprint.core :as zprint]))
 
 (def ^:dynamic *tree-of-life*
   "A Clojure multimethod hierarchy combining rdf/*classes*,
@@ -27,13 +29,17 @@
     (alter-var-root #'*tree-of-life* (constantly (make-hierarchy)))
     this))
 
-(def sniff
-  (delay
-    (memo/memo (requiring-resolve 'net.wikipunk.mop/sniff))))
-
 (def cpl
   (delay
-    (memo/memo (requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list))))
+    (requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list)))
+
+(def cds
+  (delay
+    (requiring-resolve 'net.wikipunk.mop/class-direct-slots)))
+
+(def cs
+  (delay
+    (requiring-resolve 'net.wikipunk.mop/class-slots)))
 
 (set! *print-namespace-maps* nil)
 
@@ -45,34 +51,53 @@
   :parents -- a collection of at least one ident naming metaobjects
 
   :child -- a map of properties and values that form the basis of the
-  desired child, you should probably include at least a :db/ident."
-  [component & {:keys [parents child]
+  desired child.
+
+  :prompt -- an optional instruction to refine the transmutation"
+  [component & {:keys [parents child debug prompt]
                 :as   params}]
-  (let [child-str   (pr-str child)
-        suffix      (last child-str)
-        prefix      (when child
-                      (str/replace child-str (re-pattern (str suffix "$")) ","))
+  (let [[child slots] (reduce-kv (fn [[child slots] k v]
+                                   [(assoc child k v) (conj slots k)])
+                                 [{} [:rdf/type]] child)
+        cs          (pr-str child)
+        suffix      (nth cs (dec (count cs)))
+        prefix      (if child
+                      (str/replace cs (re-pattern (str suffix "$")) (if (empty? child) "" ","))
+                      "{")
+        parents (->> parents
+                     ;; mop/compute-class-precedence-list
+                     (mapcat @cpl)
+                     (distinct)
+                     (remove #{:owl/Class :rdfs/Class :rdf/Property :owl/ObjectProperty :rdfs/Resource})
+                     (sort (partial isa? *tree-of-life*))                     
+                     (reverse)
+                     (map datafy))
         prompt      (with-out-str
-                      (println "Create an RDF resource with these classes as inspiration and context:")
-                      (doseq [parent (->> parents
-                                          ;; mop/compute-class-precedence-list
-                                          (mapcat @cpl)
-                                          (distinct)
-                                          (sort (partial isa? *tree-of-life*))
-                                          (reverse)
-                                          ;; mop/sniff
-                                          (map @sniff))]
+                      (println "You are tasked with generating an EDN map representing an RDF resource.
+
+To generate the EDN maps, you should follow these guidelines:
+
+    1. Each EDN map represents an RDF resource.
+    2. Each value in the EDN map should be converted to an appropriate EDN data type.
+    3. If a value in the EDN map is a nested map, it should be recursively converted to a corresponding nested EDN map.
+    4. All keywords must be namespace qualified and have namespaces and names that begin with a non-numeric character and can contain alphanumeric characters and *, +, !, -, _, ', ?, <, > and =.
+    5. No values in the map should be left ungenerated.
+    6. Duplicate keys are never allowed in the same EDN map.
+
+Create RDF resources similar to the following examples:")
+                      (doseq [parent parents]
                         (println "```clojure")
-                        (prn (@sniff parent))
+                        (prn parent)
                         (println "```"))
+                      (when prompt
+                        (println prompt))
                       (println "```clojure")
-                      (when prefix
-                        (println prefix)))
+                      (print prefix))
+        _ (when debug (log/info prompt))
         params'     (assoc params
                            :prompt prompt
                            :model (or (:model params) "code-davinci-002")
-                           :stop (or (:stop params) "```")
-                           :frequency_penalty (or (:frequency_penalty params) 0.1)
+                           :stop (or (:stop params) ["```" "=>" "\n{" ";;"])
                            :max_tokens (or (:max_tokens params) 1024))
         {:strs [choices]
          :as   res} (openai/completions component params')
@@ -80,20 +105,21 @@
     (if-some [choice (some-> (get reasons "stop") (first) (get "text"))]
       (let [s (str prefix choice suffix)]
         (try
-          (let [val (with-meta (edn/read-string (-> (str/replace s #"@en" "")))
+          (let [val (with-meta (edn/read-string (-> s
+                                                    (str/replace #"^^(\w+)" "")
+                                                    (str/replace #"\\\"" "\"")))
                       res)]
-            (cond-> val
-              (map? val) (dissoc :mop/class-precedence-list
-                                 :mop/class-slots
-                                 :mop/class-direct-subclasses
-                                 :mop/class-direct-superclasses
-                                 :mop/class-default-initargs
-                                 :mop/class-direct-default-initargs)))
+            (cond->> val
+              (map? val) (reduce-kv (fn [m k v]
+                                      (cond
+                                        (= (namespace k) "mop")
+                                        m
+                                        :else (assoc m k v))) {})))
           (catch Throwable ex
             (log/warn (.getMessage ex) choice)
             (let [{:strs [choices]}
                   (openai/edits component (assoc params'
-                                                 :instruction (str "Fix the Clojure (EDN) data so that it can be read by the Clojure reader, a map must have no duplicate keys, maps must contain an even number of forms, remove `@` from all symbols, remove pairs with any ellipsis anywhere (`...`), remove tagged literals (anything started with # that isn't a set), remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex))
+                                                 :instruction (str "Fix this EDN map so that it has no duplicate keys, an even number of forms, remove `@` from all symbols anywhere, remove pairs with any ellipsis anywhere (`...`), remove tagged literals that aren't dates, remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex) ".")
                                                  :input s
                                                  :model "code-davinci-edit-001"))]
               (if-some [text (some-> choices
@@ -115,7 +141,7 @@
                                               (assoc params :prompt (with-out-str
                                                                       (println "### " prompt)
                                                                       (when ident
-                                                                        (prn (@sniff ident))))))
+                                                                        (prn (datafy ident))))))
         choices-index     (group-by #(get % "finish_reason") choices)
         stop              (first (get choices-index "stop"))]
     (if-some [txt (get stop "text")]
