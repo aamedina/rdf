@@ -89,7 +89,7 @@ To generate the EDN maps, you should follow these guidelines:
     1. Each EDN map represents an RDF resource.
     2. Each value in the EDN map should be converted to an appropriate EDN data type.
     3. If a value in the EDN map is a nested map, it should be recursively converted to a corresponding nested EDN map.
-    4. All keywords must be namespace qualified and have namespaces and names that begin with a non-numeric character and can contain alphanumeric characters and *, +, !, -, _, ', ?, <, > and =.
+    4. All keywords must be namespace qualified. Keywords must have namespaces and names which begin with a non-numeric character and may contain alphanumeric characters and *, +, !, -, _, ', ?, <, > and =.
     5. No values in the map should be left ungenerated.
     6. Duplicate keys are never allowed in the same EDN map.
 
