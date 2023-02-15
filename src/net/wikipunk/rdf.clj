@@ -916,7 +916,8 @@
                           (symbol
                             (str (or (get *ns-aliases* (namespace ident))
                                      (get (ns-aliases *ns*) (symbol (namespace ident)))
-                                     (str *ns-prefix* (namespace ident))))
+                                     (str *ns-prefix* (namespace ident))
+                                     (str "net.wikipunk.rdf." (namespace ident))))
                             (name (unmunge ident))))
                         (catch Throwable ex
                           nil)))]
