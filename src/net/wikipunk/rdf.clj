@@ -280,6 +280,7 @@
       (let [{:keys [registry ns-aliases]}            (make-boot-context)
             {:keys [classes properties metaobjects]} (make-hierarchies)]
         (alter-var-root #'reg/*registry* (constantly registry))
+        (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
         (alter-var-root #'*properties* (constantly properties))
@@ -899,9 +900,9 @@
           (if (and (contains? *ns-aliases* prefix)
                    (nil? (get *ns-aliases* prefix)))
             (do
-              (println "requiring" (str "net.wikipunk.rdf." prefix))
-              (require (symbol (str "net.wikipunk.rdf." prefix)))
-              (ns-resolve (symbol (str "net.wikipunk.rdf." prefix)) (unmunge ident)))
+              (println "requiring" (str *ns-prefix* prefix))
+              (require (symbol (str *ns-prefix* prefix)))
+              (ns-resolve (symbol (str *ns-prefix* prefix)) (unmunge ident)))
             (throw (ex-info "Could not resolve OBO metaobject" {:ident ident}))))
         nil))))
 
@@ -914,7 +915,8 @@
                         (requiring-resolve
                           (symbol
                             (str (or (get *ns-aliases* (namespace ident))
-                                     (get (ns-aliases *ns*) (symbol (namespace ident)))))
+                                     (get (ns-aliases *ns*) (symbol (namespace ident)))
+                                     (str *ns-prefix* (namespace ident))))
                             (name (unmunge ident))))
                         (catch Throwable ex
                           nil)))]

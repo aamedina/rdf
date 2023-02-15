@@ -156,7 +156,7 @@
 (defmethod mop/class-direct-slots :rdfs/Class
   [class]
   (or (not-empty (:mop/class-direct-slots class))
-      (get-in @(requiring-resolve 'net.wikipunk.rdf/*indexes*) [:slots/by-domain (:db/ident class)])))
+      (get-in rdf/*indexes* [:slots/by-domain (:db/ident class)])))
 
 (defmethod mop/class-direct-slots clojure.lang.Keyword
   [class]
@@ -401,62 +401,3 @@
 (defmethod mop/class-slots clojure.lang.Keyword
   [class]
   (mop/class-slots (mop/find-class class)))
-
-(defmethod mop/sniff :default
-  [ident]
-  (dissoc (let [e  (or (datafy ident) (rdf/sniff ident))
-                md (meta e)
-                e' (->> (walk/postwalk (fn [form]
-                                         (if-some [label (some-> (get md form) :rdfs/label)]
-                                           label
-                                           form))
-                                       e)
-                        (walk/postwalk (fn [form]
-                                         (if (qualified-keyword? form)
-                                           (if (contains? #{"loc.works" "loc.instances" "loc.subjects"}
-                                                          (str/starts-with? (namespace form) "loc"))
-                                             (rdf/iri form)
-                                             form)
-                                           form)))
-                        (walk/postwalk (fn [form]
-                                         (if (and (:rdf/language form)
-                                                  (:rdf/value form)
-                                                  (str/starts-with? (:rdf/language form) "en"))
-                                           (:rdf/value form)
-                                           form)))
-                        (walk/postwalk (fn [form]
-                                         (if (sequential? form)
-                                           (filterv (complement :rdf/language) form)
-                                           form))))]
-            (reduce-kv (fn [m k v]
-                         (case k
-                           (:db/ident :db/cardinality :db/valueType)
-                           (assoc m k v)
-                           #_:rdfs/subClassOf
-                           #_(assoc m k (reduce (fn [subClassOf {:db/keys [ident] :as slot}]
-                                                (if (some #(cond
-                                                             (map? %)
-                                                             (identical? (:owl/onProperty %) ident)
-                                                             
-                                                             (keyword? %)
-                                                             (identical? % ident)
-                                                             :else nil)
-                                                          subClassOf)
-                                                  subClassOf
-                                                  (conj subClassOf {:rdf/type           :owl/Restriction
-                                                                    :owl/onProperty     ident
-                                                                    :owl/someValuesFrom (:rdfs/range slot)})))
-                                              (if (sequential? v) v [v])
-                                              (map datafy (:mop/class-direct-slots e))))
-                           (cond
-                             (contains? (:prefixes net.wikipunk.boot/initial-context) (namespace k))
-                             (assoc m k v)
-
-                             (= (namespace k) "mop")
-                             (case k
-                               :mop/class-direct-slots m
-                               :mop/class-slots        m
-                               m)
-                             
-                             :else m)))
-                       {} e'))))
