@@ -48,7 +48,7 @@
   [s]
   (edn/read-string (-> s
                        (str/replace #"^^(\w+)" "")
-                       (str/replace #"\\\"" "\"")
+                       #_(str/replace #"\\\"" "\"")
                        (str/replace #":(\w*/?)@(\w+)" ":$1$2")
                        (str/replace #"(:\w+/\w+)/(\w+)" "$1$2")
                        (str/replace #"(:\w+/)(\d\w*)" "$1|$2|")
@@ -96,9 +96,11 @@ To generate the EDN maps, you should follow these guidelines:
     4. All keywords must be namespace qualified. Keywords must have namespaces and names which begin with a non-numeric character and may contain alphanumeric characters and *, +, !, -, _, ', ?, <, > and =.
     5. No values in the map should be left ungenerated.
     6. Duplicate keys are never allowed in the same EDN map.
-    7. Do not include any values associated with these keys: :db/id.
+    7. Do not include any keys or values with #db/id or :db/id.
+    8. If a keyword looks like an HTTP URL, make it a string instead.
+    9. Do not include any values with ellipses anywhere or summarize anything. Be descriptive.
 
-Create RDF resources similar to the following examples:")
+Create RDF resources inspired by the following examples:")
                       (doseq [parent parents]
                         (println "```clojure")
                         (prn parent)
