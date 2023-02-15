@@ -73,14 +73,16 @@
         prefix      (if child
                       (str/replace cs (re-pattern (str suffix "$")) (if (empty? child) "" ","))
                       "{")
-        parents (->> parents
-                     ;; mop/compute-class-precedence-list
-                     (mapcat @cpl)
-                     (distinct)
-                     (remove #{:owl/Class :rdfs/Class :rdf/Property :owl/ObjectProperty :rdfs/Resource})
-                     (sort (partial isa? *tree-of-life*))                     
-                     (reverse)
-                     (map datafy))
+        parent-maps (remove keyword? parents)
+        parent-metaobjects (->> (filter keyword? parents)
+                                ;; mop/compute-class-precedence-list
+                                (mapcat @cpl)
+                                (distinct)
+                                (remove #{:owl/Class :rdfs/Class :rdf/Property :owl/ObjectProperty :rdfs/Resource})
+                                (sort (partial isa? *tree-of-life*))                     
+                                (reverse)
+                                (map datafy))
+        parents     (concat parent-metaobjects parent-maps)
         prompt      (with-out-str
                       (println "You are tasked with generating an EDN map representing an RDF resource.
 
