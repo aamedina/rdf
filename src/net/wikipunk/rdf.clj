@@ -916,8 +916,12 @@
                           (symbol
                             (str (or (get *ns-aliases* (namespace ident))
                                      (get (ns-aliases *ns*) (symbol (namespace ident)))
-                                     (find-ns (symbol (str *ns-prefix* (namespace ident))))
-                                     (find-ns (symbol (str "net.wikipunk.rdf." (namespace ident))))))
+                                     (as-> (symbol (str *ns-prefix* (namespace ident))) ns-name
+                                       (require ns-name)
+                                       (find-ns ns-name))
+                                     (as-> (symbol (str "net.wikipunk.rdf." (namespace ident))) ns-name
+                                       (require ns-name)
+                                       (find-ns ns-name))))
                             (name (unmunge ident))))
                         (catch Throwable ex
                           nil)))]
