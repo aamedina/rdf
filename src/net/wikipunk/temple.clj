@@ -43,6 +43,15 @@
 
 (set! *print-namespace-maps* nil)
 
+(defn- read-edn-string
+  "clojure.edn/read-string with some cleanup via regex replacement"
+  [s]
+  (edn/read-string (-> s
+                       (str/replace #"^^(\w+)" "")
+                       (str/replace #"\\\"" "\"")
+                       (str/replace #":(\w+)@(\w)" ":$1$2")
+                       (str/replace #"(:\w+/)(\d\w+)" "$1|$2|"))))
+
 (defn transmutate
   "Transmutate metaobjects into new forms.
 
@@ -105,30 +114,22 @@ Create RDF resources similar to the following examples:")
     (if-some [choice (some-> (get reasons "stop") (first) (get "text"))]
       (let [s (str prefix choice suffix)]
         (try
-          (let [val (with-meta (edn/read-string (-> s
-                                                    (str/replace #"^^(\w+)" "")
-                                                    (str/replace #"\\\"" "\"")))
-                      res)]
-            (cond->> val
-              (map? val) (reduce-kv (fn [m k v]
-                                      (cond
-                                        (= (namespace k) "mop")
-                                        m
-                                        :else (assoc m k v))) {})))
+          (with-meta (read-edn-string s)
+            res)
           (catch Throwable ex
-            (log/warn (.getMessage ex) choice)
+            (log/error (.getMessage ex) s)
             (let [{:strs [choices]}
                   (openai/edits component (assoc params'
-                                                 :instruction (str "Fix this EDN map so that it has no duplicate keys, an even number of forms, remove `@` from all symbols anywhere, remove pairs with any ellipsis anywhere (`...`), remove tagged literals that aren't dates, remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex) ".")
+                                                 :instruction (str "Fix this EDN map so that it has any duplicate keys in any map have their values merged in a vector, a map must have an even number of forms, remove pairs with any ellipsis anywhere (`...`), remove tagged literals that aren't dates, remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex) ".")
                                                  :input s
                                                  :model "code-davinci-edit-001"))]
               (if-some [text (some-> choices
                                      (first)
                                      (get "text"))]
                 (try
-                  (edn/read-string text)
+                  (read-edn-string text)
                   (catch Throwable ex
-                    (log/warn (.getMessage ex) choice)))
+                    (log/error (.getMessage ex) text)))
                 choices)))))
       choices)))
 
