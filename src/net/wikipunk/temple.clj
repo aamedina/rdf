@@ -49,7 +49,8 @@
   (edn/read-string (-> s
                        (str/replace #"^^(\w+)" "")
                        (str/replace #"\\\"" "\"")
-                       (str/replace #":(\w+)@(\w)" ":$1$2")
+                       (str/replace #":(\w+/?)@(\w+)" ":$1$2")
+                       (str/replace #"(:\w+/\w+)/(\w+)" "$1$2")
                        (str/replace #"(:\w+/)(\d\w+)" "$1|$2|"))))
 
 (defn transmutate
