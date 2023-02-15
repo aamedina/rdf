@@ -127,7 +127,7 @@ Create RDF resources inspired by the following examples:")
             (log/error (.getMessage ex) s)
             (let [{:strs [choices]}
                   (openai/edits component (assoc params'
-                                                 :instruction (str "Fix this EDN map so that it has any duplicate keys in any map have their values merged in a vector, a map must have an even number of forms, remove pairs with any ellipsis anywhere (`...`), remove tagged literals that aren't dates, remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex) ".")
+                                                 :instruction (str "Fix this EDN map so that it has any duplicate keys in any map have their values merged in a vector, a map must have an even number of forms, remove pairs with any ellipsis anywhere (`...`), remove all @ characters outside of strings, remove tagged literals that aren't dates, remove all invalid EDN tokens (in keywords, symbols, or strings), remove all metadata (tokens with ^/^^) and use this error message as additional context to guide the fix:" (.getMessage ex) ".")
                                                  :input s
                                                  :model "code-davinci-edit-001"))]
               (if-some [text (some-> choices
