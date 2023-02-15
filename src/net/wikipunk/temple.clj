@@ -51,7 +51,8 @@
                        (str/replace #"\\\"" "\"")
                        (str/replace #":(\w*/?)@(\w+)" ":$1$2")
                        (str/replace #"(:\w+/\w+)/(\w+)" "$1$2")
-                       (str/replace #"(:\w+/)(\d\w*)" "$1|$2|"))))
+                       (str/replace #"(:\w+/)(\d\w*)" "$1|$2|")
+                       (str/replace #":\"" "\""))))
 
 (defn transmutate
   "Transmutate metaobjects into new forms.
