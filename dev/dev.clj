@@ -31,6 +31,7 @@
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
    [com.walmartlabs.schematic :as sc]
    [net.wikipunk.boot :as boot]
+   [net.wikipunk.chat :as chat]
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
    [net.wikipunk.mop :as mop :refer [isa? descendants parents ancestors]]
