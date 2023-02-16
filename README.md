@@ -8,6 +8,7 @@ clojure -Sdeps '{:deps {io.github.aamedina/vocab {:git/sha "9fe0fa56625b9a7ceaf9
 
 ### :rdfs/seeAlso 
 https://github.com/seancorfield/deps-new
+
 https://github.com/aamedina/vocab
 
 ## credits
