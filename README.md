@@ -1,6 +1,43 @@
 # rdf
 RDF models as Clojure namespaces
 
+## Universal Translator
+A component should be configured for your system based on the following
+example:
+
+``` clojure
+{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+          :init-ns      net.wikipunk.mop.init
+          :ns-prefix    "net.wikipunk.rdf."
+          :target       "src/net/wikipunk/rdf/"
+          :boot         []}}
+```
+
+This is a [schematic](https://github.com/walmartlabs/schematic)
+configuraton map which is assembled and started using
+[component](https://github.com/stuartsierra/component).
+
+### :init-ns
+the ns-name of a Clojure namespace to load to implement methods of the
+metaobject protocol found in `net.wikipunk.mop`
+
+### :ns-prefix 
+the prefix string to use when locating metaobjects in your system
+(optional, defaults to above)
+
+### :target
+the output directory where the Universal Translator should place
+emitted Clojure namespaces from RDF models 
+(optional, defaults to above)
+
+### :boot
+A list of namespace-qualified symbols resolving to vars with
+:rdfa/prefix and :rdfa/uri mappings
+
+(These vars should exist in in a 'boot' namespace with metadata of
+{:rdf/type :jsonld/Context} where namespace prefixes for your system
+should be looked up.)
+
 ### Make a new vocabulary with deps-new
 ``` bash
 clojure -Sdeps '{:deps {io.github.aamedina/vocab {:git/sha "7c818fea5e709e16afa24f68d6d8098a75078948"}}}' -Tnew create :template aamedina/vocab :name net.wikipunk/example :rdfa/prefix "example" :rdfa/uri '"https://wikipunk.net/example/"' :git/sha '"7e688f78c3bfb92fa735f0f11d1418cd73a5b20a"'
