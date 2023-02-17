@@ -38,6 +38,44 @@ A list of namespace-qualified symbols resolving to vars with
 {:rdf/type :jsonld/Context} where namespace prefixes for your system
 should be looked up.)
 
+### :dev
+
+``` shell
+clojure -A:dev
+```
+
+``` clojure
+(reset)
+```
+
+Assuming you have started the system and are in the dev namespace use
+the following functions to explore the vocabulary:
+
+Terms are identified by namespace-qualified keywords where the
+namespace part is the prefix of the vocabulary and the name part is
+the name of the term in that vocabulary.
+
+``` clojure
+:schema/Movie
+```
+
+Most methods dispatch on the :rdf/type of the object.
+``` clojure
+:rdf/type
+```
+
+#### datafy
+use datafy on namespace qualified keywords to resolve metaobject data
+without the properties added by the metaobject protocol
+#### net.wikipunk.mop/find-class
+use this to lookup the full classes by name including effective slots,
+these maps can get pretty big, datafy is better for REPL use, but
+find-class will give you everything
+#### doc
+Use the doc macro in the REPL to print the docstring on the Var
+associated with the metaobject along with its computed
+class-precedence-list. 
+
 ### Make a new vocabulary with deps-new
 ``` bash
 clojure -Sdeps '{:deps {io.github.aamedina/vocab {:git/sha "7c818fea5e709e16afa24f68d6d8098a75078948"}}}' -Tnew create :template aamedina/vocab :name net.wikipunk/example :rdfa/prefix "example" :rdfa/uri '"https://wikipunk.net/example/"' :git/sha '"7e688f78c3bfb92fa735f0f11d1418cd73a5b20a"'
