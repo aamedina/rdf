@@ -742,8 +742,8 @@
   "The property that determines the n-tuple of properties that build a sub property chain of a given property."
   {:db/ident :owl/propertyChainAxiom,
    :db/cardinality   :db.cardinality/many
-   :db/valueType     :db.type/tuple
-   :db/tupleType :db.type/ref
+   :db/valueType     #_:db.type/tuple :db.type/ref
+   #_:db/tupleType #_:db.type/ref
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the n-tuple of properties that build a sub property chain of a given property.",
