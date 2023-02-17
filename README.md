@@ -14,7 +14,7 @@ example:
 ```
 
 This is a [schematic](https://github.com/walmartlabs/schematic)
-configuraton map which is assembled and started using
+configuration map which is assembled and started using
 [component](https://github.com/stuartsierra/component).
 
 ### :init-ns

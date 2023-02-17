@@ -1,5 +1,10 @@
 (ns net.wikipunk.rdf
-  "The Universal Translator"
+  "The Universal Translator
+
+  This namespace provides a set of protocols and functions for working
+  with RDF data. This is done by using Apache Jena and Aristotle to
+  parse and manipulate RDF data found on the Semantic Web and
+  organizing the terms into multimethod hierarchies."
   (:require
    [arachne.aristotle.registry :as reg]
    [arachne.aristotle.graph :as g]
@@ -43,10 +48,6 @@
 (defprotocol NamespaceSpitter
   (emit [x arg-map]))
 
-(defprotocol Seed
-  "Helper protocol to bootstrap attributes from loaded metaobjects."
-  (select-attributes [x]))
-
 (def ^:dynamic *classes*
   "rdfs:Class|owl:Class|rdfs:Datatype"
   (make-hierarchy))
@@ -61,10 +62,12 @@
   (make-hierarchy))
 
 (def ^:dynamic *indexes*
-  "A map of useful indexes."
+  "A map of useful indexes across metaobjects."
   {})
 
 (def ^:dynamic *ns-aliases*
+  "Configured by `make-boot-context` holding a map of namespace
+  aliases."
   {})
 
 (def ^:dynamic *env*
@@ -78,6 +81,7 @@
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
 (defn unmunge
+  "function which converts the given ident to a symbol"
   [ident]
   (cond
     (= (name ident) "Class")
@@ -94,6 +98,8 @@
         (symbol))))
 
 (defn make-boot-context
+  "a function which configures an Aristotle registry for bootstrapping
+  RDF data."
   []
   (let [ns-prefixes (->> (all-ns)
                          (filter #(= (:rdf/type (meta %)) :jsonld/Context))
@@ -132,6 +138,8 @@
       (all-ns))))
 
 (defn deriving
+  "a function which derives ident from each of its parents in the
+  given hierarchy."
   [h {:db/keys [ident]} xs]
   (reduce (fn [h parent]
             (try
@@ -141,6 +149,8 @@
           h xs))
 
 (def +props+
+  "A set of keys used in various internal functions to unroll single
+  values into collections for set logic (usually)."
   #{:rdf/type
     :rdfs/subClassOf
     :rdfs/subPropertyOf
@@ -148,20 +158,18 @@
     :owl/equivalentProperty
     :owl/sameAs})
 
-(def cat-rdf-idents
-  (comp
-    (filter (comp :rdf/type meta))
-    (map ns-publics)
-    (mapcat vals)
-    (map deref)
-    (filter #(some +props+ (keys %)))
-    (filter (comp qualified-keyword? :db/ident))
-    (map (fn [entity]
-           (reduce (fn [entity term]
-                     (update entity term #(cond (coll? %) % (nil? %) [] :else [%])))
-                   entity +props+)))))
+(defn all-ns-metaobjects
+  "Searches Clojure namespaces for metaobjects.
 
-(defn make-class-hierarchy
+  It filters out all namespaces that don't have an :rdf/type metadata
+  key and retrieves all public symbols from each namespace. It then
+  filters out symbols that don't have any properties from the
+  `net.wikipunk.rdf/+props+` set, as well as symbols that don't have a
+  qualified keyword :db/ident.
+
+  The remaining symbols are then processed in parallel using pmap. For
+  each symbol, it extracts its properties and reduces them into an
+  entity map."
   []
   (->> (all-ns)
        (filter (comp :rdf/type meta))
@@ -171,106 +179,147 @@
        (filter (comp qualified-keyword? :db/ident deref))
        (pmap (fn [v]
                (reduce (fn [entity term]
-                         (update entity term #(if (coll? %) % [%])))
-                       @v +props+)))
-       (reduce
-         (fn [h {:db/keys   [ident]
-                 :rdf/keys  [type]
-                 :rdfs/keys [subClassOf]
-                 :owl/keys  [sameAs equivalentClass]
-                 :as        entity}]
-           (if (and (or subClassOf
-                        equivalentClass
-                        (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
-                    (not (some #(isa? h % :rdf/Property) type)))
-             (deriving h entity (concat (filter keyword? type)
-                                        (filter keyword? subClassOf)
-                                        (filter keyword? equivalentClass)))
-             h))
-         (derive (make-hierarchy) :rdfs/Resource :rdfs/Class))))
+                         (if (contains? entity term)
+                           (update entity term #(cond (vector? %) % (nil? %) [] :else [%]))
+                           entity))
+                       @v +props+)))))
+
+(defn make-class-hierarchy
+  "The make-class-hierarchy function creates a hierarchy of classes
+  based on the :rdf/type metadata for all namespaces in the current
+  Clojure environment. 
+
+  The resulting class hierarchy is returned."
+  ([]
+   (make-class-hierarchy (all-ns-metaobjects)))
+  ([metaobjects]
+   (reduce (fn [h {:db/keys   [ident]
+                   :rdf/keys  [type]
+                   :rdfs/keys [subClassOf]
+                   :owl/keys  [sameAs equivalentClass]
+                   :as        entity}]
+             (if (and (or subClassOf
+                          equivalentClass
+                          (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
+                      (not (some #(isa? h % :rdf/Property) type)))
+               (deriving h entity (concat (filter keyword? type)
+                                          (filter keyword? subClassOf)
+                                          (filter keyword? equivalentClass)))
+               h))
+           (derive (make-hierarchy) :rdfs/Resource :rdfs/Class)
+           metaobjects)))
 
 (defn make-property-hierarchy
-  [classes]
-  (->> (all-ns)
-       (filter (comp :rdf/type meta))
-       (map ns-publics)
-       (mapcat vals)
-       (filter #(some +props+ (keys @%)))
-       (filter (comp qualified-keyword? :db/ident deref))
-       (pmap (fn [v]
-               (reduce (fn [entity term]
-                         (update entity term #(if (coll? %) % [%])))
-                       @v +props+)))
-       (reduce
-         (fn [h {:db/keys   [ident]
-                 :rdf/keys  [type]
-                 :rdfs/keys [subPropertyOf]
-                 :owl/keys  [equivalentProperty]
-                 :as        entity}]
-           (if (or subPropertyOf
-                   equivalentProperty
-                   (some #(isa? classes % :rdf/Property) type))
-             (deriving h entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
-                                        (filter keyword? subPropertyOf)
-                                        (filter keyword? equivalentProperty)))
-             h))
-         (make-hierarchy))))
+  "The make-property-hierarchy function generates a hierarchy of RDF
+  properties based on their relationships to each other.
+
+  Args:
+
+    classes: a hierarchy of RDF classes
+
+  Returns:
+
+    A hierarchy of RDF properties
+
+  It reduces the variables by building a hierarchy of RDF properties
+  based on their relationships to each other. It checks whether each
+  property has subPropertyOf, equivalentProperty, or is a subclass of
+  :rdf/Property. If any of these conditions is true, it adds the
+  property to the hierarchy. Finally, it returns the hierarchy of
+  properties."
+  ([classes]
+   (make-property-hierarchy classes (all-ns-metaobjects)))
+  ([classes metaobjects]
+   (reduce
+     (fn [h {:db/keys   [ident]
+             :rdf/keys  [type]
+             :rdfs/keys [subPropertyOf]
+             :owl/keys  [equivalentProperty]
+             :as        entity}]
+       (if (or subPropertyOf
+               equivalentProperty
+               (some #(isa? classes % :rdf/Property) type))
+         (deriving h entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
+                                    (filter keyword? subPropertyOf)
+                                    (filter keyword? equivalentProperty)))
+         h))
+     (make-hierarchy)
+     metaobjects)))
 
 (defn make-metaobject-hierarchy
-  [classes properties]
-  (->> (all-ns)
-       (filter (comp :rdf/type meta))
-       (map ns-publics)
-       (mapcat vals)
-       (filter #(some +props+ (keys @%)))
-       (filter (comp qualified-keyword? :db/ident deref))
-       (pmap (fn [v]
-               (reduce (fn [entity term]
-                         (update entity term #(if (coll? %) % [%])))
-                       @v +props+)))
-       (reduce
-         (fn [h {:db/keys   [ident]
-                 :rdf/keys  [type]
-                 :rdfs/keys [subClassOf equivalentClass
-                             subPropertyOf equivalentProperty]
-                 :as        entity}]
-           (cond-> h
-             (seq (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
-             (deriving entity (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
-             
-             (or subPropertyOf
-                 equivalentProperty
-                 (some #(isa? classes % :rdf/Property) type))
-             (deriving entity
-                       (distinct
-                         (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
-                                 (filter keyword? subPropertyOf)
-                                 (filter keyword? equivalentProperty))))))
-         classes)))
+  "The make-metaobject-hierarchy function takes in two arguments,
+  classes and properties, which are collections of RDF classes and
+  properties, respectively. It returns a hierarchy of metaobjects
+  derived from these classes and properties.
+
+  Parameters:
+
+    classes: a hierarchy of RDF classes
+    properties: a hierarchy of RDF properties
+
+  Returns:
+
+    A hierarchy of metaobjects derived from the input RDF classes and properties."
+  ([classes properties]
+   (make-metaobject-hierarchy classes properties (all-ns-metaobjects)))
+  ([classes properties metaobjects]
+   (reduce
+     (fn [h {:db/keys   [ident]
+             :rdf/keys  [type]
+             :rdfs/keys [subClassOf equivalentClass
+                         subPropertyOf equivalentProperty]
+             :as        entity}]
+       (cond-> h
+         (seq (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
+         (deriving entity (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
+         
+         (or subPropertyOf
+             equivalentProperty
+             (some #(isa? classes % :rdf/Property) type))
+         (deriving entity
+                   (distinct
+                     (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
+                             (filter keyword? subPropertyOf)
+                             (filter keyword? equivalentProperty))))))
+     classes
+     metaobjects)))
 
 (declare find-metaobject)
 
 (defn make-hierarchies
+  "Returns a map of hierarchies for *classes*, *properties*, and
+  *metaobjects*."
   []
-  (let [classes     (future (make-class-hierarchy))
-        properties  (future (make-property-hierarchy @classes))
-        metaobjects (future (make-metaobject-hierarchy @classes properties))]
-    {:classes     @classes
-     :properties  @properties
-     :metaobjects @metaobjects}))
-
-(defn comp-isa?
-  "isa? comparator"
-  ([h x y]
-   (cond
-     (= x y)      0
-     (isa? h x y) -1
-     (isa? h y x) 1
-     :else        -1)))
+  (let [metaobjects (all-ns-metaobjects)
+        classes     (make-class-hierarchy metaobjects)
+        properties  (make-property-hierarchy classes metaobjects)
+        metaobjects (make-metaobject-hierarchy classes properties metaobjects)]
+    {:classes     classes
+     :properties  properties
+     :metaobjects metaobjects}))
 
 (declare finalize setup-indexes)
 
-;; TODO: Document the Universal Translator
+;; :init-ns
+;; the ns-name of a Clojure namespace to load to implement methods of the
+;; metaobject protocol found in `net.wikipunk.mop`
+
+;; :ns-prefix 
+;; the prefix string to use when locating metaobjects in your system
+;; (optional, defaults to above)
+
+;; :target
+;; the output directory where the Universal Translator should place
+;; emitted Clojure namespaces from RDF models 
+;; (optional, defaults to above)
+
+;; :boot
+;; A list of namespace-qualified symbols resolving to vars with
+;; :rdfa/prefix and :rdfa/uri mappings
+
+;; (These vars should exist in in a 'boot' namespace with metadata of
+;; {:rdf/type :jsonld/Context} where namespace prefixes for your system
+;; should be looked up.)
 
 (defrecord UniversalTranslator [ns-prefix target boot init-ns]
   com/Lifecycle
@@ -741,59 +790,59 @@
                        (:vann/preferredNamespacePrefix md))        
         forms      (->> forms
                         (pmap (fn [v]
-                               (let [k   (:db/ident v)
-                                     sym (symbol (name k))
-                                     sym (cond
-                                           (= (name sym) "Class")
-                                           'T
-                                           
-                                           (get clojure.lang.RT/DEFAULT_IMPORTS sym)
-                                           (symbol (str sym "Class"))
+                                (let [k   (:db/ident v)
+                                      sym (symbol (name k))
+                                      sym (cond
+                                            (= (name sym) "Class")
+                                            'T
+                                            
+                                            (get clojure.lang.RT/DEFAULT_IMPORTS sym)
+                                            (symbol (str sym "Class"))
 
-                                           (= (name sym) "nil")
-                                           'null
+                                            (= (name sym) "nil")
+                                            'null
 
-                                           :else sym)
-                                     sym       (if (:private v) (with-meta sym {:private true}) sym)
-                                     v         (if (:private v) (dissoc v :private) v)
-                                     docstring (or (some-> (:lv2/documentation v))
-                                                   (:dcterms/abstract v)
-                                                   (:dcterms/description v)
-                                                   (:skos/definition v)
-                                                   (:prov/definition v)
-                                                   (:prov/editorsDefinition v)
-                                                   (:madsrdf/definitionNote v)
-                                                   (:madsrdf/authoritativeLabel v)
-                                                   (:d3fend/definition v)
-                                                   (:d3fend/d3fend-comment v)
-                                                   (:d3fend/kb-article v)
-                                                   (:d3fend/control-name v)
-                                                   (:rdfs/comment v)
-                                                   (:skos/prefLabel v)
-                                                   (:rdfs/label v))
-                                     docstring (if (vector? docstring)
-                                                 (if (every? string? docstring)
-                                                   (str/join \newline docstring)
-                                                   (first (or (get (group-by :rdf/language docstring) "en")
-                                                              (get (group-by :rdf/language docstring) "en-US")
-                                                              (seq (filter string? docstring)))))
-                                                 docstring)
-                                     docstring (if (map? docstring)
-                                                 (:rdf/value docstring "")
-                                                 docstring)
-                                     docstring (when docstring
-                                                 (str/trim (str/replace docstring #"\s+" " ")))
-                                     v         (cond-> (assoc v :db/ident k)
-                                                 (and (nil? (:rdf/type v))
-                                                      (:rdfs/subClassOf v))
-                                                 (assoc :rdf/type :rdfs/Class)
+                                            :else sym)
+                                      sym       (if (:private v) (with-meta sym {:private true}) sym)
+                                      v         (if (:private v) (dissoc v :private) v)
+                                      docstring (or (some-> (:lv2/documentation v))
+                                                    (:dcterms/abstract v)
+                                                    (:dcterms/description v)
+                                                    (:skos/definition v)
+                                                    (:prov/definition v)
+                                                    (:prov/editorsDefinition v)
+                                                    (:madsrdf/definitionNote v)
+                                                    (:madsrdf/authoritativeLabel v)
+                                                    (:d3fend/definition v)
+                                                    (:d3fend/d3fend-comment v)
+                                                    (:d3fend/kb-article v)
+                                                    (:d3fend/control-name v)
+                                                    (:rdfs/comment v)
+                                                    (:skos/prefLabel v)
+                                                    (:rdfs/label v))
+                                      docstring (if (vector? docstring)
+                                                  (if (every? string? docstring)
+                                                    (str/join \newline docstring)
+                                                    (first (or (get (group-by :rdf/language docstring) "en")
+                                                               (get (group-by :rdf/language docstring) "en-US")
+                                                               (seq (filter string? docstring)))))
+                                                  docstring)
+                                      docstring (if (map? docstring)
+                                                  (:rdf/value docstring "")
+                                                  docstring)
+                                      docstring (when docstring
+                                                  (str/trim (str/replace docstring #"\s+" " ")))
+                                      v         (cond-> (assoc v :db/ident k)
+                                                  (and (nil? (:rdf/type v))
+                                                       (:rdfs/subClassOf v))
+                                                  (assoc :rdf/type :rdfs/Class)
 
-                                                 (and (nil? (:rdf/type v))
-                                                      (:rdfs/subPropertyOf v))
-                                                 (assoc :rdf/type :rdf/Property))]
-                                 (if docstring
-                                   (list 'def sym docstring (dissoc v :lv2/documentation))
-                                   (list 'def sym v))))))]
+                                                  (and (nil? (:rdf/type v))
+                                                       (:rdfs/subPropertyOf v))
+                                                  (assoc :rdf/type :rdf/Property))]
+                                  (if docstring
+                                    (list 'def sym docstring (dissoc v :lv2/documentation))
+                                    (list 'def sym v))))))]
     (if prefix
       (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
               ~@(let [docstring (or (get-in md [:lv2/project :lv2/documentation])
@@ -1071,6 +1120,10 @@
   (if (map? form)
     (select-keys form *boot-keys*)
     form))
+
+(defprotocol Seed
+  "Helper protocol to bootstrap attributes from loaded metaobjects."
+  (select-attributes [x]))
 
 (extend-protocol Seed
   clojure.lang.Namespace
