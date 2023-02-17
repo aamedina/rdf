@@ -415,7 +415,8 @@
   (print-method x writer))
 
 (defn kw
-  "returns a keyword for IRI"
+  "returns a keyword for IRI accounting for unreadable symbols in
+  Clojure"
   [iri]
   (when-some [k (try
                   (reg/kw iri)
@@ -486,6 +487,13 @@
                         (java.net.URLDecoder/decode n)
                         (catch Throwable ex
                           n))))))
+
+;;  The function extracts some values from the md map and uses them to
+;;  construct a Jena graph, which is a data structure used to
+;;  represent RDF data. It also modifies the namespace prefix map to
+;;  handle some specific prefix mappings. The resulting Jena graph is
+;;  then transformed into a collection of maps representing RDF
+;;  entities and their properties.
 
 (extend-protocol Parsable
   clojure.lang.IPersistentMap
@@ -569,6 +577,7 @@
     form))
 
 (defn walk-rdf-list
+  "unrolls RDF lists into Vectors"
   [form]
   (cond
     (identical? (:rdf/rest form) :rdf/nil)
@@ -580,12 +589,14 @@
     :else form))
 
 (defn walk-bytes
+  "Turns byte arrays into vectors of primitive bytes"
   [form]
   (if (bytes? form)
     (into (vector-of :byte) form)
     form))
 
 (defn walk-seeAlso
+  "Turns :rdfs/seeAlso forms into strings"
   [form]
   (if (and (map? form)
            (contains? form :rdfs/seeAlso))
@@ -602,7 +613,7 @@
     form))
 
 (defprotocol Box
-  (box [val]))
+  (box [val] "boxes the value"))
 
 (extend-protocol Box
   Boolean
@@ -658,6 +669,7 @@
   (f form k box))
 
 (defn box-values
+  "Walker to box values in the form."
   [form]
   (if (map? form)
     (cond-> form
@@ -956,6 +968,10 @@
         nil))))
 
 (defn find-metaobject
+  "Finds a metaobject by namespace-qualified keyword identity by
+  looking up its namespace in the system's registry and attempting to
+  resolve the name as a Var in that namespace, requiring it when
+  necessary."
   [ident]
   (when (qualified-keyword? ident)
     (when-some [var (if (= (namespace ident) "obo")
@@ -980,6 +996,7 @@
                                           :rdfs/Resource)}))))
 
 (defn print-doc
+  "Prints documentation from metadata on a metaobject's var"
   [ident]
   (when-some [metaobject (find-metaobject ident)]
     (println "-------------------------")

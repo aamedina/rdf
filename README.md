@@ -55,6 +55,10 @@ https://github.com/seancorfield/deps-new
 
 https://github.com/aamedina/vocab
 
+## wikipunk.net extensions
+### net.wikipunk/db
+[Datomic vocabulary](https://github.com/aamedina/db)
+
 ### credits
 https://github.com/arachne-framework/aristotle
 
