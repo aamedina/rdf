@@ -55,13 +55,50 @@ Terms are identified by namespace-qualified keywords where the
 namespace part is the prefix of the vocabulary and the name part is
 the name of the term in that vocabulary.
 
+For example, for the namespace "schema" and term "Movie", you can
+treat the following keyword as its identifier:
+
 ``` clojure
 :schema/Movie
 ```
 
-Most methods dispatch on the :rdf/type of the object.
+All metaobjects that are available to the system must have a :db/ident
+associated with them when the system is started.
+
 ``` clojure
-:rdf/type
+(datafy :schema/Movie)
+```
+
+``` clojure
+{:db/ident :schema/Movie,
+ :rdf/type :owl/Class,
+ :rdfs/comment {:rdf/language "en", :rdf/value "A movie."},
+ :rdfs/isDefinedBy "http://schema.org/Movie",
+ :rdfs/label {:rdf/language "en", :rdf/value "Movie"},
+ :rdfs/subClassOf :schema/CreativeWork}
+```
+
+``` clojure
+(doc :schema/Movie)
+```
+
+``` clojure
+;; -------------------------
+;; :schema/Movie
+;;    A movie.
+;;   isa?
+;;   :schema/CreativeWork
+;;    :schema/Thing
+;;     :owl/Class
+;;      :rdfs/Class
+```
+
+Most methods in the metaobject protocol dispatch on the :rdf/type of
+the object.
+
+The following describes an anonymous :owl/Class with no properties:
+``` clojure
+{:rdf/type :owl/Class}
 ```
 
 #### datafy
