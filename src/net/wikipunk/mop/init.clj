@@ -149,6 +149,15 @@
   (or (:mop/class-prototype (meta class))
       (alter-instance (:var (meta (meta class))) assoc :mop/class-prototype (mop/allocate-instance class))))
 
+(defmethod mop/class-precedence-list :rdfs/Class
+  [class]
+  (:mop/class-precedence-list class (mop/compute-class-precedence-list class)))
+
+(defmethod mop/class-precedence-list clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-precedence-list)))
+
 (defmethod mop/class-direct-default-initargs :rdfs/Class
   [class]
   (:mop/class-direct-default-initargs class {}))
