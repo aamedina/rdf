@@ -523,7 +523,7 @@
                                                                   "ruleml"
                                                                   "obo1"
                                                                   "oboInOwl2")
-                                                          {"sdo" "schema" "dct" "dcterms" "dc" "dcterms" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30"}))]
+                                                          {"sdo" "schema" "dct" "dcterms" "dc" "dc11" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30"}))]
       (reg/with ns-prefix-map
                 (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
                       (->> (into [] g)
@@ -705,7 +705,7 @@
                                      (assoc v :db/ident k)
                                      
                                      (string? k)
-                                     (assoc v :rdf/uri k)
+                                     (assoc v :rdfa/uri k)
 
                                      :else v)))
                             (pmap (fn [form]
@@ -720,22 +720,27 @@
                                            (update form term #(cond (coll? %) % (nil? %) [] :else [%]))
                                            form))
                                        form +props+)))
-                        (mapcat (some-fn :madsrdf/hasMADSSchemeMember
-                                         :skos/member
-                                         :skos/broader))
+                        (keep (some-fn :madsrdf/hasMADSSchemeMember
+                                       :skos/member
+                                       :skos/broader))
+                        (mapcat (fn [x] (if (sequential? x) x [x])))
                         (distinct)
                         (pmap (fn [ident]
-                                (when (pos? *recurse*)
+                                (when (and (keyword? ident)
+                                           (not (contains? index ident))
+                                           (pos? *recurse*))
                                   (try
-                                    (binding [*recurse* (and (pos? *recurse*)
-                                                             (dec *recurse*))]
-                                      (let [x  (sniff ident)
-                                            md (meta x)]
-                                        (into [(with-meta x {})]
-                                              (map #(with-meta % {}))
-                                              (vals (dissoc md :dcat/downloadURL :rdf/ns-prefix-map :rdfa/prefix)))))
+                                    (binding [*recurse* (dec *recurse*)]
+                                      (when-some [x (sniff ident)]
+                                        (let [md (meta x)]
+                                          (into [(with-meta x {})]
+                                                (map #(with-meta % {}))
+                                                (vals (dissoc md
+                                                              :dcat/downloadURL
+                                                              :rdf/ns-prefix-map
+                                                              :rdfa/prefix))))))
                                     (catch Throwable ex
-                                      (println ident (.getMessage ex))
+                                      (log/error ex ident (.getMessage ex))
                                       nil))))))
         forms      (into (vec forms) cat concepts)
         public?    (fn [form]
@@ -754,7 +759,7 @@
                                           (:rdf/type form)
                                           [(:rdf/type form)])))))
         the-ont    (or (first ontologies)
-                       (first (filter :rdf/uri (remove public? forms))))
+                       (first (filter :rdfa/uri (remove public? forms))))
         forms      (filter #(keyword? (:db/ident %)) forms)
         publics    (filter public? forms)
         privates   (->> (remove public? forms)
@@ -1163,7 +1168,7 @@
       :else (find-ns (symbol ident)))))
 
 (extend-protocol LinkedData
-  clojure.lang.IPersistentCollection
+  clojure.lang.Sequential
   (sniff [coll]
     (pmap #(sniff %) coll))
 
