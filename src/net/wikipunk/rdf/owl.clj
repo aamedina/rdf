@@ -508,7 +508,7 @@
   "The property that determines the property that a self restriction refers to."
   {:db/ident :owl/hasSelf,
    :db/cardinality   :db.cardinality/one
-   :db/valueType     :db.type/ref
+   :db/valueType     :db.type/boolean
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the property that a self restriction refers to.",

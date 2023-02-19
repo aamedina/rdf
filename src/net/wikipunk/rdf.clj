@@ -981,14 +981,10 @@
   (when (qualified-keyword? ident)
     (when-some [var (if (= (namespace ident) "obo")
                       (find-obo-metaobject ident)
-                      (or (some-> (get *ns-aliases* (namespace ident))
-                                  (ns-name)
-                                  (as-> ns-name
-                                      (ns-resolve ns-name (unmunge ident))))
-                          (some-> (get (ns-aliases *ns*) (symbol (namespace ident)))
-                                  (as-> ns-name
-                                      (doto ns-name (require))
-                                      (ns-resolve ns-name (unmunge ident))))
+                      (or (requiring-resolve
+                            (symbol (str (or (get *ns-aliases* (namespace ident))
+                                             (get (ns-aliases *ns*) (symbol (namespace ident)))))
+                                    (name (unmunge ident))))
                           (some-> (find-ns (symbol (namespace ident)))
                                   (ns-name)
                                   (as-> ns-name
