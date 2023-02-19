@@ -380,7 +380,7 @@
 (def hasSource
   "This property links a Simulation with its source"
   {:db/ident         :simulation/hasSource,
-   :owl/deprecated   "deprecated on the 1.2 version",
+   :owl/deprecated   true
    :rdf/type         :owl/ObjectProperty,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value
@@ -557,7 +557,7 @@
 (def isSourceOf
   "Inverse property of has source"
   {:db/ident         :simulation/isSourceOf,
-   :owl/deprecated   "deprecated on the 1.2 version",
+   :owl/deprecated   true
    :rdf/type         :owl/ObjectProperty,
    :rdfs/comment     {:rdf/language "en",
                       :rdf/value    "Inverse property of has source"},
