@@ -147,11 +147,14 @@
 
 (def uri
   "defines the URI for either a prefix or a term mapping; the value is supposed to be an absolute URI"
-  {:db/ident    :rdfa/uri,
+  {:db/ident       :rdfa/uri,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
+   :db/unique      :db.unique/identity
    :dcterms/description
    "defines the URI for either a prefix or a term mapping; the value is supposed to be an absolute URI",
-   :rdf/type    [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/domain :rdfa/PrefixOrTermMapping})
+   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/domain    :rdfa/PrefixOrTermMapping})
 
 (def usesVocabulary
   "provides a relationship between the host document and a vocabulary defined using the @vocab facility of RDFa1.1"

@@ -23,7 +23,7 @@
   (start [this]
     (let []
       (when-some [conn (:conn rdf)]
-        ((requiring-resolve 'net.wikipunk.rdf/bootstrap) *tree-of-life* conn :force? false))
+        ((requiring-resolve 'net.wikipunk.punk.db/bootstrap) *tree-of-life* conn :force? false))
       this))
   (stop [this]
     (alter-var-root #'*tree-of-life* (constantly (make-hierarchy)))
