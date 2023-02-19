@@ -981,20 +981,30 @@
   (when (qualified-keyword? ident)
     (when-some [var (if (= (namespace ident) "obo")
                       (find-obo-metaobject ident)
-                      (try
-                        (requiring-resolve
-                          (symbol
-                            (str (or (get *ns-aliases* (namespace ident))
-                                     (get (ns-aliases *ns*) (symbol (namespace ident)))
-                                     (as-> (symbol (str "net.wikipunk.rdf." (namespace ident))) ns-name
-                                       (doto ns-name (require))
-                                       (find-ns ns-name))
-                                     (as-> (symbol (str *ns-prefix* (namespace ident))) ns-name
-                                       (doto ns-name (require))
-                                       (find-ns ns-name))))
-                            (name (unmunge ident))))
-                        (catch Throwable ex
-                          nil)))]
+                      (or (some-> (get *ns-aliases* (namespace ident))
+                                  (ns-name)
+                                  (as-> ns-name
+                                      (ns-resolve ns-name (unmunge ident))))
+                          (some-> (get (ns-aliases *ns*) (symbol (namespace ident)))
+                                  (as-> ns-name
+                                      (doto ns-name (require))
+                                      (ns-resolve ns-name (unmunge ident))))
+                          (some-> (find-ns (symbol (namespace ident)))
+                                  (ns-name)
+                                  (as-> ns-name
+                                      (ns-resolve ns-name (unmunge ident))))
+                          (try
+                            (as-> (symbol (str *ns-prefix* (namespace ident))) ns-name
+                              (doto ns-name (require))
+                              (when (find-ns ns-name)
+                                (ns-resolve ns-name (unmunge ident))))
+                            (catch java.io.FileNotFoundException _ nil))
+                          (try
+                            (as-> (symbol (str "net.wikipunk.rdf." (namespace ident))) ns-name
+                              (doto ns-name (require))
+                              (when (find-ns ns-name)
+                                (ns-resolve ns-name (unmunge ident))))
+                            (catch java.io.FileNotFoundException _ nil))))]
       (with-meta @var {:var var :type (or (and (keyword? (type var))
                                                (type var))
                                           (:type (alter-meta! var assoc :type (mop/type-of @var)))
@@ -1140,9 +1150,11 @@
    (dorun
      (pmap (fn [ident]
              (if-some [mo (mop/find-class ident)]
-               (do
+               (try
                  (when (or force? (not (mop/class-finalized? mo)))
-                   (mop/finalize-inheritance mo)))
+                   (mop/finalize-inheritance mo))
+                 (catch Throwable ex
+                   (throw (ex-info "Could not finalize inheritance for metaobject" {:db/ident ident} ex))))
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
 

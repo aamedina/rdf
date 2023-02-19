@@ -160,7 +160,8 @@
 
 (defmethod mop/class-direct-slots clojure.lang.Keyword
   [class]
-  (mop/class-direct-slots (mop/find-class class)))
+  (some-> (mop/find-class class)
+          (mop/class-direct-slots)))
 
 (defmethod mop/class-default-initargs :rdfs/Class
   [class]
