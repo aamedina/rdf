@@ -70,11 +70,6 @@
   aliases."
   {})
 
-(def ^:dynamic *env*
-  "An environment to resolve metaobject idents. Could be nil (search
-  namespaces) or a datomic database."
-  nil)
-
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *target* "src/net/wikipunk/rdf/")
 

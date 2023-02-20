@@ -9,6 +9,11 @@
    [net.wikipunk.temple :as temple])
   (:refer-clojure :exclude [isa? ancestors parents descendants]))
 
+(def ^:dynamic *env*
+  "An environment to resolve metaobject idents. Could be nil (search
+  namespaces) or a datomic database."
+  nil)
+
 (defn isa?
   "Returns true if (= child parent), or child is directly or indirectly derived from
   parent, either via a Java type inheritance relationship or a
@@ -45,8 +50,8 @@
 
 (defn class-of
   "Returns the class of which the object is a direct instance."
-  ([object] (class-of object nil (:env (meta object))))
-  ([object error?] (class-of object error? (:env (meta object))))
+  ([object] (class-of object nil (:env (meta object) *env*)))
+  ([object error?] (class-of object error? (:env (meta object) *env*)))
   ([object error? env]
    (let [class (type object)]
      (if (qualified-keyword? class)
@@ -469,15 +474,15 @@
 (defmulti find-class-using-env
   "Resolves a class by ident in some environment."
   (fn [ident env]
-    [ident (type env)])
+    [(type-of ident) (type env)])
   :hierarchy #'net.wikipunk.temple/*tree-of-life*)
 
 (defn find-class
   "Finds a class by name."
   ([ident]
-   (find-class ident nil))
+   (find-class ident *env*))
   ([ident error?]
-   (find-class ident error? nil))
+   (find-class ident error? *env*))
   ([ident error? env]
    (or (find-class-using-env ident env)
        (and error? (throw (ex-info "Could not resolve class by name." {:ident ident}))))))
