@@ -134,7 +134,7 @@ https://github.com/aamedina/vocab
 ### net.wikipunk/db
 [Datomic vocabulary](https://github.com/aamedina/db)
 ### net.wikipunk/punk.db
-[QUDT](https://github.com/aamedina/punk.db)
+[punk.db](https://github.com/aamedina/punk.db)
 ### net.wikipunk/punk.qudt
 [QUDT](https://github.com/aamedina/punk.qudt)
 
