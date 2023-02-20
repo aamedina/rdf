@@ -126,6 +126,8 @@
 (def broader
   "Relates a concept to a concept that is more general in meaning."
   {:db/ident :skos/broader,
+   :db/valueType :db.type/ref
+   :db/cardinality :db.cardinality/many
    :owl/inverseOf :skos/narrower,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -292,7 +294,9 @@
 
 (def inScheme
   "Relates a resource (for example a concept) to a concept scheme in which it is included."
-  {:db/ident :skos/inScheme,
+  {:db/ident :skos/inScheme
+   :db/valueType :db.type/ref
+   :db/cardinality :db.cardinality/many,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/isDefinedBy "http://www.w3.org/2004/02/skos/core",
    :rdfs/label {:rdf/language "en",
@@ -326,6 +330,8 @@
 (def member
   "Relates a collection to one of its members."
   {:db/ident         :skos/member,
+   :db/valueType :db.type/ref
+   :db/cardinality :db.cardinality/many
    :rdf/type         [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain      :skos/Collection,
    :rdfs/isDefinedBy "http://www.w3.org/2004/02/skos/core",
@@ -372,6 +378,8 @@
 (def narrower
   "Relates a concept to a concept that is more specific in meaning."
   {:db/ident :skos/narrower,
+   :db/valueType :db.type/ref
+   :db/cardinality :db.cardinality/many
    :owl/inverseOf :skos/broader,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment

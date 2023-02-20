@@ -6,7 +6,6 @@
                        "sh"   "http://www.w3.org/ns/shacl#",
                        "xsd"  "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "http://www.w3.org/ns/shacl#",
    :rdfa/prefix "sh",
    :rdfa/uri "http://www.w3.org/ns/shacl#",
    :rdfs/comment

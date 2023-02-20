@@ -626,7 +626,9 @@
 
   String
   (box [s]
-    {:xsd/string s})
+    (if (str/starts-with? s "http")
+      {:rdfa/uri s}
+      {:xsd/string s}))
 
   clojure.lang.Sequential
   (box [xs]
