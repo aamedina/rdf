@@ -978,10 +978,12 @@
   (when (qualified-keyword? ident)
     (when-some [var (if (= (namespace ident) "obo")
                       (find-obo-metaobject ident)
-                      (or (requiring-resolve
-                            (symbol (str (or (get *ns-aliases* (namespace ident))
-                                             (get (ns-aliases *ns*) (symbol (namespace ident)))))
-                                    (name (unmunge ident))))
+                      (or (try
+                            (requiring-resolve
+                              (symbol (str (or (get *ns-aliases* (namespace ident))
+                                               (get (ns-aliases *ns*) (symbol (namespace ident)))))
+                                      (name (unmunge ident))))
+                            (catch java.io.FileNotFoundException ex nil))
                           (some-> (find-ns (symbol (namespace ident)))
                                   (ns-name)
                                   (as-> ns-name

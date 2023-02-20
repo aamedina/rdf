@@ -7,6 +7,7 @@
    [clojure.string :as str]
    [clojure.tools.logging :as log]
    [com.stuartsierra.component :as com]
+   [net.wikipunk.rdf :as rdf]
    [net.wikipunk.rdf.skos :as skos]))
 
 (def ^:dynamic *skos*
@@ -28,18 +29,19 @@
   (stop [this]
     this))
 
-#_(defn make-skos-hierarchy
+(defn make-skos-hierarchy
   [metaobjects]
   (reduce
     (fn [h {:db/keys   [ident]
             :skos/keys [broader narrower inScheme member]
             :as        entity}]
+      (zprint.core/zprint entity)
       (cond-> h
         (seq (filter keyword? broader))
-        (deriving entity (filter keyword? broader))
+        (rdf/deriving entity (filter keyword? broader))
 
         (seq (filter keyword? inScheme))
-        (deriving entity (filter keyword? inScheme))
+        (rdf/deriving entity (filter keyword? inScheme))
 
         (seq (filter keyword? member))
         (as-> h
@@ -50,18 +52,20 @@
                           h)))
                     h (filter keyword? member)))
 
-        #_ (seq (filter keyword? narrower))
-        #_ (as-> h
-               (reduce (fn [h child]
-                         (try
-                           (derive h child ident)
-                           (catch Throwable ex
-                             h)))
-                       h (filter keyword? narrower)))))
+        (seq (filter keyword? narrower))
+        (as-> h
+            (reduce (fn [h child]
+                      (try
+                        (derive h child ident)
+                        (catch Throwable ex
+                          h)))
+                    h (filter keyword? narrower)))))
     (make-hierarchy)
     (->> (descendants metaobjects :skos/Concept)
-         (map find-metaobject)
+         (map rdf/find-metaobject)
          (pmap (fn [v]
                  (reduce (fn [entity term]
-                           (update entity term #(if (coll? %) % [%])))
-                         v +props+))))))
+                           (if (contains? entity term)
+                             (update entity term #(if (sequential? %) % [%]))
+                             entity))
+                         v [:rdf/type :skos/broader :skos/narrower :skos/inScheme :skos/member]))))))
