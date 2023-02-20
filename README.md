@@ -131,12 +131,9 @@ https://github.com/seancorfield/deps-new
 https://github.com/aamedina/vocab
 
 ## wikipunk.net extensions
-### net.wikipunk/db
-[Datomic vocabulary](https://github.com/aamedina/db)
-### net.wikipunk/punk.db
-[punk.db](https://github.com/aamedina/punk.db)
-### net.wikipunk/punk.qudt
-[QUDT](https://github.com/aamedina/punk.qudt)
+* [net.wikipunk/db](https://github.com/aamedina/db)
+* [net.wikipunk/punk.db](https://github.com/aamedina/punk.db)
+* [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
 
 ### credits
 https://github.com/arachne-framework/aristotle
