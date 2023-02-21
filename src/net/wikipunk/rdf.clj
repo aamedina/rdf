@@ -677,7 +677,11 @@
       (box-value update :owl/oneOf)
 
       (seq (:owl/withRestrictions form))
-      (box-value update :owl/withRestrictions))
+      (box-value update :owl/withRestrictions)
+
+      (or (vector? (:rdfs/isDefinedBy form))
+          (string? (:rdfs/isDefinedBy form)))
+      (box-value update :rdfs/isDefinedBy))
     form))
 
 (def ^:dynamic *recurse* 2)
