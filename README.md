@@ -134,6 +134,7 @@ https://github.com/aamedina/vocab
 * [net.wikipunk/db](https://github.com/aamedina/db)
 * [net.wikipunk/punk.db](https://github.com/aamedina/punk.db)
 * [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
+* [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)
 
 ### credits
 https://github.com/arachne-framework/aristotle
