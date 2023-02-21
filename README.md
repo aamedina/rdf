@@ -132,9 +132,14 @@ https://github.com/aamedina/vocab
 
 ## wikipunk.net extensions
 * [net.wikipunk/db](https://github.com/aamedina/db)
+* [net.wikipunk/punk](https://github.com/aamedina/punk)
 * [net.wikipunk/punk.db](https://github.com/aamedina/punk.db)
 * [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
 * [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)
+* [net.wikipunk/OBO](https://github.com/aamedina/OBO)
+* [net.wikipunk/loc](https://github.com/aamedina/loc)
+* [net.wikipunk/fibo](https://github.com/aamedina/fibo)
+* [net.wikipunk/auto](https://github.com/aamedina/auto)
 
 ### credits
 https://github.com/arachne-framework/aristotle
