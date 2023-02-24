@@ -38,6 +38,7 @@
    [net.wikipunk.temple :as temple]
    [net.wikipunk.openai :as openai]
    [taoensso.nippy :as nippy]
+   [xtdb.api :as xt]
    [zprint.core :as zprint])
   (:refer-clojure :exclude [isa? descendants parents ancestors]))
 

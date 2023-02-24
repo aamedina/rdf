@@ -24,11 +24,11 @@
   io.github.arachne-framework/aristotle
   {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
   io.github.aamedina/mop
-  {:git/sha "bf24638ab532741957e6972d86d2f8c39356c4cd"}
+  {:git/sha "d9f9c1ca08e7d560116e2c8d35dbf23d927e728f"}
   io.github.aamedina/openai
   {:git/sha "44567680df18891ae8849b729f2dcf92a5204042"}
   io.github.aamedina/temple
-  {:git/sha "067d195ab58f12e51a2c3a692da490199278ad8a"}
+  {:git/sha "29d92b2eec6dac2dd296b33ab5d6acd72ae8d333"}
   io.github.aamedina/punk.skos
   {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"}
   io.github.aamedina/datomic
@@ -68,6 +68,12 @@
     {:mvn/version "1.3.0"}
     com.stuartsierra/component.repl
     {:mvn/version "0.2.0"}
+    io.github.aamedina/mop
+    {:local/root "../mop"}
+    io.github.aamedina/openai
+    {:local/root "../openai"}
+    io.github.aamedina/temple
+    {:local/root "../temple"}
     org.clojure/test.check
     {:mvn/version "1.1.1"}    
     org.slf4j/slf4j-simple
