@@ -132,7 +132,7 @@ class-precedence-list.
 
 ### Make a new vocabulary with deps-new
 ``` bash
-clojure -Sdeps '{:deps {io.github.aamedina/vocab {:git/sha "cdcf68285dafc4a3be062d951153c0d0186bba19"}}}' -Tnew create :template aamedina/vocab :name net.wikipunk/example :rdfa/prefix "example" :rdfa/uri '"https://wikipunk.net/example/"' :git/sha '"2a7f7ac434e2dac11b48e8b9b09bb39c96c05e89"'
+clojure -Sdeps '{:deps {io.github.aamedina/vocab {:git/sha "85455e9d83106e75bd2fe9d5c8b9e2cb56c19891"}}}' -Tnew create :template aamedina/vocab :name net.wikipunk/example :rdfa/prefix "example" :rdfa/uri '"https://wikipunk.net/example/"' :git/sha '"e54ec56c3c17d6b2f6534942e74e2021783885df"'
 ```
 
 ### :rdfa/prefix 
