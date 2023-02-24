@@ -1242,15 +1242,23 @@
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
-      (reduce-kv (fn [m k v]
-                   (try
-                     (if (not= (namespace k) "mop")
-                       (assoc m k v)
-                       m)
-                     (catch Throwable ex
-                       (println m k v)
-                       m)))
-                 {} (find-metaobject ident))
+      (cond
+        (mop/isa? ident :rdf/Property)
+        (unroll-for-index ident)
+
+        (mop/isa? ident :rdfs/Class)
+        (reduce-kv (fn [m k v]
+                     (try
+                       (if (not= (namespace k) "mop")
+                         (assoc m k v)
+                         m)
+                       (catch Throwable ex
+                         (println m k v)
+                         m)))
+                   {} (find-metaobject ident))
+        
+        :else (find-metaobject ident))
+      
 
       (qualified-symbol? ident)
       (resolve ident)
