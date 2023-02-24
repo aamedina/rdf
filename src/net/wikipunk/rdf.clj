@@ -24,6 +24,7 @@
    [net.wikipunk.rdf.rdfs]
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
+   [taoensso.nippy :as nippy]
    [xtdb.api :as xt]
    [xtdb.node]
    [xtdb.lucene]
@@ -164,8 +165,8 @@
   The remaining symbols are then processed in parallel using pmap. For
   each symbol, it extracts its properties and reduces them into an
   entity map."
-  []
-  (->> (all-ns)
+  ([]
+   (->> (all-ns)
        (filter (comp :rdf/type meta))
        (map ns-publics)
        (mapcat vals)
@@ -183,6 +184,8 @@
                                       m))
                                   {} @v)
                        +props+)))))
+  ([env]
+   (all-ns-metaobjects)))
 
 (defn make-class-hierarchy
   "The make-class-hierarchy function creates a hierarchy of classes
@@ -294,14 +297,14 @@
 (defn make-hierarchies
   "Returns a map of hierarchies for *classes*, *properties*, and
   *metaobjects*."
-  []
-  (let [metaobjects (all-ns-metaobjects)
-        classes     (make-class-hierarchy metaobjects)
-        properties  (make-property-hierarchy classes metaobjects)
-        metaobjects (make-metaobject-hierarchy classes properties metaobjects)]
-    {:classes     classes
-     :properties  properties
-     :metaobjects metaobjects}))
+  ([] (make-hierarchies (all-ns-metaobjects)))
+  ([xs]
+   (let [classes     (make-class-hierarchy xs)
+         properties  (make-property-hierarchy classes xs)
+         metaobjects (make-metaobject-hierarchy classes properties xs)]
+     {:classes     classes
+      :properties  properties
+      :metaobjects metaobjects})))
 
 (declare finalize setup-indexes)
 
@@ -326,22 +329,40 @@
 ;; {:rdf/type :jsonld/Context} where namespace prefixes for your system
 ;; should be looked up.)
 
+(defn freezable
+  "Ensure the metaobject can be frozen and thawed by Nippy."
+  [mo]
+  (walk/prewalk (fn [form]
+                  (if (map? form)
+                    (reduce-kv (fn [m k v]
+                                 (if (nippy/freezable? v)
+                                   (assoc m k v)
+                                   m))
+                               {} form)
+                    form))
+                (assoc mo :xt/id (:db/ident mo))))
+
 (defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config]
   com/Lifecycle
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [node                                     (xt/start-node config)
+      (let [all-metaobjects                          (all-ns-metaobjects)
+            node                                     (xt/start-node config)
             {:keys [registry ns-aliases]}            (make-boot-context)
-            {:keys [classes properties metaobjects]} (make-hierarchies)]
+            {:keys [classes properties metaobjects]} (make-hierarchies all-metaobjects)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
         (alter-var-root #'*properties* (constantly properties))
         (alter-var-root #'mop/*metaobjects* (constantly metaobjects))
-        (alter-var-root #'mop/*env* (constantly node))
+        (alter-var-root #'mop/*env* (constantly node))        
         (try
+          (xt/submit-tx node (into []
+                                   (map (juxt (constantly ::xt/put) freezable))
+                                   all-metaobjects))
+          (xt/sync node)
           (when (symbol? init-ns)
             (require init-ns :reload)
             (alter-var-root #'*indexes* (constantly (setup-indexes classes properties)))
@@ -361,7 +382,81 @@
   (emit [_ arg-map]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]
-      (emit boot arg-map))))
+      (emit boot arg-map)))
+
+  xt/DBProvider
+  (db [_]
+    (xt/db node))
+  (db [_ valid-time-or-basis]
+    (xt/db node valid-time-or-basis))
+  (open-db [_]
+    (xt/open-db node))
+  (open-db [_ valid-time-or-basis]
+    (xt/open-db node valid-time-or-basis))
+
+  xt/PXtdb
+  (active-queries [_]
+    (xt/active-queries node))
+  (attribute-stats [_]
+    (xt/attribute-stats node))
+  (await-tx [_ tx]
+    (xt/await-tx node tx))
+  (await-tx [_ tx timeout]
+    (xt/await-tx node tx timeout))
+  (await-tx-time [_ tx-time]
+    (xt/await-tx-time node tx-time))
+  (await-tx-time [_ tx-time timeout]
+    (xt/await-tx-time node tx-time timeout))
+  (latest-completed-tx [_]
+    (xt/latest-completed-tx node))
+  (latest-submitted-tx [_]
+    (xt/latest-submitted-tx node))
+  (listen [_ event-opts f]
+    (xt/listen node event-opts f))
+  (recent-queries [_]
+    (xt/recent-queries node))
+  (slowest-queries [_]
+    (xt/slowest-queries node))
+  (status [_]
+    (xt/status node))
+  (sync [_]
+    (xt/sync node))
+  (sync [_ timeout]
+    (xt/sync node timeout))
+  (sync [_ tx-time timeout]
+    (xt/sync node tx-time timeout))
+  (tx-committed? [_ submitted-tx]
+    (xt/tx-committed? node submitted-tx))
+
+  xt/PXtdbDatasource
+  (db-basis [_]
+    (xt/db-basis (xt/db node)))
+  (entity [_ eid]
+    (xt/entity (xt/db node) eid))
+  (entity-history [_ eid sort-order]
+    (xt/entity-history (xt/db node) eid sort-order))
+  (entity-history [_ eid sort-order opts]
+    (xt/entity-history (xt/db node) eid sort-order opts))
+  (entity-tx [_ eid]
+    (xt/entity-tx (xt/db node) eid))
+  (open-entity-history [_ eid sort-order]
+    (xt/open-entity-history (xt/db node) eid sort-order))
+  (open-entity-history [_ eid sort-order opts]
+    (xt/open-entity-history (xt/db node) eid sort-order opts))
+  (open-q* [_ query args]
+    (xt/open-q* (xt/db node) query args))
+  (pull [_ query eid]
+    (xt/pull (xt/db node) query eid))
+  (pull-many [_ query eids]
+    (xt/pull-many (xt/db node) query eids))
+  (q* [_ query args]
+    (xt/q* (xt/db node) query args))
+  (transaction-time [_]
+    (xt/transaction-time (xt/db node)))
+  (valid-time [_]
+    (xt/valid-time (xt/db node)))
+  (with-tx [_ tx-ops]
+    (xt/with-tx (xt/db node) tx-ops)))
 
 ;; Make Apache Jena iterators reducible
 
@@ -1088,9 +1183,9 @@
   (cond
     (keyword? x) #{x}
     
-    (map? x) (or (:owl/unionOf x)
-                 (:owl/intersectionOf x)
-                 (:owl/oneOf x))
+    (map? x) (into #{} (or (:owl/unionOf x)
+                           (:owl/oneOf x)
+                           (some-> (:owl/intersectionOf x) (hash-set))))
     
     (sequential? x) (into #{} (mapcat unroll-term) x)
 
@@ -1106,60 +1201,29 @@
                   (dissoc mo' term)))
               mo))
           (find-metaobject ident)
-          #{:rdf/type
-            :rdfs/domain
-            :rdfs/range
-            :schema/domainIncludes
-            :schema/rangeIncludes
-            :rdfs/subClassOf
-            :rdfs/subPropertyOf
-            :d3fend/identifies
-            :skos/broader}))
+          [:rdf/type
+           :rdfs/domain
+           :rdfs/range
+           :rdfs/subPropertyOf]))
 
 (defn setup-indexes
   ([]
    (setup-indexes *classes* *properties*))
   ([classes properties]
-   (let [classes (into [] (pmap unroll-for-index (keys (:parents classes))))
-         slots   (into [] (pmap unroll-for-index (keys (:parents properties))))]
-     {:classes/by-type
-      (dissoc (group-by :rdf/type classes) nil)
-      :classes/by-subclass
-      (dissoc (group-by :rdfs/subClassOf classes) nil)
-      :slots/by-type
-      (dissoc (group-by :rdf/type slots) nil)
-      :slots/by-domain
+   (let [slots (into [] (pmap unroll-for-index (keys (:parents properties))))]
+     {:slots/by-domain
       (reduce-kv (fn [m domain slots]
                    (reduce (fn [m k]
-                             (update m k (fnil into []) slots))
+                             (update m k (fnil into #{}) slots))
                            m domain))
                  {}
-                 (dissoc (group-by (fn [slot]
-                                     (set/union (:rdfs/domain slot)
-                                                (:schema/domainIncludes slot)
-                                                (:d3fend/identifies slot)))
-                                   slots)
-                         nil))
-      :slots/by-range
-      (reduce-kv (fn [m domain slots]
-                   (reduce (fn [m k]
-                             (update m k (fnil into []) slots))
-                           m domain))
-                 {}
-                 (dissoc (group-by (fn [slot]
-                                     (set/union (:rdfs/range slot)
-                                                (:schema/rangeIncludes slot)))
-                                   slots)
-                         nil))
-      
-      :slots/by-subproperty
-      (dissoc (group-by :rdfs/subPropertyOf slots) nil)})))
+                 (dissoc (group-by :rdfs/domain slots) nil))})))
 
 
 (defn finalize
   "Finalizes all of the loaded classes."
   ([]
-   (finalize false (conj (descendants *classes* :rdfs/Class) :rdfs/Class)))
+   (finalize true (conj (descendants *classes* :rdfs/Class) :rdfs/Class)))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
@@ -1168,7 +1232,7 @@
                  (when (or force? (not (mop/class-finalized? mo)))
                    (mop/finalize-inheritance mo))
                  (catch Throwable ex
-                   (throw (ex-info "Could not finalize inheritance for metaobject" {:db/ident ident} ex))))
+                   (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
 

@@ -22,11 +22,11 @@
   io.github.arachne-framework/aristotle
   {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
   io.github.aamedina/mop
-  {:git/sha "d9f9c1ca08e7d560116e2c8d35dbf23d927e728f"}
+  {:git/sha "577d01059fc7a5c0b2a538786592c1a36444779a"}
   io.github.aamedina/openai
   {:git/sha "44567680df18891ae8849b729f2dcf92a5204042"}
   io.github.aamedina/temple
-  {:git/sha "29d92b2eec6dac2dd296b33ab5d6acd72ae8d333"}
+  {:git/sha "94d90382437b4c72019c517f8f2214cc089aeb22"}
   io.github.aamedina/punk.skos
   {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"}
   io.github.aamedina/datomic
