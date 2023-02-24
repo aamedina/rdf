@@ -31,6 +31,8 @@
   {:git/sha "067d195ab58f12e51a2c3a692da490199278ad8a"}
   io.github.aamedina/punk.skos
   {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"}
+  io.github.aamedina/punk.db
+  {:git/sha "1c3ad3f021ad7c0d45ebf12d9e4a8ff5e7203590"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.7.0"
    :extension   "pom"}
@@ -52,6 +54,8 @@
   {:mvn/version "0.1.6"}
   org.clojure/tools.logging
   {:mvn/version "1.2.4"}
+  org.clojure/tools.namespace
+  {:mvn/version "1.3.0"}
   org.glassfish/jakarta.json
   {:mvn/version "2.0.1"}
   zprint/zprint
@@ -64,12 +68,8 @@
     {:mvn/version "1.3.0"}
     com.stuartsierra/component.repl
     {:mvn/version "0.2.0"}
-    io.github.aamedina/db
-    {:git/sha "dda90900d91b1055866885a64872b23f4223e62e"}
     org.clojure/test.check
-    {:mvn/version "1.1.1"}
-    org.clojure/tools.namespace
-    {:mvn/version "1.3.0"}
+    {:mvn/version "1.1.1"}    
     org.slf4j/slf4j-simple
     {:mvn/version "1.7.36"}
     vlaaad/reveal
