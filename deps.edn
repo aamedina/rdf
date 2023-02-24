@@ -7,10 +7,30 @@
   {:mvn/version "1.3.1"}  
   com.stuartsierra/component
   {:mvn/version "1.1.0"}
+  com.xtdb/xtdb-core
+  {:mvn/version "1.23.0"}
+  com.xtdb/xtdb-http-server
+  {:mvn/version "1.23.0"}
+  com.xtdb/xtdb-lmdb
+  {:mvn/version "1.23.0"}
+  com.xtdb/xtdb-lucene
+  {:mvn/version "1.23.0"}
+  com.xtdb/xtdb-metrics
+  {:mvn/version "1.23.0"}
+  com.xtdb.labs/xtdb-rdf
+  {:mvn/version "1.23.0"}
   com.taoensso/nippy
   {:mvn/version "3.2.0"}
   io.github.arachne-framework/aristotle
   {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
+  io.github.aamedina/mop
+  {:git/sha "197f7a43d0f3aac28bcd32cf525b928f8c131a22"}
+  io.github.aamedina/openai
+  {:git/sha "cf7eaf147be0ca2b6f1130b24698f3144b1a0f04"}
+  io.github.aamedina/temple
+  {:git/sha "433db0da7cee5c77814b436ff302fd1aa12d955f"}
+  io.github.aamedina/punk.skos
+  {:git/sha "7ebc0eeb744c18bdb169031b7c3d3040e46212d7"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.7.0"
    :extension   "pom"}

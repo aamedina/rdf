@@ -5,7 +5,7 @@
   with RDF data. This is done by using Apache Jena and Aristotle to
   parse and manipulate RDF data found on the Semantic Web and
   organizing the terms into multimethod hierarchies."
-  (:require
+  (:require   
    [arachne.aristotle.registry :as reg]
    [arachne.aristotle.graph :as g]
    [clojure.tools.logging :as log]
@@ -24,6 +24,7 @@
    [net.wikipunk.rdf.rdfs]
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
+   [xtdb.api :as xt]
    [zprint.core :as zprint])
   (:import
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
@@ -54,11 +55,6 @@
 
 (def ^:dynamic *properties*
   "rdf:Property"
-  (make-hierarchy))
-
-(def ^:dynamic *metaobjects*
-  "A Clojure multimethod hierarchy combining rdf/*classes*,
-  rdf/*properties*, and instances of :owl/NamedIndividual."
   (make-hierarchy))
 
 (def ^:dynamic *indexes*
@@ -170,6 +166,7 @@
        (filter (comp :rdf/type meta))
        (map ns-publics)
        (mapcat vals)
+       (filter (comp :rdf/type deref))
        (filter #(some +props+ (keys @%)))
        (filter (comp qualified-keyword? :db/ident deref))
        (pmap (fn [v]
@@ -177,7 +174,12 @@
                          (if (contains? entity term)
                            (update entity term #(cond (vector? %) % (nil? %) [] :else [%]))
                            entity))
-                       @v +props+)))))
+                       (reduce-kv (fn [m k v]
+                                    (if (not= (namespace k) "mop")
+                                      (assoc m k v)
+                                      m))
+                                  {} @v)
+                       +props+)))))
 
 (defn make-class-hierarchy
   "The make-class-hierarchy function creates a hierarchy of classes
@@ -196,7 +198,8 @@
              (if (and (or subClassOf
                           equivalentClass
                           (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
-                      (not (some #(isa? h % :rdf/Property) type)))
+                      (not (some #(isa? h % :rdf/Property) type))
+                      (not (some #(isa? h % :owl/NamedIndividual) type)))
                (deriving h entity (concat (filter keyword? type)
                                           (filter keyword? subClassOf)
                                           (filter keyword? equivalentClass)))
@@ -265,6 +268,10 @@
                          subPropertyOf equivalentProperty]
              :as        entity}]
        (cond-> h
+         (some #(isa? h % :owl/NamedIndividual) type)
+         (deriving entity (concat (filter keyword? type)
+                                  (filter keyword? subClassOf)))
+         
          (seq (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
          (deriving entity (remove #{:rdfs/Class :owl/Class} (filter keyword? type)))
          
@@ -316,31 +323,36 @@
 ;; {:rdf/type :jsonld/Context} where namespace prefixes for your system
 ;; should be looked up.)
 
-(defrecord UniversalTranslator [ns-prefix target boot init-ns]
+(defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config]
   com/Lifecycle
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [{:keys [registry ns-aliases]}            (make-boot-context)
+      (let [node                                     (xt/start-node config)
+            {:keys [registry ns-aliases]}            (make-boot-context)
             {:keys [classes properties metaobjects]} (make-hierarchies)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
         (alter-var-root #'*properties* (constantly properties))
-        (alter-var-root #'*metaobjects* (constantly metaobjects))
-        (when-let [init-ns (and (symbol? init-ns)
-                                (do (require init-ns :reload)
-                                    (find-ns init-ns)))]
-          (alter-var-root (requiring-resolve 'net.wikipunk.temple/*tree-of-life*) (constantly metaobjects))
-          (let [indexes (setup-indexes classes properties)]
-            (alter-var-root #'*indexes* (constantly indexes))
-            (finalize)))
-        this)))
+        (alter-var-root #'mop/*metaobjects* (constantly metaobjects))
+        (alter-var-root #'mop/*env* (constantly node))
+        (try
+          (when (symbol? init-ns)
+            (require init-ns :reload)
+            (alter-var-root #'*indexes* (constantly (setup-indexes classes properties)))
+            (finalize))
+          (catch Throwable ex
+            (log/error ex)))
+        (cond-> this
+          node (assoc :node node)))))
   (stop [this]
     (alter-var-root #'*classes* (constantly (make-hierarchy)))
     (alter-var-root #'*properties* (constantly (make-hierarchy)))
-    this)
+    (when (instance? java.io.Closeable node)
+      (.close ^java.io.Closeable node))
+    (assoc this :node nil))
 
   NamespaceSpitter
   (emit [_ arg-map]
@@ -670,6 +682,9 @@
   [form]
   (if (map? form)
     (cond-> form
+      (:owl/deprecated form)
+      (update :owl/deprecated boolean)
+      
       (some? (:owl/hasValue form))
       (box-value update :owl/hasValue)
 
@@ -679,9 +694,9 @@
       (seq (:owl/withRestrictions form))
       (box-value update :owl/withRestrictions)
 
-      (or (vector? (:rdfs/isDefinedBy form))
-          (string? (:rdfs/isDefinedBy form)))
-      (box-value update :rdfs/isDefinedBy))
+      #_(or (vector? (:rdfs/isDefinedBy form))
+            (string? (:rdfs/isDefinedBy form)))
+      #_(box-value update :rdfs/isDefinedBy))
     form))
 
 (def ^:dynamic *recurse* 2)
@@ -1017,7 +1032,7 @@
     (println (:db/ident metaobject))
     (when-some [doc (:doc (meta (:var (meta metaobject))))]
       (println "  " doc))
-    (when-some [supers (next ((requiring-resolve 'net.wikipunk.mop/compute-class-precedence-list) metaobject))]
+    (when-some [supers (next (mop/compute-class-precedence-list metaobject))]
       (println "  isa?")
       (reduce (fn [cnt class]
                 (println (str (apply str (repeat cnt \space)) class))
@@ -1140,11 +1155,8 @@
 
 (defn finalize
   "Finalizes all of the loaded classes."
-  ([] (finalize true (set/difference (conj (descendants *classes* :rdfs/Class) :rdfs/Class)
-                                     (descendants *metaobjects* :skos/Concept)
-                                     (descendants *properties* :rdf/Property)
-                                     (descendants *metaobjects* :owl/NamedIndividual)
-                                     (descendants *metaobjects* :owl/AnnotationProperty))))
+  ([]
+   (finalize false (conj (descendants *classes* :rdfs/Class) :rdfs/Class)))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]

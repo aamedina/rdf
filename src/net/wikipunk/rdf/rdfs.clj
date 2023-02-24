@@ -97,7 +97,7 @@
   "The defininition of the subject resource."
   {:db/ident           :rdfs/isDefinedBy,
    :db/cardinality     :db.cardinality/many
-   :db/valueType       :db.type/ref
+   :db/valueType       :db.type/string
    :rdf/type           :rdf/Property,
    :rdfs/comment       "The defininition of the subject resource.",
    :rdfs/domain        :rdfs/Resource,

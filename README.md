@@ -7,10 +7,11 @@ example:
 
 ``` clojure
 {:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :init-ns      net.wikipunk.mop.init
+          :init-ns      net.wikipunk.temple.init
           :ns-prefix    "net.wikipunk.rdf."
           :target       "src/net/wikipunk/rdf/"
-          :boot         []}}
+          :boot         []
+		  :config       {}}}
 ```
 
 This is a [schematic](https://github.com/walmartlabs/schematic)
@@ -19,7 +20,7 @@ configuration map which is assembled and started using
 
 ### :init-ns
 the ns-name of a Clojure namespace to load to implement methods of the
-metaobject protocol found in `net.wikipunk.mop`
+[metaobject protocol](https://github.com/aamedina/mop).
 
 ### :ns-prefix 
 the prefix string to use when locating metaobjects in your system
@@ -37,6 +38,10 @@ A list of namespace-qualified symbols resolving to vars with
 (These vars should exist in in a 'boot' namespace with metadata of
 {:rdf/type :jsonld/Context} where namespace prefixes for your system
 should be looked up.)
+
+### :config
+[XTDB](https://github.com/xtdb/xtdb) node configuration to store the
+loaded vocabulary in-memory or locally. (optional, defaults to above)
 
 ### :dev
 
@@ -131,10 +136,15 @@ https://github.com/seancorfield/deps-new
 https://github.com/aamedina/vocab
 
 ## wikipunk.net extensions
+* [net.wikipunk/mop](https://github.com/aamedina/mop)
+* [net.wikipunk/temple](https://github.com/aamedina/temple)
+* [net.wikipunk/openai](https://github.com/aamedina/openai)
 * [net.wikipunk/db](https://github.com/aamedina/db)
 * [net.wikipunk/punk](https://github.com/aamedina/punk)
 * [net.wikipunk/punk.db](https://github.com/aamedina/punk.db)
 * [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
+* [net.wikipunk/punk.skos](https://github.com/aamedina/punk.skos)
+* [net.wikipunk/punk.test](https://github.com/aamedina/punk.test)
 * [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)
 * [net.wikipunk/OBO](https://github.com/aamedina/OBO)
 * [net.wikipunk/loc](https://github.com/aamedina/loc)
