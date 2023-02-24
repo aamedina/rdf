@@ -9,9 +9,21 @@ example:
 {:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
           :init-ns      net.wikipunk.temple.init
           :ns-prefix    "net.wikipunk.rdf."
-          :target       "src/net/wikipunk/rdf/"
           :boot         []
-		  :config       {}}}
+          :config       {:xtdb/index-store
+                         {:kv-store
+                          {:xtdb/module xtdb.lmdb/->kv-store
+                           :db-dir      ".vocab/index-store"}}
+                         :xtdb/tx-log
+                         {:kv-store
+                          {:xtdb/module xtdb.lmdb/->kv-store
+                           :db-dir      ".vocab/tx-log"}}
+                         :xtdb/document-store
+                         {:kv-store
+                          {:xtdb/module xtdb.lmdb/->kv-store
+                           :db-dir      ".vocab/document-store"}}
+                         :xtdb.lucene/lucene-store
+                         {:db-dir ".vocab/lucene"}}}}
 ```
 
 This is a [schematic](https://github.com/walmartlabs/schematic)
