@@ -22,7 +22,7 @@
   io.github.arachne-framework/aristotle
   {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
   io.github.aamedina/mop
-  {:git/sha "577d01059fc7a5c0b2a538786592c1a36444779a"}
+  {:git/sha "49adfcbc59aa2f2a48c97570567ce8954f69def2"}
   io.github.aamedina/openai
   {:git/sha "44567680df18891ae8849b729f2dcf92a5204042"}
   io.github.aamedina/temple
