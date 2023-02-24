@@ -31,8 +31,8 @@
   {:git/sha "067d195ab58f12e51a2c3a692da490199278ad8a"}
   io.github.aamedina/punk.skos
   {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"}
-  io.github.aamedina/punk.db
-  {:git/sha "1c3ad3f021ad7c0d45ebf12d9e4a8ff5e7203590"}
+  io.github.aamedina/datomic
+  {:git/sha "36bebc7ec727e3611b1118ee663f9bd32123cc30"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.7.0"
    :extension   "pom"}
