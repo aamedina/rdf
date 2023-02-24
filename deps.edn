@@ -15,8 +15,6 @@
   {:mvn/version "1.23.0"}
   com.xtdb/xtdb-lucene
   {:mvn/version "1.23.0"}
-  com.xtdb/xtdb-metrics
-  {:mvn/version "1.23.0"}
   com.xtdb.labs/xtdb-rdf
   {:mvn/version "1.23.0"}
   com.taoensso/nippy

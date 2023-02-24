@@ -25,6 +25,9 @@
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
    [xtdb.api :as xt]
+   [xtdb.node]
+   [xtdb.lucene]
+   [xtdb.lmdb]
    [zprint.core :as zprint])
   (:import
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
