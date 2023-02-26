@@ -161,6 +161,7 @@ https://github.com/aamedina/vocab
 * [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)
 * [net.wikipunk/OBO](https://github.com/aamedina/OBO)
 * [net.wikipunk/loc](https://github.com/aamedina/loc)
+* [net.wikipunk/omg](https://github.com/aamedina/omg)
 * [net.wikipunk/fibo](https://github.com/aamedina/fibo)
 * [net.wikipunk/auto](https://github.com/aamedina/auto)
 * [net.wikipunk/lv2](https://github.com/aamedina/lv2)
