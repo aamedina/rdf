@@ -1217,7 +1217,7 @@
                              (update m k (fnil into #{}) slots))
                            m domain))
                  {}
-                 (dissoc (group-by :rdfs/domain slots) nil))})))
+                 (group-by :rdfs/domain slots))})))
 
 
 (defn finalize
