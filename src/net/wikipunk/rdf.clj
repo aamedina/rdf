@@ -210,7 +210,7 @@
                                           (filter keyword? subClassOf)
                                           (filter keyword? equivalentClass)))
                h))
-           (derive (make-hierarchy) :rdfs/Resource :rdfs/Class)
+           (make-hierarchy)
            metaobjects)))
 
 (defn make-property-hierarchy
