@@ -108,6 +108,7 @@ associated with them when the system is started.
 ;;    :schema/Thing
 ;;     :owl/Class
 ;;      :rdfs/Class
+;;       :rdfs/Resource
 ```
 
 Most methods in the metaobject protocol dispatch on the :rdf/type of
