@@ -26,7 +26,7 @@
   io.github.aamedina/openai
   {:git/sha "44567680df18891ae8849b729f2dcf92a5204042"}
   io.github.aamedina/temple
-  {:git/sha "7760460823e526cad37db071021d53056da8fc08"}
+  {:git/sha "c7edf13b1c35b9678d93d865d8743f24e50a179d"}
   io.github.aamedina/punk.skos
   {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"}
   io.github.aamedina/datomic
