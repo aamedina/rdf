@@ -121,12 +121,6 @@
    :rdfa/prefix "jsonschema",
    :rdf/type    :rdfa/PrefixMapping})
 
-(def mo
-  "Music Ontology"
-  {:rdfa/uri    "http://purl.org/ontology/mo/"
-   :rdfa/prefix "mo"
-   :rdf/type    :rdfa/PrefixMapping})
-
 (def ore
   {:rdfa/uri    "http://www.openarchives.org/ore/terms/"
    :rdfa/prefix "ore"
@@ -293,12 +287,6 @@
   {:rdfa/uri    "http://www.w3.org/2009/pointers#"
    :rdfa/prefix "pointers"
    :rdf/type    :rdfa/PrefixMapping})
-
-(def keys
-  {:dcat/downloadURL "https://motools.sourceforge.net/keys/keys.owl"
-   :rdfa/prefix      "keys"
-   :rdfa/uri         "http://purl.org/NET/c4dm/keys.owl#"
-   :rdf/type         :rdfa/PrefixMapping})
 
 (def ^{:media-types
        {"JSON-LD"                "http://www.w3.org/ns/formats/JSON-LD",

@@ -162,6 +162,7 @@ https://github.com/aamedina/vocab
 * [net.wikipunk/loc](https://github.com/aamedina/loc)
 * [net.wikipunk/fibo](https://github.com/aamedina/fibo)
 * [net.wikipunk/auto](https://github.com/aamedina/auto)
+* [net.wikipunk/lv2](https://github.com/aamedina/lv2)
 
 ### credits
 https://github.com/arachne-framework/aristotle
