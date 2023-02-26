@@ -151,7 +151,9 @@
     :rdfs/subPropertyOf
     :owl/equivalentClass
     :owl/equivalentProperty
-    :owl/sameAs})
+    :owl/sameAs
+    :rdfs/domain
+    :rdfs/range})
 
 (defn all-ns-metaobjects
   "Searches Clojure namespaces for metaobjects.
@@ -167,23 +169,23 @@
   entity map."
   ([]
    (->> (all-ns)
-       (filter (comp :rdf/type meta))
-       (map ns-publics)
-       (mapcat vals)
-       (filter (comp :rdf/type deref))
-       (filter #(some +props+ (keys @%)))
-       (filter (comp qualified-keyword? :db/ident deref))
-       (pmap (fn [v]
-               (reduce (fn [entity term]
-                         (if (contains? entity term)
-                           (update entity term #(cond (vector? %) % (nil? %) [] :else [%]))
-                           entity))
-                       (reduce-kv (fn [m k v]
-                                    (if (not= (namespace k) "mop")
-                                      (assoc m k v)
-                                      m))
-                                  {} @v)
-                       +props+)))))
+        (filter (comp :rdf/type meta))
+        (map ns-publics)
+        (mapcat vals)
+        (filter (comp :rdf/type deref))
+        (filter #(some +props+ (keys @%)))
+        (filter (comp qualified-keyword? :db/ident deref))
+        (pmap (fn [v]
+                (reduce (fn [entity term]
+                          (if (contains? entity term)
+                            (update entity term #(cond (vector? %) % (nil? %) [] :else [%]))
+                            entity))
+                        (reduce-kv (fn [m k v]
+                                     (if (not= (namespace k) "mop")
+                                       (assoc m k v)
+                                       m))
+                                   {} @v)
+                        +props+)))))
   ([env]
    (all-ns-metaobjects)))
 
@@ -1187,12 +1189,12 @@
                            (:owl/oneOf x)
                            (some-> (:owl/intersectionOf x) (hash-set))))
     
-    (sequential? x) (into #{} (mapcat unroll-term) x)
+    (coll? x) (into #{} (mapcat unroll-term) x)
 
     :else #{}))
 
-(defn- unroll-for-index
-  [ident]
+(defn direct-slot-definition
+  [x]
   (reduce (fn [mo term]
             (if (contains? mo term)
               (let [mo' (update mo term unroll-term)]
@@ -1200,7 +1202,12 @@
                   mo'
                   (dissoc mo' term)))
               mo))
-          (find-metaobject ident)
+          (cond
+            (qualified-keyword? x)
+            (find-metaobject x)
+            (map? x)
+            x
+            :else (throw (ex-info "cannot coerce x to direct-slot-definition" {:x x})))
           [:rdf/type
            :rdfs/domain
            :rdfs/range
@@ -1210,7 +1217,7 @@
   ([]
    (setup-indexes *classes* *properties*))
   ([classes properties]
-   (let [slots (into [] (pmap unroll-for-index (keys (:parents properties))))]
+   (let [slots (into [] (pmap direct-slot-definition (keys (:parents properties))))]
      {:slots/by-domain
       (reduce-kv (fn [m domain slots]
                    (reduce (fn [m k]
@@ -1244,7 +1251,7 @@
       (qualified-keyword? ident)
       (cond
         (mop/isa? ident :rdf/Property)
-        (unroll-for-index ident)
+        (direct-slot-definition ident)
 
         (mop/isa? ident :rdfs/Class)
         (reduce-kv (fn [m k v]
