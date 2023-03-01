@@ -84,6 +84,26 @@
    :rdf/type        :rdfs/Datatype
    :rdfs/subClassOf :rdfs/Literal})
 
+(def dayTimeDuration
+  {:db/ident       :xsd/dayTimeDuration,
+   :owl/onDatatype :xsd/duration,
+   :owl/withRestrictions
+   [{:xsd/pattern
+     "-?P(T([0-9]+H)?([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?)?"}
+    {:xsd/whiteSpace "collapse"}],
+   :rdf/type       :rdfs/Datatype,
+   :rdfs/label     "dayTimeDuration"})
+
+(def yearMonthDuration
+  {:db/ident       :xsd/yearMonthDuration,
+   :owl/onDatatype :xsd/duration,
+   :owl/withRestrictions
+   [{:xsd/pattern
+     "-?P([0-9]+Y)?([0-9]+M)?"}
+    {:xsd/whiteSpace "collapse"}],
+   :rdf/type       :rdfs/Datatype,
+   :rdfs/label     "dayTimeDuration"})
+
 (def decimal
   "A subset of the real numbers, which can be represented by decimal numerals."
   {:db/ident :xsd/decimal,   

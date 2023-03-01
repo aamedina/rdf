@@ -1202,12 +1202,15 @@
                   mo'
                   (dissoc mo' term)))
               mo))
-          (cond
-            (qualified-keyword? x)
-            (find-metaobject x)
-            (map? x)
-            x
-            :else (throw (ex-info "cannot coerce x to direct-slot-definition" {:x x})))
+          (set/rename-keys
+            (cond
+              (qualified-keyword? x)
+              (find-metaobject x)
+              (map? x)
+              x
+              :else (throw (ex-info "cannot coerce x to direct-slot-definition" {:x x})))
+            {:schema/domainIncludes :rdfs/domain
+             :schema/rangeIncludes  :rdfs/range})
           [:rdf/type
            :rdfs/domain
            :rdfs/range
