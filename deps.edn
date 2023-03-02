@@ -1,5 +1,7 @@
 {:deps
- {clj-http/clj-http
+ {camel-snake-kebab/camel-snake-kebab
+  {:mvn/version "0.4.3"}
+  clj-http/clj-http
   {:mvn/version "3.12.3"}
   cheshire/cheshire
   {:mvn/version "5.11.0"}

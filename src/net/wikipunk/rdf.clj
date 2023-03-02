@@ -820,7 +820,7 @@
                                      (qualified-keyword? k)
                                      (assoc v :db/ident k)
                                      
-                                     (string? k)
+                                     (and (string? k) (not (contains? v :rdfa/uri)))
                                      (assoc v :rdfa/uri k)
 
                                      :else v)))
