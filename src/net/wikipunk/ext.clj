@@ -470,3 +470,8 @@
   {:rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/ns/hydra/core#"
    :rdfa/prefix      "hydra"})
+
+(def hypermedia
+  {:rdfa/uri    "https://www.w3.org/2019/wot/hypermedia#"
+   :rdfa/prefix "hctl"
+   :rdf/type    :rdfa/PrefixMapping})

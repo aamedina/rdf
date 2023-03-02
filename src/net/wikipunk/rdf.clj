@@ -1306,3 +1306,29 @@
 
   nil
   (sniff [_] nil))
+
+(defmulti import-from
+  "Import metaobjects `from` into `to`"
+  (fn [from to]
+    [(mop/type-of from) (mop/type-of to)])
+  :hierarchy #'mop/*metaobjects*)
+
+(defmethod import-from [String String]
+  [from to]
+  (import-from (symbol (str *ns-prefix* from))
+               (symbol (str *ns-prefix* to))))
+
+(defmethod import-from [clojure.lang.Symbol clojure.lang.Symbol]
+  [from to]
+  (require from to)
+  (import-from (find-ns from) (find-ns to)))
+
+(defmethod import-from [clojure.lang.Namespace clojure.lang.Namespace]
+  [from to]
+  (->> (vals (ns-map from))
+       (filter (comp :private meta))
+       (filter (comp (partial = (:rdfa/prefix (meta to))) namespace :db/ident deref))
+       (run! (fn [v]
+               (intern to
+                       (:name (meta v))
+                       (merge (some-> (get (ns-publics to) (:name (meta v))) deref) @v))))))
