@@ -475,3 +475,8 @@
   {:rdfa/uri    "https://www.w3.org/2019/wot/hypermedia#"
    :rdfa/prefix "hctl"
    :rdf/type    :rdfa/PrefixMapping})
+
+(def mls
+  {:rdfa/uri "http://www.w3.org/ns/mls#"
+   :rdfa/prefix "mls"
+   :rdf/type :rdfa/PrefixMapping})
