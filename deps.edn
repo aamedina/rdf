@@ -24,7 +24,7 @@
   io.github.aamedina/mop
   {:git/sha "49adfcbc59aa2f2a48c97570567ce8954f69def2"}
   io.github.aamedina/openai
-  {:git/sha "44567680df18891ae8849b729f2dcf92a5204042"}
+  {:git/sha "5b34e657736927d37d258956bc659ccad6b1625b"}
   io.github.aamedina/temple
   {:git/sha "388e64c7e4709a879fceacd046b7ec34ee6284a5"}
   io.github.aamedina/punk.skos
