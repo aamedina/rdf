@@ -522,6 +522,10 @@
   [^org.apache.jena.datatypes.xsd.XSDDateTime x ^java.io.Writer writer]
   (print-method x writer))
 
+(defmethod print-method org.apache.jena.datatypes.xsd.XSDDuration
+  [^org.apache.jena.datatypes.xsd.XSDDuration x ^java.io.Writer writer]
+  (print-method (str x) writer))
+
 (defn kw
   "returns a keyword for IRI accounting for unreadable symbols in
   Clojure"
@@ -647,18 +651,22 @@
                                (.lang (get a/formats (or format :ttl))))
                              (RDFParser/source (or downloadURL uri)))
           g                (try
-                                (.toGraph parser)
-                                (catch org.apache.jena.riot.RiotException ex
-                                  ;; if an appropriate content-type cannot be inferred try Turtle
-                                  (try
-                                    (.toGraph (doto parser (.lang Lang/TTL)))
-                                    (catch org.apache.jena.riot.RiotException ex
-                                      ;; ...try RDF/XML?
-                                      (try
-                                        (.toGraph (doto parser (.lang Lang/RDFXML)))
-                                        (catch org.apache.jena.riot.RiotException ex
-                                          ;; ...try JSONLD?
-                                          (.toGraph (doto parser (.lang Lang/JSONLD)))))))))]
+                             (.toGraph parser)
+                             (catch org.apache.jena.riot.RiotException ex
+                               ;; if an appropriate content-type cannot be inferred try Turtle
+                               (try
+                                 (.toGraph (doto parser (.lang Lang/TTL)))
+                                 (catch org.apache.jena.riot.RiotException ex
+                                   ;; ...try RDF/XML?
+                                   (try
+                                     (.toGraph (doto parser (.lang Lang/RDFXML)))
+                                     (catch org.apache.jena.riot.RiotException ex
+                                       ;; ...try N3?
+                                       (try
+                                         (.toGraph (doto parser (.lang Lang/N3)))
+                                         (catch org.apache.jena.riot.RiotException ex
+                                           ;; ...try JSONLD?
+                                              (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))]
       (parse-with-meta g md)))
 
   clojure.lang.Keyword
@@ -956,6 +964,7 @@
                                       docstring (or (some-> (:lv2/documentation v))
                                                     (:dcterms/abstract v)
                                                     (:dcterms/description v)
+                                                    (:dc11/description v)
                                                     (:skos/definition v)
                                                     (:prov/definition v)
                                                     (:prov/editorsDefinition v)
