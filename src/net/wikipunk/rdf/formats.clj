@@ -357,3 +357,17 @@
    "Microdata is defined by the “HTML Microdata” W3C Working Group Note. Its extraction and conversion to RDF is defined in the separate “Microdata to RDF – Second Edition” Interest Group Note.",
    :rdfs/isDefinedBy "http://www.w3.org/TR/microdata/",
    :rdfs/seeAlso ["http://www.w3.org/TR/microdata-rdf/"]})
+
+(def media_type
+  "media_type"
+  {:db/ident    :formats/media_type
+   :rdf/type    :owl/ObjectProperty
+   :rdfs/domain :formats/Format
+   :rdfs/range  :xsd/string})
+
+(def preferred_suffix
+  "preferred_suffix"
+  {:db/ident    :formats/preferred_suffix
+   :rdf/type    :owl/ObjectProperty
+   :rdfs/domain :formats/Format
+   :rdfs/range  :xsd/string})
