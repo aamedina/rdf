@@ -1012,7 +1012,7 @@
                                   (str/trim (str/replace docstring #"\s+" " ")))]
                   (when docstring
                     [docstring]))              
-              ~(dissoc (cond-> (assoc md :rdf/type :owl/Ontology)
+              ~(dissoc (cond-> md
                          (:lv2/project md)
                          (update :lv2/project #(dissoc % :lv2/documentation)))
                        :doc)
