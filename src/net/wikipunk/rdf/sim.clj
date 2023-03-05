@@ -33,7 +33,7 @@
 (def Association
   "An abstract class to define some association between things. Entities share an association if they are somehow inter-connected. Generally a <b>directed association</b> should have at lease one <code>sim:subject</code> property and one <code>sim:object</code> property <b>or</b> an <b>undirected association</b> should have at least two <code>sim:element</code> properties, however this is not a requirement and intentionally left out of the model."
   {:db/ident :sim/Association,
-   :owl/equivalentClass [{:owl/maxCardinality 1,
+   :owl/equivalentClass [{:owl/minCardinality 1,
                           :owl/onProperty     :sim/method,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
