@@ -679,7 +679,8 @@
 
   String
   (parse [s]
-    (if (str/starts-with? s "http")
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))
       (parse {:dcat/downloadURL s})
       (parse {:rdf/value s}))))
 
@@ -1292,7 +1293,8 @@
 
   String
   (sniff [s]
-    (if (str/starts-with? s "http")
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))      
       (sniff {:dcat/downloadURL s})
       (let [model (sniff {:rdf/value s})]
         (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
