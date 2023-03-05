@@ -617,7 +617,8 @@
                                     (assoc (:rdfa/prefix md) (:rdfa/uri md)))
                                   "ruleml"
                                   "obo1"
-                                  "oboInOwl2"))
+                                  "oboInOwl2"
+                                  "plugbase"))
         ns-prefix-map (set/rename-keys ns-prefix-map
                                        (cond-> {"sdo" "schema" "dct" "dcterms" "dc" "dc11" "terms" "dcterms" "ns" "vs" "sw" "vs" "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30"}
 
