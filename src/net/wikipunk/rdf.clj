@@ -5,7 +5,8 @@
   with RDF data. This is done by using Apache Jena and Aristotle to
   parse and manipulate RDF data found on the Semantic Web and
   organizing the terms into multimethod hierarchies."
-  (:require   
+  (:require
+   [arachne.aristotle :as a]
    [arachne.aristotle.registry :as reg]
    [arachne.aristotle.graph :as g]
    [clojure.tools.logging :as log]
@@ -602,48 +603,60 @@
 ;;  then transformed into a collection of maps representing RDF
 ;;  entities and their properties.
 
+(defn parse-with-meta
+  "parses graph with ns-prefix-map"
+  [g & {:as md}]
+  (let [ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
+                          (set/rename-keys (dissoc (into (if (and (:rdfa/prefix md)
+                                                                  (:rdfa/uri md))
+                                                           {(:rdfa/prefix md)
+                                                            (:rdfa/uri md)}
+                                                           {})
+                                                         (.getNsPrefixMap (.getPrefixMapping g)))
+                                                   "ruleml"
+                                                   "obo1"
+                                                   "oboInOwl2")
+                                           {"sdo" "schema" "dct" "dcterms" "dc" "dc11" "terms" "dcterms" "ns" "vs" "sw" "vs" "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30" "" (:rdfa/prefix md "user")}))]
+    (reg/with ns-prefix-map
+              (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
+                    (->> (into [] g)
+                         (group-by #(.getSubject ^Triple %))
+                         (pmap (fn [[subject triples]]
+                                 (into {:db/ident (g/data subject)}
+                                       (map (fn [[pred triples]]
+                                              (let [k       (g/data pred)
+                                                    objects (mapv #(g/data (.getObject ^Triple %)) triples)]
+                                                [k (if (= 1 (count objects))
+                                                     (first objects)
+                                                     objects)])))
+                                       (group-by #(.getPredicate ^Triple %) triples)))))))))
+
 (extend-protocol Parsable
   clojure.lang.IPersistentMap
   (parse [md]
     (let [{:rdfa/keys [uri prefix]
            :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
-           :dcat/keys [downloadURL]} md
-          parser                     (RDFParser/source (or downloadURL uri))
-          g                          (try
-                                       (.toGraph parser)
-                                       (catch org.apache.jena.riot.RiotException ex
-                                         ;; if an appropriate content-type cannot be inferred try Turtle
-                                         (try
-                                           (.toGraph (doto parser (.lang Lang/TTL)))
-                                           (catch org.apache.jena.riot.RiotException ex
-                                             ;; ...try RDF/XML?
-                                             (try
-                                               (.toGraph (doto parser (.lang Lang/RDFXML)))
-                                               (catch org.apache.jena.riot.RiotException ex
-                                                 ;; ...try JSONLD?
-                                                 (.toGraph (doto parser (.lang Lang/JSONLD)))))))))
-          ns-prefix-map              (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
-                                         (set/rename-keys (dissoc (into (if (and prefix uri)
-                                                                          {prefix uri}
-                                                                          {})
-                                                                        (.getNsPrefixMap (.getPrefixMapping g)))
-                                                                  "ruleml"
-                                                                  "obo1"
-                                                                  "oboInOwl2")
-                                                          {"sdo" "schema" "dct" "dcterms" "dc" "dc11" "terms" "dcterms" "ns" "vs" "sw" "vs" "" prefix "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30"}))]
-      (reg/with ns-prefix-map
-                (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
-                      (->> (into [] g)
-                           (group-by #(.getSubject ^Triple %))
-                           (pmap (fn [[subject triples]]
-                                   (into {:db/ident (g/data subject)}
-                                         (map (fn [[pred triples]]
-                                                (let [k       (g/data pred)
-                                                      objects (mapv #(g/data (.getObject ^Triple %)) triples)]
-                                                  [k (if (= 1 (count objects))
-                                                       (first objects)
-                                                       objects)])))
-                                         (group-by #(.getPredicate ^Triple %) triples)))))))))
+           :dcat/keys [downloadURL]
+           :rdf/keys  [value]
+           :keys      [format]} md
+          parser           (if value
+                             (doto (RDFParser/fromString value)
+                               (.lang (get a/formats (or format :ttl))))
+                             (RDFParser/source (or downloadURL uri)))
+          g                (try
+                                (.toGraph parser)
+                                (catch org.apache.jena.riot.RiotException ex
+                                  ;; if an appropriate content-type cannot be inferred try Turtle
+                                  (try
+                                    (.toGraph (doto parser (.lang Lang/TTL)))
+                                    (catch org.apache.jena.riot.RiotException ex
+                                      ;; ...try RDF/XML?
+                                      (try
+                                        (.toGraph (doto parser (.lang Lang/RDFXML)))
+                                        (catch org.apache.jena.riot.RiotException ex
+                                          ;; ...try JSONLD?
+                                          (.toGraph (doto parser (.lang Lang/JSONLD)))))))))]
+      (parse-with-meta g md)))
 
   clojure.lang.Keyword
   (parse [ident]
@@ -663,7 +676,9 @@
 
   String
   (parse [s]
-    (parse {:dcat/downloadURL s})))
+    (if (str/starts-with? s "http")
+      (parse {:dcat/downloadURL s})
+      (parse {:rdf/value s}))))
 
 (def mem-parse (memo/memo parse))
 
@@ -792,11 +807,7 @@
       (box-value update :owl/oneOf)
 
       (seq (:owl/withRestrictions form))
-      (box-value update :owl/withRestrictions)
-
-      #_(or (vector? (:rdfs/isDefinedBy form))
-            (string? (:rdfs/isDefinedBy form)))
-      #_(box-value update :rdfs/isDefinedBy))
+      (box-value update :owl/withRestrictions))
     form))
 
 (def ^:dynamic *recurse* 2)
@@ -1258,13 +1269,9 @@
 
         (mop/isa? ident :rdfs/Class)
         (reduce-kv (fn [m k v]
-                     (try
-                       (if (not= (namespace k) "mop")
-                         (assoc m k v)
-                         m)
-                       (catch Throwable ex
-                         (println m k v)
-                         m)))
+                     (if (not= (namespace k) "mop")
+                       (assoc m k v)
+                       m))
                    {} (find-metaobject ident))
         
         :else (find-metaobject ident))
@@ -1282,7 +1289,9 @@
 
   String
   (sniff [s]
-    (sniff {:dcat/downloadURL s}))
+    (if (str/starts-with? s "http")
+      (sniff {:dcat/downloadURL s})
+      (sniff {:rdf/value s})))
   
   clojure.lang.IPersistentMap
   (sniff [m]
