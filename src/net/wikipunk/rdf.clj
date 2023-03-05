@@ -546,6 +546,9 @@
       (= (last (name k)) \/)
       nil
 
+      (str/starts-with? (name k) "#")
+      (keyword (namespace k) (str/replace-first (name k) #"^#" ""))
+
       ;; Since these are not readable wrap in CL-inspired || 
       (or (re-find #"^\d" (name k))
           (re-find #"^#" (name k)))
