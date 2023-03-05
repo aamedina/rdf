@@ -607,16 +607,19 @@
   "parses graph with ns-prefix-map"
   [g & {:as md}]
   (let [ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
-                          (set/rename-keys (dissoc (into (if (and (:rdfa/prefix md)
-                                                                  (:rdfa/uri md))
-                                                           {(:rdfa/prefix md)
-                                                            (:rdfa/uri md)}
-                                                           {})
-                                                         (.getNsPrefixMap (.getPrefixMapping g)))
-                                                   "ruleml"
-                                                   "obo1"
-                                                   "oboInOwl2")
-                                           {"sdo" "schema" "dct" "dcterms" "dc" "dc11" "terms" "dcterms" "ns" "vs" "sw" "vs" "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30" "" (:rdfa/prefix md "user")}))]
+                          (dissoc (cond-> (into {} (.getNsPrefixMap (.getPrefixMapping g)))
+                                    (and (:rdfa/prefix md)
+                                         (:rdfa/uri md))
+                                    (assoc (:rdfa/prefix md) (:rdfa/uri md)))
+                                  "ruleml"
+                                  "obo1"
+                                  "oboInOwl2"))
+        ns-prefix-map (set/rename-keys ns-prefix-map
+                                       (cond-> {"sdo" "schema" "dct" "dcterms" "dc" "dc11" "terms" "dcterms" "ns" "vs" "sw" "vs" "s" "rdfs" "dctype" "dcmitype" "dctypes" "dcmitype" "st" "vs" "pwnid" "wn.id" "pwnlemma" "wn.lemma" "pwn30" "wn30"}
+
+                                         (and (contains? ns-prefix-map "")
+                                              (:rdfa/prefix md))
+                                         (assoc "" (:rdfa/prefix md))))]
     (reg/with ns-prefix-map
               (into (with-meta [] (assoc md :rdf/ns-prefix-map ns-prefix-map))
                     (->> (into [] g)
@@ -1291,7 +1294,8 @@
   (sniff [s]
     (if (str/starts-with? s "http")
       (sniff {:dcat/downloadURL s})
-      (sniff {:rdf/value s})))
+      (let [model (sniff {:rdf/value s})]
+        (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
   
   clojure.lang.IPersistentMap
   (sniff [m]
