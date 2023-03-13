@@ -595,7 +595,7 @@
   "returns IRI for ident using aristotle's registry"
   [ident]
   (reg/iri (keyword (namespace ident)
-                    (let [n (-> (name (unmunge ident))
+                    (let [n (-> (name ident)
                                 (str/replace #"^\|" "")
                                 (str/replace #"\|$" ""))]
                       (try
