@@ -26,7 +26,6 @@
                        "vcard"   "http://www.w3.org/2006/vcard/ns#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
-   :rdf/uri "http://www.w3.org/ns/odrl/2/",
    :rdfa/prefix "odrl",
    :rdfa/uri "http://www.w3.org/ns/odrl/2/",
    :rdfs/comment {:rdf/language "en",
@@ -661,6 +660,84 @@
     :rdf/value
     "The operation relating to the Asset for which the Rule is being subjected."}})
 
+(def actionConcepts
+  "Action"
+  {:db/ident       :odrl/actionConcepts,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/implies :odrl/includedIn :odrl/action :odrl/Action],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Action"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def actions
+  "Actions for Rules"
+  {:db/ident       :odrl/actions,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/transfer :odrl/use],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Actions for Rules"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def actionsCommon
+  "Actions for Rules"
+  {:db/ident       :odrl/actionsCommon,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:cc/DerivativeWorks
+                    :odrl/extract
+                    :cc/CommercialUse
+                    :odrl/watermark
+                    :odrl/move
+                    :odrl/print
+                    :odrl/uninstall
+                    :cc/Reproduction
+                    :odrl/install
+                    :cc/ShareAlike
+                    :odrl/transform
+                    :odrl/compensate
+                    :odrl/attribute
+                    :odrl/read
+                    :odrl/digitize
+                    :odrl/distribute
+                    :odrl/include
+                    :odrl/sell
+                    :odrl/anonymize
+                    :odrl/textToSpeech
+                    :odrl/synchronize
+                    :odrl/obtainConsent
+                    :cc/SourceCode
+                    :odrl/concurrentUse
+                    :odrl/ensureExclusivity
+                    :odrl/play
+                    :odrl/index
+                    :cc/Sharing
+                    :cc/Attribution
+                    :odrl/give
+                    :odrl/present
+                    :odrl/nextPolicy
+                    :odrl/delete
+                    :odrl/modify
+                    :odrl/derive
+                    :odrl/translate
+                    :odrl/display
+                    :odrl/acceptTracking
+                    :odrl/reviewPolicy
+                    :cc/Distribution
+                    :cc/Notice
+                    :odrl/archive
+                    :odrl/inform
+                    :odrl/execute
+                    :odrl/reproduce
+                    :odrl/aggregate
+                    :odrl/grantUse
+                    :odrl/annotate
+                    :odrl/stream],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Actions for Rules"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Common Vocabulary Terms"}})
+
 (def adHocShare
   "The act of sharing the asset to parties in close proximity to the owner."
   {:db/ident :odrl/adHocShare,
@@ -801,6 +878,46 @@
                "Temporal constraints may be used for temporal conditions."},
    :skos/scopeNote {:rdf/language "en",
                     :rdf/value    "Non-Normative"}})
+
+(def assetConcepts
+  "Asset"
+  {:db/ident       :odrl/assetConcepts,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/AssetCollection :odrl/Asset],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Asset"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def assetParty
+  "Asset and Party"
+  {:db/ident       :odrl/assetParty,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/source :odrl/partOf],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Asset and Party"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def assetRelations
+  "Asset Relations"
+  {:db/ident       :odrl/assetRelations,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/hasPolicy :odrl/target],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Asset Relations"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def assetRelationsCommon
+  "Asset Relations"
+  {:db/ident       :odrl/assetRelationsCommon,
+   :rdf/type       :skos/Collection,
+   :skos/member    :odrl/output,
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Asset Relations"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Common Vocabulary Terms"}})
 
 (def assignee
   "The Party is the recipient of the Rule."
@@ -1039,6 +1156,17 @@
                       :rdf/value
                       "If no strategy is specified, the default is invalid."}})
 
+(def conflictConcepts
+  "Policy Conflict Strategy"
+  {:db/ident :odrl/conflictConcepts,
+   :rdf/type :skos/Collection,
+   :skos/member
+   [:odrl/invalid :odrl/prohibit :odrl/perm :odrl/conflict :odrl/ConflictTerm],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Policy Conflict Strategy"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
 (def consentedParty
   "The Party who obtains the consent."
   {:db/ident           :odrl/consentedParty,
@@ -1107,6 +1235,110 @@
    {:rdf/language "en",
     :rdf/value
     "Constraints on Rules are used to determine if a rule is Active or not. Example: the Permission rule is only active during the year 2018."}})
+
+(def constraintLeftOperandCommon
+  "Constraint Left Operands"
+  {:db/ident       :odrl/constraintLeftOperandCommon,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/resolution
+                    :odrl/purpose
+                    :odrl/relativeTemporalPosition
+                    :odrl/timeInterval
+                    :odrl/elapsedTime
+                    :odrl/spatialCoordinates
+                    :odrl/fileFormat
+                    :odrl/dateTime
+                    :odrl/event
+                    :odrl/systemDevice
+                    :odrl/absoluteSpatialPosition
+                    :odrl/payAmount
+                    :odrl/absoluteSize
+                    :odrl/spatial
+                    :odrl/deliveryChannel
+                    :odrl/absolutePosition
+                    :odrl/virtualLocation
+                    :odrl/percentage
+                    :odrl/relativePosition
+                    :odrl/product
+                    :odrl/relativeSize
+                    :odrl/relativeSpatialPosition
+                    :odrl/count
+                    :odrl/media
+                    :odrl/language
+                    :odrl/industry
+                    :odrl/unitOfCount
+                    :odrl/delayPeriod
+                    :odrl/version
+                    :odrl/meteredTime
+                    :odrl/recipient
+                    :odrl/absoluteTemporalPosition],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Constraint Left Operands"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Common Vocabulary Terms"}})
+
+(def constraintLogicalOperands
+  "Logical Constraint Operands"
+  {:db/ident       :odrl/constraintLogicalOperands,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/andSequence :odrl/and :odrl/xone :odrl/or],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Logical Constraint Operands"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def constraintRelationalOperators
+  "Constraint Operators"
+  {:db/ident       :odrl/constraintRelationalOperators,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/gteq
+                    :odrl/isA
+                    :odrl/lt
+                    :odrl/hasPart
+                    :odrl/eq
+                    :odrl/lteq
+                    :odrl/isAllOf
+                    :odrl/isNoneOf
+                    :odrl/neq
+                    :odrl/isPartOf
+                    :odrl/gt
+                    :odrl/isAnyOf],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Constraint Operators"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def constraintRightOpCommon
+  "Constraint Right Operands"
+  {:db/ident       :odrl/constraintRightOpCommon,
+   :rdf/type       :skos/Collection,
+   :skos/member    :odrl/policyUsage,
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Constraint Right Operands"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Common Vocabulary Terms"}})
+
+(def constraints
+  "Constraint"
+  {:db/ident       :odrl/constraints,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/constraint
+                    :odrl/rightOperand
+                    :odrl/unit
+                    :odrl/LeftOperand
+                    :odrl/leftOperand
+                    :odrl/rightOperandReference
+                    :odrl/RightOperand
+                    :odrl/status
+                    :odrl/operator
+                    :odrl/Operator
+                    :odrl/refinement
+                    :odrl/Constraint
+                    :odrl/dataType],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Constraint"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
 
 (def contractedParty
   "The Party who is being contracted."
@@ -1262,6 +1494,54 @@
    :skos/scopeNote {:rdf/language "en",
                     :rdf/value    "Non-Normative"}})
 
+(def deprecatedTerms
+  "Deprecated Terms"
+  {:db/ident       :odrl/deprecatedTerms,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/shareAlike
+                    :odrl/All
+                    :odrl/All2ndConnections
+                    :odrl/PartyScope
+                    :odrl/scope
+                    :odrl/device
+                    :odrl/write
+                    :odrl/pay
+                    :odrl/payeeParty
+                    :odrl/copy
+                    :odrl/inheritRelation
+                    :odrl/lend
+                    :odrl/timedCount
+                    :odrl/lease
+                    :odrl/Group
+                    :odrl/writeTo
+                    :odrl/system
+                    :odrl/AssetScope
+                    :odrl/inheritAllowed
+                    :odrl/proximity
+                    :odrl/commercialize
+                    :odrl/Individual
+                    :odrl/ignore
+                    :odrl/preview
+                    :odrl/appendTo
+                    :odrl/attachSource
+                    :odrl/export
+                    :odrl/attachPolicy
+                    :odrl/extractChar
+                    :odrl/share
+                    :odrl/extractPage
+                    :odrl/secondaryUse
+                    :odrl/adHocShare
+                    :odrl/AllConnections
+                    :odrl/support
+                    :odrl/AllGroups
+                    :odrl/UndefinedTerm
+                    :odrl/extractWord
+                    :odrl/undefined
+                    :odrl/append
+                    :odrl/license],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Deprecated Terms"}})
+
 (def derive
   "To create a new derivative Asset from this Asset and to edit or modify the derivative."
   {:db/ident :odrl/derive,
@@ -1345,6 +1625,17 @@
     "It is recommended to use nextPolicy to express the allowable usages by third-parties."},
    :skos/scopeNote {:rdf/language "en",
                     :rdf/value    "Non-Normative"}})
+
+(def duties
+  "Duty"
+  {:db/ident :odrl/duties,
+   :rdf/type :skos/Collection,
+   :skos/member
+   [:odrl/remedy :odrl/consequence :odrl/duty :odrl/obligation :odrl/Duty],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Duty"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
 
 (def duty
   "Relates an individual Duty to a Permission."
@@ -2021,6 +2312,16 @@
     "The act of granting the right to use the asset to a third-party."},
    :skos/exactMatch :odrl/grantUse})
 
+(def logicalConstraints
+  "Logical Constraint"
+  {:db/ident       :odrl/logicalConstraints,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/operand :odrl/LogicalConstraint],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Logical Constraint"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
 (def lt
   "Indicating that a given value is less than the right operand of the Constraint."
   {:db/ident :odrl/lt,
@@ -2258,6 +2559,50 @@
     :rdf/value
     "Identifies an Asset/PartyCollection that the Asset/Party is a member of."}})
 
+(def partyConcepts
+  "Party"
+  {:db/ident       :odrl/partyConcepts,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/PartyCollection :odrl/Party],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Party"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def partyRoles
+  "Party Functions"
+  {:db/ident       :odrl/partyRoles,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/assignerOf
+                    :odrl/assigneeOf
+                    :odrl/assigner
+                    :odrl/assignee],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Party Functions"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def partyRolesCommon
+  "Party Functions"
+  {:db/ident       :odrl/partyRolesCommon,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/consentingParty
+                    :odrl/contractingParty
+                    :odrl/attributedParty
+                    :odrl/compensatedParty
+                    :odrl/informedParty
+                    :odrl/trackingParty
+                    :odrl/informingParty
+                    :odrl/compensatingParty
+                    :odrl/trackedParty
+                    :odrl/contractedParty
+                    :odrl/attributingParty
+                    :odrl/consentedParty],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Party Functions"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Common Vocabulary Terms"}})
+
 (def pay
   "The act of paying a financial amount to a party for use of the asset."
   {:db/ident :odrl/pay,
@@ -2347,6 +2692,16 @@
                       :rdf/value
                       "Relates an individual Permission to a Policy."}})
 
+(def permissions
+  "Permission"
+  {:db/ident       :odrl/permissions,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/permission :odrl/Permission],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Permission"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
 (def play
   "To create a sequential and transient rendition of an Asset."
   {:db/ident :odrl/play,
@@ -2362,6 +2717,36 @@
    "For example, to play a video or audio track. If the action is to be performed to a wider audience than just the Assignees, then the Recipient constraint is recommended to be used.",
    :skos/scopeNote {:rdf/language "en",
                     :rdf/value    "Non-Normative"}})
+
+(def policyConcepts
+  "Policy"
+  {:db/ident       :odrl/policyConcepts,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/inheritFrom :odrl/profile :odrl/uid :odrl/Policy],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Policy"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def policySubClasses
+  "Policy Subclasses"
+  {:db/ident       :odrl/policySubClasses,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/Set :odrl/Offer :odrl/Agreement],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Policy Subclasses"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
+
+(def policySubClassesCommon
+  "Policy Subclasses"
+  {:db/ident       :odrl/policySubClassesCommon,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/Ticket :odrl/Request :odrl/Privacy :odrl/Assertion],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Policy Subclasses"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Common Vocabulary Terms"}})
 
 (def policyUsage
   "Indicates the actual datetime the action of the Rule was exercised."
@@ -2487,6 +2872,16 @@
    :skos/definition  {:rdf/language "en",
                       :rdf/value
                       "Relates an individual Prohibition to a Policy."}})
+
+(def prohibitions
+  "Prohibition"
+  {:db/ident       :odrl/prohibitions,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/prohibition :odrl/Prohibition],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Prohibition"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
 
 (def proximity
   "An value indicating the closeness or nearness."
@@ -2766,6 +3161,16 @@
    {:rdf/language "en",
     :rdf/value
     "An IRI that MUST be dereferenced to obtain the actual right operand value. When used with set-based operators, a list of IRIs may be used"}})
+
+(def ruleConcepts
+  "Rule"
+  {:db/ident       :odrl/ruleConcepts,
+   :rdf/type       :skos/Collection,
+   :skos/member    [:odrl/failure :odrl/function :odrl/relation :odrl/Rule],
+   :skos/prefLabel {:rdf/language "en",
+                    :rdf/value    "Rule"},
+   :skos/scopeNote {:rdf/language "en",
+                    :rdf/value    "ODRL Core Vocabulary Terms"}})
 
 (def scope
   "The identifier of a scope that provides context to the extent of the entity."
@@ -3314,412 +3719,6 @@
    {:rdf/language "en",
     :rdf/value
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances."}})
-
-(def |#actionConcepts|
-  "Action"
-  {:db/ident       :odrl/|#actionConcepts|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/implies :odrl/includedIn :odrl/action :odrl/Action],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Action"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#actionsCommon|
-  "Actions for Rules"
-  {:db/ident       :odrl/|#actionsCommon|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:cc/DerivativeWorks
-                    :odrl/extract
-                    :cc/CommercialUse
-                    :odrl/watermark
-                    :odrl/move
-                    :odrl/print
-                    :odrl/uninstall
-                    :cc/Reproduction
-                    :odrl/install
-                    :cc/ShareAlike
-                    :odrl/transform
-                    :odrl/compensate
-                    :odrl/attribute
-                    :odrl/read
-                    :odrl/digitize
-                    :odrl/distribute
-                    :odrl/include
-                    :odrl/sell
-                    :odrl/anonymize
-                    :odrl/textToSpeech
-                    :odrl/synchronize
-                    :odrl/obtainConsent
-                    :cc/SourceCode
-                    :odrl/concurrentUse
-                    :odrl/ensureExclusivity
-                    :odrl/play
-                    :odrl/index
-                    :cc/Sharing
-                    :cc/Attribution
-                    :odrl/give
-                    :odrl/present
-                    :odrl/nextPolicy
-                    :odrl/delete
-                    :odrl/modify
-                    :odrl/derive
-                    :odrl/translate
-                    :odrl/display
-                    :odrl/acceptTracking
-                    :odrl/reviewPolicy
-                    :cc/Distribution
-                    :cc/Notice
-                    :odrl/archive
-                    :odrl/inform
-                    :odrl/execute
-                    :odrl/reproduce
-                    :odrl/aggregate
-                    :odrl/grantUse
-                    :odrl/annotate
-                    :odrl/stream],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Actions for Rules"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Common Vocabulary Terms"}})
-
-(def |#actions|
-  "Actions for Rules"
-  {:db/ident       :odrl/|#actions|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/transfer :odrl/use],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Actions for Rules"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#assetConcepts|
-  "Asset"
-  {:db/ident       :odrl/|#assetConcepts|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/AssetCollection :odrl/Asset],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Asset"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#assetParty|
-  "Asset and Party"
-  {:db/ident       :odrl/|#assetParty|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/source :odrl/partOf],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Asset and Party"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#assetRelationsCommon|
-  "Asset Relations"
-  {:db/ident       :odrl/|#assetRelationsCommon|,
-   :rdf/type       :skos/Collection,
-   :skos/member    :odrl/output,
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Asset Relations"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Common Vocabulary Terms"}})
-
-(def |#assetRelations|
-  "Asset Relations"
-  {:db/ident       :odrl/|#assetRelations|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/hasPolicy :odrl/target],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Asset Relations"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#conflictConcepts|
-  "Policy Conflict Strategy"
-  {:db/ident :odrl/|#conflictConcepts|,
-   :rdf/type :skos/Collection,
-   :skos/member
-   [:odrl/invalid :odrl/prohibit :odrl/perm :odrl/conflict :odrl/ConflictTerm],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Policy Conflict Strategy"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#constraintLeftOperandCommon|
-  "Constraint Left Operands"
-  {:db/ident       :odrl/|#constraintLeftOperandCommon|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/resolution
-                    :odrl/purpose
-                    :odrl/relativeTemporalPosition
-                    :odrl/timeInterval
-                    :odrl/elapsedTime
-                    :odrl/spatialCoordinates
-                    :odrl/fileFormat
-                    :odrl/dateTime
-                    :odrl/event
-                    :odrl/systemDevice
-                    :odrl/absoluteSpatialPosition
-                    :odrl/payAmount
-                    :odrl/absoluteSize
-                    :odrl/spatial
-                    :odrl/deliveryChannel
-                    :odrl/absolutePosition
-                    :odrl/virtualLocation
-                    :odrl/percentage
-                    :odrl/relativePosition
-                    :odrl/product
-                    :odrl/relativeSize
-                    :odrl/relativeSpatialPosition
-                    :odrl/count
-                    :odrl/media
-                    :odrl/language
-                    :odrl/industry
-                    :odrl/unitOfCount
-                    :odrl/delayPeriod
-                    :odrl/version
-                    :odrl/meteredTime
-                    :odrl/recipient
-                    :odrl/absoluteTemporalPosition],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Constraint Left Operands"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Common Vocabulary Terms"}})
-
-(def |#constraintLogicalOperands|
-  "Logical Constraint Operands"
-  {:db/ident       :odrl/|#constraintLogicalOperands|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/andSequence :odrl/and :odrl/xone :odrl/or],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Logical Constraint Operands"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#constraintRelationalOperators|
-  "Constraint Operators"
-  {:db/ident       :odrl/|#constraintRelationalOperators|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/gteq
-                    :odrl/isA
-                    :odrl/lt
-                    :odrl/hasPart
-                    :odrl/eq
-                    :odrl/lteq
-                    :odrl/isAllOf
-                    :odrl/isNoneOf
-                    :odrl/neq
-                    :odrl/isPartOf
-                    :odrl/gt
-                    :odrl/isAnyOf],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Constraint Operators"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#constraintRightOpCommon|
-  "Constraint Right Operands"
-  {:db/ident       :odrl/|#constraintRightOpCommon|,
-   :rdf/type       :skos/Collection,
-   :skos/member    :odrl/policyUsage,
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Constraint Right Operands"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Common Vocabulary Terms"}})
-
-(def |#constraints|
-  "Constraint"
-  {:db/ident       :odrl/|#constraints|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/constraint
-                    :odrl/rightOperand
-                    :odrl/unit
-                    :odrl/LeftOperand
-                    :odrl/leftOperand
-                    :odrl/rightOperandReference
-                    :odrl/RightOperand
-                    :odrl/status
-                    :odrl/operator
-                    :odrl/Operator
-                    :odrl/refinement
-                    :odrl/Constraint
-                    :odrl/dataType],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Constraint"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#deprecatedTerms|
-  "Deprecated Terms"
-  {:db/ident       :odrl/|#deprecatedTerms|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/shareAlike
-                    :odrl/All
-                    :odrl/All2ndConnections
-                    :odrl/PartyScope
-                    :odrl/scope
-                    :odrl/device
-                    :odrl/write
-                    :odrl/pay
-                    :odrl/payeeParty
-                    :odrl/copy
-                    :odrl/inheritRelation
-                    :odrl/lend
-                    :odrl/timedCount
-                    :odrl/lease
-                    :odrl/Group
-                    :odrl/writeTo
-                    :odrl/system
-                    :odrl/AssetScope
-                    :odrl/inheritAllowed
-                    :odrl/proximity
-                    :odrl/commercialize
-                    :odrl/Individual
-                    :odrl/ignore
-                    :odrl/preview
-                    :odrl/appendTo
-                    :odrl/attachSource
-                    :odrl/export
-                    :odrl/attachPolicy
-                    :odrl/extractChar
-                    :odrl/share
-                    :odrl/extractPage
-                    :odrl/secondaryUse
-                    :odrl/adHocShare
-                    :odrl/AllConnections
-                    :odrl/support
-                    :odrl/AllGroups
-                    :odrl/UndefinedTerm
-                    :odrl/extractWord
-                    :odrl/undefined
-                    :odrl/append
-                    :odrl/license],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Deprecated Terms"}})
-
-(def |#duties|
-  "Duty"
-  {:db/ident :odrl/|#duties|,
-   :rdf/type :skos/Collection,
-   :skos/member
-   [:odrl/remedy :odrl/consequence :odrl/duty :odrl/obligation :odrl/Duty],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Duty"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#logicalConstraints|
-  "Logical Constraint"
-  {:db/ident       :odrl/|#logicalConstraints|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/operand :odrl/LogicalConstraint],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Logical Constraint"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#partyConcepts|
-  "Party"
-  {:db/ident       :odrl/|#partyConcepts|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/PartyCollection :odrl/Party],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Party"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#partyRolesCommon|
-  "Party Functions"
-  {:db/ident       :odrl/|#partyRolesCommon|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/consentingParty
-                    :odrl/contractingParty
-                    :odrl/attributedParty
-                    :odrl/compensatedParty
-                    :odrl/informedParty
-                    :odrl/trackingParty
-                    :odrl/informingParty
-                    :odrl/compensatingParty
-                    :odrl/trackedParty
-                    :odrl/contractedParty
-                    :odrl/attributingParty
-                    :odrl/consentedParty],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Party Functions"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Common Vocabulary Terms"}})
-
-(def |#partyRoles|
-  "Party Functions"
-  {:db/ident       :odrl/|#partyRoles|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/assignerOf
-                    :odrl/assigneeOf
-                    :odrl/assigner
-                    :odrl/assignee],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Party Functions"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#permissions|
-  "Permission"
-  {:db/ident       :odrl/|#permissions|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/permission :odrl/Permission],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Permission"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#policyConcepts|
-  "Policy"
-  {:db/ident       :odrl/|#policyConcepts|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/inheritFrom :odrl/profile :odrl/uid :odrl/Policy],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Policy"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#policySubClassesCommon|
-  "Policy Subclasses"
-  {:db/ident       :odrl/|#policySubClassesCommon|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/Ticket :odrl/Request :odrl/Privacy :odrl/Assertion],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Policy Subclasses"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Common Vocabulary Terms"}})
-
-(def |#policySubClasses|
-  "Policy Subclasses"
-  {:db/ident       :odrl/|#policySubClasses|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/Set :odrl/Offer :odrl/Agreement],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Policy Subclasses"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#prohibitions|
-  "Prohibition"
-  {:db/ident       :odrl/|#prohibitions|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/prohibition :odrl/Prohibition],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Prohibition"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
-
-(def |#ruleConcepts|
-  "Rule"
-  {:db/ident       :odrl/|#ruleConcepts|,
-   :rdf/type       :skos/Collection,
-   :skos/member    [:odrl/failure :odrl/function :odrl/relation :odrl/Rule],
-   :skos/prefLabel {:rdf/language "en",
-                    :rdf/value    "Rule"},
-   :skos/scopeNote {:rdf/language "en",
-                    :rdf/value    "ODRL Core Vocabulary Terms"}})
 
 (def ^{:private true} Attribution
   "Credit be given to copyright holder and/or author."
