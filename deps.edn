@@ -21,6 +21,8 @@
   {:mvn/version "1.23.0"}
   com.taoensso/nippy
   {:mvn/version "3.2.0"}
+  instaparse/instaparse
+  {:mvn/version "1.4.12"}
   io.github.arachne-framework/aristotle
   {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
   io.github.aamedina/mop

@@ -552,7 +552,8 @@
 
       ;; Since these are not readable wrap in CL-inspired || 
       (or (re-find #"^\d" (name k))
-          (re-find #"^#" (name k)))
+          (re-find #"^#" (name k))
+          (str/ends-with? (name k) ":"))
       (keyword (namespace k) (str \| (name k) \|))
 
       (re-find #"[\s\(\)!,]" (name k))

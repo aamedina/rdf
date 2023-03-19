@@ -2,16 +2,7 @@ EDN is an extensible data notation. A superset of EDN is used by
 Clojure to represent programs, and it is used by Datomic and other
 applications as a data transfer format.
 
-EDN is a system for the conveyance of _values_.
-
-EDN is a set of definitions for acceptable _elements_. A use of EDN
-might be a stream or file containing elements, but it could be as
-small as the conveyance of a single element in e.g. an HTTP query
-param.
-
 There is no enclosing element at the top level.
-
-EDN elements, streams and files should be encoded using UTF-8
 
 Elements are generally separated by whitespace. Whitespace, other than
 within strings, is not otherwise significant, nor need redundant
@@ -21,18 +12,14 @@ considered whitespace, other than within strings.
 The delimiters `{ } ( ) [ ]` need not be separated from adjacent
 elements by whitespace.
 
-Tokens beginning with `#` are reserved. The character following `#`
-determines the behavior. The dispatch `#{` (sets) is defined
-below. `#` is not a delimiter.
+Tokens beginning with # are reserved. The character following #
+determines the behavior. The dispatches #{ (sets), #_ (discard),
+#alphabetic-char (tag) are defined below. # is not a delimiter.
 
 `nil` represents nil, null or nothing. It should be read as an object
 with similar meaning on the target platform.
 
 `true` and `false` should be mapped to booleans.
-
-If a platform has canonic values for true and false, it is a further
-semantic of booleans that all instances of `true` yield that
-(identical) value, and similarly for `false`.
 
 Strings are enclosed in `"double quotes"`. May span multiple
 lines. Standard C/Java escape characters `\t, \r, \n, \\ and \"` are
@@ -43,8 +30,8 @@ Characters are preceded by a backslash: `\c`, `\newline`, `\return`,
 characters are represented with \uNNNN as in Java. Backslash cannot be
 followed by whitespace.
 
-Symbols are used to represent identifiers, and should map to something
-other than strings, if possible.
+If a ; character is encountered outside of a string, that character
+and all subsequent characters to the next newline should be ignored.
 
 Symbols begin with a non-numeric character and can contain
 alphanumeric characters and `. * + ! - _ ?  $ % & = < >`. If `-`, `+`
@@ -104,3 +91,14 @@ or more elements enclosed in curly braces preceded by `#` `#{}`. No
 semantics should be associated with the order in which the elements
 appear. Note that sets can be heterogeneous. This is an example set:
 `#{a b [1 2 3]}`.
+
+# followed immediately by a symbol starting with an alphabetic
+character indicates that that symbol is a tag.
+
+built-in tagged elements:
+
+Example: `#inst "1985-04-12T23:20:50.52Z"`. An instant in time. The
+tagged element is a string in RFC-3339 format.
+
+Example: `#uuid "f81d4fae-7dec-11d0-a765-00a0c91e6bf6"`. A UUID. The
+tagged element is a canonical UUID string representation.
