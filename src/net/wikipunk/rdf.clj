@@ -553,8 +553,14 @@
       ;; Since these are not readable wrap in CL-inspired || 
       (or (re-find #"^\d" (name k))
           (re-find #"^#" (name k))
-          (str/ends-with? (name k) ":"))
-      (keyword (namespace k) (str \| (name k) \|))
+          (re-find #"^'" (name k))
+          (re-find #":$" (name k)))
+      (keyword (namespace k)
+               (str \|
+                    (if (re-find #"[\s\(\)!,]" (name k))
+                      (java.net.URLEncoder/encode (name k))
+                      (name k))
+                    \|))
 
       (re-find #"[\s\(\)!,]" (name k))
       (keyword (namespace k) (java.net.URLEncoder/encode (name k)))
@@ -562,10 +568,15 @@
       (re-find #"[\s\(\)!,]" (java.net.URLDecoder/decode (name k)))
       k
 
-      :else (keyword (namespace k) (try
-                                     (java.net.URLDecoder/decode (name k))
-                                     (catch Throwable ex
-                                       (name k)))))))
+      :else (keyword (namespace k)
+                     (try
+                       (let [n (java.net.URLDecoder/decode (name k))]
+                         (if (or (re-find #"/" n)
+                                 (re-find #"[\(\)]" n))
+                           (name k)
+                           n))
+                       (catch Throwable ex
+                         (name k)))))))
 
 (extend-protocol g/AsClojureData
   Node_URI
