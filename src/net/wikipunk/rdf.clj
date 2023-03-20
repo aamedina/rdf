@@ -34,7 +34,7 @@
   (:import
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
    (org.apache.jena.datatypes.xsd XSDDatatype XSDDateTime)
-   (org.apache.jena.graph Graph Node Triple Node_URI Node_Literal Node_Variable Node_Blank)
+   (org.apache.jena.graph Graph Node Triple Node_URI Node_Literal Node_Variable Node_Blank Node_Triple)
    (org.apache.jena.riot RDFParser Lang)
    (org.apache.jena.rdf.model Model)
    (org.apache.jena.query ResultSet)
@@ -49,7 +49,9 @@
     "Parses source using Apache Jena's RDFParser and converts it to
   Clojure data using Aristotle.
 
-  Adapted from arachne.aristotle.graph/graph->clj"))
+  Adapted from arachne.aristotle.graph/graph->clj")
+  (graph [x]
+    "Returns Jena Graph from x."))
 
 (defprotocol NamespaceSpitter
   (emit [x arg-map]))
@@ -602,7 +604,15 @@
               value))))
       (catch org.apache.jena.datatypes.DatatypeFormatException ex
         (log/warn (.getMessage ex))
-        (str n)))))
+        (str n))))
+
+  Node_Triple
+  (data [node]
+    (let [triple (.getTriple node)]
+      {:rdf/type      :rdf/Statement
+       :rdf/subject   (g/data (.getSubject triple))
+       :rdf/predicate (g/data (.getPredicate triple))
+       :rdf/object    (g/data (.getObject triple))})))
 
 (defn iri
   "returns IRI for ident using aristotle's registry"
@@ -655,9 +665,16 @@
                                                      objects)])))
                                        (group-by #(.getPredicate ^Triple %) triples)))))))))
 
+(def ^:dynamic *graph*
+  "Bound to the apache jena graph during parsing."
+  nil)
+
 (extend-protocol Parsable
   clojure.lang.IPersistentMap
   (parse [md]
+    (binding [*graph* (graph md)]
+      (parse-with-meta *graph*)))
+  (graph [md]
     (let [{:rdfa/keys [uri prefix]
            :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
            :dcat/keys [downloadURL]
@@ -666,30 +683,33 @@
           parser           (if value
                              (doto (RDFParser/fromString value)
                                (.lang (get a/formats (or format :ttl))))
-                             (RDFParser/source (or downloadURL uri)))
-          g                (try
-                             (.toGraph parser)
-                             (catch org.apache.jena.riot.RiotException ex
-                               ;; if an appropriate content-type cannot be inferred try Turtle
-                               (try
-                                 (.toGraph (doto parser (.lang Lang/TTL)))
-                                 (catch org.apache.jena.riot.RiotException ex
-                                   ;; ...try RDF/XML?
-                                   (try
-                                     (.toGraph (doto parser (.lang Lang/RDFXML)))
-                                     (catch org.apache.jena.riot.RiotException ex
-                                       ;; ...try N3?
-                                       (try
-                                         (.toGraph (doto parser (.lang Lang/N3)))
-                                         (catch org.apache.jena.riot.RiotException ex
-                                           ;; ...try JSONLD?
-                                              (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))]
-      (parse-with-meta g md)))
+                             (RDFParser/source (or downloadURL uri)))]
+      (try
+        (.toGraph parser)
+        (catch org.apache.jena.riot.RiotException ex
+          ;; if an appropriate content-type cannot be inferred try Turtle
+          (try
+            (.toGraph (doto parser (.lang Lang/TTL)))
+            (catch org.apache.jena.riot.RiotException ex
+              ;; ...try RDF/XML?
+              (try
+                (.toGraph (doto parser (.lang Lang/RDFXML)))
+                (catch org.apache.jena.riot.RiotException ex
+                  ;; ...try N3?
+                  (try
+                    (.toGraph (doto parser (.lang Lang/N3)))
+                    (catch org.apache.jena.riot.RiotException ex
+                      ;; ...try JSONLD?
+                      (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
 
   clojure.lang.Keyword
   (parse [ident]
     (when-some [url (iri ident)]
       (parse {:rdfa/prefix      (namespace ident)
+              :dcat/downloadURL url})))
+  (graph [ident]
+    (when-some [url (iri ident)]
+      (graph {:rdfa/prefix      (namespace ident)
               :dcat/downloadURL url})))
 
   clojure.lang.Named
@@ -697,17 +717,28 @@
     (if (qualified-ident? ident)
       (some-> (resolve ident) deref parse)
       (some-> (find-ns ident) meta parse)))
+  (graph [ident]
+    (if (qualified-ident? ident)
+      (some-> (resolve ident) deref graph)
+      (some-> (find-ns ident) meta graph)))
 
   clojure.lang.Namespace
   (parse [ns]
     (parse (meta ns)))
+  (graph [ns]
+    (graph (meta ns)))
 
   String
   (parse [s]
     (if (or (str/starts-with? s "http")
             (str/starts-with? s "/"))
       (parse {:dcat/downloadURL s})
-      (parse {:rdf/value s}))))
+      (parse {:rdf/value s})))
+  (graph [s]
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))
+      (graph {:dcat/downloadURL s})
+      (graph {:rdf/value s}))))
 
 (def mem-parse (memo/memo parse))
 
