@@ -354,7 +354,7 @@
    :rdfa/uri    "http://dbpedia.org/resource/Template:"
    :rdfa/prefix "dbt"})
 
-(def yago
+#_(def yago
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://dbpedia.org/class/yago/"
    :rdfa/prefix "yago"})
@@ -381,11 +381,6 @@
   {:rdf/type          :rdfa/PrefixMapping
    :rdfa/uri          "http://wikiba.se/ontology#"
    :rdfa/prefix       "wikibase"})
-
-(def ontolex
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://www.w3.org/ns/lemon/ontolex#"
-   :rdfa/prefix "ontolex"})
 
 (def cco
   {:dcat/downloadURL "http://purl.org/ontology/cco/cognitivecharacteristics.owl"
@@ -426,45 +421,10 @@
     "wo"    "http://purl.org/ontology/wo/core#",
     "xsd"   "http://www.w3.org/2001/XMLSchema#"}})
 
-(def wn
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://wordnet-rdf.princeton.edu/ontology#"
-   :rdfa/prefix "wn"})
-
 (def isocat
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://www.isocat.org/ns/dcr.rdf#"
    :rdfa/prefix "isocat"})
-
-(def wn.id
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://wordnet-rdf.princeton.edu/id/"
-   :rdfa/prefix "wn.id"})
-
-(def wn.lemma
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://wordnet-rdf.princeton.edu/rdf/lemma/"
-   :rdfa/prefix "wn.lemma"})
-
-(def wn.ttl
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://wordnet-rdf.princeton.edu/ttl/lemma/"
-   :rdfa/prefix "wn.ttl"})
-
-(def wn30
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://wordnet-rdf.princeton.edu/wn30/"
-   :rdfa/prefix "wn30"})
-
-(def synsem
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://www.w3.org/ns/lemon/synsem#"
-   :rdfa/prefix "synsem"})
-
-(def lime
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "http://www.w3.org/ns/lemon/lime#"
-   :rdfa/prefix "lime"})
 
 (def hydra
   {:rdf/type         :rdfa/PrefixMapping
@@ -480,3 +440,23 @@
   {:rdfa/uri "http://www.w3.org/ns/mls#"
    :rdfa/prefix "mls"
    :rdf/type :rdfa/PrefixMapping})
+
+(def wn30
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/wn30/"
+   :rdfa/prefix "wn30"})
+
+(def wn.id
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/id/"
+   :rdfa/prefix "wn.id"})
+
+(def wn.lemma
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/rdf/lemma/"
+   :rdfa/prefix "wn.lemma"})
+
+(def wn.ttl
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://wordnet-rdf.princeton.edu/ttl/lemma/"
+   :rdfa/prefix "wn.ttl"})
