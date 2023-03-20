@@ -673,7 +673,7 @@
   clojure.lang.IPersistentMap
   (parse [md]
     (binding [*graph* (graph md)]
-      (parse-with-meta *graph*)))
+      (parse-with-meta *graph* md)))
   (graph [md]
     (let [{:rdfa/keys [uri prefix]
            :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
