@@ -554,6 +554,7 @@
 
       ;; Since these are not readable wrap in CL-inspired || 
       (or (re-find #"^\d" (name k))
+          (re-find #"^[+-]\d" (name k))
           (re-find #"^#" (name k))
           (re-find #"^'" (name k))
           (re-find #":$" (name k)))
@@ -564,10 +565,11 @@
                       (name k))
                     \|))
 
-      (re-find #"[\s\(\)!,@\"]" (name k))
+      (or (re-find #"[\s\(\)!,@\"\\~`^]" (name k))
+          (re-find #"::" (name k)))
       (keyword (namespace k) (java.net.URLEncoder/encode (name k)))
 
-      (re-find #"[\s\(\)!,@\"]" (java.net.URLDecoder/decode (name k)))
+      (re-find #"[\s\(\)!,@\"\\~`^]" (java.net.URLDecoder/decode (name k)))
       k
 
       :else (keyword (namespace k)
