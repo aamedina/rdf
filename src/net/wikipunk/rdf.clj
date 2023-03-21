@@ -560,7 +560,7 @@
           (re-find #":$" (name k)))
       (keyword (namespace k)
                (str \|
-                    (if (re-find #"[\s\(\)!,]" (name k))
+                    (if (re-find #"[\s\(\)!,@\"\\~`^]" (name k))
                       (java.net.URLEncoder/encode (name k))
                       (name k))
                     \|))
