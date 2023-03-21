@@ -208,7 +208,8 @@
                    :as        entity}]
              (if (and (or subClassOf
                           equivalentClass
-                          (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type))
+                          (some #{:rdfs/Class :owl/Class :rdfs/Datatype} type)
+                          (some #(isa? h % :rdfs/Class) type))
                       (not (some #(isa? h % :rdf/Property) type))
                       (not (some #(isa? h % :owl/NamedIndividual) type)))
                (deriving h entity (concat (filter keyword? type)
