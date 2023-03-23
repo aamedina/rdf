@@ -741,7 +741,19 @@
     (if (or (str/starts-with? s "http")
             (str/starts-with? s "/"))
       (graph {:dcat/downloadURL s})
-      (graph {:rdf/value s}))))
+      (graph {:rdf/value s})))
+
+  java.net.URI
+  (parse [uri]
+    (parse {:dcat/downloadURL (str uri)}))
+  (graph [uri]
+    (graph {:dcat/downloadURL (str uri)}))
+
+  java.net.URL
+  (parse [url]
+    (parse {:dcat/downloadURL (str url)}))
+  (graph [url]
+    (graph {:dcat/downloadURL (str url)})))
 
 (def mem-parse (memo/memo parse))
 
@@ -1385,6 +1397,14 @@
               (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
       (catch Throwable ex
         (log/debug (.getMessage ex)))))
+
+  java.net.URI
+  (sniff [uri]
+    (sniff {:dcat/downloadURL (str uri)}))
+
+  java.net.URL
+  (sniff [url]
+    (sniff {:dcat/downloadURL (str url)}))
 
   nil
   (sniff [_] nil))
