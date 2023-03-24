@@ -355,6 +355,8 @@
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
       (let [all-metaobjects                          (all-ns-metaobjects)
+            config                                   (or config {:xtdb.lucene/lucene-store
+                                                                 {:db-dir ".vocab/lucene"}})
             node                                     (xt/start-node config)
             {:keys [registry ns-aliases]}            (make-boot-context)
             {:keys [classes properties metaobjects]} (make-hierarchies all-metaobjects)]
@@ -370,10 +372,9 @@
                                    (map (juxt (constantly ::xt/put) freezable))
                                    all-metaobjects))
           (xt/sync node)
-          (when (symbol? init-ns)
-            (require init-ns :reload)
-            (alter-var-root #'*indexes* (constantly (setup-indexes classes properties)))
-            (finalize))
+          (require (or init-ns 'net.wikipunk.temple.init) :reload)
+          (alter-var-root #'*indexes* (constantly (setup-indexes classes properties)))
+          (finalize)
           (catch Throwable ex
             (log/error ex)))
         (cond-> this
