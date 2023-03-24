@@ -24,26 +24,19 @@
   instaparse/instaparse
   {:mvn/version "1.4.12"}
   io.github.arachne-framework/aristotle
-  {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"
-   :sha     "86f3ace210318bd9820322da45e627cec9cfba48"}
+  {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
   io.github.aamedina/mop
-  {:git/sha "49adfcbc59aa2f2a48c97570567ce8954f69def2"
-   :sha     "49adfcbc59aa2f2a48c97570567ce8954f69def2"}
+  {:git/sha "49adfcbc59aa2f2a48c97570567ce8954f69def2"}
   io.github.aamedina/openai
-  {:git/sha "7abdd4b411fd703d5370e1c91e5122a2614d427c"
-   :sha     "7abdd4b411fd703d5370e1c91e5122a2614d427c"}
+  {:git/sha "7abdd4b411fd703d5370e1c91e5122a2614d427c"}
   io.github.aamedina/temple
-  {:git/sha "06851c12daba18ea596d868f96a93bf824d3b6f6"
-   :sha     "06851c12daba18ea596d868f96a93bf824d3b6f6"}
+  {:git/sha "06851c12daba18ea596d868f96a93bf824d3b6f6"}
   io.github.aamedina/punk.skos
-  {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"
-   :sha     "300a62247294a794b26b675b05cfa16527ed3953"}
+  {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"}
   io.github.aamedina/datomic
-  {:git/sha "36bebc7ec727e3611b1118ee663f9bd32123cc30"
-   :sha     "36bebc7ec727e3611b1118ee663f9bd32123cc30"}
+  {:git/sha "36bebc7ec727e3611b1118ee663f9bd32123cc30"}
   io.github.aamedina/abulafia
-  {:git/sha "70c740dd9c3f66a8ac51729ccb3d0aa523417ddd"
-   :sha     "70c740dd9c3f66a8ac51729ccb3d0aa523417ddd"}
+  {:git/sha "70c740dd9c3f66a8ac51729ccb3d0aa523417ddd"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.7.0"
    :extension   "pom"}
