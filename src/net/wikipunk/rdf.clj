@@ -349,6 +349,8 @@
                     form))
                 (assoc mo :xt/id (:db/ident mo))))
 
+(declare iri)
+
 (defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config]
   com/Lifecycle
   (start [this]
@@ -369,7 +371,11 @@
         (alter-var-root #'mop/*env* (constantly node))        
         (try
           (xt/submit-tx node (into []
-                                   (map (juxt (constantly ::xt/put) freezable))
+                                   (comp
+                                     (map #(if (contains? % :db/ident)
+                                             (assoc % :rdfa/uri (iri (:db/ident %)))
+                                             %))
+                                     (map (juxt (constantly ::xt/put) freezable)))
                                    all-metaobjects))
           (xt/sync node)
           (require (or init-ns 'net.wikipunk.temple.init) :reload)
