@@ -372,9 +372,6 @@
         (try
           (xt/submit-tx node (into []
                                    (comp
-                                     (map #(if (contains? % :db/ident)
-                                             (assoc % :rdfa/uri (iri (:db/ident %)))
-                                             %))
                                      (map (juxt (constantly ::xt/put) freezable)))
                                    all-metaobjects))
           (xt/sync node)
