@@ -565,16 +565,16 @@
           (re-find #":$" (name k)))
       (keyword (namespace k)
                (str \|
-                    (if (re-find #"[\s\(\)!,@\"\\~`^]" (name k))
+                    (if (re-find #"[\s\(\)!,@\"\\~`^;]" (name k))
                       (java.net.URLEncoder/encode (name k))
                       (name k))
                     \|))
 
-      (or (re-find #"[\s\(\)!,@\"\\~`^]" (name k))
+      (or (re-find #"[\s\(\)!,@\"\\~`^;]" (name k))
           (re-find #"::" (name k)))
       (keyword (namespace k) (java.net.URLEncoder/encode (name k)))
 
-      (re-find #"[\s\(\)!,@\"\\~`^]" (java.net.URLDecoder/decode (name k)))
+      (re-find #"[\s\(\)!,@\"\\~`^;]" (java.net.URLDecoder/decode (name k)))
       k
 
       :else (keyword (namespace k)
