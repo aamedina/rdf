@@ -460,3 +460,8 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://wordnet-rdf.princeton.edu/ttl/lemma/"
    :rdfa/prefix "wn.ttl"})
+
+(def sampling
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://www.w3.org/ns/sosa/sampling/"
+   :rdfa/prefix "sampling"})
