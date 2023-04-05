@@ -1385,7 +1385,7 @@
   clojure.lang.IPersistentMap
   (sniff [m]
     (let [model (mem-parse m)]
-      (unroll-forms model)))
+      (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model))))
 
   clojure.lang.Keyword
   (sniff [k]
