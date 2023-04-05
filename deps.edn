@@ -28,7 +28,7 @@
   io.github.aamedina/mop
   {:git/sha "49adfcbc59aa2f2a48c97570567ce8954f69def2"}
   io.github.aamedina/openai
-  {:git/sha "fa386c4e116d095da311d2f5f7dd600d421bf002"}
+  {:git/sha "9e44d7bbb568f79495eb553d563e3a173c7ad0ff"}
   io.github.aamedina/temple
   {:git/sha "06851c12daba18ea596d868f96a93bf824d3b6f6"}
   io.github.aamedina/punk.skos
@@ -39,7 +39,7 @@
   {:git/sha "5654e0cac4f8ffb0bd4bf1139ae6cfea736e4433"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.7.0"
-   :extension   "pom"}
+   :extension   "pom"}  
   org.clojure/clojure
   {:mvn/version "1.11.1"}
   org.clojure/core.async
