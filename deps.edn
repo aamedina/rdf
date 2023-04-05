@@ -36,7 +36,7 @@
   io.github.aamedina/datomic
   {:git/sha "36bebc7ec727e3611b1118ee663f9bd32123cc30"}
   io.github.aamedina/abulafia
-  {:git/sha "157c3fe4fafd87b80cc846b82ed637cefe06ec72"}
+  {:git/sha "5654e0cac4f8ffb0bd4bf1139ae6cfea736e4433"}
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.7.0"
    :extension   "pom"}
