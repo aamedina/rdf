@@ -1261,7 +1261,9 @@
 (defn unroll-langString
   [form]
   (if (and (:rdf/language form) (:rdf/value form))
-    (str (:rdf/value form) "@" (:rdf/language form))
+    (if (str/starts-with? (:rdf/language form) "en")
+      (:rdf/value form)
+      (str (:rdf/value form) "@" (:rdf/language form)))
     form))
 
 (defn unroll-blank
@@ -1350,19 +1352,19 @@
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
-      (cond
-        (mop/isa? ident :rdf/Property)
-        (direct-slot-definition ident)
+      (walk/prewalk unroll-langString
+                    (cond
+                      (mop/isa? ident :rdf/Property)
+                      (direct-slot-definition ident)
 
-        (mop/isa? ident :rdfs/Class)
-        (reduce-kv (fn [m k v]
-                     (if (not= (namespace k) "mop")
-                       (assoc m k v)
-                       m))
-                   {} (find-metaobject ident))
-        
-        :else (find-metaobject ident))
-      
+                      (mop/isa? ident :rdfs/Class)
+                      (reduce-kv (fn [m k v]
+                                   (if (not= (namespace k) "mop")
+                                     (assoc m k v)
+                                     m))
+                                 {} (find-metaobject ident))
+                      
+                      :else (find-metaobject ident)))
 
       (qualified-symbol? ident)
       (resolve ident)
