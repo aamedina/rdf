@@ -324,22 +324,10 @@
         (deriving entity (filter keyword? topConceptOf))
 
         (seq (filter keyword? member))
-        (as-> h
-            (reduce (fn [h member]
-                      (try
-                        (derive h member ident)
-                        (catch Throwable ex
-                          h)))
-                    h (filter keyword? member)))
+        (deriving entity (filter keyword? member))
 
         (seq (filter keyword? narrower))
-        (as-> h
-            (reduce (fn [h child]
-                      (try
-                        (derive h child ident)
-                        (catch Throwable ex
-                          h)))
-                    h (filter keyword? narrower)))))
+        (deriving entity (filter keyword? narrower))))
     (make-hierarchy)
     (->> (descendants metaobjects :skos/Concept)
          (map find-metaobject)
