@@ -64,6 +64,10 @@
   "rdf:Property"
   (make-hierarchy))
 
+(def ^:dynamic *skos*
+  "Simple Knowledge Organization System"
+  (make-hierarchy))
+
 (def ^:dynamic *indexes*
   "A map of useful indexes across metaobjects."
   {})
@@ -157,6 +161,8 @@
     :owl/sameAs
     :rdfs/domain
     :rdfs/range})
+
+(declare find-metaobject)
 
 (defn all-ns-metaobjects
   "Searches Clojure namespaces for metaobjects.
@@ -299,7 +305,50 @@
      classes
      metaobjects)))
 
-(declare find-metaobject)
+(defn make-skos-hierarchy
+  "The make-skos-hierarchy function takes in a hierarchy of
+  metaobjects and derives a hierarchy of SKOS concepts from it."
+  [metaobjects]
+  (reduce
+    (fn [h {:db/keys   [ident]
+            :skos/keys [broader narrower inScheme member topConceptOf]
+            :as        entity}]
+      (cond-> h
+        (seq (filter keyword? broader))
+        (deriving entity (filter keyword? broader))
+
+        (seq (filter keyword? inScheme))
+        (deriving entity (filter keyword? inScheme))
+
+        (seq (filter keyword? topConceptOf))
+        (deriving entity (filter keyword? topConceptOf))
+
+        (seq (filter keyword? member))
+        (as-> h
+            (reduce (fn [h member]
+                      (try
+                        (derive h member ident)
+                        (catch Throwable ex
+                          h)))
+                    h (filter keyword? member)))
+
+        (seq (filter keyword? narrower))
+        (as-> h
+            (reduce (fn [h child]
+                      (try
+                        (derive h child ident)
+                        (catch Throwable ex
+                          h)))
+                    h (filter keyword? narrower)))))
+    (make-hierarchy)
+    (->> (descendants metaobjects :skos/Concept)
+         (map find-metaobject)
+         (pmap (fn [v]
+                 (reduce (fn [entity term]
+                           (if (contains? entity term)
+                             (update entity term #(if (sequential? %) % [%]))
+                             entity))
+                         v [:rdf/type :skos/broader :skos/narrower :skos/inScheme :skos/member :skos/topConceptOf]))))))
 
 (defn make-hierarchies
   "Returns a map of hierarchies for *classes*, *properties*, and
@@ -308,10 +357,12 @@
   ([xs]
    (let [classes     (make-class-hierarchy xs)
          properties  (make-property-hierarchy classes xs)
-         metaobjects (make-metaobject-hierarchy classes properties xs)]
+         metaobjects (make-metaobject-hierarchy classes properties xs)
+         skos        (make-skos-hierarchy metaobjects)]
      {:classes     classes
       :properties  properties
-      :metaobjects metaobjects})))
+      :metaobjects metaobjects
+      :skos        skos})))
 
 (declare finalize setup-indexes)
 
@@ -356,17 +407,18 @@
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [all-metaobjects                          (all-ns-metaobjects)
-            config                                   (or config {:xtdb.lucene/lucene-store
-                                                                 {:db-dir ".vocab/lucene"}})
-            node                                     (xt/start-node config)
-            {:keys [registry ns-aliases]}            (make-boot-context)
-            {:keys [classes properties metaobjects]} (make-hierarchies all-metaobjects)]
+      (let [all-metaobjects                               (all-ns-metaobjects)
+            config                                        (or config {:xtdb.lucene/lucene-store
+                                                                      {:db-dir ".vocab/lucene"}})
+            node                                          (xt/start-node config)
+            {:keys [registry ns-aliases]}                 (make-boot-context)
+            {:keys [classes properties metaobjects skos]} (make-hierarchies all-metaobjects)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'*classes* (constantly classes))
         (alter-var-root #'*properties* (constantly properties))
+        (alter-var-root #'*skos* (constantly skos))
         (alter-var-root #'mop/*metaobjects* (constantly metaobjects))
         (alter-var-root #'mop/*env* (constantly node))        
         (try
@@ -687,7 +739,7 @@
            :dcat/keys [downloadURL]
            :rdf/keys  [value]
            :keys      [format]} md
-          parser           (if value
+          parser                (if value
                              (doto (RDFParser/fromString value)
                                (.lang (get a/formats (or format :ttl))))
                              (RDFParser/source (or downloadURL uri)))]
