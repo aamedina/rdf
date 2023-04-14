@@ -396,7 +396,7 @@
                                  (if (nippy/freezable? v)
                                    (assoc m k v)
                                    m))
-                               {} form)
+                               {:db/ident (:db/ident mo)} form)
                     form))
                 (assoc mo :xt/id (:db/ident mo))))
 
