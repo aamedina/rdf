@@ -31,12 +31,8 @@
   {:git/sha "0e43479c055f5bea51b1f9ea3ef0b45b07e0cfe3"}
   io.github.aamedina/temple
   {:git/sha "06851c12daba18ea596d868f96a93bf824d3b6f6"}
-  io.github.aamedina/punk.skos
-  {:git/sha "300a62247294a794b26b675b05cfa16527ed3953"}
   io.github.aamedina/datomic
-  {:git/sha "36bebc7ec727e3611b1118ee663f9bd32123cc30"}
-  io.github.aamedina/abulafia
-  {:git/sha "5654e0cac4f8ffb0bd4bf1139ae6cfea736e4433"}
+  {:git/sha "36bebc7ec727e3611b1118ee663f9bd32123cc30"}  
   org.apache.jena/apache-jena-libs
   {:mvn/version "4.7.0"
    :extension   "pom"}  
