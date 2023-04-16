@@ -4,7 +4,6 @@
   (:require
    [net.wikipunk.mop.boot]
    [net.wikipunk.temple.boot]
-   [net.wikipunk.punk.skos.boot]
    [net.wikipunk.db.boot])
   (:refer-clojure :exclude [time keys]))
 
