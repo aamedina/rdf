@@ -1,5 +1,5 @@
 # rdf
-RDF models as Clojure namespaces
+RDF models as Clojure(script) namespaces
 
 ## Universal Translator
 A component should be configured for your system based on the following
@@ -7,7 +7,7 @@ example:
 
 ``` clojure
 {:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :init-ns      net.wikipunk.temple.init
+          :init-ns      net.wikipunk.mop.init
           :ns-prefix    "net.wikipunk.rdf."
           :boot         []
           :config       {:xtdb.lucene/lucene-store
@@ -42,6 +42,13 @@ should be looked up.)
 ### :config
 [XTDB](https://github.com/xtdb/xtdb) node configuration to store the
 loaded vocabulary in-memory or locally. (optional, defaults to above)
+
+### Boot namespace
+The convention is to place a file containing the JSON-LD context for
+your project organized into a Clojure namespace called boot.cljc. 
+
+For example, for this project it is located at
+src/cljc/net/wikipunk/boot.cljc.
 
 ### :dev
 
@@ -137,14 +144,10 @@ https://github.com/seancorfield/deps-new
 https://github.com/aamedina/vocab
 
 ## wikipunk.net extensions
-* [net.wikipunk/mop](https://github.com/aamedina/mop)
-* [net.wikipunk/temple](https://github.com/aamedina/temple)
 * [net.wikipunk/openai](https://github.com/aamedina/openai)
-* [net.wikipunk/db](https://github.com/aamedina/db)
 * [net.wikipunk/punk](https://github.com/aamedina/punk)
 * [net.wikipunk/punk.db](https://github.com/aamedina/punk.db)
 * [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
-* [net.wikipunk/punk.skos](https://github.com/aamedina/punk.skos)
 * [net.wikipunk/punk.test](https://github.com/aamedina/punk.test)
 * [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)
 * [net.wikipunk/OBO](https://github.com/aamedina/OBO)

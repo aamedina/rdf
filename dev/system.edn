@@ -1,7 +1,5 @@
-{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :init-ns      net.wikipunk.temple.init
-          :ns-prefix    "net.wikipunk.rdf."
-          :boot         []
-          :config       {:xtdb.lucene/lucene-store
-                         {:db-dir ".vocab/lucene"}}}
- :openai {:sc/create-fn net.wikipunk.openai/map->Client}}
+{:vocab {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+         :boot         [net.wikipunk.boot
+                        net.wikipunk.ext]
+         :config       {:xtdb.lucene/lucene-store
+                        {:db-dir ".vocab/lucene"}}}}
