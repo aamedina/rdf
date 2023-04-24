@@ -145,8 +145,8 @@ https://github.com/aamedina/vocab
 
 ## wikipunk.net extensions
 * [net.wikipunk/openai](https://github.com/aamedina/openai)
-* [net.wikipunk/punk](https://github.com/aamedina/punk)
 * [net.wikipunk/punk.db](https://github.com/aamedina/punk.db)
+* [net.wikipunk/punk](https://github.com/aamedina/punk)
 * [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
 * [net.wikipunk/punk.test](https://github.com/aamedina/punk.test)
 * [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)

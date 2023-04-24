@@ -175,7 +175,8 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def vaem
-  {:rdfa/uri    "http://www.linkedmodel.org/schema/vaem#"
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/vaem/versions/2014-08-11.n3"
+   :rdfa/uri    "http://www.linkedmodel.org/schema/vaem#"
    :rdfa/prefix "vaem",
    :rdf/type    :rdfa/PrefixMapping})
 
@@ -206,7 +207,8 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def dtype
-  {:rdfa/uri    "http://www.linkedmodel.org/schema/dtype#"
+  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/dtype/versions/2014-06-28.n3"
+   :rdfa/uri    "http://www.linkedmodel.org/schema/dtype#"
    :rdfa/prefix "dtype"
    :rdf/type    :rdfa/PrefixMapping})
 
