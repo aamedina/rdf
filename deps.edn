@@ -10,13 +10,11 @@
   com.stuartsierra/component
   {:mvn/version "1.1.0"}
   com.xtdb/xtdb-core
-  {:mvn/version "1.23.1"}
+  {:mvn/version "1.23.2"}
   com.xtdb/xtdb-http-server
-  {:mvn/version "1.23.1"}
+  {:mvn/version "1.23.2"}
   com.xtdb/xtdb-lucene
-  {:mvn/version "1.23.1"}
-  com.xtdb.labs/xtdb-rdf
-  {:mvn/version "1.23.1"}
+  {:mvn/version "1.23.2"}
   com.taoensso/nippy
   {:mvn/version "3.2.0"}
   instaparse/instaparse
