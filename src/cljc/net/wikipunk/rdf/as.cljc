@@ -1042,18 +1042,18 @@
    :rdfs/range   :xsd/string})
 
 (def name
-  "name"
-  {:db/ident    :as/name,
-   :rdf/type    :owl/DatatypeProperty,
-   :rdfs/domain {:owl/unionOf [:as/Object :as/Link],
-                 :rdf/type    :owl/Class},
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "name"},
-   :rdfs/name   {:rdf/language "en",
-                 :rdf/value
-                 "The default, plain-text display name of the object or link."},
-   :rdfs/range  {:owl/unionOf [:rdf/langString :xsd/string],
-                 :rdf/type    :owl/Class}})
+  "The default, plain-text display name of the object or link."
+  {:db/ident     :as/name,
+   :rdf/type     :owl/DatatypeProperty,
+   :rdfs/domain  {:owl/unionOf [:as/Object :as/Link],
+                  :rdf/type    :owl/Class},
+   :rdfs/label   {:rdf/language "en",
+                  :rdf/value    "name"},
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value
+                  "The default, plain-text display name of the object or link."},
+   :rdfs/range   {:owl/unionOf [:rdf/langString :xsd/string],
+                  :rdf/type    :owl/Class}})
 
 (def next
   "next"

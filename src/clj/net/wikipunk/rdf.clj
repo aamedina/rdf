@@ -1547,3 +1547,28 @@
                                          :vector {:wrap? false}})
                     (newline))))))
       (zprint/zprint model))))
+
+(extend-protocol arachne.aristotle.graph/AsNode
+  clojure.lang.BigInt
+  (node [obj]
+    (arachne.aristotle.graph/node (bigdec obj))))
+
+(defn ns-graph
+  "Return a graph of all the namespaces in the current system."
+  [& {:keys [type] :or {type :jena-mini}}]
+  (a/add (a/graph type)
+         (walk/postwalk (fn [form]
+                          (if (map? form)
+                            (reduce-kv (fn [m k v]
+                                         (if (qualified-keyword? k)
+                                           (assoc m k (if (when-some [d (:rdfs/range (try
+                                                                                       (datafy k)
+                                                                                       (catch Throwable ex
+                                                                                         (log/error "could not datafy" k))))]
+                                                            (some #(isa? % :rdf/List) (if (coll? d) d [d])))
+                                                        (g/rdf-list v)
+                                                        v))
+                                           m))
+                                       {} form)
+                            form))
+                        (all-ns-metaobjects))))
