@@ -41,16 +41,10 @@ jobs:
           clj-watson-tag: "v4.0.1"
           database-strategy: github-advisory
           aliases: clojure-lsp,test
-          deps-edn-path: deps.edn
+          deps-edn-path: 'deps.edn'
           suggest-fix: true
-          output-type: sarif
-          output-file: clj-watson-results.sarif
+          output-type: 'stdout-simple'
+          output-file: clj-watson-results.txt
           fail-on-result: false
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ${{github.workspace}}/clj-watson-results.sarif
-          wait-for-processing: true
