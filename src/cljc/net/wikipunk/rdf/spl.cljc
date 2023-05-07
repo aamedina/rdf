@@ -80,16 +80,16 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "predicate"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "label"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where
     [[{:rdf/type      :sp/Filter,
        :sp/expression {:rdf/type :sp/isIRI,
@@ -196,13 +196,13 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "predicate"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where
     [{:rdf/type :sp/Filter,
       :sp/expression
@@ -377,16 +377,16 @@
    :spin/body {:rdf/type :sp/Construct,
                :sp/templates [{:sp/object    :spin/ConstraintViolation,
                                :sp/predicate :rdf/type,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    :spin/_this,
                                :sp/predicate :spin/violationRoot,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    {:sp/varName "property"},
                                :sp/predicate :spin/violationPath,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    {:sp/varName "message"},
                                :sp/predicate :rdfs/label,
-                               :sp/subject   nil}],
+                               :sp/subject   :rdf/nil}],
                :sp/where
                [{:rdf/type      :sp/Filter,
                  :sp/expression {:rdf/type    :sp/exists,
@@ -459,19 +459,19 @@
    :spin/body {:rdf/type :sp/Construct,
                :sp/templates [{:sp/object    :spin/ConstraintViolation,
                                :sp/predicate :rdf/type,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    {:sp/varName "property"},
                                :sp/predicate :spin/violationPath,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    {:sp/varName "value"},
                                :sp/predicate :spin/violationValue,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    :spin/_this,
                                :sp/predicate :spin/violationRoot,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    {:sp/varName "label"},
                                :sp/predicate :rdfs/label,
-                               :sp/subject   nil}],
+                               :sp/subject   :rdf/nil}],
                :sp/where
                [{:sp/object    {:sp/varName "value"},
                  :sp/predicate {:sp/varName "property"},
@@ -530,16 +530,16 @@
    :spin/body {:rdf/type :sp/Construct,
                :sp/templates [{:sp/object    :spin/ConstraintViolation,
                                :sp/predicate :rdf/type,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    :spin/_this,
                                :sp/predicate :spin/violationRoot,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    {:sp/varName "property"},
                                :sp/predicate :spin/violationPath,
-                               :sp/subject   nil}
+                               :sp/subject   :rdf/nil}
                               {:sp/object    {:sp/varName "message"},
                                :sp/predicate :rdfs/label,
-                               :sp/subject   nil}],
+                               :sp/subject   :rdf/nil}],
                :sp/where
                [{:rdf/type      :sp/Filter,
                  :sp/expression {:rdf/type    :sp/notExists,
@@ -581,16 +581,16 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where
     [{:rdf/type      :sp/Bind,
       :sp/expression {:rdf/type :spl/objectCount,
@@ -646,16 +646,16 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "label"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where
     [{:rdf/type :sp/Union,
       :sp/elements
@@ -760,19 +760,19 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "object"},
                     :sp/predicate :spin/violationValue,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where
     [{:sp/object    {:sp/varName "object"},
       :sp/predicate {:sp/varName "property"},
@@ -827,16 +827,16 @@
    {:rdf/type     :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where     [{:sp/object    {:sp/varName "object"},
                     :sp/predicate {:sp/varName "property"},
                     :sp/subject   :spin/_this}
@@ -977,19 +977,19 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "object"},
                     :sp/predicate :spin/violationValue,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where
     [{:sp/object    {:sp/varName "object"},
       :sp/predicate {:sp/varName "property"},
@@ -1169,19 +1169,19 @@
    {:rdf/type     :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "object"},
                     :sp/predicate :spin/violationValue,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where     [{:sp/object    {:sp/varName "object"},
                     :sp/predicate {:sp/varName "property"},
                     :sp/subject   :spin/_this}
@@ -1238,19 +1238,19 @@
    {:rdf/type     :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "label"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "value"},
                     :sp/predicate :spin/violationValue,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where     [{:sp/object    {:sp/varName "value"},
                     :sp/predicate {:sp/varName "property"},
                     :sp/subject   :spin/_this}
@@ -1290,16 +1290,16 @@
    {:rdf/type     :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   nil}
+                    :sp/subject   :rdf/nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   nil}],
+                    :sp/subject   :rdf/nil}],
     :sp/where     [{:sp/object    {:sp/varName "object"},
                     :sp/predicate {:sp/varName "property"},
                     :sp/subject   :spin/_this}
