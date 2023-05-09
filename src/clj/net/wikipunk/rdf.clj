@@ -1533,7 +1533,7 @@
                          (:vann/preferredNamespacePrefix md))]
       (spit (str (or (:target arg-map) *target*)
                  (namespace-munge (str/replace prefix #"\." "/"))
-                 ".clj")
+                 ".cljc")
             (binding [*print-namespace-maps* nil
                       *print-meta*           true]
               (let [forms (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
