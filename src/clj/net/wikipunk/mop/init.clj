@@ -164,8 +164,7 @@
 
 (defmethod mop/class-direct-default-initargs :default
   [class]
-  (println class)
-  (:mop/class-direct-default-initargs class {}))
+  nil)
 
 #_(into #{}
         (comp

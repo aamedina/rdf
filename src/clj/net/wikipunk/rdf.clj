@@ -826,7 +826,6 @@
     (let [{:rdfs/keys [subClassOf] :as node} (get index form)]
       (if subClassOf
         (let [node' (update node :rdfs/subClassOf (fn [subClassOf]
-                                                    (println subClassOf form)
                                                     (cond
                                                       (= subClassOf form)
                                                       nil
