@@ -1,11 +1,14 @@
 (ns net.wikipunk.rdf.dcterms
   "DCMI Metadata Terms - other"
-  {:dcat/downloadURL
+  {:dc11/date #inst "2012-06-14T00:00:00.000-04:00",
+   :dc11/publisher "http://purl.org/dc/aboutdcmi#DCMI",
+   :dc11/title "DCMI Metadata Terms - other",
+   :dcat/downloadURL
    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl",
+   :dcterms/date #inst "2012-06-14T00:00:00.000-04:00",
    :dcterms/modified #inst "2012-06-14T00:00:00.000-04:00",
    :dcterms/publisher "http://purl.org/dc/aboutdcmi#DCMI",
-   :dcterms/title {:rdf/language "en",
-                   :rdf/value    "DCMI Metadata Terms - other"},
+   :dcterms/title "DCMI Metadata Terms - other",
    :rdf/ns-prefix-map {"dcam"    "http://purl.org/dc/dcam/",
                        "dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -22,1524 +25,1502 @@
 (def Agent
   "A resource that acts or has the power to act."
   {:db/ident         :dcterms/Agent,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
-   :rdf/type         [:rdfs/Class :dcterms/AgentClass],
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "A resource that acts or has the power to act."},
+   :rdf/type         [:rdfs/Class :dcterms/AgentClass :rdfs/Resource],
+   :rdfs/comment     "A resource that acts or has the power to act.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Agent"}})
+   :rdfs/label       "Agent",
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/Agent]})
 
 (def AgentClass
   "A group of agents."
   {:db/ident         :dcterms/AgentClass,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A group of agents."},
+   :rdfs/comment     "A group of agents.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Agent Class"},
-   :rdfs/subClassOf  :rdfs/Class})
+   :rdfs/label       "Agent Class",
+   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Class :dcterms/AgentClass]})
 
 (def BibliographicResource
   "A book, article, or other documentary resource."
   {:db/ident         :dcterms/BibliographicResource,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "A book, article, or other documentary resource."},
+   :rdfs/comment     "A book, article, or other documentary resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Bibliographic Resource"}})
+   :rdfs/label       "Bibliographic Resource",
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/BibliographicResource]})
 
 (def Box
   "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."
   {:db/ident :dcterms/Box,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."},
+   "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "DCMI Box"},
+   :rdfs/label "DCMI Box",
    :rdfs/seeAlso
    ["https://www.dublincore.org/specifications/dublin-core/dcmi-box/"]})
 
 (def DCMIType
   "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource."
   {:db/ident :dcterms/DCMIType,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource."},
+   "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "DCMI Type Vocabulary"},
+   :rdfs/label "DCMI Type Vocabulary",
    :rdfs/seeAlso ["http://purl.org/dc/dcmitype/"]})
 
 (def DDC
   "The set of conceptual resources specified by the Dewey Decimal Classification."
   {:db/ident :dcterms/DDC,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of conceptual resources specified by the Dewey Decimal Classification."},
+   "The set of conceptual resources specified by the Dewey Decimal Classification.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "DDC"},
+   :rdfs/label "DDC",
    :rdfs/seeAlso ["http://www.oclc.org/dewey/"]})
 
 (def FileFormat
   "A digital resource format."
   {:db/ident         :dcterms/FileFormat,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A digital resource format."},
+   :rdfs/comment     "A digital resource format.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "File Format"},
-   :rdfs/subClassOf  :dcterms/MediaType})
+   :rdfs/label       "File Format",
+   :rdfs/subClassOf  [:rdfs/Resource
+                      :dcterms/MediaType
+                      :dcterms/FileFormat
+                      :dcterms/MediaTypeOrExtent]})
 
 (def Frequency
   "A rate at which something recurs."
   {:db/ident         :dcterms/Frequency,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A rate at which something recurs."},
+   :rdfs/comment     "A rate at which something recurs.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Frequency"}})
+   :rdfs/label       "Frequency",
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/Frequency]})
 
 (def IMT
   "The set of media types specified by the Internet Assigned Numbers Authority."
   {:db/ident :dcterms/IMT,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of media types specified by the Internet Assigned Numbers Authority."},
+   "The set of media types specified by the Internet Assigned Numbers Authority.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "IMT"},
+   :rdfs/label "IMT",
    :rdfs/seeAlso ["http://www.iana.org/assignments/media-types/"]})
 
 (def ISO3166
   "The set of codes listed in ISO 3166-1 for the representation of names of countries."
   {:db/ident :dcterms/ISO3166,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of codes listed in ISO 3166-1 for the representation of names of countries."},
+   "The set of codes listed in ISO 3166-1 for the representation of names of countries.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "ISO 3166"},
+   :rdfs/label "ISO 3166",
    :rdfs/seeAlso ["https://www.iso.org/obp/ui/#search"]})
 
 (def ISO639-2
   "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."
   {:db/ident :dcterms/ISO639-2,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."},
+   "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "ISO 639-2"},
+   :rdfs/label "ISO 639-2",
    :rdfs/seeAlso ["http://lcweb.loc.gov/standards/iso639-2/langhome.html"]})
 
 (def ISO639-3
   "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."
   {:db/ident :dcterms/ISO639-3,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."},
+   "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "ISO 639-3"},
+   :rdfs/label "ISO 639-3",
    :rdfs/seeAlso ["http://www.sil.org/iso639-3/"]})
 
 (def Jurisdiction
   "The extent or range of judicial, law enforcement, or other authority."
   {:db/ident :dcterms/Jurisdiction,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The extent or range of judicial, law enforcement, or other authority."},
+   "The extent or range of judicial, law enforcement, or other authority.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Jurisdiction"},
-   :rdfs/subClassOf :dcterms/LocationPeriodOrJurisdiction})
+   :rdfs/label "Jurisdiction",
+   :rdfs/subClassOf [:rdfs/Resource
+                     :dcterms/LocationPeriodOrJurisdiction
+                     :dcterms/Jurisdiction]})
 
 (def LCC
   "The set of conceptual resources specified by the Library of Congress Classification."
   {:db/ident :dcterms/LCC,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of conceptual resources specified by the Library of Congress Classification."},
+   "The set of conceptual resources specified by the Library of Congress Classification.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "LCC"},
+   :rdfs/label "LCC",
    :rdfs/seeAlso ["http://lcweb.loc.gov/catdir/cpso/lcco/lcco.html"]})
 
 (def LCSH
   "The set of labeled concepts specified by the Library of Congress Subject Headings."
   {:db/ident :dcterms/LCSH,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of labeled concepts specified by the Library of Congress Subject Headings."},
+   "The set of labeled concepts specified by the Library of Congress Subject Headings.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "LCSH"}})
+   :rdfs/label "LCSH"})
 
 (def LicenseDocument
   "A legal document giving official permission to do something with a resource."
   {:db/ident :dcterms/LicenseDocument,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A legal document giving official permission to do something with a resource."},
+   "A legal document giving official permission to do something with a resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "License Document"},
-   :rdfs/subClassOf :dcterms/RightsStatement})
+   :rdfs/label "License Document",
+   :rdfs/subClassOf
+   [:dcterms/RightsStatement :dcterms/LicenseDocument :rdfs/Resource]})
 
 (def LinguisticSystem
   "Written, spoken, sign, and computer languages are linguistic systems."
   {:db/ident :dcterms/LinguisticSystem,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Written, spoken, sign, and computer languages are linguistic systems.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Written, spoken, sign, and computer languages are linguistic systems."},
+   "Written, spoken, sign, and computer languages are linguistic systems.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A system of signs, symbols, sounds, gestures, or rules used in communication."},
+   "A system of signs, symbols, sounds, gestures, or rules used in communication.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Linguistic System"}})
+   :rdfs/label "Linguistic System",
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/LinguisticSystem]})
 
 (def Location
   "A spatial region or named place."
   {:db/ident         :dcterms/Location,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A spatial region or named place."},
+   :rdfs/comment     "A spatial region or named place.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Location"},
-   :rdfs/subClassOf  :dcterms/LocationPeriodOrJurisdiction})
+   :rdfs/label       "Location",
+   :rdfs/subClassOf  [:rdfs/Resource
+                      :dcterms/LocationPeriodOrJurisdiction
+                      :dcterms/Location]})
 
 (def LocationPeriodOrJurisdiction
   "A location, period of time, or jurisdiction."
   {:db/ident         :dcterms/LocationPeriodOrJurisdiction,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "A location, period of time, or jurisdiction."},
+   :rdfs/comment     "A location, period of time, or jurisdiction.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Location, Period, or Jurisdiction"}})
+   :rdfs/label       "Location, Period, or Jurisdiction",
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/LocationPeriodOrJurisdiction]})
 
 (def MESH
   "The set of labeled concepts specified by the Medical Subject Headings."
   {:db/ident :dcterms/MESH,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of labeled concepts specified by the Medical Subject Headings."},
+   "The set of labeled concepts specified by the Medical Subject Headings.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "MeSH"},
+   :rdfs/label "MeSH",
    :rdfs/seeAlso ["http://www.nlm.nih.gov/mesh/meshhome.html"]})
 
 (def MediaType
   "A file format or physical medium."
   {:db/ident         :dcterms/MediaType,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A file format or physical medium."},
+   :rdfs/comment     "A file format or physical medium.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Media Type"},
-   :rdfs/subClassOf  :dcterms/MediaTypeOrExtent})
+   :rdfs/label       "Media Type",
+   :rdfs/subClassOf  [:dcterms/MediaTypeOrExtent
+                      :dcterms/MediaType
+                      :rdfs/Resource]})
 
 (def MediaTypeOrExtent
   "A media type or extent."
   {:db/ident         :dcterms/MediaTypeOrExtent,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A media type or extent."},
+   :rdfs/comment     "A media type or extent.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Media Type or Extent"}})
+   :rdfs/label       "Media Type or Extent",
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/MediaTypeOrExtent]})
 
 (def MethodOfAccrual
   "A method by which resources are added to a collection."
   {:db/ident         :dcterms/MethodOfAccrual,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "A method by which resources are added to a collection."},
+   :rdfs/comment     "A method by which resources are added to a collection.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Method of Accrual"}})
+   :rdfs/label       "Method of Accrual",
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/MethodOfAccrual]})
 
 (def MethodOfInstruction
   "A process that is used to engender knowledge, attitudes, and skills."
   {:db/ident :dcterms/MethodOfInstruction,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A process that is used to engender knowledge, attitudes, and skills."},
+   "A process that is used to engender knowledge, attitudes, and skills.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Method of Instruction"}})
+   :rdfs/label "Method of Instruction",
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/MethodOfInstruction]})
 
 (def NLM
   "The set of conceptual resources specified by the National Library of Medicine Classification."
   {:db/ident :dcterms/NLM,
+   :dc11/date #inst "2005-06-13T00:00:00.000-04:00",
+   :dcterms/date #inst "2005-06-13T00:00:00.000-04:00",
    :dcterms/issued #inst "2005-06-13T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of conceptual resources specified by the National Library of Medicine Classification."},
+   "The set of conceptual resources specified by the National Library of Medicine Classification.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "NLM"},
+   :rdfs/label "NLM",
    :rdfs/seeAlso ["http://wwwcf.nlm.nih.gov/class/"]})
 
 (def Period
   "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."
   {:db/ident :dcterms/Period,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."},
+   "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "DCMI Period"},
+   :rdfs/label "DCMI Period",
    :rdfs/seeAlso
    ["https://www.dublincore.org/specifications/dublin-core/dcmi-period/"]})
 
 (def PeriodOfTime
   "An interval of time that is named or defined by its start and end dates."
   {:db/ident :dcterms/PeriodOfTime,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An interval of time that is named or defined by its start and end dates."},
+   "An interval of time that is named or defined by its start and end dates.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Period of Time"},
-   :rdfs/subClassOf :dcterms/LocationPeriodOrJurisdiction})
+   :rdfs/label "Period of Time",
+   :rdfs/subClassOf [:rdfs/Resource
+                     :dcterms/LocationPeriodOrJurisdiction
+                     :dcterms/PeriodOfTime]})
 
 (def PhysicalMedium
   "Examples include paper, canvas, or DVD."
   {:db/ident            :dcterms/PhysicalMedium,
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Examples include paper, canvas, or DVD."},
+   :dc11/date           #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description    "Examples include paper, canvas, or DVD.",
+   :dcterms/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/description "Examples include paper, canvas, or DVD.",
    :dcterms/issued      #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type            :rdfs/Class,
-   :rdfs/comment        {:rdf/language "en",
-                         :rdf/value    "A physical material or carrier."},
+   :rdfs/comment        "A physical material or carrier.",
    :rdfs/isDefinedBy    "http://purl.org/dc/terms/",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Physical Medium"},
-   :rdfs/subClassOf     :dcterms/MediaType})
+   :rdfs/label          "Physical Medium",
+   :rdfs/subClassOf     [:dcterms/MediaType
+                         :dcterms/PhysicalMedium
+                         :rdfs/Resource
+                         :dcterms/MediaTypeOrExtent]})
 
 (def PhysicalResource
   "A material thing."
   {:db/ident         :dcterms/PhysicalResource,
+   :dc11/date        #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date     #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued   #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A material thing."},
+   :rdfs/comment     "A material thing.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Physical Resource"}})
+   :rdfs/label       "Physical Resource",
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/PhysicalResource]})
 
 (def Point
   "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."
   {:db/ident :dcterms/Point,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."},
+   "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "DCMI Point"},
+   :rdfs/label "DCMI Point",
    :rdfs/seeAlso
    ["https://www.dublincore.org/specifications/dublin-core/dcmi-point/"]})
 
 (def Policy
   "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."
   {:db/ident :dcterms/Policy,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."},
+   "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Policy"}})
+   :rdfs/label "Policy",
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/Policy]})
 
 (def ProvenanceStatement
   "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."
   {:db/ident :dcterms/ProvenanceStatement,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."},
+   "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Provenance Statement"}})
+   :rdfs/label "Provenance Statement",
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/ProvenanceStatement]})
 
 (def RFC1766
   "The set of tags, constructed according to RFC 1766, for the identification of languages."
   {:db/ident :dcterms/RFC1766,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of tags, constructed according to RFC 1766, for the identification of languages."},
+   "The set of tags, constructed according to RFC 1766, for the identification of languages.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "RFC 1766"},
+   :rdfs/label "RFC 1766",
    :rdfs/seeAlso ["http://www.ietf.org/rfc/rfc1766.txt"]})
 
 (def RFC3066
   "RFC 3066 has been obsoleted by RFC 4646."
   {:db/ident :dcterms/RFC3066,
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "RFC 3066 has been obsoleted by RFC 4646."},
+   :dc11/date #inst "2002-07-13T00:00:00.000-04:00",
+   :dc11/description "RFC 3066 has been obsoleted by RFC 4646.",
+   :dcterms/date #inst "2002-07-13T00:00:00.000-04:00",
+   :dcterms/description "RFC 3066 has been obsoleted by RFC 4646.",
    :dcterms/issued #inst "2002-07-13T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of tags constructed according to RFC 3066 for the identification of languages."},
+   "The set of tags constructed according to RFC 3066 for the identification of languages.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "RFC 3066"},
+   :rdfs/label "RFC 3066",
    :rdfs/seeAlso ["http://www.ietf.org/rfc/rfc3066.txt"]})
 
 (def RFC4646
   "RFC 4646 obsoletes RFC 3066."
   {:db/ident :dcterms/RFC4646,
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "RFC 4646 obsoletes RFC 3066."},
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description "RFC 4646 obsoletes RFC 3066.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/description "RFC 4646 obsoletes RFC 3066.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of tags constructed according to RFC 4646 for the identification of languages."},
+   "The set of tags constructed according to RFC 4646 for the identification of languages.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "RFC 4646"},
+   :rdfs/label "RFC 4646",
    :rdfs/seeAlso ["http://www.ietf.org/rfc/rfc4646.txt"]})
 
 (def RFC5646
   "RFC 5646 obsoletes RFC 4646."
   {:db/ident :dcterms/RFC5646,
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "RFC 5646 obsoletes RFC 4646."},
+   :dc11/date #inst "2010-10-11T00:00:00.000-04:00",
+   :dc11/description "RFC 5646 obsoletes RFC 4646.",
+   :dcterms/date #inst "2010-10-11T00:00:00.000-04:00",
+   :dcterms/description "RFC 5646 obsoletes RFC 4646.",
    :dcterms/issued #inst "2010-10-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of tags constructed according to RFC 5646 for the identification of languages."},
+   "The set of tags constructed according to RFC 5646 for the identification of languages.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "RFC 5646"},
+   :rdfs/label "RFC 5646",
    :rdfs/seeAlso ["http://www.ietf.org/rfc/rfc5646.txt"]})
 
 (def RightsStatement
   "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."
   {:db/ident :dcterms/RightsStatement,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."},
+   "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Rights Statement"}})
+   :rdfs/label "Rights Statement",
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/RightsStatement]})
 
 (def SizeOrDuration
   "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."
   {:db/ident :dcterms/SizeOrDuration,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."},
+   "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "A dimension or extent, or a time taken to play or execute."},
+   :rdfs/comment "A dimension or extent, or a time taken to play or execute.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Size or Duration"},
-   :rdfs/subClassOf :dcterms/MediaTypeOrExtent})
+   :rdfs/label "Size or Duration",
+   :rdfs/subClassOf
+   [:rdfs/Resource :dcterms/MediaTypeOrExtent :dcterms/SizeOrDuration]})
 
 (def Standard
   "A reference point against which other things can be evaluated or compared."
   {:db/ident :dcterms/Standard,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A reference point against which other things can be evaluated or compared."},
+   "A reference point against which other things can be evaluated or compared.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Standard"}})
+   :rdfs/label "Standard",
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/Standard]})
 
 (def TGN
   "The set of places specified by the Getty Thesaurus of Geographic Names."
   {:db/ident :dcterms/TGN,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of places specified by the Getty Thesaurus of Geographic Names."},
+   "The set of places specified by the Getty Thesaurus of Geographic Names.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "TGN"},
+   :rdfs/label "TGN",
    :rdfs/seeAlso
    ["http://www.getty.edu/research/tools/vocabulary/tgn/index.html"]})
 
 (def UDC
   "The set of conceptual resources specified by the Universal Decimal Classification."
   {:db/ident :dcterms/UDC,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :dcam/VocabularyEncodingScheme,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of conceptual resources specified by the Universal Decimal Classification."},
+   "The set of conceptual resources specified by the Universal Decimal Classification.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "UDC"},
+   :rdfs/label "UDC",
    :rdfs/seeAlso ["http://www.udcc.org/"]})
 
 (def URI
   "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."
   {:db/ident :dcterms/URI,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."},
+   "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "URI"},
+   :rdfs/label "URI",
    :rdfs/seeAlso ["http://www.ietf.org/rfc/rfc3986.txt"]})
 
 (def W3CDTF
   "The set of dates and times constructed according to the W3C Date and Time Formats Specification."
   {:db/ident :dcterms/W3CDTF,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Datatype,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The set of dates and times constructed according to the W3C Date and Time Formats Specification."},
+   "The set of dates and times constructed according to the W3C Date and Time Formats Specification.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "W3C-DTF"},
+   :rdfs/label "W3C-DTF",
    :rdfs/seeAlso ["http://www.w3.org/TR/NOTE-datetime"]})
 
 (def abstract
   "A summary of the resource."
   {:db/ident           :dcterms/abstract,
+   :dc11/date          #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date       #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued     #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value    "A summary of the resource."},
+   :rdfs/comment       "A summary of the resource.",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Abstract"},
-   :rdfs/subPropertyOf [:dcterms/description :dc11/description]})
+   :rdfs/label         "Abstract",
+   :rdfs/subPropertyOf [:dcterms/description
+                        :dc11/description
+                        :dcterms/abstract]})
 
 (def accessRights
   "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."
   {:db/ident :dcterms/accessRights,
+   :dc11/date #inst "2003-02-15T00:00:00.000-05:00",
+   :dc11/description
+   "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies.",
    :dcam/rangeIncludes :dcterms/RightsStatement,
+   :dcterms/date #inst "2003-02-15T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."},
+   "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies.",
    :dcterms/issued #inst "2003-02-15T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Information about who access the resource or an indication of its security status."},
+   "Information about who access the resource or an indication of its security status.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Access Rights"},
-   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights]})
+   :rdfs/label "Access Rights",
+   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights :dcterms/accessRights]})
 
 (def accrualMethod
   "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)]."
   {:db/ident :dcterms/accrualMethod,
+   :dc11/date #inst "2005-06-13T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)].",
    :dcam/rangeIncludes :dcterms/MethodOfAccrual,
+   :dcterms/date #inst "2005-06-13T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)]."},
+   "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)].",
    :dcterms/issued #inst "2005-06-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "The method by which items are added to a collection."},
+   :rdfs/comment "The method by which items are added to a collection.",
    :rdfs/domain :dcmitype/Collection,
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Accrual Method"}})
+   :rdfs/label "Accrual Method",
+   :rdfs/subPropertyOf :dcterms/accrualMethod})
 
 (def accrualPeriodicity
   "Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)]."
   {:db/ident :dcterms/accrualPeriodicity,
+   :dc11/date #inst "2005-06-13T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)].",
    :dcam/rangeIncludes :dcterms/Frequency,
+   :dcterms/date #inst "2005-06-13T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)]."},
+   "Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)].",
    :dcterms/issued #inst "2005-06-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "The frequency with which items are added to a collection."},
+   :rdfs/comment "The frequency with which items are added to a collection.",
    :rdfs/domain :dcmitype/Collection,
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Accrual Periodicity"}})
+   :rdfs/label "Accrual Periodicity",
+   :rdfs/subPropertyOf :dcterms/accrualPeriodicity})
 
 (def accrualPolicy
   "Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)]."
   {:db/ident :dcterms/accrualPolicy,
+   :dc11/date #inst "2005-06-13T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)].",
    :dcam/rangeIncludes :dcterms/Policy,
+   :dcterms/date #inst "2005-06-13T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)]."},
+   "Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)].",
    :dcterms/issued #inst "2005-06-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "The policy governing the addition of items to a collection."},
+   :rdfs/comment "The policy governing the addition of items to a collection.",
    :rdfs/domain :dcmitype/Collection,
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Accrual Policy"}})
+   :rdfs/label "Accrual Policy",
+   :rdfs/subPropertyOf :dcterms/accrualPolicy})
 
 (def alternative
   "The distinction between titles and alternative titles is application-specific."
   {:db/ident :dcterms/alternative,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "The distinction between titles and alternative titles is application-specific.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The distinction between titles and alternative titles is application-specific."},
+   "The distinction between titles and alternative titles is application-specific.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "An alternative name for the resource."},
+   :rdfs/comment "An alternative name for the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Alternative Title"},
+   :rdfs/label "Alternative Title",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/title :dc11/title]})
+   :rdfs/subPropertyOf [:dcterms/title :dc11/title :dcterms/alternative]})
 
 (def audience
   "Recommended practice is to use this property with non-literal values from a vocabulary of audience types."
   {:db/ident :dcterms/audience,
+   :dc11/date #inst "2001-05-21T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to use this property with non-literal values from a vocabulary of audience types.",
    :dcam/rangeIncludes :dcterms/AgentClass,
+   :dcterms/date #inst "2001-05-21T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to use this property with non-literal values from a vocabulary of audience types."},
+   "Recommended practice is to use this property with non-literal values from a vocabulary of audience types.",
    :dcterms/issued #inst "2001-05-21T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A class of agents for whom the resource is intended or useful."},
+   "A class of agents for whom the resource is intended or useful.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Audience"}})
+   :rdfs/label "Audience",
+   :rdfs/subPropertyOf :dcterms/audience})
 
 (def available
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
   {:db/ident :dcterms/available,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."},
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Date that the resource became or will become available."},
+   :rdfs/comment "Date that the resource became or will become available.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Available"},
+   :rdfs/label "Date Available",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/available]})
 
 (def bibliographicCitation
   "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."
   {:db/ident :dcterms/bibliographicCitation,
+   :dc11/date #inst "2003-02-15T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.",
+   :dcterms/date #inst "2003-02-15T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."},
+   "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.",
    :dcterms/issued #inst "2003-02-15T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "A bibliographic reference for the resource."},
+   :rdfs/comment "A bibliographic reference for the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Bibliographic Citation"},
+   :rdfs/label "Bibliographic Citation",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/identifier :dc11/identifier]})
+   :rdfs/subPropertyOf
+   [:dcterms/identifier :dc11/identifier :dcterms/bibliographicCitation]})
 
 (def conformsTo
   "An established standard to which the described resource conforms."
   {:db/ident :dcterms/conformsTo,
+   :dc11/date #inst "2001-05-21T00:00:00.000-04:00",
    :dcam/rangeIncludes :dcterms/Standard,
+   :dcterms/date #inst "2001-05-21T00:00:00.000-04:00",
    :dcterms/issued #inst "2001-05-21T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An established standard to which the described resource conforms."},
+   "An established standard to which the described resource conforms.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Conforms To"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Conforms To",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/conformsTo]})
 
 (def contributor
   "The guidelines for using names of persons or organizations as creators apply to contributors."
   {:db/ident :dcterms/contributor,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "The guidelines for using names of persons or organizations as creators apply to contributors.",
    :dcam/rangeIncludes :dcterms/Agent,
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The guidelines for using names of persons or organizations as creators apply to contributors."},
+   "The guidelines for using names of persons or organizations as creators apply to contributors.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An entity responsible for making contributions to the resource."},
+   "An entity responsible for making contributions to the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Contributor"},
-   :rdfs/subPropertyOf :dc11/contributor})
+   :rdfs/label "Contributor",
+   :rdfs/subPropertyOf [:dc11/contributor :dcterms/contributor]})
 
 (def coverage
   "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges. Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage."
   {:db/ident :dcterms/coverage,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage.",
    :dcam/rangeIncludes
    [:dcterms/Location :dcterms/Period :dcterms/Jurisdiction],
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage."},
+   "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."},
+   "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Coverage"},
-   :rdfs/subPropertyOf :dc11/coverage})
+   :rdfs/label "Coverage",
+   :rdfs/subPropertyOf [:dc11/coverage :dcterms/coverage]})
 
 (def created
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
   {:db/ident :dcterms/created,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."},
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Date of creation of the resource."},
+   :rdfs/comment "Date of creation of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Created"},
+   :rdfs/label "Date Created",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/created]})
 
 (def creator
   "Recommended practice is to identify the creator with a URI. If this is not possible or feasible, a literal value that identifies the creator may be provided."
   {:db/ident :dcterms/creator,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided.",
    :dcam/rangeIncludes :dcterms/Agent,
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."},
+   "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :owl/equivalentProperty :foaf/maker,
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value "An entity responsible for making the resource."},
+   :rdfs/comment "An entity responsible for making the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Creator"},
-   :rdfs/subPropertyOf [:dcterms/contributor :dc11/creator]})
+   :rdfs/label "Creator",
+   :rdfs/subPropertyOf
+   [:dcterms/contributor :dc11/creator :dcterms/creator :dc11/contributor]})
 
 (def date
   "Date may be used to express temporal information at any level of granularity. Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)]. If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character. Either the start or end date may be missing."
   {:db/ident :dcterms/date,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing."},
+   "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A point or period of time associated with an event in the lifecycle of the resource."},
+   "A point or period of time associated with an event in the lifecycle of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date"},
+   :rdfs/label "Date",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dc11/date})
+   :rdfs/subPropertyOf [:dc11/date :dcterms/date]})
 
 (def dateAccepted
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty. Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."
   {:db/ident :dcterms/dateAccepted,
+   :dc11/date #inst "2002-07-13T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal).",
+   :dcterms/date #inst "2002-07-13T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."},
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal).",
    :dcterms/issued #inst "2002-07-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Date of acceptance of the resource."},
+   :rdfs/comment "Date of acceptance of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Accepted"},
+   :rdfs/label "Date Accepted",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/dateAccepted]})
 
 (def dateCopyrighted
   "Typically a year. Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
   {:db/ident :dcterms/dateCopyrighted,
+   :dc11/date #inst "2002-07-13T00:00:00.000-04:00",
+   :dc11/description
+   "Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
+   :dcterms/date #inst "2002-07-13T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."},
+   "Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
    :dcterms/issued #inst "2002-07-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Date of copyright of the resource."},
+   :rdfs/comment "Date of copyright of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Copyrighted"},
+   :rdfs/label "Date Copyrighted",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/dateCopyrighted]})
 
 (def dateSubmitted
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty. Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal)."
   {:db/ident :dcterms/dateSubmitted,
+   :dc11/date #inst "2002-07-13T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal).",
+   :dcterms/date #inst "2002-07-13T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal)."},
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal).",
    :dcterms/issued #inst "2002-07-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Date of submission of the resource."},
+   :rdfs/comment "Date of submission of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Submitted"},
+   :rdfs/label "Date Submitted",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/dateSubmitted]})
 
 (def description
   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
   {:db/ident :dcterms/description,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."},
+   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "An account of the resource."},
+   :rdfs/comment "An account of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Description"},
-   :rdfs/subPropertyOf :dc11/description})
+   :rdfs/label "Description",
+   :rdfs/subPropertyOf [:dc11/description :dcterms/description]})
 
 (def educationLevel
   "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."
   {:db/ident :dcterms/educationLevel,
+   :dc11/date #inst "2002-07-13T00:00:00.000-04:00",
    :dcam/rangeIncludes :dcterms/AgentClass,
+   :dcterms/date #inst "2002-07-13T00:00:00.000-04:00",
    :dcterms/issued #inst "2002-07-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."},
+   "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Audience Education Level"},
-   :rdfs/subPropertyOf :dcterms/audience})
+   :rdfs/label "Audience Education Level",
+   :rdfs/subPropertyOf [:dcterms/audience :dcterms/educationLevel]})
 
 (def extent
   "Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format."
   {:db/ident :dcterms/extent,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format.",
    :dcam/rangeIncludes :dcterms/SizeOrDuration,
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format."},
+   "Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The size or duration of the resource."},
+   :rdfs/comment "The size or duration of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Extent"},
-   :rdfs/subPropertyOf [:dcterms/format :dc11/format]})
+   :rdfs/label "Extent",
+   :rdfs/subPropertyOf [:dcterms/format :dc11/format :dcterms/extent]})
 
 (def format
   "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)]. Examples of dimensions include size and duration."
   {:db/ident :dcterms/format,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration.",
    :dcam/rangeIncludes [:dcterms/MediaType :dcterms/Extent],
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration."},
+   "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The file format, physical medium, or dimensions of the resource."},
+   "The file format, physical medium, or dimensions of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Format"},
-   :rdfs/subPropertyOf :dc11/format})
+   :rdfs/label "Format",
+   :rdfs/subPropertyOf [:dc11/format :dcterms/format]})
 
 (def hasFormat
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of."
   {:db/ident :dcterms/hasFormat,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that is substantially the same as the pre-existing described resource, but in another format."},
+   "A related resource that is substantially the same as the pre-existing described resource, but in another format.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Has Format"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Has Format",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/hasFormat]})
 
 (def hasPart
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."
   {:db/ident :dcterms/hasPart,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that is included either physically or logically in the described resource."},
+   "A related resource that is included either physically or logically in the described resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Has Part"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Has Part",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/hasPart]})
 
 (def hasVersion
   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of."
   {:db/ident :dcterms/hasVersion,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of."},
+   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that is a version, edition, or adaptation of the described resource."},
+   "A related resource that is a version, edition, or adaptation of the described resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Has Version"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Has Version",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/hasVersion]})
 
 (def identifier
   "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN). Persistent identifiers should be provided as HTTP URIs."
   {:db/ident :dcterms/identifier,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."},
+   "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An unambiguous reference to the resource within a given context."},
+   "An unambiguous reference to the resource within a given context.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Identifier"},
+   :rdfs/label "Identifier",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dc11/identifier})
+   :rdfs/subPropertyOf [:dc11/identifier :dcterms/identifier]})
 
 (def instructionalMethod
   "Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured. Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."
   {:db/ident :dcterms/instructionalMethod,
+   :dc11/date #inst "2005-06-13T00:00:00.000-04:00",
+   :dc11/description
+   "Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback.",
    :dcam/rangeIncludes :dcterms/MethodOfInstruction,
+   :dcterms/date #inst "2005-06-13T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."},
+   "Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback.",
    :dcterms/issued #inst "2005-06-13T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."},
+   "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Instructional Method"}})
+   :rdfs/label "Instructional Method",
+   :rdfs/subPropertyOf :dcterms/instructionalMethod})
 
 (def isFormatOf
   "This property is intended to be used with non-literal values. This property is an inverse property of Has Format."
   {:db/ident :dcterms/isFormatOf,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Has Format.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Has Format."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Has Format.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A pre-existing related resource that is substantially the same as the described resource, but in another format."},
+   "A pre-existing related resource that is substantially the same as the described resource, but in another format.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Is Format Of"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Is Format Of",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/isFormatOf]})
 
 (def isPartOf
   "This property is intended to be used with non-literal values. This property is an inverse property of Has Part."
   {:db/ident :dcterms/isPartOf,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Has Part.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Has Part."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Has Part.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource in which the described resource is physically or logically included."},
+   "A related resource in which the described resource is physically or logically included.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Is Part Of"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Is Part Of",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/isPartOf]})
 
 (def isReferencedBy
   "This property is intended to be used with non-literal values. This property is an inverse property of References."
   {:db/ident :dcterms/isReferencedBy,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of References.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of References."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of References.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that references, cites, or otherwise points to the described resource."},
+   "A related resource that references, cites, or otherwise points to the described resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Is Referenced By"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Is Referenced By",
+   :rdfs/subPropertyOf
+   [:dcterms/relation :dc11/relation :dcterms/isReferencedBy]})
 
 (def isReplacedBy
   "This property is intended to be used with non-literal values. This property is an inverse property of Replaces."
   {:db/ident :dcterms/isReplacedBy,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Replaces.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Replaces."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Replaces.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that supplants, displaces, or supersedes the described resource."},
+   "A related resource that supplants, displaces, or supersedes the described resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Is Replaced By"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Is Replaced By",
+   :rdfs/subPropertyOf
+   [:dcterms/relation :dc11/relation :dcterms/isReplacedBy]})
 
 (def isRequiredBy
   "This property is intended to be used with non-literal values. This property is an inverse property of Requires."
   {:db/ident :dcterms/isRequiredBy,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Requires.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Requires."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Requires.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that requires the described resource to support its function, delivery, or coherence."},
+   "A related resource that requires the described resource to support its function, delivery, or coherence.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Is Required By"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Is Required By",
+   :rdfs/subPropertyOf
+   [:dcterms/relation :dc11/relation :dcterms/isRequiredBy]})
 
 (def isVersionOf
   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version."
   {:db/ident :dcterms/isVersionOf,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version."},
+   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource of which the described resource is a version, edition, or adaptation."},
+   "A related resource of which the described resource is a version, edition, or adaptation.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Is Version Of"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Is Version Of",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/isVersionOf]})
 
 (def issued
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
   {:db/ident :dcterms/issued,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."},
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Date of formal issuance of the resource."},
+   :rdfs/comment "Date of formal issuance of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Issued"},
+   :rdfs/label "Date Issued",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/issued]})
 
 (def language
   "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."
   {:db/ident :dcterms/language,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag.",
    :dcam/rangeIncludes :dcterms/LinguisticSystem,
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."},
+   "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "A language of the resource."},
+   :rdfs/comment "A language of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Language"},
-   :rdfs/subPropertyOf :dc11/language})
+   :rdfs/label "Language",
+   :rdfs/subPropertyOf [:dc11/language :dcterms/language]})
 
 (def license
   "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided."
   {:db/ident :dcterms/license,
+   :dc11/date #inst "2004-06-14T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided.",
    :dcam/rangeIncludes :dcterms/LicenseDocument,
+   :dcterms/date #inst "2004-06-14T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided."},
+   "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided.",
    :dcterms/issued #inst "2004-06-14T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A legal document giving official permission to do something with the resource."},
+   "A legal document giving official permission to do something with the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "License"},
-   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights]})
+   :rdfs/label "License",
+   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights :dcterms/license]})
 
 (def mediator
   "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."
   {:db/ident :dcterms/mediator,
+   :dc11/date #inst "2001-05-21T00:00:00.000-04:00",
+   :dc11/description
+   "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver.",
    :dcam/rangeIncludes :dcterms/AgentClass,
+   :dcterms/date #inst "2001-05-21T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."},
+   "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver.",
    :dcterms/issued #inst "2001-05-21T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value "An entity that mediates access to the resource."},
+   :rdfs/comment "An entity that mediates access to the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Mediator"},
-   :rdfs/subPropertyOf :dcterms/audience})
+   :rdfs/label "Mediator",
+   :rdfs/subPropertyOf [:dcterms/audience :dcterms/mediator]})
 
 (def medium
   "The material or physical carrier of the resource."
   {:db/ident            :dcterms/medium,
+   :dc11/date           #inst "2000-07-11T00:00:00.000-04:00",
    :dcam/domainIncludes :dcterms/PhysicalResource,
    :dcam/rangeIncludes  :dcterms/PhysicalMedium,
+   :dcterms/date        #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued      #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type            :rdf/Property,
-   :rdfs/comment        {:rdf/language "en",
-                         :rdf/value
-                         "The material or physical carrier of the resource."},
+   :rdfs/comment        "The material or physical carrier of the resource.",
    :rdfs/isDefinedBy    "http://purl.org/dc/terms/",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Medium"},
-   :rdfs/subPropertyOf  [:dcterms/format :dc11/format]})
+   :rdfs/label          "Medium",
+   :rdfs/subPropertyOf  [:dcterms/format :dc11/format :dcterms/medium]})
 
 (def modified
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
   {:db/ident :dcterms/modified,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."},
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Date on which the resource was changed."},
+   :rdfs/comment "Date on which the resource was changed.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Modified"},
+   :rdfs/label "Date Modified",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/modified]})
 
 (def provenance
   "The statement may include a description of any changes successive custodians made to the resource."
   {:db/ident :dcterms/provenance,
+   :dc11/date #inst "2004-09-20T00:00:00.000-04:00",
+   :dc11/description
+   "The statement may include a description of any changes successive custodians made to the resource.",
    :dcam/rangeIncludes :dcterms/ProvenanceStatement,
+   :dcterms/date #inst "2004-09-20T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The statement may include a description of any changes successive custodians made to the resource."},
+   "The statement may include a description of any changes successive custodians made to the resource.",
    :dcterms/issued #inst "2004-09-20T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."},
+   "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Provenance"}})
+   :rdfs/label "Provenance",
+   :rdfs/subPropertyOf :dcterms/provenance})
 
 (def publisher
   "An entity responsible for making the resource available."
   {:db/ident :dcterms/publisher,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcam/rangeIncludes :dcterms/Agent,
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "An entity responsible for making the resource available."},
+   :rdfs/comment "An entity responsible for making the resource available.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Publisher"},
-   :rdfs/subPropertyOf :dc11/publisher})
+   :rdfs/label "Publisher",
+   :rdfs/subPropertyOf [:dc11/publisher :dcterms/publisher]})
 
 (def references
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By."
   {:db/ident :dcterms/references,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that is referenced, cited, or otherwise pointed to by the described resource."},
+   "A related resource that is referenced, cited, or otherwise pointed to by the described resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "References"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "References",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/references]})
 
 (def relation
   "Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided."
   {:db/ident :dcterms/relation,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided."},
+   "Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "A related resource."},
+   :rdfs/comment "A related resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Relation"},
-   :rdfs/subPropertyOf :dc11/relation})
+   :rdfs/label "Relation",
+   :rdfs/subPropertyOf [:dc11/relation :dcterms/relation]})
 
 (def replaces
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By."
   {:db/ident :dcterms/replaces,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that is supplanted, displaced, or superseded by the described resource."},
+   "A related resource that is supplanted, displaced, or superseded by the described resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Replaces"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Replaces",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/replaces]})
 
 (def requires
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By."
   {:db/ident :dcterms/requires,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By."},
+   "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource that is required by the described resource to support its function, delivery, or coherence."},
+   "A related resource that is required by the described resource to support its function, delivery, or coherence.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Requires"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
+   :rdfs/label "Requires",
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/requires]})
 
 (def rights
   "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights. Recommended practice is to refer to a rights statement with a URI. If this is not possible or feasible, a literal value (name, label, or short text) may be provided."
   {:db/ident :dcterms/rights,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided.",
    :dcam/rangeIncludes :dcterms/RightsStatement,
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided."},
+   "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Information about rights held in and over the resource."},
+   :rdfs/comment "Information about rights held in and over the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Rights"},
-   :rdfs/subPropertyOf :dc11/rights})
+   :rdfs/label "Rights",
+   :rdfs/subPropertyOf [:dc11/rights :dcterms/rights]})
 
 (def rightsHolder
   "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided."
   {:db/ident :dcterms/rightsHolder,
+   :dc11/date #inst "2004-06-14T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided.",
    :dcam/rangeIncludes :dcterms/Agent,
+   :dcterms/date #inst "2004-06-14T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided."},
+   "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided.",
    :dcterms/issued #inst "2004-06-14T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A person or organization owning or managing rights over the resource."},
+   "A person or organization owning or managing rights over the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Rights Holder"}})
+   :rdfs/label "Rights Holder",
+   :rdfs/subPropertyOf :dcterms/rightsHolder})
 
 (def source
   "This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system."
   {:db/ident :dcterms/source,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system."},
+   "This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A related resource from which the described resource is derived."},
+   "A related resource from which the described resource is derived.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Source"},
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/source]})
+   :rdfs/label "Source",
+   :rdfs/subPropertyOf
+   [:dcterms/relation :dc11/source :dcterms/source :dc11/relation]})
 
 (def spatial
   "Spatial characteristics of the resource."
   {:db/ident           :dcterms/spatial,
+   :dc11/date          #inst "2000-07-11T00:00:00.000-04:00",
    :dcam/rangeIncludes :dcterms/Location,
+   :dcterms/date       #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued     #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value "Spatial characteristics of the resource."},
+   :rdfs/comment       "Spatial characteristics of the resource.",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Spatial Coverage"},
-   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage]})
+   :rdfs/label         "Spatial Coverage",
+   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage :dcterms/spatial]})
 
 (def subject
   "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary."
   {:db/ident :dcterms/subject,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary."},
+   "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "A topic of the resource."},
+   :rdfs/comment "A topic of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Subject"},
-   :rdfs/subPropertyOf :dc11/subject})
+   :rdfs/label "Subject",
+   :rdfs/subPropertyOf [:dc11/subject :dcterms/subject]})
 
 (def tableOfContents
   "A list of subunits of the resource."
   {:db/ident           :dcterms/tableOfContents,
+   :dc11/date          #inst "2000-07-11T00:00:00.000-04:00",
+   :dcterms/date       #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued     #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value    "A list of subunits of the resource."},
+   :rdfs/comment       "A list of subunits of the resource.",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Table Of Contents"},
-   :rdfs/subPropertyOf [:dcterms/description :dc11/description]})
+   :rdfs/label         "Table Of Contents",
+   :rdfs/subPropertyOf [:dcterms/description
+                        :dc11/description
+                        :dcterms/tableOfContents]})
 
 (def temporal
   "Temporal characteristics of the resource."
   {:db/ident           :dcterms/temporal,
+   :dc11/date          #inst "2000-07-11T00:00:00.000-04:00",
    :dcam/rangeIncludes :dcterms/PeriodOfTime,
+   :dcterms/date       #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/issued     #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value "Temporal characteristics of the resource."},
+   :rdfs/comment       "Temporal characteristics of the resource.",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Temporal Coverage"},
-   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage]})
+   :rdfs/label         "Temporal Coverage",
+   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage :dcterms/temporal]})
 
 (def title
   "A name given to the resource."
   {:db/ident           :dcterms/title,
+   :dc11/date          #inst "2008-01-14T00:00:00.000-05:00",
+   :dcterms/date       #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued     #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value    "A name given to the resource."},
+   :rdfs/comment       "A name given to the resource.",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Title"},
+   :rdfs/label         "Title",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :dc11/title})
+   :rdfs/subPropertyOf [:dc11/title :dcterms/title]})
 
 (def type
   "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format."
   {:db/ident :dcterms/type,
+   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+   :dc11/description
+   "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format.",
+   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format."},
+   "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format.",
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The nature or genre of the resource."},
+   :rdfs/comment "The nature or genre of the resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Type"},
-   :rdfs/subPropertyOf :dc11/type})
+   :rdfs/label "Type",
+   :rdfs/subPropertyOf [:dc11/type :dcterms/type]})
 
 (def valid
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
   {:db/ident :dcterms/valid,
+   :dc11/date #inst "2000-07-11T00:00:00.000-04:00",
+   :dc11/description
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
+   :dcterms/date #inst "2000-07-11T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."},
+   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value "Date (often a range) of validity of a resource."},
+   :rdfs/comment "Date (often a range) of validity of a resource.",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date Valid"},
+   :rdfs/label "Date Valid",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/valid]})

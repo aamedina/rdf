@@ -3,11 +3,8 @@
   {:dc11/creator ["http://foaf.me/zazi#me" "http://tobyinkster.co.uk/#i"],
    :dc11/date #inst "2010-09-13T12:59:52.000-00:00",
    :dc11/description
-   {:rdf/language "en",
-    :rdf/value
-    "The Association Ontology specification provides basic properties \nfor describing specific associations to something, e.g. a context, an occasion, a genre or a mood, and enables furthermore, a mechanism to \nlike/rate and feedback these associations in context to something on/ for the Semantic Web. This document contains a RDF description \nof the Association Ontology."},
-   :dc11/title {:rdf/language "en",
-                :rdf/value    "The Association Ontology"},
+   "The Association Ontology specification provides basic properties \nfor describing specific associations to something, e.g. a context, an occasion, a genre or a mood, and enables furthermore, a mechanism to \nlike/rate and feedback these associations in context to something on/ for the Semantic Web. This document contains a RDF description \nof the Association Ontology.",
+   :dc11/title "The Association Ontology",
    :dcat/downloadURL "https://purl.org/ontology/ao/associationontology.owl",
    :owl/imports ["http://purl.org/dc/terms/"
                  "http://purl.org/stuff/rev"
@@ -39,89 +36,67 @@
   {:db/ident :ao/LikeableAssociation,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A likeable association. That means this association type is intended to be used for voting (ao:likeminded), \nfeedbacking (rev:Feedback), reviewing (e.g. rev:rating) an association statement (related by ao:included_association) in the \ncontext of something."},
+   "A likeable association. That means this association type is intended to be used for voting (ao:likeminded), \nfeedbacking (rev:Feedback), reviewing (e.g. rev:rating) an association statement (related by ao:included_association) in the \ncontext of something.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Likeable Association"},
-   :rdfs/subClassOf [:rev/Review :sim/Association],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :rdfs/label "Likeable Association",
+   :rdfs/subClassOf [:rev/Review :sim/Association :ao/LikeableAssociation],
+   :vs/term_status "testing"})
 
 (def activity
   "An activity, which is associated to an individual, e.g. dancing, sleeping, driving."
   {:db/ident :ao/activity,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An activity, which is associated to an individual, e.g. dancing, sleeping, driving."},
+   "An activity, which is associated to an individual, e.g. dancing, sleeping, driving.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has activity"},
-   :rdfs/subPropertyOf :ao/context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :rdfs/label "has activity",
+   :rdfs/subPropertyOf [:ao/context :ao/activity],
+   :vs/term_status "testing"})
 
 (def application
   "An application, which is associated to an individual, e.g. a music player to a music track it's currently playing back."
   {:db/ident :ao/application,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An application, which is associated to an individual, e.g. a music player to a music track it's currently playing back."},
+   "An application, which is associated to an individual, e.g. a music player to a music track it's currently playing back.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has application"},
-   :rdfs/subPropertyOf :ao/context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :rdfs/label "has application",
+   :rdfs/subPropertyOf [:ao/context :ao/application],
+   :vs/term_status "testing"})
 
 (def context
   "A property to associate any environmental context to an individual, e.g. a location, a time or an activity. Hence, this property is intended that sub properties should be created from it."
   {:db/ident :ao/context,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A property to associate any environmental context to an individual, e.g. a location, a time or an activity. Hence, this property is intended that sub properties should be created from it."},
+   "A property to associate any environmental context to an individual, e.g. a location, a time or an activity. Hence, this property is intended that sub properties should be created from it.",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has context"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :rdfs/label "has context",
+   :rdfs/subPropertyOf :ao/context,
+   :vs/term_status "testing"})
 
 (def device
   "A device, which is associated with an individual, e.g. a CD player with a CD it's currently playing back."
   {:db/ident :ao/device,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A device, which is associated with an individual, e.g. a CD player with a CD it's currently playing back."},
+   "A device, which is associated with an individual, e.g. a CD player with a CD it's currently playing back.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has device"},
-   :rdfs/subPropertyOf :ao/context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :rdfs/label "has device",
+   :rdfs/subPropertyOf [:ao/context :ao/device],
+   :vs/term_status "testing"})
 
 (def genre
   "An genre of something."
   {:db/ident           :ao/genre,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value    "An genre of something."},
+   :rdfs/comment       "An genre of something.",
    :rdfs/domain        :owl/Thing,
    :rdfs/isDefinedBy   "http://purl.org/ontology/ao/core#",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "has genre"},
-   :rdfs/subPropertyOf :dcterms/subject,
-   :vs/term_status     {:rdf/language "en",
-                        :rdf/value    "unstable"}})
+   :rdfs/label         "has genre",
+   :rdfs/subPropertyOf [:dcterms/subject :ao/genre],
+   :vs/term_status     "unstable"})
 
 (def included_association
   "This property could be used to compose association statements or to reuse them, e.g. to make them likeable in a specific context."
@@ -130,16 +105,12 @@
                    :rdfs/label "is included association of"},
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This property could be used to compose association statements or to reuse them, e.g. to make them likeable \nin a specific context."},
+   "This property could be used to compose association statements or to reuse them, e.g. to make them likeable \nin a specific context.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has included association"},
+   :rdfs/label "has included association",
    :rdfs/range :sim/Association,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :vs/term_status "testing"})
 
 (def likeminded
   "Associates likeminded people to an association, which they like/ agree with."
@@ -160,45 +131,33 @@
   {:db/ident :ao/location,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A location, which is associated to an individual, e.g. my house, my country, my current whereabouts."},
+   "A location, which is associated to an individual, e.g. my house, my country, my current whereabouts.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has location"},
-   :rdfs/subPropertyOf :ao/context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :rdfs/label "has location",
+   :rdfs/subPropertyOf [:ao/context :ao/location],
+   :vs/term_status "testing"})
 
 (def mood
   "A mood that should be created by something."
   {:db/ident           :ao/mood,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value
-                        "A mood that should be created by something."},
+   :rdfs/comment       "A mood that should be created by something.",
    :rdfs/domain        :owl/Thing,
    :rdfs/isDefinedBy   "http://purl.org/ontology/ao/core#",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "has mood"},
-   :rdfs/subPropertyOf :dcterms/subject,
-   :vs/term_status     {:rdf/language "en",
-                        :rdf/value    "unstable"}})
+   :rdfs/label         "has mood",
+   :rdfs/subPropertyOf [:dcterms/subject :ao/mood],
+   :vs/term_status     "unstable"})
 
 (def occasion
   "An occasion for which something was created."
   {:db/ident           :ao/occasion,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value
-                        "An occasion for which something was created."},
+   :rdfs/comment       "An occasion for which something was created.",
    :rdfs/domain        :owl/Thing,
    :rdfs/isDefinedBy   "http://purl.org/ontology/ao/core#",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "has occassion"},
-   :rdfs/subPropertyOf :dcterms/subject,
-   :vs/term_status     {:rdf/language "en",
-                        :rdf/value    "unstable"}})
+   :rdfs/label         "has occassion",
+   :rdfs/subPropertyOf [:dcterms/subject :ao/occasion],
+   :vs/term_status     "unstable"})
 
 (def time
   "A time, which is associated to an individual, e.g. morning, afternoon, evening."
@@ -206,42 +165,46 @@
    :owl/equivalentProperty :dc11/date,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A time, which is associated to an individual, e.g. morning, afternoon, evening."},
+   "A time, which is associated to an individual, e.g. morning, afternoon, evening.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has time"},
-   :rdfs/subPropertyOf :ao/context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "testing"}})
+   :rdfs/label "has time",
+   :rdfs/subPropertyOf [:ao/context :ao/time],
+   :vs/term_status "testing"})
 
 (def used_application
   "An application that is related to an event, e.g. a iTunes to a play back event of a music track."
   {:db/ident :ao/used_application,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An application that is related to an event, e.g. a iTunes to a play back event of a music track."},
+   "An application that is related to an event, e.g. a iTunes to a play back event of a music track.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has used application"},
-   :rdfs/subPropertyOf [:ao/application :event/factor],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "unstable"}})
+   :rdfs/label "has used application",
+   :rdfs/subPropertyOf
+   [:ao/application :event/factor :ao/used_application :ao/context],
+   :vs/term_status "unstable"})
 
 (def used_device
   "A device that is related to an event, e.g. a MP3 player to a play back event of a music track."
   {:db/ident :ao/used_device,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A device that is related to an event, e.g. a MP3 player to a play back event of a music track."},
+   "A device that is related to an event, e.g. a MP3 player to a play back event of a music track.",
    :rdfs/isDefinedBy "http://purl.org/ontology/ao/core#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has used device"},
-   :rdfs/subPropertyOf [:ao/device :event/factor],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "unstable"}})
+   :rdfs/label "has used device",
+   :rdfs/subPropertyOf [:ao/device :event/factor :ao/used_device :ao/context],
+   :vs/term_status "unstable"})
+
+(def ^{:private true} factor
+  {:db/ident :event/factor,
+   :rdf/type :rdf/Property,
+   :rdfs/subPropertyOf :event/factor})
+
+(def ^{:private true} Review
+  {:db/ident        :rev/Review,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :rev/Review})
+
+(def ^{:private true} Association
+  {:db/ident        :sim/Association,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :sim/Association})

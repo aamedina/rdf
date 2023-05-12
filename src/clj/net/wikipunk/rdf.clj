@@ -30,6 +30,7 @@
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
    (org.apache.jena.datatypes.xsd XSDDatatype XSDDateTime)
    (org.apache.jena.graph Graph Node Triple Node_URI Node_Literal Node_Variable Node_Blank Node_Triple)
+   (org.apache.jena.reasoner ReasonerRegistry)
    (org.apache.jena.riot RDFParser Lang)
    (org.apache.jena.rdf.model Model)
    (org.apache.jena.query ResultSet)
@@ -651,8 +652,9 @@
       (if (= XSDDatatype/XSDdateTime (.getLiteralDatatype n))
         (.getTime (.asCalendar ^XSDDateTime (.getLiteralValue n)))
         (if-let [lang (not-empty (.getLiteralLanguage n))]
-          {:rdf/value    (.getLiteralValue n)
-           :rdf/language lang}
+          (.getLiteralValue n)
+          #_{:rdf/value    (.getLiteralValue n)
+             :rdf/language lang}
           (let [value (.getLiteralValue n)]
             (if (instance? BaseDatatype$TypedValue value)
               (.-lexicalValue value)
@@ -691,7 +693,9 @@
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
+  (let [reasoner (ReasonerRegistry/getRDFSSimpleReasoner)
+        g (.bind reasoner g)
+        ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
                           (dissoc (cond-> (into {} (.getNsPrefixMap (.getPrefixMapping g)))
                                     (and (:rdfa/prefix md)
                                          (:rdfa/uri md))
@@ -816,9 +820,25 @@
 (def mem-parse (memo/memo parse))
 
 (defn walk-blanks
+  "Replaces blank nodes with their values."
   [index form]
-  (if-some [node (:rdf/blank form)]
-    (get index form)
+  (if-some [_ (:rdf/blank form)]
+    (let [{:rdfs/keys [subClassOf] :as node} (get index form)]
+      (if subClassOf
+        (let [node' (update node :rdfs/subClassOf (fn [subClassOf]
+                                                    (println subClassOf form)
+                                                    (cond
+                                                      (= subClassOf form)
+                                                      nil
+                                                      (when (sequential? form)
+                                                        (some #(= subClassOf %) form))
+                                                      (not-empty (into [] (remove #(= subClassOf %) form)))
+                                                      :else subClassOf)))]
+          (if (and (contains? node' :rdfs/subClassOf)
+                   (nil? (:rdfs/subClassOf node')))
+            (dissoc node' :rdfs/subClassOf)
+            node))
+        node))
     form))
 
 (defn walk-dcterms
@@ -956,7 +976,7 @@
         model-by-ident (update-vals (group-by :db/ident model) first)
         index          (update-vals model-by-ident #(dissoc % :db/ident))
         forms          (->> index
-                            (walk/prewalk (partial walk-blanks index))                            
+                            (walk/prewalk (partial walk-blanks index))
                             (walk/postwalk walk-dcterms)
                             (walk/postwalk walk-bytes)
                             (map (fn [[k v]]
@@ -1420,11 +1440,12 @@
                                                      (not= (namespace k) "mop"))
                                               (assoc m k v)
                                               m))
-                                          {} (cond
-                                               (mop/isa? ident :rdf/Property)
-                                               (direct-slot-definition ident)
+                                          {} (find-metaobject ident)
+                                          #_(cond
+                                            (mop/isa? ident :rdf/Property)
+                                            (direct-slot-definition ident)
 
-                                               :else (find-metaobject ident)))))
+                                            :else (find-metaobject ident)))))
 
       (qualified-symbol? ident)
       (resolve ident)

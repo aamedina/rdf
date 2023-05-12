@@ -14,10 +14,11 @@
 
 (def Bookmark
   "The class to which all bookmarks belong."
-  {:db/ident     :annotea/Bookmark,
-   :rdf/type     :rdfs/Class,
-   :rdfs/comment "The class to which all bookmarks belong.",
-   :rdfs/label   "Bookmark"})
+  {:db/ident        :annotea/Bookmark,
+   :rdf/type        :rdfs/Class,
+   :rdfs/comment    "The class to which all bookmarks belong.",
+   :rdfs/label      "Bookmark",
+   :rdfs/subClassOf [:rdfs/Resource :annotea/Bookmark]})
 
 (def Shortcut
   "Specifies a behavior; when the object of type 'Shortcut' is activated, the client follows the 'recalls' property and activates the object at the end of that 'recalls' property. The target object may be another Bookmark or may be a Topic."
@@ -25,13 +26,15 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "Specifies a behavior; when the\n                object of type 'Shortcut' is activated, the\n                client follows the 'recalls' property and\n                activates the object at the end of that\n                'recalls' property.  The target object may\n                be another Bookmark or may be a Topic.",
-   :rdfs/label "Shortcut"})
+   :rdfs/label "Shortcut",
+   :rdfs/subClassOf [:rdfs/Resource :annotea/Shortcut]})
 
 (def Topic
   "Topic"
-  {:db/ident   :annotea/Topic,
-   :rdf/type   :rdfs/Class,
-   :rdfs/label "Topic"})
+  {:db/ident        :annotea/Topic,
+   :rdf/type        :rdfs/Class,
+   :rdfs/label      "Topic",
+   :rdfs/subClassOf [:rdfs/Resource :annotea/Topic]})
 
 (def bookmarks
   "This corresponds to XBEL:href an object of type Bookmark is expected to have a 'recalls' relationship to the document being bookmarked. The 'bookmarks' property is an older name for the 'recalls' relationship."
@@ -39,7 +42,8 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "This corresponds to XBEL:href an\n                object of type Bookmark is expected to have a\n                'recalls' relationship to the document being\n                bookmarked.  The 'bookmarks' property is an older\n                name for the 'recalls' relationship.",
-   :rdfs/label "bookmarks"})
+   :rdfs/label "bookmarks",
+   :rdfs/subPropertyOf :annotea/bookmarks})
 
 (def hasTopic
   "relates a bookmark to a topic. A bookmark must have at least one hasTopic property. The typical user operation of following a bookmark link will use the value of the b:recalls property. This property corresponds to XBEL:href property."
@@ -47,16 +51,16 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "relates a bookmark to a topic.\n                A bookmark must have at least one hasTopic property.\n                The typical user operation of following a bookmark link\n                will use the value of the b:recalls property. This property\n                corresponds to XBEL:href property.",
-   :rdfs/label "hasTopic"})
+   :rdfs/label "hasTopic",
+   :rdfs/subPropertyOf :annotea/hasTopic})
 
 (def leadsTo
   "connects a Shortcut to the bookmark or topic that is being included by reference in some other topic"
   {:db/ident :annotea/leadsTo,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic"}})
+   "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic",
+   :rdfs/subPropertyOf :annotea/leadsTo})
 
 (def recalls
   "Relates a bookmark with the resource that has been bookmarked. This corresponds to XBEL:href; an object of type Bookmark is expected to have a 'recalls' relationship to the document being bookmarked"
@@ -64,7 +68,8 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "Relates a bookmark with the resource that\n                has been bookmarked.  This corresponds to XBEL:href;\n                an object of type Bookmark is expected to have a\n                'recalls' relationship to the document being\n                bookmarked ",
-   :rdfs/label "recalls"})
+   :rdfs/label "recalls",
+   :rdfs/subPropertyOf :annotea/recalls})
 
 (def subTopicOf
   "Describes a relationship between Topics. When a topic T is a sub-topic of a topic U then all bookmarks that have topic T are also considered to have topic U. A topic may be a sub-topic of one or more topics; trivially, every topic is a sub-topic of itself. More formally; for all B, T, and U: b b:hasTopic T, T b:subTopicOf U implies B b:hasTopic U."
@@ -72,4 +77,5 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "Describes a relationship between Topics.\n        When a topic T is a sub-topic of a topic U then all\n        bookmarks that have topic T are also considered to have\n        topic U. A topic may be a sub-topic of one or more\n        topics; trivially, every topic is a sub-topic of itself.\n        More formally; for all B, T, and U: b b:hasTopic T,\n        T b:subTopicOf U implies B b:hasTopic U.",
-   :rdfs/label "subTopicOf"})
+   :rdfs/label "subTopicOf",
+   :rdfs/subPropertyOf :annotea/subTopicOf})

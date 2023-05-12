@@ -1,9 +1,7 @@
 (ns net.wikipunk.rdf.bio
   "http://purl.org/vocab/bio/0.1/"
   {:dc11/abstract
-   {:rdf/language "en",
-    :rdf/value
-    "This document describes a vocabulary for describing biographical information about people, both living and dead. "},
+   "This document describes a vocabulary for describing biographical information about people, both living and dead. ",
    :dc11/creator ["http://iandavis.com/id/me" "David Galbraith"],
    :dc11/date #inst "2010-05-10T00:00:00.000-04:00",
    :dc11/description
@@ -11,8 +9,7 @@
    :dc11/identifier "http://purl.org/vocab/bio/0.1/schema",
    :dc11/issued #inst "2003-03-07T00:00:00.000-05:00",
    :dc11/rights "Copyright © 2002-2010 Ian Davis and David Galbraith",
-   :dc11/title {:rdf/language "en",
-                :rdf/value    "BIO: A vocabulary for biographical information"},
+   :dc11/title "BIO: A vocabulary for biographical information",
    :dcat/downloadURL "https://vocab.org/bio/schema.rdf",
    :ov/discussionList "http://lists.foaf-project.org/mailman/listinfo/foaf-dev",
    :rdf/ns-prefix-map {"bio" "http://purl.org/vocab/bio/0.1/",
@@ -32,51 +29,51 @@
    :rdfa/prefix "bio",
    :rdfa/uri "http://purl.org/vocab/bio/0.1/",
    :skos/changeNote [{:dc11/creator "Ian Davis",
-                      :dc11/date    "2004-03-05",
-                      :rdf/value    "Added Creative Commons license"}
-                     {:dc11/creator "Ian Davis",
-                      :dc11/date    "2011-06-14",
-                      :rdf/value    "Expanded description and added diagrams"}
+                      :dc11/date    "2010-04-20",
+                      :rdf/value    "Added change history"}
                      {:dc11/creator "Ian Davis",
                       :dc11/date "2009-05-19",
                       :rdf/value "Minor changes to improve publishing process"}
                      {:dc11/creator "Ian Davis",
+                      :dc11/date    "2004-03-05",
+                      :rdf/value    "Added Creative Commons license"}
+                     {:dc11/creator "Ian Davis",
                       :dc11/date    "2005-04-01",
                       :rdf/value    "Added examples"}
                      {:dc11/creator "Ian Davis",
-                      :dc11/date    "2010-04-20",
-                      :rdf/value    "Added change history"}
+                      :dc11/date    "2011-06-14",
+                      :rdf/value    "Expanded description and added diagrams"}
                      {:dc11/creator "Ian Davis",
                       :dc11/date "2010-05-20",
                       :rdf/value
                       "Batch of revisions based on community feedback"}],
    :skos/historyNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2010-06-06",
-     :rdf/value
-     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
+     :dc11/date    "2011-06-10",
+     :rdf/value    "Added bio:Performance event"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2011-06-14",
      :rdf/value    "Added bio:Relationship class and properties"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2003-07-28",
+     :rdf/value    "Added keywords property"}
     {:dc11/creator "Alexandre Passant",
      :dc11/date "2011-06-14",
      :rdf/value
      "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
     {:dc11/creator "Ian Davis",
+     :dc11/date    "2010-05-10",
+     :rdf/value    "Major expansion of properties and classes"}
+    {:dc11/creator "Ian Davis",
      :dc11/date    "2010-06-05",
      :rdf/value    "Added biography property"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2003-07-28",
-     :rdf/value    "Added keywords property"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2011-06-10",
      :rdf/value    "Added bio:Formation and bio:Disbanding events"}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2011-06-10",
-     :rdf/value    "Added bio:Performance event"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2010-05-10",
-     :rdf/value    "Major expansion of properties and classes"}],
+     :dc11/date "2010-06-06",
+     :rdf/value
+     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}],
    :vann/example "http://purl.org/vocab/bio/examples/1",
    :vann/preferredNamespacePrefix "bio",
    :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
@@ -93,13 +90,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person succeeding to the right to hold regal power. This event is often automatic on the death of the previous monarch and is usually followed by a coronation event."},
+   "The event of a person succeeding to the right to hold regal power. This event is often automatic on the death of the previous monarch and is usually followed by a coronation event.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Accession"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Accession",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Accession
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Adoption
@@ -108,13 +111,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of creating of a legal parent/child relationship that does not exist biologically."},
+   "The event of creating of a legal parent/child relationship that does not exist biologically.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Adoption"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Adoption",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Adoption
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Annulment
@@ -123,13 +132,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of declaring a marriage void from the beginning as though it never existed."},
+   "The event of declaring a marriage void from the beginning as though it never existed.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Annulment"},
-   :rdfs/subClassOf :bio/GroupEvent,
+   :rdfs/label "Annulment",
+   :rdfs/subClassOf [:bio/GroupEvent
+                     :bio/Annulment
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/minCardinality 2,
+                      :owl/onProperty     :bio/partner,
+                      :rdf/type           :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Assassination
@@ -138,12 +153,21 @@
    :dc11/issued "2010-05-05",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "The event of a person being deliberately targeted and killed."},
+   "The event of a person being deliberately targeted and killed.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Assassination"},
-   :rdfs/subClassOf :bio/Murder,
+   :rdfs/label "Assassination",
+   :rdfs/subClassOf [:bio/Murder
+                     :bio/Assassination
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     :bio/IndividualEvent
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Death
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Baptism
@@ -152,13 +176,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The ceremonial event held to admit a person to membership of a Christian church."},
+   "The ceremonial event held to admit a person to membership of a Christian church.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Baptism"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Baptism",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Baptism
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :skos/changeNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-05-20",
@@ -171,13 +201,19 @@
   {:db/ident :bio/BarMitzvah,
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
-   :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "The ceremonial event held when a Jewish boy reaches age 13."},
+   :rdfs/comment "The ceremonial event held when a Jewish boy reaches age 13.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "BarMitzvah"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "BarMitzvah",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/BarMitzvah
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def BasMitzvah
@@ -186,25 +222,38 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The ceremonial event held when a Jewish girl reaching age 13, also known as \"Bat Mitzvah.\""},
+   "The ceremonial event held when a Jewish girl reaching age 13, also known as \"Bat Mitzvah.\"",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "BasMitzvah"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "BasMitzvah",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/BasMitzvah
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Birth
   "The event of a person entering into life."
   {:db/ident :bio/Birth,
    :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The event of a person entering into life."},
+   :rdfs/comment "The event of a person entering into life.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Birth"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Birth",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Birth
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    "Marked as testing"},
@@ -221,13 +270,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of interring the remains of a person's body into the ground."},
+   "The event of interring the remains of a person's body into the ground.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Burial"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Burial",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Burial
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Coronation
@@ -236,13 +291,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The ceremonial event of a person being invested with regal power to become a monarch."},
+   "The ceremonial event of a person being invested with regal power to become a monarch.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Coronation"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Coronation",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Coronation
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Cremation
@@ -251,13 +312,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of disposing of the remains of a person's body by fire."},
+   "The event of disposing of the remains of a person's body by fire.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Cremation"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Cremation",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Cremation
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -269,12 +336,19 @@
   "The event of a person's life ending."
   {:db/ident :bio/Death,
    :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The event of a person's life ending."},
+   :rdfs/comment "The event of a person's life ending.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Death"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Death",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Death
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    "Marked as a stable term"},
@@ -291,13 +365,20 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person changing the position they hold with an employer to one with less importance or responsibility."},
+   "The event of a person changing the position they hold with an employer to one with less importance or responsibility.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Demotion"},
-   :rdfs/subClassOf :bio/PositionChange,
+   :rdfs/label "Demotion",
+   :rdfs/subClassOf [:bio/PositionChange
+                     :bio/Demotion
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     :bio/IndividualEvent
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Disbanding
@@ -305,13 +386,19 @@
   {:db/ident         :bio/Disbanding,
    :dc11/issued      "2011-06-10",
    :rdf/type         :owl/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "The event of a group or organization being disbanded."},
+   :rdfs/comment     "The event of a group or organization being disbanded.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Disbanding"},
-   :rdfs/subClassOf  :bio/IndividualEvent,
+   :rdfs/label       "Disbanding",
+   :rdfs/subClassOf  [:bio/IndividualEvent
+                      :bio/Disbanding
+                      :dcmitype/Event
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :bio/principal,
+                       :rdf/type        :owl/Restriction}
+                      "http://linkedevents.org/ontology/Event"
+                      :bio/Event
+                      :event/Event],
    :vs/term_status   "unstable"})
 
 (def Dismissal
@@ -320,13 +407,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person involuntarily giving up their office or position. Dismissal is often perceived to be the employee's fault and may be considered disgraceful."},
+   "The event of a person involuntarily giving up their office or position. Dismissal is often perceived to be the employee's fault and may be considered disgraceful.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Dismissal"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Dismissal",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Dismissal
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Divorce
@@ -334,12 +427,19 @@
   {:db/ident :bio/Divorce,
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The event of legally dissolving a marriage."},
+   :rdfs/comment "The event of legally dissolving a marriage.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Divorce"},
-   :rdfs/subClassOf :bio/GroupEvent,
+   :rdfs/label "Divorce",
+   :rdfs/subClassOf [:bio/GroupEvent
+                     :bio/Divorce
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/minCardinality 2,
+                      :owl/onProperty     :bio/partner,
+                      :rdf/type           :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -353,13 +453,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person leaving their homeland with the intent of residing elsewhere."},
+   "The event of a person leaving their homeland with the intent of residing elsewhere.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Emigration"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Emigration",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Emigration
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -373,13 +479,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person entering an occupational relationship with an employer."},
+   "The event of a person entering an occupational relationship with an employer.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Employment"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Employment",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Employment
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Enrolment
@@ -388,13 +500,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person initiating attendence to a school or other place of learning."},
+   "The event of a person initiating attendence to a school or other place of learning.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Enrolment"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Enrolment",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Enrolment
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Event
@@ -402,16 +520,14 @@
   {:db/ident :bio/Event,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An event is an occurrence that brings about a change in the state of affairs for one or more people and/or other agents. Events are assumed to occur over a period of time and may not have precise start and end points."},
+   "An event is an occurrence that brings about a change in the state of affairs for one or more people and/or other agents. Events are assumed to occur over a period of time and may not have precise start and end points.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Event"},
+   :rdfs/label "Event",
    :rdfs/subClassOf [:event/Event
                      "http://linkedevents.org/ontology/Event"
                      :dcmitype/Event
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     :bio/Event],
    :skos/changeNote [{:dc11/creator "Ian Davis",
                       :dc11/date    "2010-05-20",
                       :rdf/value    "Marked as testing status"}
@@ -425,9 +541,7 @@
                        :dc11/date    "2010-05-04",
                        :rdf/value    "Made equivalent to cyc:Event"}],
    :vann/usageNote
-   {:rdf/language "en",
-    :rdf/value
-    "This class is intended to describe biographical events, i.e. events in the life of a person."},
+   "This class is intended to describe biographical events, i.e. events in the life of a person.",
    :vs/term_status "testing"})
 
 (def Execution
@@ -436,41 +550,60 @@
    :dc11/issued "2010-05-05",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person being deliberately killed as punishment."},
+   "The event of a person being deliberately killed as punishment.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Execution"},
-   :rdfs/subClassOf :bio/Death,
+   :rdfs/label "Execution",
+   :rdfs/subClassOf [:bio/Death
+                     :bio/Execution
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     :bio/IndividualEvent
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Formation
   "The event of a group or organization coming into being."
-  {:db/ident :bio/Formation,
-   :dc11/issued "2011-06-10",
-   :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "The event of a group or organization coming into being."},
+  {:db/ident         :bio/Formation,
+   :dc11/issued      "2011-06-10",
+   :rdf/type         :owl/Class,
+   :rdfs/comment     "The event of a group or organization coming into being.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Formation"},
-   :rdfs/subClassOf :bio/IndividualEvent,
-   :vs/term_status "unstable"})
+   :rdfs/label       "Formation",
+   :rdfs/subClassOf  [:bio/IndividualEvent
+                      :bio/Formation
+                      :dcmitype/Event
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :bio/principal,
+                       :rdf/type        :owl/Restriction}
+                      "http://linkedevents.org/ontology/Event"
+                      :bio/Event
+                      :event/Event],
+   :vs/term_status   "unstable"})
 
 (def Funeral
   "The event of marking a person's death with a ceremony."
   {:db/ident         :bio/Funeral,
    :dc11/issued      "2010-05-03",
    :rdf/type         :owl/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "The event of marking a person's death with a ceremony."},
+   :rdfs/comment     "The event of marking a person's death with a ceremony.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Funeral"},
-   :rdfs/subClassOf  :bio/IndividualEvent,
+   :rdfs/label       "Funeral",
+   :rdfs/subClassOf  [:bio/IndividualEvent
+                      :bio/Funeral
+                      :dcmitype/Event
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :bio/principal,
+                       :rdf/type        :owl/Restriction}
+                      "http://linkedevents.org/ontology/Event"
+                      :bio/Event
+                      :event/Event],
    :vs/term_status   "unstable"})
 
 (def Graduation
@@ -479,13 +612,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person being awarded educational diplomas or degrees."},
+   "The event of a person being awarded educational diplomas or degrees.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Graduation"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Graduation",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Graduation
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -499,16 +638,18 @@
   {:db/ident :bio/GroupEvent,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A type of event that is principally about one or more agents and their partnership. Other agents may be involved but the event is most significant for the partner agent."},
+   "A type of event that is principally about one or more agents and their partnership. Other agents may be involved but the event is most significant for the partner agent.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Group Event"},
+   :rdfs/label "Group Event",
    :rdfs/subClassOf [{:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
-                     :bio/Event],
+                     :bio/Event
+                     :bio/GroupEvent
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     "http://linkedevents.org/ontology/Event"
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Imprisonment
@@ -516,13 +657,19 @@
   {:db/ident :bio/Imprisonment,
    :dc11/issued "2010-05-04",
    :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "The event of a person being detained in a jail or prison."},
+   :rdfs/comment "The event of a person being detained in a jail or prison.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Imprisonment"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Imprisonment",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Imprisonment
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Inauguration
@@ -531,13 +678,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The ceremonial event marking the beginning of a person's term of office as a leader."},
+   "The ceremonial event marking the beginning of a person's term of office as a leader.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Inauguration"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Inauguration",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Inauguration
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def IndividualEvent
@@ -545,16 +698,18 @@
   {:db/ident :bio/IndividualEvent,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A type of event that is principally about a single person, group or organization. Other agents may be involved but the event is most significant for the principal agent."},
+   "A type of event that is principally about a single person, group or organization. Other agents may be involved but the event is most significant for the principal agent.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Individual Event"},
+   :rdfs/label "Individual Event",
    :rdfs/subClassOf [{:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :bio/Event],
+                     :bio/Event
+                     :bio/IndividualEvent
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     "http://linkedevents.org/ontology/Event"
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Interval
@@ -563,13 +718,10 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A extended interval of time related to a particular state of affairs, such as the lifespan of a person or a period of employment."},
+   "A extended interval of time related to a particular state of affairs, such as the lifespan of a person or a period of employment.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Interval"},
-   :rdfs/subClassOf :time/ProperInterval,
+   :rdfs/label "Interval",
+   :rdfs/subClassOf [:time/ProperInterval :bio/Interval],
    :vs/term_status "unstable"})
 
 (def Investiture
@@ -578,13 +730,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The ceremonial event of a person taking a public office or honour."},
+   "The ceremonial event of a person taking a public office or honour.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Investiture"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Investiture",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Investiture
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Marriage
@@ -594,13 +752,19 @@
    "http://sw.opencyc.org/2009/04/07/concept/en/WeddingEvent_Generic",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of creating uniting the participants into a new family unit, sometimes accompanied by a formal wedding ceremony. This is intended to cover a broad range of marriages including those given formal legal standing, common-law, or by convention. It is not restricted to marriages of two people of the opposite gender, but also includes polygamous and same-sex unions."},
+   "The event of creating uniting the participants into a new family unit, sometimes accompanied by a formal wedding ceremony. This is intended to cover a broad range of marriages including those given formal legal standing, common-law, or by convention. It is not restricted to marriages of two people of the opposite gender, but also includes polygamous and same-sex unions.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Marriage"},
-   :rdfs/subClassOf :bio/GroupEvent,
+   :rdfs/label "Marriage",
+   :rdfs/subClassOf [:bio/GroupEvent
+                     :bio/Marriage
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/minCardinality 2,
+                      :owl/onProperty     :bio/partner,
+                      :rdf/type           :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    "Marked as a stable term"},
@@ -620,13 +784,20 @@
    :dc11/issued "2010-05-05",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person being killed unlawfully with intent by the killer."},
+   "The event of a person being killed unlawfully with intent by the killer.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Murder"},
-   :rdfs/subClassOf :bio/Death,
+   :rdfs/label "Murder",
+   :rdfs/subClassOf [:bio/Death
+                     :bio/Murder
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     :bio/IndividualEvent
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def NameChange
@@ -634,12 +805,19 @@
   {:db/ident         :bio/NameChange,
    :dc11/issued      "2010-05-03",
    :rdf/type         :owl/Class,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value "The event of a person changing their name."},
+   :rdfs/comment     "The event of a person changing their name.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Change of Name"},
-   :rdfs/subClassOf  :bio/IndividualEvent,
+   :rdfs/label       "Change of Name",
+   :rdfs/subClassOf  [:bio/IndividualEvent
+                      :bio/NameChange
+                      :dcmitype/Event
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :bio/principal,
+                       :rdf/type        :owl/Restriction}
+                      "http://linkedevents.org/ontology/Event"
+                      :bio/Event
+                      :event/Event],
    :vs/term_status   "unstable"})
 
 (def Naturalization
@@ -648,13 +826,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person obtaining citizenship. Note that the place the naturalization event occurs at may be different from the state the person is obtaining citizenship of. "},
+   "The event of a person obtaining citizenship. Note that the place the naturalization event occurs at may be different from the state the person is obtaining citizenship of. ",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Naturalization"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Naturalization",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Naturalization
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -668,13 +852,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The ceremonial event held when a person receives authority to act in religious matters."},
+   "The ceremonial event held when a person receives authority to act in religious matters.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Ordination"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Ordination",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Ordination
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Performance
@@ -684,13 +874,19 @@
    :owl/equivalentClass "http://purl.org/ontology/mo/Performance",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc."},
+   "The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Performance"},
-   :rdfs/subClassOf :bio/GroupEvent,
+   :rdfs/label "Performance",
+   :rdfs/subClassOf [:bio/GroupEvent
+                     :bio/Performance
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/minCardinality 2,
+                      :owl/onProperty     :bio/partner,
+                      :rdf/type           :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def PositionChange
@@ -699,13 +895,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person changing the position they hold with an employer."},
+   "The event of a person changing the position they hold with an employer.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Change of Position"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Change of Position",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/PositionChange
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Promotion
@@ -714,13 +916,20 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person changing the position they hold with an employer to one with more importance or responsibility."},
+   "The event of a person changing the position they hold with an employer to one with more importance or responsibility.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Promotion"},
-   :rdfs/subClassOf :bio/PositionChange,
+   :rdfs/label "Promotion",
+   :rdfs/subClassOf [:bio/PositionChange
+                     :bio/Promotion
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     :bio/IndividualEvent
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Redundancy
@@ -729,13 +938,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person involuntarily giving up an office or position that is no longer needed. Redundancy is usually perceived to be the employer's fault and is usually due to conditions outside of the employee's control."},
+   "The event of a person involuntarily giving up an office or position that is no longer needed. Redundancy is usually perceived to be the employer's fault and is usually due to conditions outside of the employee's control.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Redundancy"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Redundancy",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Redundancy
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Relationship
@@ -745,12 +960,9 @@
    :owl/equivalentClass :rel/Relationship,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A particular type of connection existing between people, groups or organizations related to or having dealings with each other."},
+   "A particular type of connection existing between people, groups or organizations related to or having dealings with each other.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Agent Relationship"},
+   :rdfs/label "Agent Relationship",
    :vs/term_status "unstable"})
 
 (def Resignation
@@ -759,13 +971,19 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person voluntarily giving up or quitting their office or position."},
+   "The event of a person voluntarily giving up or quitting their office or position.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Resignation"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Resignation",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Resignation
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Retirement
@@ -774,46 +992,46 @@
    :dc11/issued "2010-05-03",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The event of a person exiting an occupational relationship with an employer after a qualifying time period. In many cultures retirement is expected and even required once the person reaches a particular age."},
+   "The event of a person exiting an occupational relationship with an employer after a qualifying time period. In many cultures retirement is expected and even required once the person reaches a particular age.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Retirement"},
-   :rdfs/subClassOf :bio/IndividualEvent,
+   :rdfs/label "Retirement",
+   :rdfs/subClassOf [:bio/IndividualEvent
+                     :bio/Retirement
+                     :dcmitype/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :bio/principal,
+                      :rdf/type        :owl/Restriction}
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def agent
   "A person, organization or group that plays a role in an event."
   {:db/ident :bio/agent,
    :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Agents"},
+   :label/plural "Agents",
    :owl/inverseOf :bio/event,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A person, organization or group that plays a role in an event."},
+   "A person, organization or group that plays a role in an event.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Agent"},
+   :rdfs/label "Agent",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/agent]})
 
 (def biography
   "An extended description or account of someone's life."
   {:db/ident :bio/biography,
    :dc11/issued "2010-06-05",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "An extended description or account of someone's life."},
+   :rdfs/comment "An extended description or account of someone's life.",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Biography"},
+   :rdfs/label "Biography",
+   :rdfs/subPropertyOf :bio/biography,
    :vann/usageNote
    "<p>It is expected that the value of this property is either a literal formatted with HTML markup or a pointer to an HTML document.</p>",
    :vs/term_status "unstable"})
@@ -821,19 +1039,15 @@
 (def birth
   "An birth event associated with a person, group or organization."
   {:db/ident :bio/birth,
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Birth Events"},
+   :label/plural "Birth Events",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An birth event associated with a person, group or organization."},
+   "An birth event associated with a person, group or organization.",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Birth Event"},
+   :rdfs/label "Birth Event",
    :rdfs/range :bio/Birth,
-   :rdfs/subPropertyOf [:bio/event :owl/differentFrom],
+   :rdfs/subPropertyOf [:bio/event :owl/differentFrom :bio/birth],
    :skos/historyNote {:dc11/creator "Alexandre Passant",
                       :dc11/date    "2011-07-12",
                       :rdf/value    "Proposed addition of the property"}})
@@ -842,18 +1056,15 @@
   "A biological child of a person."
   {:db/ident :bio/child,
    :dc11/issued "2010-05-03",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Children"},
+   :label/plural "Children",
    :owl/equivalentProperty :rel/parentOf,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "A biological child of a person. "},
+   :rdfs/comment "A biological child of a person. ",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Child"},
+   :rdfs/label "Child",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf :owl/differentFrom,
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/child],
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-06-06",
@@ -867,56 +1078,45 @@
   "An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event."
   {:db/ident :bio/concludingEvent,
    :dc11/issued "2010-05-06",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Concluding Event"},
+   :label/plural "Concluding Event",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event."},
+   "An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Concluding Event"},
+   :rdfs/label "Concluding Event",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/concludingEvent]})
 
 (def concurrentEvent
   "An event that occurs while this event is occurring. The events need not start or conclude at the same times."
   {:db/ident :bio/concurrentEvent,
    :dc11/issued "2010-05-06",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Concurrent Events"},
+   :label/plural "Concurrent Events",
    :rdf/type [:owl/SymmetricProperty :owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An event that occurs while this event is occurring. The events need not start or conclude at the same times."},
+   "An event that occurs while this event is occurring. The events need not start or conclude at the same times.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Concurrent Event"},
+   :rdfs/label "Concurrent Event",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/concurrentEvent]})
 
 (def date
   "The date at which an event occurred."
   {:db/ident :bio/date,
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Dates"},
+   :label/plural "Dates",
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The date at which an event occurred."},
+   :rdfs/comment "The date at which an event occurred.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Date"},
-   :rdfs/subPropertyOf :dc11/date,
+   :rdfs/label "Date",
+   :rdfs/subPropertyOf [:dc11/date :bio/date],
    :skos/changeNote [{:dc11/creator "Ian Davis",
-                      :dc11/date    "2010-05-04",
-                      :rdf/value    "Marked as a stable term"}
-                     {:dc11/creator "Ian Davis",
                       :dc11/date    "2010-05-03",
-                      :rdf/value    "Added a plural label"}],
+                      :rdf/value    "Added a plural label"}
+                     {:dc11/creator "Ian Davis",
+                      :dc11/date    "2010-05-04",
+                      :rdf/value    "Marked as a stable term"}],
    :vann/usageNote
    "<p>The date should be formatted as specified in <a href=\"http://www.w3.org/TR/NOTE-datetime\">ISO8601</a>.\n    For example: 2003-03-15 corresponds to the 15th March 2003, and 2003-03-15T13:21-05:00 corresponds to 15th March 2003, 8:21 am, US Eastern Standard Time.</p>",
    :vs/term_status "stable"})
@@ -924,65 +1124,53 @@
 (def death
   "An death event associated with a person, group or organization."
   {:db/ident :bio/death,
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Death Events"},
+   :label/plural "Death Events",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An death event associated with a person, group or organization."},
+   "An death event associated with a person, group or organization.",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Death Event"},
+   :rdfs/label "Death Event",
    :rdfs/range :bio/Death,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/event],
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/event :bio/death],
    :skos/historyNote {:dc11/creator "Alexandre Passant",
                       :dc11/date    "2011-07-12",
                       :rdf/value    "Proposed addition of the property"}})
 
 (def employer
   "An agent that is involved in an event as an employer."
-  {:db/ident :bio/employer,
-   :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Employers"},
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "An agent that is involved in an event as an employer."},
-   :rdfs/domain :bio/Event,
-   :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Employer"},
-   :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf :bio/agent})
+  {:db/ident           :bio/employer,
+   :dc11/issued        "2010-05-05",
+   :label/plural       "Employers",
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "An agent that is involved in an event as an employer.",
+   :rdfs/domain        :bio/Event,
+   :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
+   :rdfs/label         "Employer",
+   :rdfs/range         :foaf/Agent,
+   :rdfs/subPropertyOf [:bio/agent :bio/employer :owl/differentFrom]})
 
 (def event
   "An event associated with a person, group or organization."
   {:db/ident :bio/event,
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Life Events"},
+   :label/plural "Life Events",
    :owl/inverseOf :bio/agent,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "An event associated with a person, group or organization."},
+   :rdfs/comment "An event associated with a person, group or organization.",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Life Event"},
+   :rdfs/label "Life Event",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf :owl/differentFrom,
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/event],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-03",
                      :rdf/value    "Added a plural label"},
    :skos/historyNote [{:dc11/creator "Ian Davis",
-                       :dc11/date    "2011-06-14",
-                       :rdf/value    "Changed domain to foaf:Agent"}
+                       :dc11/date    "2010-05-03",
+                       :rdf/value    "Made a subproperty of owl:differentFrom"}
                       {:dc11/creator "Ian Davis",
-                       :dc11/date "2010-05-03",
-                       :rdf/value "Made a subproperty of owl:differentFrom"}]})
+                       :dc11/date    "2011-06-14",
+                       :rdf/value    "Changed domain to foaf:Agent"}]})
 
 (def eventInterval
   "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."
@@ -990,14 +1178,12 @@
    :dc11/issued "2010-06-05",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."},
+   "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Event Interval"},
+   :rdfs/label "Event Interval",
    :rdfs/range :bio/Interval,
+   :rdfs/subPropertyOf :bio/eventInterval,
    :vs/term_status "unstable"})
 
 (def father
@@ -1006,14 +1192,12 @@
    :dc11/issued "2010-05-03",
    :rdf/type [:owl/ObjectProperty :rdf/Property :owl/FunctionalProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "The biological father of a person, also known as the genitor."},
+   "The biological father of a person, also known as the genitor.",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Father"},
+   :rdfs/label "Father",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:rel/childOf :owl/differentFrom],
+   :rdfs/subPropertyOf [:rel/childOf :owl/differentFrom :bio/father],
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-06-06",
@@ -1027,102 +1211,84 @@
   "An event that starts at some time after this event."
   {:db/ident           :bio/followingEvent,
    :dc11/issued        "2010-05-06",
-   :label/plural       {:rdf/language "en",
-                        :rdf/value    "Following Events"},
+   :label/plural       "Following Events",
    :rdf/type           [:owl/ObjectProperty
                         :owl/TransitiveProperty
                         :rdf/Property],
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value
-                        "An event that starts at some time after this event."},
+   :rdfs/comment       "An event that starts at some time after this event.",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Following Event"},
+   :rdfs/label         "Following Event",
    :rdfs/range         :bio/Event,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/followingEvent]})
 
 (def immediatelyFollowingEvent
   "An event that starts immediately after this event."
   {:db/ident           :bio/immediatelyFollowingEvent,
    :dc11/issued        "2010-05-06",
-   :label/plural       {:rdf/language "en",
-                        :rdf/value    "Immediately Following Events"},
+   :label/plural       "Immediately Following Events",
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value
-                        "An event that starts immediately after this event."},
+   :rdfs/comment       "An event that starts immediately after this event.",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Immediately Following Event"},
+   :rdfs/label         "Immediately Following Event",
    :rdfs/range         :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/followingEvent]})
+   :rdfs/subPropertyOf [:owl/differentFrom
+                        :bio/followingEvent
+                        :bio/immediatelyFollowingEvent]})
 
 (def immediatelyPrecedingEvent
   "An event that occurs and concludes immediately before this event."
   {:db/ident :bio/immediatelyPrecedingEvent,
    :dc11/issued "2010-05-06",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Immediately Preceding Events"},
+   :label/plural "Immediately Preceding Events",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An event that occurs and concludes immediately before this event."},
+   "An event that occurs and concludes immediately before this event.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Immediately Preceding Event"},
+   :rdfs/label "Immediately Preceding Event",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/precedingEvent]})
+   :rdfs/subPropertyOf
+   [:owl/differentFrom :bio/precedingEvent :bio/immediatelyPrecedingEvent]})
 
 (def initiatingEvent
   "An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event."
   {:db/ident :bio/initiatingEvent,
    :dc11/issued "2010-05-06",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Initiating Event"},
+   :label/plural "Initiating Event",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event."},
+   "An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event.",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Initiating Event"},
+   :rdfs/label "Initiating Event",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/initiatingEvent]})
 
 (def interval
   "The interval during which the relationship persists."
-  {:db/ident         :bio/interval,
-   :dc11/issued      "2010-06-05",
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "The interval during which the relationship persists."},
-   :rdfs/domain      :bio/Relationship,
-   :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Relationship Interval"},
-   :rdfs/range       :bio/Interval,
-   :vs/term_status   "unstable"})
+  {:db/ident           :bio/interval,
+   :dc11/issued        "2010-06-05",
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "The interval during which the relationship persists.",
+   :rdfs/domain        :bio/Relationship,
+   :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
+   :rdfs/label         "Relationship Interval",
+   :rdfs/range         :bio/Interval,
+   :rdfs/subPropertyOf :bio/interval,
+   :vs/term_status     "unstable"})
 
 (def keywords
   "A comma delimited list of key words that describe a person."
   {:db/ident :bio/keywords,
    :dc11/issued "2003-07-28",
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "A comma delimited list of key words that describe a person."},
+   :rdfs/comment "A comma delimited list of key words that describe a person.",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Key Words"},
+   :rdfs/label "Key Words",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dc11/subject,
+   :rdfs/subPropertyOf [:dc11/subject :bio/keywords],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    "Marked as a stable term"},
@@ -1137,15 +1303,12 @@
    :dc11/issued "2010-05-03",
    :rdf/type [:owl/ObjectProperty :rdf/Property :owl/FunctionalProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The biological mother of a person, also known as the genetrix."},
+   "The biological mother of a person, also known as the genetrix.",
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Mother"},
+   :rdfs/label "Mother",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :rel/childOf],
+   :rdfs/subPropertyOf [:owl/differentFrom :rel/childOf :bio/mother],
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-06-06",
@@ -1159,239 +1322,192 @@
   "A person that officiates at a ceremonial event."
   {:db/ident           :bio/officiator,
    :dc11/issued        "2010-05-05",
-   :label/plural       {:rdf/language "en",
-                        :rdf/value    "Officiators"},
+   :label/plural       "Officiators",
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value
-                        "A person that officiates at a ceremonial event."},
+   :rdfs/comment       "A person that officiates at a ceremonial event.",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Officiator"},
+   :rdfs/label         "Officiator",
    :rdfs/range         :foaf/Person,
-   :rdfs/subPropertyOf :bio/agent})
+   :rdfs/subPropertyOf [:bio/agent :bio/officiator :owl/differentFrom]})
 
 (def olb
   "A one-line biography of the person."
-  {:db/ident         :bio/olb,
-   :rdf/type         [:rdf/Property :owl/DatatypeProperty],
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "A one-line biography of the person."},
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "One-line bio"},
-   :rdfs/range       :rdfs/Literal,
-   :skos/changeNote  {:dc11/creator "Ian Davis",
-                      :dc11/date    "2010-05-04",
-                      :rdf/value    "Marked as a stable term"},
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date "2010-05-03",
-                      :rdf/value "Declared that this is a datatype property"},
-   :vs/term_status   "stable"})
+  {:db/ident           :bio/olb,
+   :rdf/type           [:rdf/Property :owl/DatatypeProperty],
+   :rdfs/comment       "A one-line biography of the person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
+   :rdfs/label         "One-line bio",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :bio/olb,
+   :skos/changeNote    {:dc11/creator "Ian Davis",
+                        :dc11/date    "2010-05-04",
+                        :rdf/value    "Marked as a stable term"},
+   :skos/historyNote   {:dc11/creator "Ian Davis",
+                        :dc11/date "2010-05-03",
+                        :rdf/value "Declared that this is a datatype property"},
+   :vs/term_status     "stable"})
 
 (def organization
   "An organization that plays a role in an event."
   {:db/ident           :bio/organization,
    :dc11/issued        "2010-05-05",
-   :label/plural       {:rdf/language "en",
-                        :rdf/value    "Organizations"},
+   :label/plural       "Organizations",
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value
-                        "An organization that plays a role in an event."},
+   :rdfs/comment       "An organization that plays a role in an event.",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Organization"},
+   :rdfs/label         "Organization",
    :rdfs/range         :foaf/Person,
-   :rdfs/subPropertyOf :bio/agent})
+   :rdfs/subPropertyOf [:bio/agent :bio/organization :owl/differentFrom]})
 
 (def parent
   "A person that takes the parent role in an event."
   {:db/ident           :bio/parent,
    :dc11/issued        "2010-05-05",
-   :label/plural       {:rdf/language "en",
-                        :rdf/value    "Parents"},
+   :label/plural       "Parents",
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       {:rdf/language "en",
-                        :rdf/value
-                        "A person that takes the parent role in an event."},
+   :rdfs/comment       "A person that takes the parent role in an event.",
    :rdfs/domain        :bio/Event,
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label         {:rdf/language "en",
-                        :rdf/value    "Parent"},
+   :rdfs/label         "Parent",
    :rdfs/range         :foaf/Person,
-   :rdfs/subPropertyOf :bio/agent})
+   :rdfs/subPropertyOf [:bio/agent :bio/parent :owl/differentFrom]})
 
 (def participant
   "A person, group or organization that participates in a relationship for some time."
   {:db/ident :bio/participant,
    :dc11/issued "2011-06-14",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Participants"},
+   :label/plural "Participants",
    :owl/equivalentProperty :rel/participant,
    :owl/inverseOf :bio/relationship,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A person, group or organization that participates in a relationship for some time."},
+   "A person, group or organization that participates in a relationship for some time.",
    :rdfs/domain :bio/Relationship,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Participant"},
+   :rdfs/label "Participant",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/participant]})
 
 (def partner
   "A person that is involved in a event as a partner in a relationship."
   {:db/ident :bio/partner,
    :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Partners"},
+   :label/plural "Partners",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A person that is involved in a event as a partner in a relationship."},
+   "A person that is involved in a event as a partner in a relationship.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Partner"},
+   :rdfs/label "Partner",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf :bio/agent})
+   :rdfs/subPropertyOf [:bio/agent :bio/partner :owl/differentFrom]})
 
 (def place
   "The place at which an event occurred."
-  {:db/ident         :bio/place,
-   :label/plural     {:rdf/language "en",
-                      :rdf/value    "Places"},
-   :rdf/type         :rdf/Property,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value    "The place at which an event occurred."},
-   :rdfs/domain      :bio/Event,
-   :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Place"},
-   :skos/changeNote  [{:dc11/creator "Ian Davis",
-                       :dc11/date    "2010-05-04",
-                       :rdf/value    "Marked as a stable term"}
-                      {:dc11/creator "Ian Davis",
-                       :dc11/date    "2010-05-03",
-                       :rdf/value    "Added a plural label"}],
-   :vs/term_status   "stable"})
+  {:db/ident           :bio/place,
+   :label/plural       "Places",
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       "The place at which an event occurred.",
+   :rdfs/domain        :bio/Event,
+   :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
+   :rdfs/label         "Place",
+   :rdfs/subPropertyOf :bio/place,
+   :skos/changeNote    [{:dc11/creator "Ian Davis",
+                         :dc11/date    "2010-05-04",
+                         :rdf/value    "Marked as a stable term"}
+                        {:dc11/creator "Ian Davis",
+                         :dc11/date    "2010-05-03",
+                         :rdf/value    "Added a plural label"}],
+   :vs/term_status     "stable"})
 
 (def position
   "The employment position or public office involved in an event."
   {:db/ident :bio/position,
    :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Positions"},
+   :label/plural "Positions",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The employment position or public office involved in an event."},
+   "The employment position or public office involved in an event.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Position"},
+   :rdfs/label "Position",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf :bio/agent,
+   :rdfs/subPropertyOf [:bio/agent :bio/position :owl/differentFrom],
    :vs/term_status "unstable"})
 
 (def precedingEvent
   "An event that occurs and concludes at some time before this event."
   {:db/ident :bio/precedingEvent,
    :dc11/issued "2010-05-06",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Preceding Events"},
+   :label/plural "Preceding Events",
    :rdf/type [:owl/TransitiveProperty :owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An event that occurs and concludes at some time before this event."},
+   "An event that occurs and concludes at some time before this event.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Preceding Event"},
+   :rdfs/label "Preceding Event",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/precedingEvent]})
 
 (def principal
   "A person that takes the primary and most important role in an event. For example the principal in a Birth event would be the child being born and the principal in a Burial event would be the deceased person."
   {:db/ident :bio/principal,
    :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Principals"},
+   :label/plural "Principals",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A person that takes the primary and most important role in an event. For example the principal in a Birth event would be the child being born and the principal in a Burial event would be the deceased person."},
+   "A person that takes the primary and most important role in an event. For example the principal in a Birth event would be the child being born and the principal in a Burial event would be the deceased person.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Principal"},
+   :rdfs/label "Principal",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf :bio/agent})
+   :rdfs/subPropertyOf [:bio/agent :bio/principal :owl/differentFrom]})
 
 (def relationship
   "A relationship that a person, group or organization participates in for some time."
   {:db/ident :bio/relationship,
    :dc11/issued "2011-06-14",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Relationships"},
+   :label/plural "Relationships",
    :owl/equivalentProperty :rel/participantIn,
    :owl/inverseOf :bio/participant,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A relationship that a person, group or organization participates in for some time."},
+   "A relationship that a person, group or organization participates in for some time.",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Relationship"},
+   :rdfs/label "Relationship",
    :rdfs/range :bio/Relationship,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/relationship]})
 
 (def spectator
   "A person that is present at and observes the occurrence of at least part of an event."
   {:db/ident :bio/spectator,
    :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Spectators"},
+   :label/plural "Spectators",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A person that is present at and observes the occurrence of at least part of an event."},
+   "A person that is present at and observes the occurrence of at least part of an event.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Spectator"},
+   :rdfs/label "Spectator",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf :bio/agent})
+   :rdfs/subPropertyOf [:bio/agent :bio/spectator :owl/differentFrom]})
 
 (def state
   "A country or independent territory that is involved in an event."
   {:db/ident :bio/state,
    :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "States"},
+   :label/plural "States",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A country or independent territory that is involved in an event."},
+   "A country or independent territory that is involved in an event.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "State"},
-   :rdfs/subPropertyOf :bio/agent})
+   :rdfs/label "State",
+   :rdfs/subPropertyOf [:bio/agent :bio/state :owl/differentFrom]})
 
 (def termgroup1
   "Properties of a person"
@@ -1406,8 +1522,7 @@
    :rdf/_8     :bio/birth,
    :rdf/_9     :bio/death,
    :rdf/type   :rdf/Bag,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Properties of a person"}})
+   :rdfs/label "Properties of a person"})
 
 (def termgroup2
   "Types of event"
@@ -1450,8 +1565,7 @@
    :rdf/_8     :bio/Baptism,
    :rdf/_9     :bio/BarMitzvah,
    :rdf/type   :rdf/Bag,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Types of event"}})
+   :rdfs/label "Types of event"})
 
 (def termgroup3
   "Properties of an event"
@@ -1461,8 +1575,7 @@
    :rdf/_3     :bio/state,
    :rdf/_4     :bio/position,
    :rdf/type   :rdf/Bag,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Properties of an event"}})
+   :rdfs/label "Properties of an event"})
 
 (def termgroup4
   "Properties that relate an event to an agent"
@@ -1477,8 +1590,7 @@
    :rdf/_8     :bio/witness,
    :rdf/_9     :bio/spectator,
    :rdf/type   :rdf/Bag,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Properties that relate an event to an agent"}})
+   :rdfs/label "Properties that relate an event to an agent"})
 
 (def termgroup5
   "Properties that relate an event to another event"
@@ -1489,26 +1601,32 @@
    :rdf/_4     :bio/immediatelyFollowingEvent,
    :rdf/_5     :bio/immediatelyPrecedingEvent,
    :rdf/type   :rdf/Bag,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value "Properties that relate an event to another event"}})
+   :rdfs/label "Properties that relate an event to another event"})
 
 (def witness
   "A person that witnesses and can bear testimony to the occurrence of an event."
   {:db/ident :bio/witness,
    :dc11/issued "2010-05-05",
-   :label/plural {:rdf/language "en",
-                  :rdf/value    "Witnesses"},
+   :label/plural "Witnesses",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A person that witnesses and can bear testimony to the occurrence of an event."},
+   "A person that witnesses and can bear testimony to the occurrence of an event.",
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Witness"},
+   :rdfs/label "Witness",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf :bio/spectator})
+   :rdfs/subPropertyOf
+   [:bio/spectator :bio/witness :bio/agent :owl/differentFrom]})
+
+(def ^{:private true} Event
+  {:db/ident        :dcmitype/Event,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :dcmitype/Event})
+
+(def ^{:private true} Event
+  {:db/ident        :event/Event,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :event/Event})
 
 (def ^{:private true} Person
   {:db/ident :foaf/Person,
@@ -1520,3 +1638,13 @@
                                                :rdf/type :owl/Restriction}],
                          :rdf/type :owl/Class},
    :rdf/type :owl/Class})
+
+(def ^{:private true} childOf
+  {:db/ident :rel/childOf,
+   :rdf/type :rdf/Property,
+   :rdfs/subPropertyOf :rel/childOf})
+
+(def ^{:private true} ProperInterval
+  {:db/ident        :time/ProperInterval,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :time/ProperInterval})

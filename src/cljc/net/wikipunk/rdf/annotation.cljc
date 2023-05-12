@@ -19,8 +19,8 @@
    :rdf/type         :rdfs/Class,
    :rdfs/comment     "The target type of a annotation resource.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Annotation"}})
+   :rdfs/label       "Annotation",
+   :rdfs/subClassOf  [:rdfs/Resource :annotation/Annotation]})
 
 (def annotates
   "Relates an Annotation to the resource to which the Annotation applies. The inverse relation is 'hasAnnotation'"
@@ -29,8 +29,8 @@
    :rdfs/comment
    "Relates an Annotation to the resource to which the Annotation applies.  The inverse relation is 'hasAnnotation'",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "annotates"}})
+   :rdfs/label "annotates",
+   :rdfs/subPropertyOf :annotation/annotates})
 
 (def author
   "The name of the person or organization most responsible for creating the Annotation."
@@ -39,9 +39,8 @@
    :rdfs/comment
    "The name of the person or organization most responsible for creating the Annotation.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "author"},
-   :rdfs/subPropertyOf :dc11/creator})
+   :rdfs/label "author",
+   :rdfs/subPropertyOf [:dc11/creator :annotation/author]})
 
 (def body
   "Relates the resource representing the 'content' of an Annotation to the Annotation resource"
@@ -50,9 +49,8 @@
    :rdfs/comment
    "Relates the resource representing the 'content' of an Annotation to the Annotation resource",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "body"},
-   :rdfs/subPropertyOf :annotation/related})
+   :rdfs/label "body",
+   :rdfs/subPropertyOf [:annotation/related :annotation/body]})
 
 (def context
   "The context within the resource named in 'annotates' to which the Annotation most directly applies."
@@ -61,8 +59,8 @@
    :rdfs/comment
    "The context within the resource named in 'annotates' to which the Annotation most directly applies.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "context"}})
+   :rdfs/label "context",
+   :rdfs/subPropertyOf :annotation/context})
 
 (def created
   "The date and time on which the Annotation was created. yyyy-mm-ddThh:mm:ssZ format recommended."
@@ -71,9 +69,8 @@
    :rdfs/comment
    "The date and time on which the Annotation was created.  yyyy-mm-ddThh:mm:ssZ format recommended.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "created"},
-   :rdfs/subPropertyOf :dc11/date})
+   :rdfs/label "created",
+   :rdfs/subPropertyOf [:dc11/date :annotation/created]})
 
 (def modified
   "Annotations currently use http://purl.org/dc/elements/1.1/date directly The date and time on which the Annotation was modified. yyyy-mm-ddThh:mm:ssZ format recommended."
@@ -83,9 +80,8 @@
    ["Annotations currently use http://purl.org/dc/elements/1.1/date directly"
     "The date and time on which the Annotation was modified.  yyyy-mm-ddThh:mm:ssZ format recommended."],
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "modified"},
-   :rdfs/subPropertyOf :dc11/date})
+   :rdfs/label "modified",
+   :rdfs/subPropertyOf [:dc11/date :annotation/modified]})
 
 (def related
   "A relationship between an annotation and additional resources that is less specific than 'body'. The 'related' property is expected to be subclassed by more specific relationships."
@@ -94,5 +90,5 @@
    :rdfs/comment
    "A relationship between an annotation and additional resources that is less specific than 'body'.  The 'related' property is expected to be\n subclassed by more specific relationships.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "related"}})
+   :rdfs/label "related",
+   :rdfs/subPropertyOf :annotation/related})

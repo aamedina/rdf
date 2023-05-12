@@ -3,16 +3,12 @@
   {:dc11/creator "http://iandavis.com/id/me",
    :dc11/date "2010-06-07",
    :dc11/description
-   {:rdf/language "en",
-    :rdf/value
-    "This document describes a vocabulary for annotating descriptions of vocabularies with examples and usage notes."},
+   "This document describes a vocabulary for annotating descriptions of vocabularies with examples and usage notes.",
    :dc11/identifier "http://purl.org/vocab/vann/vann-vocab-20050401",
    :dc11/isVersionOf "http://purl.org/vocab/vann/",
    :dc11/replaces :vann/vann-vocab-20040305,
    :dc11/rights "Copyright © 2005 Ian Davis",
-   :dc11/title {:rdf/language "en",
-                :rdf/value
-                "VANN: A vocabulary for annotating vocabulary descriptions"},
+   :dc11/title "VANN: A vocabulary for annotating vocabulary descriptions",
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf",
    :rdf/ns-prefix-map {"bio"    "http://purl.org/vocab/bio/0.1/",
                        "cc"     "http://web.resource.org/cc/",
@@ -34,70 +30,53 @@
   {:db/ident :vann/changes,
    :rdf/type :owl/AnnotationProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A reference to a resource that describes changes between this version of a vocabulary and the previous."},
+   "A reference to a resource that describes changes between this version of a vocabulary and the previous.",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Changes"},
-   :rdfs/subPropertyOf :rdfs/seeAlso})
+   :rdfs/label "Changes",
+   :rdfs/subPropertyOf [:rdfs/seeAlso :vann/changes]})
 
 (def example
   "A reference to a resource that provides an example of how this resource can be used."
   {:db/ident :vann/example,
    :rdf/type :owl/AnnotationProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A reference to a resource that provides an example of how this resource can be used."},
+   "A reference to a resource that provides an example of how this resource can be used.",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Example"},
-   :rdfs/subPropertyOf :rdfs/seeAlso})
+   :rdfs/label "Example",
+   :rdfs/subPropertyOf [:rdfs/seeAlso :vann/example]})
 
 (def preferredNamespacePrefix
   "The preferred namespace prefix to use when using terms from this vocabulary in an XML document."
   {:db/ident :vann/preferredNamespacePrefix,
    :rdf/type :owl/AnnotationProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The preferred namespace prefix to use when using terms from this vocabulary in an XML document."},
+   "The preferred namespace prefix to use when using terms from this vocabulary in an XML document.",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Preferred Namespace Prefix"}})
+   :rdfs/label "Preferred Namespace Prefix"})
 
 (def preferredNamespaceUri
   "The preferred namespace URI to use when using terms from this vocabulary in an XML document."
   {:db/ident :vann/preferredNamespaceUri,
    :rdf/type :owl/AnnotationProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The preferred namespace URI to use when using terms from this vocabulary in an XML document."},
+   "The preferred namespace URI to use when using terms from this vocabulary in an XML document.",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Preferred Namespace Uri"}})
+   :rdfs/label "Preferred Namespace Uri"})
 
 (def termGroup
   "A group of related terms in a vocabulary."
   {:db/ident         :vann/termGroup,
    :rdf/type         :owl/AnnotationProperty,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value "A group of related terms in a vocabulary."},
+   :rdfs/comment     "A group of related terms in a vocabulary.",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
-   :rdfs/label       {:rdf/language "en",
-                      :rdf/value    "Term Group"}})
+   :rdfs/label       "Term Group"})
 
 (def usageNote
   "A reference to a resource that provides information on how this resource is to be used."
   {:db/ident :vann/usageNote,
    :rdf/type :owl/AnnotationProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A reference to a resource that provides information on how this resource is to be used."},
+   "A reference to a resource that provides information on how this resource is to be used.",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Usage Note"},
-   :rdfs/subPropertyOf :rdfs/seeAlso})
+   :rdfs/label "Usage Note",
+   :rdfs/subPropertyOf [:rdfs/seeAlso :vann/usageNote]})

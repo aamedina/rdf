@@ -12,285 +12,233 @@
    :rdf/type :owl/Ontology,
    :rdfa/prefix "as",
    :rdfa/uri "http://www.w3.org/ns/activitystreams#",
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Extended Activity Streams 2.0 Vocabulary"},
+   :rdfs/comment "Extended Activity Streams 2.0 Vocabulary",
    :rdfs/isDefinedBy {:rdf/uri
                       "https://www.w3.org/TR/activitystreams-vocabulary/"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity Streams 2.0"}}
+   :rdfs/label "Activity Streams 2.0"}
   (:refer-clojure :exclude [first last name next]))
 
 (def Accept
   "Actor accepts the Object"
   {:db/ident        :as/Accept,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "Actor accepts the Object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Accept"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "Actor accepts the Object",
+   :rdfs/label      "Accept",
+   :rdfs/subClassOf [:as/Activity :as/Accept :as/Object]})
 
 (def Activity
   "An Object representing some form of Action that has been taken"
   {:db/ident :as/Activity,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An Object representing some form of Action that has been taken"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity"},
-   :rdfs/subClassOf :as/Object})
+   "An Object representing some form of Action that has been taken",
+   :rdfs/label "Activity",
+   :rdfs/subClassOf [:as/Object :as/Activity]})
 
 (def Add
   "To Add an Object or Link to Something"
   {:db/ident        :as/Add,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Add an Object or Link to Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Add"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Add an Object or Link to Something",
+   :rdfs/label      "Add",
+   :rdfs/subClassOf [:as/Activity :as/Add :as/Object]})
 
 (def Announce
   "Actor announces the object to the target"
   {:db/ident        :as/Announce,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "Actor announces the object to the target"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Announce"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "Actor announces the object to the target",
+   :rdfs/label      "Announce",
+   :rdfs/subClassOf [:as/Activity :as/Announce :as/Object]})
 
 (def Application
   "Represents a software application of any sort"
   {:db/ident        :as/Application,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value
-                     "Represents a software application of any sort"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Application"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "Represents a software application of any sort",
+   :rdfs/label      "Application",
+   :rdfs/subClassOf [:as/Object :as/Application]})
 
 (def Arrive
   "To Arrive Somewhere (can be used, for instance, to indicate that a particular entity is currently located somewhere, e.g. a \"check-in\")"
   {:db/ident :as/Arrive,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "To Arrive Somewhere (can be used, for instance, to indicate that a particular entity is currently located somewhere, e.g. a \"check-in\")"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Arrive"},
-   :rdfs/subClassOf :as/IntransitiveActivity})
+   "To Arrive Somewhere (can be used, for instance, to indicate that a particular entity is currently located somewhere, e.g. a \"check-in\")",
+   :rdfs/label "Arrive",
+   :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Arrive
+                     :as/Activity
+                     :as/Object
+                     {:owl/maxCardinality 0,
+                      :owl/onProperty     :as/object,
+                      :rdf/type           :owl/Restriction}]})
 
 (def Article
   "A written work. Typically several paragraphs long. For example, a blog post or a news article."
   {:db/ident :as/Article,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A written work. Typically several paragraphs long. For example, a blog post or a news article."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Article"},
-   :rdfs/subClassOf :as/Object})
+   "A written work. Typically several paragraphs long. For example, a blog post or a news article.",
+   :rdfs/label "Article",
+   :rdfs/subClassOf [:as/Object :as/Article]})
 
 (def Audio
   "An audio file"
   {:db/ident        :as/Audio,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "An audio file"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Audio"},
-   :rdfs/subClassOf :as/Document})
+   :rdfs/comment    "An audio file",
+   :rdfs/label      "Audio",
+   :rdfs/subClassOf [:as/Document :as/Audio :as/Object]})
 
 (def Block
   "Block"
   {:db/ident        :as/Block,
    :rdf/type        :owl/Class,
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Block"},
-   :rdfs/subClassOf :as/Ignore})
+   :rdfs/label      "Block",
+   :rdfs/subClassOf [:as/Ignore :as/Block :as/Activity :as/Object]})
 
 (def Collection
   "An ordered or unordered collection of Objects or Links"
   {:db/ident        :as/Collection,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value
-                     "An ordered or unordered collection of Objects or Links"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Collection"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "An ordered or unordered collection of Objects or Links",
+   :rdfs/label      "Collection",
+   :rdfs/subClassOf [:as/Object :as/Collection]})
 
 (def CollectionPage
   "A subset of items from a Collection"
   {:db/ident        :as/CollectionPage,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A subset of items from a Collection"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "CollectionPage"},
-   :rdfs/subClassOf :as/Collection})
+   :rdfs/comment    "A subset of items from a Collection",
+   :rdfs/label      "CollectionPage",
+   :rdfs/subClassOf [:as/Collection :as/CollectionPage :as/Object]})
 
 (def Create
   "To Create Something"
   {:db/ident        :as/Create,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Create Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Create"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Create Something",
+   :rdfs/label      "Create",
+   :rdfs/subClassOf [:as/Activity :as/Create :as/Object]})
 
 (def Delete
   "To Delete Something"
   {:db/ident        :as/Delete,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Delete Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Delete"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Delete Something",
+   :rdfs/label      "Delete",
+   :rdfs/subClassOf [:as/Activity :as/Delete :as/Object]})
 
 (def Dislike
   "The actor dislikes the object"
   {:db/ident        :as/Dislike,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "The actor dislikes the object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Dislike"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "The actor dislikes the object",
+   :rdfs/label      "Dislike",
+   :rdfs/subClassOf [:as/Activity :as/Dislike :as/Object]})
 
 (def Document
   "Represents a digital document/file of any sort"
   {:db/ident        :as/Document,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value
-                     "Represents a digital document/file of any sort"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Document"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "Represents a digital document/file of any sort",
+   :rdfs/label      "Document",
+   :rdfs/subClassOf [:as/Object :as/Document]})
 
 (def Event
   "An Event of any kind"
   {:db/ident        :as/Event,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "An Event of any kind"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Event"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "An Event of any kind",
+   :rdfs/label      "Event",
+   :rdfs/subClassOf [:as/Object :as/Event]})
 
 (def Flag
   "To flag something (e.g. flag as inappropriate, flag as spam, etc)"
   {:db/ident :as/Flag,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "To flag something (e.g. flag as inappropriate, flag as spam, etc)"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Flag"},
-   :rdfs/subClassOf :as/Activity})
+   "To flag something (e.g. flag as inappropriate, flag as spam, etc)",
+   :rdfs/label "Flag",
+   :rdfs/subClassOf [:as/Activity :as/Flag :as/Object]})
 
 (def Follow
   "To Express Interest in Something"
   {:db/ident        :as/Follow,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Express Interest in Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Follow"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Express Interest in Something",
+   :rdfs/label      "Follow",
+   :rdfs/subClassOf [:as/Activity :as/Follow :as/Object]})
 
 (def Group
   "A Group of any kind."
   {:db/ident        :as/Group,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A Group of any kind."},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Group"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "A Group of any kind.",
+   :rdfs/label      "Group",
+   :rdfs/subClassOf [:as/Object :as/Group]})
 
 (def Ignore
   "Actor is ignoring the Object"
   {:db/ident        :as/Ignore,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "Actor is ignoring the Object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Ignore"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "Actor is ignoring the Object",
+   :rdfs/label      "Ignore",
+   :rdfs/subClassOf [:as/Activity :as/Ignore :as/Object]})
 
 (def Image
   "An Image file"
   {:db/ident        :as/Image,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "An Image file"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Image"},
-   :rdfs/subClassOf :as/Document})
+   :rdfs/comment    "An Image file",
+   :rdfs/label      "Image",
+   :rdfs/subClassOf [:as/Document :as/Image :as/Object]})
 
 (def IntransitiveActivity
   "An Activity that has no direct object"
   {:db/ident        :as/IntransitiveActivity,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "An Activity that has no direct object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "IntransitiveActivity"},
+   :rdfs/comment    "An Activity that has no direct object",
+   :rdfs/label      "IntransitiveActivity",
    :rdfs/subClassOf [{:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
                       :rdf/type           :owl/Restriction}
-                     :as/Activity]})
+                     :as/Activity
+                     :as/IntransitiveActivity
+                     :as/Object]})
 
 (def Invite
   "To invite someone or something to something"
   {:db/ident        :as/Invite,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value "To invite someone or something to something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Invite"},
-   :rdfs/subClassOf :as/Offer})
+   :rdfs/comment    "To invite someone or something to something",
+   :rdfs/label      "Invite",
+   :rdfs/subClassOf [:as/Offer :as/Invite :as/Activity :as/Object]})
 
 (def Join
   "To Join Something"
   {:db/ident        :as/Join,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Join Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Join"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Join Something",
+   :rdfs/label      "Join",
+   :rdfs/subClassOf [:as/Activity :as/Join :as/Object]})
 
 (def Leave
   "To Leave Something"
   {:db/ident        :as/Leave,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Leave Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Leave"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Leave Something",
+   :rdfs/label      "Leave",
+   :rdfs/subClassOf [:as/Activity :as/Leave :as/Object]})
 
 (def Like
   "To Like Something"
   {:db/ident        :as/Like,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Like Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Like"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Like Something",
+   :rdfs/label      "Like",
+   :rdfs/subClassOf [:as/Activity :as/Like :as/Object]})
 
 (def Link
   "Represents a qualified reference to another resource. Patterned after the RFC5988 Web Linking Model"
@@ -298,32 +246,25 @@
    :owl/disjointWith :as/Object,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Represents a qualified reference to another resource. Patterned after the RFC5988 Web Linking Model"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Link"}})
+   "Represents a qualified reference to another resource. Patterned after the RFC5988 Web Linking Model",
+   :rdfs/label "Link",
+   :rdfs/subClassOf :as/Link})
 
 (def Listen
   "The actor listened to the object"
   {:db/ident        :as/Listen,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "The actor listened to the object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Listen"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "The actor listened to the object",
+   :rdfs/label      "Listen",
+   :rdfs/subClassOf [:as/Activity :as/Listen :as/Object]})
 
 (def Mention
   "A specialized Link that represents an @mention"
   {:db/ident        :as/Mention,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value
-                     "A specialized Link that represents an @mention"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Mention"},
-   :rdfs/subClassOf :as/Link})
+   :rdfs/comment    "A specialized Link that represents an @mention",
+   :rdfs/label      "Mention",
+   :rdfs/subClassOf [:as/Link :as/Mention]})
 
 (def Move
   "The actor is moving the object. The target specifies where the object is moving to. The origin specifies where the object is moving from."
@@ -331,236 +272,220 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "The actor is moving the object. The target specifies where the object is moving to. The origin specifies where the object is moving from.",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Move"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/label "Move",
+   :rdfs/subClassOf [:as/Activity :as/Move :as/Object]})
 
 (def Note
   "A Short note, typically less than a single paragraph. A \"tweet\" is an example, or a \"status update\""
   {:db/ident :as/Note,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A Short note, typically less than a single paragraph. A \"tweet\" is an example, or a \"status update\""},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Note"},
-   :rdfs/subClassOf :as/Object})
+   "A Short note, typically less than a single paragraph. A \"tweet\" is an example, or a \"status update\"",
+   :rdfs/label "Note",
+   :rdfs/subClassOf [:as/Object :as/Note]})
 
 (def ObjectClass
   "Object"
-  {:db/ident   :as/Object,
-   :rdf/type   :owl/Class,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Object"}})
+  {:db/ident        :as/Object,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Object",
+   :rdfs/subClassOf :as/Object})
 
 (def Offer
   "To Offer something to someone or something"
   {:db/ident        :as/Offer,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value "To Offer something to someone or something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Offer"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Offer something to someone or something",
+   :rdfs/label      "Offer",
+   :rdfs/subClassOf [:as/Activity :as/Offer :as/Object]})
 
 (def OrderedCollection
   "A variation of Collection in which items are strictly ordered"
   {:db/ident :as/OrderedCollection,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "A variation of Collection in which items are strictly ordered"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "OrderedCollection"},
-   :rdfs/subClassOf {:owl/intersectionOf [:as/Collection
-                                          {:owl/allValuesFrom
-                                           {:owl/intersectionOf
-                                            [:as/OrderedItems
-                                             {:owl/complementOf {:owl/unionOf
-                                                                 [:as/Object
-                                                                  :as/Link],
-                                                                 :rdf/type
-                                                                 :owl/Class},
-                                              :rdf/type         :owl/Class}],
-                                            :rdf/type :owl/Class},
-                                           :owl/onProperty :as/items,
-                                           :rdf/type :owl/Restriction}],
-                     :rdf/type :owl/Class}})
+   "A variation of Collection in which items are strictly ordered",
+   :rdfs/label "OrderedCollection",
+   :rdfs/subClassOf [{:owl/intersectionOf [:as/Collection
+                                           {:owl/allValuesFrom
+                                            {:owl/intersectionOf
+                                             [:as/OrderedItems
+                                              {:owl/complementOf {:owl/unionOf
+                                                                  [:as/Object
+                                                                   :as/Link],
+                                                                  :rdf/type
+                                                                  :owl/Class},
+                                               :rdf/type         :owl/Class}],
+                                             :rdf/type :owl/Class},
+                                            :owl/onProperty :as/items,
+                                            :rdf/type :owl/Restriction}],
+                      :rdf/type :owl/Class}
+                     :as/OrderedCollection]})
 
 (def OrderedCollectionPage
   "An ordered subset of items from an OrderedCollection"
   {:db/ident        :as/OrderedCollectionPage,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value
-                     "An ordered subset of items from an OrderedCollection"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "OrderedCollectionPage"},
-   :rdfs/subClassOf [:as/CollectionPage :as/OrderedCollection]})
+   :rdfs/comment    "An ordered subset of items from an OrderedCollection",
+   :rdfs/label      "OrderedCollectionPage",
+   :rdfs/subClassOf [:as/CollectionPage
+                     :as/OrderedCollection
+                     :as/OrderedCollectionPage
+                     :as/Object
+                     {:owl/intersectionOf [:as/Collection
+                                           {:owl/allValuesFrom
+                                            {:owl/intersectionOf
+                                             [:as/OrderedItems
+                                              {:owl/complementOf {:owl/unionOf
+                                                                  [:as/Object
+                                                                   :as/Link],
+                                                                  :rdf/type
+                                                                  :owl/Class},
+                                               :rdf/type         :owl/Class}],
+                                             :rdf/type :owl/Class},
+                                            :owl/onProperty :as/items,
+                                            :rdf/type :owl/Restriction}],
+                      :rdf/type :owl/Class}
+                     :as/Collection]})
 
 (def OrderedItems
   "A rdf:List variant for Objects and Links"
   {:db/ident        :as/OrderedItems,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A rdf:List variant for Objects and Links"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "OrderedItems"},
-   :rdfs/subClassOf {:owl/intersectionOf [:rdf/List
-                                          {:owl/allValuesFrom {:owl/unionOf
-                                                               [:as/Object
-                                                                :as/Link],
-                                                               :rdf/type
-                                                               :owl/Class},
-                                           :owl/onProperty    :rdf/first,
-                                           :rdf/type          :owl/Restriction}
-                                          {:owl/allValuesFrom :as/OrderedItems,
-                                           :owl/onProperty :rdf/rest,
-                                           :rdf/type :owl/Restriction}],
-                     :rdf/type :owl/Class}})
+   :rdfs/comment    "A rdf:List variant for Objects and Links",
+   :rdfs/label      "OrderedItems",
+   :rdfs/subClassOf [{:owl/intersectionOf [:rdf/List
+                                           {:owl/allValuesFrom {:owl/unionOf
+                                                                [:as/Object
+                                                                 :as/Link],
+                                                                :rdf/type
+                                                                :owl/Class},
+                                            :owl/onProperty    :rdf/first,
+                                            :rdf/type          :owl/Restriction}
+                                           {:owl/allValuesFrom :as/OrderedItems,
+                                            :owl/onProperty :rdf/rest,
+                                            :rdf/type :owl/Restriction}],
+                      :rdf/type :owl/Class}
+                     :as/OrderedItems]})
 
 (def Organization
   "An Organization"
   {:db/ident        :as/Organization,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "An Organization"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Organization"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "An Organization",
+   :rdfs/label      "Organization",
+   :rdfs/subClassOf [:as/Object :as/Organization]})
 
 (def Page
   "A Web Page"
   {:db/ident        :as/Page,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A Web Page"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Page"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "A Web Page",
+   :rdfs/label      "Page",
+   :rdfs/subClassOf [:as/Object :as/Page]})
 
 (def Person
   "A Person"
   {:db/ident        :as/Person,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A Person"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Person"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "A Person",
+   :rdfs/label      "Person",
+   :rdfs/subClassOf [:as/Object :as/Person]})
 
 (def Place
   "A physical or logical location"
   {:db/ident        :as/Place,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A physical or logical location"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Place"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "A physical or logical location",
+   :rdfs/label      "Place",
+   :rdfs/subClassOf [:as/Object :as/Place]})
 
 (def Profile
   "A Profile Document"
   {:db/ident        :as/Profile,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A Profile Document"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Profile"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "A Profile Document",
+   :rdfs/label      "Profile",
+   :rdfs/subClassOf [:as/Object :as/Profile]})
 
 (def Question
   "A question of any sort."
   {:db/ident        :as/Question,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A question of any sort."},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Question"},
-   :rdfs/subClassOf :as/IntransitiveActivity})
+   :rdfs/comment    "A question of any sort.",
+   :rdfs/label      "Question",
+   :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Question
+                     :as/Activity
+                     :as/Object
+                     {:owl/maxCardinality 0,
+                      :owl/onProperty     :as/object,
+                      :rdf/type           :owl/Restriction}]})
 
 (def Read
   "The actor read the object"
   {:db/ident        :as/Read,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "The actor read the object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Read"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "The actor read the object",
+   :rdfs/label      "Read",
+   :rdfs/subClassOf [:as/Activity :as/Read :as/Object]})
 
 (def Reject
   "Actor rejects the Object"
   {:db/ident        :as/Reject,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "Actor rejects the Object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Reject"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "Actor rejects the Object",
+   :rdfs/label      "Reject",
+   :rdfs/subClassOf [:as/Activity :as/Reject :as/Object]})
 
 (def Relationship
   "Represents a Social Graph relationship between two Individuals (indicated by the 'a' and 'b' properties)"
   {:db/ident :as/Relationship,
    :rdf/type [:rdf/Statement :owl/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Represents a Social Graph relationship between two Individuals (indicated by the 'a' and 'b' properties)"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Relationship"},
-   :rdfs/subClassOf :as/Object})
+   "Represents a Social Graph relationship between two Individuals (indicated by the 'a' and 'b' properties)",
+   :rdfs/label "Relationship",
+   :rdfs/subClassOf [:as/Object :as/Relationship]})
 
 (def Remove
   "To Remove Something"
   {:db/ident        :as/Remove,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Remove Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Remove"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Remove Something",
+   :rdfs/label      "Remove",
+   :rdfs/subClassOf [:as/Activity :as/Remove :as/Object]})
 
 (def Service
   "A service provided by some entity"
   {:db/ident        :as/Service,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A service provided by some entity"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Service"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "A service provided by some entity",
+   :rdfs/label      "Service",
+   :rdfs/subClassOf [:as/Object :as/Service]})
 
 (def TentativeAccept
   "Actor tentatively accepts the Object"
   {:db/ident        :as/TentativeAccept,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "Actor tentatively accepts the Object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "TentativeAccept"},
-   :rdfs/subClassOf :as/Accept})
+   :rdfs/comment    "Actor tentatively accepts the Object",
+   :rdfs/label      "TentativeAccept",
+   :rdfs/subClassOf [:as/Accept :as/TentativeAccept :as/Activity :as/Object]})
 
 (def TentativeReject
   "Actor tentatively rejects the object"
   {:db/ident        :as/TentativeReject,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "Actor tentatively rejects the object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "TentativeReject"},
-   :rdfs/subClassOf :as/Reject})
+   :rdfs/comment    "Actor tentatively rejects the object",
+   :rdfs/label      "TentativeReject",
+   :rdfs/subClassOf [:as/Reject :as/TentativeReject :as/Activity :as/Object]})
 
 (def Tombstone
   "A placeholder for a deleted object"
   {:db/ident        :as/Tombstone,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A placeholder for a deleted object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Tombstone"},
-   :rdfs/subClassOf :as/Object})
+   :rdfs/comment    "A placeholder for a deleted object",
+   :rdfs/label      "Tombstone",
+   :rdfs/subClassOf [:as/Object :as/Tombstone]})
 
 (def Travel
   "The actor is traveling to the target. The origin specifies where the actor is traveling from."
@@ -568,63 +493,56 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "The actor is traveling to the target. The origin specifies where the actor is traveling from.",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Travel"},
-   :rdfs/subClassOf :as/IntransitiveActivity})
+   :rdfs/label "Travel",
+   :rdfs/subClassOf [:as/IntransitiveActivity
+                     :as/Travel
+                     :as/Activity
+                     :as/Object
+                     {:owl/maxCardinality 0,
+                      :owl/onProperty     :as/object,
+                      :rdf/type           :owl/Restriction}]})
 
 (def Undo
   "To Undo Something. This would typically be used to indicate that a previous Activity has been undone."
   {:db/ident :as/Undo,
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "To Undo Something. This would typically be used to indicate that a previous Activity has been undone."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Undo"},
-   :rdfs/subClassOf :as/Activity})
+   "To Undo Something. This would typically be used to indicate that a previous Activity has been undone.",
+   :rdfs/label "Undo",
+   :rdfs/subClassOf [:as/Activity :as/Undo :as/Object]})
 
 (def Update
   "To Update/Modify Something"
   {:db/ident        :as/Update,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "To Update/Modify Something"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Update"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "To Update/Modify Something",
+   :rdfs/label      "Update",
+   :rdfs/subClassOf [:as/Activity :as/Update :as/Object]})
 
 (def Video
   "A Video document of any kind."
   {:db/ident        :as/Video,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "A Video document of any kind."},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "Video"},
-   :rdfs/subClassOf :as/Document})
+   :rdfs/comment    "A Video document of any kind.",
+   :rdfs/label      "Video",
+   :rdfs/subClassOf [:as/Document :as/Video :as/Object]})
 
 (def View
   "The actor viewed the object"
   {:db/ident        :as/View,
    :rdf/type        :owl/Class,
-   :rdfs/comment    {:rdf/language "en",
-                     :rdf/value    "The actor viewed the object"},
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "View"},
-   :rdfs/subClassOf :as/Activity})
+   :rdfs/comment    "The actor viewed the object",
+   :rdfs/label      "View",
+   :rdfs/subClassOf [:as/Activity :as/View :as/Object]})
 
 (def accuracy
   "Specifies the accuracy around the point established by the longitude and latitude"
   {:db/ident :as/accuracy,
    :rdf/type [:owl/FunctionalProperty :owl/DatatypeProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the accuracy around the point established by the longitude and latitude"},
+   "Specifies the accuracy around the point established by the longitude and latitude",
    :rdfs/domain :as/Place,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "accuracy"},
+   :rdfs/label "accuracy",
    :rdfs/range {:owl/onDatatype :xsd/float,
                 :owl/withRestrictions [{:xsd/minInclusive 0.0}],
                 :rdf/type       :rdfs/Datatype}})
@@ -634,25 +552,20 @@
   {:db/ident :as/actor,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Subproperty of as:attributedTo that identifies the primary actor"},
+   "Subproperty of as:attributedTo that identifies the primary actor",
    :rdfs/domain :as/Activity,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "actor"},
+   :rdfs/label "actor",
    :rdfs/range {:owl/unionOf [:as/Object :as/Link],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :as/attributedTo})
+   :rdfs/subPropertyOf [:as/attributedTo :as/actor]})
 
 (def altitude
   "The altitude of a place"
   {:db/ident     :as/altitude,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The altitude of a place"},
+   :rdfs/comment "The altitude of a place",
    :rdfs/domain  :as/Place,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "altitude"},
+   :rdfs/label   "altitude",
    :rdfs/range   :xsd/float})
 
 (def anyOf
@@ -660,12 +573,9 @@
   {:db/ident :as/anyOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Describes a possible inclusive answer or option for a question."},
+   "Describes a possible inclusive answer or option for a question.",
    :rdfs/domain :as/Question,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "oneOf"},
+   :rdfs/label "oneOf",
    :rdfs/range {:owl/unionOf [:as/Object :as/Link],
                 :rdf/type    :owl/Class}})
 
@@ -675,8 +585,7 @@
    :owl/equivalentProperty :as/attachments,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "attachment"},
+   :rdfs/label  "attachment",
    :rdfs/range  {:owl/unionOf [:as/Link :as/Object],
                  :rdf/type    :owl/Class}})
 
@@ -685,32 +594,28 @@
   {:db/ident    :as/attachments,
    :rdf/type    [:owl/DeprecatedProperty :owl/ObjectProperty],
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "attachments"},
+   :rdfs/label  "attachments",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
 (def attributedTo
   "Identifies an entity to which an object is attributed"
-  {:db/ident     :as/attributedTo,
-   :rdf/type     :owl/ObjectProperty,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Identifies an entity to which an object is attributed"},
-   :rdfs/domain  {:owl/unionOf [:as/Object :as/Link],
-                  :rdf/type    :owl/Class},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "attributedTo"},
-   :rdfs/range   {:owl/unionOf [:as/Object :as/Link],
-                  :rdf/type    :owl/Class}})
+  {:db/ident           :as/attributedTo,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/comment       "Identifies an entity to which an object is attributed",
+   :rdfs/domain        {:owl/unionOf [:as/Object :as/Link],
+                        :rdf/type    :owl/Class},
+   :rdfs/label         "attributedTo",
+   :rdfs/range         {:owl/unionOf [:as/Object :as/Link],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :as/attributedTo})
 
 (def audience
   "audience"
   {:db/ident    :as/audience,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "audience"},
+   :rdfs/label  "audience",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -719,23 +624,19 @@
   {:db/ident :as/author,
    :rdf/type [:owl/DeprecatedProperty :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Identifies the author of an object. Deprecated. Use as:attributedTo instead"},
+   "Identifies the author of an object. Deprecated. Use as:attributedTo instead",
    :rdfs/domain :as/Object,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "author"},
+   :rdfs/label "author",
    :rdfs/range {:owl/unionOf [:as/Object :as/Link],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :as/attributedTo})
+   :rdfs/subPropertyOf [:as/attributedTo :as/author]})
 
 (def bcc
   "bcc"
   {:db/ident    :as/bcc,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "bcc"},
+   :rdfs/label  "bcc",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -744,8 +645,7 @@
   {:db/ident    :as/bto,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "bto"},
+   :rdfs/label  "bto",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -754,8 +654,7 @@
   {:db/ident    :as/cc,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "cc"},
+   :rdfs/label  "cc",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -763,11 +662,9 @@
   "The content of the object."
   {:db/ident     :as/content,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The content of the object."},
+   :rdfs/comment "The content of the object.",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "content"},
+   :rdfs/label   "content",
    :rdfs/range   {:owl/unionOf [:rdf/langString :xsd/string],
                   :rdf/type    :owl/Class}})
 
@@ -776,12 +673,9 @@
   {:db/ident :as/context,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the context within which an object exists or an activity was performed"},
+   "Specifies the context within which an object exists or an activity was performed",
    :rdfs/domain :as/Object,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "context"},
+   :rdfs/label "context",
    :rdfs/range {:owl/unionOf [:as/Object :as/Link],
                 :rdf/type    :owl/Class}})
 
@@ -790,8 +684,7 @@
   {:db/ident    :as/current,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/Collection,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "current"},
+   :rdfs/label  "current",
    :rdfs/range  {:owl/unionOf [:as/CollectionPage :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -799,12 +692,9 @@
   "Specifies the date and time the object was deleted"
   {:db/ident     :as/deleted,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Specifies the date and time the object was deleted"},
+   :rdfs/comment "Specifies the date and time the object was deleted",
    :rdfs/domain  :as/Tombstone,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "deleted"},
+   :rdfs/label   "deleted",
    :rdfs/range   :xsd/dateTime})
 
 (def describes
@@ -812,12 +702,9 @@
   {:db/ident :as/describes,
    :rdf/type [:owl/FunctionalProperty :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "On a Profile object, describes the object described by the profile"},
+   "On a Profile object, describes the object described by the profile",
    :rdfs/domain :as/Profile,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "describes"},
+   :rdfs/label "describes",
    :rdfs/range :as/Object})
 
 (def downstreamDuplicates
@@ -825,30 +712,25 @@
   {:db/ident    :as/downstreamDuplicates,
    :rdf/type    [:owl/DeprecatedProperty :owl/DatatypeProperty],
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "downstreamDuplicates"},
+   :rdfs/label  "downstreamDuplicates",
    :rdfs/range  :xsd/anyURI})
 
 (def duration
   "The duration of the object"
   {:db/ident     :as/duration,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The duration of the object"},
+   :rdfs/comment "The duration of the object",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "duration"},
+   :rdfs/label   "duration",
    :rdfs/range   :xsd/duration})
 
 (def endTime
   "The ending time of the object"
   {:db/ident     :as/endTime,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The ending time of the object"},
+   :rdfs/comment "The ending time of the object",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "endTime"},
+   :rdfs/label   "endTime",
    :rdfs/range   :xsd/dateTime})
 
 (def first
@@ -856,8 +738,7 @@
   {:db/ident    :as/first,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/Collection,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "first"},
+   :rdfs/label  "first",
    :rdfs/range  {:owl/unionOf [:as/CollectionPage :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -866,12 +747,9 @@
   {:db/ident :as/formerType,
    :rdf/type [:owl/FunctionalProperty :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "On a Tombstone object, describes the former type of the deleted object"},
+   "On a Tombstone object, describes the former type of the deleted object",
    :rdfs/domain :as/Tombstone,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "formerType"},
+   :rdfs/label "formerType",
    :rdfs/range :as/Object})
 
 (def generator
@@ -879,8 +757,7 @@
   {:db/ident    :as/generator,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "generator"},
+   :rdfs/label  "generator",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -888,35 +765,27 @@
   "The display height expressed as device independent pixels"
   {:db/ident     :as/height,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "The display height expressed as device independent pixels"},
+   :rdfs/comment "The display height expressed as device independent pixels",
    :rdfs/domain  :as/Link,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "height"},
+   :rdfs/label   "height",
    :rdfs/range   :xsd/nonNegativeInteger})
 
 (def href
   "The target URI of the Link"
   {:db/ident     :as/href,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The target URI of the Link"},
+   :rdfs/comment "The target URI of the Link",
    :rdfs/domain  :as/Link,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "href"},
+   :rdfs/label   "href",
    :rdfs/range   :xsd/anyURI})
 
 (def hreflang
   "A hint about the language of the referenced resource"
   {:db/ident     :as/hreflang,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "A hint about the language of the referenced resource"},
+   :rdfs/comment "A hint about the language of the referenced resource",
    :rdfs/domain  :as/Link,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "hreflang"},
+   :rdfs/label   "hreflang",
    :rdfs/range   :xsd/language})
 
 (def icon
@@ -924,8 +793,7 @@
   {:db/ident    :as/icon,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "icon"},
+   :rdfs/label  "icon",
    :rdfs/range  {:owl/unionOf [:as/Image :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -937,8 +805,7 @@
                  :owl/DatatypeProperty],
    :rdfs/domain {:owl/unionOf [:as/Link :as/Object],
                  :rdf/type    :owl/Class},
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "id"},
+   :rdfs/label  "id",
    :rdfs/range  :xsd/anyURI})
 
 (def image
@@ -946,8 +813,7 @@
   {:db/ident    :as/image,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "image"},
+   :rdfs/label  "image",
    :rdfs/range  {:owl/unionOf [:as/Image :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -956,8 +822,7 @@
   {:db/ident    :as/inReplyTo,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "inReplyTo"},
+   :rdfs/label  "inReplyTo",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -966,12 +831,9 @@
   {:db/ident :as/instrument,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Indentifies an object used (or to be used) to complete an activity"},
+   "Indentifies an object used (or to be used) to complete an activity",
    :rdfs/domain :as/Activity,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "instrument"},
+   :rdfs/label "instrument",
    :rdfs/range {:owl/unionOf [:as/Object :as/Link],
                 :rdf/type    :owl/Class}})
 
@@ -980,8 +842,7 @@
   {:db/ident    :as/items,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Collection,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "items"},
+   :rdfs/label  "items",
    :rdfs/range  {:owl/unionOf [{:owl/unionOf [:as/Object :as/Link],
                                 :rdf/type    :owl/Class}
                                :as/OrderedItems],
@@ -992,8 +853,7 @@
   {:db/ident    :as/last,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/Collection,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "last"},
+   :rdfs/label  "last",
    :rdfs/range  {:owl/unionOf [:as/CollectionPage :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1001,11 +861,9 @@
   "The latitude"
   {:db/ident     :as/latitude,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The latitude"},
+   :rdfs/comment "The latitude",
    :rdfs/domain  :as/Place,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "latitude"},
+   :rdfs/label   "latitude",
    :rdfs/range   :xsd/float})
 
 (def location
@@ -1013,8 +871,7 @@
   {:db/ident    :as/location,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "location"},
+   :rdfs/label  "location",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1022,46 +879,38 @@
   "The longitude"
   {:db/ident     :as/longitude,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The longitude"},
+   :rdfs/comment "The longitude",
    :rdfs/domain  :as/Place,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "longitude"},
+   :rdfs/label   "longitude",
    :rdfs/range   :xsd/float})
 
 (def mediaType
   "The MIME Media Type"
   {:db/ident     :as/mediaType,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The MIME Media Type"},
+   :rdfs/comment "The MIME Media Type",
    :rdfs/domain  {:owl/unionOf [:as/Link :as/Object],
                   :rdf/type    :owl/Class},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "mediaType"},
+   :rdfs/label   "mediaType",
    :rdfs/range   :xsd/string})
 
 (def name
-  "The default, plain-text display name of the object or link."
-  {:db/ident     :as/name,
-   :rdf/type     :owl/DatatypeProperty,
-   :rdfs/domain  {:owl/unionOf [:as/Object :as/Link],
-                  :rdf/type    :owl/Class},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "name"},
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "The default, plain-text display name of the object or link."},
-   :rdfs/range   {:owl/unionOf [:rdf/langString :xsd/string],
-                  :rdf/type    :owl/Class}})
+  "name"
+  {:db/ident    :as/name,
+   :rdf/type    :owl/DatatypeProperty,
+   :rdfs/domain {:owl/unionOf [:as/Object :as/Link],
+                 :rdf/type    :owl/Class},
+   :rdfs/label  "name",
+   :rdfs/name   "The default, plain-text display name of the object or link.",
+   :rdfs/range  {:owl/unionOf [:rdf/langString :xsd/string],
+                 :rdf/type    :owl/Class}})
 
 (def next
   "next"
   {:db/ident    :as/next,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/CollectionPage,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "next"},
+   :rdfs/label  "next",
    :rdfs/range  {:owl/unionOf [:as/CollectionPage :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1071,8 +920,7 @@
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain {:owl/unionOf [:as/Activity :as/Relationship],
                  :rdf/type    :owl/Class},
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "object"},
+   :rdfs/label  "object",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1083,8 +931,7 @@
                  :owl/FunctionalProperty
                  :owl/DatatypeProperty],
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "objectType"},
+   :rdfs/label  "objectType",
    :rdfs/range  :xsd/anyURI})
 
 (def oneOf
@@ -1092,12 +939,9 @@
   {:db/ident :as/oneOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Describes a possible exclusive answer or option for a question."},
+   "Describes a possible exclusive answer or option for a question.",
    :rdfs/domain :as/Question,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "oneOf"},
+   :rdfs/label "oneOf",
    :rdfs/range {:owl/unionOf [:as/Object :as/Link],
                 :rdf/type    :owl/Class}})
 
@@ -1106,12 +950,9 @@
   {:db/ident :as/origin,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For certain activities, specifies the entity from which the action is directed."},
+   "For certain activities, specifies the entity from which the action is directed.",
    :rdfs/domain :as/Activity,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "origin"},
+   :rdfs/label "origin",
    :rdfs/range {:owl/unionOf [:as/Object :as/Link],
                 :rdf/type    :owl/Class}})
 
@@ -1120,8 +961,7 @@
   {:db/ident    :as/partOf,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/CollectionPage,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "partOf"},
+   :rdfs/label  "partOf",
    :rdfs/range  {:owl/unionOf [:as/Collection :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1130,8 +970,7 @@
   {:db/ident    :as/prev,
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/CollectionPage,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "prev"},
+   :rdfs/label  "prev",
    :rdfs/range  {:owl/unionOf [:as/CollectionPage :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1141,8 +980,7 @@
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class},
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "preview"},
+   :rdfs/label  "preview",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1151,8 +989,7 @@
   {:db/ident    :as/provider,
    :rdf/type    [:owl/DeprecatedProperty :owl/ObjectProperty],
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "provider"},
+   :rdfs/label  "provider",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1160,12 +997,9 @@
   "Specifies the date and time the object was published"
   {:db/ident     :as/published,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Specifies the date and time the object was published"},
+   :rdfs/comment "Specifies the date and time the object was published",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "published"},
+   :rdfs/label   "published",
    :rdfs/range   :xsd/dateTime})
 
 (def radius
@@ -1173,12 +1007,9 @@
   {:db/ident :as/radius,
    :rdf/type [:owl/FunctionalProperty :owl/DatatypeProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies a radius around the point established by the longitude and latitude"},
+   "Specifies a radius around the point established by the longitude and latitude",
    :rdfs/domain :as/Place,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "radius"},
+   :rdfs/label "radius",
    :rdfs/range {:owl/onDatatype :xsd/float,
                 :owl/withRestrictions [{:xsd/minInclusive 0.0}],
                 :rdf/type       :rdfs/Datatype}})
@@ -1189,12 +1020,9 @@
    :rdf/type     [:owl/DeprecatedProperty
                   :owl/FunctionalProperty
                   :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "A numeric rating (>= 0.0, <= 5.0) for the object"},
+   :rdfs/comment "A numeric rating (>= 0.0, <= 5.0) for the object",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "rating"},
+   :rdfs/label   "rating",
    :rdfs/range   {:owl/onDatatype :xsd/float,
                   :owl/withRestrictions [{:xsd/minInclusive 0.0}
                                          {:xsd/maxInclusive 5.0}],
@@ -1202,36 +1030,29 @@
 
 (def rel
   "The RFC 5988 or HTML5 Link Relation associated with the Link"
-  {:db/ident :as/rel,
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "The RFC 5988 or HTML5 Link Relation associated with the Link"},
-   :rdfs/domain :as/Link,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "rel"},
-   :rdfs/range :xsd/string})
+  {:db/ident     :as/rel,
+   :rdf/type     :owl/DatatypeProperty,
+   :rdfs/comment "The RFC 5988 or HTML5 Link Relation associated with the Link",
+   :rdfs/domain  :as/Link,
+   :rdfs/label   "rel",
+   :rdfs/range   :xsd/string})
 
 (def relationship
   "On a Relationship object, describes the type of relationship"
   {:db/ident :as/relationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "On a Relationship object, describes the type of relationship"},
+   :rdfs/comment "On a Relationship object, describes the type of relationship",
    :rdfs/domain :as/Relationship,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "relationship"},
+   :rdfs/label "relationship",
    :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :rdf/predicate})
+   :rdfs/subPropertyOf [:rdf/predicate :as/relationship]})
 
 (def replies
   "replies"
   {:db/ident    :as/replies,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "replies"},
+   :rdfs/label  "replies",
    :rdfs/range  :as/Collection})
 
 (def result
@@ -1239,8 +1060,7 @@
   {:db/ident    :as/result,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Activity,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "result"},
+   :rdfs/label  "result",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1249,23 +1069,18 @@
   {:db/ident :as/startIndex,
    :rdf/type [:owl/FunctionalProperty :owl/DatatypeProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "In a strictly ordered logical collection, specifies the index position of the first item in the items list"},
+   "In a strictly ordered logical collection, specifies the index position of the first item in the items list",
    :rdfs/domain :as/OrderedCollectionPage,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "startIndex"},
+   :rdfs/label "startIndex",
    :rdfs/range :xsd/nonNegativeInteger})
 
 (def startTime
   "The starting time of the object"
   {:db/ident     :as/startTime,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "The starting time of the object"},
+   :rdfs/comment "The starting time of the object",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "startTime"},
+   :rdfs/label   "startTime",
    :rdfs/range   :xsd/dateTime})
 
 (def subject
@@ -1273,25 +1088,20 @@
   {:db/ident :as/subject,
    :rdf/type [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "On a Relationship object, identifies the subject. e.g. when saying \"John is connected to Sally\", 'subject' refers to 'John'"},
+   "On a Relationship object, identifies the subject. e.g. when saying \"John is connected to Sally\", 'subject' refers to 'John'",
    :rdfs/domain :as/Relationship,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "a"},
+   :rdfs/label "a",
    :rdfs/range {:owl/unionOf [:as/Link :as/Object],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :rdf/subject})
+   :rdfs/subPropertyOf [:rdf/subject :as/subject]})
 
 (def summary
   "A short summary of the object"
   {:db/ident     :as/summary,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "A short summary of the object"},
+   :rdfs/comment "A short summary of the object",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "summary"},
+   :rdfs/label   "summary",
    :rdfs/range   {:owl/unionOf [:rdf/langString :xsd/string],
                   :rdf/type    :owl/Class}})
 
@@ -1300,8 +1110,7 @@
   {:db/ident    :as/tag,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "tag"},
+   :rdfs/label  "tag",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1311,8 +1120,7 @@
    :owl/equivalentProperty :as/tag,
    :rdf/type    [:owl/DeprecatedProperty :owl/ObjectProperty],
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "tags"},
+   :rdfs/label  "tags",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1321,8 +1129,7 @@
   {:db/ident    :as/target,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Activity,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "target"},
+   :rdfs/label  "target",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1331,8 +1138,7 @@
   {:db/ident    :as/to,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "to"},
+   :rdfs/label  "to",
    :rdfs/range  {:owl/unionOf [:as/Object :as/Link],
                  :rdf/type    :owl/Class}})
 
@@ -1340,12 +1146,9 @@
   "The total number of items in a logical collection"
   {:db/ident     :as/totalItems,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "The total number of items in a logical collection"},
+   :rdfs/comment "The total number of items in a logical collection",
    :rdfs/domain  :as/Collection,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "totalItems"},
+   :rdfs/label   "totalItems",
    :rdfs/range   :xsd/nonNegativeInteger})
 
 (def units
@@ -1353,12 +1156,9 @@
   {:db/ident :as/units,
    :rdf/type [:owl/FunctionalProperty :owl/DatatypeProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Identifies the unit of measurement used by the radius, altitude and accuracy properties. The value can be expressed either as one of a set of predefined units or as a well-known common URI that identifies units."},
+   "Identifies the unit of measurement used by the radius, altitude and accuracy properties. The value can be expressed either as one of a set of predefined units or as a well-known common URI that identifies units.",
    :rdfs/domain :as/Place,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "units"},
+   :rdfs/label "units",
    :rdfs/range {:owl/unionOf [{:owl/oneOf [{:xsd/string "inches"}
                                            {:xsd/string "feet"}
                                            {:xsd/string "miles"}
@@ -1373,11 +1173,9 @@
   "Specifies when the object was last updated"
   {:db/ident     :as/updated,
    :rdf/type     [:owl/FunctionalProperty :owl/DatatypeProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Specifies when the object was last updated"},
+   :rdfs/comment "Specifies when the object was last updated",
    :rdfs/domain  :as/Object,
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "updated"},
+   :rdfs/label   "updated",
    :rdfs/range   :xsd/dateTime})
 
 (def upstreamDuplicates
@@ -1385,22 +1183,18 @@
   {:db/ident    :as/upstreamDuplicates,
    :rdf/type    [:owl/DeprecatedProperty :owl/DatatypeProperty],
    :rdfs/domain :as/Object,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "upstreamDuplicates"},
+   :rdfs/label  "upstreamDuplicates",
    :rdfs/range  :xsd/anyURI})
 
 (def url
   "Specifies a link to a specific representation of the Object"
-  {:db/ident :as/url,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value "Specifies a link to a specific representation of the Object"},
-   :rdfs/domain :as/Object,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "url"},
-   :rdfs/range {:owl/unionOf [:as/Link :owl/Thing],
-                :rdf/type    :owl/Class}})
+  {:db/ident     :as/url,
+   :rdf/type     :owl/ObjectProperty,
+   :rdfs/comment "Specifies a link to a specific representation of the Object",
+   :rdfs/domain  :as/Object,
+   :rdfs/label   "url",
+   :rdfs/range   {:owl/unionOf [:as/Link :owl/Thing],
+                  :rdf/type    :owl/Class}})
 
 (def verb
   "verb"
@@ -1409,8 +1203,7 @@
                  :owl/FunctionalProperty
                  :owl/DatatypeProperty],
    :rdfs/domain :as/Activity,
-   :rdfs/label  {:rdf/language "en",
-                 :rdf/value    "verb"},
+   :rdfs/label  "verb",
    :rdfs/range  :xsd/anyURI})
 
 (def width
@@ -1418,10 +1211,7 @@
   {:db/ident :as/width,
    :rdf/type [:owl/FunctionalProperty :owl/DatatypeProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the preferred display width of the content, expressed in terms of device independent pixels."},
+   "Specifies the preferred display width of the content, expressed in terms of device independent pixels.",
    :rdfs/domain :as/Link,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "width"},
+   :rdfs/label "width",
    :rdfs/range :xsd/nonNegativeInteger})

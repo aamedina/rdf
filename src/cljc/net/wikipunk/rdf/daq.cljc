@@ -31,7 +31,8 @@
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    "The highest level of quality metric is a category. A category groups a number of dimensions relevant to each other which aims at measuring the quality of a dataset from different aspects. Categories are provided as subclasses of this abstract class, which is not intended for direct usage.",
-   :rdfs/label "Category"})
+   :rdfs/label "Category",
+   :rdfs/subClassOf [:rdfs/Resource :daq/Category]})
 
 (def Dimension
   "Each dimension is part of a larger group called category (See daq:Category). Each dimension has a number of metrics which are associated to it. A dimension is linked with a category using the daq:hasDimension property. Dimensions are provided as subclasses of this abstract class, which is not intended for direct usage."
@@ -39,7 +40,8 @@
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    "Each dimension is part of a larger group called category (See daq:Category). Each dimension has a number of metrics which are associated to it. A dimension is linked with a category using the daq:hasDimension property. Dimensions are provided as subclasses of this abstract class, which is not intended for direct usage.",
-   :rdfs/label "Dimension"})
+   :rdfs/label "Dimension",
+   :rdfs/subClassOf [:rdfs/Resource :daq/Dimension]})
 
 (def Metric
   "The smallest unit of measuring a quality dimension is a metric. A metric belongs to exactly one dimension. Each metric has one or more observations ( exttt{daq:hasObservation}), which records data quality assessment value following a computation. Metrics are provided as subclasses of this abstract class, which is not intended for direct usage."
@@ -47,7 +49,8 @@
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    "The smallest unit of measuring a quality dimension is a metric. A metric belongs to exactly one dimension. Each metric has one or more observations (\texttt{daq:hasObservation}), which records data quality assessment value following a computation. Metrics are provided as subclasses of this abstract class, which is not intended for direct usage.",
-   :rdfs/label "Metric"})
+   :rdfs/label "Metric",
+   :rdfs/subClassOf [:rdfs/Resource :daq/Metric]})
 
 (def Observation
   "A quality observation represents the statistical and provenance information of the attached metric's assessment activity."
@@ -56,7 +59,8 @@
    :rdfs/comment
    "A quality observation represents the statistical and provenance information of the attached metric's assessment activity.",
    :rdfs/label "Quality Observation",
-   :rdfs/subClassOf [:qb/Observation :prov/Entity]})
+   :rdfs/subClassOf
+   [:rdfs/Resource :qb/Observation :prov/Entity :daq/Observation]})
 
 (def QualityGraph
   "Defines a quality graph which will contain all metadata about quality metrics on the dataset."
@@ -65,19 +69,24 @@
    :rdfs/comment
    "Defines a quality graph which will contain all metadata about quality metrics on the dataset.",
    :rdfs/label "Quality Graph Statistics",
-   :rdfs/subClassOf [{:owl/hasValue   :daq/dsd,
+   :rdfs/subClassOf [:rdfs/Resource
+                     {:owl/hasValue   :daq/dsd,
                       :owl/onProperty :qb/structure,
                       :rdf/type       :owl/Restriction}
                      :qb/DataSet
-                     :rdfg/Graph]})
+                     :rdfg/Graph
+                     :daq/QualityGraph]})
 
 (def computedBy
   "TODO: Define properly"
-  {:db/ident     :daq/computedBy,
-   :rdf/type     [:qb/DimensionProperty :owl/ObjectProperty :rdf/Property],
-   :rdfs/comment "TODO: Define properly",
-   :rdfs/domain  :qb/Observation,
-   :rdfs/label   "computed by"})
+  {:db/ident           :daq/computedBy,
+   :rdf/type           [:qb/DimensionProperty
+                        :owl/ObjectProperty
+                        :rdf/Property],
+   :rdfs/comment       "TODO: Define properly",
+   :rdfs/domain        :qb/Observation,
+   :rdfs/label         "computed by",
+   :rdfs/subPropertyOf :daq/computedBy})
 
 (def computedOn
   "Quality metrics can be (in principle) calculated on various forms of data (such as datasets, graphs, set of triples etc...). This vocabulary allow the owner/user of such RDF data to calculate metrics on multiple (and different) resources."
@@ -87,7 +96,8 @@
    "Quality metrics can be (in principle) calculated on various forms of data (such as datasets, graphs, set of triples etc...). This vocabulary allow the owner/user of such RDF data to calculate metrics on multiple (and different) resources.",
    :rdfs/domain :qb/Observation,
    :rdfs/label "computed on",
-   :rdfs/range :rdfs/Resource})
+   :rdfs/range :rdfs/Resource,
+   :rdfs/subPropertyOf :daq/computedOn})
 
 (def dsd
   {:db/ident :daq/dsd,
@@ -114,7 +124,8 @@
    "Each metric should have an expect data type for it's observed value (e.g. xsd:boolean, xsd:double etc...)",
    :rdfs/domain :daq/Metric,
    :rdfs/label "expected data type",
-   :rdfs/range :xsd/anySimpleType})
+   :rdfs/range :xsd/anySimpleType,
+   :rdfs/subPropertyOf :daq/expectedDataType})
 
 (def hasDimension
   "The category concept classifies dimensions related to the measurement of quality for a specific criteria. This is an abstract property and should not be used directly. Specific sub-properties should be inherited for different dimensions."
@@ -124,7 +135,8 @@
    "The category concept classifies dimensions related to the measurement of quality for a specific criteria. This is an abstract property and should not be used directly. Specific sub-properties should be inherited for different dimensions.",
    :rdfs/domain :daq/Category,
    :rdfs/label "hasDimension",
-   :rdfs/range :daq/Dimension})
+   :rdfs/range :daq/Dimension,
+   :rdfs/subPropertyOf :daq/hasDimension})
 
 (def hasMetric
   "A dimension is an abstract concept which groups an number of more concrete metrics to measure quality of a dataset. This is an abstract property and should not be used directly. Specific sub-properties should be inherited for different metrics."
@@ -134,7 +146,8 @@
    "A dimension is an abstract concept which groups an number of more concrete metrics to measure quality of a dataset. This is an abstract property and should not be used directly. Specific sub-properties should be inherited for different metrics.",
    :rdfs/domain :daq/Dimension,
    :rdfs/label "hasMetric",
-   :rdfs/range :daq/Metric})
+   :rdfs/range :daq/Metric,
+   :rdfs/subPropertyOf :daq/hasMetric})
 
 (def hasObservation
   "Computed metrics can have 1 or more quality observations, where each computed resource has one observation."
@@ -146,7 +159,8 @@
    "Computed metrics can have 1 or more quality observations, where each computed resource has one observation.",
    :rdfs/domain :daq/Metric,
    :rdfs/label "has observation",
-   :rdfs/range :daq/Observation})
+   :rdfs/range :daq/Observation,
+   :rdfs/subPropertyOf :daq/hasObservation})
 
 (def isEstimate
   "This property flags true if an assessed observation of a metric gives an estimate result instead of a more accurate one."
@@ -157,7 +171,8 @@
    "This property flags true if an assessed observation of a metric gives an estimate result instead of a more accurate one.",
    :rdfs/domain :qb/Observation,
    :rdfs/label "is estimate",
-   :rdfs/range :xsd/boolean})
+   :rdfs/range :xsd/boolean,
+   :rdfs/subPropertyOf :daq/isEstimate})
 
 (def metric
   "Represents the metric being observed."
@@ -170,7 +185,8 @@
    :rdfs/comment       "Represents the metric being observed.",
    :rdfs/domain        :qb/Observation,
    :rdfs/label         "metric",
-   :rdfs/range         :daq/Metric})
+   :rdfs/range         :daq/Metric,
+   :rdfs/subPropertyOf :daq/metric})
 
 (def requires
   "A metric might require a number of external resources (e.g. a gold standard) in order to be able to measure the quality. In order to cater for the most generic requirement, this property links a metric to the required resource (e.g. a URI to the gold standard dataset used)."
@@ -180,7 +196,8 @@
    "A metric might require a number of external resources (e.g. a gold standard) in order to be able to measure the quality. In order to cater for the most generic requirement, this property links a metric to the required resource (e.g. a URI to the gold standard dataset used).",
    :rdfs/domain :daq/Metric,
    :rdfs/label "requires",
-   :rdfs/range :rdfs/Resource})
+   :rdfs/range :rdfs/Resource,
+   :rdfs/subPropertyOf :daq/requires})
 
 (def value
   "Each metric will have a value computed. In order to deal with the different return type of the metric computation, this property links a metric with a value object (e.g. boolean, double, Literal)."
@@ -190,4 +207,25 @@
    :rdfs/comment
    "Each metric will have a value computed. In order to deal with the different return type of the metric computation, this property links a metric with a value object (e.g. boolean, double, Literal).",
    :rdfs/domain :qb/Observation,
-   :rdfs/label "value"})
+   :rdfs/label "value",
+   :rdfs/subPropertyOf :daq/value})
+
+(def ^{:private true} Entity
+  {:db/ident        :prov/Entity,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :prov/Entity})
+
+(def ^{:private true} DataSet
+  {:db/ident        :qb/DataSet,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :qb/DataSet})
+
+(def ^{:private true} Observation
+  {:db/ident        :qb/Observation,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :qb/Observation})
+
+(def ^{:private true} Graph
+  {:db/ident        :rdfg/Graph,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :rdfg/Graph})

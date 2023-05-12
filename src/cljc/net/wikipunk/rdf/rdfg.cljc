@@ -9,10 +9,11 @@
 
 (def Graph
   "An RDF graph (with intensional semantics)."
-  {:db/ident     :rdfg/Graph,
-   :rdf/type     :rdfs/Class,
-   :rdfs/comment "\nAn RDF graph (with intensional semantics).\n      ",
-   :rdfs/label   "Graph"})
+  {:db/ident        :rdfg/Graph,
+   :rdf/type        :rdfs/Class,
+   :rdfs/comment    "\nAn RDF graph (with intensional semantics).\n      ",
+   :rdfs/label      "Graph",
+   :rdfs/subClassOf [:rdfs/Resource :rdfg/Graph]})
 
 (def equivalentGraph
   "The graphs associated with the subject and object are equivalent."
@@ -22,7 +23,8 @@
    "\nThe graphs associated with the subject and object are equivalent.\n      ",
    :rdfs/domain :rdfg/Graph,
    :rdfs/label "equivalent graph",
-   :rdfs/range :rdfg/Graph})
+   :rdfs/range :rdfg/Graph,
+   :rdfs/subPropertyOf :rdfg/equivalentGraph})
 
 (def subGraphOf
   "The graph associated with the subject is a subgraph of a graph equivalent to that associated with the object."
@@ -32,4 +34,5 @@
    "\nThe graph associated with the subject is a subgraph of a graph equivalent\nto that associated with the object.\n      ",
    :rdfs/domain :rdfg/Graph,
    :rdfs/label "subgraph of",
-   :rdfs/range :rdfg/Graph})
+   :rdfs/range :rdfg/Graph,
+   :rdfs/subPropertyOf :rdfg/subGraphOf})

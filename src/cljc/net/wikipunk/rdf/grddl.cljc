@@ -23,7 +23,8 @@
    "A resource which has the property that all of its essential characteristics can be conveyed in a message",
    :rdfs/isDefinedBy
    "http://www.w3.org/TR/2004/REC-webarch-20041215/#def-information-resource",
-   :rdfs/label "InformationResource"})
+   :rdfs/label "InformationResource",
+   :rdfs/subClassOf [:rdfs/Resource :grddl/InformationResource]})
 
 (def RDFGraph
   "a set of RDF triples"
@@ -32,7 +33,8 @@
    :rdfs/comment "a\n    set of RDF triples",
    :rdfs/isDefinedBy
    "http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-rdf-graph",
-   :rdfs/label ["RDFGraph" "RDF graphs"]})
+   :rdfs/label ["RDFGraph" "RDF graphs"],
+   :rdfs/subClassOf [:rdfs/Resource :grddl/RDFGraph]})
 
 (def RootNode
   "the root of the tree in the XPath data model"
@@ -40,7 +42,8 @@
    :rdf/type         :rdfs/Class,
    :rdfs/comment     "the root of the tree in the XPath data\n    model",
    :rdfs/isDefinedBy "http://www.w3.org/TR/1999/REC-xpath-19991116#root-node",
-   :rdfs/label       ["XML document root nodes" "RootNode"]})
+   :rdfs/label       ["XML document root nodes" "RootNode"],
+   :rdfs/subClassOf  [:rdfs/Resource :grddl/RootNode]})
 
 (def Transformation
   "an InformationResource that specifies a transformation from a set of XML documents to RDF graphs"
@@ -51,7 +54,8 @@
    :rdfs/comment
    "an InformationResource that specifies\n    a transformation from a set of XML documents to RDF graphs",
    :rdfs/label "Transformation",
-   :rdfs/subClassOf :grddl/InformationResource})
+   :rdfs/subClassOf
+   [:grddl/InformationResource :grddl/Transformation :rdfs/Resource]})
 
 (def TransformationProperty
   "a FunctionalProperty that relates XML document root nodes to RDF graphs"
@@ -62,7 +66,8 @@
    :rdfs/domain :grddl/RootNode,
    :rdfs/label "TransformationProperty",
    :rdfs/range :grddl/RDFGraph,
-   :rdfs/subClassOf :owl/FunctionalProperty})
+   :rdfs/subClassOf
+   [:rdfs/Resource :owl/FunctionalProperty :grddl/TransformationProperty]})
 
 (def danc
   {:db/ident      :grddl/danc,
@@ -88,7 +93,8 @@
    :rdfs/comment
    "relates a namespace to a transformation for\n    all documents in that namespace",
    :rdfs/label "namespaceTransformation",
-   :rdfs/range :grddl/Transformation})
+   :rdfs/range :grddl/Transformation,
+   :rdfs/subPropertyOf :grddl/namespaceTransformation})
 
 (def profileTransformation
   "relates a profile document to a transformation for all documents bearing that profile"
@@ -97,7 +103,8 @@
    :rdfs/comment
    "relates a profile document to a\n    transformation for all documents bearing that profile",
    :rdfs/label "profileTransformation",
-   :rdfs/range :grddl/Transformation})
+   :rdfs/range :grddl/Transformation,
+   :rdfs/subPropertyOf :grddl/profileTransformation})
 
 (def result
   "an RDF graph obtained from an information resource by directly parsing a representation in the standard RDF/XML syntax or indirectly by parsing some other dialect using a transformation nominated by the document"
@@ -107,7 +114,8 @@
    "an\n    RDF graph obtained from an information resource by directly\n    parsing a representation in the standard RDF/XML syntax or\n    indirectly by parsing some other dialect using a transformation\n    nominated by the document",
    :rdfs/domain :grddl/InformationResource,
    :rdfs/label "result",
-   :rdfs/range :grddl/RDFGraph})
+   :rdfs/range :grddl/RDFGraph,
+   :rdfs/subPropertyOf :grddl/result})
 
 (def transformation
   "relates a source document to a transformation, usually represented in XSLT, that relates the source document syntax to the RDF graph syntax"
@@ -117,7 +125,8 @@
    "relates a source document to a\n    transformation, usually represented in XSLT, that relates the source document syntax\n    to the RDF graph syntax",
    :rdfs/domain :grddl/RootNode,
    :rdfs/label "transformation",
-   :rdfs/range :grddl/Transformation})
+   :rdfs/range :grddl/Transformation,
+   :rdfs/subPropertyOf :grddl/transformation})
 
 (def transformationProperty
   "relates a transformation to the algorithm specified by the property that computes an RDF graph from an XML document node"

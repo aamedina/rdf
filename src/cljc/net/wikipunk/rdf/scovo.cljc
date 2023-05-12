@@ -37,59 +37,67 @@
 
 (def Dataset
   "a statistical dataset"
-  {:db/ident     :scovo/Dataset,
-   :rdf/type     [:rdfs/Class :owl/Class],
-   :rdfs/comment "a statistical dataset",
-   :rdfs/label   "Dataset"})
+  {:db/ident        :scovo/Dataset,
+   :rdf/type        [:rdfs/Class :owl/Class],
+   :rdfs/comment    "a statistical dataset",
+   :rdfs/label      "Dataset",
+   :rdfs/subClassOf [:rdfs/Resource :scovo/Dataset]})
 
 (def Dimension
   "a dimension of a statistical data item"
-  {:db/ident     :scovo/Dimension,
-   :rdf/type     [:rdfs/Class :owl/Class],
-   :rdfs/comment "a dimension of a statistical data item",
-   :rdfs/label   "Dimension"})
+  {:db/ident        :scovo/Dimension,
+   :rdf/type        [:rdfs/Class :owl/Class],
+   :rdfs/comment    "a dimension of a statistical data item",
+   :rdfs/label      "Dimension",
+   :rdfs/subClassOf [:rdfs/Resource :scovo/Dimension]})
 
 (def Item
   "a statistical data item"
-  {:db/ident     :scovo/Item,
-   :rdf/type     [:rdfs/Class :owl/Class],
-   :rdfs/comment "a statistical data item",
-   :rdfs/label   "Item"})
+  {:db/ident        :scovo/Item,
+   :rdf/type        [:rdfs/Class :owl/Class],
+   :rdfs/comment    "a statistical data item",
+   :rdfs/label      "Item",
+   :rdfs/subClassOf [:rdfs/Resource :scovo/Item]})
 
 (def dataset
   "belongs to dataset"
-  {:db/ident    :scovo/dataset,
-   :rdf/type    :rdf/Property,
-   :rdfs/domain :scovo/Item,
-   :rdfs/label  "belongs to dataset",
-   :rdfs/range  :scovo/Dataset})
+  {:db/ident           :scovo/dataset,
+   :rdf/type           :rdf/Property,
+   :rdfs/domain        :scovo/Item,
+   :rdfs/label         "belongs to dataset",
+   :rdfs/range         :scovo/Dataset,
+   :rdfs/subPropertyOf :scovo/dataset})
 
 (def datasetOf
   "is the dataset of"
-  {:db/ident    :scovo/datasetOf,
-   :rdf/type    :rdf/Property,
-   :rdfs/domain :scovo/Dataset,
-   :rdfs/label  "is the dataset of",
-   :rdfs/range  :scovo/Item})
+  {:db/ident           :scovo/datasetOf,
+   :rdf/type           :rdf/Property,
+   :rdfs/domain        :scovo/Dataset,
+   :rdfs/label         "is the dataset of",
+   :rdfs/range         :scovo/Item,
+   :rdfs/subPropertyOf :scovo/datasetOf})
 
 (def dimension
   "has a dimension"
-  {:db/ident    :scovo/dimension,
-   :rdf/type    :rdf/Property,
-   :rdfs/domain :scovo/Item,
-   :rdfs/label  "has a dimension",
-   :rdfs/range  :scovo/Dimension})
+  {:db/ident           :scovo/dimension,
+   :rdf/type           :rdf/Property,
+   :rdfs/domain        :scovo/Item,
+   :rdfs/label         "has a dimension",
+   :rdfs/range         :scovo/Dimension,
+   :rdfs/subPropertyOf :scovo/dimension})
 
 (def max
   "has a maximum range value"
-  {:db/ident    :scovo/max,
-   :rdf/type    :rdf/Property,
-   :rdfs/domain :scovo/Dimension,
-   :rdfs/label  "has a maximum range value"})
+  {:db/ident           :scovo/max,
+   :rdf/type           :rdf/Property,
+   :rdfs/domain        :scovo/Dimension,
+   :rdfs/label         "has a maximum range value",
+   :rdfs/subPropertyOf :scovo/max})
 
 (def min
   "has a minimum range value"
-  {:db/ident    :scovo/min,
-   :rdf/type    :rdf/Property,
-   :rdfs/domain :scovo/Dimension,
-   :rdfs/label  "has a minimum range value"})
+  {:db/ident           :scovo/min,
+   :rdf/type           :rdf/Property,
+   :rdfs/domain        :scovo/Dimension,
+   :rdfs/label         "has a minimum range value",
+   :rdfs/subPropertyOf :scovo/min})

@@ -25,6 +25,7 @@
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment "An agent (eg. person, group, software or physical artifact).",
    :rdfs/label "Agent",
+   :rdfs/subClassOf [:rdfs/Resource :foaf/Agent],
    :vs/term_status "stable"})
 
 (def Document
@@ -36,6 +37,7 @@
    :rdfs/comment        "A document.",
    :rdfs/isDefinedBy    "http://xmlns.com/foaf/0.1/",
    :rdfs/label          "Document",
+   :rdfs/subClassOf     [:rdfs/Resource :foaf/Document],
    :vs/term_status      "stable"})
 
 (def Group
@@ -44,7 +46,7 @@
    :rdf/type        [:owl/Class :rdfs/Class],
    :rdfs/comment    "A class of Agents.",
    :rdfs/label      "Group",
-   :rdfs/subClassOf :foaf/Agent,
+   :rdfs/subClassOf [:rdfs/Resource :foaf/Agent :foaf/Group],
    :vs/term_status  "stable"})
 
 (def Image
@@ -55,7 +57,7 @@
    :rdfs/comment        "An image.",
    :rdfs/isDefinedBy    "http://xmlns.com/foaf/0.1/",
    :rdfs/label          "Image",
-   :rdfs/subClassOf     :foaf/Document,
+   :rdfs/subClassOf     [:rdfs/Resource :foaf/Document :foaf/Image],
    :vs/term_status      "stable"})
 
 (def LabelProperty
@@ -66,6 +68,7 @@
    "A foaf:LabelProperty is any RDF property with texual values that serve as labels.",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "Label Property",
+   :rdfs/subClassOf [:rdfs/Resource :foaf/LabelProperty],
    :vs/term_status "unstable"})
 
 (def OnlineAccount
@@ -75,7 +78,7 @@
    :rdfs/comment     "An online account.",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label       "Online Account",
-   :rdfs/subClassOf  :owl/Thing,
+   :rdfs/subClassOf  [:rdfs/Resource :owl/Thing :foaf/OnlineAccount],
    :vs/term_status   "testing"})
 
 (def OnlineChatAccount
@@ -85,7 +88,10 @@
    :rdfs/comment     "An online chat account.",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label       "Online Chat Account",
-   :rdfs/subClassOf  :foaf/OnlineAccount,
+   :rdfs/subClassOf  [:rdfs/Resource
+                      :foaf/OnlineAccount
+                      :foaf/OnlineChatAccount
+                      :owl/Thing],
    :vs/term_status   "unstable"})
 
 (def OnlineEcommerceAccount
@@ -95,7 +101,10 @@
    :rdfs/comment     "An online e-commerce account.",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label       "Online E-commerce Account",
-   :rdfs/subClassOf  :foaf/OnlineAccount,
+   :rdfs/subClassOf  [:rdfs/Resource
+                      :foaf/OnlineAccount
+                      :foaf/OnlineEcommerceAccount
+                      :owl/Thing],
    :vs/term_status   "unstable"})
 
 (def OnlineGamingAccount
@@ -105,7 +114,10 @@
    :rdfs/comment     "An online gaming account.",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label       "Online Gaming Account",
-   :rdfs/subClassOf  :foaf/OnlineAccount,
+   :rdfs/subClassOf  [:rdfs/Resource
+                      :foaf/OnlineAccount
+                      :foaf/OnlineGamingAccount
+                      :owl/Thing],
    :vs/term_status   "unstable"})
 
 (def Organization
@@ -116,7 +128,7 @@
    :rdfs/comment     "An organization.",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label       "Organization",
-   :rdfs/subClassOf  :foaf/Agent,
+   :rdfs/subClassOf  [:foaf/Agent :foaf/Organization :rdfs/Resource],
    :vs/term_status   "stable"})
 
 (def Person
@@ -129,7 +141,10 @@
    :rdfs/comment        "A person.",
    :rdfs/isDefinedBy    "http://xmlns.com/foaf/0.1/",
    :rdfs/label          "Person",
-   :rdfs/subClassOf     [:geo/SpatialThing :foaf/Agent],
+   :rdfs/subClassOf     [:rdfs/Resource
+                         :geo/SpatialThing
+                         :foaf/Agent
+                         :foaf/Person],
    :vs/term_status      "stable"})
 
 (def PersonalProfileDocument
@@ -138,7 +153,9 @@
    :rdf/type        [:owl/Class :rdfs/Class],
    :rdfs/comment    "A personal profile RDF document.",
    :rdfs/label      "PersonalProfileDocument",
-   :rdfs/subClassOf :foaf/Document,
+   :rdfs/subClassOf [:rdfs/Resource
+                     :foaf/Document
+                     :foaf/PersonalProfileDocument],
    :vs/term_status  "testing"})
 
 (def Project
@@ -149,18 +166,20 @@
    :rdfs/comment     "A project (a collective endeavour of some kind).",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label       "Project",
+   :rdfs/subClassOf  [:rdfs/Resource :foaf/Project],
    :vs/term_status   "testing"})
 
 (def account
   "Indicates an account held by this agent."
-  {:db/ident         :foaf/account,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "Indicates an account held by this agent.",
-   :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "account",
-   :rdfs/range       :foaf/OnlineAccount,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/account,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "Indicates an account held by this agent.",
+   :rdfs/domain        :foaf/Agent,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "account",
+   :rdfs/range         :foaf/OnlineAccount,
+   :rdfs/subPropertyOf :foaf/account,
+   :vs/term_status     "testing"})
 
 (def accountName
   "Indicates the name (identifier) associated with this online account."
@@ -172,6 +191,7 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "account name",
    :rdfs/range :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/accountName,
    :vs/term_status "testing"})
 
 (def accountServiceHomepage
@@ -184,20 +204,22 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "account service homepage",
    :rdfs/range :foaf/Document,
+   :rdfs/subPropertyOf :foaf/accountServiceHomepage,
    :vs/term_status "testing"})
 
 (def age
   "The age in years of some agent."
-  {:db/ident         :foaf/age,
-   :rdf/type         [:owl/DatatypeProperty
-                      :owl/FunctionalProperty
-                      :rdf/Property],
-   :rdfs/comment     "The age in years of some agent.",
-   :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "age",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "unstable"})
+  {:db/ident           :foaf/age,
+   :rdf/type           [:owl/DatatypeProperty
+                        :owl/FunctionalProperty
+                        :rdf/Property],
+   :rdfs/comment       "The age in years of some agent.",
+   :rdfs/domain        :foaf/Agent,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "age",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/age,
+   :vs/term_status     "unstable"})
 
 (def aimChatID
   "An AIM chat ID"
@@ -210,7 +232,7 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "AIM chat ID",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :foaf/nick,
+   :rdfs/subPropertyOf [:foaf/nick :foaf/aimChatID],
    :vs/term_status     "testing"})
 
 (def based_near
@@ -223,6 +245,7 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "based near",
    :rdfs/range :geo/SpatialThing,
+   :rdfs/subPropertyOf :foaf/based_near,
    :vs/term_status "testing"})
 
 (def birthday
@@ -235,85 +258,93 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "birthday",
    :rdfs/range :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/birthday,
    :vs/term_status "unstable"})
 
 (def currentProject
   "A current project this person works on."
-  {:db/ident         :foaf/currentProject,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A current project this person works on.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "current project",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/currentProject,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A current project this person works on.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "current project",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/currentProject,
+   :vs/term_status     "testing"})
 
 (def depiction
   "A depiction of some thing."
-  {:db/ident         :foaf/depiction,
-   :owl/inverseOf    :foaf/depicts,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A depiction of some thing.",
-   :rdfs/domain      :owl/Thing,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "depiction",
-   :rdfs/range       :foaf/Image,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/depiction,
+   :owl/inverseOf      :foaf/depicts,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A depiction of some thing.",
+   :rdfs/domain        :owl/Thing,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "depiction",
+   :rdfs/range         :foaf/Image,
+   :rdfs/subPropertyOf :foaf/depiction,
+   :vs/term_status     "testing"})
 
 (def depicts
   "A thing depicted in this representation."
-  {:db/ident         :foaf/depicts,
-   :owl/inverseOf    :foaf/depiction,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A thing depicted in this representation.",
-   :rdfs/domain      :foaf/Image,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "depicts",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/depicts,
+   :owl/inverseOf      :foaf/depiction,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A thing depicted in this representation.",
+   :rdfs/domain        :foaf/Image,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "depicts",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/depicts,
+   :vs/term_status     "testing"})
 
 (def dnaChecksum
   "A checksum for the DNA of some thing. Joke."
-  {:db/ident         :foaf/dnaChecksum,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "A checksum for the DNA of some thing. Joke.",
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "DNA checksum",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "archaic"})
+  {:db/ident           :foaf/dnaChecksum,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "A checksum for the DNA of some thing. Joke.",
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "DNA checksum",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/dnaChecksum,
+   :vs/term_status     "archaic"})
 
 (def familyName
   "The family name of some person."
-  {:db/ident         :foaf/familyName,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "The family name of some person.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "familyName",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/familyName,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "The family name of some person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "familyName",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/familyName,
+   :vs/term_status     "testing"})
 
 (def family_name
   "The family name of some person."
-  {:db/ident         :foaf/family_name,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "The family name of some person.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "family_name",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "archaic"})
+  {:db/ident           :foaf/family_name,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "The family name of some person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "family_name",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/family_name,
+   :vs/term_status     "archaic"})
 
 (def firstName
   "The first name of a person."
-  {:db/ident         :foaf/firstName,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "The first name of a person.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "firstName",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/firstName,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "The first name of a person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "firstName",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/firstName,
+   :vs/term_status     "testing"})
 
 (def focus
   "The underlying or 'focal' entity associated with some SKOS-described concept."
@@ -325,18 +356,20 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "focus",
    :rdfs/range :owl/Thing,
+   :rdfs/subPropertyOf :foaf/focus,
    :vs/term_status "testing"})
 
 (def fundedBy
   "An organization funding a project or person."
-  {:db/ident         :foaf/fundedBy,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "An organization funding a project or person.",
-   :rdfs/domain      :owl/Thing,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "funded by",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "archaic"})
+  {:db/ident           :foaf/fundedBy,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "An organization funding a project or person.",
+   :rdfs/domain        :owl/Thing,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "funded by",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/fundedBy,
+   :vs/term_status     "archaic"})
 
 (def geekcode
   "A textual geekcode for this person, see http://www.geekcode.com/geek.html"
@@ -348,6 +381,7 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "geekcode",
    :rdfs/range :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/geekcode,
    :vs/term_status "archaic"})
 
 (def gender
@@ -360,36 +394,40 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "gender",
    :rdfs/range :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/gender,
    :vs/term_status "testing"})
 
 (def givenName
   "The given name of some person."
-  {:db/ident         :foaf/givenName,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "The given name of some person.",
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "Given name",
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/givenName,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "The given name of some person.",
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "Given name",
+   :rdfs/subPropertyOf :foaf/givenName,
+   :vs/term_status     "testing"})
 
 (def givenname
   "The given name of some person."
-  {:db/ident         :foaf/givenname,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "The given name of some person.",
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "Given name",
-   :vs/term_status   "archaic"})
+  {:db/ident           :foaf/givenname,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "The given name of some person.",
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "Given name",
+   :rdfs/subPropertyOf :foaf/givenname,
+   :vs/term_status     "archaic"})
 
 (def holdsAccount
   "Indicates an account held by this agent."
-  {:db/ident         :foaf/holdsAccount,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "Indicates an account held by this agent.",
-   :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "account",
-   :rdfs/range       :foaf/OnlineAccount,
-   :vs/term_status   "archaic"})
+  {:db/ident           :foaf/holdsAccount,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "Indicates an account held by this agent.",
+   :rdfs/domain        :foaf/Agent,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "account",
+   :rdfs/range         :foaf/OnlineAccount,
+   :rdfs/subPropertyOf :foaf/holdsAccount,
+   :vs/term_status     "archaic"})
 
 (def homepage
   "A homepage for some thing."
@@ -402,7 +440,7 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "homepage",
    :rdfs/range         :foaf/Document,
-   :rdfs/subPropertyOf [:foaf/page :foaf/isPrimaryTopicOf],
+   :rdfs/subPropertyOf [:foaf/page :foaf/isPrimaryTopicOf :foaf/homepage],
    :vs/term_status     "stable"})
 
 (def icqChatID
@@ -416,7 +454,7 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "ICQ chat ID",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :foaf/nick,
+   :rdfs/subPropertyOf [:foaf/nick :foaf/icqChatID],
    :vs/term_status     "testing"})
 
 (def img
@@ -429,19 +467,20 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "image",
    :rdfs/range :foaf/Image,
-   :rdfs/subPropertyOf :foaf/depiction,
+   :rdfs/subPropertyOf [:foaf/depiction :foaf/img],
    :vs/term_status "testing"})
 
 (def interest
   "A page about a topic of interest to this person."
-  {:db/ident         :foaf/interest,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A page about a topic of interest to this person.",
-   :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "interest",
-   :rdfs/range       :foaf/Document,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/interest,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A page about a topic of interest to this person.",
+   :rdfs/domain        :foaf/Agent,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "interest",
+   :rdfs/range         :foaf/Document,
+   :rdfs/subPropertyOf :foaf/interest,
+   :vs/term_status     "testing"})
 
 (def isPrimaryTopicOf
   "A document that this thing is the primary topic of."
@@ -453,21 +492,22 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "is primary topic of",
    :rdfs/range         :foaf/Document,
-   :rdfs/subPropertyOf :foaf/page,
+   :rdfs/subPropertyOf [:foaf/page :foaf/isPrimaryTopicOf],
    :vs/term_status     "stable"})
 
 (def jabberID
   "A jabber ID for something."
-  {:db/ident         :foaf/jabberID,
-   :rdf/type         [:owl/InverseFunctionalProperty
-                      :owl/DatatypeProperty
-                      :rdf/Property],
-   :rdfs/comment     "A jabber ID for something.",
-   :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "jabber ID",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/jabberID,
+   :rdf/type           [:owl/InverseFunctionalProperty
+                        :owl/DatatypeProperty
+                        :rdf/Property],
+   :rdfs/comment       "A jabber ID for something.",
+   :rdfs/domain        :foaf/Agent,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "jabber ID",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/jabberID,
+   :vs/term_status     "testing"})
 
 (def knows
   "A person known by this person (indicating some level of reciprocated interaction between the parties)."
@@ -479,43 +519,47 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "knows",
    :rdfs/range :foaf/Person,
+   :rdfs/subPropertyOf :foaf/knows,
    :vs/term_status "stable"})
 
 (def lastName
   "The last name of a person."
-  {:db/ident         :foaf/lastName,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "The last name of a person.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "lastName",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/lastName,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "The last name of a person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "lastName",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/lastName,
+   :vs/term_status     "testing"})
 
 (def logo
   "A logo representing some thing."
-  {:db/ident         :foaf/logo,
-   :rdf/type         [:owl/InverseFunctionalProperty
-                      :owl/ObjectProperty
-                      :rdf/Property],
-   :rdfs/comment     "A logo representing some thing.",
-   :rdfs/domain      :owl/Thing,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "logo",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/logo,
+   :rdf/type           [:owl/InverseFunctionalProperty
+                        :owl/ObjectProperty
+                        :rdf/Property],
+   :rdfs/comment       "A logo representing some thing.",
+   :rdfs/domain        :owl/Thing,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "logo",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/logo,
+   :vs/term_status     "testing"})
 
 (def made
   "Something that was made by this agent."
-  {:db/ident         :foaf/made,
-   :owl/inverseOf    :foaf/maker,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "Something that was made by this agent.",
-   :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "made",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "stable"})
+  {:db/ident           :foaf/made,
+   :owl/inverseOf      :foaf/maker,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "Something that was made by this agent.",
+   :rdfs/domain        :foaf/Agent,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "made",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/made,
+   :vs/term_status     "stable"})
 
 (def maker
   "An agent that made this thing."
@@ -528,6 +572,7 @@
    :rdfs/isDefinedBy       "http://xmlns.com/foaf/0.1/",
    :rdfs/label             "maker",
    :rdfs/range             :foaf/Agent,
+   :rdfs/subPropertyOf     :foaf/maker,
    :vs/term_status         "stable"})
 
 (def mbox
@@ -540,6 +585,7 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "personal mailbox",
    :rdfs/range :owl/Thing,
+   :rdfs/subPropertyOf :foaf/mbox,
    :vs/term_status "stable"})
 
 (def mbox_sha1sum
@@ -553,18 +599,20 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "sha1sum of a personal mailbox URI name",
    :rdfs/range :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/mbox_sha1sum,
    :vs/term_status "testing"})
 
 (def member
   "Indicates a member of a Group"
-  {:db/ident         :foaf/member,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "Indicates a member of a Group",
-   :rdfs/domain      :foaf/Group,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "member",
-   :rdfs/range       :foaf/Agent,
-   :vs/term_status   "stable"})
+  {:db/ident           :foaf/member,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "Indicates a member of a Group",
+   :rdfs/domain        :foaf/Group,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "member",
+   :rdfs/range         :foaf/Agent,
+   :rdfs/subPropertyOf :foaf/member,
+   :vs/term_status     "stable"})
 
 (def membershipClass
   "Indicates the class of individuals that are a member of a Group"
@@ -574,6 +622,7 @@
    "Indicates the class of individuals that are a member of a Group",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "membershipClass",
+   :rdfs/subPropertyOf :foaf/membershipClass,
    :vs/term_status "unstable"})
 
 (def msnChatID
@@ -587,19 +636,20 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "MSN chat ID",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :foaf/nick,
+   :rdfs/subPropertyOf [:foaf/nick :foaf/msnChatID],
    :vs/term_status     "testing"})
 
 (def myersBriggs
   "A Myers Briggs (MBTI) personality classification."
-  {:db/ident         :foaf/myersBriggs,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "A Myers Briggs (MBTI) personality classification.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "myersBriggs",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/myersBriggs,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "A Myers Briggs (MBTI) personality classification.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "myersBriggs",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/myersBriggs,
+   :vs/term_status     "testing"})
 
 (def name
   "A name for some thing."
@@ -610,7 +660,7 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "name",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :rdfs/label,
+   :rdfs/subPropertyOf [:rdfs/label :foaf/name],
    :vs/term_status     "testing"})
 
 (def nick
@@ -621,6 +671,7 @@
    "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "nickname",
+   :rdfs/subPropertyOf :foaf/nick,
    :vs/term_status "testing"})
 
 (def openid
@@ -634,31 +685,33 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "openid",
    :rdfs/range         :foaf/Document,
-   :rdfs/subPropertyOf :foaf/isPrimaryTopicOf,
+   :rdfs/subPropertyOf [:foaf/isPrimaryTopicOf :foaf/openid :foaf/page],
    :vs/term_status     "testing"})
 
 (def page
   "A page or document about this thing."
-  {:db/ident         :foaf/page,
-   :owl/inverseOf    :foaf/topic,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A page or document about this thing.",
-   :rdfs/domain      :owl/Thing,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "page",
-   :rdfs/range       :foaf/Document,
-   :vs/term_status   "stable"})
+  {:db/ident           :foaf/page,
+   :owl/inverseOf      :foaf/topic,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A page or document about this thing.",
+   :rdfs/domain        :owl/Thing,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "page",
+   :rdfs/range         :foaf/Document,
+   :rdfs/subPropertyOf :foaf/page,
+   :vs/term_status     "stable"})
 
 (def pastProject
   "A project this person has previously worked on."
-  {:db/ident         :foaf/pastProject,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A project this person has previously worked on.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "past project",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/pastProject,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A project this person has previously worked on.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "past project",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/pastProject,
+   :vs/term_status     "testing"})
 
 (def phone
   "A phone, specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)."
@@ -668,6 +721,7 @@
    "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).",
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "phone",
+   :rdfs/subPropertyOf :foaf/phone,
    :vs/term_status "testing"})
 
 (def plan
@@ -680,53 +734,58 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "plan",
    :rdfs/range :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/plan,
    :vs/term_status "testing"})
 
 (def primaryTopic
   "The primary topic of some page or document."
-  {:db/ident         :foaf/primaryTopic,
-   :owl/inverseOf    :foaf/isPrimaryTopicOf,
-   :rdf/type         [:owl/FunctionalProperty
-                      :rdf/Property
-                      :owl/ObjectProperty],
-   :rdfs/comment     "The primary topic of some page or document.",
-   :rdfs/domain      :foaf/Document,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "primary topic",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "stable"})
+  {:db/ident           :foaf/primaryTopic,
+   :owl/inverseOf      :foaf/isPrimaryTopicOf,
+   :rdf/type           [:owl/FunctionalProperty
+                        :rdf/Property
+                        :owl/ObjectProperty],
+   :rdfs/comment       "The primary topic of some page or document.",
+   :rdfs/domain        :foaf/Document,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "primary topic",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/primaryTopic,
+   :vs/term_status     "stable"})
 
 (def publications
   "A link to the publications of this person."
-  {:db/ident         :foaf/publications,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A link to the publications of this person.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "publications",
-   :rdfs/range       :foaf/Document,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/publications,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A link to the publications of this person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "publications",
+   :rdfs/range         :foaf/Document,
+   :rdfs/subPropertyOf :foaf/publications,
+   :vs/term_status     "testing"})
 
 (def schoolHomepage
   "A homepage of a school attended by the person."
-  {:db/ident         :foaf/schoolHomepage,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A homepage of a school attended by the person.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "schoolHomepage",
-   :rdfs/range       :foaf/Document,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/schoolHomepage,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A homepage of a school attended by the person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "schoolHomepage",
+   :rdfs/range         :foaf/Document,
+   :rdfs/subPropertyOf :foaf/schoolHomepage,
+   :vs/term_status     "testing"})
 
 (def sha1
   "A sha1sum hash, in hex."
-  {:db/ident         :foaf/sha1,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "A sha1sum hash, in hex.",
-   :rdfs/domain      :foaf/Document,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "sha1sum (hex)",
-   :vs/term_status   "unstable"})
+  {:db/ident           :foaf/sha1,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "A sha1sum hash, in hex.",
+   :rdfs/domain        :foaf/Document,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "sha1sum (hex)",
+   :rdfs/subPropertyOf :foaf/sha1,
+   :vs/term_status     "unstable"})
 
 (def skypeID
   "A Skype ID"
@@ -737,7 +796,7 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "Skype ID",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :foaf/nick,
+   :rdfs/subPropertyOf [:foaf/nick :foaf/skypeID],
    :vs/term_status     "testing"})
 
 (def status
@@ -750,40 +809,44 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "status",
    :rdfs/range :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/status,
    :vs/term_status "unstable"})
 
 (def surname
   "The surname of some person."
-  {:db/ident         :foaf/surname,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "The surname of some person.",
-   :rdfs/domain      :foaf/Person,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "Surname",
-   :rdfs/range       :rdfs/Literal,
-   :vs/term_status   "archaic"})
+  {:db/ident           :foaf/surname,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "The surname of some person.",
+   :rdfs/domain        :foaf/Person,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "Surname",
+   :rdfs/range         :rdfs/Literal,
+   :rdfs/subPropertyOf :foaf/surname,
+   :vs/term_status     "archaic"})
 
 (def theme
   "A theme."
-  {:db/ident         :foaf/theme,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A theme.",
-   :rdfs/domain      :owl/Thing,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "theme",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "archaic"})
+  {:db/ident           :foaf/theme,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A theme.",
+   :rdfs/domain        :owl/Thing,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "theme",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/theme,
+   :vs/term_status     "archaic"})
 
 (def thumbnail
   "A derived thumbnail image."
-  {:db/ident         :foaf/thumbnail,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A derived thumbnail image.",
-   :rdfs/domain      :foaf/Image,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "thumbnail",
-   :rdfs/range       :foaf/Image,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/thumbnail,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A derived thumbnail image.",
+   :rdfs/domain        :foaf/Image,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "thumbnail",
+   :rdfs/range         :foaf/Image,
+   :rdfs/subPropertyOf :foaf/thumbnail,
+   :vs/term_status     "testing"})
 
 (def tipjar
   "A tipjar document for this agent, describing means for payment and reward."
@@ -795,40 +858,43 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "tipjar",
    :rdfs/range :foaf/Document,
-   :rdfs/subPropertyOf :foaf/page,
+   :rdfs/subPropertyOf [:foaf/page :foaf/tipjar],
    :vs/term_status "testing"})
 
 (def title
   "Title (Mr, Mrs, Ms, Dr. etc)"
-  {:db/ident         :foaf/title,
-   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment     "Title (Mr, Mrs, Ms, Dr. etc)",
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "title",
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/title,
+   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment       "Title (Mr, Mrs, Ms, Dr. etc)",
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "title",
+   :rdfs/subPropertyOf :foaf/title,
+   :vs/term_status     "testing"})
 
 (def topic
   "A topic of some page or document."
-  {:db/ident         :foaf/topic,
-   :owl/inverseOf    :foaf/page,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A topic of some page or document.",
-   :rdfs/domain      :foaf/Document,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "topic",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/topic,
+   :owl/inverseOf      :foaf/page,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A topic of some page or document.",
+   :rdfs/domain        :foaf/Document,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "topic",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/topic,
+   :vs/term_status     "testing"})
 
 (def topic_interest
   "A thing of interest to this person."
-  {:db/ident         :foaf/topic_interest,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment     "A thing of interest to this person.",
-   :rdfs/domain      :foaf/Agent,
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
-   :rdfs/label       "topic_interest",
-   :rdfs/range       :owl/Thing,
-   :vs/term_status   "testing"})
+  {:db/ident           :foaf/topic_interest,
+   :rdf/type           [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment       "A thing of interest to this person.",
+   :rdfs/domain        :foaf/Agent,
+   :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
+   :rdfs/label         "topic_interest",
+   :rdfs/range         :owl/Thing,
+   :rdfs/subPropertyOf :foaf/topic_interest,
+   :vs/term_status     "testing"})
 
 (def weblog
   "A weblog of some thing (whether person, group, company etc.)."
@@ -840,7 +906,7 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "weblog",
    :rdfs/range :foaf/Document,
-   :rdfs/subPropertyOf :foaf/page,
+   :rdfs/subPropertyOf [:foaf/page :foaf/weblog],
    :vs/term_status "stable"})
 
 (def workInfoHomepage
@@ -853,6 +919,7 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "work info homepage",
    :rdfs/range :foaf/Document,
+   :rdfs/subPropertyOf :foaf/workInfoHomepage,
    :vs/term_status "testing"})
 
 (def workplaceHomepage
@@ -865,6 +932,7 @@
    :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
    :rdfs/label "workplace homepage",
    :rdfs/range :foaf/Document,
+   :rdfs/subPropertyOf :foaf/workplaceHomepage,
    :vs/term_status "testing"})
 
 (def yahooChatID
@@ -878,14 +946,15 @@
    :rdfs/isDefinedBy   "http://xmlns.com/foaf/0.1/",
    :rdfs/label         "Yahoo chat ID",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :foaf/nick,
+   :rdfs/subPropertyOf [:foaf/nick :foaf/yahooChatID],
    :vs/term_status     "testing"})
 
 (def ^{:private true} SpatialThing
   "Spatial Thing"
-  {:db/ident   :geo/SpatialThing,
-   :rdf/type   :owl/Class,
-   :rdfs/label "Spatial Thing"})
+  {:db/ident        :geo/SpatialThing,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Spatial Thing",
+   :rdfs/subClassOf :geo/SpatialThing})
 
 (def ^{:private true} Concept
   "Concept"

@@ -27,8 +27,8 @@
                       :ma/Location
                       :ma/Collection],
    :rdf/type :owl/Class,
-   :rdfs/comment
-   "A person or organisation contributing to the media resource."})
+   :rdfs/comment "A person or organisation contributing to the media resource.",
+   :rdfs/subClassOf :ma/Agent})
 
 (def AudioTrack
   "A specialisation of Track for Audio to provide a link to specific data properties such as sampleRate, etc. Specialisation is defined through object properties."
@@ -37,7 +37,8 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "A specialisation of Track for Audio to provide a link to specific data properties such as sampleRate, etc. Specialisation is defined through object properties.",
-   :rdfs/subClassOf :ma/Track})
+   :rdfs/subClassOf
+   [:ma/Track :ma/AudioTrack :ma/MediaResource :ma/MediaFragment]})
 
 (def Collection
   "Any group of media resource e.g. a series."
@@ -56,7 +57,8 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "Ancillary data track e.g. captioning  in addition to video and audio tracks. Specialisation is made through the use of appropriate object properties.",
-   :rdfs/subClassOf :ma/Track})
+   :rdfs/subClassOf
+   [:ma/Track :ma/DataTrack :ma/MediaResource :ma/MediaFragment]})
 
 (def Image
   "A still image / thumbnail / key frame related to the media resource or being the media resource itself."
@@ -64,7 +66,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "A still image / thumbnail / key frame related to the media resource or being the media resource itself.",
-   :rdfs/subClassOf :ma/MediaResource})
+   :rdfs/subClassOf [:ma/MediaResource :ma/Image]})
 
 (def Location
   "A location related to the media resource, e.g. depicted in the resource (possibly fictional) or where the resource was created (shooting location), etc."
@@ -80,7 +82,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "A media fragment (spatial, temporal, track...) composing a media resource. In other ontologies fragment is sometimes referred to as a 'part' or 'segment'.",
-   :rdfs/subClassOf :ma/MediaResource})
+   :rdfs/subClassOf [:ma/MediaResource :ma/MediaFragment]})
 
 (def MediaResource
   "An image or an audiovisual media resource, which can be composed of one or more fragment / track."
@@ -88,7 +90,8 @@
    :owl/disjointWith [:ma/TargetAudience :ma/Rating],
    :rdf/type :owl/Class,
    :rdfs/comment
-   "An image or an audiovisual media resource, which can be composed of one or more fragment / track."})
+   "An image or an audiovisual media resource, which can be composed of one or more fragment / track.",
+   :rdfs/subClassOf :ma/MediaResource})
 
 (def Organisation
   "An organisation or moral agent."
@@ -96,14 +99,14 @@
    :owl/disjointWith :ma/Person,
    :rdf/type         :owl/Class,
    :rdfs/comment     "An organisation or moral agent.",
-   :rdfs/subClassOf  :ma/Agent})
+   :rdfs/subClassOf  [:ma/Agent :ma/Organisation]})
 
 (def Person
   "A physical person."
   {:db/ident        :ma/Person,
    :rdf/type        :owl/Class,
    :rdfs/comment    "A physical person.",
-   :rdfs/subClassOf :ma/Agent})
+   :rdfs/subClassOf [:ma/Agent :ma/Person]})
 
 (def Rating
   "Information about the rating given to a media resource."
@@ -124,7 +127,7 @@
   {:db/ident :ma/Track,
    :rdf/type :owl/Class,
    :rdfs/comment "A specialisation of MediaFragment for audiovisual content.",
-   :rdfs/subClassOf :ma/MediaFragment})
+   :rdfs/subClassOf [:ma/MediaFragment :ma/Track :ma/MediaResource]})
 
 (def VideoTrack
   "A specialisation of Track for Video to provide a link to specific data properties such as frameRate, etc. Signing is another possible example of video track. Specialisation is defined through object properties."
@@ -132,7 +135,8 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "A specialisation of Track for Video to provide a link to specific data properties such as frameRate, etc. Signing is another possible example of video track. Specialisation is defined through object properties.",
-   :rdfs/subClassOf :ma/Track})
+   :rdfs/subClassOf
+   [:ma/Track :ma/VideoTrack :ma/MediaResource :ma/MediaFragment]})
 
 (def alternativeTitle
   "Corresponds to 'title.title' in the Ontology for Media Resources with a 'title.type' meaning \"alternative\"."
@@ -140,7 +144,7 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'title.title' in the Ontology for Media Resources with a 'title.type' meaning \"alternative\".",
-   :rdfs/subPropertyOf :ma/title})
+   :rdfs/subPropertyOf [:ma/title :ma/alternativeTitle]})
 
 (def averageBitRate
   "Corresponds to 'averageBitRate' in the Ontology for Media Resources, expressed in kilobits/second."
@@ -176,7 +180,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A subproperty of 'hasRelatedLocation\" used to specify where material shooting took place.",
-   :rdfs/subPropertyOf :ma/hasRelatedLocation})
+   :rdfs/subPropertyOf [:ma/hasRelatedLocation :ma/createdIn]})
 
 (def creationDate
   "Corresponds to 'date.date' in the Ontology for Media Resources with a 'date.type' meaning \"creationDate\"."
@@ -184,7 +188,7 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'date.date' in the Ontology for Media Resources with a 'date.type' meaning \"creationDate\".",
-   :rdfs/subPropertyOf :ma/date})
+   :rdfs/subPropertyOf [:ma/date :ma/creationDate]})
 
 (def date
   "Corresponds to date.date in the ontology for Media Resources. Subproperties can be used to distinguish different values of 'date.type'. The recommended range is 'xsd:dateTime' (for compliance with OWL2-QL and OWL2-RL) but other time-related datatypes may be used (e.g. 'xsd:gYear', 'xsd:date'...)."
@@ -192,7 +196,8 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to date.date in the ontology for Media Resources. Subproperties can be used to distinguish different values of 'date.type'. The recommended range is 'xsd:dateTime' (for compliance with OWL2-QL and OWL2-RL) but other time-related datatypes may be used (e.g. 'xsd:gYear', 'xsd:date'...).",
-   :rdfs/domain :ma/MediaResource})
+   :rdfs/domain :ma/MediaResource,
+   :rdfs/subPropertyOf :ma/date})
 
 (def depictsFictionalLocation
   "A subproperty of 'hasRelatedLocation' used to specify where the action depicted in the media is supposed to take place, as opposed to the location where shooting actually took place (see 'createdIn')."
@@ -201,7 +206,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A subproperty of 'hasRelatedLocation' used to specify where the action depicted in the media is supposed to take place, as opposed to the location where shooting actually took place (see 'createdIn').",
-   :rdfs/subPropertyOf :ma/hasRelatedLocation})
+   :rdfs/subPropertyOf [:ma/hasRelatedLocation :ma/depictsFictionalLocation]})
 
 (def description
   "Corresponds to 'description' in the Ontology for Media Resources. This can be specialised by using sub-properties e.g. 'summary' or 'script'."
@@ -229,7 +234,7 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'date.date' in the Ontology for Media Resources with a 'date.type' meaning \"editDate\".",
-   :rdfs/subPropertyOf :ma/date})
+   :rdfs/subPropertyOf [:ma/date :ma/editDate]})
 
 (def features
   "Corresponds to 'contributor.contributor' in the Ontology for Media Resources with a 'contributor.role' meaning \"actor\"."
@@ -239,7 +244,7 @@
    :rdfs/comment
    "Corresponds to 'contributor.contributor' in the Ontology for Media Resources with a 'contributor.role' meaning \"actor\".",
    :rdfs/range :ma/Person,
-   :rdfs/subPropertyOf :ma/hasContributor})
+   :rdfs/subPropertyOf [:ma/hasContributor :ma/features]})
 
 (def fragmentName
   "Corresponds to 'namedFragment.label' in the Ontology for Media Resources."
@@ -247,7 +252,8 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'namedFragment.label' in the Ontology for Media Resources.",
-   :rdfs/domain :ma/MediaFragment})
+   :rdfs/domain :ma/MediaFragment,
+   :rdfs/subPropertyOf :ma/fragmentName})
 
 (def frameHeight
   "Corresponds to 'frameSize.height' in the Ontology for Media Resources, measured in frameSizeUnit."
@@ -290,7 +296,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'policy' in the Ontology for Media Resources with a 'policy.type' \"access conditions\".",
-   :rdfs/subPropertyOf :ma/hasPolicy})
+   :rdfs/subPropertyOf [:ma/hasPolicy :ma/hasAccessConditions]})
 
 (def hasAudioDescription
   "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"audio-description\"."
@@ -298,7 +304,8 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"audio-description\".",
-   :rdfs/subPropertyOf :ma/hasCaptioning})
+   :rdfs/subPropertyOf
+   [:ma/hasCaptioning :ma/hasAudioDescription :ma/hasFragment]})
 
 (def hasCaptioning
   "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"captioning\". This property can for example point to a spatial fragment, a VideoTrack or a DataTrack. The language of the captioning track can be expressed by attaching a 'hasLanguage' property to the specific track."
@@ -307,7 +314,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"captioning\". This property can for example point to a spatial fragment, a VideoTrack or a DataTrack. The language of the captioning track can be expressed by attaching a 'hasLanguage' property to the specific track.",
-   :rdfs/subPropertyOf :ma/hasFragment})
+   :rdfs/subPropertyOf [:ma/hasFragment :ma/hasCaptioning]})
 
 (def hasChapter
   "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"chapter\"."
@@ -316,7 +323,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"chapter\".",
-   :rdfs/subPropertyOf :ma/hasFragment})
+   :rdfs/subPropertyOf [:ma/hasFragment :ma/hasChapter]})
 
 (def hasClassification
   "Corresponds to 'targetAudience.classification' in the Ontology for Media Resources. This property is used to provide a value characterising the target audience."
@@ -354,7 +361,8 @@
    :rdfs/comment
    "Corresponds to 'contributor.contributor' in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'contributor.role'.",
    :rdfs/domain :ma/MediaResource,
-   :rdfs/range :ma/Agent})
+   :rdfs/range :ma/Agent,
+   :rdfs/subPropertyOf :ma/hasContributor})
 
 (def hasCopyrightOver
   {:db/ident :ma/hasCopyrightOver,
@@ -371,7 +379,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'creator.creator' in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'creator.role'. Note that this property is semantically a subproperty of 'hasContributor'.",
-   :rdfs/subPropertyOf :ma/hasContributor})
+   :rdfs/subPropertyOf [:ma/hasContributor :ma/hasCreator]})
 
 (def hasFormat
   "Corresponds to 'format' in the Ontology for Media Resources."
@@ -388,7 +396,8 @@
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'fragment.role'.",
    :rdfs/domain :ma/MediaResource,
-   :rdfs/range :ma/MediaFragment})
+   :rdfs/range :ma/MediaFragment,
+   :rdfs/subPropertyOf :ma/hasFragment})
 
 (def hasGenre
   "Corresponds to 'genre' in the Ontology for Media Resources."
@@ -432,7 +441,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'namedFragment' in the Ontology for Media Resources.",
-   :rdfs/subPropertyOf :ma/hasFragment})
+   :rdfs/subPropertyOf [:ma/hasFragment :ma/hasNamedFragment]})
 
 (def hasPermissions
   "Corresponds to 'policy' in the Ontology for Media Resources with a 'policy.type' meaning \"permissions\"."
@@ -440,7 +449,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'policy' in the Ontology for Media Resources with a  'policy.type' meaning \"permissions\".",
-   :rdfs/subPropertyOf :ma/hasPolicy})
+   :rdfs/subPropertyOf [:ma/hasPolicy :ma/hasPermissions]})
 
 (def hasPolicy
   "Corresponds to 'policy' in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'policy.type'."
@@ -448,7 +457,8 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'policy' in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'policy.type'.",
-   :rdfs/domain :ma/MediaResource})
+   :rdfs/domain :ma/MediaResource,
+   :rdfs/subPropertyOf :ma/hasPolicy})
 
 (def hasPublished
   {:db/ident :ma/hasPublished,
@@ -461,7 +471,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'publisher' in the Ontology for Media Resources.",
-   :rdfs/subPropertyOf :ma/hasContributor})
+   :rdfs/subPropertyOf [:ma/hasContributor :ma/hasPublisher]})
 
 (def hasRating
   "Corresponds to 'rating' in the Ontology for Media Resources."
@@ -488,7 +498,7 @@
    :rdfs/comment
    "Corresponds to 'relation' and in the Ontology for Media Resources with a 'relation.type' meaning \"related image\".",
    :rdfs/range :ma/Image,
-   :rdfs/subPropertyOf :ma/hasRelatedResource})
+   :rdfs/subPropertyOf [:ma/hasRelatedResource :ma/hasRelatedImage]})
 
 (def hasRelatedLocation
   "Corresponds to 'location' in the Ontology for Media Resources. Subproperties are provided to specify, when possible, the relation between the media resource and the location."
@@ -498,7 +508,8 @@
    :rdfs/comment
    "Corresponds to 'location' in the Ontology for Media Resources. Subproperties are provided to specify, when possible, the relation between the media resource and the location.",
    :rdfs/domain :ma/MediaResource,
-   :rdfs/range :ma/Location})
+   :rdfs/range :ma/Location,
+   :rdfs/subPropertyOf :ma/hasRelatedLocation})
 
 (def hasRelatedResource
   "Corresponds to 'relation' and in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'relation.type'."
@@ -507,7 +518,8 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'relation' and in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'relation.type'.",
-   :rdfs/domain :ma/MediaResource})
+   :rdfs/domain :ma/MediaResource,
+   :rdfs/subPropertyOf :ma/hasRelatedResource})
 
 (def hasSigning
   "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"signing\". This property can for example point to a spatial fragment or a VideoTrack. The sign language of the captioning track can be expressed by attaching a 'hasLanguage' property to the specific track."
@@ -516,7 +528,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"signing\". This property can for example point to a spatial fragment or a VideoTrack. The sign language of the captioning track can be expressed by attaching a 'hasLanguage' property to the specific track.",
-   :rdfs/subPropertyOf :ma/hasFragment})
+   :rdfs/subPropertyOf [:ma/hasFragment :ma/hasSigning]})
 
 (def hasSource
   "Corresponds to 'relation' and in the Ontology for Media Resources with a 'relation.type' meaning \"source\"."
@@ -525,7 +537,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'relation' and in the Ontology for Media Resources with a 'relation.type' meaning \"source\".",
-   :rdfs/subPropertyOf :ma/hasRelatedResource})
+   :rdfs/subPropertyOf [:ma/hasRelatedResource :ma/hasSource]})
 
 (def hasSubtitling
   "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"subtitling\"."
@@ -533,7 +545,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"subtitling\".",
-   :rdfs/subPropertyOf :ma/hasCaptioning})
+   :rdfs/subPropertyOf [:ma/hasCaptioning :ma/hasSubtitling :ma/hasFragment]})
 
 (def hasTargetAudience
   "Corresponds to 'targetAudience' in the Ontology for Media Resources."
@@ -553,7 +565,7 @@
    :rdfs/comment
    "Corresponds to 'fragment' in the Ontology for Media Resources with a 'fragment.role' meaning \"track\".",
    :rdfs/range :ma/Track,
-   :rdfs/subPropertyOf :ma/hasFragment})
+   :rdfs/subPropertyOf [:ma/hasFragment :ma/hasTrack]})
 
 (def isCaptioningOf
   {:db/ident :ma/isCaptioningOf,
@@ -588,7 +600,7 @@
 (def isImageRelatedTo
   {:db/ident :ma/isImageRelatedTo,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/subPropertyOf :ma/isRelatedTo})
+   :rdfs/subPropertyOf [:ma/isRelatedTo :ma/isImageRelatedTo]})
 
 (def isLocationRelatedTo
   {:db/ident :ma/isLocationRelatedTo,
@@ -624,7 +636,8 @@
 
 (def isRelatedTo
   {:db/ident :ma/isRelatedTo,
-   :rdf/type :owl/ObjectProperty})
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/subPropertyOf :ma/isRelatedTo})
 
 (def isSigningOf
   {:db/ident :ma/isSigningOf,
@@ -692,7 +705,7 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'title.title' in the Ontology for Media Resources with a 'title.type' meaning \"original\".",
-   :rdfs/subPropertyOf :ma/title})
+   :rdfs/subPropertyOf [:ma/title :ma/mainOriginalTitle]})
 
 (def numberOfTracks
   "Corresponds to 'numTracks.number' in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'numTracks.type'."
@@ -744,7 +757,7 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'date.date' in the Ontology for Media Resources with a 'date.type' meaning \"recordDate\".",
-   :rdfs/subPropertyOf :ma/date})
+   :rdfs/subPropertyOf [:ma/date :ma/recordDate]})
 
 (def releaseDate
   "Corresponds to 'date.date' in the Ontology for Media Resources with a 'date.type' meaning \"releaseDate\"."
@@ -752,7 +765,7 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'date.date' in the Ontology for Media Resources with a 'date.type' meaning \"releaseDate\".",
-   :rdfs/subPropertyOf :ma/date})
+   :rdfs/subPropertyOf [:ma/date :ma/releaseDate]})
 
 (def samplingRate
   "Corresponds to 'samplingRate' in the Ontology for Media Resources, in samples per second."
@@ -769,7 +782,8 @@
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
    "Corresponds to 'title.title' in the Ontology for Media Resources. Subproperties can be used to distinguish different values of 'title.type'.",
-   :rdfs/domain :ma/MediaResource})
+   :rdfs/domain :ma/MediaResource,
+   :rdfs/subPropertyOf :ma/title})
 
 (def trackName
   "Corresponds to 'fragment.name' in the Ontology for Media Resources, for Track fragments."
@@ -778,4 +792,4 @@
    :rdfs/comment
    "Corresponds to 'fragment.name' in the Ontology for Media Resources, for Track fragments.",
    :rdfs/domain :ma/Track,
-   :rdfs/subPropertyOf :ma/fragmentName})
+   :rdfs/subPropertyOf [:ma/fragmentName :ma/trackName]})

@@ -162,6 +162,11 @@
   [class]
   (:mop/class-direct-default-initargs class {}))
 
+(defmethod mop/class-direct-default-initargs :default
+  [class]
+  (println class)
+  (:mop/class-direct-default-initargs class {}))
+
 #_(into #{}
         (comp
           (map first)

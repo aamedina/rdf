@@ -4,11 +4,11 @@
    :dcterms/creator
    [{:rdf/type           :schema/Person,
      :schema/affiliation {:rdf/type    :schema/Organization,
-                          :schema/name "LiDRC",
-                          :schema/url  "http://linkeddata.deri.ie/"},
-     :schema/email       "mailto:michael.hausenblas@deri.org",
-     :schema/name        "Michael Hausenblas",
-     :schema/url         "http://sw-app.org/about.html"}
+                          :schema/name "Talis",
+                          :schema/url  "http://www.talis.com/"},
+     :schema/email       "mailto:Keith.Alexander@talis.com",
+     :schema/name        "Keith Alexander",
+     :schema/url         "http://kwijibo.talis.com/"}
     {:rdf/type           :schema/Person,
      :schema/affiliation {:rdf/type :schema/Organization,
                           :schema/name
@@ -19,11 +19,11 @@
      :schema/url         "http://users.ox.ac.uk/~zool0770/"}
     {:rdf/type           :schema/Person,
      :schema/affiliation {:rdf/type    :schema/Organization,
-                          :schema/name "Talis",
-                          :schema/url  "http://www.talis.com/"},
-     :schema/email       "mailto:Keith.Alexander@talis.com",
-     :schema/name        "Keith Alexander",
-     :schema/url         "http://kwijibo.talis.com/"}
+                          :schema/name "LiDRC",
+                          :schema/url  "http://linkeddata.deri.ie/"},
+     :schema/email       "mailto:michael.hausenblas@deri.org",
+     :schema/name        "Michael Hausenblas",
+     :schema/url         "http://sw-app.org/about.html"}
     {:rdf/type           :schema/Person,
      :schema/affiliation {:foaf/homepage "http://www.deri.ie/",
                           :foaf/name
@@ -70,7 +70,8 @@
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    "A set of RDF triples that are published, maintained or aggregated by a single provider.",
-   :rdfs/label "dataset"})
+   :rdfs/label "dataset",
+   :rdfs/subClassOf [:rdfs/Resource :void/Dataset]})
 
 (def DatasetDescription
   "A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets."
@@ -79,7 +80,7 @@
    :rdfs/comment
    "A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets.",
    :rdfs/label "dataset description",
-   :rdfs/subClassOf :foaf/Document})
+   :rdfs/subClassOf [:rdfs/Resource :foaf/Document :void/DatasetDescription]})
 
 (def Linkset
   "A collection of RDF links between two void:Datasets."
@@ -87,7 +88,7 @@
    :rdf/type        [:owl/Class :rdfs/Class],
    :rdfs/comment    "A collection of RDF links between two void:Datasets.",
    :rdfs/label      "linkset",
-   :rdfs/subClassOf :void/Dataset})
+   :rdfs/subClassOf [:void/Dataset :void/Linkset :rdfs/Resource]})
 
 (def TechnicalFeature
   "A technical feature of a void:Dataset, such as a supported RDF serialization format."
@@ -95,7 +96,8 @@
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
    "A technical feature of a void:Dataset, such as a supported RDF serialization format.",
-   :rdfs/label "technical feature"})
+   :rdfs/label "technical feature",
+   :rdfs/subClassOf [:rdfs/Resource :void/TechnicalFeature]})
 
 (def class
   "The rdfs:Class that is the rdf:type of all entities in a class-based partition."
@@ -116,7 +118,7 @@
    :rdfs/domain :void/Dataset,
    :rdfs/label "class partition",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf :void/subset})
+   :rdfs/subPropertyOf [:void/subset :void/classPartition]})
 
 (def classes
   "The total number of distinct classes in a void:Dataset. In other words, the number of distinct resources occuring as objects of rdf:type triples in the dataset."
@@ -219,7 +221,7 @@
    :rdfs/domain :void/Linkset,
    :rdfs/label "Objects Target",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf :void/target})
+   :rdfs/subPropertyOf [:void/target :void/objectsTarget]})
 
 (def openSearchDescription
   "An OpenSearch description document for a free-text search service over a void:Dataset."
@@ -260,7 +262,7 @@
    :rdfs/domain :void/Dataset,
    :rdfs/label "property partition",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf :void/subset})
+   :rdfs/subPropertyOf [:void/subset :void/propertyPartition]})
 
 (def rootResource
   "A top concept or entry point for a void:Dataset that is structured in a tree-like fashion. All resources in a dataset can be reached by following links from its root resources in a small number of steps."
@@ -287,24 +289,26 @@
    :rdfs/domain :void/Linkset,
    :rdfs/label "Subjects Target",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf :void/target})
+   :rdfs/subPropertyOf [:void/target :void/subjectsTarget]})
 
 (def subset
   "has subset"
-  {:db/ident    :void/subset,
-   :rdf/type    :owl/ObjectProperty,
-   :rdfs/domain :void/Dataset,
-   :rdfs/label  "has subset",
-   :rdfs/range  :void/Dataset})
+  {:db/ident           :void/subset,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :void/Dataset,
+   :rdfs/label         "has subset",
+   :rdfs/range         :void/Dataset,
+   :rdfs/subPropertyOf :void/subset})
 
 (def target
   "One of the two datasets linked by the Linkset."
-  {:db/ident     :void/target,
-   :rdf/type     :owl/ObjectProperty,
-   :rdfs/comment "One of the two datasets linked by the Linkset.",
-   :rdfs/domain  :void/Linkset,
-   :rdfs/label   "Target",
-   :rdfs/range   :void/Dataset})
+  {:db/ident           :void/target,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/comment       "One of the two datasets linked by the Linkset.",
+   :rdfs/domain        :void/Linkset,
+   :rdfs/label         "Target",
+   :rdfs/range         :void/Dataset,
+   :rdfs/subPropertyOf :void/target})
 
 (def triples
   "The total number of triples contained in a void:Dataset."
@@ -350,3 +354,8 @@
    :rdfs/comment "A vocabulary that is used in the dataset.",
    :rdfs/domain  :void/Dataset,
    :rdfs/label   "vocabulary"})
+
+(def ^{:private true} Document
+  {:db/ident        :foaf/Document,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :foaf/Document})

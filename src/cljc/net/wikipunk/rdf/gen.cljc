@@ -25,7 +25,8 @@
    :rdfs/comment
    "A resource which may have representations in\n    many different Content-Types.",
    :rdfs/label "Content-Type-generic resource",
-   :rdfs/subClassOf :gen/InformationResource})
+   :rdfs/subClassOf
+   [:gen/InformationResource :gen/ContentTypeGenericResource :rdfs/Resource]})
 
 (def ContentTypeSpecificResource
   "A resource of which all representations are in the same Internet media type, or 'Content-Type'."
@@ -34,7 +35,8 @@
    :rdfs/comment
    "A resource of which all representations are in the\n\t\tsame Internet media type, or 'Content-Type'.",
    :rdfs/label "Content-Type-specific resource",
-   :rdfs/subClassOf :gen/InformationResource})
+   :rdfs/subClassOf
+   [:gen/InformationResource :gen/ContentTypeSpecificResource :rdfs/Resource]})
 
 (def FixedResource
   "A resource whose representation type and content will not change under any circumstances."
@@ -43,9 +45,12 @@
    :rdfs/comment
    "A resource whose representation type and content will not\n\t    change under any circumstances.",
    :rdfs/label "fixed resource",
-   :rdfs/subClassOf [:gen/timeSpecificResource
+   :rdfs/subClassOf [:rdfs/Resource
+                     :gen/timeSpecificResource
                      :gen/contentTypeSpecificResource
-                     :gen/LanguageSpecificResource]})
+                     :gen/LanguageSpecificResource
+                     :gen/FixedResource
+                     :gen/InformationResource]})
 
 (def InformationResource
   "An Information Resource is defined by the Architecture of the WWW."
@@ -53,7 +58,8 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "An Information Resource is defined by the Architecture of\n\t    the WWW.",
-   :rdfs/label "information resource"})
+   :rdfs/label "information resource",
+   :rdfs/subClassOf [:rdfs/Resource :gen/InformationResource]})
 
 (def LanguageGenericResource
   "A resource defiend without constraint as to the particular natural language in which it maight be expressed."
@@ -62,7 +68,8 @@
    :rdfs/comment
    "A resource defiend without constraint as to\n\tthe particular natural language in which it\n        maight be expressed.",
    :rdfs/label "language-generic resource",
-   :rdfs/subClassOf :gen/InformationResource})
+   :rdfs/subClassOf
+   [:gen/InformationResource :gen/LanguageGenericResource :rdfs/Resource]})
 
 (def LanguageSpecificResource
   "A resource of which all representations are in the same natural language."
@@ -71,7 +78,8 @@
    :rdfs/comment
    "A resource of which all representations are in the\n\t\tsame natural language.",
    :rdfs/label "language-specific resource",
-   :rdfs/subClassOf :gen/InformationResource})
+   :rdfs/subClassOf
+   [:gen/InformationResource :gen/LanguageSpecificResource :rdfs/Resource]})
 
 (def TimeGenericResource
   "A Information Resource which may have many versions, and therfore representations of the resource at different times may vary."
@@ -80,7 +88,8 @@
    :rdfs/comment
    "A Information Resource which may have many versions,\n    and therfore representations of the resource at different times may vary.",
    :rdfs/label "Time-generic resource",
-   :rdfs/subClassOf :gen/InformationResource})
+   :rdfs/subClassOf
+   [:gen/InformationResource :gen/TimeGenericResource :rdfs/Resource]})
 
 (def TimeSpecificResource
   "A resource of which all representations are in the same version. Representations of the resource will not change as a result of th resource neing updated to a version with time. The dates of creation and of last modification of such a resource would be expected to be the same."
@@ -89,7 +98,8 @@
    :rdfs/comment
    "A resource of which all representations are in the\n\t\tsame version.  Representations of the resource will\n                not change as a result of th resource neing updated to a\n                version with time.  The dates of creation and\n                of last modification of such a resource would be\n                expected to be the same.",
    :rdfs/label "version",
-   :rdfs/subClassOf :gen/InformationResource})
+   :rdfs/subClassOf
+   [:gen/InformationResource :gen/TimeSpecificResource :rdfs/Resource]})
 
 (def contentTypeGeneric
   "Content-Type generic"
@@ -98,7 +108,7 @@
    :rdfs/domain        :gen/ContentTypeSpecificResource,
    :rdfs/label         "Content-Type generic",
    :rdfs/range         :gen/ContentTypeGenericResource,
-   :rdfs/subPropertyOf :gen/sameWorkAs})
+   :rdfs/subPropertyOf [:gen/sameWorkAs :gen/contentTypeGeneric]})
 
 (def contentTypeSpecific
   "Content-Type specific"
@@ -108,7 +118,12 @@
    :rdfs/domain        :gen/ContentTypeGenericResource,
    :rdfs/label         "Content-Type specific",
    :rdfs/range         :gen/ContentTypeSpecificResource,
-   :rdfs/subPropertyOf :gen/sameWorkAs})
+   :rdfs/subPropertyOf [:gen/sameWorkAs :gen/contentTypeSpecific]})
+
+(def contentTypeSpecificResource
+  {:db/ident        :gen/contentTypeSpecificResource,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :gen/contentTypeSpecificResource})
 
 (def fixedResource
   "A relation between a generic resource and a fixedResource which is an everything-specific version of it."
@@ -119,8 +134,11 @@
    :rdfs/domain :gen/InformationResource,
    :rdfs/label "Content-Type specific",
    :rdfs/range :gen/FixedResource,
-   :rdfs/subPropertyOf
-   [:gen/timeSpecific :gen/languageSpecific :gen/contentTypeSpecific]})
+   :rdfs/subPropertyOf [:gen/timeSpecific
+                        :gen/languageSpecific
+                        :gen/contentTypeSpecific
+                        :gen/fixedResource
+                        :gen/sameWorkAs]})
 
 (def languageGeneric
   "language generic"
@@ -129,7 +147,7 @@
    :rdfs/domain        :gen/LanguageSpecificResource,
    :rdfs/label         "language generic",
    :rdfs/range         :gen/LanguageGenericResource,
-   :rdfs/subPropertyOf :gen/sameWorkAs})
+   :rdfs/subPropertyOf [:gen/sameWorkAs :gen/languageGeneric]})
 
 (def languageSpecific
   "language specific"
@@ -139,7 +157,7 @@
    :rdfs/domain        :gen/LanguageGenericResource,
    :rdfs/label         "language specific",
    :rdfs/range         :gen/LanguageSpecificResource,
-   :rdfs/subPropertyOf :gen/sameWorkAs})
+   :rdfs/subPropertyOf [:gen/sameWorkAs :gen/languageSpecific]})
 
 (def sameWorkAs
   "The equivalence relation linking all versions of a work, specific or generic along various axes."
@@ -149,7 +167,8 @@
    "The equivalence relation linking all versions of a work,\n            specific or generic along various axes.",
    :rdfs/domain :gen/InformationResource,
    :rdfs/label "same work as",
-   :rdfs/range :gen/InformationResource})
+   :rdfs/range :gen/InformationResource,
+   :rdfs/subPropertyOf :gen/sameWorkAs})
 
 (def timeGeneric
   "The related resource which for this time-sepcific resource is the related time-generic resource. A representation of the time-generic resource may be expected to be the most recent time-specific resource at the time of the representation."
@@ -160,7 +179,7 @@
    :rdfs/domain :gen/TimeSpecificResource,
    :rdfs/label "time generic",
    :rdfs/range :gen/TimeGenericResource,
-   :rdfs/subPropertyOf :gen/sameWorkAs})
+   :rdfs/subPropertyOf [:gen/sameWorkAs :gen/timeGeneric]})
 
 (def timeSpecific
   "version"
@@ -170,4 +189,9 @@
    :rdfs/domain        :gen/TimeGenericResource,
    :rdfs/label         "version",
    :rdfs/range         :gen/TimeSpecificResource,
-   :rdfs/subPropertyOf :gen/sameWorkAs})
+   :rdfs/subPropertyOf [:gen/sameWorkAs :gen/timeSpecific]})
+
+(def timeSpecificResource
+  {:db/ident        :gen/timeSpecificResource,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :gen/timeSpecificResource})

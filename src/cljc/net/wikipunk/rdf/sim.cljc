@@ -23,9 +23,7 @@
    :rdfa/prefix "sim",
    :rdfa/uri "http://purl.org/ontology/similarity/",
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This is an ontology to express associations between entities whether artists, tracks, albums, compositional styles, sections of tracks, playing techniques or anything.  It is designed with the hope of being easily extensible, extremely expressive, and still computationally reasonable."},
+   "This is an ontology to express associations between entities whether artists, tracks, albums, compositional styles, sections of tracks, playing techniques or anything.  It is designed with the hope of being easily extensible, extremely expressive, and still computationally reasonable.",
    :vs/term_status "testing"}
   (:refer-clojure :exclude [range]))
 
@@ -40,12 +38,10 @@
                           :rdf/type           :owl/Restriction}],
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An abstract class to define some association between things.  Entities share an association if they are somehow inter-connected.  Generally a <b>directed association</b> should have at lease one <code>sim:subject</code> property and one <code>sim:object</code> property <b>or</b> an <b>undirected association</b> should have at least two <code>sim:element</code> properties, however this is not a requirement and intentionally left out of the model."},
+   "An abstract class to define some association between things.  Entities share an association if they are somehow inter-connected.  Generally a <b>directed association</b> should have at lease one <code>sim:subject</code> property and one <code>sim:object</code> property <b>or</b> an <b>undirected association</b> should have at least two <code>sim:element</code> properties, however this is not a requirement and intentionally left out of the model.",
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "Association",
-   :rdfs/subClassOf :owl/Thing,
+   :rdfs/subClassOf [:rdfs/Resource :owl/Thing :sim/Association],
    :vs/term_status "testing"})
 
 (def AssociationMethod
@@ -53,12 +49,10 @@
   {:db/ident :sim/AssociationMethod,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A concept for representing the method used to derive association or similarity statements."},
+   "A concept for representing the method used to derive association or similarity statements.",
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "Association Method",
-   :rdfs/subClassOf :owl/Thing,
+   :rdfs/subClassOf [:rdfs/Resource :owl/Thing :sim/AssociationMethod],
    :vs/term_status "testing"})
 
 (def Influence
@@ -66,12 +60,10 @@
   {:db/ident :sim/Influence,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An abstract class indicating a directed association of influence where the subject entity has influenced the object entity."},
+   "An abstract class indicating a directed association of influence where the subject entity has influenced the object entity.",
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "Influence",
-   :rdfs/subClassOf :sim/Association,
+   :rdfs/subClassOf [:sim/Association :sim/Influence :owl/Thing :rdfs/Resource],
    :vs/term_status "testing"})
 
 (def Network
@@ -79,12 +71,10 @@
   {:db/ident :sim/Network,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A network is a grouping of <code>sim:Association</code>s.  The associations that comprise a network are specified using a series of <code>sim:edge</code> predicates."},
+   "A network is a grouping of <code>sim:Association</code>s.  The associations that comprise a network are specified using a series of <code>sim:edge</code> predicates.",
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "Network",
-   :rdfs/subClassOf :owl/Thing,
+   :rdfs/subClassOf [:rdfs/Resource :owl/Thing :sim/Network],
    :vs/term_status "testing"})
 
 (def Similarity
@@ -92,21 +82,18 @@
   {:db/ident :sim/Similarity,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An abstract class to define similarity between two or more things.  Entities share a similarity if they share some common characteristics of interest.  A similarity is a special type of association."},
+   "An abstract class to define similarity between two or more things.  Entities share a similarity if they share some common characteristics of interest.  A similarity is a special type of association.",
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "Similarity",
-   :rdfs/subClassOf :sim/Association,
+   :rdfs/subClassOf
+   [:sim/Association :sim/Similarity :owl/Thing :rdfs/Resource],
    :vs/term_status "testing"})
 
 (def association
   "Binds a sim:Association to an arbitrary thing."
   {:db/ident         :sim/association,
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "Binds a sim:Association to an arbitrary thing."},
+   :rdfs/comment     "Binds a sim:Association to an arbitrary thing.",
    :rdfs/domain      :owl/Thing,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label       "association",
@@ -119,9 +106,7 @@
    :owl/equivalentProperty :sim/workflow,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies some description that discloses the process or set of processes used to derive association statements for the given <code>AssociationMethod</code>.  This property is depricated in favor of the more appropriately named <code>sim:workflow</code> property."},
+   "Specifies some description that discloses the process or set of processes used to derive association statements for the given <code>AssociationMethod</code>.  This property is depricated in favor of the more appropriately named <code>sim:workflow</code> property.",
    :rdfs/domain :sim/AssociationMethod,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "description",
@@ -132,9 +117,7 @@
   {:db/ident :sim/distance,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A weighting value for an Association where a value of 0 implies two elements are the same individual."},
+   "A weighting value for an Association where a value of 0 implies two elements are the same individual.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "distance",
@@ -156,9 +139,7 @@
   "Specifies an edge in a <code>sim:Network</code>"
   {:db/ident         :sim/edge,
    :rdf/type         :owl/ObjectProperty,
-   :rdfs/comment     {:rdf/language "en",
-                      :rdf/value
-                      "Specifies an edge in a <code>sim:Network</code>"},
+   :rdfs/comment     "Specifies an edge in a <code>sim:Network</code>",
    :rdfs/domain      :sim/Network,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label       "edge",
@@ -170,12 +151,11 @@
   {:db/ident :sim/element,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies an entity involved in the given <code>sim:Association</code> and implies the given association is undirected."},
+   "Specifies an entity involved in the given <code>sim:Association</code> and implies the given association is undirected.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "element",
+   :rdfs/subPropertyOf :sim/element,
    :vs/term_status "testing"})
 
 (def grounding
@@ -183,9 +163,7 @@
   {:db/ident :sim/grounding,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Binds an <code>sim:Association</code> statement directly instantiated N3-Tr formulae or some other workflow graph which enabled the association derivation."},
+   "Binds an <code>sim:Association</code> statement directly instantiated N3-Tr formulae or some other workflow graph which enabled the association derivation.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "grounding",
@@ -196,9 +174,7 @@
   {:db/ident :sim/method,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the <code>sim:AssociationMethod</code> used to derive a particular Association statement.  This should be used when the process for deriving association statements can be described further."},
+   "Specifies the <code>sim:AssociationMethod</code> used to derive a particular Association statement.  This should be used when the process for deriving association statements can be described further.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "method",
@@ -210,13 +186,11 @@
   {:db/ident :sim/object,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the object of a <code>sim:Association</code> implying a directed association where \"subject is associated to object\" but the reverse association does not necessarily exist, and if it does exist, it is not an equivalent association."},
+   "Specifies the object of a <code>sim:Association</code> implying a directed association where \"subject is associated to object\" but the reverse association does not necessarily exist, and if it does exist, it is not an equivalent association.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "object",
-   :rdfs/subPropertyOf :sim/element,
+   :rdfs/subPropertyOf [:sim/element :sim/object],
    :vs/term_status "testing"})
 
 (def range
@@ -248,13 +222,11 @@
   {:db/ident :sim/subject,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the subject of an <code>sim:Association</code> implying a directed association where \"subject is associated to object\" but the reverse association does not necessarily exist, and if it does exist, it is not an equivalent association."},
+   "Specifies the subject of an <code>sim:Association</code> implying a directed association where \"subject is associated to object\" but the reverse association does not necessarily exist, and if it does exist, it is not an equivalent association.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "subject",
-   :rdfs/subPropertyOf :sim/element,
+   :rdfs/subPropertyOf [:sim/element :sim/subject],
    :vs/term_status "testing"})
 
 (def weight
@@ -262,9 +234,7 @@
   {:db/ident :sim/weight,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A weighting value bound to a <code>sim:Association</code> where a value of 0 implies two elements are not at all associated and a higher value implies a closer association."},
+   "A weighting value bound to a <code>sim:Association</code> where a value of 0 implies two elements are not at all associated and a higher value implies a closer association.",
    :rdfs/domain :sim/Association,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "weight",
@@ -275,9 +245,7 @@
   {:db/ident :sim/workflow,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies a workflow that discloses the process or set of processes used to derive association statements for the given <code>sim:AssociationMethod</code>"},
+   "Specifies a workflow that discloses the process or set of processes used to derive association statements for the given <code>sim:AssociationMethod</code>",
    :rdfs/domain :sim/AssociationMethod,
    :rdfs/isDefinedBy "http://purl.org/ontology/similarity/",
    :rdfs/label "workflow",
@@ -286,7 +254,8 @@
 (def ^{:private true} Person
   {:db/ident         :foaf/Person,
    :rdf/type         [:rdfs/Class :owl/Class],
-   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/"})
+   :rdfs/isDefinedBy "http://xmlns.com/foaf/0.1/",
+   :rdfs/subClassOf  [:rdfs/Resource :foaf/Person]})
 
 (def ^{:private true} term_status
   {:db/ident         :vs/term_status,

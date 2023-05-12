@@ -23,7 +23,18 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/1.1/schema/dtype"
                       "http://www.linkedmodel.org/schema/dtype"],
    :rdfs/label "Codelist",
-   :rdfs/subClassOf :dtype/Enumeration,
+   :rdfs/subClassOf [:dtype/Enumeration
+                     :dtype/CodeList
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/defaultValue,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/value,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing],
    :vaem/comment
    "A codelist is a controlled vocabulary of terms that are used to represent permissible values of a variable in information systems. The representaiton of codes in \"dtype\" has been influenced by CCTS and UBL."})
 
@@ -38,7 +49,19 @@
    :rdfs/subClassOf [:dtype/CodeList
                      {:owl/allValuesFrom :dtype/CodeList,
                       :owl/onProperty    :dtype/compositeOf,
-                      :rdf/type          :owl/Restriction}],
+                      :rdf/type          :owl/Restriction}
+                     :dtype/CompositeCodeList
+                     :dtype/Enumeration
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/defaultValue,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/value,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing],
    :vaem/comment
    "A composite codelist is a codelist made up of other codelists. It does not introduce any new codes."})
 
@@ -50,16 +73,28 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/1.1/schema/dtype"
                       "http://www.linkedmodel.org/schema/dtype"],
    :rdfs/label "Derived Code List",
-   :rdfs/subClassOf [{:owl/allValuesFrom :dtype/ValueReference,
-                      :owl/onProperty    :dtype/hasMember,
-                      :rdf/type          :owl/Restriction}
-                     :dtype/CodeList
+   :rdfs/subClassOf [:dtype/CodeList
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/derivedFrom,
+                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :dtype/CodeList,
                       :owl/onProperty    :dtype/derivedFrom,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/ValueReference,
+                      :owl/onProperty    :dtype/hasMember,
+                      :rdf/type          :owl/Restriction}
+                     :dtype/DerivedCodeList
+                     :dtype/Enumeration
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/defaultValue,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/value,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :dtype/derivedFrom,
-                      :rdf/type           :owl/Restriction}],
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing],
    :vaem/comment
    "A derived codelist is a sublist of another codelist. The members that it has must be members of the source list."})
 
@@ -72,28 +107,29 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/schema/dtype"
                       "http://www.linkedmodel.org/1.1/schema/dtype"],
    :rdfs/label "DTYPE Enumerated value",
-   :rdfs/subClassOf [{:owl/cardinality 1,
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/position,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
                       :owl/onProperty  :dtype/value,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :dtype/order,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      :owl/Thing
                      {:owl/minCardinality 0,
                       :owl/onProperty     :vaem/url,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/order,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/code,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :dtype/position,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}]})
+                     :dtype/EnumeratedValue]})
 
 (def Enumeration
   "DTYPE Enumeration"
@@ -111,7 +147,8 @@
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :dtype/Enumeration],
    :vaem/comment
    "A type that serves as a container for the enumerated values of an enumeration. This enables the enumeration itself to be referenceable. One need for this is in determing the default value of an enumeration , another need is in the management of sub-enumerations and composite enumerations."})
 
@@ -126,7 +163,19 @@
    :rdfs/subClassOf [:dtype/CodeList
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/hasMember,
-                      :rdf/type          :owl/Restriction}],
+                      :rdf/type          :owl/Restriction}
+                     :dtype/SimpleCodeList
+                     :dtype/Enumeration
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/defaultValue,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/value,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing],
    :vaem/comment "A simple codelist is one made up only of enumerated values."})
 
 (def ValueReference
@@ -145,7 +194,8 @@
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/position,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :dtype/ValueReference],
    :vaem/comment
    "A value reference is a pointer to an Enumerated Value. The original position of the value can be overridden by the position attribute."})
 
@@ -176,6 +226,7 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/1.1/schema/dtype"
                       "http://www.linkedmodel.org/schema/dtype"],
    :rdfs/label "default value",
+   :rdfs/subPropertyOf :dtype/defaultValue,
    :vaem/comment
    "The property \"dtype:defaultValue\" is a general property for specifying a value in situations where none is specified, or can be determined. In some cases of use, this property could have a scalar value and in other cases may need to refer to a first class concept that holds a \"value object\".  For this reason, the  type of this property is set as \"rdf:Property\" and the property is rangeless."})
 
@@ -231,7 +282,7 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/1.1/schema/dtype"
                       "http://www.linkedmodel.org/schema/dtype"],
    :rdfs/label "numeric union",
-   :rdfs/subClassOf :rdfs/Resource})
+   :rdfs/subClassOf [:rdfs/Resource :dtype/numericUnion]})
 
 (def order
   "order"
@@ -290,5 +341,6 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/1.1/schema/dtype"
                       "http://www.linkedmodel.org/schema/dtype"],
    :rdfs/label "value",
+   :rdfs/subPropertyOf :dtype/value,
    :vaem/comment
    "The property \"dtype:value\" is a general property that in some cases could have scalar values and in other cases may refer to a first class concept that is a \"value object\". For this reason, the  type of this property is set as \"rdf:Property\" and the property is rangeless."})

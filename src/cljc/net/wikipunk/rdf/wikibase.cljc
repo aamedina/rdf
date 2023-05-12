@@ -47,10 +47,11 @@
 
 (def Entity
   "Wikibase entity."
-  {:db/ident     :wikibase/Entity,
-   :rdf/type     :owl/Class,
-   :rdfs/comment "Wikibase entity.",
-   :rdfs/label   "Entity"})
+  {:db/ident        :wikibase/Entity,
+   :rdf/type        :owl/Class,
+   :rdfs/comment    "Wikibase entity.",
+   :rdfs/label      "Entity",
+   :rdfs/subClassOf :wikibase/Entity})
 
 (def ExternalId
   "Type for referring to ID defined by external authority."
@@ -65,7 +66,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    "Wikibase Form.",
    :rdfs/label      "Form",
-   :rdfs/subClassOf :wikibase/Entity})
+   :rdfs/subClassOf [:wikibase/Entity :wikibase/Form]})
 
 (def GeoAutoPrecision
   "This coordinate value uses automatic precision since the user did not specify one."
@@ -95,7 +96,7 @@
    :rdf/type :owl/Class,
    :rdfs/comment "Wikibase extended value representing geographic coordinate.",
    :rdfs/label "GlobecoordinateValue",
-   :rdfs/subClassOf :wikibase/Value})
+   :rdfs/subClassOf [:wikibase/Value :wikibase/GlobecoordinateValue]})
 
 (def Item
   "Wikibase item."
@@ -103,7 +104,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    "Wikibase item.",
    :rdfs/label      "Item",
-   :rdfs/subClassOf :wikibase/Entity})
+   :rdfs/subClassOf [:wikibase/Entity :wikibase/Item]})
 
 (def Lexeme
   "Wikibase Lexeme."
@@ -111,7 +112,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    "Wikibase Lexeme.",
    :rdfs/label      "Lexeme",
-   :rdfs/subClassOf :wikibase/Entity})
+   :rdfs/subClassOf [:wikibase/Entity :wikibase/Lexeme]})
 
 (def MathClass
   "Type for mathematical expressions as supported by the Math extension."
@@ -156,7 +157,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    "Wikibase property.",
    :rdfs/label      "Property",
-   :rdfs/subClassOf :wikibase/Entity})
+   :rdfs/subClassOf [:wikibase/Entity :wikibase/Property]})
 
 (def PropertyType
   "Type of a wikibase property."
@@ -178,7 +179,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    "Wikibase extended value representing quantity.",
    :rdfs/label      "QuantityValue",
-   :rdfs/subClassOf :wikibase/Value})
+   :rdfs/subClassOf [:wikibase/Value :wikibase/QuantityValue]})
 
 (def Rank
   "Wikibase statement rank."
@@ -200,7 +201,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    "Wikibase sense.",
    :rdfs/label      "Sense",
-   :rdfs/subClassOf :wikibase/Entity})
+   :rdfs/subClassOf [:wikibase/Entity :wikibase/Sense]})
 
 (def Statement
   "A reified statement."
@@ -236,7 +237,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    "Wikibase extended value representing time.",
    :rdfs/label      "TimeValue",
-   :rdfs/subClassOf :wikibase/Value})
+   :rdfs/subClassOf [:wikibase/Value :wikibase/TimeValue]})
 
 (def Url
   "URL link type."
@@ -247,10 +248,11 @@
 
 (def Value
   "Wikibase extended value."
-  {:db/ident     :wikibase/Value,
-   :rdf/type     :owl/Class,
-   :rdfs/comment "Wikibase extended value.",
-   :rdfs/label   "Value"})
+  {:db/ident        :wikibase/Value,
+   :rdf/type        :owl/Class,
+   :rdfs/comment    "Wikibase extended value.",
+   :rdfs/label      "Value",
+   :rdfs/subClassOf :wikibase/Value})
 
 (def WikibaseItem
   "Type for referring to another Wikibase item."

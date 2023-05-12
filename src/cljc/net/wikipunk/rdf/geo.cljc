@@ -24,7 +24,7 @@
    [" \nUniquely identified by lat/long/alt. i.e.\n\nspaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),\n  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).\n\nsameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).\n  "
     "A point, typically described using a coordinate system relative to Earth, such as WGS84.\n  "],
    :rdfs/label "point",
-   :rdfs/subClassOf :geo/SpatialThing})
+   :rdfs/subClassOf [:geo/SpatialThing :geo/Point :rdfs/Resource]})
 
 (def SpatialThing
   "Anything with spatial extent, i.e. size, shape, or position. e.g. people, places, bowling balls, as well as abstract areas like cubes."
@@ -32,7 +32,8 @@
    :rdf/type :rdfs/Class,
    :rdfs/comment
    "Anything with spatial extent, i.e. size, shape, or position.\n e.g. people, places, bowling balls, as well as abstract areas like cubes.\n",
-   :rdfs/label "SpatialThing"})
+   :rdfs/label "SpatialThing",
+   :rdfs/subClassOf [:rdfs/Resource :geo/SpatialThing]})
 
 (def alt
   "The WGS84 altitude of a SpatialThing (decimal meters above the local reference ellipsoid)."
@@ -41,15 +42,17 @@
    :rdfs/comment
    "The WGS84 altitude of a SpatialThing (decimal meters \nabove the local reference ellipsoid).",
    :rdfs/domain :geo/SpatialThing,
-   :rdfs/label "altitude"})
+   :rdfs/label "altitude",
+   :rdfs/subPropertyOf :geo/alt})
 
 (def lat
   "The WGS84 latitude of a SpatialThing (decimal degrees)."
-  {:db/ident     :geo/lat,
-   :rdf/type     :rdf/Property,
+  {:db/ident :geo/lat,
+   :rdf/type :rdf/Property,
    :rdfs/comment "The WGS84 latitude of a SpatialThing (decimal degrees).",
-   :rdfs/domain  :geo/SpatialThing,
-   :rdfs/label   "latitude"})
+   :rdfs/domain :geo/SpatialThing,
+   :rdfs/label "latitude",
+   :rdfs/subPropertyOf :geo/lat})
 
 (def lat_long
   "A comma-separated representation of a latitude, longitude coordinate."
@@ -57,7 +60,8 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    "A comma-separated representation of a latitude, longitude coordinate.",
-   :rdfs/label "lat/long"})
+   :rdfs/label "lat/long",
+   :rdfs/subPropertyOf :geo/lat_long})
 
 (def location
   "The relation between something and the point, or other geometrical thing in space, where it is. For example, the realtionship between a radio tower and a Point with a given lat and long. Or a relationship between a park and its outline as a closed arc of points, or a road and its location as a arc (a sequence of points). Clearly in practice there will be limit to the accuracy of any such statement, but one would expect an accuracy appropriate for the size of the object and uses such as mapping ."
@@ -67,12 +71,18 @@
    "The relation between something and the point, \n or other geometrical thing in space, where it is.  For example, the realtionship between\n a radio tower and a Point with a given lat and long.\n Or a relationship between a park and its outline as a closed arc of points, or a road and\n its location as a arc (a sequence of points).\n Clearly in practice there will be limit to the accuracy of any such statement, but one would expect\n an accuracy appropriate for the size of the object and uses such as mapping .\n ",
    :rdfs/label "location",
    :rdfs/range :geo/SpatialThing,
-   :rdfs/subPropertyOf :foaf/based_near})
+   :rdfs/subPropertyOf [:foaf/based_near :geo/location]})
 
 (def long
   "The WGS84 longitude of a SpatialThing (decimal degrees)."
-  {:db/ident     :geo/long,
-   :rdf/type     :rdf/Property,
+  {:db/ident :geo/long,
+   :rdf/type :rdf/Property,
    :rdfs/comment "The WGS84 longitude of a SpatialThing (decimal degrees).",
-   :rdfs/domain  :geo/SpatialThing,
-   :rdfs/label   "longitude"})
+   :rdfs/domain :geo/SpatialThing,
+   :rdfs/label "longitude",
+   :rdfs/subPropertyOf :geo/long})
+
+(def ^{:private true} based_near
+  {:db/ident :foaf/based_near,
+   :rdf/type :rdf/Property,
+   :rdfs/subPropertyOf :foaf/based_near})

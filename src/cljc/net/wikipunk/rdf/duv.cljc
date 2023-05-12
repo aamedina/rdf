@@ -1,13 +1,11 @@
 (ns net.wikipunk.rdf.duv
   "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."
   {:dcterms/created #inst "2015-12-17T00:00:00.000-05:00",
-   :dcterms/creator [{:foaf/name "Bernadette Farias Lóscio"}
-                     {:foaf/name "Eric G. Stephan"}
+   :dcterms/creator [{:foaf/name "Eric G. Stephan"}
+                     {:foaf/name "Bernadette Farias Lóscio"}
                      {:foaf/name "Sumit Purohit"}],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."},
+   "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective.",
    :dcterms/modified [#inst "2016-08-30T00:00:00.000-04:00"
                       #inst "2017-01-23T00:00:00.000-05:00"],
    :dcterms/publisher "http://www.w3.org/data#W3C",
@@ -43,11 +41,9 @@
   {:db/ident :duv/RatingFeedback,
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Predefined criteria used to express a user opinion about a dataset or distribution using a discrete range of values."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Rating Feedback"},
+   "Predefined criteria used to express a user opinion about a dataset or distribution using a discrete range of values.",
+   :rdfs/label "Rating Feedback",
+   :rdfs/subClassOf [:rdfs/Resource :duv/RatingFeedback],
    :rdfs/subclassOf :duv/UserFeedback})
 
 (def Usage
@@ -55,102 +51,79 @@
   {:db/ident :duv/Usage,
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A helpful description of actions that can be performed on a given dataset or distribution."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Usage"}})
+   "A helpful description of actions that can be performed on a given dataset or distribution.",
+   :rdfs/label "Usage",
+   :rdfs/subClassOf [:rdfs/Resource :duv/Usage]})
 
 (def UsageTool
   "A synopsis describing the way a tool can use a dataset or distribution."
   {:db/ident :duv/UsageTool,
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A synopsis describing the way a tool can use a dataset or distribution."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "UsageTool"}})
+   "A synopsis describing the way a tool can use a dataset or distribution.",
+   :rdfs/label "UsageTool",
+   :rdfs/subClassOf [:rdfs/Resource :duv/UsageTool]})
 
 (def UserFeedback
   "User feedback on the dataset. Expresses whether the dataset was useful or not, for example."
   {:db/ident :duv/UserFeedback,
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "User feedback on the dataset. Expresses whether the dataset was useful or not, for example."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "User Feedback"}})
+   "User feedback on the dataset. Expresses whether the dataset was useful or not, for example.",
+   :rdfs/label "User Feedback",
+   :rdfs/subClassOf [:rdfs/Resource :duv/UserFeedback]})
 
 (def hasDistributor
   "The distributor is the organization that makes the dataset available for downloading and use."
   {:db/ident :duv/hasDistributor,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The distributor is the organization that makes the dataset available for downloading and use."},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has distributor"},
+   "The distributor is the organization that makes the dataset available for downloading and use.",
+   :rdfs/label "has distributor",
+   :rdfs/subPropertyOf :duv/hasDistributor,
    :vann/usageNote
-   [{:rdf/language "en",
-     :rdf/value
-     "dcat:Distribution (subject) duv:hasDistributor (predicate) foaf:Agent (object)"}
-    {:rdf/language "en",
-     :rdf/value
-     "dcat:Dataset (subject) duv:hasDistributor (predicate) foaf:Agent (object)"}]})
+   ["dcat:Distribution (subject) duv:hasDistributor (predicate) foaf:Agent (object)"
+    "dcat:Dataset (subject) duv:hasDistributor (predicate) foaf:Agent (object)"]})
 
 (def hasFeedback
   "User feedback associated with Dataset or distribution"
   {:db/ident :duv/hasFeedback,
    :rdf/type :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "User feedback associated with Dataset or distribution"},
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has dataset feedback"},
+   :rdfs/comment "User feedback associated with Dataset or distribution",
+   :rdfs/label "has dataset feedback",
+   :rdfs/subPropertyOf :duv/hasFeedback,
    :vann/usageNote
-   [{:rdf/language "en",
-     :rdf/value
-     "dcat:Distribution (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)"}
-    {:rdf/language "en",
-     :rdf/value
-     "dcat:Dataset (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)"}]})
+   ["dcat:Distribution (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)"
+    "dcat:Dataset (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)"]})
 
 (def hasRating
   "Rating Feedback has rating opinion"
-  {:db/ident     :duv/hasRating,
-   :rdf/type     :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Rating Feedback has rating opinion"},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "has rating"}})
+  {:db/ident           :duv/hasRating,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       "Rating Feedback has rating opinion",
+   :rdfs/label         "has rating",
+   :rdfs/subPropertyOf :duv/hasRating})
 
 (def hasUsage
   "Dataset/distribution usage guidance or instructions."
-  {:db/ident     :duv/hasUsage,
-   :rdf/type     :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Dataset/distribution usage guidance or instructions."},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "has dataset/distribution usage"}})
+  {:db/ident           :duv/hasUsage,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       "Dataset/distribution usage guidance or instructions.",
+   :rdfs/label         "has dataset/distribution usage",
+   :rdfs/subPropertyOf :duv/hasUsage})
 
 (def hasUsageTool
   "Describes the tool that provides the Usage"
-  {:db/ident     :duv/hasUsageTool,
-   :rdf/type     :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Describes the tool that provides the Usage "},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "has usage tool"}})
+  {:db/ident           :duv/hasUsageTool,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       "Describes the tool that provides the Usage ",
+   :rdfs/label         "has usage tool",
+   :rdfs/subPropertyOf :duv/hasUsageTool})
 
 (def refersTo
   "Dataset associated with Usage."
-  {:db/ident     :duv/refersTo,
-   :rdf/type     :rdf/Property,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Dataset associated with Usage. "},
-   :rdfs/label   {:rdf/language "en",
-                  :rdf/value    "refers to dataset"}})
+  {:db/ident           :duv/refersTo,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       "Dataset associated with Usage. ",
+   :rdfs/label         "refers to dataset",
+   :rdfs/subPropertyOf :duv/refersTo})

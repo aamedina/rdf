@@ -18,13 +18,10 @@
   "Members of this class indicate the nature of a relationship between two samples"
   {:db/ident :sampling/RelationshipNature,
    :rdf/type [:rdfs/Class :owl/Class],
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Nature of relationship (between samples)"},
-   :rdfs/subClassOf :skos/Concept,
+   :rdfs/label "Nature of relationship (between samples)",
+   :rdfs/subClassOf [:rdfs/Resource :skos/Concept :sampling/RelationshipNature],
    :skos/definition
-   {:rdf/language "en",
-    :rdf/value
-    "Members of this class indicate the nature of a relationship between two samples"},
+   "Members of this class indicate the nature of a relationship between two samples",
    :skos/example ["Adjacent flight-line"
                   "Probe spot on polished specimen"
                   "Pixel within image or scene"
@@ -40,47 +37,41 @@
   "Members of this class represent a relationship between a sample and another"
   {:db/ident :sampling/SampleRelationship,
    :rdf/type [:owl/Class :rdfs/Class],
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sample relationship"},
+   :rdfs/label "Sample relationship",
+   :rdfs/subClassOf [:rdfs/Resource :sampling/SampleRelationship],
    :skos/definition
-   {:rdf/language "en",
-    :rdf/value
-    "Members of this class represent a relationship between a sample and another"}})
+   "Members of this class represent a relationship between a sample and another"})
 
 (def hasSampleRelationship
   "Links a sample to a sample relationship (which links to a related sample)"
   {:db/ident :sampling/hasSampleRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has sample relationship"},
+   :rdfs/label "has sample relationship",
    :schema/domainIncludes :sosa/Sample,
    :schema/rangeIncludes :sampling/SampleRelationship,
    :skos/definition
-   {:rdf/language "en",
-    :rdf/value
-    "Links a sample to a sample relationship (which links to a related sample)"}})
+   "Links a sample to a sample relationship (which links to a related sample)"})
 
 (def natureOfRelationship
   "Links a SampleRelationship to an indication of the nature of the relationship"
   {:db/ident :sampling/natureOfRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "nature of (sample) relationship"},
+   :rdfs/label "nature of (sample) relationship",
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sampling/RelationshipNature,
    :skos/definition
-   {:rdf/language "en",
-    :rdf/value
-    "Links a SampleRelationship to an indication of the nature of the relationship"}})
+   "Links a SampleRelationship to an indication of the nature of the relationship"})
 
 (def relatedSample
   "Links a sample relationship to the related sample"
   {:db/ident        :sampling/relatedSample,
    :rdf/type        :owl/ObjectProperty,
-   :rdfs/label      {:rdf/language "en",
-                     :rdf/value    "related sample"},
+   :rdfs/label      "related sample",
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sosa/Sample,
-   :skos/definition {:rdf/language "en",
-                     :rdf/value
-                     "Links a sample relationship to the related sample"}})
+   :skos/definition "Links a sample relationship to the related sample"})
+
+(def ^{:private true} Concept
+  {:db/ident        :skos/Concept,
+   :rdf/type        :rdfs/Class,
+   :rdfs/subClassOf :skos/Concept})

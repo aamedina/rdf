@@ -1,9 +1,7 @@
 (ns net.wikipunk.rdf.dpvo
   "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures."
   {:dcterms/abstract
-   {:rdf/language "en",
-    :rdf/value
-    "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures."},
+   "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures.",
    :dcterms/contributor ["Rigo Wenning"
                          "Georg P Krog"
                          "Simon Steyskal"
@@ -25,14 +23,11 @@
    :dcterms/created #inst "2019-06-18T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures."},
+   "The Data Privacy Vocabulary (DPV) provides terms (classes and properties) to represent information about legally compliant personal data handling, which includes purposes, processing, personal data, technical and organisational measures.",
    :dcterms/license "https://www.w3.org/Consortium/Legal/2015/doc-license",
    :dcterms/modified #inst "2022-12-05T00:00:00.000-05:00",
    :dcterms/source "https://www.w3.org/community/dpvcg/",
-   :dcterms/title {:rdf/language "en",
-                   :rdf/value    "Data Privacy Vocabulary"},
+   :dcterms/title "Data Privacy Vocabulary",
    :owl/versionInfo "1",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "dpvo" "https://w3id.org/dpv/dpv-owl#",
@@ -59,17 +54,14 @@
                      "Harshvardhan J. Pandit"
                      "Fajar Ekaputra"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting or assisting with research conducted in an academic context e.g. within universities"},
+   "Purposes associated with conducting or assisting with research conducted in an academic context e.g. within universities",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Academic Research"},
+   :rdfs/label "Academic Research",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Education"],
-   :rdfs/subClassOf :dpvo/ResearchAndDevelopment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf
+   [:dpvo/ResearchAndDevelopment :dpvo/AcademicResearch :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def AcademicScientificOrganisation
   "Organisations related to academia or scientific pursuits e.g. Universities, Schools, Research Bodies"
@@ -77,50 +69,46 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Organisations related to academia or scientific pursuits e.g. Universities, Schools, Research Bodies"},
+   "Organisations related to academia or scientific pursuits e.g. Universities, Schools, Research Bodies",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :dcterms/source "http://purl.org/adms",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Academic or Scientific Organisation"},
-   :rdfs/subClassOf :dpvo/Organisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Academic or Scientific Organisation",
+   :rdfs/subClassOf [:dpvo/Organisation
+                     :dpvo/AcademicScientificOrganisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "modified"})
 
 (def Access
   "to access data"
   {:db/ident            :dpvo/Access,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to access data"},
+   :dcterms/description "to access data",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Access"},
-   :rdfs/subClassOf     :dpvo/Use,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Access",
+   :rdfs/subClassOf     [:dpvo/Use :dpvo/Access :dpvo/Processing],
+   :vs/term_status      "accepted"})
 
 (def AccessControlMethod
   "Methods which restrict access to a place or resource"
-  {:db/ident :dpvo/AccessControlMethod,
-   :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
-   :dcterms/creator
-   ["Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan" "Mark Lizar"],
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Methods which restrict access to a place or resource"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Access Control Method"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/AccessControlMethod,
+   :dcterms/created     #inst "2019-04-05T00:00:00.000-04:00",
+   :dcterms/creator     ["Axel Polleres"
+                         "Harshvardhan J. Pandit"
+                         "Rob Brennan"
+                         "Mark Lizar"],
+   :dcterms/description "Methods which restrict access to a place or resource",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Access Control Method",
+   :rdfs/subClassOf     [:dpvo/TechnicalMeasure
+                         :dpvo/AccessControlMethod
+                         :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status      "accepted"})
 
 (def AccountManagement
   "Account Management refers to purposes associated with account management, such as to create, provide, maintain, and manage accounts"
@@ -128,32 +116,24 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Beatriz Esteves" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Account Management refers to purposes associated with account management, such as to create, provide, maintain, and manage accounts"},
+   "Account Management refers to purposes associated with account management, such as to create, provide, maintain, and manage accounts",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Account Management"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Account Management",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/AccountManagement],
+   :vs/term_status "accepted"})
 
 (def Acquire
   "to come into possession or control of the data"
   {:db/ident :dpvo/Acquire,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "to come into possession or control of the data"},
+   :dcterms/description "to come into possession or control of the data",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Acquire"},
-   :rdfs/subClassOf :dpvo/Obtain,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Acquire",
+   :rdfs/subClassOf [:dpvo/Obtain :dpvo/Acquire :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def ActiveRight
   "The right(s) applicable, provided, or expected that need to be (actively) exercised"
@@ -162,20 +142,14 @@
    :dcterms/creator
    ["Georg P Krog" "Paul Ryan" "Beatriz Esteves" "Harshvardhan J Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The right(s) applicable, provided, or expected that need to be (actively) exercised"},
+   "The right(s) applicable, provided, or expected that need to be (actively) exercised",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Active rights require the entity to expressly exercise them. For example, a Data Subject exercising their right to withdraw their consent."},
+   "Active rights require the entity to expressly exercise them. For example, a Data Subject exercising their right to withdraw their consent.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Active Right"},
-   :rdfs/subClassOf :dpvo/Right,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Active Right",
+   :rdfs/subClassOf [:dpvo/Right :dpvo/ActiveRight],
+   :vs/term_status "accepted"})
 
 (def ActivityCompleted
   "State of an activity that has completed i.e. is fully in the past"
@@ -183,15 +157,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of an activity that has completed i.e. is fully in the past"},
-   :rdf/type [:owl/NamedIndividual :dpvo/ActivityStatus],
+   "State of an activity that has completed i.e. is fully in the past",
+   :rdf/type
+   [:owl/NamedIndividual :dpvo/ActivityStatus :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity Completed"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Activity Completed",
+   :vs/term_status "accepted"})
 
 (def ActivityHalted
   "State of an activity that was occuring in the past, and has been halted or paused or stoped"
@@ -199,15 +170,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of an activity that was occuring in the past, and has been halted or paused or stoped"},
-   :rdf/type [:owl/NamedIndividual :dpvo/ActivityStatus],
+   "State of an activity that was occuring in the past, and has been halted or paused or stoped",
+   :rdf/type
+   [:owl/NamedIndividual :dpvo/ActivityStatus :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity Halted"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Activity Halted",
+   :vs/term_status "accepted"})
 
 (def ActivityMonitoring
   "Monitoring of activities including assessing whether they have been successfully initiated and completed"
@@ -215,18 +183,16 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Monitoring of activities including assessing whether they have been successfully initiated and completed"},
+   "Monitoring of activities including assessing whether they have been successfully initiated and completed",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity Monitoring"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Activity Monitoring",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/ActivityMonitoring
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ActivityNotCompleted
   "State of an activity that could not be completed, but has reached some end state"
@@ -234,19 +200,14 @@
    :dcterms/created #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of an activity that could not be completed, but has reached some end state"},
-   :rdf/type [:dpvo/ActivityStatus :owl/NamedIndividual],
+   "State of an activity that could not be completed, but has reached some end state",
+   :rdf/type
+   [:dpvo/ActivityStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This relates to a 'Stop' state as distinct from a 'Halt' state. It makes no comments on whether the Acitivity can be resumed or continued towards completion."},
+   "This relates to a 'Stop' state as distinct from a 'Halt' state. It makes no comments on whether the Acitivity can be resumed or continued towards completion.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Acitivity Not Completed"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Acitivity Not Completed",
+   :vs/term_status "accepted"})
 
 (def ActivityOngoing
   "State of an activity occuring in continuation i.e. currently ongoing"
@@ -254,15 +215,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of an activity occuring in continuation i.e. currently ongoing"},
-   :rdf/type [:owl/NamedIndividual :dpvo/ActivityStatus],
+   "State of an activity occuring in continuation i.e. currently ongoing",
+   :rdf/type
+   [:owl/NamedIndividual :dpvo/ActivityStatus :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity Ongoing"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Activity Ongoing",
+   :vs/term_status "accepted"})
 
 (def ActivityProposed
   "State of an activity being proposed or planned i.e. yet to occur"
@@ -270,15 +228,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of an activity being proposed or planned i.e. yet to occur"},
-   :rdf/type [:dpvo/ActivityStatus :owl/NamedIndividual],
+   "State of an activity being proposed or planned i.e. yet to occur",
+   :rdf/type
+   [:dpvo/ActivityStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity Proposed"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Activity Proposed",
+   :vs/term_status "accepted"})
 
 (def ActivityStatus
   "Status associated with activity operations and lifecycles"
@@ -286,32 +241,25 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Status associated with activity operations and lifecycles"},
+   "Status associated with activity operations and lifecycles",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Activity Status"},
-   :rdfs/subClassOf :dpvo/Status,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Activity Status",
+   :rdfs/subClassOf [:dpvo/Status :dpvo/ActivityStatus :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def Adapt
   "to modify the data, often rewritten into a new form for a new use"
   {:db/ident :dpvo/Adapt,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "to modify the data, often rewritten into a new form for a new use"},
+   "to modify the data, often rewritten into a new form for a new use",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Adapt"},
-   :rdfs/subClassOf :dpvo/Transform,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Adapt",
+   :rdfs/subClassOf [:dpvo/Transform :dpvo/Adapt :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Adult
   "A natural person that is not a child i.e. has attained some legally specified age of adulthood"
@@ -319,16 +267,16 @@
    :dcterms/created #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator "Georg Krog",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A natural person that is not a child i.e. has attained some legally specified age of adulthood"},
+   "A natural person that is not a child i.e. has attained some legally specified age of adulthood",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Adult"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Adult",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Adult
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def Advertising
   "Purposes associated with conducting advertising i.e. process or artefact used to call attention to a product, service, etc. through announcements, notices, or other forms of communication"
@@ -336,88 +284,70 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog" "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting advertising i.e. process or artefact used to call attention to a product, service, etc. through announcements, notices, or other forms of communication"},
+   "Purposes associated with conducting advertising i.e. process or artefact used to call attention to a product, service, etc. through announcements, notices, or other forms of communication",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Advertising is a subset of Marketing. Advertising by itself does not indicate 'personalisation' i.e. personalised ads."},
+   "Advertising is a subset of Marketing. Advertising by itself does not indicate 'personalisation' i.e. personalised ads.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Advertising"},
-   :rdfs/subClassOf :dpvo/Marketing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Advertising",
+   :rdfs/subClassOf [:dpvo/Marketing :dpvo/Advertising :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def AlgorithmicLogic
   "The algorithmic logic applied or used"
   {:db/ident :dpvo/AlgorithmicLogic,
    :dcterms/created #inst "2022-01-26T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "The algorithmic logic applied or used"},
+   :dcterms/description "The algorithmic logic applied or used",
    :dcterms/modified #inst "2022-06-15T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Algorithmic Logic is intended as a broad concept for explaining the use of algorithms and automated decisions making within Processing. To describe the actual algorithm, see the Algorithm concept."},
+   "Algorithmic Logic is intended as a broad concept for explaining the use of algorithms and automated decisions making within Processing. To describe the actual algorithm, see the Algorithm concept.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Algorithmic Logic"},
-   :rdfs/subClassOf :dpvo/AutomationOfProcessing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Algorithmic Logic",
+   :rdfs/subClassOf [:dpvo/AutomationOfProcessing
+                     :dpvo/AlgorithmicLogic
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "accepted"})
 
 (def Align
   "to adjust the data to be in relation to another data"
   {:db/ident :dpvo/Align,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "to adjust the data to be in relation to another data"},
+   :dcterms/description "to adjust the data to be in relation to another data",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Align"},
-   :rdfs/subClassOf :dpvo/Transform,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Align",
+   :rdfs/subClassOf [:dpvo/Transform :dpvo/Align :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Alter
   "to change the data without changing it into something else"
   {:db/ident :dpvo/Alter,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "to change the data without changing it into something else"},
+   "to change the data without changing it into something else",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Alter"},
-   :rdfs/subClassOf :dpvo/Transform,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Alter",
+   :rdfs/subClassOf [:dpvo/Transform :dpvo/Alter :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Analyse
   "to study or examine the data in detail"
   {:db/ident :dpvo/Analyse,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "to study or examine the data in detail"},
+   :dcterms/description "to study or examine the data in detail",
    :dcterms/source "https://specialprivacy.ercim.eu/vocabs/processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Analyse"},
+   :rdfs/label "Analyse",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/processing#Analyse"],
-   :rdfs/subClassOf :dpvo/Use,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Use :dpvo/Analyse :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Anonymisation
   "Anonymisation is the process by which data is irreversibly altered in such a way that a data subject can no longer be identified directly or indirectly, either by the entity holding the data alone or in collaboration with other entities and information sources"
@@ -426,37 +356,33 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Rob Brennan" "Mark Lizar" "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Anonymisation is the process by which data is irreversibly altered in such a way that a data subject can no longer be identified directly or indirectly, either by the entity holding the data alone or in collaboration with other entities and information sources"},
+   "Anonymisation is the process by which data is irreversibly altered in such a way that a data subject can no longer be identified directly or indirectly, either by the entity holding the data alone or in collaboration with other entities and information sources",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source "https://www.iso.org/standard/45123.html",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Anonymisation"},
-   :rdfs/subClassOf :dpvo/Deidentification,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Anonymisation",
+   :rdfs/subClassOf [:dpvo/Deidentification
+                     :dpvo/Anonymisation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique],
+   :vs/term_status "modified"})
 
 (def Anonymise
   "to irreversibly alter personal data in such a way that an unique data subject can no longer be identified directly or indirectly or in combination with other data"
   {:db/ident :dpvo/Anonymise,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "to irreversibly alter personal data in such a way that an unique data subject can no longer be identified directly or indirectly or in combination with other data"},
+   "to irreversibly alter personal data in such a way that an unique data subject can no longer be identified directly or indirectly or in combination with other data",
    :dcterms/source "https://specialprivacy.ercim.eu/vocabs/processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Anonymise"},
+   :rdfs/label "Anonymise",
    :rdfs/seeAlso
    ["https://specialprivacy.ercim.eu/vocabs/processing#Anonymise"],
-   :rdfs/subClassOf :dpvo/Transform,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Transform :dpvo/Anonymise :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def AnonymisedData
   "Personal Data that has been (fully and completely) anonymised so that it is no longer considered Personal Data"
@@ -464,20 +390,14 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Piero Bonatti",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Personal Data that has been (fully and completely) anonymised so that it is no longer considered Personal Data"},
+   "Personal Data that has been (fully and completely) anonymised so that it is no longer considered Personal Data",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "It is advised to carefully consider indicating data is fully or completely anonymised by determining whether the data by itself or in combination with other data can identify a person. Failing this condition, the data should be denoted as PseudonymisedData. To indicate data is anonymised only for a specified entity (e.g. within an organisation), the concept ContextuallyAnonymisedData (as subclass of PseudonymisedData) should be used instead of AnonymisedData."},
+   "It is advised to carefully consider indicating data is fully or completely anonymised by determining whether the data by itself or in combination with other data can identify a person. Failing this condition, the data should be denoted as PseudonymisedData. To indicate data is anonymised only for a specified entity (e.g. within an organisation), the concept ContextuallyAnonymisedData (as subclass of PseudonymisedData) should be used instead of AnonymisedData.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Anonymised Data"},
-   :rdfs/subClassOf :dpvo/NonPersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Anonymised Data",
+   :rdfs/subClassOf [:dpvo/NonPersonalData :dpvo/AnonymisedData :dpvo/Data],
+   :vs/term_status "accepted"})
 
 (def AntiTerrorismOperations
   "Purposes associated with activities that detect, prevent, mitigate, or perform other activities for anti-terrorism"
@@ -485,16 +405,13 @@
    :dcterms/created #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with activities that detect, prevent, mitigate, or perform other activities for anti-terrorism"},
+   "Purposes associated with activities that detect, prevent, mitigate, or perform other activities for anti-terrorism",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Anti-Terrorism Operations"},
-   :rdfs/subClassOf :dpvo/EnforceSecurity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Anti-Terrorism Operations",
+   :rdfs/subClassOf
+   [:dpvo/EnforceSecurity :dpvo/AntiTerrorismOperations :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Applicant
   "Data subjects that are applicants in some context"
@@ -505,31 +422,28 @@
                          "Harshvardhan J. Pandit"
                          "Beatriz Esteves"
                          "Georg P. Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Data subjects that are applicants in some context"},
+   :dcterms/description "Data subjects that are applicants in some context",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Applicant"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Applicant",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/Applicant
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def Assess
   "to assess data for some criteria"
   {:db/ident            :dpvo/Assess,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to assess data for some criteria"},
+   :dcterms/description "to assess data for some criteria",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Assess"},
-   :rdfs/subClassOf     :dpvo/Use,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Assess",
+   :rdfs/subClassOf     [:dpvo/Use :dpvo/Assess :dpvo/Processing],
+   :vs/term_status      "accepted"})
 
 (def Assessment
   "The document, plan, or process for assessment or determination towards a purpose e.g. assessment of legality or impact assessments"
@@ -537,49 +451,48 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The document, plan, or process for assessment or determination towards a purpose e.g. assessment of legality or impact assessments"},
+   "The document, plan, or process for assessment or determination towards a purpose e.g. assessment of legality or impact assessments",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Assessment"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Assessment",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/Assessment
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def AssetManagementProcedures
   "Procedures related to management of assets"
   {:db/ident :dpvo/AssetManagementProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Procedures related to management of assets"},
+   :dcterms/description "Procedures related to management of assets",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Asset Management Procedures"},
-   :rdfs/subClassOf :dpvo/GovernanceProcedures,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Asset Management Procedures",
+   :rdfs/subClassOf [:dpvo/GovernanceProcedures
+                     :dpvo/AssetManagementProcedures
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def AsylumSeeker
   "Data subjects that are asylum seekers"
   {:db/ident            :dpvo/AsylumSeeker,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Data subjects that are asylum seekers"},
+   :dcterms/description "Data subjects that are asylum seekers",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Asylum Seeker"},
-   :rdfs/subClassOf     :dpvo/VulnerableDataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Asylum Seeker",
+   :rdfs/subClassOf     [:dpvo/VulnerableDataSubject
+                         :dpvo/AsylumSeeker
+                         :dpvo/DataSubject
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def AsymmetricCryptography
   "Use of public-key cryptography or asymmetric cryptography involving a public and private pair of keys"
@@ -587,51 +500,48 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of public-key cryptography or asymmetric cryptography involving a public and private pair of keys"},
+   "Use of public-key cryptography or asymmetric cryptography involving a public and private pair of keys",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Asymmetric Cryptography"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Asymmetric Cryptography",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/AsymmetricCryptography
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def AsymmetricEncryption
   "Use of asymmetric cryptography to encrypt data"
   {:db/ident :dpvo/AsymmetricEncryption,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Use of asymmetric cryptography to encrypt data"},
+   :dcterms/description "Use of asymmetric cryptography to encrypt data",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Asymmetric Encryption"},
-   :rdfs/subClassOf :dpvo/Encryption,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Asymmetric Encryption",
+   :rdfs/subClassOf [:dpvo/Encryption
+                     :dpvo/AsymmetricEncryption
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def AuditApproved
   "State of being approved through the audit"
   {:db/ident            :dpvo/AuditApproved,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "State of being approved through the audit"},
-   :rdf/type            [:dpvo/AuditStatus :owl/NamedIndividual],
+   :dcterms/description "State of being approved through the audit",
+   :rdf/type            [:dpvo/AuditStatus
+                         :owl/NamedIndividual
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Audit Approved"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Audit Approved",
+   :vs/term_status      "accepted"})
 
 (def AuditConditionallyApproved
   "State of being conditionally approved through the audit"
@@ -639,18 +549,14 @@
    :dcterms/created #inst "2022-06-29T00:00:00.000-04:00",
    :dcterms/creator "Paul Ryan",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "State of being conditionally approved through the audit"},
-   :rdf/type [:dpvo/AuditStatus :owl/NamedIndividual],
+   "State of being conditionally approved through the audit",
+   :rdf/type
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A \"conditional approval\" is intended to reflect states where the audit has identified further changes which must be implemented before considering the audit has been 'passed', without requiring another audit to validate them. This is distinct from the case where an audit has state 'rejected', which means changes must be made and submitted for review. The requirements of a 'conditional acceptance' are expected to be minor or not significant enough to warrant another audit to review them."},
+   "A \"conditional approval\" is intended to reflect states where the audit has identified further changes which must be implemented before considering the audit has been 'passed', without requiring another audit to validate them. This is distinct from the case where an audit has state 'rejected', which means changes must be made and submitted for review. The requirements of a 'conditional acceptance' are expected to be minor or not significant enough to warrant another audit to review them.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Audit Conditionally Approved"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Audit Conditionally Approved",
+   :vs/term_status "accepted"})
 
 (def AuditNotRequired
   "State where an audit is determined as not being required"
@@ -658,14 +564,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "State where an audit is determined as not being required"},
-   :rdf/type [:dpvo/AuditStatus :owl/NamedIndividual],
+   "State where an audit is determined as not being required",
+   :rdf/type
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Audit Not Required"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Audit Not Required",
+   :vs/term_status "accepted"})
 
 (def AuditRejected
   "State of not being approved or being rejected through the audit"
@@ -673,15 +577,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of not being approved or being rejected through the audit"},
-   :rdf/type [:owl/NamedIndividual :dpvo/AuditStatus],
+   "State of not being approved or being rejected through the audit",
+   :rdf/type
+   [:owl/NamedIndividual :dpvo/AuditStatus :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Audit Rejected"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Audit Rejected",
+   :vs/term_status "accepted"})
 
 (def AuditRequested
   "State of an audit being requested whose outcome is not yet known"
@@ -689,15 +590,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of an audit being requested whose outcome is not yet known"},
-   :rdf/type [:dpvo/AuditStatus :owl/NamedIndividual],
+   "State of an audit being requested whose outcome is not yet known",
+   :rdf/type
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Audit Requested"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Audit Requested",
+   :vs/term_status "accepted"})
 
 (def AuditRequired
   "State where an audit is determined as being required but has not been conducted"
@@ -705,31 +603,24 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State where an audit is determined as being required but has not been conducted"},
-   :rdf/type [:dpvo/AuditStatus :owl/NamedIndividual],
+   "State where an audit is determined as being required but has not been conducted",
+   :rdf/type
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Audit Required"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Audit Required",
+   :vs/term_status "accepted"})
 
 (def AuditStatus
   "Status associated with Auditing or Investigation"
   {:db/ident            :dpvo/AuditStatus,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Status associated with Auditing or Investigation"},
+   :dcterms/description "Status associated with Auditing or Investigation",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Audit Status"},
-   :rdfs/subClassOf     :dpvo/Status,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Audit Status",
+   :rdfs/subClassOf     [:dpvo/Status :dpvo/AuditStatus :dpvo/Context],
+   :vs/term_status      "accepted"})
 
 (def Authentication-ABC
   "Use of Attribute Based Credentials (ABC) to perform and manage authentication"
@@ -737,18 +628,19 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of Attribute Based Credentials (ABC) to perform and manage authentication"},
+   "Use of Attribute Based Credentials (ABC) to perform and manage authentication",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Authentication using ABC"},
-   :rdfs/subClassOf :dpvo/CryptographicAuthentication,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Authentication using ABC",
+   :rdfs/subClassOf [:dpvo/CryptographicAuthentication
+                     :dpvo/Authentication-ABC
+                     :dpvo/AuthenticationProtocols
+                     :dpvo/CryptographicMethods
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Authentication-PABC
   "Use of Privacy-enhacing Attribute Based Credentials (ABC) to perform and manage authentication"
@@ -756,18 +648,19 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of Privacy-enhacing Attribute Based Credentials (ABC) to perform and manage authentication"},
+   "Use of Privacy-enhacing Attribute Based Credentials (ABC) to perform and manage authentication",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Authentication using PABC"},
-   :rdfs/subClassOf :dpvo/CryptographicAuthentication,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Authentication using PABC",
+   :rdfs/subClassOf [:dpvo/CryptographicAuthentication
+                     :dpvo/Authentication-PABC
+                     :dpvo/AuthenticationProtocols
+                     :dpvo/CryptographicMethods
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def AuthenticationProtocols
   "Protocols involving validation of identity i.e. authentication of a person or information"
@@ -776,16 +669,14 @@
    :dcterms/creator
    ["Rob Brennan" "Axel Polleres" "Harshvardhan J. Pandit" "Mark Lizar"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Protocols involving validation of identity i.e. authentication of a person or information"},
+   "Protocols involving validation of identity i.e. authentication of a person or information",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Authentication Protocols"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Authentication Protocols",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/AuthenticationProtocols
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def AuthorisationProcedure
   "Procedures for determining authorisation through permission or authority"
@@ -794,20 +685,16 @@
    :dcterms/creator
    ["Axel Polleres" "Rob Brennan" "Mark Lizar" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Procedures for determining authorisation through permission or authority"},
+   "Procedures for determining authorisation through permission or authority",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "non-technical authorisation procedures: How is it described on an organisational level, who gets access to the data"},
+   "non-technical authorisation procedures: How is it described on an organisational level, who gets access to the data",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Authorisation Procedure"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Authorisation Procedure",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/AuthorisationProcedure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def AuthorisationProtocols
   "Protocols involving authorisation of roles or profiles to determine permission, rights, or privileges"
@@ -815,18 +702,16 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Protocols involving authorisation of roles or profiles to determine permission, rights, or privileges"},
+   "Protocols involving authorisation of roles or profiles to determine permission, rights, or privileges",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Authorisation Protocols"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Authorisation Protocols",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/AuthorisationProtocols
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Authority
   "An authority with the power to create or enforce laws, or determine their compliance."
@@ -834,38 +719,36 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan Pandit" "Georg Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An authority with the power to create or enforce laws, or determine their compliance."},
+   "An authority with the power to create or enforce laws, or determine their compliance.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Authority"},
-   :rdfs/subClassOf [:dpvo/GovernmentalOrganisation :dpvo/LegalEntity],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Authority",
+   :rdfs/subClassOf [:dpvo/GovernmentalOrganisation
+                     :dpvo/LegalEntity
+                     :dpvo/Authority
+                     :dpvo/Organisation
+                     :dpvo/Entity],
+   :vs/term_status "accepted"})
 
 (def AutomatedDecisionMaking
   "Processing that involves automated decision making"
   {:db/ident :dpvo/AutomatedDecisionMaking,
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Piero Bonatti" "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Processing that involves automated decision making"},
+   :dcterms/description "Processing that involves automated decision making",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Automated decision making can be defined as “the ability to make decisions by technological means without human involvement.” (“Guidelines on Automated individual decision-making and Profiling for the purposes of Regulation 2016/679 (wp251rev.01)”, 2018, p. 8)"},
+   "Automated decision making can be defined as “the ability to make decisions by technological means without human involvement.” (“Guidelines on Automated individual decision-making and Profiling for the purposes of Regulation 2016/679 (wp251rev.01)”, 2018, p. 8)",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Automated Decision Making"},
-   :rdfs/subClassOf [:dpvo/AutomationOfProcessing :dpvo/DecisionMaking],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Automated Decision Making",
+   :rdfs/subClassOf [:dpvo/AutomationOfProcessing
+                     :dpvo/DecisionMaking
+                     :dpvo/AutomatedDecisionMaking
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "modified"})
 
 (def AutomatedProcessingWithHumanInput
   "Processing that is automated and involves inputs by Humans"
@@ -873,21 +756,18 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Processing that is automated and involves inputs by Humans"},
+   "Processing that is automated and involves inputs by Humans",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
    :rdf/type [:owl/NamedIndividual
               :dpvo/HumanInvolvementForInput
-              :dpvo/AutomationOfProcessing],
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For example, an algorithm that takes inputs from humans and performs operations based on them"},
+   "For example, an algorithm that takes inputs from humans and performs operations based on them",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Automated Processing with Human Input"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Automated Processing with Human Input",
+   :vs/term_status "accepted"})
 
 (def AutomatedProcessingWithHumanOversight
   "Processing that is automated and involves oversight by Humans"
@@ -895,21 +775,18 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Processing that is automated and involves oversight by Humans"},
+   "Processing that is automated and involves oversight by Humans",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
    :rdf/type [:dpvo/AutomationOfProcessing
               :dpvo/HumanInvolvementForOversight
-              :owl/NamedIndividual],
+              :owl/NamedIndividual
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For example, a human watching metrics to ensure correctness of procedural values and outputs as processing takes place"},
+   "For example, a human watching metrics to ensure correctness of procedural values and outputs as processing takes place",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Automated Processing with Human Oversight"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Automated Processing with Human Oversight",
+   :vs/term_status "accepted"})
 
 (def AutomatedProcessingWithHumanReview
   "Processing that is automated and involves review by Humans"
@@ -917,21 +794,18 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Processing that is automated and involves review by Humans"},
+   "Processing that is automated and involves review by Humans",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type [:dpvo/HumanInvolvementForVerification
               :owl/NamedIndividual
-              :dpvo/AutomationOfProcessing],
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For example, a human verifying outputs of an algorithm for correctness or impact to individuals"},
+   "For example, a human verifying outputs of an algorithm for correctness or impact to individuals",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Automated Processing with Human Review"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Automated Processing with Human Review",
+   :vs/term_status "modified"})
 
 (def AutomationOfProcessing
   "Contextual information about the degree of automation and human involvement associated with Processing"
@@ -939,20 +813,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Contextual information about the degree of automation and human involvement associated with Processing"},
+   "Contextual information about the degree of automation and human involvement associated with Processing",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "It is difficult to provide a formal definition of automation since any and all processing may be considered automation. This concept instead is intended to explicitly signal the utilisation of automation and its extent towards some context - such as decision making, and to indicate the involvement of humans."},
+   "It is difficult to provide a formal definition of automation since any and all processing may be considered automation. This concept instead is intended to explicitly signal the utilisation of automation and its extent towards some context - such as decision making, and to indicate the involvement of humans.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Automation of Processing"},
-   :rdfs/subClassOf :dpvo/ProcessingContext,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Automation of Processing",
+   :rdfs/subClassOf
+   [:dpvo/ProcessingContext :dpvo/AutomationOfProcessing :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def BackgroundChecks
   "Procedure where the background of an entity is assessed to identity vulnerabilities and threats due to their current or intended role"
@@ -960,18 +829,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Procedure where the background of an entity is assessed to identity vulnerabilities and threats due to their current or intended role"},
+   "Procedure where the background of an entity is assessed to identity vulnerabilities and threats due to their current or intended role",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Background Checks"},
-   :rdfs/subClassOf :dpvo/SecurityProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Background Checks",
+   :rdfs/subClassOf [:dpvo/SecurityProcedure
+                     :dpvo/BackgroundChecks
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Benefit
   "Impact(s) that acts as or causes benefits"
@@ -983,33 +851,29 @@
                          "Fajar Ekaputra"
                          "Julian Flake"
                          "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Impact(s) that acts as or causes benefits"},
+   :dcterms/description "Impact(s) that acts as or causes benefits",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Benefit"},
-   :rdfs/subClassOf     :dpvo/Impact,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Benefit",
+   :rdfs/subClassOf     [:dpvo/Impact :dpvo/Benefit :dpvo/Consequence],
+   :vs/term_status      "accepted"})
 
 (def BiometricAuthentication
   "Use of biometric data for authentication"
   {:db/ident :dpvo/BiometricAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Use of biometric data for authentication"},
+   :dcterms/description "Use of biometric data for authentication",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Biometric Authentication"},
-   :rdfs/subClassOf :dpvo/AuthenticationProtocols,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Biometric Authentication",
+   :rdfs/subClassOf [:dpvo/AuthenticationProtocols
+                     :dpvo/BiometricAuthentication
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Certification
   "Certification mechanisms, seals, and marks for the purpose of demonstrating compliance"
@@ -1018,16 +882,15 @@
    :dcterms/creator
    ["Mark Lizar" "Rob Brennan" "Harshvardhan J. Pandit" "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Certification mechanisms, seals, and marks for the purpose of demonstrating compliance"},
+   "Certification mechanisms, seals, and marks for the purpose of demonstrating compliance",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Certification"},
-   :rdfs/subClassOf :dpvo/CertificationSeal,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Certification",
+   :rdfs/subClassOf [:dpvo/CertificationSeal
+                     :dpvo/Certification
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def CertificationSeal
   "Certifications, seals, and marks indicating compliance to regulations or practices"
@@ -1036,16 +899,14 @@
    :dcterms/creator
    ["Mark Lizar" "Rob Brennan" "Harshvardhan J. Pandit" "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Certifications, seals, and marks indicating compliance to regulations or practices"},
+   "Certifications, seals, and marks indicating compliance to regulations or practices",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Certification and Seal"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Certification and Seal",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/CertificationSeal
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Child
   "A 'child' is a natural legal person who is below a certain legal age depending on the legal jurisdiction."
@@ -1053,57 +914,51 @@
    :dcterms/created #inst "2020-11-25T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A 'child' is a natural legal person who is below a certain legal age depending on the legal jurisdiction."},
+   "A 'child' is a natural legal person who is below a certain legal age depending on the legal jurisdiction.",
    :dcterms/modified #inst "2022-06-22T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The legality of age defining a child varies by jurisdiction. In addition, 'child' is distinct from a 'minor'. For example, the legal age for consumption of alcohol can be 21, which makes a person of age 20 a 'minor' in this context. In other cases, 'minor' and 'child' are used interchangeably to refer to a person below some legally defined age."},
+   "The legality of age defining a child varies by jurisdiction. In addition, 'child' is distinct from a 'minor'. For example, the legal age for consumption of alcohol can be 21, which makes a person of age 20 a 'minor' in this context. In other cases, 'minor' and 'child' are used interchangeably to refer to a person below some legally defined age.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Child"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "changed"}})
+   :rdfs/label "Child",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Child
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "changed"})
 
 (def Citizen
   "Data subjects that are citizens (for a jurisdiction)"
-  {:db/ident :dpvo/Citizen,
-   :dcterms/created #inst "2022-04-06T00:00:00.000-04:00",
-   :dcterms/creator ["Paul Ryan"
-                     "Beatriz Esteves"
-                     "Julian Flake"
-                     "Georg P. Krog"
-                     "Harshvardhan J. Pandit"],
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Data subjects that are citizens (for a jurisdiction)"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Citizen"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/Citizen,
+   :dcterms/created     #inst "2022-04-06T00:00:00.000-04:00",
+   :dcterms/creator     ["Paul Ryan"
+                         "Beatriz Esteves"
+                         "Julian Flake"
+                         "Georg P. Krog"
+                         "Harshvardhan J. Pandit"],
+   :dcterms/description "Data subjects that are citizens (for a jurisdiction)",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Citizen",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/Citizen
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def City
   "A region consisting of urban population and commerce"
-  {:db/ident :dpvo/City,
-   :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A region consisting of urban population and commerce"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "City"},
-   :rdfs/subClassOf :dpvo/Location,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/City,
+   :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "A region consisting of urban population and commerce",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "City",
+   :rdfs/subClassOf     [:dpvo/Location :dpvo/City],
+   :vs/term_status      "accepted"})
 
 (def Client
   "Data subjects that are clients or recipients of services"
@@ -1115,15 +970,17 @@
                      "Georg P. Krog"
                      "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Data subjects that are clients or recipients of services"},
+   "Data subjects that are clients or recipients of services",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Client"},
-   :rdfs/subClassOf :dpvo/Customer,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Client",
+   :rdfs/subClassOf [:dpvo/Customer
+                     :dpvo/Client
+                     :dpvo/DataSubject
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def CloudLocation
   "Location that is in the 'cloud' i.e. a logical location operated over the internet"
@@ -1131,17 +988,16 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location that is in the 'cloud' i.e. a logical location operated over the internet"},
+   "Location that is in the 'cloud' i.e. a logical location operated over the internet",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Cloud Location"},
-   :rdfs/subClassOf :dpvo/RemoteLocation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Cloud Location",
+   :rdfs/subClassOf [:dpvo/RemoteLocation
+                     :dpvo/CloudLocation
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
+   :vs/term_status "modified"})
 
 (def CodeOfConduct
   "A set of rules or procedures outlining the norms and practices for conducting activities"
@@ -1150,33 +1006,29 @@
    :dcterms/creator
    ["Axel Polleres" "Harshvardhan J. Pandit" "Mark Lizar" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A set of rules or procedures outlining the norms and practices for conducting activities"},
+   "A set of rules or procedures outlining the norms and practices for conducting activities",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Code of Conduct"},
-   :rdfs/subClassOf :dpvo/GuidelinesPrinciple,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Code of Conduct",
+   :rdfs/subClassOf [:dpvo/GuidelinesPrinciple
+                     :dpvo/CodeOfConduct
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Collect
   "to gather data from someone"
   {:db/ident :dpvo/Collect,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to gather data from someone"},
+   :dcterms/description "to gather data from someone",
    :dcterms/source ["https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj"
                     "https://specialprivacy.ercim.eu/vocabs/processing"],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Collect"},
+   :rdfs/label "Collect",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/processing#Collect"],
-   :rdfs/subClassOf :dpvo/Obtain,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Obtain :dpvo/Collect :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def CollectedPersonalData
   "Personal Data that has been collected from another source such as the Data Subject"
@@ -1184,38 +1036,29 @@
    :dcterms/created #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Personal Data that has been collected from another source such as the Data Subject"},
+   "Personal Data that has been collected from another source such as the Data Subject",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "To indicate the source of data, use the DataSource concept with the hasDataSource relation"},
+   "To indicate the source of data, use the DataSource concept with the hasDataSource relation",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Collected Personal Data"},
-   :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Collected Personal Data",
+   :rdfs/subClassOf [:dpvo/PersonalData :dpvo/CollectedPersonalData :dpvo/Data],
+   :vs/term_status "accepted"})
 
 (def Combine
   "to join or merge data"
   {:db/ident :dpvo/Combine,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to join or merge data"},
+   :dcterms/description "to join or merge data",
    :dcterms/source ["https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj"
                     "https://specialprivacy.ercim.eu/vocabs/processing"],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Combine"},
+   :rdfs/label "Combine",
    :rdfs/seeAlso
    ["https://specialprivacy.ercim.eu/vocabs/processing#Aggregate"],
-   :rdfs/subClassOf :dpvo/Transform,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Transform :dpvo/Combine :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def CommercialResearch
   "Purposes associated with conducting research in a commercial setting or with intention to commercialise e.g. in a company or sponsored by a company"
@@ -1228,17 +1071,14 @@
                      "Simon Steyskal"
                      "Elmar Kiesling"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting research in a commercial setting or with intention to commercialise e.g. in a company or sponsored by a company"},
+   "Purposes associated with conducting research in a commercial setting or with intention to commercialise e.g. in a company or sponsored by a company",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Commercial Research"},
+   :rdfs/label "Commercial Research",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Develop"],
-   :rdfs/subClassOf :dpvo/ResearchAndDevelopment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf
+   [:dpvo/ResearchAndDevelopment :dpvo/CommercialResearch :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CommunicationForCustomerCare
   "Customer Care Communication refers to purposes associated with communicating with customers for assisting them, resolving issues, ensuring satisfaction, etc. in relation to services provided"
@@ -1246,16 +1086,16 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Customer Care Communication refers to purposes associated with communicating with customers for assisting them, resolving issues, ensuring satisfaction, etc. in relation to services provided"},
+   "Customer Care Communication refers to purposes associated with communicating with customers for assisting them, resolving issues, ensuring satisfaction, etc. in relation to services provided",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Communication for Customer Care"},
-   :rdfs/subClassOf [:dpvo/CustomerCare :dpvo/CommunicationManagement],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Communication for Customer Care",
+   :rdfs/subClassOf [:dpvo/CustomerCare
+                     :dpvo/CommunicationManagement
+                     :dpvo/CommunicationForCustomerCare
+                     :dpvo/CustomerManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CommunicationManagement
   "Communication Management refers to purposes associated with providing or managing communication activities e.g. to send an email for notifying some information"
@@ -1264,20 +1104,14 @@
    :dcterms/creator
    ["David Hickey" "Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Communication Management refers to purposes associated with providing or managing communication activities e.g. to send an email for notifying some information"},
+   "Communication Management refers to purposes associated with providing or managing communication activities e.g. to send an email for notifying some information",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This purpose by itself does not sufficiently and clearly indicate what the communication is about. As such, it is recommended to combine it with another purpose to indicate the application. For example, Communication of Payment."},
+   "This purpose by itself does not sufficiently and clearly indicate what the communication is about. As such, it is recommended to combine it with another purpose to indicate the application. For example, Communication of Payment.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Communication Management"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Communication Management",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/CommunicationManagement],
+   :vs/term_status "accepted"})
 
 (def CompletelyManualProcessing
   "Processing that is completely un-automated or fully manual"
@@ -1285,17 +1119,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Processing that is completely un-automated or fully manual"},
-   :rdf/type [:owl/NamedIndividual :dpvo/AutomationOfProcessing],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "For example, a human performing some processing operation"},
+   "Processing that is completely un-automated or fully manual",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext
+              :dpvo/Context],
+   :rdfs/comment "For example, a human performing some processing operation",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Completely Manual Processing"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Completely Manual Processing",
+   :vs/term_status "accepted"})
 
 (def ComplianceIndeterminate
   "State where the status of compliance has not been fully assessed, evaluated, or determined"
@@ -1303,15 +1135,12 @@
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State where the status of compliance has not been fully assessed, evaluated, or determined"},
-   :rdf/type [:owl/NamedIndividual :dpvo/ComplianceStatus],
+   "State where the status of compliance has not been fully assessed, evaluated, or determined",
+   :rdf/type
+   [:owl/NamedIndividual :dpvo/ComplianceStatus :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Compliance Indeterminate"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Compliance Indeterminate",
+   :vs/term_status "accepted"})
 
 (def ComplianceMonitoring
   "Monitoring of compliance (e.g. internal policy, regulations)"
@@ -1319,17 +1148,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Monitoring of compliance (e.g. internal policy, regulations)"},
+   "Monitoring of compliance (e.g. internal policy, regulations)",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Compliance Monitoring"},
-   :rdfs/subClassOf :dpvo/GovernanceProcedures,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Compliance Monitoring",
+   :rdfs/subClassOf [:dpvo/GovernanceProcedures
+                     :dpvo/ComplianceMonitoring
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ComplianceStatus
   "Status associated with Compliance with some norms, objectives, or requirements"
@@ -1337,31 +1166,26 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Status associated with Compliance with some norms, objectives, or requirements"},
+   "Status associated with Compliance with some norms, objectives, or requirements",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Compliance Status"},
-   :rdfs/subClassOf :dpvo/Status,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Compliance Status",
+   :rdfs/subClassOf [:dpvo/Status :dpvo/ComplianceStatus :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def ComplianceUnknown
   "State where the status of compliance is unknown"
   {:db/ident            :dpvo/ComplianceUnknown,
    :dcterms/created     #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "State where the status of compliance is unknown"},
-   :rdf/type            [:dpvo/ComplianceStatus :owl/NamedIndividual],
+   :dcterms/description "State where the status of compliance is unknown",
+   :rdf/type            [:dpvo/ComplianceStatus
+                         :owl/NamedIndividual
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Compliance Unknown"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Compliance Unknown",
+   :vs/term_status      "accepted"})
 
 (def ComplianceViolation
   "State where compliance cannot be achieved due to requirements being violated"
@@ -1369,34 +1193,29 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State where compliance cannot be achieved due to requirements being violated"},
+   "State where compliance cannot be achieved due to requirements being violated",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
-   :rdf/type [:dpvo/ComplianceStatus :owl/NamedIndividual],
+   :rdf/type
+   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Changed from \"violation of compliance\" for consistency with other terms"},
+   "Changed from \"violation of compliance\" for consistency with other terms",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Compliance Violation"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "changed"}})
+   :rdfs/label "Compliance Violation",
+   :vs/term_status "changed"})
 
 (def Compliant
   "State of being fully compliant"
   {:db/ident            :dpvo/Compliant,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "State of being fully compliant"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/ComplianceStatus],
+   :dcterms/description "State of being fully compliant",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/ComplianceStatus
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Compliant"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Compliant",
+   :vs/term_status      "accepted"})
 
 (def ConformanceStatus
   "Status associated with conformance to a standard, guideline, code, or recommendation"
@@ -1404,46 +1223,38 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Status associated with conformance to a standard, guideline, code, or recommendation"},
+   "Status associated with conformance to a standard, guideline, code, or recommendation",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Conformance Status"},
-   :rdfs/subClassOf :dpvo/Status,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Conformance Status",
+   :rdfs/subClassOf [:dpvo/Status :dpvo/ConformanceStatus :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def Conformant
   "State of being conformant"
   {:db/ident            :dpvo/Conformant,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "State of being conformant"},
-   :rdf/type            [:dpvo/ConformanceStatus :owl/NamedIndividual],
+   :dcterms/description "State of being conformant",
+   :rdf/type            [:dpvo/ConformanceStatus
+                         :owl/NamedIndividual
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Conformant"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Conformant",
+   :vs/term_status      "accepted"})
 
 (def Consent
   "Consent of the Data Subject for specified processing"
-  {:db/ident :dpvo/Consent,
-   :dcterms/created #inst "2021-04-07T00:00:00.000-04:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Consent of the Data Subject for specified processing"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent"},
-   :rdfs/subClassOf :dpvo/LegalBasis,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/Consent,
+   :dcterms/created     #inst "2021-04-07T00:00:00.000-04:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "Consent of the Data Subject for specified processing",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Consent",
+   :rdfs/subClassOf     [:dpvo/LegalBasis :dpvo/Consent],
+   :vs/term_status      "accepted"})
 
 (def ConsentExpired
   "The state where the temporal or contextual validity of consent has 'expired'"
@@ -1452,20 +1263,18 @@
    :dcterms/creator
    ["Julian Flake" "Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The state where the temporal or contextual validity of consent has 'expired'"},
+   "The state where the temporal or contextual validity of consent has 'expired'",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:owl/NamedIndividual :dpvo/ConsentStatusInvalidForProcessing],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ConsentStatusInvalidForProcessing
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is when the obtained consent has been assigned a duration - which has lapsed or 'expired', making it invalid to be used further for processing data"},
+   "An example of this state is when the obtained consent has been assigned a duration - which has lapsed or 'expired', making it invalid to be used further for processing data",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Expired"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Expired",
+   :vs/term_status "accepted"})
 
 (def ConsentGiven
   "The state where consent has been given"
@@ -1473,19 +1282,18 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator
    ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit" "Julian Flake"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "The state where consent has been given"},
+   :dcterms/description "The state where consent has been given",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:owl/NamedIndividual :dpvo/ConsentStatusValidForProcessing],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ConsentStatusValidForProcessing
+              :dpvo/Status
+              :dpvo/ConsentStatus
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is when the individual clicks on a button, ticks a checkbox, verbally agrees - or any other form that communicates their decision agreeing to the processing of data"},
+   "An example of this state is when the individual clicks on a button, ticks a checkbox, verbally agrees - or any other form that communicates their decision agreeing to the processing of data",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Given"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Given",
+   :vs/term_status "accepted"})
 
 (def ConsentInvalidated
   "The state where consent has been deemed to be invalid"
@@ -1493,20 +1301,18 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Paul Ryan" "Julian Flake" "Georg P Krog"],
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "The state where consent has been deemed to be invalid"},
+   :dcterms/description "The state where consent has been deemed to be invalid",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:owl/NamedIndividual :dpvo/ConsentStatusInvalidForProcessing],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ConsentStatusInvalidForProcessing
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is where an investigating authority or a court finds the collected consent did not meet requirements, and 'invalidates' both prior and future uses of it to carry out processing"},
+   "An example of this state is where an investigating authority or a court finds the collected consent did not meet requirements, and 'invalidates' both prior and future uses of it to carry out processing",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Invalidated"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Invalidated",
+   :vs/term_status "accepted"})
 
 (def ConsentNotice
   "A Notice for information provision associated with Consent"
@@ -1515,15 +1321,16 @@
    :dcterms/creator
    ["Julian Flake" "Harshvardhan J. Pandit" "Paul Ryan" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A Notice for information provision associated with Consent"},
+   "A Notice for information provision associated with Consent",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Notice"},
-   :rdfs/subClassOf :dpvo/PrivacyNotice,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Notice",
+   :rdfs/subClassOf [:dpvo/PrivacyNotice
+                     :dpvo/ConsentNotice
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Notice],
+   :vs/term_status "accepted"})
 
 (def ConsentRecord
   "A Record of Consent or Consent related activities"
@@ -1533,16 +1340,16 @@
                          "Julian Flake"
                          "Paul Ryan"
                          "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "A Record of Consent or Consent related activities"},
+   :dcterms/description "A Record of Consent or Consent related activities",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Consent Record"},
-   :rdfs/subClassOf     :dpvo/DataProcessingRecord,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Consent Record",
+   :rdfs/subClassOf     [:dpvo/DataProcessingRecord
+                         :dpvo/ConsentRecord
+                         :dpvo/OrganisationalMeasure
+                         :dpvo/TechnicalOrganisationalMeasure
+                         :dpvo/RecordsOfActivities],
+   :vs/term_status      "accepted"})
 
 (def ConsentRefused
   "The state where consent has been refused"
@@ -1550,19 +1357,18 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J. Pandit" "Julian Flake" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "The state where consent has been refused"},
+   :dcterms/description "The state where consent has been refused",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:dpvo/ConsentStatusInvalidForProcessing :owl/NamedIndividual],
+   :rdf/type [:dpvo/ConsentStatusInvalidForProcessing
+              :owl/NamedIndividual
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is when the individual clicks on a 'disagree' or 'reject' or 'refuse' button, or leaves a checkbox unticked"},
+   "An example of this state is when the individual clicks on a 'disagree' or 'reject' or 'refuse' button, or leaves a checkbox unticked",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Refused"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Refused",
+   :vs/term_status "accepted"})
 
 (def ConsentRequestDeferred
   "State where a request for consent has been deferred without a decision"
@@ -1571,20 +1377,18 @@
    :dcterms/creator
    ["Julian Flake" "Harshvardhan J. Pandit" "Paul Ryan" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State where a request for consent has been deferred without a decision"},
+   "State where a request for consent has been deferred without a decision",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:owl/NamedIndividual :dpvo/ConsentStatusInvalidForProcessing],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ConsentStatusInvalidForProcessing
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is when the individual closes or dismisses a notice without making a decision. This state is intended for making the distinction between a notice being provided (as a consent request) and the individual interacting with the notice without making a decision - where the 'ignoring of a notice' is taken as consent being neither given nor refused"},
+   "An example of this state is when the individual closes or dismisses a notice without making a decision. This state is intended for making the distinction between a notice being provided (as a consent request) and the individual interacting with the notice without making a decision - where the 'ignoring of a notice' is taken as consent being neither given nor refused",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Request Deferred"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Request Deferred",
+   :vs/term_status "accepted"})
 
 (def ConsentRequested
   "State where a request for consent has been made and is awaiting a decision"
@@ -1593,20 +1397,18 @@
    :dcterms/creator
    ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit" "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State where a request for consent has been made and is awaiting a decision"},
+   "State where a request for consent has been made and is awaiting a decision",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:owl/NamedIndividual :dpvo/ConsentStatusInvalidForProcessing],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ConsentStatusInvalidForProcessing
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is when a notice has been presented to the individual but they have not made a decision"},
+   "An example of this state is when a notice has been presented to the individual but they have not made a decision",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Requested"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Requested",
+   :vs/term_status "accepted"})
 
 (def ConsentRevoked
   "The state where the consent is revoked by an entity other than the data subject and which prevents it from being further used as a valid state"
@@ -1615,20 +1417,18 @@
    :dcterms/creator
    ["Georg P Krog" "Julian Flake" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The state where the consent is revoked by an entity other than the data subject and which prevents it from being further used as a valid state"},
+   "The state where the consent is revoked by an entity other than the data subject and which prevents it from being further used as a valid state",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:dpvo/ConsentStatusInvalidForProcessing :owl/NamedIndividual],
+   :rdf/type [:dpvo/ConsentStatusInvalidForProcessing
+              :owl/NamedIndividual
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is when a Data Controller stops utilising previously obtaining consent, such as when that service no longer exists"},
+   "An example of this state is when a Data Controller stops utilising previously obtaining consent, such as when that service no longer exists",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Revoked"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Revoked",
+   :vs/term_status "accepted"})
 
 (def ConsentStatus
   "The state or status of 'consent' that provides information reflecting its operational status and validity for processing data"
@@ -1637,21 +1437,15 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Julian Flake" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The state or status of 'consent' that provides information reflecting its operational status and validity for processing data"},
+   "The state or status of 'consent' that provides information reflecting its operational status and validity for processing data",
    :dcterms/source "https://w3id.org/GConsent",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "States are useful as information artefacts to implement them in controlling processing, and to reflect the process and flow of obtaining and maintaining consent. For example, a database table that stores consent states for specific processing and can be queried to obtain them in an efficient manner. States are also useful in investigations to determine the use and validity of consenting practices"},
+   "States are useful as information artefacts to implement them in controlling processing, and to reflect the process and flow of obtaining and maintaining consent. For example, a database table that stores consent states for specific processing and can be queried to obtain them in an efficient manner. States are also useful in investigations to determine the use and validity of consenting practices",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Status"},
-   :rdfs/subClassOf :dpvo/Status,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Status",
+   :rdfs/subClassOf [:dpvo/Status :dpvo/ConsentStatus :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def ConsentStatusInvalidForProcessing
   "States of consent that cannot be used as valid justifications for processing data"
@@ -1660,21 +1454,18 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Paul Ryan" "Julian Flake" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "States of consent that cannot be used as valid justifications for processing data"},
+   "States of consent that cannot be used as valid justifications for processing data",
    :dcterms/source "https://w3id.org/GConsent",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This identifies the stages associated with consent that should not be used to process data"},
+   "This identifies the stages associated with consent that should not be used to process data",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Status Invalid for Processing"},
-   :rdfs/subClassOf :dpvo/ConsentStatus,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Status Invalid for Processing",
+   :rdfs/subClassOf [:dpvo/ConsentStatus
+                     :dpvo/ConsentStatusInvalidForProcessing
+                     :dpvo/Context
+                     :dpvo/Status],
+   :vs/term_status "accepted"})
 
 (def ConsentStatusValidForProcessing
   "States of consent that can be used as valid justifications for processing data"
@@ -1683,21 +1474,18 @@
    :dcterms/creator
    ["Julian Flake" "Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "States of consent that can be used as valid justifications for processing data"},
+   "States of consent that can be used as valid justifications for processing data",
    :dcterms/source "https://w3id.org/GConsent",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Practically, given consent is the only valid state for processing"},
+   "Practically, given consent is the only valid state for processing",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Status Valid for Processing"},
-   :rdfs/subClassOf :dpvo/ConsentStatus,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Status Valid for Processing",
+   :rdfs/subClassOf [:dpvo/ConsentStatus
+                     :dpvo/ConsentStatusValidForProcessing
+                     :dpvo/Context
+                     :dpvo/Status],
+   :vs/term_status "accepted"})
 
 (def ConsentUnknown
   "State where information about consent is not available or is unknown"
@@ -1706,20 +1494,18 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State where information about consent is not available or is unknown"},
+   "State where information about consent is not available or is unknown",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:dpvo/ConsentStatusInvalidForProcessing :owl/NamedIndividual],
+   :rdf/type [:dpvo/ConsentStatusInvalidForProcessing
+              :owl/NamedIndividual
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Consent states can be unknown, for example, when information is not available, or cannot be trusted, or is known to be inaccurate"},
+   "Consent states can be unknown, for example, when information is not available, or cannot be trusted, or is known to be inaccurate",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Unknown"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Unknown",
+   :vs/term_status "accepted"})
 
 (def ConsentWithdrawn
   "The state where the consent is withdrawn or revoked specifically by the data subject and which prevents it from being further used as a valid state"
@@ -1728,20 +1514,18 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Julian Flake" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The state where the consent is withdrawn or revoked specifically by the data subject and which prevents it from being further used as a valid state"},
+   "The state where the consent is withdrawn or revoked specifically by the data subject and which prevents it from being further used as a valid state",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:owl/NamedIndividual :dpvo/ConsentStatusInvalidForProcessing],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ConsentStatusInvalidForProcessing
+              :dpvo/ConsentStatus
+              :dpvo/Status
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This state can be considered a form of 'revocation' of consent, where the revocation can only be performed by the data subject. Therefore we suggest using ConsentRevoked when it is a non-data-subject entity, and ConsentWithdrawn when it is the data subject"},
+   "This state can be considered a form of 'revocation' of consent, where the revocation can only be performed by the data subject. Therefore we suggest using ConsentRevoked when it is a non-data-subject entity, and ConsentWithdrawn when it is the data subject",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consent Withdrawn"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consent Withdrawn",
+   :vs/term_status "accepted"})
 
 (def Consequence
   "The consequence(s) possible or arising from specified context"
@@ -1749,14 +1533,12 @@
    :dcterms/created #inst "2022-01-26T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "The consequence(s) possible or arising from specified context"},
+   "The consequence(s) possible or arising from specified context",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consequence"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consequence",
+   :rdfs/subClassOf :dpvo/Consequence,
+   :vs/term_status "accepted"})
 
 (def ConsequenceAsSideEffect
   "The consequence(s) possible or arising as a side-effect of specified context"
@@ -1764,16 +1546,12 @@
    :dcterms/created #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The consequence(s) possible or arising as a side-effect of specified context"},
+   "The consequence(s) possible or arising as a side-effect of specified context",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consequence as Side-Effect"},
-   :rdfs/subClassOf :dpvo/Consequence,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consequence as Side-Effect",
+   :rdfs/subClassOf [:dpvo/Consequence :dpvo/ConsequenceAsSideEffect],
+   :vs/term_status "accepted"})
 
 (def ConsequenceOfFailure
   "The consequence(s) possible or arising from failure of specified context"
@@ -1781,16 +1559,12 @@
    :dcterms/created #inst "2022-03-23T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The consequence(s) possible or arising from failure of specified context"},
+   "The consequence(s) possible or arising from failure of specified context",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consequence of Failure"},
-   :rdfs/subClassOf :dpvo/Consequence,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consequence of Failure",
+   :rdfs/subClassOf [:dpvo/Consequence :dpvo/ConsequenceOfFailure],
+   :vs/term_status "accepted"})
 
 (def ConsequenceOfSuccess
   "The consequence(s) possible or arising from success of specified context"
@@ -1798,34 +1572,27 @@
    :dcterms/created #inst "2022-03-23T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The consequence(s) possible or arising from success of specified context"},
+   "The consequence(s) possible or arising from success of specified context",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consequence of Success"},
-   :rdfs/subClassOf :dpvo/Consequence,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consequence of Success",
+   :rdfs/subClassOf [:dpvo/Consequence :dpvo/ConsequenceOfSuccess],
+   :vs/term_status "accepted"})
 
 (def Consult
   "to consult or query data"
   {:db/ident :dpvo/Consult,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to consult or query data"},
+   :dcterms/description "to consult or query data",
    :dcterms/source
    ["https://specialprivacy.ercim.eu/vocabs/processing"
     "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj"],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consult"},
+   :rdfs/label "Consult",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/processing#Query"],
-   :rdfs/subClassOf :dpvo/Use,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Use :dpvo/Consult :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Consultation
   "Consultation is a process of receiving feedback, advice, or opinion from an external agency"
@@ -1833,16 +1600,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Consultation is a process of receiving feedback, advice, or opinion from an external agency"},
+   "Consultation is a process of receiving feedback, advice, or opinion from an external agency",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consultation"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consultation",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/Consultation
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ConsultationWithAuthority
   "Consultation with an authority or authoritative entity"
@@ -1850,31 +1615,30 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Consultation with an authority or authoritative entity"},
+   "Consultation with an authority or authoritative entity",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consultation with Authority"},
-   :rdfs/subClassOf :dpvo/Consultation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consultation with Authority",
+   :rdfs/subClassOf [:dpvo/Consultation
+                     :dpvo/ConsultationWithAuthority
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ConsultationWithDPO
   "Consultation with Data Protection Officer(s)"
   {:db/ident            :dpvo/ConsultationWithDPO,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Consultation with Data Protection Officer(s)"},
+   :dcterms/description "Consultation with Data Protection Officer(s)",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Consultation with DPO"},
-   :rdfs/subClassOf     :dpvo/Consultation,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Consultation with DPO",
+   :rdfs/subClassOf     [:dpvo/Consultation
+                         :dpvo/ConsultationWithDPO
+                         :dpvo/OrganisationalMeasure
+                         :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status      "accepted"})
 
 (def ConsultationWithDataSubject
   "Consultation with data subject(s) or their representative(s)"
@@ -1882,32 +1646,31 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Consultation with data subject(s) or their representative(s)"},
+   "Consultation with data subject(s) or their representative(s)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consultation with Data Subject"},
-   :rdfs/subClassOf :dpvo/Consultation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consultation with Data Subject",
+   :rdfs/subClassOf [:dpvo/Consultation
+                     :dpvo/ConsultationWithDataSubject
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ConsultationWithDataSubjectRepresentative
   "Consultation with representative of data subject(s)"
   {:db/ident            :dpvo/ConsultationWithDataSubjectRepresentative,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Consultation with representative of data subject(s)"},
+   :dcterms/description "Consultation with representative of data subject(s)",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value
-                         "Consultation with Data Subject Representative"},
-   :rdfs/subClassOf     :dpvo/ConsultationWithDataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Consultation with Data Subject Representative",
+   :rdfs/subClassOf     [:dpvo/ConsultationWithDataSubject
+                         :dpvo/ConsultationWithDataSubjectRepresentative
+                         :dpvo/OrganisationalMeasure
+                         :dpvo/Consultation
+                         :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status      "accepted"})
 
 (def Consumer
   "Data subjects that consume goods or services for direct use"
@@ -1919,15 +1682,16 @@
                      "Harshvardhan J. Pandit"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Data subjects that consume goods or services for direct use"},
+   "Data subjects that consume goods or services for direct use",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Consumer"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Consumer",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Consumer
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def Context
   "Contextually relevant information not possible to represent through other core concepts"
@@ -1940,32 +1704,28 @@
                      "Harshvardhan J. Pandit"
                      "Elmar Kiesling"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Contextually relevant information not possible to represent through other core concepts"},
+   "Contextually relevant information not possible to represent through other core concepts",
    :dcterms/modified #inst "2022-06-15T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Context"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Context",
+   :rdfs/subClassOf :dpvo/Context,
+   :vs/term_status "modified"})
 
 (def ContinousFrequency
   "Frequency where occurences are continous"
   {:db/ident            :dpvo/ContinousFrequency,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Frequency where occurences are continous"},
+   :dcterms/description "Frequency where occurences are continous",
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Continous Frequency"},
-   :rdfs/subClassOf     :dpvo/Frequency,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "modified"}})
+   :rdfs/label          "Continous Frequency",
+   :rdfs/subClassOf     [:dpvo/Frequency
+                         :dpvo/ContinousFrequency
+                         :dpvo/Context],
+   :vs/term_status      "modified"})
 
 (def Contract
   "Creation, completion, fulfilment, or performance of a contract involving specified processing"
@@ -1973,16 +1733,16 @@
    :dcterms/created #inst "2021-04-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Creation, completion, fulfilment, or performance of a contract involving specified processing"},
+   "Creation, completion, fulfilment, or performance of a contract involving specified processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Contract"},
-   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo/LegalAgreement],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Contract",
+   :rdfs/subClassOf [:dpvo/LegalBasis
+                     :dpvo/LegalAgreement
+                     :dpvo/Contract
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ContractPerformance
   "Fulfilment or performance of a contract involving specified processing"
@@ -1990,16 +1750,17 @@
    :dcterms/created #inst "2021-04-07T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Fulfilment or performance of a contract involving specified processing"},
+   "Fulfilment or performance of a contract involving specified processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Contract Performance"},
-   :rdfs/subClassOf :dpvo/Contract,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Contract Performance",
+   :rdfs/subClassOf [:dpvo/Contract
+                     :dpvo/ContractPerformance
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/LegalBasis
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/LegalAgreement],
+   :vs/term_status "accepted"})
 
 (def ContractualTerms
   "Contractual terms governing data handling within or with an entity"
@@ -2008,16 +1769,15 @@
    :dcterms/creator
    ["Axel Polleres" "Harshvardhan J. Pandit" "Mark Lizar" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Contractual terms governing data handling within or with an entity"},
+   "Contractual terms governing data handling within or with an entity",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Contractual Terms"},
-   :rdfs/subClassOf :dpvo/LegalAgreement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Contractual Terms",
+   :rdfs/subClassOf [:dpvo/LegalAgreement
+                     :dpvo/ContractualTerms
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ControllerProcessorAgreement
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller and a Data Processor"
@@ -2029,33 +1789,29 @@
                      "Julian Flake"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller and a Data Processor"},
+   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller and a Data Processor",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Controller-Processor Agreement"},
-   :rdfs/subClassOf :dpvo/DataProcessingAgreement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Controller-Processor Agreement",
+   :rdfs/subClassOf [:dpvo/DataProcessingAgreement
+                     :dpvo/ControllerProcessorAgreement
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/LegalAgreement],
+   :vs/term_status "accepted"})
 
 (def Copy
   "to produce an exact reprodution of the data"
   {:db/ident :dpvo/Copy,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "to produce an exact reprodution of the data"},
+   :dcterms/description "to produce an exact reprodution of the data",
    :dcterms/source "https://specialprivacy.ercim.eu/vocabs/processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Copy"},
+   :rdfs/label "Copy",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/processing#Copy"],
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Copy],
+   :vs/term_status "accepted"})
 
 (def CounterMoneyLaundering
   "Purposes associated with detection, prevention, and mitigation of mitigate money laundering"
@@ -2063,16 +1819,15 @@
    :dcterms/created #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with detection, prevention, and mitigation of mitigate money laundering"},
+   "Purposes associated with detection, prevention, and mitigation of mitigate money laundering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Counter Money Laundering"},
-   :rdfs/subClassOf :dpvo/FraudPreventionAndDetection,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Counter Money Laundering",
+   :rdfs/subClassOf [:dpvo/FraudPreventionAndDetection
+                     :dpvo/CounterMoneyLaundering
+                     :dpvo/Purpose
+                     :dpvo/EnforceSecurity],
+   :vs/term_status "accepted"})
 
 (def Country
   "A political entity indicative of a sovereign or non-sovereign territorial state comprising of distinct geographical areas"
@@ -2080,20 +1835,14 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A political entity indicative of a sovereign or non-sovereign territorial state comprising of distinct geographical areas"},
+   "A political entity indicative of a sovereign or non-sovereign territorial state comprising of distinct geographical areas",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The definition of country is not intended for political interpretation. DPVCG welcomes alternate definitions based in existing sources with global scope, such as UN or ISO."},
+   "The definition of country is not intended for political interpretation. DPVCG welcomes alternate definitions based in existing sources with global scope, such as UN or ISO.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Country"},
-   :rdfs/subClassOf :dpvo/Location,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Country",
+   :rdfs/subClassOf [:dpvo/Location :dpvo/Country],
+   :vs/term_status "accepted"})
 
 (def CredentialManagement
   "Management of credentials and their use in authorisations"
@@ -2101,15 +1850,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Management of credentials and their use in authorisations"},
+   "Management of credentials and their use in authorisations",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Credential Management"},
-   :rdfs/subClassOf :dpvo/AuthorisationProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Credential Management",
+   :rdfs/subClassOf [:dpvo/AuthorisationProcedure
+                     :dpvo/CredentialManagement
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def CreditChecking
   "Purposes associated with monitoring, performing, or assessing credit worthiness or solvency"
@@ -2117,33 +1866,33 @@
    :dcterms/created #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with monitoring, performing, or assessing credit worthiness or solvency"},
+   "Purposes associated with monitoring, performing, or assessing credit worthiness or solvency",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Credit Checking"},
-   :rdfs/subClassOf :dpvo/CustomerSolvencyMonitoring,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Credit Checking",
+   :rdfs/subClassOf [:dpvo/CustomerSolvencyMonitoring
+                     :dpvo/CreditChecking
+                     :dpvo/CustomerManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CryptographicAuthentication
   "Use of cryptography for authentication"
   {:db/ident :dpvo/CryptographicAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Use of cryptography for authentication"},
+   :dcterms/description "Use of cryptography for authentication",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Cryptographic Authentication"},
-   :rdfs/subClassOf [:dpvo/AuthenticationProtocols :dpvo/CryptographicMethods],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Cryptographic Authentication",
+   :rdfs/subClassOf [:dpvo/AuthenticationProtocols
+                     :dpvo/CryptographicMethods
+                     :dpvo/CryptographicAuthentication
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def CryptographicKeyManagement
   "Management of cryptographic keys, including their generation, storage, assessment, and safekeeping"
@@ -2151,36 +1900,33 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Management of cryptographic keys, including their generation, storage, assessment, and safekeeping"},
+   "Management of cryptographic keys, including their generation, storage, assessment, and safekeeping",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Cryptographic Key Management"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Cryptographic Key Management",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/CryptographicKeyManagement
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def CryptographicMethods
   "Use of cryptographic methods to perform tasks"
   {:db/ident :dpvo/CryptographicMethods,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Use of cryptographic methods to perform tasks"},
+   :dcterms/description "Use of cryptographic methods to perform tasks",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Cryptographic Methods"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Cryptographic Methods",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/CryptographicMethods
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Customer
   "Data subjects that purchase goods or services"
@@ -2191,20 +1937,18 @@
                      "Julian Flake"
                      "Beatriz Esteves"
                      "Georg P. Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Data subjects that purchase goods or services"},
+   :dcterms/description "Data subjects that purchase goods or services",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "note: for B2B relations where customers are organisations, this concept only applies for data subjects"},
+   "note: for B2B relations where customers are organisations, this concept only applies for data subjects",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Customer"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Customer",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Customer
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def CustomerCare
   "Customer Care refers to purposes associated with purposes for providing assistance, resolving issues, ensuring satisfaction, etc. in relation to services provided"
@@ -2217,17 +1961,13 @@
                      "Harshvardhan J. Pandit"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Customer Care refers to purposes associated with purposes for providing assistance, resolving issues, ensuring satisfaction, etc. in relation to services provided"},
+   "Customer Care refers to purposes associated with purposes for providing assistance, resolving issues, ensuring satisfaction, etc. in relation to services provided",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Customer Care"},
+   :rdfs/label "Customer Care",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Feedback"],
-   :rdfs/subClassOf :dpvo/CustomerManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/CustomerManagement :dpvo/CustomerCare :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CustomerClaimsManagement
   "Customer Claims Management refers to purposes associated with managing claims, including repayment of monies owed"
@@ -2235,18 +1975,15 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Beatriz" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Customer Claims Management refers to purposes associated with managing claims, including repayment of monies owed"},
+   "Customer Claims Management refers to purposes associated with managing claims, including repayment of monies owed",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Customer Claims Management"},
-   :rdfs/subClassOf :dpvo/CustomerManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Customer Claims Management",
+   :rdfs/subClassOf
+   [:dpvo/CustomerManagement :dpvo/CustomerClaimsManagement :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CustomerManagement
   "Customer Management refers to purposes associated with managing activities related with past, current, and future customers"
@@ -2254,16 +1991,12 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Beatriz" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Customer Management refers to purposes associated with managing activities related with past, current, and future customers"},
+   "Customer Management refers to purposes associated with managing activities related with past, current, and future customers",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Customer Management"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Customer Management",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/CustomerManagement],
+   :vs/term_status "accepted"})
 
 (def CustomerOrderManagement
   "Customer Order Management refers to purposes associated with managing customer orders i.e. processing of an order related to customer's purchase of good or services"
@@ -2271,18 +2004,15 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog" "Beatriz"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Customer Order Management refers to purposes associated with managing customer orders i.e. processing of an order related to customer's purchase of good or services"},
+   "Customer Order Management refers to purposes associated with managing customer orders i.e. processing of an order related to customer's purchase of good or services",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Customer Order Management"},
-   :rdfs/subClassOf :dpvo/CustomerManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Customer Order Management",
+   :rdfs/subClassOf
+   [:dpvo/CustomerManagement :dpvo/CustomerOrderManagement :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CustomerRelationshipManagement
   "Customer Relationship Management refers to purposes associated with managing and analysing interactions with past, current, and potential customers"
@@ -2290,16 +2020,14 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Beatriz" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Customer Relationship Management refers to purposes associated with managing and analysing interactions with past, current, and potential customers"},
+   "Customer Relationship Management refers to purposes associated with managing and analysing interactions with past, current, and potential customers",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Customer Relationship Management"},
-   :rdfs/subClassOf :dpvo/CustomerManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Customer Relationship Management",
+   :rdfs/subClassOf [:dpvo/CustomerManagement
+                     :dpvo/CustomerRelationshipManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CustomerSolvencyMonitoring
   "Customer Solvency Monitoring refers to purposes associated with monitor solvency of customers for financial diligence"
@@ -2307,18 +2035,15 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Beatriz" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Customer Solvency Monitoring refers to purposes associated with monitor solvency of customers for financial diligence"},
+   "Customer Solvency Monitoring refers to purposes associated with monitor solvency of customers for financial diligence",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Customer Solvency Monitoring"},
-   :rdfs/subClassOf :dpvo/CustomerManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Customer Solvency Monitoring",
+   :rdfs/subClassOf
+   [:dpvo/CustomerManagement :dpvo/CustomerSolvencyMonitoring :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def CybersecurityAssessment
   "Assessment of cybersecurity capabilities in terms of vulnerabilities and effectiveness of controls"
@@ -2326,36 +2051,36 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Assessment of cybersecurity capabilities in terms of vulnerabilities and effectiveness of controls"},
+   "Assessment of cybersecurity capabilities in terms of vulnerabilities and effectiveness of controls",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Cybersecurity Assessment"},
-   :rdfs/subClassOf [:dpvo/SecurityAssessment :dpvo/Assessment],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Cybersecurity Assessment",
+   :rdfs/subClassOf [:dpvo/SecurityAssessment
+                     :dpvo/Assessment
+                     :dpvo/CybersecurityAssessment
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/SecurityProcedure],
+   :vs/term_status "accepted"})
 
 (def CybersecurityTraining
   "Training methods related to cybersecurity"
   {:db/ident :dpvo/CybersecurityTraining,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Training methods related to cybersecurity"},
+   :dcterms/description "Training methods related to cybersecurity",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Cybersecurity Training"},
-   :rdfs/subClassOf :dpvo/StaffTraining,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Cybersecurity Training",
+   :rdfs/subClassOf [:dpvo/StaffTraining
+                     :dpvo/CybersecurityTraining
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def DPIA
   "A DPIA involves determining the potential and actual impact of processing activities on individuals or groups of individuals"
@@ -2363,65 +2088,55 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A DPIA involves determining the potential and actual impact of processing activities on individuals or groups of individuals"},
+   "A DPIA involves determining the potential and actual impact of processing activities on individuals or groups of individuals",
    :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Top class: Impact Assessment, and DPIA is sub-class"},
+   :rdfs/comment "Top class: Impact Assessment, and DPIA is sub-class",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Protection Impact Assessment (DPIA)"},
-   :rdfs/subClassOf :dpvo/ImpactAssessment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Protection Impact Assessment (DPIA)",
+   :rdfs/subClassOf [:dpvo/ImpactAssessment
+                     :dpvo/DPIA
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Assessment],
+   :vs/term_status "accepted"})
 
 (def Damage
   "Impact that acts as or causes damages"
   {:db/ident            :dpvo/Damage,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Impact that acts as or causes damages"},
+   :dcterms/description "Impact that acts as or causes damages",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Damage"},
-   :rdfs/subClassOf     :dpvo/Impact,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Damage",
+   :rdfs/subClassOf     [:dpvo/Impact :dpvo/Damage :dpvo/Consequence],
+   :vs/term_status      "accepted"})
 
 (def Data
   "A broad concept representing 'data' or 'information'"
-  {:db/ident :dpvo/Data,
-   :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A broad concept representing  'data' or 'information'"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/Data,
+   :dcterms/created     #inst "2022-01-19T00:00:00.000-05:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "A broad concept representing  'data' or 'information'",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Data",
+   :rdfs/subClassOf     :dpvo/Data,
+   :vs/term_status      "accepted"})
 
 (def DataBackupProtocols
   "Protocols or plans for backing up of data"
   {:db/ident            :dpvo/DataBackupProtocols,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Protocols or plans for backing up of data"},
+   :dcterms/description "Protocols or plans for backing up of data",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Data Backup Protocols"},
-   :rdfs/subClassOf     :dpvo/TechnicalMeasure,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Data Backup Protocols",
+   :rdfs/subClassOf     [:dpvo/TechnicalMeasure
+                         :dpvo/DataBackupProtocols
+                         :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status      "accepted"})
 
 (def DataController
   "The individual or organisation that decides (or controls) the purpose(s) of processing personal data."
@@ -2429,22 +2144,16 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Axel Polleres" "Javier Fernández"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The individual or organisation that decides (or controls) the purpose(s) of processing personal data."},
+   "The individual or organisation that decides (or controls) the purpose(s) of processing personal data.",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_7/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The terms 'Controller' is usually the more common form of indicating a Data Controller. In ISO/IEC the term 'PII Controller' is used."},
+   "The terms 'Controller' is usually the more common form of indicating a Data Controller. In ISO/IEC the term 'PII Controller' is used.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Controller"},
-   :rdfs/subClassOf :dpvo/LegalEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Controller",
+   :rdfs/subClassOf [:dpvo/LegalEntity :dpvo/DataController :dpvo/Entity],
+   :vs/term_status "accepted"})
 
 (def DataExporter
   "An entity that 'exports' data where exporting is considered a form of data transfer"
@@ -2453,22 +2162,16 @@
    :dcterms/creator
    ["Harshvardhan Pandit" "David Hickey" "Georg Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An entity that 'exports' data where exporting is considered a form of data transfer"},
+   "An entity that 'exports' data where exporting is considered a form of data transfer",
    :dcterms/source
    "https://edpb.europa.eu/our-work-tools/our-documents/recommendations/recommendations-012020-measures-supplement-transfer_en",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The EU, in particular the EDPB, uses data exporter the context of cross-border data transfers/flows. These concepts are not bound by jurisdictional or geopolitical scopes within DPV and can thus be used for any notion of exporting"},
+   "The EU, in particular the EDPB, uses data exporter the context of cross-border data transfers/flows. These concepts are not bound by jurisdictional or geopolitical scopes within DPV and can thus be used for any notion of exporting",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Exporter"},
-   :rdfs/subClassOf :dpvo/LegalEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Exporter",
+   :rdfs/subClassOf [:dpvo/LegalEntity :dpvo/DataExporter :dpvo/Entity],
+   :vs/term_status "accepted"})
 
 (def DataImporter
   "An entity that 'imports' data where importing is considered a form of data transfer"
@@ -2477,22 +2180,17 @@
    :dcterms/creator
    ["David Hickey" "Paul Ryan" "Harshvardhan Pandit" "Georg Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An entity that 'imports' data where importing is considered a form of data transfer"},
+   "An entity that 'imports' data where importing is considered a form of data transfer",
    :dcterms/source
    "https://edpb.europa.eu/our-work-tools/our-documents/recommendations/recommendations-012020-measures-supplement-transfer_en",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The EU, in particular the EDPB, uses data importing the context of cross-border data transfers/flows. These concepts are not bound by jurisdictional or geopolitical scopes within DPV and can thus be used for any notion of importing"},
+   "The EU, in particular the EDPB, uses data importing the context of cross-border data transfers/flows. These concepts are not bound by jurisdictional or geopolitical scopes within DPV and can thus be used for any notion of importing",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Importer"},
-   :rdfs/subClassOf :dpvo/Recipient,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Importer",
+   :rdfs/subClassOf
+   [:dpvo/Recipient :dpvo/DataImporter :dpvo/Entity :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def DataProcessingAgreement
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data"
@@ -2504,20 +2202,17 @@
                      "Beatriz Esteves"
                      "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data"},
+   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For specific role-based data processing agreements, see concepts for Processors and JointDataController agreements."},
+   "For specific role-based data processing agreements, see concepts for Processors and JointDataController agreements.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Processing Agreement"},
-   :rdfs/subClassOf :dpvo/LegalAgreement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Processing Agreement",
+   :rdfs/subClassOf [:dpvo/LegalAgreement
+                     :dpvo/DataProcessingAgreement
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def DataProcessingRecord
   "Record of personal data processing, whether ex-ante or ex-post"
@@ -2525,16 +2220,15 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Record of personal data processing, whether ex-ante or ex-post"},
+   "Record of personal data processing, whether ex-ante or ex-post",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Processing Record"},
-   :rdfs/subClassOf :dpvo/RecordsOfActivities,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Processing Record",
+   :rdfs/subClassOf [:dpvo/RecordsOfActivities
+                     :dpvo/DataProcessingRecord
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def DataProcessor
   "A ‘processor’ means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller."
@@ -2542,17 +2236,14 @@
    :dcterms/created #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A ‘processor’ means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller."},
+   "A ‘processor’ means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller.",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_8/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Processor"},
-   :rdfs/subClassOf :dpvo/Recipient,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Processor",
+   :rdfs/subClassOf
+   [:dpvo/Recipient :dpvo/DataProcessor :dpvo/Entity :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def DataProtectionAuthority
   "An authority tasked with overseeing legal compliance regarding privacy and data protection laws."
@@ -2560,16 +2251,17 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan Pandit" "Paul Ryan" "Georg Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An authority tasked with overseeing legal compliance regarding privacy and data protection laws."},
+   "An authority tasked with overseeing legal compliance regarding privacy and data protection laws.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Protection Authority"},
-   :rdfs/subClassOf :dpvo/Authority,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Protection Authority",
+   :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/DataProtectionAuthority
+                     :dpvo/GovernmentalOrganisation
+                     :dpvo/Organisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def DataProtectionOfficer
   "An entity within or authorised by an organisation to monitor internal compliance, inform and advise on data protection obligations and act as a contact point for data subjects and the supervisory authority."
@@ -2577,18 +2269,17 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An entity within or authorised by an organisation to monitor internal compliance, inform and advise on data protection obligations and act as a contact point for data subjects and the supervisory authority."},
+   "An entity within or authorised by an organisation to monitor internal compliance, inform and advise on data protection obligations and act as a contact point for data subjects and the supervisory authority.",
    :dcterms/modified #inst "2021-12-08T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_37/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Protection Officer"},
-   :rdfs/subClassOf :dpvo/Representative,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Data Protection Officer",
+   :rdfs/subClassOf [:dpvo/Representative
+                     :dpvo/DataProtectionOfficer
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "modified"})
 
 (def DataProtectionTraining
   "Training intended to increase knowledge regarding data protection"
@@ -2596,36 +2287,33 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Training intended to increase knowledge regarding data protection"},
+   "Training intended to increase knowledge regarding data protection",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Protection Training"},
-   :rdfs/subClassOf :dpvo/StaffTraining,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Protection Training",
+   :rdfs/subClassOf [:dpvo/StaffTraining
+                     :dpvo/DataProtectionTraining
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def DataPublishedByDataSubject
   "Data is published by the data subject"
   {:db/ident :dpvo/DataPublishedByDataSubject,
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Julian Flake",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Data is published by the data subject"},
-   :rdf/type [:dpvo/DataSource :owl/NamedIndividual],
+   :dcterms/description "Data is published by the data subject",
+   :rdf/type [:dpvo/DataSource
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This refers to where that data was made publicly available by the data subject. An example of this would be a social media profile that the data subject has made publicly accessible."},
+   "This refers to where that data was made publicly available by the data subject. An example of this would be a social media profile that the data subject has made publicly accessible.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data published by Data Subject"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data published by Data Subject",
+   :vs/term_status "accepted"})
 
 (def DataRedaction
   "Removal of sensitive information from a data or document"
@@ -2633,15 +2321,15 @@
    :dcterms/created #inst "2020-10-01T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Removal of sensitive information from a data or document"},
+   "Removal of sensitive information from a data or document",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Redaction"},
-   :rdfs/subClassOf :dpvo/DataSanitisationTechnique,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Redaction",
+   :rdfs/subClassOf [:dpvo/DataSanitisationTechnique
+                     :dpvo/DataRedaction
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def DataSanitisationTechnique
   "Cleaning or any removal or re-organisation of elements in data based on selective criteria"
@@ -2649,37 +2337,30 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Cleaning or any removal or re-organisation of elements in data based on selective criteria"},
+   "Cleaning or any removal or re-organisation of elements in data based on selective criteria",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Sanitisation Technique"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Sanitisation Technique",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def DataSource
   "The source or origin of data"
   {:db/ident :dpvo/DataSource,
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "The source or origin of data"},
+   :dcterms/description "The source or origin of data",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Source' is the direct point of data collection; 'origin' would indicate the original/others points of where the data originates from."},
+   "Source' is the direct point of data collection; 'origin' would indicate the original/others points of where the data originates from.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Source"},
-   :rdfs/subClassOf :dpvo/ProcessingContext,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Source",
+   :rdfs/subClassOf [:dpvo/ProcessingContext :dpvo/DataSource :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def DataSubProcessor
   "A 'sub-processor' is a processor engaged by another processor"
@@ -2687,19 +2368,18 @@
    :dcterms/created #inst "2020-11-25T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "A 'sub-processor' is a processor engaged by another processor"},
+   "A 'sub-processor' is a processor engaged by another processor",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "sub-processor' is a commonly used term similar to 'sub-contractor' and does not have a specific legal definition"},
+   "sub-processor' is a commonly used term similar to 'sub-contractor' and does not have a specific legal definition",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Sub-Processor"},
-   :rdfs/subClassOf :dpvo/DataProcessor,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Sub-Processor",
+   :rdfs/subClassOf [:dpvo/DataProcessor
+                     :dpvo/DataSubProcessor
+                     :dpvo/Entity
+                     :dpvo/LegalEntity
+                     :dpvo/Recipient],
+   :vs/term_status "accepted"})
 
 (def DataSubject
   "The individual (or category of individuals) whose personal data is being processed"
@@ -2707,73 +2387,62 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Axel Polleres" "Javier Fernández"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The individual (or category of individuals) whose personal data is being processed"},
+   "The individual (or category of individuals) whose personal data is being processed",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_1/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The term 'data subject' is specific to the GDPR, but is functionally equivalent to the term 'individual' and the ISO/IEC term 'PII Principle'."},
+   "The term 'data subject' is specific to the GDPR, but is functionally equivalent to the term 'individual' and the ISO/IEC term 'PII Principle'.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Subject"},
-   :rdfs/subClassOf [:dpvo/NaturalPerson :dpvo/LegalEntity],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Subject",
+   :rdfs/subClassOf
+   [:dpvo/NaturalPerson :dpvo/LegalEntity :dpvo/DataSubject :dpvo/Entity],
+   :vs/term_status "accepted"})
 
 (def DataSubjectRight
   "The rights applicable or provided to a Data Subject"
   {:db/ident :dpvo/DataSubjectRight,
    :dcterms/created #inst "2020-11-18T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Beatriz Esteves" "Harshvardhan Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "The rights applicable or provided to a Data Subject"},
+   :dcterms/description "The rights applicable or provided to a Data Subject",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Based on use of definitions, the notion of 'Data Subject Right' can be equivalent to 'Individual Right' or 'Right of a Person'"},
+   "Based on use of definitions, the notion of 'Data Subject Right' can be equivalent to 'Individual Right' or 'Right of a Person'",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Subject Right"},
-   :rdfs/subClassOf :dpvo/Right,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Subject Right",
+   :rdfs/subClassOf [:dpvo/Right :dpvo/DataSubjectRight],
+   :vs/term_status "accepted"})
 
 (def DataSubjectScale
   "Scale of Data Subject(s)"
   {:db/ident            :dpvo/DataSubjectScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Rana Saniei" "Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Scale of Data Subject(s)"},
+   :dcterms/description "Scale of Data Subject(s)",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Data Subject Scale"},
-   :rdfs/subClassOf     :dpvo/Scale,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Data Subject Scale",
+   :rdfs/subClassOf     [:dpvo/Scale
+                         :dpvo/DataSubjectScale
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
+   :vs/term_status      "accepted"})
 
 (def DataTransferImpactAssessment
   "Impact Assessment for conducting data transfers"
   {:db/ident            :dpvo/DataTransferImpactAssessment,
    :dcterms/created     #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Impact Assessment for conducting data transfers"},
+   :dcterms/description "Impact Assessment for conducting data transfers",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Data Transfer Impact Assessment"},
-   :rdfs/subClassOf     :dpvo/ImpactAssessment,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Data Transfer Impact Assessment",
+   :rdfs/subClassOf     [:dpvo/ImpactAssessment
+                         :dpvo/DataTransferImpactAssessment
+                         :dpvo/OrganisationalMeasure
+                         :dpvo/TechnicalOrganisationalMeasure
+                         :dpvo/Assessment],
+   :vs/term_status      "accepted"})
 
 (def DataTransferLegalBasis
   "Specific or special categories and instances of legal basis intended for justifying data transfers"
@@ -2781,31 +2450,27 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["David Hickey" "Georg P Krogg"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specific or special categories and instances of legal basis intended for justifying data transfers"},
+   "Specific or special categories and instances of legal basis intended for justifying data transfers",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Data Transfer Legal Basis"},
-   :rdfs/subClassOf :dpvo/LegalBasis,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Data Transfer Legal Basis",
+   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo/DataTransferLegalBasis],
+   :vs/term_status "accepted"})
 
 (def DataVolume
   "Volume or Scale of Data"
   {:db/ident            :dpvo/DataVolume,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Rana Saniei" "Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Volume or Scale of Data"},
+   :dcterms/description "Volume or Scale of Data",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Data Volume"},
-   :rdfs/subClassOf     :dpvo/Scale,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Data Volume",
+   :rdfs/subClassOf     [:dpvo/Scale
+                         :dpvo/DataVolume
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
+   :vs/term_status      "accepted"})
 
 (def DecentralisedLocations
   "Location that is spread across multiple separate areas with no distinction between their importance"
@@ -2813,32 +2478,27 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location that is spread across multiple separate areas with no distinction between their importance"},
+   "Location that is spread across multiple separate areas with no distinction between their importance",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Decentralised Locations"},
-   :rdfs/subClassOf :dpvo/LocationFixture,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Decentralised Locations",
+   :rdfs/subClassOf [:dpvo/LocationFixture :dpvo/DecentralisedLocations],
+   :vs/term_status "modified"})
 
 (def DecisionMaking
   "Processing that involves decision making"
   {:db/ident            :dpvo/DecisionMaking,
    :dcterms/created     #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Processing that involves decision making"},
+   :dcterms/description "Processing that involves decision making",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Decision Making"},
-   :rdfs/subClassOf     :dpvo/ProcessingContext,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Decision Making",
+   :rdfs/subClassOf     [:dpvo/ProcessingContext
+                         :dpvo/DecisionMaking
+                         :dpvo/Context],
+   :vs/term_status      "accepted"})
 
 (def Deidentification
   "Removal of identity or information to reduce identifiability"
@@ -2847,17 +2507,17 @@
    :dcterms/creator
    ["Mark Lizar" "Rob Brennan" "Axel Polleres" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Removal of identity or information to reduce identifiability"},
+   "Removal of identity or information to reduce identifiability",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source "https://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.8053.pdf",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "De-Identification"},
-   :rdfs/subClassOf :dpvo/DataSanitisationTechnique,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "De-Identification",
+   :rdfs/subClassOf [:dpvo/DataSanitisationTechnique
+                     :dpvo/Deidentification
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "modified"})
 
 (def DeliveryOfGoods
   "Purposes associated with delivering goods and services requested or asked by consumer"
@@ -2870,38 +2530,31 @@
                      "Javier Fernandez"
                      "Fajar Ekaputra"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with delivering goods and services requested or asked by consumer"},
+   "Purposes associated with delivering goods and services requested or asked by consumer",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Delivery of Goods"},
+   :rdfs/label "Delivery of Goods",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Delivery"],
-   :rdfs/subClassOf :dpvo/RequestedServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/RequestedServiceProvision
+                     :dpvo/DeliveryOfGoods
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def Derive
   "to create new derivative data from the original data"
   {:db/ident :dpvo/Derive,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "to create new derivative data from the original data"},
+   :dcterms/description "to create new derivative data from the original data",
    :dcterms/source "https://specialprivacy.ercim.eu/vocabs/processing",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Derive indicates data is present or obtainable from existing data. For data that is created without such existence, see Infer."},
+   "Derive indicates data is present or obtainable from existing data. For data that is created without such existence, see Infer.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Derive"},
+   :rdfs/label "Derive",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/processing#Derive"],
-   :rdfs/subClassOf :dpvo/Obtain,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Obtain :dpvo/Derive :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def DerivedPersonalData
   "Personal Data that is obtained or derived from other data"
@@ -2909,22 +2562,17 @@
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/creator ["Elmar Kiesling; Harshvardhan J. Pandit" "Fajar Ekaputra"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Personal Data that is obtained or derived from other data"},
+   "Personal Data that is obtained or derived from other data",
    :dcterms/modified #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/source "https://www.w3.org/community/dpvcg/",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Derived Data is data that is obtained through processing of existing data, e.g. deriving first name from full name. To indicate data that is derived but which was not present or evident within the source data, InferredPersonalData should be used."},
+   "Derived Data is data that is obtained through processing of existing data, e.g. deriving first name from full name. To indicate data that is derived but which was not present or evident within the source data, InferredPersonalData should be used.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Derived Personal Data"},
+   :rdfs/label "Derived Personal Data",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Derived"],
-   :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/PersonalData :dpvo/DerivedPersonalData :dpvo/Data],
+   :vs/term_status "accepted"})
 
 (def DesignStandard
   "A set of rules or guidelines outlining criterias for design"
@@ -2933,32 +2581,28 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Mark Lizar" "Axel Polleres" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "A set of rules or guidelines outlining criterias for design"},
+   "A set of rules or guidelines outlining criterias for design",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Design Standard"},
-   :rdfs/subClassOf :dpvo/GuidelinesPrinciple,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Design Standard",
+   :rdfs/subClassOf [:dpvo/GuidelinesPrinciple
+                     :dpvo/DesignStandard
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Destruct
   "to process data in a way it no longer exists or cannot be repaired"
   {:db/ident :dpvo/Destruct,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "to process data in a way it no longer exists or cannot be repaired"},
+   "to process data in a way it no longer exists or cannot be repaired",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Destruct"},
-   :rdfs/subClassOf :dpvo/Remove,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Destruct",
+   :rdfs/subClassOf [:dpvo/Remove :dpvo/Destruct :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def DeterministicPseudonymisation
   "Pseudonymisation achieved through a deterministic function"
@@ -2966,17 +2610,19 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Pseudonymisation achieved through a deterministic function"},
+   "Pseudonymisation achieved through a deterministic function",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Deterministic Pseudonymisation"},
-   :rdfs/subClassOf :dpvo/Pseudonymisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Deterministic Pseudonymisation",
+   :rdfs/subClassOf [:dpvo/Pseudonymisation
+                     :dpvo/DeterministicPseudonymisation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
+                     :dpvo/Deidentification],
+   :vs/term_status "accepted"})
 
 (def Detriment
   "Impact that acts as or causes detriments"
@@ -2987,15 +2633,12 @@
                          "Harshvardhan J. Pandit"
                          "Fajar Ekaputra"
                          "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Impact that acts as or causes detriments"},
+   :dcterms/description "Impact that acts as or causes detriments",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Detriment"},
-   :rdfs/subClassOf     :dpvo/Impact,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Detriment",
+   :rdfs/subClassOf     [:dpvo/Impact :dpvo/Detriment :dpvo/Consequence],
+   :vs/term_status      "accepted"})
 
 (def DifferentialPrivacy
   "Utilisation of differential privacy where information is shared as patterns or groups to withold individual elements"
@@ -3003,18 +2646,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Utilisation of differential privacy where information is shared as patterns or groups to withold individual elements"},
+   "Utilisation of differential privacy where information is shared as patterns or groups to withold individual elements",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Differential Privacy"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Differential Privacy",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/DifferentialPrivacy
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def DigitalRightsManagement
   "Management of access, use, and other operations associated with digital content"
@@ -3022,18 +2664,16 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Management of access, use, and other operations associated with digital content"},
+   "Management of access, use, and other operations associated with digital content",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Digital Rights Management"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Digital Rights Management",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/DigitalRightsManagement
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def DigitalSignatures
   "Expression and authentication of identity through digital information containing cryptographic signatures"
@@ -3041,18 +2681,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Expression and authentication of identity through digital information containing cryptographic signatures"},
+   "Expression and authentication of identity through digital information containing cryptographic signatures",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Digital Signatures"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Digital Signatures",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/DigitalSignatures
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def DirectMarketing
   "Purposes associated with conducting direct marketing i.e. marketing communicated directly to the individual"
@@ -3060,16 +2699,12 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting direct marketing i.e. marketing communicated directly to the individual"},
+   "Purposes associated with conducting direct marketing i.e. marketing communicated directly to the individual",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Direct Marketing"},
-   :rdfs/subClassOf :dpvo/Marketing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Direct Marketing",
+   :rdfs/subClassOf [:dpvo/Marketing :dpvo/DirectMarketing :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def DisasterRecoveryProcedures
   "Procedures related to management of disasters and recovery"
@@ -3077,48 +2712,42 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Procedures related to management of disasters and recovery"},
+   "Procedures related to management of disasters and recovery",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Disaster Recovery Procedures"},
-   :rdfs/subClassOf :dpvo/GovernanceProcedures,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Disaster Recovery Procedures",
+   :rdfs/subClassOf [:dpvo/GovernanceProcedures
+                     :dpvo/DisasterRecoveryProcedures
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Disclose
   "to make data known"
   {:db/ident :dpvo/Disclose,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to make data known"},
+   :dcterms/description "to make data known",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Disclose"},
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Disclose",
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Disclose],
+   :vs/term_status "accepted"})
 
 (def DiscloseByTransmission
   "to disclose data by means of transmission"
   {:db/ident :dpvo/DiscloseByTransmission,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "to disclose data by means of transmission"},
+   :dcterms/description "to disclose data by means of transmission",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Disclose by Transmission"},
-   :rdfs/subClassOf :dpvo/Disclose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Disclose by Transmission",
+   :rdfs/subClassOf
+   [:dpvo/Disclose :dpvo/DiscloseByTransmission :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def DisputeManagement
   "Purposes associated with activities that manage disputes by natural persons, private bodies, or public authorities relevant to organisation"
@@ -3126,33 +2755,27 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with activities that manage disputes by natural persons, private bodies, or public authorities relevant to organisation"},
+   "Purposes associated with activities that manage disputes by natural persons, private bodies, or public authorities relevant to organisation",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Dispute Management"},
-   :rdfs/subClassOf :dpvo/OrganisationGovernance,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Dispute Management",
+   :rdfs/subClassOf
+   [:dpvo/OrganisationGovernance :dpvo/DisputeManagement :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Disseminate
   "to spread data throughout"
   {:db/ident :dpvo/Disseminate,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to spread data throughout"},
+   :dcterms/description "to spread data throughout",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Disseminate"},
-   :rdfs/subClassOf :dpvo/Disclose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Disseminate",
+   :rdfs/subClassOf [:dpvo/Disclose :dpvo/Disseminate :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def DistributedSystemSecurity
   "Security implementations provided using or over a distributed system"
@@ -3160,18 +2783,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Security implementations provided using or over a distributed system"},
+   "Security implementations provided using or over a distributed system",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Distributed System Security"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Distributed System Security",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/DistributedSystemSecurity
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def DocumentRandomisedPseudonymisation
   "Use of randomised pseudonymisation where the same elements are assigned different values in the same document or database"
@@ -3179,18 +2801,19 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of randomised pseudonymisation where the same elements are assigned different values in the same document or database"},
+   "Use of randomised pseudonymisation where the same elements are assigned different values in the same document or database",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Document Randomised Pseudonymisation"},
-   :rdfs/subClassOf :dpvo/Pseudonymisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Document Randomised Pseudonymisation",
+   :rdfs/subClassOf [:dpvo/Pseudonymisation
+                     :dpvo/DocumentRandomisedPseudonymisation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
+                     :dpvo/Deidentification],
+   :vs/term_status "accepted"})
 
 (def DocumentSecurity
   "Security measures enacted over documents to protect against tampering or restrict access"
@@ -3198,33 +2821,29 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Security measures enacted over documents to protect against tampering or restrict access"},
+   "Security measures enacted over documents to protect against tampering or restrict access",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Document Security"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Document Security",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/DocumentSecurity
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Duration
   "The duration or temporal limitation"
   {:db/ident            :dpvo/Duration,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "The duration or temporal limitation"},
+   :dcterms/description "The duration or temporal limitation",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Duration"},
-   :rdfs/subClassOf     :dpvo/Context,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Duration",
+   :rdfs/subClassOf     [:dpvo/Context :dpvo/Duration],
+   :vs/term_status      "accepted"})
 
 (def EconomicUnion
   "A political union of two or more countries based on economic or trade agreements"
@@ -3232,16 +2851,12 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A political union of two or more countries based on economic or trade agreements"},
+   "A political union of two or more countries based on economic or trade agreements",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Economic Union"},
-   :rdfs/subClassOf :dpvo/Location,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Economic Union",
+   :rdfs/subClassOf [:dpvo/Location :dpvo/EconomicUnion],
+   :vs/term_status "accepted"})
 
 (def EducationalTraining
   "Training methods that are intended to provide education on topic(s)"
@@ -3249,18 +2864,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Training methods that are intended to provide education on topic(s)"},
+   "Training methods that are intended to provide education on topic(s)",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Educational Training"},
-   :rdfs/subClassOf :dpvo/StaffTraining,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Educational Training",
+   :rdfs/subClassOf [:dpvo/StaffTraining
+                     :dpvo/EducationalTraining
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def EffectivenessDeterminationProcedures
   "Procedures intended to determine effectiveness of other measures"
@@ -3268,18 +2882,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Procedures intended to determine effectiveness of other measures"},
+   "Procedures intended to determine effectiveness of other measures",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Effectiveness Determination Procedures"},
-   :rdfs/subClassOf :dpvo/Assessment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Effectiveness Determination Procedures",
+   :rdfs/subClassOf [:dpvo/Assessment
+                     :dpvo/EffectivenessDeterminationProcedures
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ElderlyDataSubject
   "Data subjects that are considered elderly (i.e. based on age)"
@@ -3287,15 +2900,17 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Data subjects that are considered elderly (i.e. based on age)"},
+   "Data subjects that are considered elderly (i.e. based on age)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Elderly Data Subject"},
-   :rdfs/subClassOf :dpvo/VulnerableDataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Elderly Data Subject",
+   :rdfs/subClassOf [:dpvo/VulnerableDataSubject
+                     :dpvo/ElderlyDataSubject
+                     :dpvo/DataSubject
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def Employee
   "Data subjects that are employees"
@@ -3306,15 +2921,16 @@
                          "Harshvardhan J. Pandit"
                          "Beatriz Esteves"
                          "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Data subjects that are employees"},
+   :dcterms/description "Data subjects that are employees",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Employee"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Employee",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/Employee
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def Encryption
   "Technical measures consisting of encryption"
@@ -3324,16 +2940,14 @@
                          "Axel Polleres"
                          "Harshvardhan J. Pandit"
                          "Mark Lizar"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Technical measures consisting of encryption"},
+   :dcterms/description "Technical measures consisting of encryption",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Encryption"},
-   :rdfs/subClassOf     :dpvo/TechnicalMeasure,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Encryption",
+   :rdfs/subClassOf     [:dpvo/TechnicalMeasure
+                         :dpvo/Encryption
+                         :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status      "accepted"})
 
 (def EncryptionAtRest
   "Encryption of data when being stored (persistent encryption)"
@@ -3342,15 +2956,15 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Axel Polleres" "Mark Lizar" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Encryption of data when being stored (persistent encryption)"},
+   "Encryption of data when being stored (persistent encryption)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Encryption at Rest"},
-   :rdfs/subClassOf :dpvo/Encryption,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Encryption at Rest",
+   :rdfs/subClassOf [:dpvo/Encryption
+                     :dpvo/EncryptionAtRest
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def EncryptionInTransfer
   "Encryption of data in transit e.g. when being transferred from one location to another, including sharing"
@@ -3359,31 +2973,30 @@
    :dcterms/creator
    ["Axel Polleres" "Rob Brennan" "Harshvardhan J. Pandit" "Mark Lizar"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Encryption of data in transit e.g. when being transferred from one location to another, including sharing"},
+   "Encryption of data in transit e.g. when being transferred from one location to another, including sharing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Encryption in Transfer"},
-   :rdfs/subClassOf :dpvo/Encryption,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Encryption in Transfer",
+   :rdfs/subClassOf [:dpvo/Encryption
+                     :dpvo/EncryptionInTransfer
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def EncryptionInUse
   "Encryption of data when it is being used"
   {:db/ident            :dpvo/EncryptionInUse,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Encryption of data when it is being used"},
+   :dcterms/description "Encryption of data when it is being used",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Encryption in Use"},
-   :rdfs/subClassOf     :dpvo/Encryption,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Encryption in Use",
+   :rdfs/subClassOf     [:dpvo/Encryption
+                         :dpvo/EncryptionInUse
+                         :dpvo/TechnicalOrganisationalMeasure
+                         :dpvo/TechnicalMeasure],
+   :vs/term_status      "accepted"})
 
 (def EndToEndEncryption
   "Encrypted communications where data is encrypted by the sender and decrypted by the intended receiver to prevent access to any third party"
@@ -3391,18 +3004,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Encrypted communications where data is encrypted by the sender and decrypted by the intended receiver to prevent access to any third party"},
+   "Encrypted communications where data is encrypted by the sender and decrypted by the intended receiver to prevent access to any third party",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "End-to-End Encryption (E2EE)"},
-   :rdfs/subClassOf :dpvo/Encryption,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "End-to-End Encryption (E2EE)",
+   :rdfs/subClassOf [:dpvo/Encryption
+                     :dpvo/EndToEndEncryption
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def EndlessDuration
   "Duration that is (known or intended to be) open ended or without an end"
@@ -3410,16 +3022,12 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Duration that is (known or intended to be) open ended or without an end"},
+   "Duration that is (known or intended to be) open ended or without an end",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
-   :rdf/type [:dpvo/Duration :owl/NamedIndividual],
+   :rdf/type [:dpvo/Duration :owl/NamedIndividual :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Endless Duration"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Endless Duration",
+   :vs/term_status "modified"})
 
 (def EnforceAccessControl
   "Purposes associated with conducting or enforcing access control as a form of security"
@@ -3432,21 +3040,16 @@
                      "Axel Polleres"
                      "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting or enforcing access control as a form of security"},
+   "Purposes associated with conducting or enforcing access control as a form of security",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Was previously \"Access Control\". Prefixed to distinguish from Technical Measure."},
+   "Was previously \"Access Control\". Prefixed to distinguish from Technical Measure.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Enforce Access Control"},
+   :rdfs/label "Enforce Access Control",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Login"],
-   :rdfs/subClassOf :dpvo/EnforceSecurity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf
+   [:dpvo/EnforceSecurity :dpvo/EnforceAccessControl :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def EnforceSecurity
   "Purposes associated with ensuring and enforcing security for data, personnel, or other related matters"
@@ -3459,36 +3062,31 @@
                      "Harshvardhan J. Pandit"
                      "Simon Steyskal"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with ensuring and enforcing security for data, personnel, or other related matters"},
+   "Purposes associated with ensuring and enforcing security for data, personnel, or other related matters",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Was previous \"Security\". Prefixed to distinguish from TechOrg measures."},
+   "Was previous \"Security\". Prefixed to distinguish from TechOrg measures.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Enforce Security"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Enforce Security",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/EnforceSecurity],
+   :vs/term_status "accepted"})
 
 (def EnterIntoContract
   "Processing necessary to enter into contract"
   {:db/ident            :dpvo/EnterIntoContract,
    :dcterms/created     #inst "2021-04-07T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog" "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Processing necessary to enter into contract"},
+   :dcterms/description "Processing necessary to enter into contract",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Enter Into Contract"},
-   :rdfs/subClassOf     :dpvo/Contract,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Enter Into Contract",
+   :rdfs/subClassOf     [:dpvo/Contract
+                         :dpvo/EnterIntoContract
+                         :dpvo/OrganisationalMeasure
+                         :dpvo/LegalBasis
+                         :dpvo/TechnicalOrganisationalMeasure
+                         :dpvo/LegalAgreement],
+   :vs/term_status      "accepted"})
 
 (def Entity
   "A human or non-human 'thing' that constitutes as an entity"
@@ -3496,29 +3094,24 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A human or non-human 'thing' that constitutes as an entity"},
+   "A human or non-human 'thing' that constitutes as an entity",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Entity"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Entity",
+   :rdfs/subClassOf :dpvo/Entity,
+   :vs/term_status "accepted"})
 
 (def Erase
   "to delete data"
   {:db/ident :dpvo/Erase,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to delete data"},
+   :dcterms/description "to delete data",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Erase"},
-   :rdfs/subClassOf :dpvo/Remove,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Erase",
+   :rdfs/subClassOf [:dpvo/Remove :dpvo/Erase :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def EstablishContractualAgreement
   "Purposes associated with carrying out data processing to establish an agreement, such as for entering into a contract"
@@ -3526,34 +3119,29 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with carrying out data processing to establish an agreement, such as for entering into a contract"},
+   "Purposes associated with carrying out data processing to establish an agreement, such as for entering into a contract",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Establish Contractual Agreement"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Establish Contractual Agreement",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/EstablishContractualAgreement],
+   :vs/term_status "accepted"})
 
 (def EvaluationOfIndividuals
   "Processing that involves evaluation of individuals"
   {:db/ident :dpvo/EvaluationOfIndividuals,
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Processing that involves evaluation of individuals"},
+   :dcterms/description "Processing that involves evaluation of individuals",
    :dcterms/modified #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Evaluation of Individuals"},
-   :rdfs/subClassOf :dpvo/EvaluationScoring,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Evaluation of Individuals",
+   :rdfs/subClassOf [:dpvo/EvaluationScoring
+                     :dpvo/EvaluationOfIndividuals
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "modified"})
 
 (def EvaluationScoring
   "Processing that involves evaluation and scoring of individuals"
@@ -3561,17 +3149,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Piero Bonatti" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing that involves evaluation and scoring of individuals"},
+   "Processing that involves evaluation and scoring of individuals",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Evaluation and Scoring"},
-   :rdfs/subClassOf :dpvo/ProcessingContext,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Evaluation and Scoring",
+   :rdfs/subClassOf
+   [:dpvo/ProcessingContext :dpvo/EvaluationScoring :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def ExplicitlyExpressedConsent
   "Consent that is expressed through an explicit action solely conveying a consenting decision"
@@ -3580,20 +3165,18 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J. Pandit" "Julian Flake" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Consent that is expressed through an explicit action solely conveying a consenting decision"},
+   "Consent that is expressed through an explicit action solely conveying a consenting decision",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Explicitly expressed consent is a more specific form of Expressed consent where the action taken must 'explicitly' relate to only the consent decision. Expressed consent where the consenting is part of other matters therefore cannot satisfy the requirements of explicitly expressed consent. An example of explicit action expressing the consenting decision is a button on a web form where the form only relates to consent, or it is accompanied with suitable text that reiterates what the consenting decision is about"},
+   "Explicitly expressed consent is a more specific form of Expressed consent where the action taken must 'explicitly' relate to only the consent decision. Expressed consent where the consenting is part of other matters therefore cannot satisfy the requirements of explicitly expressed consent. An example of explicit action expressing the consenting decision is a button on a web form where the form only relates to consent, or it is accompanied with suitable text that reiterates what the consenting decision is about",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Explicitly Expressed Consent"},
-   :rdfs/subClassOf :dpvo/ExpressedConsent,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Explicitly Expressed Consent",
+   :rdfs/subClassOf [:dpvo/ExpressedConsent
+                     :dpvo/ExplicitlyExpressedConsent
+                     :dpvo/Consent
+                     :dpvo/LegalBasis
+                     :dpvo/InformedConsent],
+   :vs/term_status "accepted"})
 
 (def ExpressedConsent
   "Consent that is expressed through an action intended to convey a consenting decision"
@@ -3602,20 +3185,17 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Consent that is expressed through an action intended to convey a consenting decision"},
+   "Consent that is expressed through an action intended to convey a consenting decision",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Expressed consent requires the individual take a specific and unambigious action that directly indicates their consent. This action may be a part of other processes such as setting preferences, or agreeing to a contract, or other matters not relating to consent. An example of expressed consent is interacting with a checkbox within a dashboard or clicking a button on a web form"},
+   "Expressed consent requires the individual take a specific and unambigious action that directly indicates their consent. This action may be a part of other processes such as setting preferences, or agreeing to a contract, or other matters not relating to consent. An example of expressed consent is interacting with a checkbox within a dashboard or clicking a button on a web form",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Expressed Consent"},
-   :rdfs/subClassOf :dpvo/InformedConsent,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Expressed Consent",
+   :rdfs/subClassOf [:dpvo/InformedConsent
+                     :dpvo/ExpressedConsent
+                     :dpvo/Consent
+                     :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def FederatedLocations
   "Location that is federated across multiple separate areas with designation of a primary or central location"
@@ -3623,49 +3203,42 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location that is federated across multiple separate areas with designation of a primary or central location"},
+   "Location that is federated across multiple separate areas with designation of a primary or central location",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Federated Locations"},
-   :rdfs/subClassOf :dpvo/LocationFixture,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Federated Locations",
+   :rdfs/subClassOf [:dpvo/LocationFixture :dpvo/FederatedLocations],
+   :vs/term_status "modified"})
 
 (def FileSystemSecurity
   "Security implemented over a file system"
   {:db/ident :dpvo/FileSystemSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Security implemented over a file system"},
+   :dcterms/description "Security implemented over a file system",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "File System Security"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "File System Security",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/FileSystemSecurity
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Filter
   "to filter or keep data for some criteria"
   {:db/ident            :dpvo/Filter,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "to filter or keep data for some criteria"},
+   :dcterms/description "to filter or keep data for some criteria",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Filter"},
-   :rdfs/subClassOf     :dpvo/Transform,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Filter",
+   :rdfs/subClassOf     [:dpvo/Transform :dpvo/Filter :dpvo/Processing],
+   :vs/term_status      "accepted"})
 
 (def FixedLocation
   "Location that is fixed i.e. known to occur at a specific place"
@@ -3673,17 +3246,13 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location that is fixed i.e. known to occur at a specific place"},
+   "Location that is fixed i.e. known to occur at a specific place",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fixed Location"},
-   :rdfs/subClassOf :dpvo/LocationFixture,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Fixed Location",
+   :rdfs/subClassOf [:dpvo/LocationFixture :dpvo/FixedLocation],
+   :vs/term_status "modified"})
 
 (def FixedMultipleLocations
   "Location that is fixed with multiple places e.g. multiple cities"
@@ -3691,17 +3260,14 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location that is fixed with multiple places e.g. multiple cities"},
+   "Location that is fixed with multiple places e.g. multiple cities",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fixed Multiple Locations"},
-   :rdfs/subClassOf :dpvo/FixedLocation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Fixed Multiple Locations",
+   :rdfs/subClassOf
+   [:dpvo/FixedLocation :dpvo/FixedMultipleLocations :dpvo/LocationFixture],
+   :vs/term_status "modified"})
 
 (def FixedOccurencesDuration
   "Duration that takes place a fixed number of times e.g. 3 times"
@@ -3709,17 +3275,14 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Duration that takes place a fixed number of times e.g. 3 times"},
+   "Duration that takes place a fixed number of times e.g. 3 times",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fixed Occurences Duration"},
-   :rdfs/subClassOf :dpvo/Duration,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Fixed Occurences Duration",
+   :rdfs/subClassOf
+   [:dpvo/Duration :dpvo/FixedOccurencesDuration :dpvo/Context],
+   :vs/term_status "modified"})
 
 (def FixedSingularLocation
   "Location that is fixed at a specific place e.g. a city"
@@ -3727,16 +3290,14 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Location that is fixed at a specific place e.g. a city"},
+   "Location that is fixed at a specific place e.g. a city",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fixed Singular Location"},
-   :rdfs/subClassOf :dpvo/FixedLocation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Fixed Singular Location",
+   :rdfs/subClassOf
+   [:dpvo/FixedLocation :dpvo/FixedSingularLocation :dpvo/LocationFixture],
+   :vs/term_status "modified"})
 
 (def ForProfitOrganisation
   "An organisation that aims to achieve profit as its primary goal"
@@ -3744,17 +3305,16 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An organisation that aims to achieve profit as its primary goal"},
+   "An organisation that aims to achieve profit as its primary goal",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "For-Profit Organisation"},
-   :rdfs/subClassOf :dpvo/Organisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "For-Profit Organisation",
+   :rdfs/subClassOf [:dpvo/Organisation
+                     :dpvo/ForProfitOrganisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "modified"})
 
 (def FraudPreventionAndDetection
   "Purposes associated with fraud detection, prevention, and mitigation"
@@ -3767,17 +3327,14 @@
                      "Simon Steyskal"
                      "Elmar Kiesling"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with fraud detection, prevention, and mitigation"},
+   "Purposes associated with fraud detection, prevention, and mitigation",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fraud Prevention and Detection"},
+   :rdfs/label "Fraud Prevention and Detection",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Government"],
-   :rdfs/subClassOf :dpvo/EnforceSecurity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf
+   [:dpvo/EnforceSecurity :dpvo/FraudPreventionAndDetection :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Frequency
   "The frequency or information about periods and repetitions in terms of recurrence."
@@ -3785,16 +3342,12 @@
    :dcterms/created #inst "2022-02-16T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The frequency or information about periods and repetitions in terms of recurrence."},
+   "The frequency or information about periods and repetitions in terms of recurrence.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Frequency"},
-   :rdfs/subClassOf :dpvo/Context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Frequency",
+   :rdfs/subClassOf [:dpvo/Context :dpvo/Frequency],
+   :vs/term_status "accepted"})
 
 (def FulfilmentOfContractualObligation
   "Purposes associated with carrying out data processing to fulfill a contractual obligation"
@@ -3802,16 +3355,14 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with carrying out data processing to fulfill a contractual obligation"},
+   "Purposes associated with carrying out data processing to fulfill a contractual obligation",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fulfilment of Contractual Obligation"},
-   :rdfs/subClassOf :dpvo/FulfilmentOfObligation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Fulfilment of Contractual Obligation",
+   :rdfs/subClassOf [:dpvo/FulfilmentOfObligation
+                     :dpvo/FulfilmentOfContractualObligation
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def FulfilmentOfObligation
   "Purposes associated with carrying out data processing to fulfill an obligation"
@@ -3819,30 +3370,26 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with carrying out data processing to fulfill an obligation"},
+   "Purposes associated with carrying out data processing to fulfill an obligation",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fulfilment of Obligation"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Fulfilment of Obligation",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/FulfilmentOfObligation],
+   :vs/term_status "accepted"})
 
 (def FullyAutomatedProcessing
   "Processing that is fully automated"
   {:db/ident            :dpvo/FullyAutomatedProcessing,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Processing that is fully automated"},
-   :rdf/type            [:dpvo/AutomationOfProcessing :owl/NamedIndividual],
+   :dcterms/description "Processing that is fully automated",
+   :rdf/type            [:dpvo/AutomationOfProcessing
+                         :owl/NamedIndividual
+                         :dpvo/ProcessingContext
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Fully Automated Processing"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Fully Automated Processing",
+   :vs/term_status      "accepted"})
 
 (def FullyRandomisedPseudonymisation
   "Use of randomised pseudonymisation where the same elements are assigned different values each time they occur"
@@ -3850,33 +3397,31 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of randomised pseudonymisation where the same elements are assigned different values each time they occur"},
+   "Use of randomised pseudonymisation where the same elements are assigned different values each time they occur",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Fully Randomised Pseudonymisation"},
-   :rdfs/subClassOf :dpvo/Pseudonymisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Fully Randomised Pseudonymisation",
+   :rdfs/subClassOf [:dpvo/Pseudonymisation
+                     :dpvo/FullyRandomisedPseudonymisation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
+                     :dpvo/Deidentification],
+   :vs/term_status "accepted"})
 
 (def Generate
   "to generate or create data"
   {:db/ident            :dpvo/Generate,
    :dcterms/created     #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to generate or create data"},
+   :dcterms/description "to generate or create data",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Generate"},
-   :rdfs/subClassOf     :dpvo/Obtain,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Generate",
+   :rdfs/subClassOf     [:dpvo/Obtain :dpvo/Generate :dpvo/Processing],
+   :vs/term_status      "accepted"})
 
 (def GeneratedPersonalData
   "Personal Data that is generated or brought into existence without relation to existing data i.e. it is not derived or inferred from other data"
@@ -3884,51 +3429,44 @@
    :dcterms/created #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Personal Data that is generated or brought into existence without relation to existing data i.e. it is not derived or inferred from other data"},
+   "Personal Data that is generated or brought into existence without relation to existing data i.e. it is not derived or inferred from other data",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Generated Data is used to indicate data that is produced and is not derived or inferred from other data"},
+   "Generated Data is used to indicate data that is produced and is not derived or inferred from other data",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Generated Personal Data"},
-   :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Generated Personal Data",
+   :rdfs/subClassOf [:dpvo/PersonalData :dpvo/GeneratedPersonalData :dpvo/Data],
+   :vs/term_status "accepted"})
 
 (def GeographicCoverage
   "Indicate of scale in terms of geographic coverage"
   {:db/ident            :dpvo/GeographicCoverage,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicate of scale in terms of geographic coverage"},
+   :dcterms/description "Indicate of scale in terms of geographic coverage",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Geographic Coverage"},
-   :rdfs/subClassOf     :dpvo/Scale,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Geographic Coverage",
+   :rdfs/subClassOf     [:dpvo/Scale
+                         :dpvo/GeographicCoverage
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
+   :vs/term_status      "accepted"})
 
 (def GlobalScale
   "Geographic coverage spanning the entire globe"
   {:db/ident            :dpvo/GlobalScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Geographic coverage spanning the entire globe"},
-   :rdf/type            [:dpvo/GeographicCoverage :owl/NamedIndividual],
+   :dcterms/description "Geographic coverage spanning the entire globe",
+   :rdf/type            [:dpvo/GeographicCoverage
+                         :owl/NamedIndividual
+                         :dpvo/Scale
+                         :dpvo/ProcessingContext
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Global Scale"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Global Scale",
+   :vs/term_status      "accepted"})
 
 (def GovernanceProcedures
   "Procedures related to governance (e.g. organisation, unit, team, process, system)"
@@ -3936,51 +3474,48 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Procedures related to governance (e.g. organisation, unit, team, process, system)"},
+   "Procedures related to governance (e.g. organisation, unit, team, process, system)",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Governance Procedures"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Governance Procedures",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/GovernanceProcedures
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def GovernmentalOrganisation
   "An organisation managed or part of government"
   {:db/ident            :dpvo/GovernmentalOrganisation,
    :dcterms/created     #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "An organisation managed or part of government"},
+   :dcterms/description "An organisation managed or part of government",
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Governmental Organisation"},
-   :rdfs/subClassOf     :dpvo/Organisation,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "modified"}})
+   :rdfs/label          "Governmental Organisation",
+   :rdfs/subClassOf     [:dpvo/Organisation
+                         :dpvo/GovernmentalOrganisation
+                         :dpvo/Entity
+                         :dpvo/LegalEntity],
+   :vs/term_status      "modified"})
 
 (def GuardianOfDataSubject
   "Guardian(s) of data subjects such as children"
   {:db/ident            :dpvo/GuardianOfDataSubject,
    :dcterms/created     #inst "2022-08-03T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Guardian(s) of data subjects such as children"},
+   :dcterms/description "Guardian(s) of data subjects such as children",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Guardian(s) of Data Subject"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Guardian(s) of Data Subject",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/GuardianOfDataSubject
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def GuidelinesPrinciple
   "Guidelines or Principles regarding processing and operational measures"
@@ -3989,34 +3524,31 @@
    :dcterms/creator
    ["Axel Polleres" "Mark Lizar" "Harshvardhan J. Pandit" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Guidelines or Principles regarding processing and operational measures"},
+   "Guidelines or Principles regarding processing and operational measures",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "GuidelinesPrinciple"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "GuidelinesPrinciple",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/GuidelinesPrinciple
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def HardwareSecurityProtocols
   "Security protocols implemented at or within hardware"
   {:db/ident :dpvo/HardwareSecurityProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Security protocols implemented at or within hardware"},
+   :dcterms/description "Security protocols implemented at or within hardware",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Hardware Security Protocols"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Hardware Security Protocols",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/HardwareSecurityProtocols
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Harm
   "Impact that acts as or causes harms"
@@ -4027,15 +3559,15 @@
                          "Harshvardhan J. Pandit"
                          "Julian Flake"
                          "Fajar Ekaputra"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Impact that acts as or causes harms"},
+   :dcterms/description "Impact that acts as or causes harms",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Harm"},
-   :rdfs/subClassOf     :dpvo/Damage,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "changed"}})
+   :rdfs/label          "Harm",
+   :rdfs/subClassOf     [:dpvo/Damage
+                         :dpvo/Harm
+                         :dpvo/Consequence
+                         :dpvo/Impact],
+   :vs/term_status      "changed"})
 
 (def HashFunctions
   "Use of hash functions to map information or to retrieve a prior categorisation"
@@ -4043,18 +3575,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of hash functions to map information or to retrieve a prior categorisation"},
+   "Use of hash functions to map information or to retrieve a prior categorisation",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Hash Functions"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Hash Functions",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/HashFunctions
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def HashMessageAuthenticationCode
   "Use of HMAC where message authentication code (MAC) utilise a cryptographic hash function and a secret cryptographic key"
@@ -4062,18 +3593,19 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of HMAC where message authentication code (MAC) utilise a cryptographic hash function and a secret cryptographic key"},
+   "Use of HMAC where message authentication code (MAC) utilise a cryptographic hash function and a secret cryptographic key",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Hash-based Message Authentication Code (HMAC)"},
-   :rdfs/subClassOf :dpvo/CryptographicAuthentication,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Hash-based Message Authentication Code (HMAC)",
+   :rdfs/subClassOf [:dpvo/CryptographicAuthentication
+                     :dpvo/HashMessageAuthenticationCode
+                     :dpvo/AuthenticationProtocols
+                     :dpvo/CryptographicMethods
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def HomomorphicEncryption
   "Use of Homomorphic encryption that permits computations on encrypted data without decrypting it"
@@ -4081,18 +3613,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of Homomorphic encryption that permits computations on encrypted data without decrypting it"},
+   "Use of Homomorphic encryption that permits computations on encrypted data without decrypting it",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Homomorphic Encryption"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Homomorphic Encryption",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/HomomorphicEncryption
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def HugeDataVolume
   "Data volume that is considered huge or more than large within the context"
@@ -4100,15 +3631,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data volume that is considered huge or more than large within the context"},
-   :rdf/type [:owl/NamedIndividual :dpvo/DataVolume],
+   "Data volume that is considered huge or more than large within the context",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/DataVolume
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Huge Data Volume"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Huge Data Volume",
+   :vs/term_status "accepted"})
 
 (def HugeScaleOfDataSubjects
   "Scale of data subjects considered huge or more than large within the context"
@@ -4116,36 +3647,33 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Scale of data subjects considered huge or more than large within the context"},
-   :rdf/type [:dpvo/DataSubjectScale :owl/NamedIndividual],
+   "Scale of data subjects considered huge or more than large within the context",
+   :rdf/type [:dpvo/DataSubjectScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/Scale
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Huge Scale Of Data Subjects"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Huge Scale Of Data Subjects",
+   :vs/term_status "accepted"})
 
 (def HumanInvolvement
   "The involvement of humans in specified context"
   {:db/ident :dpvo/HumanInvolvement,
    :dcterms/created #inst "2022-01-26T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "The involvement of humans in specified context"},
+   :dcterms/description "The involvement of humans in specified context",
    :dcterms/modified #inst "2022-06-15T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Human Involvement here broadly refers to any involvement by a human in the context of carrying out processing. This may include verification of outcomes, providing input data for making decisions, or overseeing activities."},
+   "Human Involvement here broadly refers to any involvement by a human in the context of carrying out processing. This may include verification of outcomes, providing input data for making decisions, or overseeing activities.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Human Involvement"},
-   :rdfs/subClassOf :dpvo/AutomationOfProcessing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Human Involvement",
+   :rdfs/subClassOf [:dpvo/AutomationOfProcessing
+                     :dpvo/HumanInvolvement
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "accepted"})
 
 (def HumanInvolvementForInput
   "Human involvement for the purposes of providing inputs"
@@ -4153,14 +3681,15 @@
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Human involvement for the purposes of providing inputs"},
-   :rdf/type [:owl/NamedIndividual :dpvo/HumanInvolvement],
+   "Human involvement for the purposes of providing inputs",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/HumanInvolvement
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Human Involvement for Input"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Human Involvement for Input",
+   :vs/term_status "accepted"})
 
 (def HumanInvolvementForOversight
   "Human involvement for the purposes of having oversight over a system, its operations, inputs, or outputs"
@@ -4168,15 +3697,15 @@
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Human involvement for the purposes of having oversight over a system, its operations, inputs, or outputs"},
-   :rdf/type [:owl/NamedIndividual :dpvo/HumanInvolvement],
+   "Human involvement for the purposes of having oversight over a system, its operations, inputs, or outputs",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/HumanInvolvement
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Human Involvement for Oversight"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Human Involvement for Oversight",
+   :vs/term_status "accepted"})
 
 (def HumanInvolvementForVerification
   "Human involvement for the purposes of verification of a system, its operations, inputs, or outputs"
@@ -4184,15 +3713,15 @@
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Human involvement for the purposes of verification of a system, its operations, inputs, or outputs"},
-   :rdf/type [:owl/NamedIndividual :dpvo/HumanInvolvement],
+   "Human involvement for the purposes of verification of a system, its operations, inputs, or outputs",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/HumanInvolvement
+              :dpvo/AutomationOfProcessing
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Human Involvement for Verification"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Human Involvement for Verification",
+   :vs/term_status "accepted"})
 
 (def HumanResourceManagement
   "Purposes associated with managing humans and 'human resources' within the organisation for effective and efficient operations."
@@ -4204,40 +3733,33 @@
                      "Beatriz Esteves"
                      "David Hickey"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with managing humans and 'human resources' within the organisation for effective and efficient operations."},
+   "Purposes associated with managing humans and 'human resources' within the organisation for effective and efficient operations.",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "HR is a broad concept. Its management includes, amongst others - recruiting employees and intermediaries e.g. brokers, independent representatives; payroll administration, remunerations, commissions, and wages; and application of social legislation."},
+   "HR is a broad concept. Its management includes, amongst others - recruiting employees and intermediaries e.g. brokers, independent representatives; payroll administration, remunerations, commissions, and wages; and application of social legislation.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Human Resource Management"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Human Resource Management",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/HumanResourceManagement],
+   :vs/term_status "accepted"})
 
 (def IdentityManagementMethod
   "Management of identity and identity-based processes"
   {:db/ident :dpvo/IdentityManagementMethod,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Management of identity and identity-based processes"},
+   :dcterms/description "Management of identity and identity-based processes",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Identity Management Method"},
-   :rdfs/subClassOf :dpvo/AuthorisationProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Identity Management Method",
+   :rdfs/subClassOf [:dpvo/AuthorisationProcedure
+                     :dpvo/IdentityManagementMethod
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def IdentityVerification
   "Purposes associated with verifying or authorising identity as a form of security"
@@ -4250,16 +3772,13 @@
                      "Simon Steyskal"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with verifying or authorising identity as a form of security"},
+   "Purposes associated with verifying or authorising identity as a form of security",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Identity Verification"},
-   :rdfs/subClassOf :dpvo/EnforceSecurity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Identity Verification",
+   :rdfs/subClassOf
+   [:dpvo/EnforceSecurity :dpvo/IdentityVerification :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Immigrant
   "Data subjects that are immigrants (for a jurisdiction)"
@@ -4271,15 +3790,16 @@
                      "Paul Ryan"
                      "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Data subjects that are immigrants (for a jurisdiction)"},
+   "Data subjects that are immigrants (for a jurisdiction)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Immigrant"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Immigrant",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Immigrant
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def Impact
   "The impact(s) possible or arising as a consequence from specified context"
@@ -4291,20 +3811,14 @@
                      "Georg P Krog"
                      "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The impact(s) possible or arising as a consequence from specified context"},
+   "The impact(s) possible or arising as a consequence from specified context",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Impact is a stronger notion of consequence in terms of influence, change, or effect on something e.g. for impact assessments"},
+   "Impact is a stronger notion of consequence in terms of influence, change, or effect on something e.g. for impact assessments",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Impact"},
-   :rdfs/subClassOf :dpvo/Consequence,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Impact",
+   :rdfs/subClassOf [:dpvo/Consequence :dpvo/Impact],
+   :vs/term_status "accepted"})
 
 (def ImpactAssessment
   "Calculating or determining the likelihood of impact of an existing or proposed process, which can involve risks or detriments."
@@ -4312,16 +3826,15 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Calculating or determining the likelihood of impact of an existing or proposed process, which can involve risks or detriments."},
+   "Calculating or determining the likelihood of impact of an existing or proposed process, which can involve risks or detriments.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Impact Assessment"},
-   :rdfs/subClassOf :dpvo/Assessment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Impact Assessment",
+   :rdfs/subClassOf [:dpvo/Assessment
+                     :dpvo/ImpactAssessment
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def ImpliedConsent
   "Consent that is implied indirectly through an action not associated solely with conveying a consenting decision"
@@ -4330,20 +3843,15 @@
    :dcterms/creator
    ["Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan" "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Consent that is implied indirectly through an action not associated solely with conveying a consenting decision"},
+   "Consent that is implied indirectly through an action not associated solely with conveying a consenting decision",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Implied consent is expected to also be Informed Consent. An example is a CCTV notice outside a monitored area that informs the individuals that by walking in they would be consenting to the use of camera for surveillance."},
+   "Implied consent is expected to also be Informed Consent. An example is a CCTV notice outside a monitored area that informs the individuals that by walking in they would be consenting to the use of camera for surveillance.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Implied Consent"},
-   :rdfs/subClassOf :dpvo/InformedConsent,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Implied Consent",
+   :rdfs/subClassOf
+   [:dpvo/InformedConsent :dpvo/ImpliedConsent :dpvo/Consent :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def Importance
   "An indication of 'importance' within a context"
@@ -4354,20 +3862,14 @@
                      "Julian Flake"
                      "Harshvardhan J. Pandit"
                      "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "An indication of 'importance' within a context"},
+   :dcterms/description "An indication of 'importance' within a context",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Importance can be used to express importance, desirability, relevance, or significance as a context."},
+   "Importance can be used to express importance, desirability, relevance, or significance as a context.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Importance"},
-   :rdfs/subClassOf :dpvo/Context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Importance",
+   :rdfs/subClassOf [:dpvo/Context :dpvo/Importance],
+   :vs/term_status "accepted"})
 
 (def ImproveExistingProductsAndServices
   "Purposes associated with improving existing products and services"
@@ -4380,16 +3882,16 @@
                      "Harshvardhan J. Pandit"
                      "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with improving existing products and services"},
+   "Purposes associated with improving existing products and services",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Improve Existing Products and Services"},
-   :rdfs/subClassOf :dpvo/OptimisationForController,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Improve Existing Products and Services",
+   :rdfs/subClassOf [:dpvo/OptimisationForController
+                     :dpvo/ImproveExistingProductsAndServices
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation],
+   :vs/term_status "accepted"})
 
 (def ImproveInternalCRMProcesses
   "Purposes associated with improving customer-relationship management (CRM) processes"
@@ -4402,35 +3904,35 @@
                      "Harshvardhan J. Pandit"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with improving customer-relationship management (CRM) processes"},
+   "Purposes associated with improving customer-relationship management (CRM) processes",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Improve Internal CRM Processes"},
+   :rdfs/label "Improve Internal CRM Processes",
    :rdfs/subClassOf [:dpvo/OptimisationForController
-                     :dpvo/CustomerRelationshipManagement],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+                     :dpvo/CustomerRelationshipManagement
+                     :dpvo/ImproveInternalCRMProcesses
+                     :dpvo/CustomerManagement
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation],
+   :vs/term_status "accepted"})
 
 (def IncidentManagementProcedures
   "Procedures related to management of incidents"
   {:db/ident :dpvo/IncidentManagementProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Procedures related to management of incidents"},
+   :dcterms/description "Procedures related to management of incidents",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Incident Management Procedures"},
-   :rdfs/subClassOf :dpvo/GovernanceProcedures,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Incident Management Procedures",
+   :rdfs/subClassOf [:dpvo/GovernanceProcedures
+                     :dpvo/IncidentManagementProcedures
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def IncidentReportingCommunication
   "Procedures related to management of incident reporting"
@@ -4438,17 +3940,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Procedures related to management of incident reporting"},
+   "Procedures related to management of incident reporting",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Incident Reporting Communication"},
-   :rdfs/subClassOf :dpvo/GovernanceProcedures,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Incident Reporting Communication",
+   :rdfs/subClassOf [:dpvo/GovernanceProcedures
+                     :dpvo/IncidentReportingCommunication
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def IncorrectData
   "Data that is known to be incorrect or inconsistent with some quality requirements"
@@ -4456,16 +3958,12 @@
    :dcterms/created #inst "2022-11-02T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data that is known to be incorrect or inconsistent with some quality requirements"},
+   "Data that is known to be incorrect or inconsistent with some quality requirements",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Incorrect Data"},
-   :rdfs/subClassOf :dpvo/Data,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Incorrect Data",
+   :rdfs/subClassOf [:dpvo/Data :dpvo/IncorrectData],
+   :vs/term_status "accepted"})
 
 (def IncreaseServiceRobustness
   "Purposes associated with improving robustness and resilience of services"
@@ -4478,16 +3976,16 @@
                      "Javier Fernandez"
                      "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with improving robustness and resilience of services"},
+   "Purposes associated with improving robustness and resilience of services",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Increase Service Robustness"},
-   :rdfs/subClassOf :dpvo/OptimisationForController,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Increase Service Robustness",
+   :rdfs/subClassOf [:dpvo/OptimisationForController
+                     :dpvo/IncreaseServiceRobustness
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation],
+   :vs/term_status "accepted"})
 
 (def IndeterminateDuration
   "Duration that is indeterminate or cannot be determined"
@@ -4495,18 +3993,13 @@
    :dcterms/created #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Duration that is indeterminate or cannot be determined"},
-   :rdf/type [:dpvo/Duration :owl/NamedIndividual],
+   "Duration that is indeterminate or cannot be determined",
+   :rdf/type [:dpvo/Duration :owl/NamedIndividual :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Indeterminate means (exact or otherwise) information about the duration cannot be determined, which is distinct from 'EndlessDuration' where it is known (or decided) that the duration is open-ended or without an end."},
+   "Indeterminate means (exact or otherwise) information about the duration cannot be determined, which is distinct from 'EndlessDuration' where it is known (or decided) that the duration is open-ended or without an end.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Indeterminate Duration"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Indeterminate Duration",
+   :vs/term_status "accepted"})
 
 (def IndustryConsortium
   "A consortium established and comprising on industry organisations"
@@ -4514,38 +4007,30 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A consortium established and comprising on industry organisations"},
+   "A consortium established and comprising on industry organisations",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :dcterms/source "http://purl.org/adms",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Industry Consortium"},
-   :rdfs/subClassOf :dpvo/Organisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Industry Consortium",
+   :rdfs/subClassOf
+   [:dpvo/Organisation :dpvo/IndustryConsortium :dpvo/Entity :dpvo/LegalEntity],
+   :vs/term_status "modified"})
 
 (def Infer
   "to infer data from existing data"
   {:db/ident :dpvo/Infer,
    :dcterms/created #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to infer data from existing data"},
+   :dcterms/description "to infer data from existing data",
    :dcterms/modified #inst "2022-10-14T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Infer indicates data that is derived without it being present or obtainable from existing data. For data that is presented, and is 'extracted' or 'obtained' from existing data, see Derive."},
+   "Infer indicates data that is derived without it being present or obtainable from existing data. For data that is presented, and is 'extracted' or 'obtained' from existing data, see Derive.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Infer"},
-   :rdfs/subClassOf :dpvo/Derive,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Infer",
+   :rdfs/subClassOf [:dpvo/Derive :dpvo/Infer :dpvo/Processing :dpvo/Obtain],
+   :vs/term_status "modified"})
 
 (def InferredPersonalData
   "Personal Data that is obtained through inference from other data"
@@ -4553,55 +4038,51 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Personal Data that is obtained through inference from other data"},
+   "Personal Data that is obtained through inference from other data",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Inferred Data is derived data generated from existing data, but which did not originally exist within it, e.g. inferring demographics from browsing history."},
+   "Inferred Data is derived data generated from existing data, but which did not originally exist within it, e.g. inferring demographics from browsing history.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Inferred Personal Data"},
-   :rdfs/subClassOf [:dpvo/GeneratedPersonalData :dpvo/DerivedPersonalData],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Inferred Personal Data",
+   :rdfs/subClassOf [:dpvo/GeneratedPersonalData
+                     :dpvo/DerivedPersonalData
+                     :dpvo/InferredPersonalData
+                     :dpvo/Data
+                     :dpvo/PersonalData],
+   :vs/term_status "accepted"})
 
 (def InformationFlowControl
   "Use of measures to control information flows"
   {:db/ident :dpvo/InformationFlowControl,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Use of measures to control information flows"},
+   :dcterms/description "Use of measures to control information flows",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Information Flow Control"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Information Flow Control",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/InformationFlowControl
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def InformationSecurityPolicy
   "Policy regarding security of information"
   {:db/ident :dpvo/InformationSecurityPolicy,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Policy regarding security of information"},
+   :dcterms/description "Policy regarding security of information",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Information Security Policy"},
-   :rdfs/subClassOf :dpvo/Policy,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Information Security Policy",
+   :rdfs/subClassOf [:dpvo/Policy
+                     :dpvo/InformationSecurityPolicy
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def InformedConsent
   "Consent that is informed i.e. with the requirement to provide sufficient information to make a consenting decision"
@@ -4610,20 +4091,14 @@
    :dcterms/creator
    ["Julian Flake" "Harshvardhan J. Pandit" "Paul Ryan" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Consent that is informed i.e. with the requirement to provide sufficient information to make a consenting decision"},
+   "Consent that is informed i.e. with the requirement to provide sufficient information to make a consenting decision",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The specifics for what information should be provided or made available will depend on the context, use-case, or relevant legal requirements"},
+   "The specifics for what information should be provided or made available will depend on the context, use-case, or relevant legal requirements",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Informed Consent"},
-   :rdfs/subClassOf :dpvo/Consent,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Informed Consent",
+   :rdfs/subClassOf [:dpvo/Consent :dpvo/InformedConsent :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def InnovativeUseOfNewTechnologies
   "Processing that involves use of innovative and new technologies"
@@ -4631,17 +4106,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Piero Bonatti"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing that involves use of innovative and new technologies"},
+   "Processing that involves use of innovative and new technologies",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Innovative Use of New Technologies"},
-   :rdfs/subClassOf :dpvo/ProcessingContext,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Innovative Use of New Technologies",
+   :rdfs/subClassOf
+   [:dpvo/ProcessingContext :dpvo/InnovativeUseOfNewTechnologies :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def InternalResourceOptimisation
   "Purposes associated with optimisation of internal resource availability and usage for organisation"
@@ -4654,16 +4126,16 @@
                      "Harshvardhan J. Pandit"
                      "Fajar Ekaputra"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with optimisation of internal resource availability and usage for organisation"},
+   "Purposes associated with optimisation of internal resource availability and usage for organisation",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Internal Resource Optimisation"},
-   :rdfs/subClassOf :dpvo/OptimisationForController,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Internal Resource Optimisation",
+   :rdfs/subClassOf [:dpvo/OptimisationForController
+                     :dpvo/InternalResourceOptimisation
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation],
+   :vs/term_status "accepted"})
 
 (def InternationalOrganisation
   "An organisation and its subordinate bodies governed by public international law, or any other body which is set up by, or on the basis of, an agreement between two or more countries"
@@ -4671,18 +4143,17 @@
    :dcterms/created #inst "2022-03-23T00:00:00.000-04:00",
    :dcterms/creator ["Julian Flake" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An organisation and its subordinate bodies governed by public international law, or any other body which is set up by, or on the basis of, an agreement between two or more countries"},
+   "An organisation and its subordinate bodies governed by public international law, or any other body which is set up by, or on the basis of, an agreement between two or more countries",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_26/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "International Organisation"},
-   :rdfs/subClassOf :dpvo/Organisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "International Organisation",
+   :rdfs/subClassOf [:dpvo/Organisation
+                     :dpvo/InternationalOrganisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "modified"})
 
 (def IntrusionDetectionSystem
   "Use of measures to detect intrusions and other unauthorised attempts to gain access to a system"
@@ -4690,18 +4161,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of measures to detect intrusions and other unauthorised attempts to gain access to a system"},
+   "Use of measures to detect intrusions and other unauthorised attempts to gain access to a system",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Intrusion Detection System"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Intrusion Detection System",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/IntrusionDetectionSystem
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def JobApplicant
   "Data subjects that apply for jobs or employments"
@@ -4712,16 +4182,17 @@
                          "Julian Flake"
                          "Harshvardhan J. Pandit"
                          "Georg P. Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Data subjects that apply for jobs or employments"},
+   :dcterms/description "Data subjects that apply for jobs or employments",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Job Applicant"},
-   :rdfs/subClassOf     :dpvo/Applicant,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Job Applicant",
+   :rdfs/subClassOf     [:dpvo/Applicant
+                         :dpvo/JobApplicant
+                         :dpvo/DataSubject
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def JointDataControllers
   "A group of Data Controllers that jointly determine the purposes and means of processing"
@@ -4729,19 +4200,16 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator ["Georg Krog" "Harshvardhan Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A group of Data Controllers that jointly determine the purposes and means of processing"},
+   "A group of Data Controllers that jointly determine the purposes and means of processing",
    :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "To indicate the membership, hasDataController may be used"},
+   :rdfs/comment "To indicate the membership, hasDataController may be used",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Joint Data Controllers"},
-   :rdfs/subClassOf :dpvo/DataController,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Joint Data Controllers",
+   :rdfs/subClassOf [:dpvo/DataController
+                     :dpvo/JointDataControllers
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def JointDataControllersAgreement
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between Controllers within a Joint Controllers relationship"
@@ -4753,16 +4221,16 @@
                      "Harshvardhan J. Pandit"
                      "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between Controllers within a Joint Controllers relationship"},
+   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between Controllers within a Joint Controllers relationship",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Joint Data Controllers Agreement"},
-   :rdfs/subClassOf :dpvo/DataProcessingAgreement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Joint Data Controllers Agreement",
+   :rdfs/subClassOf [:dpvo/DataProcessingAgreement
+                     :dpvo/JointDataControllersAgreement
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/LegalAgreement],
+   :vs/term_status "accepted"})
 
 (def Justification
   "A form of documentation providing reaosns, explanations, or justifications"
@@ -4770,16 +4238,12 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A form of documentation providing reaosns, explanations, or justifications"},
+   "A form of documentation providing reaosns, explanations, or justifications",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Justification"},
-   :rdfs/subClassOf :dpvo/Context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Justification",
+   :rdfs/subClassOf [:dpvo/Context :dpvo/Justification],
+   :vs/term_status "accepted"})
 
 (def LargeDataVolume
   "Data volume that is considered large within the context"
@@ -4787,14 +4251,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Data volume that is considered large within the context"},
-   :rdf/type [:dpvo/DataVolume :owl/NamedIndividual],
+   "Data volume that is considered large within the context",
+   :rdf/type [:dpvo/DataVolume
+              :owl/NamedIndividual
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Large Data Volume"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Large Data Volume",
+   :vs/term_status "accepted"})
 
 (def LargeScaleOfDataSubjects
   "Scale of data subjects considered large within the context"
@@ -4802,14 +4267,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Scale of data subjects considered large within the context"},
-   :rdf/type [:dpvo/DataSubjectScale :owl/NamedIndividual],
+   "Scale of data subjects considered large within the context",
+   :rdf/type [:dpvo/DataSubjectScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/Scale
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Large Scale Of Data Subjects"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Large Scale Of Data Subjects",
+   :vs/term_status "accepted"})
 
 (def LargeScaleProcessing
   "Processing that takes place at large scales (as specified by some criteria)"
@@ -4817,21 +4283,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Piero Bonatti"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing that takes place at large scales (as specified by some criteria)"},
+   "Processing that takes place at large scales (as specified by some criteria)",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
-   :rdf/type [:owl/NamedIndividual :dpvo/ProcessingScale],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ProcessingScale
+              :dpvo/Context
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The exact definition of what constitutes \"large scale\" depends on use of jurisdictional, domain-specific, or other forms of externally defined criterias. Where possible, this should be reflected by extending this term with the appropriate context."},
+   "The exact definition of what constitutes \"large scale\" depends on use of jurisdictional, domain-specific, or other forms of externally defined criterias. Where possible, this should be reflected by extending this term with the appropriate context.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Large Scale Processing"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Large Scale Processing",
+   :vs/term_status "modified"})
 
 (def Law
   "A law is a set of rules created by government or authorities"
@@ -4839,29 +4303,26 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "A law is a set of rules created by government or authorities"},
+   "A law is a set of rules created by government or authorities",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Law"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Law",
+   :vs/term_status "accepted"})
 
 (def Lawful
   "State of being lawful or legally compliant"
   {:db/ident            :dpvo/Lawful,
    :dcterms/created     #inst "2022-10-19T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "State of being lawful or legally compliant"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/Lawfulness],
+   :dcterms/description "State of being lawful or legally compliant",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/Lawfulness
+                         :dpvo/ComplianceStatus
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Lawful"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Lawful",
+   :vs/term_status      "accepted"})
 
 (def Lawfulness
   "Status associated with expressing lawfullness or legal compliance"
@@ -4869,30 +4330,28 @@
    :dcterms/created #inst "2022-10-19T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Status associated with expressing lawfullness or legal compliance"},
+   "Status associated with expressing lawfullness or legal compliance",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Lawfulness"},
-   :rdfs/subClassOf :dpvo/ComplianceStatus,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Lawfulness",
+   :rdfs/subClassOf
+   [:dpvo/ComplianceStatus :dpvo/Lawfulness :dpvo/Context :dpvo/Status],
+   :vs/term_status "accepted"})
 
 (def LawfulnessUnkown
   "State of the lawfulness not being known"
   {:db/ident            :dpvo/LawfulnessUnkown,
    :dcterms/created     #inst "2022-10-19T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "State of the lawfulness not being known"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/Lawfulness],
+   :dcterms/description "State of the lawfulness not being known",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/Lawfulness
+                         :dpvo/ComplianceStatus
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Lawfulness Unknown"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Lawfulness Unknown",
+   :vs/term_status      "accepted"})
 
 (def LegalAgreement
   "A legally binding agreement"
@@ -4902,15 +4361,14 @@
                          "Mark Lizar"
                          "Axel Polleres"
                          "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "A legally binding agreement"},
+   :dcterms/description "A legally binding agreement",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Legal Agreement"},
-   :rdfs/subClassOf     :dpvo/OrganisationalMeasure,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Legal Agreement",
+   :rdfs/subClassOf     [:dpvo/OrganisationalMeasure
+                         :dpvo/LegalAgreement
+                         :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status      "accepted"})
 
 (def LegalBasis
   "The Legal basis used to justify processing of personal data"
@@ -4918,19 +4376,15 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Axel Polleres" "Javier Fernández"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "The Legal basis used to justify processing of personal data"},
+   "The Legal basis used to justify processing of personal data",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Legal basis (plural: legal bases) are defined by legislations and regulations, whose applicability is usually restricted to specific jurisdictions."},
+   "Legal basis (plural: legal bases) are defined by legislations and regulations, whose applicability is usually restricted to specific jurisdictions.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legal Basis"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legal Basis",
+   :rdfs/subClassOf :dpvo/LegalBasis,
+   :vs/term_status "accepted"})
 
 (def LegalCompliance
   "Purposes associated with carrying out data processing to fulfill a legal or statutory obligation"
@@ -4938,21 +4392,16 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with carrying out data processing to fulfill a legal or statutory obligation"},
+   "Purposes associated with carrying out data processing to fulfill a legal or statutory obligation",
    :dcterms/modified #inst "2022-11-09T00:00:00.000-05:00",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This purpose only refers to processing that is additionally required in order to fulfill the obligations and requirements associated with a law. For example, the use of consent would have its own separate purposes, with this purpose addressing a legal requirement for maintaining consent record (along with RecordManagement). This purpose will typically be used with Legal Obligation as the legal basis."},
+   "This purpose only refers to processing that is additionally required in order to fulfill the obligations and requirements associated with a law. For example, the use of consent would have its own separate purposes, with this purpose addressing a legal requirement for maintaining consent record (along with RecordManagement). This purpose will typically be used with Legal Obligation as the legal basis.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legal Compliance"},
-   :rdfs/subClassOf :dpvo/FulfilmentOfObligation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legal Compliance",
+   :rdfs/subClassOf
+   [:dpvo/FulfilmentOfObligation :dpvo/LegalCompliance :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def LegalEntity
   "A human or non-human 'thing' that constitutes as an entity and which is recognised and defined in law"
@@ -4960,32 +4409,24 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A human or non-human 'thing' that constitutes as an entity and which is recognised and defined in law"},
+   "A human or non-human 'thing' that constitutes as an entity and which is recognised and defined in law",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legal Entity"},
-   :rdfs/subClassOf :dpvo/Entity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legal Entity",
+   :rdfs/subClassOf [:dpvo/Entity :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def LegalObligation
   "Legal Obligation to conduct the specified processing"
-  {:db/ident :dpvo/LegalObligation,
-   :dcterms/created #inst "2021-04-07T00:00:00.000-04:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Legal Obligation to conduct the specified processing"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legal Obligation"},
-   :rdfs/subClassOf :dpvo/LegalBasis,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/LegalObligation,
+   :dcterms/created     #inst "2021-04-07T00:00:00.000-04:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "Legal Obligation to conduct the specified processing",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Legal Obligation",
+   :rdfs/subClassOf     [:dpvo/LegalBasis :dpvo/LegalObligation],
+   :vs/term_status      "accepted"})
 
 (def LegitimateInterest
   "Legitimate Interests of a Party as justification for specified processing"
@@ -4993,16 +4434,12 @@
    :dcterms/created #inst "2021-05-19T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Legitimate Interests of a Party as justification for specified processing"},
+   "Legitimate Interests of a Party as justification for specified processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legitimate Interest"},
-   :rdfs/subClassOf :dpvo/LegalBasis,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legitimate Interest",
+   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo/LegitimateInterest],
+   :vs/term_status "accepted"})
 
 (def LegitimateInterestAssessment
   "Indicates an assessment regarding the use of legitimate interest as a lawful basis by the data controller"
@@ -5010,16 +4447,15 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates an assessment regarding the use of legitimate interest as a lawful basis by the data controller"},
+   "Indicates an assessment regarding the use of legitimate interest as a lawful basis by the data controller",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legitimate Interest Assessment"},
-   :rdfs/subClassOf :dpvo/Assessment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legitimate Interest Assessment",
+   :rdfs/subClassOf [:dpvo/Assessment
+                     :dpvo/LegitimateInterestAssessment
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def LegitimateInterestOfController
   "Legitimate Interests of a Data Controller in conducting specified processing"
@@ -5027,16 +4463,14 @@
    :dcterms/created #inst "2021-05-19T00:00:00.000-04:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Legitimate Interests of a Data Controller in conducting specified processing"},
+   "Legitimate Interests of a Data Controller in conducting specified processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legitimate Interest of Controller"},
-   :rdfs/subClassOf :dpvo/LegitimateInterest,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legitimate Interest of Controller",
+   :rdfs/subClassOf [:dpvo/LegitimateInterest
+                     :dpvo/LegitimateInterestOfController
+                     :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def LegitimateInterestOfDataSubject
   "Legitimate Interests of the Data Subject in conducting specified processing"
@@ -5044,16 +4478,14 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Legitimate Interests of the Data Subject in conducting specified processing"},
+   "Legitimate Interests of the Data Subject in conducting specified processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legitimate Interest of Data Subject"},
-   :rdfs/subClassOf :dpvo/LegitimateInterest,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legitimate Interest of Data Subject",
+   :rdfs/subClassOf [:dpvo/LegitimateInterest
+                     :dpvo/LegitimateInterestOfDataSubject
+                     :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def LegitimateInterestOfThirdParty
   "Legitimate Interests of a Third Party in conducting specified processing"
@@ -5061,16 +4493,14 @@
    :dcterms/created #inst "2021-05-19T00:00:00.000-04:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Legitimate Interests of a Third Party in conducting specified processing"},
+   "Legitimate Interests of a Third Party in conducting specified processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Legitimate Interest of Third Party"},
-   :rdfs/subClassOf :dpvo/LegitimateInterest,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Legitimate Interest of Third Party",
+   :rdfs/subClassOf [:dpvo/LegitimateInterest
+                     :dpvo/LegitimateInterestOfThirdParty
+                     :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def Likelihood
   "The likelihood or probability or chance of something taking place or occuring"
@@ -5078,19 +4508,13 @@
    :dcterms/created #inst "2022-07-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The likelihood or probability or chance of something taking place or occuring"},
+   "The likelihood or probability or chance of something taking place or occuring",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Likelihood can be expressed in a subjective manner, such as 'Unlikely', or in a quantitative manner such as \"Twice in a Day\" (frequency per period). The suggestion is to use quantitative values, or to associate them with subjective terms used so as to enable accurate interpretations and interoperability. See the concepts related to Frequency and Duration for possible uses as a combination to express Likelihood."},
+   "Likelihood can be expressed in a subjective manner, such as 'Unlikely', or in a quantitative manner such as \"Twice in a Day\" (frequency per period). The suggestion is to use quantitative values, or to associate them with subjective terms used so as to enable accurate interpretations and interoperability. See the concepts related to Frequency and Duration for possible uses as a combination to express Likelihood.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Likelihood"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Likelihood",
+   :vs/term_status "accepted"})
 
 (def LocalEnvironmentScale
   "Geographic coverage spanning a specific environment within the locality"
@@ -5098,54 +4522,49 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Geographic coverage spanning a specific environment within the locality"},
-   :rdf/type [:owl/NamedIndividual :dpvo/GeographicCoverage],
+   "Geographic coverage spanning a specific environment within the locality",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/GeographicCoverage
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For example, geographic scale of an event take place in a specific building or room"},
+   "For example, geographic scale of an event take place in a specific building or room",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Local Environment Scale"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Local Environment Scale",
+   :vs/term_status "accepted"})
 
 (def LocalLocation
   "Location is local"
   {:db/ident            :dpvo/LocalLocation,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Location is local"},
+   :dcterms/description "Location is local",
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Local Location"},
-   :rdfs/subClassOf     :dpvo/LocationLocality,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "modified"}})
+   :rdfs/label          "Local Location",
+   :rdfs/subClassOf     [:dpvo/LocationLocality
+                         :dpvo/LocalLocation
+                         :dpvo/Location],
+   :vs/term_status      "modified"})
 
 (def LocalityScale
   "Geographic coverage spanning a specific locality"
   {:db/ident :dpvo/LocalityScale,
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Geographic coverage spanning a specific locality"},
-   :rdf/type [:dpvo/GeographicCoverage :owl/NamedIndividual],
+   :dcterms/description "Geographic coverage spanning a specific locality",
+   :rdf/type [:dpvo/GeographicCoverage
+              :owl/NamedIndividual
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For example, geographic scale of a city or an area within a city"},
+   "For example, geographic scale of a city or an area within a city",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Locality Scale"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Locality Scale",
+   :vs/term_status "accepted"})
 
 (def Location
   "A location is a position, site, or area where something is located"
@@ -5153,18 +4572,13 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A location is a position, site, or area where something is located"},
+   "A location is a position, site, or area where something is located",
    :rdf/type :owl/Class,
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Location may be geographic, physical, or virtual."},
+   :rdfs/comment "Location may be geographic, physical, or virtual.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Location"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Location",
+   :rdfs/subClassOf :dpvo/Location,
+   :vs/term_status "accepted"})
 
 (def LocationFixture
   "The fixture of location refers to whether the location is fixed"
@@ -5172,15 +4586,12 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The fixture of location refers to whether the location is fixed"},
+   "The fixture of location refers to whether the location is fixed",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Location Fixture"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Location Fixture",
+   :rdfs/subClassOf :dpvo/LocationFixture,
+   :vs/term_status "accepted"})
 
 (def LocationLocality
   "Locality refers to whether the specified location is local within some context, e.g. for the user"
@@ -5188,34 +4599,30 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Locality refers to whether the specified location is local within some context, e.g. for the user"},
+   "Locality refers to whether the specified location is local within some context, e.g. for the user",
    :dcterms/modified #inst "2022-10-04T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Location Locality"},
-   :rdfs/subClassOf :dpvo/Location,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Location Locality",
+   :rdfs/subClassOf [:dpvo/Location :dpvo/LocationLocality],
+   :vs/term_status "modified"})
 
 (def LoggingPolicies
   "Policy for logging of information"
   {:db/ident :dpvo/LoggingPolicies,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Policy for logging of information"},
+   :dcterms/description "Policy for logging of information",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Logging Policies"},
-   :rdfs/subClassOf :dpvo/GovernanceProcedures,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Logging Policies",
+   :rdfs/subClassOf [:dpvo/GovernanceProcedures
+                     :dpvo/LoggingPolicies
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def MaintainCreditCheckingDatabase
   "Purposes associated with maintaining a Credit Checking Database"
@@ -5223,16 +4630,16 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with maintaining a Credit Checking Database"},
+   "Purposes associated with maintaining a Credit Checking Database",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Maintain Credit Checking Database"},
-   :rdfs/subClassOf :dpvo/CreditChecking,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Maintain Credit Checking Database",
+   :rdfs/subClassOf [:dpvo/CreditChecking
+                     :dpvo/MaintainCreditCheckingDatabase
+                     :dpvo/CustomerSolvencyMonitoring
+                     :dpvo/CustomerManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def MaintainCreditRatingDatabase
   "Purposes associated with maintaining a Credit Rating Database"
@@ -5240,15 +4647,16 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Purposes associated with maintaining a Credit Rating Database"},
+   "Purposes associated with maintaining a Credit Rating Database",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Maintain Credit Rating Database"},
-   :rdfs/subClassOf :dpvo/CreditChecking,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Maintain Credit Rating Database",
+   :rdfs/subClassOf [:dpvo/CreditChecking
+                     :dpvo/MaintainCreditRatingDatabase
+                     :dpvo/CustomerSolvencyMonitoring
+                     :dpvo/CustomerManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def MaintainFraudDatabase
   "Purposes associated with maintaining a database related to identifying and identified fraud risks and fraud incidents"
@@ -5256,31 +4664,27 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with maintaining a database related to identifying and identified fraud risks and fraud incidents"},
+   "Purposes associated with maintaining a database related to identifying and identified fraud risks and fraud incidents",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "MaintainFraudDatabase"},
-   :rdfs/subClassOf :dpvo/FraudPreventionAndDetection,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "MaintainFraudDatabase",
+   :rdfs/subClassOf [:dpvo/FraudPreventionAndDetection
+                     :dpvo/MaintainFraudDatabase
+                     :dpvo/Purpose
+                     :dpvo/EnforceSecurity],
+   :vs/term_status "accepted"})
 
 (def MakeAvailable
   "to transform or publish data to be used"
   {:db/ident :dpvo/MakeAvailable,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "to transform or publish data to be used"},
+   :dcterms/description "to transform or publish data to be used",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Make Available"},
-   :rdfs/subClassOf :dpvo/Disclose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Make Available",
+   :rdfs/subClassOf [:dpvo/Disclose :dpvo/MakeAvailable :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Marketing
   "Purposes associated with conducting marketing in relation to organisation or products or services e.g. promoting, selling, and distributing"
@@ -5288,20 +4692,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Beatriz Esteves" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting marketing in relation to organisation or products or services e.g. promoting, selling, and distributing"},
+   "Purposes associated with conducting marketing in relation to organisation or products or services e.g. promoting, selling, and distributing",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Was commercial interest, changed to consider Marketing a separate Purpose category by itself"},
+   "Was commercial interest, changed to consider Marketing a separate Purpose category by itself",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Marketing"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Marketing",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/Marketing],
+   :vs/term_status "accepted"})
 
 (def Match
   "to combine, compare, or match data from different sources"
@@ -5309,32 +4707,28 @@
    :dcterms/created #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "to combine, compare, or match data from different sources"},
+   "to combine, compare, or match data from different sources",
    :dcterms/source "https://ec.europa.eu/newsroom/article29/items/611236",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Match"},
-   :rdfs/subClassOf :dpvo/Use,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Match",
+   :rdfs/subClassOf [:dpvo/Use :dpvo/Match :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def MaterialDamage
   "Impact that acts as or causes material damages"
   {:db/ident            :dpvo/MaterialDamage,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Impact that acts as or causes material damages"},
+   :dcterms/description "Impact that acts as or causes material damages",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Material Damage"},
-   :rdfs/subClassOf     :dpvo/Damage,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Material Damage",
+   :rdfs/subClassOf     [:dpvo/Damage
+                         :dpvo/MaterialDamage
+                         :dpvo/Consequence
+                         :dpvo/Impact],
+   :vs/term_status      "accepted"})
 
 (def MediumDataVolume
   "Data volume that is considered medium i.e. neither large nor small within the context"
@@ -5342,15 +4736,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data volume that is considered medium i.e. neither large nor small within the context"},
-   :rdf/type [:dpvo/DataVolume :owl/NamedIndividual],
+   "Data volume that is considered medium i.e. neither large nor small within the context",
+   :rdf/type [:dpvo/DataVolume
+              :owl/NamedIndividual
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Medium Data Volume"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Medium Data Volume",
+   :vs/term_status "accepted"})
 
 (def MediumScaleOfDataSubjects
   "Scale of data subjects considered medium i.e. neither large nor small within the context"
@@ -5358,15 +4752,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Scale of data subjects considered medium i.e. neither large nor small within the context"},
-   :rdf/type [:dpvo/DataSubjectScale :owl/NamedIndividual],
+   "Scale of data subjects considered medium i.e. neither large nor small within the context",
+   :rdf/type [:dpvo/DataSubjectScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/Scale
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Medium Scale Of Data Subjects"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Medium Scale Of Data Subjects",
+   :vs/term_status "accepted"})
 
 (def MediumScaleProcessing
   "Processing that takes place at medium scales (as specified by some criteria)"
@@ -5374,15 +4768,15 @@
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing that takes place at medium scales (as specified by some criteria)"},
-   :rdf/type [:dpvo/ProcessingScale :owl/NamedIndividual],
+   "Processing that takes place at medium scales (as specified by some criteria)",
+   :rdf/type [:dpvo/ProcessingScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Medium Scale Processing"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Medium Scale Processing",
+   :vs/term_status "accepted"})
 
 (def Member
   "Data subjects that are members of a group, organisation, or other collectives"
@@ -5394,16 +4788,16 @@
                      "Georg P. Krog"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data subjects that are members of a group, organisation, or other collectives"},
+   "Data subjects that are members of a group, organisation, or other collectives",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Member"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Member",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Member
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def MemberPartnerManagement
   "Purposes associated with maintaining a registry of shareholders, members, or partners for governance, administration, and management functions"
@@ -5412,118 +4806,115 @@
    :dcterms/creator
    ["Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan" "David Hickey"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with maintaining a registry of shareholders, members, or partners for governance, administration, and management functions"},
+   "Purposes associated with maintaining a registry of shareholders, members, or partners for governance, administration, and management functions",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Members and Partners Management"},
-   :rdfs/subClassOf :dpvo/OrganisationGovernance,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Members and Partners Management",
+   :rdfs/subClassOf
+   [:dpvo/OrganisationGovernance :dpvo/MemberPartnerManagement :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def MentallyVulnerableDataSubject
   "Data subjects that are considered mentally vulnerable"
-  {:db/ident :dpvo/MentallyVulnerableDataSubject,
-   :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
-   :dcterms/creator "Georg P Krog",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Data subjects that are considered mentally vulnerable"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Mentally Vulnerable Data Subject"},
-   :rdfs/subClassOf :dpvo/VulnerableDataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/MentallyVulnerableDataSubject,
+   :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
+   :dcterms/creator     "Georg P Krog",
+   :dcterms/description "Data subjects that are considered mentally vulnerable",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Mentally Vulnerable Data Subject",
+   :rdfs/subClassOf     [:dpvo/VulnerableDataSubject
+                         :dpvo/MentallyVulnerableDataSubject
+                         :dpvo/DataSubject
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def MessageAuthenticationCodes
   "Use of cryptographic methods to authenticate messages"
   {:db/ident :dpvo/MessageAuthenticationCodes,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Use of cryptographic methods to authenticate messages"},
+   :dcterms/description "Use of cryptographic methods to authenticate messages",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Message Authentication Codes (MAC)"},
-   :rdfs/subClassOf :dpvo/CryptographicAuthentication,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Message Authentication Codes (MAC)",
+   :rdfs/subClassOf [:dpvo/CryptographicAuthentication
+                     :dpvo/MessageAuthenticationCodes
+                     :dpvo/AuthenticationProtocols
+                     :dpvo/CryptographicMethods
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def MobilePlatformSecurity
   "Security implemented over a mobile platform"
   {:db/ident :dpvo/MobilePlatformSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Security implemented over a mobile platform"},
+   :dcterms/description "Security implemented over a mobile platform",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Mobile Platform Security"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Mobile Platform Security",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/MobilePlatformSecurity
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Modify
   "to modify or change data"
   {:db/ident            :dpvo/Modify,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to modify or change data"},
+   :dcterms/description "to modify or change data",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Modify"},
-   :rdfs/subClassOf     :dpvo/Alter,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Modify",
+   :rdfs/subClassOf     [:dpvo/Alter
+                         :dpvo/Modify
+                         :dpvo/Processing
+                         :dpvo/Transform],
+   :vs/term_status      "accepted"})
 
 (def Monitor
   "to monitor data for some criteria"
   {:db/ident            :dpvo/Monitor,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to monitor data for some criteria"},
+   :dcterms/description "to monitor data for some criteria",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Monitor"},
-   :rdfs/subClassOf     :dpvo/Consult,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Monitor",
+   :rdfs/subClassOf     [:dpvo/Consult
+                         :dpvo/Monitor
+                         :dpvo/Processing
+                         :dpvo/Use],
+   :vs/term_status      "accepted"})
 
 (def MonitoringPolicies
   "Policy for monitoring (e.g. progress, performance)"
   {:db/ident :dpvo/MonitoringPolicies,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Policy for monitoring (e.g. progress, performance)"},
+   :dcterms/description "Policy for monitoring (e.g. progress, performance)",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Monitoring Policies"},
-   :rdfs/subClassOf :dpvo/GovernanceProcedures,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Monitoring Policies",
+   :rdfs/subClassOf [:dpvo/GovernanceProcedures
+                     :dpvo/MonitoringPolicies
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def MonotonicCounterPseudonymisation
   "A simple pseudonymisation method where identifiers are substituted by a number chosen by a monotonic counter"
@@ -5531,37 +4922,34 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A simple pseudonymisation method where identifiers are substituted by a number chosen by a monotonic counter"},
+   "A simple pseudonymisation method where identifiers are substituted by a number chosen by a monotonic counter",
    :dcterms/modified #inst "2022-10-13T00:00:00.000-04:00",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Monotonic Counter Pseudonymisation"},
-   :rdfs/subClassOf :dpvo/Pseudonymisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Monotonic Counter Pseudonymisation",
+   :rdfs/subClassOf [:dpvo/Pseudonymisation
+                     :dpvo/MonotonicCounterPseudonymisation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
+                     :dpvo/Deidentification],
+   :vs/term_status "modified"})
 
 (def Move
   "to move data from one location to another including deleting the original copy"
   {:db/ident :dpvo/Move,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "to move data from one location to another including deleting the original copy"},
+   "to move data from one location to another including deleting the original copy",
    :dcterms/source "https://specialprivacy.ercim.eu/vocabs/processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Move"},
+   :rdfs/label "Move",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/processing#Move"],
-   :rdfs/subClassOf :dpvo/Transfer,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Transfer :dpvo/Move :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def MultiFactorAuthentication
   "An authentication system that uses two or more methods to authenticate"
@@ -5569,33 +4957,32 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An authentication system that uses two or more methods to authenticate"},
+   "An authentication system that uses two or more methods to authenticate",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Multi-Factor Authentication (MFA)"},
-   :rdfs/subClassOf :dpvo/AuthenticationProtocols,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Multi-Factor Authentication (MFA)",
+   :rdfs/subClassOf [:dpvo/AuthenticationProtocols
+                     :dpvo/MultiFactorAuthentication
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def MultiNationalScale
   "Geographic coverage spanning multiple nations"
   {:db/ident            :dpvo/MultiNationalScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Geographic coverage spanning multiple nations"},
-   :rdf/type            [:dpvo/GeographicCoverage :owl/NamedIndividual],
+   :dcterms/description "Geographic coverage spanning multiple nations",
+   :rdf/type            [:dpvo/GeographicCoverage
+                         :owl/NamedIndividual
+                         :dpvo/Scale
+                         :dpvo/ProcessingContext
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Multi National Scale"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Multi National Scale",
+   :vs/term_status      "accepted"})
 
 (def NDA
   "Non-disclosure Agreements e.g. preserving confidentiality of information"
@@ -5604,16 +4991,15 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Rob Brennan" "Axel Polleres" "Mark Lizar"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Non-disclosure Agreements e.g. preserving confidentiality of information"},
+   "Non-disclosure Agreements e.g. preserving confidentiality of information",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non-Disclosure Agreement (NDA)"},
-   :rdfs/subClassOf :dpvo/LegalAgreement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Non-Disclosure Agreement (NDA)",
+   :rdfs/subClassOf [:dpvo/LegalAgreement
+                     :dpvo/NDA
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def NationalAuthority
   "An authority tasked with overseeing legal compliance for a nation"
@@ -5621,61 +5007,60 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An authority tasked with overseeing legal compliance for a nation"},
+   "An authority tasked with overseeing legal compliance for a nation",
    :dcterms/source "http://purl.org/adms",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "National Authority"},
-   :rdfs/subClassOf :dpvo/Authority,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "National Authority",
+   :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/NationalAuthority
+                     :dpvo/GovernmentalOrganisation
+                     :dpvo/Organisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def NationalScale
   "Geographic coverage spanning a nation"
   {:db/ident            :dpvo/NationalScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Geographic coverage spanning a nation"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/GeographicCoverage],
+   :dcterms/description "Geographic coverage spanning a nation",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/GeographicCoverage
+                         :dpvo/Scale
+                         :dpvo/ProcessingContext
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "National Scale"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "National Scale",
+   :vs/term_status      "accepted"})
 
 (def NaturalPerson
   "A human"
   {:db/ident            :dpvo/NaturalPerson,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "A human"},
+   :dcterms/description "A human",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Natural Person"},
-   :rdfs/subClassOf     :dpvo/Entity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Natural Person",
+   :rdfs/subClassOf     [:dpvo/Entity :dpvo/NaturalPerson],
+   :vs/term_status      "accepted"})
 
 (def NearlyGlobalScale
   "Geographic coverage nearly spanning the entire globe"
-  {:db/ident :dpvo/NearlyGlobalScale,
-   :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Geographic coverage nearly spanning the entire globe"},
-   :rdf/type [:owl/NamedIndividual :dpvo/GeographicCoverage],
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Nearly Global Scale"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/NearlyGlobalScale,
+   :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "Geographic coverage nearly spanning the entire globe",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/GeographicCoverage
+                         :dpvo/Scale
+                         :dpvo/ProcessingContext
+                         :dpvo/Context],
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Nearly Global Scale",
+   :vs/term_status      "accepted"})
 
 (def Necessity
   "An indication of 'necessity' within a context"
@@ -5686,55 +5071,48 @@
                      "Harshvardhan J. Pandit"
                      "Julian Flake"
                      "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "An indication of 'necessity' within a context"},
+   :dcterms/description "An indication of 'necessity' within a context",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Necessity can be used to express need, essentiality, requirement, or compulsion."},
+   "Necessity can be used to express need, essentiality, requirement, or compulsion.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Necessity"},
-   :rdfs/subClassOf :dpvo/Context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Necessity",
+   :rdfs/subClassOf [:dpvo/Context :dpvo/Necessity],
+   :vs/term_status "accepted"})
 
 (def NetworkProxyRouting
   "Use of network routing using proxy"
   {:db/ident :dpvo/NetworkProxyRouting,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Use of network routing using proxy"},
+   :dcterms/description "Use of network routing using proxy",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Network Proxy Routing"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Network Proxy Routing",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/NetworkProxyRouting
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def NetworkSecurityProtocols
   "Security implemented at or over networks protocols"
   {:db/ident :dpvo/NetworkSecurityProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Security implemented at or over networks protocols"},
+   :dcterms/description "Security implemented at or over networks protocols",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Network Security Protocols"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Network Security Protocols",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/NetworkSecurityProtocols
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def NonCitizen
   "Data subjects that are not citizens (for a jurisdiction)"
@@ -5746,15 +5124,16 @@
                      "Julian Flake"
                      "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Data subjects that are not citizens (for a jurisdiction)"},
+   "Data subjects that are not citizens (for a jurisdiction)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non-Citizen"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Non-Citizen",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/NonCitizen
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def NonCommercialResearch
   "Purposes associated with conducting research in a non-commercial setting e.g. for a non-profit-organisation (NGO)"
@@ -5767,16 +5146,13 @@
                      "Javier Fernandez"
                      "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting research in a non-commercial setting e.g. for a non-profit-organisation (NGO)"},
+   "Purposes associated with conducting research in a non-commercial setting e.g. for a non-profit-organisation (NGO)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non-Commercial Research"},
-   :rdfs/subClassOf :dpvo/ResearchAndDevelopment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Non-Commercial Research",
+   :rdfs/subClassOf
+   [:dpvo/ResearchAndDevelopment :dpvo/NonCommercialResearch :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def NonCompliant
   "State of non-compliance where objectives have not been met, but have not been violated"
@@ -5784,34 +5160,29 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of non-compliance where objectives have not been met, but have not been violated"},
+   "State of non-compliance where objectives have not been met, but have not been violated",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
-   :rdf/type [:dpvo/ComplianceStatus :owl/NamedIndividual],
+   :rdf/type
+   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Changed from not compliant for consistency in commonly used terms"},
+   "Changed from not compliant for consistency in commonly used terms",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non Compliant"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "changed"}})
+   :rdfs/label "Non Compliant",
+   :vs/term_status "changed"})
 
 (def NonConformant
   "State of being non-conformant"
   {:db/ident            :dpvo/NonConformant,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "State of being non-conformant"},
-   :rdf/type            [:dpvo/ConformanceStatus :owl/NamedIndividual],
+   :dcterms/description "State of being non-conformant",
+   :rdf/type            [:dpvo/ConformanceStatus
+                         :owl/NamedIndividual
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "NonConformant"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "NonConformant",
+   :vs/term_status      "accepted"})
 
 (def NonGovernmentalOrganisation
   "An organisation not part of or independent from the government"
@@ -5819,53 +5190,46 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An organisation not part of or independent from the government"},
+   "An organisation not part of or independent from the government",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :dcterms/source "http://purl.org/adms",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non-Governmental Organisation"},
-   :rdfs/subClassOf :dpvo/Organisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Non-Governmental Organisation",
+   :rdfs/subClassOf [:dpvo/Organisation
+                     :dpvo/NonGovernmentalOrganisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "modified"})
 
 (def NonMaterialDamage
   "Impact that acts as or causes non-material damages"
   {:db/ident            :dpvo/NonMaterialDamage,
    :dcterms/created     #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Impact that acts as or causes non-material damages"},
+   :dcterms/description "Impact that acts as or causes non-material damages",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Non-Material Damage"},
-   :rdfs/subClassOf     :dpvo/Damage,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Non-Material Damage",
+   :rdfs/subClassOf     [:dpvo/Damage
+                         :dpvo/NonMaterialDamage
+                         :dpvo/Consequence
+                         :dpvo/Impact],
+   :vs/term_status      "accepted"})
 
 (def NonPersonalData
   "Data that is not Personal Data"
   {:db/ident :dpvo/NonPersonalData,
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Data that is not Personal Data"},
+   :dcterms/description "Data that is not Personal Data",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The term NonPersonalData is provided to distinguish between PersonalData and other data, e.g. for indicating which data is regulated by privacy laws. To specify personal data that has been anonymised, the concept AnonymisedData should be used."},
+   "The term NonPersonalData is provided to distinguish between PersonalData and other data, e.g. for indicating which data is regulated by privacy laws. To specify personal data that has been anonymised, the concept AnonymisedData should be used.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non-Personal Data"},
-   :rdfs/subClassOf :dpvo/Data,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Non-Personal Data",
+   :rdfs/subClassOf [:dpvo/Data :dpvo/NonPersonalData],
+   :vs/term_status "accepted"})
 
 (def NonProfitOrganisation
   "An organisation that does not aim to achieve profit as its primary goal"
@@ -5873,18 +5237,17 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An organisation that does not aim to achieve profit as its primary goal"},
+   "An organisation that does not aim to achieve profit as its primary goal",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :dcterms/source "http://purl.org/adms",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non-Profit Organisation"},
-   :rdfs/subClassOf :dpvo/Organisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Non-Profit Organisation",
+   :rdfs/subClassOf [:dpvo/Organisation
+                     :dpvo/NonProfitOrganisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "modified"})
 
 (def NonPublicDataSource
   "A source of data that is not publicly accessible or available"
@@ -5896,14 +5259,14 @@
                      "Georg P Krog"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "A source of data that is not publicly accessible or available"},
-   :rdf/type [:dpvo/DataSource :owl/NamedIndividual],
+   "A source of data that is not publicly accessible or available",
+   :rdf/type [:dpvo/DataSource
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Non-Public Data Source"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Non-Public Data Source",
+   :vs/term_status "accepted"})
 
 (def NotRequired
   "Indication of neither being required nor optional i.e. not relevant or needed"
@@ -5915,15 +5278,11 @@
                      "Harshvardhan J. Pandit"
                      "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indication of neither being required nor optional i.e. not relevant or needed"},
-   :rdf/type [:owl/NamedIndividual :dpvo/Necessity],
+   "Indication of neither being required nor optional i.e. not relevant or needed",
+   :rdf/type [:owl/NamedIndividual :dpvo/Necessity :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Not Required"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Not Required",
+   :vs/term_status "accepted"})
 
 (def Notice
   "A notice is an artefact for providing information, choices, or controls"
@@ -5932,16 +5291,14 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Georg P Krog" "David Hickey" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A notice is an artefact for providing information, choices, or controls"},
+   "A notice is an artefact for providing information, choices, or controls",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Notice"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Notice",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/Notice
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Obligation
   "A rule describing an obligation for performing an activity"
@@ -5950,30 +5307,24 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A rule describing an obligation for performing an activity"},
+   "A rule describing an obligation for performing an activity",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Obligation"},
-   :rdfs/subClassOf :dpvo/Rule,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Obligation",
+   :rdfs/subClassOf [:dpvo/Rule :dpvo/Obligation],
+   :vs/term_status "accepted"})
 
 (def Observe
   "to obtain data through observation"
   {:db/ident            :dpvo/Observe,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to obtain data through observation"},
+   :dcterms/description "to obtain data through observation",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Observe"},
-   :rdfs/subClassOf     :dpvo/Obtain,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Observe",
+   :rdfs/subClassOf     [:dpvo/Obtain :dpvo/Observe :dpvo/Processing],
+   :vs/term_status      "accepted"})
 
 (def ObservedPersonalData
   "Personal Data that has been collected through observation of the Data Subject(s)"
@@ -5981,31 +5332,27 @@
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Personal Data that has been collected through observation of the Data Subject(s)"},
+   "Personal Data that has been collected through observation of the Data Subject(s)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Observed Personal Data"},
-   :rdfs/subClassOf :dpvo/CollectedPersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Observed Personal Data",
+   :rdfs/subClassOf [:dpvo/CollectedPersonalData
+                     :dpvo/ObservedPersonalData
+                     :dpvo/Data
+                     :dpvo/PersonalData],
+   :vs/term_status "accepted"})
 
 (def Obtain
   "to solicit or gather data from someone"
   {:db/ident :dpvo/Obtain,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "to solicit or gather data from someone"},
+   :dcterms/description "to solicit or gather data from someone",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Obtain"},
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Obtain",
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Obtain],
+   :vs/term_status "accepted"})
 
 (def OfficialAuthorityOfController
   "Processing necessary or authorised through the official authority granted to or vested in the Data Controller"
@@ -6013,16 +5360,12 @@
    :dcterms/created #inst "2021-05-05T00:00:00.000-04:00",
    :dcterms/creator ["Paul Ryan" "Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing necessary or authorised through the official authority granted to or vested in the Data Controller"},
+   "Processing necessary or authorised through the official authority granted to or vested in the Data Controller",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Official Authority of Controller"},
-   :rdfs/subClassOf :dpvo/LegalBasis,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Official Authority of Controller",
+   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo/OfficialAuthorityOfController],
+   :vs/term_status "accepted"})
 
 (def OftenFrequency
   "Frequency where occurences are often or frequent, but not continous"
@@ -6030,35 +5373,30 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Frequency where occurences are often or frequent, but not continous"},
+   "Frequency where occurences are often or frequent, but not continous",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Often Frequency"},
-   :rdfs/subClassOf :dpvo/Frequency,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Often Frequency",
+   :rdfs/subClassOf [:dpvo/Frequency :dpvo/OftenFrequency :dpvo/Context],
+   :vs/term_status "modified"})
 
 (def OperatingSystemSecurity
   "Security implemented at or through operating systems"
   {:db/ident :dpvo/OperatingSystemSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Security implemented at or through operating systems"},
+   :dcterms/description "Security implemented at or through operating systems",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Operating System Security"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Operating System Security",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/OperatingSystemSecurity
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def OptimisationForConsumer
   "Purposes associated with optimisation of activities and services for consumer or user"
@@ -6071,21 +5409,18 @@
                      "Axel Polleres"
                      "Simon Steyskal"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with optimisation of activities and services for consumer or user"},
+   "Purposes associated with optimisation of activities and services for consumer or user",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The term optmisation here refers to the efficiency of the service in terms of technical provision (or similar means) with benefits for everybody. Personalisation implies making changes that benefit the current user or persona."},
+   "The term optmisation here refers to the efficiency of the service in terms of technical provision (or similar means) with benefits for everybody. Personalisation implies making changes that benefit the current user or persona.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Optimisation for Consumer"},
+   :rdfs/label "Optimisation for Consumer",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Custom"],
-   :rdfs/subClassOf :dpvo/ServiceOptimisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/ServiceOptimisation
+                     :dpvo/OptimisationForConsumer
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def OptimisationForController
   "Purposes associated with optimisation of activities and services for provider or controller"
@@ -6098,16 +5433,15 @@
                      "Simon Steyskal"
                      "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with optimisation of activities and services for provider or controller"},
+   "Purposes associated with optimisation of activities and services for provider or controller",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Optimisation for Controller"},
-   :rdfs/subClassOf :dpvo/ServiceOptimisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Optimisation for Controller",
+   :rdfs/subClassOf [:dpvo/ServiceOptimisation
+                     :dpvo/OptimisationForController
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def OptimiseUserInterface
   "Purposes associated with optimisation of interfaces presented to the user"
@@ -6120,16 +5454,16 @@
                      "Fajar Ekaputra"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with optimisation of interfaces presented to the user"},
+   "Purposes associated with optimisation of interfaces presented to the user",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Optimise User Interface"},
-   :rdfs/subClassOf :dpvo/OptimisationForConsumer,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Optimise User Interface",
+   :rdfs/subClassOf [:dpvo/OptimisationForConsumer
+                     :dpvo/OptimiseUserInterface
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation],
+   :vs/term_status "accepted"})
 
 (def Optional
   "Indication of 'optional' or 'voluntary'"
@@ -6140,14 +5474,11 @@
                          "Paul Ryan"
                          "Harshvardhan J. Pandit"
                          "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Indication of 'optional' or 'voluntary'"},
-   :rdf/type            [:dpvo/Necessity :owl/NamedIndividual],
+   :dcterms/description "Indication of 'optional' or 'voluntary'",
+   :rdf/type            [:dpvo/Necessity :owl/NamedIndividual :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Optional"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Optional",
+   :vs/term_status      "accepted"})
 
 (def Organisation
   "A general term reflecting a company or a business or a group acting as a unit"
@@ -6155,16 +5486,12 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A general term reflecting a company or a business or a group acting as a unit"},
+   "A general term reflecting a company or a business or a group acting as a unit",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Organisation"},
-   :rdfs/subClassOf :dpvo/LegalEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Organisation",
+   :rdfs/subClassOf [:dpvo/LegalEntity :dpvo/Organisation :dpvo/Entity],
+   :vs/term_status "accepted"})
 
 (def OrganisationComplianceManagement
   "Purposes associated with managing compliance for organisation in relation to internal policies"
@@ -6173,20 +5500,16 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Georg P Krog" "Paul Ryan" "David Hickey"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with managing compliance for organisation in relation to internal policies"},
+   "Purposes associated with managing compliance for organisation in relation to internal policies",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Note that this concept relates to internal organisational compliance. The concept LegalCompliance should be used for external legal or regulatory compliance."},
+   "Note that this concept relates to internal organisational compliance. The concept LegalCompliance should be used for external legal or regulatory compliance.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Organisation Compliance Management"},
-   :rdfs/subClassOf :dpvo/OrganisationGovernance,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Organisation Compliance Management",
+   :rdfs/subClassOf [:dpvo/OrganisationGovernance
+                     :dpvo/OrganisationComplianceManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def OrganisationGovernance
   "Purposes associated with conducting activities and functions for governance of an organisation"
@@ -6195,18 +5518,14 @@
    :dcterms/creator
    ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit" "David Hickey"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting activities and functions for governance of an organisation"},
+   "Purposes associated with conducting activities and functions for governance of an organisation",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Organisation Governance"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Organisation Governance",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/OrganisationGovernance],
+   :vs/term_status "accepted"})
 
 (def OrganisationRiskManagement
   "Purposes associated with managing risk for organisation's activities"
@@ -6215,16 +5534,14 @@
    :dcterms/creator
    ["Paul Ryan" "David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with managing risk for organisation's activities"},
+   "Purposes associated with managing risk for organisation's activities",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Organisation Risk Management"},
-   :rdfs/subClassOf :dpvo/OrganisationGovernance,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Organisation Risk Management",
+   :rdfs/subClassOf [:dpvo/OrganisationGovernance
+                     :dpvo/OrganisationRiskManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def OrganisationalMeasure
   "Organisational measures required/followed when processing data of the declared category"
@@ -6233,16 +5550,13 @@
    :dcterms/creator
    ["Mark Lizar" "Axel Polleres" "Rob Brennan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Organisational measures required/followed when processing data of the declared category"},
+   "Organisational measures required/followed when processing data of the declared category",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Organisational Measure"},
-   :rdfs/subClassOf :dpvo/TechnicalOrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Organisational Measure",
+   :rdfs/subClassOf [:dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/OrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def OrganisationalUnit
   "Entity within an organisation that does not constitute as a separate legal entity"
@@ -6250,32 +5564,24 @@
    :dcterms/created #inst "2022-03-23T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Entity within an organisation that does not constitute as a separate legal entity"},
+   "Entity within an organisation that does not constitute as a separate legal entity",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Organisational Unit"},
-   :rdfs/subClassOf :dpvo/Entity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Organisational Unit",
+   :rdfs/subClassOf [:dpvo/Entity :dpvo/OrganisationalUnit],
+   :vs/term_status "accepted"})
 
 (def Organise
   "to organize data for arranging or classifying"
   {:db/ident :dpvo/Organise,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "to organize data for arranging or classifying"},
+   :dcterms/description "to organize data for arranging or classifying",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Organise"},
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Organise",
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Organise],
+   :vs/term_status "accepted"})
 
 (def PIA
   "Carrying out an impact assessment regarding privacy risks"
@@ -6283,31 +5589,32 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Carrying out an impact assessment regarding privacy risks"},
+   "Carrying out an impact assessment regarding privacy risks",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Privacy Impact Assessment"},
-   :rdfs/subClassOf :dpvo/ImpactAssessment,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Privacy Impact Assessment",
+   :rdfs/subClassOf [:dpvo/ImpactAssessment
+                     :dpvo/PIA
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Assessment],
+   :vs/term_status "accepted"})
 
 (def ParentOfDataSubject
   "Parent(s) of data subjects such as children"
   {:db/ident            :dpvo/ParentOfDataSubject,
    :dcterms/created     #inst "2022-08-03T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Parent(s) of data subjects such as children"},
+   :dcterms/description "Parent(s) of data subjects such as children",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Parent(s) of Data Subject"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Parent(s) of Data Subject",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/ParentOfDataSubject
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def PartiallyAutomatedProcessing
   "Processing that is partially automated or semi-automated"
@@ -6315,18 +5622,16 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Processing that is partially automated or semi-automated"},
-   :rdf/type [:dpvo/AutomationOfProcessing :owl/NamedIndividual],
+   "Processing that is partially automated or semi-automated",
+   :rdf/type [:dpvo/AutomationOfProcessing
+              :owl/NamedIndividual
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "For example, a series of distinct processing operations that are automated individually or have some human involvement"},
+   "For example, a series of distinct processing operations that are automated individually or have some human involvement",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Partially Automated Processing"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Partially Automated Processing",
+   :vs/term_status "accepted"})
 
 (def PartiallyCompliant
   "State of partially being compliant i.e. only some objectives have been met, and others have not been in violation"
@@ -6334,15 +5639,12 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of partially being compliant i.e. only some objectives have been met, and others have not been in violation"},
-   :rdf/type [:dpvo/ComplianceStatus :owl/NamedIndividual],
+   "State of partially being compliant i.e. only some objectives have been met, and others have not been in violation",
+   :rdf/type
+   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Partially Compliant"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Partially Compliant",
+   :vs/term_status "accepted"})
 
 (def Participant
   "Data subjects that participate in some context such as volunteers in a function"
@@ -6354,16 +5656,16 @@
                      "Beatriz Esteves"
                      "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data subjects that participate in some context such as volunteers in a function"},
+   "Data subjects that participate in some context such as volunteers in a function",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Participant"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Participant",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Participant
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def PassiveRight
   "The right(s) applicable, provided, or expected that are always (passively) applicable"
@@ -6372,38 +5674,31 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Beatriz Esteves" "Harshvardhan J Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The right(s) applicable, provided, or expected that are always (passively) applicable"},
+   "The right(s) applicable, provided, or expected that are always (passively) applicable",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Passive rights do not require the entity to request or exercise them. They are considered to be always applicable. For example, the Right to Privacy (in EU) does not require an exercise for it to be fulfilled."},
+   "Passive rights do not require the entity to request or exercise them. They are considered to be always applicable. For example, the Right to Privacy (in EU) does not require an exercise for it to be fulfilled.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Passive Right"},
-   :rdfs/subClassOf :dpvo/Right,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Passive Right",
+   :rdfs/subClassOf [:dpvo/Right :dpvo/PassiveRight],
+   :vs/term_status "accepted"})
 
 (def PasswordAuthentication
   "Use of passwords to perform authentication"
   {:db/ident :dpvo/PasswordAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Use of passwords to perform authentication"},
+   :dcterms/description "Use of passwords to perform authentication",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Password Authentication"},
-   :rdfs/subClassOf :dpvo/AuthenticationProtocols,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Password Authentication",
+   :rdfs/subClassOf [:dpvo/AuthenticationProtocols
+                     :dpvo/PasswordAuthentication
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Patient
   "Data subjects that receive medican attention, treatment, care, advice, or other health related services"
@@ -6415,16 +5710,16 @@
                      "Georg P. Krog"
                      "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data subjects that receive medican attention, treatment, care, advice, or other health related services"},
+   "Data subjects that receive medican attention, treatment, care, advice, or other health related services",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Patient"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Patient",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Patient
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def PaymentManagement
   "Purposes associated with processing and managing payment in relation to service, including invoicing and records"
@@ -6432,16 +5727,13 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Beatriz Esteves" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with processing and managing payment in relation to service, including invoicing and records"},
+   "Purposes associated with processing and managing payment in relation to service, including invoicing and records",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Payment Management"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Payment Management",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/PaymentManagement :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def PenetrationTestingMethods
   "Use of penetration testing to identity weaknessess and vulnerabilities through simulations"
@@ -6449,35 +5741,32 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of penetration testing to identity weaknessess and vulnerabilities through simulations"},
+   "Use of penetration testing to identity weaknessess and vulnerabilities through simulations",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Penetration Testing Methods"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Penetration Testing Methods",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/PenetrationTestingMethods
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Permission
   "A rule describing a permission to perform an activity"
-  {:db/ident :dpvo/Permission,
-   :dcterms/created #inst "2022-10-19T00:00:00.000-04:00",
-   :dcterms/creator
-   ["Paul Ryan" "Beatriz Esteves" "Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A rule describing a permission to perform an activity"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Permission"},
-   :rdfs/subClassOf :dpvo/Rule,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/Permission,
+   :dcterms/created     #inst "2022-10-19T00:00:00.000-04:00",
+   :dcterms/creator     ["Paul Ryan"
+                         "Beatriz Esteves"
+                         "Georg P Krog"
+                         "Harshvardhan J. Pandit"],
+   :dcterms/description "A rule describing a permission to perform an activity",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Permission",
+   :rdfs/subClassOf     [:dpvo/Rule :dpvo/Permission],
+   :vs/term_status      "accepted"})
 
 (def PersonalData
   "Data directly or indirectly associated or related to an individual."
@@ -6485,23 +5774,17 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data directly or indirectly associated or related to an individual."},
+   "Data directly or indirectly associated or related to an individual.",
    :dcterms/modified #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_1/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This definition of personal data encompasses the concepts used in GDPR Art.4-1 for 'personal data' and ISO/IEC 2700 for 'personally identifiable information (PII)'."},
+   "This definition of personal data encompasses the concepts used in GDPR Art.4-1 for 'personal data' and ISO/IEC 2700 for 'personally identifiable information (PII)'.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personal Data"},
+   :rdfs/label "Personal Data",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/langs/usage-policy#AnyData"],
-   :rdfs/subClassOf :dpvo/Data,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Data :dpvo/PersonalData],
+   :vs/term_status "accepted"})
 
 (def PersonalDataHandling
   "A high-level Class to describe 'data handling'. This can consist of personal data being processed for a purpose, involving entities, using technical and organisational measures, applicable risks, rights, and legal basis."
@@ -6509,16 +5792,12 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Javier Fernández" "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A high-level Class to describe 'data handling'. This can consist of personal data being processed for a purpose, involving entities, using technical and organisational measures, applicable risks, rights, and legal basis."},
+   "A high-level Class to describe 'data handling'. This can consist of personal data being processed for a purpose, involving entities, using technical and organisational measures, applicable risks, rights, and legal basis.",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personal Data Handling"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Personal Data Handling",
+   :vs/term_status "accepted"})
 
 (def Personalisation
   "Purposes associated with creating and providing customisation based on attributes and/or needs of person(s) or context(s)."
@@ -6526,20 +5805,14 @@
    :dcterms/created #inst "2021-09-01T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with creating and providing customisation based on attributes and/or needs of person(s) or context(s)."},
+   "Purposes associated with creating and providing customisation based on attributes and/or needs of person(s) or context(s).",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This term is a blanket purpose category for indicating personalisation of some other purpose, e.g. by creating a subclass of the other concept and Personalisation"},
+   "This term is a blanket purpose category for indicating personalisation of some other purpose, e.g. by creating a subclass of the other concept and Personalisation",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personalisation"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Personalisation",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/Personalisation],
+   :vs/term_status "accepted"})
 
 (def PersonalisedAdvertising
   "Purposes associated with creating and providing personalised advertising"
@@ -6547,16 +5820,16 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with creating and providing personalised advertising"},
+   "Purposes associated with creating and providing personalised advertising",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personalised Advertising"},
-   :rdfs/subClassOf [:dpvo/Personalisation :dpvo/Advertising],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Personalised Advertising",
+   :rdfs/subClassOf [:dpvo/Personalisation
+                     :dpvo/Advertising
+                     :dpvo/PersonalisedAdvertising
+                     :dpvo/Marketing
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def PersonalisedBenefits
   "Purposes associated with creating and providing personalised benefits for a service"
@@ -6569,16 +5842,16 @@
                      "Harshvardhan J. Pandit"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with creating and providing personalised benefits for a service"},
+   "Purposes associated with creating and providing personalised benefits for a service",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personalised Benefits"},
-   :rdfs/subClassOf :dpvo/ServicePersonalisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Personalised Benefits",
+   :rdfs/subClassOf [:dpvo/ServicePersonalisation
+                     :dpvo/PersonalisedBenefits
+                     :dpvo/Personalisation
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def PersonnelHiring
   "Purposes associated with management and execution of hiring processes of personnel"
@@ -6586,16 +5859,15 @@
    :dcterms/created #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with management and execution of hiring processes of personnel"},
+   "Purposes associated with management and execution of hiring processes of personnel",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personnel Hiring"},
-   :rdfs/subClassOf :dpvo/PersonnelManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Personnel Hiring",
+   :rdfs/subClassOf [:dpvo/PersonnelManagement
+                     :dpvo/PersonnelHiring
+                     :dpvo/HumanResourceManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def PersonnelManagement
   "Purposes associated with management of personnel associated with the organisation e.g. evaluation and management of employees and intermediaries"
@@ -6603,18 +5875,15 @@
    :dcterms/created #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with management of personnel associated with the organisation e.g. evaluation and management of employees and intermediaries"},
+   "Purposes associated with management of personnel associated with the organisation e.g. evaluation and management of employees and intermediaries",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personnel Management"},
-   :rdfs/subClassOf :dpvo/HumanResourceManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Personnel Management",
+   :rdfs/subClassOf
+   [:dpvo/HumanResourceManagement :dpvo/PersonnelManagement :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def PersonnelPayment
   "Purposes associated with management and execution of payment of personnel"
@@ -6622,16 +5891,15 @@
    :dcterms/created #inst "2022-04-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with management and execution of payment of personnel"},
+   "Purposes associated with management and execution of payment of personnel",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Personnel Payment"},
-   :rdfs/subClassOf :dpvo/PersonnelManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Personnel Payment",
+   :rdfs/subClassOf [:dpvo/PersonnelManagement
+                     :dpvo/PersonnelPayment
+                     :dpvo/HumanResourceManagement
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def PhysicalAccessControlMethod
   "Access control applied for physical access e.g. premises or equipement"
@@ -6639,16 +5907,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Access control applied for physical access e.g. premises or equipement"},
+   "Access control applied for physical access e.g. premises or equipement",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Physical Access Control Method"},
-   :rdfs/subClassOf :dpvo/AccessControlMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Physical Access Control Method",
+   :rdfs/subClassOf [:dpvo/AccessControlMethod
+                     :dpvo/PhysicalAccessControlMethod
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Policy
   "A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols."
@@ -6657,16 +5924,14 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Paul Ryan" "David Hickey" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols."},
+   "A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Policy"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Policy",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/Policy
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def PostQuantumCryptography
   "Use of algorithms that are intended to be secure against cryptanalytic attack by a quantum computer"
@@ -6674,18 +5939,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of algorithms that are intended to be secure against cryptanalytic attack by a quantum computer"},
+   "Use of algorithms that are intended to be secure against cryptanalytic attack by a quantum computer",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Post-Quantum Cryptography"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Post-Quantum Cryptography",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/PostQuantumCryptography
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def PrimaryImportance
   "Indication of 'primary' or 'main' or 'core' importance"
@@ -6697,14 +5961,11 @@
                      "Georg P Krog"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indication of 'primary' or 'main' or 'core' importance"},
-   :rdf/type [:dpvo/Importance :owl/NamedIndividual],
+   "Indication of 'primary' or 'main' or 'core' importance",
+   :rdf/type [:dpvo/Importance :owl/NamedIndividual :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Primary Importance"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Primary Importance",
+   :vs/term_status "accepted"})
 
 (def PrivacyByDefault
   "Practices regarding selecting appropriate data protection and privacy measures as the 'default' in an activity or service"
@@ -6713,16 +5974,15 @@
    :dcterms/creator
    ["Axel Polleres" "Mark Lizar" "Harshvardhan J. Pandit" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Practices regarding selecting appropriate data protection and privacy measures as the 'default' in an activity or service"},
+   "Practices regarding selecting appropriate data protection and privacy measures as the 'default' in an activity or service",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Privacy by Default"},
-   :rdfs/subClassOf :dpvo/GuidelinesPrinciple,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Privacy by Default",
+   :rdfs/subClassOf [:dpvo/GuidelinesPrinciple
+                     :dpvo/PrivacyByDefault
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def PrivacyByDesign
   "Practices regarding incorporating data protection and privacy in the design of information and services"
@@ -6731,16 +5991,14 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Axel Polleres" "Mark Lizar" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Practices regarding incorporating data protection and privacy in the design of information and services"},
+   "Practices regarding incorporating data protection and privacy in the design of information and services",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Privacy by Design"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Privacy by Design",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/PrivacyByDesign
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def PrivacyNotice
   "Represents a notice or document outlining information regarding privacy"
@@ -6749,16 +6007,15 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "David Hickey" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Represents a notice or document outlining information regarding privacy"},
+   "Represents a notice or document outlining information regarding privacy",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Privacy Notice"},
-   :rdfs/subClassOf :dpvo/Notice,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Privacy Notice",
+   :rdfs/subClassOf [:dpvo/Notice
+                     :dpvo/PrivacyNotice
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def PrivacyPreservingProtocol
   "Use of protocols designed with the intention of provided additional guarentees regarding privacy"
@@ -6766,18 +6023,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of protocols designed with the intention of provided additional guarentees regarding privacy"},
+   "Use of protocols designed with the intention of provided additional guarentees regarding privacy",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Privacy Preserving Protocol"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Privacy Preserving Protocol",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/PrivacyPreservingProtocol
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def PrivateInformationRetrieval
   "Use of cryptographic methods to retrieve a record from a system without revealing which record is retrieved"
@@ -6785,18 +6041,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of cryptographic methods to retrieve a record from a system without revealing which record is retrieved"},
+   "Use of cryptographic methods to retrieve a record from a system without revealing which record is retrieved",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Private Information Retrieval"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Private Information Retrieval",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/PrivateInformationRetrieval
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def PrivateLocation
   "Location that is not or cannot be accessed by the public and is controlled as a private space"
@@ -6804,35 +6059,31 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location that is not or cannot be accessed by the public and is controlled as a private space"},
+   "Location that is not or cannot be accessed by the public and is controlled as a private space",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Private Location"},
-   :rdfs/subClassOf :dpvo/LocalLocation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Private Location",
+   :rdfs/subClassOf [:dpvo/LocalLocation
+                     :dpvo/PrivateLocation
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
+   :vs/term_status "accepted"})
 
 (def Processing
   "The processing performed on personal data"
   {:db/ident :dpvo/Processing,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Axel Polleres" "Javier Fernández"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "The processing performed on personal data"},
+   :dcterms/description "The processing performed on personal data",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source "https://specialprivacy.ercim.eu/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Processing"},
+   :rdfs/label "Processing",
    :rdfs/seeAlso
    ["https://specialprivacy.ercim.eu/langs/usage-policy#AnyProcessing"],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf :dpvo/Processing,
+   :vs/term_status "accepted"})
 
 (def ProcessingContext
   "Context or conditions within which processing takes place"
@@ -6840,34 +6091,27 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Context or conditions within which processing takes place"},
+   "Context or conditions within which processing takes place",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Processing Context"},
-   :rdfs/subClassOf :dpvo/Context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Processing Context",
+   :rdfs/subClassOf [:dpvo/Context :dpvo/ProcessingContext],
+   :vs/term_status "accepted"})
 
 (def ProcessingScale
   "Scale of Processing"
   {:db/ident :dpvo/ProcessingScale,
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Piero Bonatti"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Scale of Processing"},
+   :dcterms/description "Scale of Processing",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The exact definition of what constitutes \"scale\" depends on use of jurisdictional, domain-specific, or other forms of externally defined criterias. Where possible, this should be reflected by extending the scales provided with the appropriate context."},
+   "The exact definition of what constitutes \"scale\" depends on use of jurisdictional, domain-specific, or other forms of externally defined criterias. Where possible, this should be reflected by extending the scales provided with the appropriate context.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Processing Scale"},
-   :rdfs/subClassOf :dpvo/Scale,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Processing Scale",
+   :rdfs/subClassOf
+   [:dpvo/Scale :dpvo/ProcessingScale :dpvo/Context :dpvo/ProcessingContext],
+   :vs/term_status "accepted"})
 
 (def ProfessionalTraining
   "Training methods that are intended to provide professional knowledge and expertise"
@@ -6875,34 +6119,30 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Training methods that are intended to provide professional knowledge and expertise"},
+   "Training methods that are intended to provide professional knowledge and expertise",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Professional Training"},
-   :rdfs/subClassOf :dpvo/StaffTraining,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Professional Training",
+   :rdfs/subClassOf [:dpvo/StaffTraining
+                     :dpvo/ProfessionalTraining
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Profiling
   "to create a profile that describes or represents a person"
   {:db/ident :dpvo/Profiling,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "to create a profile that describes or represents a person"},
+   "to create a profile that describes or represents a person",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Profiling"},
-   :rdfs/subClassOf :dpvo/Use,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Profiling",
+   :rdfs/subClassOf [:dpvo/Use :dpvo/Profiling :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Prohibition
   "A rule describing a prohibition to perform an activity"
@@ -6911,15 +6151,12 @@
    :dcterms/creator
    ["Beatriz Esteves" "Harshvardhan J. Pandit" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A rule describing a prohibition to perform an activity"},
+   "A rule describing a prohibition to perform an activity",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Prohibition"},
-   :rdfs/subClassOf :dpvo/Rule,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Prohibition",
+   :rdfs/subClassOf [:dpvo/Rule :dpvo/Prohibition],
+   :vs/term_status "accepted"})
 
 (def ProvideEventRecommendations
   "Purposes associated with creating and providing personalised recommendations for events"
@@ -6927,18 +6164,19 @@
    :dcterms/created #inst "2019-11-26T00:00:00.000-05:00",
    :dcterms/creator ["Rudy Jacob" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with creating and providing personalised recommendations for events"},
+   "Purposes associated with creating and providing personalised recommendations for events",
    :dcterms/modified #inst "2022-10-14T00:00:00.000-04:00",
    :dcterms/source "https://specialprivacy.ercim.eu/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Provide Event Recommendations"},
-   :rdfs/subClassOf :dpvo/ProvidePersonalisedRecommendations,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Provide Event Recommendations",
+   :rdfs/subClassOf [:dpvo/ProvidePersonalisedRecommendations
+                     :dpvo/ProvideEventRecommendations
+                     :dpvo/Personalisation
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision
+                     :dpvo/ServicePersonalisation],
+   :vs/term_status "accepted"})
 
 (def ProvidePersonalisedRecommendations
   "Purposes associated with creating and providing personalised recommendations"
@@ -6946,18 +6184,18 @@
    :dcterms/created #inst "2019-11-26T00:00:00.000-05:00",
    :dcterms/creator ["Rudy Jacob" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with creating and providing personalised recommendations"},
+   "Purposes associated with creating and providing personalised recommendations",
    :dcterms/modified #inst "2022-10-14T00:00:00.000-04:00",
    :dcterms/source "https://specialprivacy.ercim.eu/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Provide Personalised Recommendations"},
-   :rdfs/subClassOf :dpvo/ServicePersonalisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Provide Personalised Recommendations",
+   :rdfs/subClassOf [:dpvo/ServicePersonalisation
+                     :dpvo/ProvidePersonalisedRecommendations
+                     :dpvo/Personalisation
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def ProvideProductRecommendations
   "Purposes associated with creating and providing product recommendations e.g. suggest similar products"
@@ -6970,18 +6208,19 @@
                      "Harshvardhan J. Pandit"
                      "Elmar Kiesling"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with creating and providing product recommendations e.g. suggest similar products"},
+   "Purposes associated with creating and providing product recommendations e.g. suggest similar products",
    :dcterms/modified #inst "2022-10-14T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Provide Product Recommendations"},
+   :rdfs/label "Provide Product Recommendations",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Marketing"],
-   :rdfs/subClassOf :dpvo/ProvidePersonalisedRecommendations,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/ProvidePersonalisedRecommendations
+                     :dpvo/ProvideProductRecommendations
+                     :dpvo/Personalisation
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision
+                     :dpvo/ServicePersonalisation],
+   :vs/term_status "accepted"})
 
 (def Pseudonymisation
   "Pseudonymisation means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person;"
@@ -6990,18 +6229,18 @@
    :dcterms/creator
    ["Rob Brennan" "Axel Polleres" "Mark Lizar" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Pseudonymisation means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person;"},
+   "Pseudonymisation means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person;",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_5/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Pseudonymisation"},
-   :rdfs/subClassOf :dpvo/Deidentification,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Pseudonymisation",
+   :rdfs/subClassOf [:dpvo/Deidentification
+                     :dpvo/Pseudonymisation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique],
+   :vs/term_status "modified"})
 
 (def Pseudonymise
   "to replace personal identifiable information by artificial identifiers"
@@ -7009,17 +6248,13 @@
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/creator "2022-10-14",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "to replace personal identifiable information by artificial identifiers"},
+   "to replace personal identifiable information by artificial identifiers",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Pseudonymise"},
-   :rdfs/subClassOf :dpvo/Transform,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Pseudonymise",
+   :rdfs/subClassOf [:dpvo/Transform :dpvo/Pseudonymise :dpvo/Processing],
+   :vs/term_status "modified"})
 
 (def PseudonymisedData
   "Personal Data that has undergone a pseudonymisation process or a partial (incomplete) anonymisation process such that it is still considered Personal Data"
@@ -7027,16 +6262,12 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Personal Data that has undergone a pseudonymisation process or a partial (incomplete) anonymisation process such that it is still considered Personal Data"},
+   "Personal Data that has undergone a pseudonymisation process or a partial (incomplete) anonymisation process such that it is still considered Personal Data",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Pseudonymised Data"},
-   :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Pseudonymised Data",
+   :rdfs/subClassOf [:dpvo/PersonalData :dpvo/PseudonymisedData :dpvo/Data],
+   :vs/term_status "accepted"})
 
 (def PublicDataSource
   "A source of data that is publicly accessible or available"
@@ -7048,18 +6279,16 @@
                      "Georg P Krog"
                      "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A source of data that is publicly accessible or available"},
-   :rdf/type [:owl/NamedIndividual :dpvo/DataSource],
+   "A source of data that is publicly accessible or available",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/DataSource
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The term 'Public' is used here in a broad sense. Actual consideration of what is 'Public Data' can vary based on several contextual or jurisdictional factors such as  definition of open, methods of access, permissions and licenses."},
+   "The term 'Public' is used here in a broad sense. Actual consideration of what is 'Public Data' can vary based on several contextual or jurisdictional factors such as  definition of open, methods of access, permissions and licenses.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Public Data Source"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Public Data Source",
+   :vs/term_status "accepted"})
 
 (def PublicInterest
   "Processing is necessary or beneficial for interest of the public or society at large"
@@ -7067,32 +6296,27 @@
    :dcterms/created #inst "2021-04-21T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing is necessary or beneficial for interest of the public or society at large"},
+   "Processing is necessary or beneficial for interest of the public or society at large",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Public Interest"},
-   :rdfs/subClassOf :dpvo/LegalBasis,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Public Interest",
+   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo/PublicInterest],
+   :vs/term_status "accepted"})
 
 (def PublicLocation
   "Location that is or can be accessed by the public"
   {:db/ident            :dpvo/PublicLocation,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Location that is or can be accessed by the public"},
+   :dcterms/description "Location that is or can be accessed by the public",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Public Location"},
-   :rdfs/subClassOf     :dpvo/LocalLocation,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Public Location",
+   :rdfs/subClassOf     [:dpvo/LocalLocation
+                         :dpvo/PublicLocation
+                         :dpvo/LocationLocality
+                         :dpvo/Location],
+   :vs/term_status      "accepted"})
 
 (def PublicRelations
   "Purposes associated with managing and conducting public relations processes, including creating goodwill for the organisation"
@@ -7101,37 +6325,31 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog" "David Hickey"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with managing and conducting public relations processes, including creating goodwill for the organisation"},
+   "Purposes associated with managing and conducting public relations processes, including creating goodwill for the organisation",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Public Relations"},
-   :rdfs/subClassOf :dpvo/Marketing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Public Relations",
+   :rdfs/subClassOf [:dpvo/Marketing :dpvo/PublicRelations :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Purpose
   "The purpose of processing personal data"
   {:db/ident :dpvo/Purpose,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Javier Fernández" "Axel Polleres"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "The purpose of processing personal data"},
+   :dcterms/description "The purpose of processing personal data",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source "https://specialprivacy.ercim.eu/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Purpose"},
+   :rdfs/label "Purpose",
    :rdfs/seeAlso
    ["https://specialprivacy.ercim.eu/langs/usage-policy#AnyPurpose"],
+   :rdfs/subClassOf :dpvo/Purpose,
    :vann/example "https://w3id.org/dpv/examples#E0004",
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :vs/term_status "accepted"})
 
 (def QuantumCryptography
   "Cryptographic methods that utilise quantum mechanical properties to perform cryptographic tasks"
@@ -7139,33 +6357,29 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Cryptographic methods that utilise quantum mechanical properties to perform cryptographic tasks"},
+   "Cryptographic methods that utilise quantum mechanical properties to perform cryptographic tasks",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Quantum Cryptography"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Quantum Cryptography",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/QuantumCryptography
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Query
   "to query or make enquiries over data"
   {:db/ident            :dpvo/Query,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to query or make enquiries over data"},
+   :dcterms/description "to query or make enquiries over data",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Query"},
-   :rdfs/subClassOf     :dpvo/Consult,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Query",
+   :rdfs/subClassOf     [:dpvo/Consult :dpvo/Query :dpvo/Processing :dpvo/Use],
+   :vs/term_status      "accepted"})
 
 (def RNGPseudonymisation
   "A pseudonymisation method where identifiers are substituted by a number chosen by a Random Number Generator (RNG)"
@@ -7173,73 +6387,63 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A pseudonymisation method where identifiers are substituted by a number chosen by a Random Number Generator (RNG)"},
+   "A pseudonymisation method where identifiers are substituted by a number chosen by a Random Number Generator (RNG)",
    :dcterms/modified #inst "2022-10-13T00:00:00.000-04:00",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "RNG Pseudonymisation"},
-   :rdfs/subClassOf :dpvo/Pseudonymisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "RNG Pseudonymisation",
+   :rdfs/subClassOf [:dpvo/Pseudonymisation
+                     :dpvo/RNGPseudonymisation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure
+                     :dpvo/DataSanitisationTechnique
+                     :dpvo/Deidentification],
+   :vs/term_status "modified"})
 
 (def RandomLocation
   "Location that is random or unknown"
   {:db/ident            :dpvo/RandomLocation,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Location that is random or unknown"},
+   :dcterms/description "Location that is random or unknown",
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type            [:dpvo/LocationFixture :owl/NamedIndividual],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Random Location"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "modified"}})
+   :rdfs/label          "Random Location",
+   :vs/term_status      "modified"})
 
 (def Recipient
   "Entities that receive personal data"
   {:db/ident :dpvo/Recipient,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Axel Polleres" "Javier Fernández"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Entities that receive personal data"},
+   :dcterms/description "Entities that receive personal data",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source ["https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_9/oj"
                     "https://specialprivacy.ercim.eu/"],
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A recipient of personal data can be used to indicate any entity that receives personal data. This can be a Third Party, Processor (GDPR), or even a Controller."},
+   "A recipient of personal data can be used to indicate any entity that receives personal data. This can be a Third Party, Processor (GDPR), or even a Controller.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Recipient"},
+   :rdfs/label "Recipient",
    :rdfs/seeAlso
    ["https://specialprivacy.ercim.eu/langs/usage-policy#AnyRecipient"],
-   :rdfs/subClassOf :dpvo/LegalEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/LegalEntity :dpvo/Recipient :dpvo/Entity],
+   :vs/term_status "accepted"})
 
 (def Record
   "to make a record (especially media)"
   {:db/ident :dpvo/Record,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to make a record (especially media)"},
+   :dcterms/description "to make a record (especially media)",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Record"},
-   :rdfs/subClassOf :dpvo/Obtain,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Record",
+   :rdfs/subClassOf [:dpvo/Obtain :dpvo/Record :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def RecordManagement
   "Purposes associated with manage creation, storage, and use of records relevant to operations, events, and processes e.g. to store logs or access requests"
@@ -7248,20 +6452,14 @@
    :dcterms/creator
    ["David Hickey" "Harshvardhan J. Pandit" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with manage creation, storage, and use of records relevant to operations, events, and processes e.g. to store logs or access requests"},
+   "Purposes associated with manage creation, storage, and use of records relevant to operations, events, and processes e.g. to store logs or access requests",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This purpose relates specifiaclly for record creation and management. This can be combined or used along with other purposes to express intentions such as records for legal compliance or vendor payments."},
+   "This purpose relates specifiaclly for record creation and management. This can be combined or used along with other purposes to express intentions such as records for legal compliance or vendor payments.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Record Management"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Record Management",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/RecordManagement],
+   :vs/term_status "accepted"})
 
 (def RecordsOfActivities
   "Records of activities within some context such as maintainence tasks or governance functions"
@@ -7269,16 +6467,14 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Records of activities within some context such as maintainence tasks or governance functions"},
+   "Records of activities within some context such as maintainence tasks or governance functions",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Records of Activities"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Records of Activities",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/RecordsOfActivities
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Region
   "A region is an area or site that is considered a location"
@@ -7286,15 +6482,12 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "A region is an area or site that is considered a location"},
+   "A region is an area or site that is considered a location",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Region"},
-   :rdfs/subClassOf :dpvo/Location,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Region",
+   :rdfs/subClassOf [:dpvo/Location :dpvo/Region],
+   :vs/term_status "accepted"})
 
 (def RegionalAuthority
   "An authority tasked with overseeing legal compliance for a region"
@@ -7302,17 +6495,18 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An authority tasked with overseeing legal compliance for a region"},
+   "An authority tasked with overseeing legal compliance for a region",
    :dcterms/source "http://purl.org/adms",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Regional Authority"},
-   :rdfs/subClassOf :dpvo/Authority,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Regional Authority",
+   :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/RegionalAuthority
+                     :dpvo/GovernmentalOrganisation
+                     :dpvo/Organisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def RegionalScale
   "Geographic coverage spanning a specific region or regions"
@@ -7320,14 +6514,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Geographic coverage spanning a specific region or regions"},
-   :rdf/type [:owl/NamedIndividual :dpvo/GeographicCoverage],
+   "Geographic coverage spanning a specific region or regions",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/GeographicCoverage
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Regional Scale"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Regional Scale",
+   :vs/term_status "accepted"})
 
 (def RegisterOfProcessingActivities
   "A ROPA is a document maintained by Data Controllers detailing processing activities carried out under their responsibility"
@@ -7335,20 +6530,18 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A ROPA is a document maintained by Data Controllers detailing processing activities carried out under their responsibility"},
+   "A ROPA is a document maintained by Data Controllers detailing processing activities carried out under their responsibility",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Tied to compliance processes and documents, decide how to specify those"},
+   "Tied to compliance processes and documents, decide how to specify those",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Register of Processing Activities"},
-   :rdfs/subClassOf :dpvo/DataProcessingRecord,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Register of Processing Activities",
+   :rdfs/subClassOf [:dpvo/DataProcessingRecord
+                     :dpvo/RegisterOfProcessingActivities
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/RecordsOfActivities],
+   :vs/term_status "accepted"})
 
 (def RegularityOfRecertification
   "Policy regarding repetition or renewal of existing certification(s)"
@@ -7357,47 +6550,41 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Axel Polleres" "Rob Brennan" "Mark Lizar"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Policy regarding repetition or renewal of existing certification(s)"},
+   "Policy regarding repetition or renewal of existing certification(s)",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Regularity of Re-certification"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Regularity of Re-certification",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/RegularityOfRecertification
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def RemoteLocation
   "Location is remote i.e. not local"
   {:db/ident            :dpvo/RemoteLocation,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Location is remote i.e. not local"},
+   :dcterms/description "Location is remote i.e. not local",
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Remote Location"},
-   :rdfs/subClassOf     :dpvo/LocationLocality,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "modified"}})
+   :rdfs/label          "Remote Location",
+   :rdfs/subClassOf     [:dpvo/LocationLocality
+                         :dpvo/RemoteLocation
+                         :dpvo/Location],
+   :vs/term_status      "modified"})
 
 (def Remove
   "to destruct or erase data"
   {:db/ident :dpvo/Remove,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to destruct or erase data"},
+   :dcterms/description "to destruct or erase data",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Remove"},
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Remove",
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Remove],
+   :vs/term_status "accepted"})
 
 (def RenewedConsentGiven
   "The state where a previously given consent has been 'renewed' or 'refreshed' or 'reaffirmed' to form a new instance of given consent"
@@ -7406,20 +6593,18 @@
    :dcterms/creator
    ["Georg P Krog" "Julian Flake" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The state where a previously given consent has been 'renewed' or 'refreshed' or 'reaffirmed' to form a new instance of given consent"},
+   "The state where a previously given consent has been 'renewed' or 'refreshed' or 'reaffirmed' to form a new instance of given consent",
    :dcterms/source "https://w3id.org/GConsent",
-   :rdf/type [:owl/NamedIndividual :dpvo/ConsentStatusValidForProcessing],
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/ConsentStatusValidForProcessing
+              :dpvo/Status
+              :dpvo/ConsentStatus
+              :dpvo/Context],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of this state is when a previously given consent has expired, and the individual is presented a notice regarding continuing associated processing operations - to which they agree. This state can be useful to keep track of 'reconfirmed' or 'refreshed' consent within consent records, assist notices and contextual agents to create better consenting dialogues, and assist with specific legal obligations related to subsequent consenting"},
+   "An example of this state is when a previously given consent has expired, and the individual is presented a notice regarding continuing associated processing operations - to which they agree. This state can be useful to keep track of 'reconfirmed' or 'refreshed' consent within consent records, assist notices and contextual agents to create better consenting dialogues, and assist with specific legal obligations related to subsequent consenting",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Renewed Consent Given"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Renewed Consent Given",
+   :vs/term_status "accepted"})
 
 (def RepairImpairments
   "Purposes associated with identifying, rectifying, or otherwise undertaking activities intended to fix or repair impairments to existing functionalities"
@@ -7427,20 +6612,15 @@
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with identifying, rectifying, or otherwise undertaking activities intended to fix or repair impairments to existing functionalities"},
+   "Purposes associated with identifying, rectifying, or otherwise undertaking activities intended to fix or repair impairments to existing functionalities",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of identifying and rectifying impairments is the process of finding and fixing errors in products, commonly referred to as debugging"},
+   "An example of identifying and rectifying impairments is the process of finding and fixing errors in products, commonly referred to as debugging",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Repair Impairments"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Repair Impairments",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/RepairImpairments :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Representative
   "A representative of a legal entity"
@@ -7450,88 +6630,83 @@
                          "Paul Ryan"
                          "Harshvardhan J. Pandit"
                          "Beatriz Esteves"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "A representative of a legal entity"},
+   :dcterms/description "A representative of a legal entity",
    :dcterms/source      "https://eur-lex.europa.eu/eli/reg/2016/679/art_27/oj",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Representative"},
-   :rdfs/subClassOf     :dpvo/LegalEntity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Representative",
+   :rdfs/subClassOf     [:dpvo/LegalEntity :dpvo/Representative :dpvo/Entity],
+   :vs/term_status      "accepted"})
 
 (def RequestAccepted
   "State of a request being accepted towards fulfilment"
-  {:db/ident :dpvo/RequestAccepted,
-   :dcterms/created #inst "2022-11-30T00:00:00.000-05:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "State of a request being accepted towards fulfilment"},
-   :rdf/type [:dpvo/RequestStatus :owl/NamedIndividual],
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Request Accepted"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/RequestAccepted,
+   :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "State of a request being accepted towards fulfilment",
+   :rdf/type            [:dpvo/RequestStatus
+                         :owl/NamedIndividual
+                         :dpvo/Context
+                         :dpvo/Status],
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Request Accepted",
+   :vs/term_status      "accepted"})
 
 (def RequestAcknowledged
   "State of a request being acknowledged"
   {:db/ident            :dpvo/RequestAcknowledged,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "State of a request being acknowledged"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/RequestStatus],
+   :dcterms/description "State of a request being acknowledged",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/RequestStatus
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Request Acknowledged"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Request Acknowledged",
+   :vs/term_status      "accepted"})
 
 (def RequestActionDelayed
   "State of a request being delayed towards fulfilment"
   {:db/ident            :dpvo/RequestActionDelayed,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "State of a request being delayed towards fulfilment"},
-   :rdf/type            [:dpvo/RequestStatus :owl/NamedIndividual],
+   :dcterms/description "State of a request being delayed towards fulfilment",
+   :rdf/type            [:dpvo/RequestStatus
+                         :owl/NamedIndividual
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Request Action Delayed"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Request Action Delayed",
+   :vs/term_status      "accepted"})
 
 (def RequestFulfilled
   "State of a request being fulfilled"
   {:db/ident            :dpvo/RequestFulfilled,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "State of a request being fulfilled"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/RequestStatus],
+   :dcterms/description "State of a request being fulfilled",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/RequestStatus
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Request Fulfilled"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Request Fulfilled",
+   :vs/term_status      "accepted"})
 
 (def RequestInitiated
   "State of a request being initiated"
   {:db/ident            :dpvo/RequestInitiated,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "State of a request being initiated"},
-   :rdf/type            [:dpvo/RequestStatus :owl/NamedIndividual],
+   :dcterms/description "State of a request being initiated",
+   :rdf/type            [:dpvo/RequestStatus
+                         :owl/NamedIndividual
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Request Initiated"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Request Initiated",
+   :vs/term_status      "accepted"})
 
 (def RequestRejected
   "State of a request being rejected towards non-fulfilment"
@@ -7539,14 +6714,12 @@
    :dcterms/created #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "State of a request being rejected towards non-fulfilment"},
-   :rdf/type [:owl/NamedIndividual :dpvo/RequestStatus],
+   "State of a request being rejected towards non-fulfilment",
+   :rdf/type
+   [:owl/NamedIndividual :dpvo/RequestStatus :dpvo/Context :dpvo/Status],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Request Rejected"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Request Rejected",
+   :vs/term_status "accepted"})
 
 (def RequestRequiredActionPerformed
   "State of a request's required action having been performed by the other party"
@@ -7554,15 +6727,12 @@
    :dcterms/created #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of a request's required action having been performed by the other party"},
-   :rdf/type [:dpvo/RequestStatus :owl/NamedIndividual],
+   "State of a request's required action having been performed by the other party",
+   :rdf/type
+   [:dpvo/RequestStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Request Required Action Performed"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Request Required Action Performed",
+   :vs/term_status "accepted"})
 
 (def RequestRequiresAction
   "State of a request requiring an action to be performed from another party"
@@ -7570,59 +6740,52 @@
    :dcterms/created #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "State of a request requiring an action to be performed from another party"},
-   :rdf/type [:dpvo/RequestStatus :owl/NamedIndividual],
+   "State of a request requiring an action to be performed from another party",
+   :rdf/type
+   [:dpvo/RequestStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Request Requires Action"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Request Requires Action",
+   :vs/term_status "accepted"})
 
 (def RequestStatus
   "Status associated with requests"
   {:db/ident            :dpvo/RequestStatus,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Status associated with requests"},
+   :dcterms/description "Status associated with requests",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Request Status"},
-   :rdfs/subClassOf     :dpvo/Status,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Request Status",
+   :rdfs/subClassOf     [:dpvo/Status :dpvo/RequestStatus :dpvo/Context],
+   :vs/term_status      "accepted"})
 
 (def RequestStatusQuery
   "State of a request's status being queried"
   {:db/ident            :dpvo/RequestStatusQuery,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "State of a request's status being queried"},
-   :rdf/type            [:dpvo/RequestStatus :owl/NamedIndividual],
+   :dcterms/description "State of a request's status being queried",
+   :rdf/type            [:dpvo/RequestStatus
+                         :owl/NamedIndividual
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Request Status Query"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Request Status Query",
+   :vs/term_status      "accepted"})
 
 (def RequestUnfulfilled
   "State of a request being unfulfilled"
   {:db/ident            :dpvo/RequestUnfulfilled,
    :dcterms/created     #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "State of a request being unfulfilled"},
-   :rdf/type            [:dpvo/RequestStatus :owl/NamedIndividual],
+   :dcterms/description "State of a request being unfulfilled",
+   :rdf/type            [:dpvo/RequestStatus
+                         :owl/NamedIndividual
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Request Unfulfilled"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Request Unfulfilled",
+   :vs/term_status      "accepted"})
 
 (def RequestedServiceProvision
   "Purposes associated with delivering services as requested by user or consumer"
@@ -7630,20 +6793,15 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Beatriz Esteves" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with delivering services as requested by user or consumer"},
+   "Purposes associated with delivering services as requested by user or consumer",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The use of 'request' here includes where an user explicitly asks for the service and also when an established contract requires the provision of the service"},
+   "The use of 'request' here includes where an user explicitly asks for the service and also when an established contract requires the provision of the service",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Requested Service Provision"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Requested Service Provision",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/RequestedServiceProvision :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Required
   "Indication of 'required' or 'necessary'"
@@ -7654,14 +6812,11 @@
                          "Harshvardhan J. Pandit"
                          "Julian Flake"
                          "Beatriz Esteves"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Indication of 'required' or 'necessary'"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/Necessity],
+   :dcterms/description "Indication of 'required' or 'necessary'",
+   :rdf/type            [:owl/NamedIndividual :dpvo/Necessity :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Required"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Required",
+   :vs/term_status      "accepted"})
 
 (def ResearchAndDevelopment
   "Purposes associated with conducting research and development for new methods, products, or services"
@@ -7674,48 +6829,37 @@
                      "Elmar Kiesling"
                      "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting research and development for new methods, products, or services"},
+   "Purposes associated with conducting research and development for new methods, products, or services",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Research and Development"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Research and Development",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/ResearchAndDevelopment],
+   :vs/term_status "accepted"})
 
 (def Restrict
   "to apply a restriction on the processsing of specific records"
   {:db/ident :dpvo/Restrict,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "to apply a restriction on the processsing of specific records"},
+   "to apply a restriction on the processsing of specific records",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Restrict"},
-   :rdfs/subClassOf :dpvo/Transform,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Restrict",
+   :rdfs/subClassOf [:dpvo/Transform :dpvo/Restrict :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Retrieve
   "to retrieve data, often in an automated manner"
   {:db/ident :dpvo/Retrieve,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "to retrieve data, often in an automated manner"},
+   :dcterms/description "to retrieve data, often in an automated manner",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Retrieve"},
-   :rdfs/subClassOf :dpvo/Use,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Retrieve",
+   :rdfs/subClassOf [:dpvo/Use :dpvo/Retrieve :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def ReviewImpactAssessment
   "Procedures to review impact assessments in terms of continued validity, adequacy for intended purposes, and conformance of processes with findings"
@@ -7723,16 +6867,17 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Procedures to review impact assessments in terms of continued validity, adequacy for intended purposes, and conformance of processes with findings"},
+   "Procedures to review impact assessments in terms of continued validity, adequacy for intended purposes, and conformance of processes with findings",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Review Impact Assessment"},
-   :rdfs/subClassOf [:dpvo/ReviewProcedure :dpvo/ImpactAssessment],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Review Impact Assessment",
+   :rdfs/subClassOf [:dpvo/ReviewProcedure
+                     :dpvo/ImpactAssessment
+                     :dpvo/ReviewImpactAssessment
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Assessment],
+   :vs/term_status "accepted"})
 
 (def ReviewProcedure
   "A procedure or process that reviews the correctness and validity of other measures and processes"
@@ -7740,37 +6885,29 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A procedure or process that reviews the correctness and validity of other measures and processes"},
+   "A procedure or process that reviews the correctness and validity of other measures and processes",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Review Procedure"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Review Procedure",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/ReviewProcedure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Right
-  "The right(s) applicable, provided, or expected."
+  "The right(s) applicable, provided, or expected. The right(s) applicable, provided, or expected"
   {:db/ident :dpvo/Right,
    :dcterms/created #inst "2020-11-18T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Georg P Krog" "Harshvardhan J Pandit"],
-   :dcterms/description
-   [{:rdf/language "en",
-     :rdf/value    "The right(s) applicable, provided, or expected."}
-    {:rdf/language "en",
-     :rdf/value    "The right(s) applicable, provided, or expected"}],
+   :dcterms/description ["The right(s) applicable, provided, or expected."
+                         "The right(s) applicable, provided, or expected"],
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "A 'right' is a legal, social, or ethical principle of freedom or entitlement which dictate the norms regarding what is allowed or owed.. Rights as a concept encompass a broad area of norms and entities, and are not specific to Individuals or Data Protection / Privacy. For individual specific rights, see dpv:DataSubjectRight"},
+   "A 'right' is a legal, social, or ethical principle of freedom or entitlement which dictate the norms regarding what is allowed or owed.. Rights as a concept encompass a broad area of norms and entities, and are not specific to Individuals or Data Protection / Privacy. For individual specific rights, see dpv:DataSubjectRight",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Right"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Right",
+   :rdfs/subClassOf :dpvo/Right,
+   :vs/term_status "accepted"})
 
 (def RightExerciseActivity
   "An activity representing an exercising of an active right"
@@ -7779,18 +6916,13 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J Pandit" "Beatriz Esteves" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "An activity representing an exercising of an active right"},
+   "An activity representing an exercising of an active right",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "There may be multiple activities associated with exercising and fulfilling rights. See the RightExerciseRecord concept for record-keeping of such activities in a cohesive manner."},
+   "There may be multiple activities associated with exercising and fulfilling rights. See the RightExerciseRecord concept for record-keeping of such activities in a cohesive manner.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Right Exercise Activity"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Right Exercise Activity",
+   :vs/term_status "accepted"})
 
 (def RightExerciseNotice
   "Information associated with exercising of an active right"
@@ -7799,18 +6931,13 @@
    :dcterms/creator
    ["Beatriz Esteves" "Harshvardhan J Pandit" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Information associated with exercising of an active right"},
+   "Information associated with exercising of an active right",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This concept is intended for providing information regarding a right exercise. For specific instances of such exercises, see RightExerciseActivity and RightExerciseRecord."},
+   "This concept is intended for providing information regarding a right exercise. For specific instances of such exercises, see RightExerciseActivity and RightExerciseRecord.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Right Exercise Notice"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Right Exercise Notice",
+   :vs/term_status "accepted"})
 
 (def RightExerciseRecord
   "Record of a Right being exercised"
@@ -7818,58 +6945,47 @@
    :dcterms/created #inst "2022-11-02T00:00:00.000-04:00",
    :dcterms/creator
    ["Georg P Krog" "Harshvardhan J Pandit" "Beatriz Esteves" "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Record of a Right being exercised"},
-   :rdf/type [:dpvo/Record :owl/NamedIndividual],
+   :dcterms/description "Record of a Right being exercised",
+   :rdf/type [:dpvo/Record :owl/NamedIndividual :dpvo/Processing :dpvo/Obtain],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This concept represents a record of one or more right exercise activities, such as those associated with a single data subject or service or entity"},
+   "This concept represents a record of one or more right exercise activities, such as those associated with a single data subject or service or entity",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Right Exercise Record"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Right Exercise Record",
+   :vs/term_status "accepted"})
 
 (def RightFulfilmentNotice
   "Notice provided regarding fulfilment of a right"
   {:db/ident :dpvo/RightFulfilmentNotice,
    :dcterms/created #inst "2022-11-02T00:00:00.000-04:00",
    :dcterms/creator ["Beatriz Esteves" "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Notice provided regarding fulfilment of a right"},
+   :dcterms/description "Notice provided regarding fulfilment of a right",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This notice is associated with situations where information is provided with the intention of progressing the fulfilment of a right. For example, a notice asking for more information regarding the scope of the right, or providing information on where to access the data provided under a right."},
+   "This notice is associated with situations where information is provided with the intention of progressing the fulfilment of a right. For example, a notice asking for more information regarding the scope of the right, or providing information on where to access the data provided under a right.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Right Fulfilment Notice"},
-   :rdfs/subClassOf :dpvo/Notice,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Right Fulfilment Notice",
+   :rdfs/subClassOf [:dpvo/Notice
+                     :dpvo/RightFulfilmentNotice
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def RightNonFulfilmentNotice
   "Notice provided regarding non-fulfilment of a right"
   {:db/ident :dpvo/RightNonFulfilmentNotice,
    :dcterms/created #inst "2022-11-02T00:00:00.000-04:00",
    :dcterms/creator ["Beatriz Esteves" "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Notice provided regarding non-fulfilment of a right"},
+   :dcterms/description "Notice provided regarding non-fulfilment of a right",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This notice is associated with situations where information is provided with the intention of communicating non-fulfilment of a right. For example, to provide justifications on why a right could not be fulfilled or providing information about another entity  who should be approached for exercising this right."},
+   "This notice is associated with situations where information is provided with the intention of communicating non-fulfilment of a right. For example, to provide justifications on why a right could not be fulfilled or providing information about another entity  who should be approached for exercising this right.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Right Non-Fulfilment Notice"},
-   :rdfs/subClassOf :dpvo/Notice,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Right Non-Fulfilment Notice",
+   :rdfs/subClassOf [:dpvo/Notice
+                     :dpvo/RightNonFulfilmentNotice
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Risk
   "A risk or possibility or uncertainty of negative effects, impacts, or consequences."
@@ -7877,19 +6993,13 @@
    :dcterms/created #inst "2020-11-18T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A risk or possibility or uncertainty of negative effects, impacts, or consequences."},
+   "A risk or possibility or uncertainty of negative effects, impacts, or consequences.",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Risks can be associated with one or more different concepts such as purpose, processing, personal data, technical or organisational measure."},
+   "Risks can be associated with one or more different concepts such as purpose, processing, personal data, technical or organisational measure.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Risk"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Risk",
+   :vs/term_status "accepted"})
 
 (def RiskLevel
   "The magnitude of a risk expressed as an indication to aid in its management"
@@ -7897,19 +7007,13 @@
    :dcterms/created #inst "2022-07-20T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The magnitude of a risk expressed as an indication to aid in its management"},
+   "The magnitude of a risk expressed as an indication to aid in its management",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Risk Levels can be defined as a combination of different characteristics. For example, ISO 31073:2022 defines it as a combination of consequences and their likelihood. Another example would be the Risk Matrix where Risk Level is defined as a combination of Likelihood and Severity associated with the Risk."},
+   "Risk Levels can be defined as a combination of different characteristics. For example, ISO 31073:2022 defines it as a combination of consequences and their likelihood. Another example would be the Risk Matrix where Risk Level is defined as a combination of Likelihood and Severity associated with the Risk.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Risk Level"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Risk Level",
+   :vs/term_status "accepted"})
 
 (def RiskManagementPlan
   "A scheme within the risk management framework specifying the approach, the management components, and resources to be applied to the management of risk"
@@ -7917,17 +7021,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A scheme within the risk management framework specifying the approach, the management components, and resources to be applied to the management of risk"},
+   "A scheme within the risk management framework specifying the approach, the management components, and resources to be applied to the management of risk",
    :dcterms/source "https://www.iso.org/standard/79637.html",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Risk Management Plan"},
-   :rdfs/subClassOf :dpvo/SecurityProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Risk Management Plan",
+   :rdfs/subClassOf [:dpvo/SecurityProcedure
+                     :dpvo/RiskManagementPlan
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def RiskManagementPolicy
   "A policy or statement of the overall intentions and direction of an organisation related to risk management"
@@ -7935,17 +7038,17 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A policy or statement of the overall intentions and direction of an organisation related to risk management"},
+   "A policy or statement of the overall intentions and direction of an organisation related to risk management",
    :dcterms/source "https://www.iso.org/standard/79637.html",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Risk Management Policy"},
-   :rdfs/subClassOf [:dpvo/Policy :dpvo/SecurityProcedure],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Risk Management Policy",
+   :rdfs/subClassOf [:dpvo/Policy
+                     :dpvo/SecurityProcedure
+                     :dpvo/RiskManagementPolicy
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def RiskManagementProcess
   "The systematic application of management policies, procedures and practices to the activities of communicating, consulting, establishing the context, and identifying, analysing, evaluating, treating, monitoring, and reviewing risk"
@@ -7953,18 +7056,17 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The systematic application of management policies, procedures and practices to the activities of communicating, consulting, establishing the context, and identifying, analysing, evaluating, treating, monitoring, and reviewing risk"},
+   "The systematic application of management policies, procedures and practices to the activities of communicating, consulting, establishing the context, and identifying, analysing, evaluating, treating, monitoring, and reviewing risk",
    :dcterms/source ["https://www.iso.org/standard/79637.html"
                     "https://www.iso.org/iso-31000-risk-management.html"],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Risk Management Process"},
-   :rdfs/subClassOf :dpvo/SecurityProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Risk Management Process",
+   :rdfs/subClassOf [:dpvo/SecurityProcedure
+                     :dpvo/RiskManagementProcess
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def RiskMitigationMeasure
   "Measures intended to mitigate, minimise, or prevent risk."
@@ -7972,15 +7074,13 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Paul Ryan" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Measures intended to mitigate, minimise, or prevent risk."},
+   "Measures intended to mitigate, minimise, or prevent risk.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Risk Mitigation Measure"},
-   :rdfs/subClassOf :dpvo/TechnicalOrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Risk Mitigation Measure",
+   :rdfs/subClassOf [:dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/RiskMitigationMeasure],
+   :vs/term_status "accepted"})
 
 (def Rule
   "A rule describing a process or control that directs or determines if and how an activity should be conducted"
@@ -7989,15 +7089,12 @@
    :dcterms/creator
    ["Beatriz Esteves" "Harshvardhan J. Pandit" "Paul Ryan" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A rule describing a process or control that directs or determines if and how an activity should be conducted"},
+   "A rule describing a process or control that directs or determines if and how an activity should be conducted",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Rule"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Rule",
+   :rdfs/subClassOf :dpvo/Rule,
+   :vs/term_status "accepted"})
 
 (def Safeguard
   "A safeguard is a precautionary measure for the protection against or mitigation of negative effects"
@@ -8006,20 +7103,16 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J. Pandit" "David Hickey" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A safeguard is a precautionary measure for the protection against or mitigation of negative effects"},
+   "A safeguard is a precautionary measure for the protection against or mitigation of negative effects",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This concept is relevant given the requirement to assert safeguards in cross-border data transfers"},
+   "This concept is relevant given the requirement to assert safeguards in cross-border data transfers",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Safeguard"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Safeguard",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/Safeguard
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def SafeguardForDataTransfer
   "Represents a safeguard used for data transfer. Can include technical or organisational measures."
@@ -8028,35 +7121,29 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J. Pandit" "David Hickey" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Represents a safeguard used for data transfer. Can include technical or organisational measures."},
+   "Represents a safeguard used for data transfer. Can include technical or organisational measures.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Safeguard for Data Transfer"},
-   :rdfs/subClassOf :dpvo/Safeguard,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Safeguard for Data Transfer",
+   :rdfs/subClassOf [:dpvo/Safeguard
+                     :dpvo/SafeguardForDataTransfer
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Scale
   "A measurement along some dimension"
   {:db/ident :dpvo/Scale,
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator ["Rana Saniei" "Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "A measurement along some dimension"},
+   :dcterms/description "A measurement along some dimension",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Scales are subjective concepts that need to be defined and interpreted within the context of their application. For example, what would be small within one context could be large within another."},
+   "Scales are subjective concepts that need to be defined and interpreted within the context of their application. For example, what would be small within one context could be large within another.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Scale"},
-   :rdfs/subClassOf :dpvo/ProcessingContext,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Scale",
+   :rdfs/subClassOf [:dpvo/ProcessingContext :dpvo/Scale :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def Scope
   "Indication of the extent or range or boundaries associated with(in) a context"
@@ -8064,49 +7151,41 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indication of the extent or range or boundaries associated with(in) a context"},
+   "Indication of the extent or range or boundaries associated with(in) a context",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Scope"},
-   :rdfs/subClassOf :dpvo/Context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Scope",
+   :rdfs/subClassOf [:dpvo/Context :dpvo/Scope],
+   :vs/term_status "accepted"})
 
 (def ScoringOfIndividuals
   "Processing that involves scoring of individuals"
   {:db/ident :dpvo/ScoringOfIndividuals,
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Processing that involves scoring of individuals"},
+   :dcterms/description "Processing that involves scoring of individuals",
    :dcterms/modified #inst "2022-11-30T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Scoring of Individuals"},
-   :rdfs/subClassOf :dpvo/EvaluationScoring,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Scoring of Individuals",
+   :rdfs/subClassOf [:dpvo/EvaluationScoring
+                     :dpvo/ScoringOfIndividuals
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "modified"})
 
 (def Screen
   "to remove data for some criteria"
   {:db/ident            :dpvo/Screen,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to remove data for some criteria"},
+   :dcterms/description "to remove data for some criteria",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Screen"},
-   :rdfs/subClassOf     :dpvo/Transform,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Screen",
+   :rdfs/subClassOf     [:dpvo/Transform :dpvo/Screen :dpvo/Processing],
+   :vs/term_status      "accepted"})
 
 (def Seal
   "A seal or a mark indicating proof of certification to some certification or standard"
@@ -8115,16 +7194,15 @@
    :dcterms/creator
    ["Mark Lizar" "Rob Brennan" "Axel Polleres" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A seal or a mark indicating proof of certification to some certification or standard"},
+   "A seal or a mark indicating proof of certification to some certification or standard",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Seal"},
-   :rdfs/subClassOf :dpvo/CertificationSeal,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Seal",
+   :rdfs/subClassOf [:dpvo/CertificationSeal
+                     :dpvo/Seal
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def SearchFunctionalities
   "Purposes associated with providing searching, querying, or other forms of information retrieval related functionalities"
@@ -8132,16 +7210,13 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with providing searching, querying, or other forms of information retrieval related functionalities"},
+   "Purposes associated with providing searching, querying, or other forms of information retrieval related functionalities",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Search Functionalities"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Search Functionalities",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/SearchFunctionalities :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def SecondaryImportance
   "Indication of 'secondary' or 'minor' or 'auxiliary' importance"
@@ -8153,15 +7228,11 @@
                      "Julian Flake"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indication of 'secondary' or 'minor' or 'auxiliary' importance"},
-   :rdf/type [:dpvo/Importance :owl/NamedIndividual],
+   "Indication of 'secondary' or 'minor' or 'auxiliary' importance",
+   :rdf/type [:dpvo/Importance :owl/NamedIndividual :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Secondary Importance"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Secondary Importance",
+   :vs/term_status "accepted"})
 
 (def SecretSharingSchemes
   "Use of secret sharing schemes where the secret can only be reconstructed through combination of sufficient number of individuals"
@@ -8169,18 +7240,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of secret sharing schemes where the secret can only be reconstructed through combination of sufficient number of individuals"},
+   "Use of secret sharing schemes where the secret can only be reconstructed through combination of sufficient number of individuals",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Secret Sharing Schemes"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Secret Sharing Schemes",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/SecretSharingSchemes
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Sector
   "Sector describes the area of application or domain that indicates or restricts scope for interpretation and application of purpose e.g. Agriculture, Banking"
@@ -8193,19 +7263,13 @@
                      "Axel Polleres"
                      "Fajar Ekaputra"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Sector describes the area of application or domain that indicates or restricts scope for interpretation and application of purpose e.g. Agriculture, Banking"},
+   "Sector describes the area of application or domain that indicates or restricts scope for interpretation and application of purpose e.g. Agriculture, Banking",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "There are various sector codes used commonly to indicate the domain of an organisation or business. Examples include NACE (EU), ISIC (UN), SIC and NAICS (USA)."},
+   "There are various sector codes used commonly to indicate the domain of an organisation or business. Examples include NACE (EU), ISIC (UN), SIC and NAICS (USA).",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sector"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sector",
+   :vs/term_status "accepted"})
 
 (def SecureMultiPartyComputation
   "Use of cryptographic methods for entities to jointly compute functions without revealing inputs"
@@ -8213,18 +7277,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of cryptographic methods for entities to jointly compute functions without revealing inputs"},
+   "Use of cryptographic methods for entities to jointly compute functions without revealing inputs",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Secure Multi-Party Computation"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Secure Multi-Party Computation",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/SecureMultiPartyComputation
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def SecurityAssessment
   "Assessment of security intended to identity gaps, vulnerabilities, risks, and effectiveness of controls"
@@ -8232,18 +7295,18 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Assessment of security intended to identity gaps, vulnerabilities, risks, and effectiveness of controls"},
+   "Assessment of security intended to identity gaps, vulnerabilities, risks, and effectiveness of controls",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Security Assessment"},
-   :rdfs/subClassOf [:dpvo/SecurityProcedure :dpvo/Assessment],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Security Assessment",
+   :rdfs/subClassOf [:dpvo/SecurityProcedure
+                     :dpvo/Assessment
+                     :dpvo/SecurityAssessment
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def SecurityKnowledgeTraining
   "Training intended to increase knowledge regarding security"
@@ -8251,17 +7314,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Training intended to increase knowledge regarding security"},
+   "Training intended to increase knowledge regarding security",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Security Knowledge Training"},
-   :rdfs/subClassOf :dpvo/StaffTraining,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Security Knowledge Training",
+   :rdfs/subClassOf [:dpvo/StaffTraining
+                     :dpvo/SecurityKnowledgeTraining
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def SecurityMethod
   "Methods that relate to creating and providing security"
@@ -8269,15 +7332,14 @@
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Methods that relate to creating and providing security"},
+   "Methods that relate to creating and providing security",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Security Method"},
-   :rdfs/subClassOf :dpvo/TechnicalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Security Method",
+   :rdfs/subClassOf [:dpvo/TechnicalMeasure
+                     :dpvo/SecurityMethod
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def SecurityProcedure
   "Procedures associated with assessing, implementing, and evaluating security"
@@ -8285,33 +7347,31 @@
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Procedures associated with assessing, implementing, and evaluating security"},
+   "Procedures associated with assessing, implementing, and evaluating security",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Security Procedure"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Security Procedure",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/SecurityProcedure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def SecurityRoleProcedures
   "Procedures related to security roles"
   {:db/ident :dpvo/SecurityRoleProcedures,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Procedures related to security roles"},
+   :dcterms/description "Procedures related to security roles",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Security Role Procedures"},
-   :rdfs/subClassOf :dpvo/SecurityProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Security Role Procedures",
+   :rdfs/subClassOf [:dpvo/SecurityProcedure
+                     :dpvo/SecurityRoleProcedures
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def SellDataToThirdParties
   "Purposes associated with selling or sharing data or information to third parties"
@@ -8324,20 +7384,17 @@
                      "Elmar Kiesling"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with selling or sharing data or information to third parties"},
+   "Purposes associated with selling or sharing data or information to third parties",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Sell here means exchange, submit, or provide in return for direct or indirect compensation. Was subclass of commercial interest, changed to reflect selling something"},
+   "Sell here means exchange, submit, or provide in return for direct or indirect compensation. Was subclass of commercial interest, changed to reflect selling something",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sell Data to Third Parties"},
-   :rdfs/subClassOf :dpvo/SellProducts,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sell Data to Third Parties",
+   :rdfs/subClassOf [:dpvo/SellProducts
+                     :dpvo/SellDataToThirdParties
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def SellInsightsFromData
   "Purposes associated with selling or sharing insights obtained from analysis of data"
@@ -8350,40 +7407,31 @@
                      "Elmar Kiesling"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with selling or sharing insights obtained from analysis of data"},
+   "Purposes associated with selling or sharing insights obtained from analysis of data",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Sell here means exchange, submit, or provide in return for direct or indirect compensation. Was subclass of commercial interest, changed to reflect selling something"},
+   "Sell here means exchange, submit, or provide in return for direct or indirect compensation. Was subclass of commercial interest, changed to reflect selling something",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sell Insights from Data"},
-   :rdfs/subClassOf :dpvo/SellProducts,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sell Insights from Data",
+   :rdfs/subClassOf [:dpvo/SellProducts
+                     :dpvo/SellInsightsFromData
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def SellProducts
   "Purposes associated with selling products or services"
   {:db/ident :dpvo/SellProducts,
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Beatriz Esteves" "Georg P Krog"],
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Purposes associated with selling products or services"},
+   :dcterms/description "Purposes associated with selling products or services",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Sell here means exchange, submit, or provide in return for direct or indirect compensation."},
+   "Sell here means exchange, submit, or provide in return for direct or indirect compensation.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sell Products"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sell Products",
+   :rdfs/subClassOf [:dpvo/ServiceProvision :dpvo/SellProducts :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def SellProductsToDataSubject
   "Purposes associated with selling products or services to the user, consumer, or data subjects"
@@ -8396,20 +7444,17 @@
                      "Javier Fernandez"
                      "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with selling products or services to the user, consumer, or data subjects"},
+   "Purposes associated with selling products or services to the user, consumer, or data subjects",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Sell Products here refers to processing necessary to provide and complete a sale to customers. It should not be confused with providing services with a cost based on an established agreement."},
+   "Sell Products here refers to processing necessary to provide and complete a sale to customers. It should not be confused with providing services with a cost based on an established agreement.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sell Products to Data Subject"},
-   :rdfs/subClassOf :dpvo/SellProducts,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sell Products to Data Subject",
+   :rdfs/subClassOf [:dpvo/SellProducts
+                     :dpvo/SellProductsToDataSubject
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def SensitivePersonalData
   "Personal data that is considered 'sensitive' in terms of privacy and/or impact, and therefore requires additional considerations and/or protection"
@@ -8417,20 +7462,14 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Personal data that is considered 'sensitive' in terms of privacy and/or impact, and therefore requires additional considerations and/or protection"},
+   "Personal data that is considered 'sensitive' in terms of privacy and/or impact, and therefore requires additional considerations and/or protection",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Sensitivity' is a matter of context, and may be defined within legal frameworks. For GDPR, Special categories of personal data are considered a subset of sensitive data. To illustrate the difference between the two, consider the situation where Location data is collected, and which is considered 'sensitive' but not 'special'. As a probable rule, sensitive data require additional considerations whereas special category data requires additional legal basis / justifications."},
+   "Sensitivity' is a matter of context, and may be defined within legal frameworks. For GDPR, Special categories of personal data are considered a subset of sensitive data. To illustrate the difference between the two, consider the situation where Location data is collected, and which is considered 'sensitive' but not 'special'. As a probable rule, sensitive data require additional considerations whereas special category data requires additional legal basis / justifications.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sensitive Personal Data"},
-   :rdfs/subClassOf :dpvo/PersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sensitive Personal Data",
+   :rdfs/subClassOf [:dpvo/PersonalData :dpvo/SensitivePersonalData :dpvo/Data],
+   :vs/term_status "accepted"})
 
 (def ServiceOptimisation
   "Purposes associated with optimisation of services or activities"
@@ -8443,20 +7482,15 @@
                      "Harshvardhan J. Pandit"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with optimisation of services or activities"},
+   "Purposes associated with optimisation of services or activities",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Subclass of ServiceProvision since optimisation is usually considered part of providing services"},
+   "Subclass of ServiceProvision since optimisation is usually considered part of providing services",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Service Optimisation"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Service Optimisation",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/ServiceOptimisation :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def ServicePersonalisation
   "Purposes associated with providing personalisation within services or product or activities"
@@ -8469,16 +7503,15 @@
                      "Fajar Ekaputra"
                      "Javier Fernandez"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with providing personalisation within services or product or activities"},
+   "Purposes associated with providing personalisation within services or product or activities",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Service Personalisation"},
-   :rdfs/subClassOf [:dpvo/ServiceProvision :dpvo/Personalisation],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Service Personalisation",
+   :rdfs/subClassOf [:dpvo/ServiceProvision
+                     :dpvo/Personalisation
+                     :dpvo/ServicePersonalisation
+                     :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def ServiceProvision
   "Purposes associated with providing service or product or activities"
@@ -8491,16 +7524,12 @@
                      "Javier Fernandez"
                      "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with providing service or product or activities"},
+   "Purposes associated with providing service or product or activities",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Service Provision"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Service Provision",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def ServiceRegistration
   "Purposes associated with registering users and collecting information required for providing a service"
@@ -8508,20 +7537,15 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog" "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with registering users and collecting information required for providing a service"},
+   "Purposes associated with registering users and collecting information required for providing a service",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "An example of service registration is to provide a form that collects information such as preferred language or media format for downloading a movie"},
+   "An example of service registration is to provide a form that collects information such as preferred language or media format for downloading a movie",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Service Registration"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Service Registration",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/ServiceRegistration :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def ServiceUsageAnalytics
   "Purposes associated with conducting analysis and reporting related to usage of services or products"
@@ -8529,21 +7553,16 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Beatriz Esteves" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting analysis and reporting related to usage of services or products"},
+   "Purposes associated with conducting analysis and reporting related to usage of services or products",
    :dcterms/modified #inst "2022-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Was \"UsageAnalytics\", prefixed with Service to better reflect scope"},
+   "Was \"UsageAnalytics\", prefixed with Service to better reflect scope",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Service Usage Analytics"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Service Usage Analytics",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/ServiceUsageAnalytics :dpvo/Purpose],
+   :vs/term_status "modified"})
 
 (def Severity
   "The magnitude of being unwanted or having negative effects such as harmful impacts"
@@ -8551,35 +7570,25 @@
    :dcterms/created #inst "2022-07-21T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The magnitude of being unwanted or having negative effects such as harmful impacts"},
+   "The magnitude of being unwanted or having negative effects such as harmful impacts",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Severity can be associated with Risk, or its Consequences and Impacts"},
+   "Severity can be associated with Risk, or its Consequences and Impacts",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Severity"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Severity",
+   :vs/term_status "accepted"})
 
 (def Share
   "to give data (or a portion of it) to others"
   {:db/ident :dpvo/Share,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "to give data (or a portion of it) to others"},
+   :dcterms/description "to give data (or a portion of it) to others",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Share"},
-   :rdfs/subClassOf :dpvo/Disclose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Share",
+   :rdfs/subClassOf [:dpvo/Disclose :dpvo/Share :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def SingleSignOn
   "Use of credentials or processes that enable using one set of credentials to authenticate multiple contexts."
@@ -8587,16 +7596,15 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of credentials or processes that enable using one set of credentials to authenticate multiple contexts."},
+   "Use of credentials or processes that enable using one set of credentials to authenticate multiple contexts.",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Single Sign On"},
-   :rdfs/subClassOf :dpvo/AuthenticationProtocols,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Single Sign On",
+   :rdfs/subClassOf [:dpvo/AuthenticationProtocols
+                     :dpvo/SingleSignOn
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def SingularDataVolume
   "Data volume that is considered singular i.e. a specific instance or single item"
@@ -8604,15 +7612,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data volume that is considered singular i.e. a specific instance or single item"},
-   :rdf/type [:owl/NamedIndividual :dpvo/DataVolume],
+   "Data volume that is considered singular i.e. a specific instance or single item",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/DataVolume
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Singular Data Volume"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Singular Data Volume",
+   :vs/term_status "accepted"})
 
 (def SingularFrequency
   "Frequency where occurences are singular i.e. they take place only once"
@@ -8620,17 +7628,13 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Frequency where occurences are singular i.e. they take place only once"},
+   "Frequency where occurences are singular i.e. they take place only once",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Singular Frequency"},
-   :rdfs/subClassOf :dpvo/Frequency,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Singular Frequency",
+   :rdfs/subClassOf [:dpvo/Frequency :dpvo/SingularFrequency :dpvo/Context],
+   :vs/term_status "modified"})
 
 (def SingularScaleOfDataSubjects
   "Scale of data subjects considered singular i.e. a specific data subject"
@@ -8638,15 +7642,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Scale of data subjects considered singular i.e. a specific data subject"},
-   :rdf/type [:dpvo/DataSubjectScale :owl/NamedIndividual],
+   "Scale of data subjects considered singular i.e. a specific data subject",
+   :rdf/type [:dpvo/DataSubjectScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/Scale
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Singular Scale Of Data Subjects"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Singular Scale Of Data Subjects",
+   :vs/term_status "accepted"})
 
 (def SmallDataVolume
   "Data volume that is considered small or limited within the context"
@@ -8654,15 +7658,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data volume that is considered small or limited within the context"},
-   :rdf/type [:dpvo/DataVolume :owl/NamedIndividual],
+   "Data volume that is considered small or limited within the context",
+   :rdf/type [:dpvo/DataVolume
+              :owl/NamedIndividual
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Small Data Volume"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Small Data Volume",
+   :vs/term_status "accepted"})
 
 (def SmallScaleOfDataSubjects
   "Scale of data subjects considered small or limited within the context"
@@ -8670,15 +7674,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Scale of data subjects considered small or limited within the context"},
-   :rdf/type [:dpvo/DataSubjectScale :owl/NamedIndividual],
+   "Scale of data subjects considered small or limited within the context",
+   :rdf/type [:dpvo/DataSubjectScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/Scale
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Small Scale Of Data Subjects"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Small Scale Of Data Subjects",
+   :vs/term_status "accepted"})
 
 (def SmallScaleProcessing
   "Processing that takes place at small scales (as specified by some criteria)"
@@ -8686,15 +7690,15 @@
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing that takes place at small scales (as specified by some criteria)"},
-   :rdf/type [:dpvo/ProcessingScale :owl/NamedIndividual],
+   "Processing that takes place at small scales (as specified by some criteria)",
+   :rdf/type [:dpvo/ProcessingScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Small Scale Processing"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Small Scale Processing",
+   :vs/term_status "accepted"})
 
 (def SocialMediaMarketing
   "Purposes associated with conducting marketing through social media"
@@ -8702,16 +7706,12 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with conducting marketing through social media"},
+   "Purposes associated with conducting marketing through social media",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Social Media Marketing"},
-   :rdfs/subClassOf :dpvo/Marketing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Social Media Marketing",
+   :rdfs/subClassOf [:dpvo/Marketing :dpvo/SocialMediaMarketing :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def SpecialCategoryPersonalData
   "Sensitive Personal Data whose use requires specific legal permission or justification"
@@ -8719,22 +7719,19 @@
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
    :dcterms/creator ["Fajar Ekaputra" "Elmar Kiesling; Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Sensitive Personal Data whose use requires specific legal permission or justification"},
+   "Sensitive Personal Data whose use requires specific legal permission or justification",
    :dcterms/modified #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_1/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The term 'special category' is based on GDPR Art.9, but should not be considered as exlusive to it. DPV considers all Special Categories to also be Sensitive, but whose use is either prohibited or regulated and therefore requires additional legal basis for justification."},
+   "The term 'special category' is based on GDPR Art.9, but should not be considered as exlusive to it. DPV considers all Special Categories to also be Sensitive, but whose use is either prohibited or regulated and therefore requires additional legal basis for justification.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Special Category Personal Data"},
-   :rdfs/subClassOf :dpvo/SensitivePersonalData,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Special Category Personal Data",
+   :rdfs/subClassOf [:dpvo/SensitivePersonalData
+                     :dpvo/SpecialCategoryPersonalData
+                     :dpvo/Data
+                     :dpvo/PersonalData],
+   :vs/term_status "modified"})
 
 (def SporadicDataVolume
   "Data volume that is considered sporadic or sparse within the context"
@@ -8742,15 +7739,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data volume that is considered sporadic or sparse within the context"},
-   :rdf/type [:owl/NamedIndividual :dpvo/DataVolume],
+   "Data volume that is considered sporadic or sparse within the context",
+   :rdf/type [:owl/NamedIndividual
+              :dpvo/DataVolume
+              :dpvo/Scale
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sporadic Data Volume"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sporadic Data Volume",
+   :vs/term_status "accepted"})
 
 (def SporadicFrequency
   "Frequency where occurences are sporadic or infrequent or sparse"
@@ -8758,17 +7755,13 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Frequency where occurences are sporadic or infrequent or sparse"},
+   "Frequency where occurences are sporadic or infrequent or sparse",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sporadic Frequency"},
-   :rdfs/subClassOf :dpvo/Frequency,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Sporadic Frequency",
+   :rdfs/subClassOf [:dpvo/Frequency :dpvo/SporadicFrequency :dpvo/Context],
+   :vs/term_status "modified"})
 
 (def SporadicScaleOfDataSubjects
   "Scale of data subjects considered sporadic or sparse within the context"
@@ -8776,15 +7769,15 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Scale of data subjects considered sporadic or sparse within the context"},
-   :rdf/type [:dpvo/DataSubjectScale :owl/NamedIndividual],
+   "Scale of data subjects considered sporadic or sparse within the context",
+   :rdf/type [:dpvo/DataSubjectScale
+              :owl/NamedIndividual
+              :dpvo/Context
+              :dpvo/Scale
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sporadic Scale Of Data Subjects"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sporadic Scale Of Data Subjects",
+   :vs/term_status "accepted"})
 
 (def StaffTraining
   "Practices and policies regarding training of staff members"
@@ -8793,30 +7786,26 @@
    :dcterms/creator
    ["Rob Brennan" "Mark Lizar" "Axel Polleres" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Practices and policies regarding training of staff members"},
+   "Practices and policies regarding training of staff members",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Staff Training"},
-   :rdfs/subClassOf :dpvo/OrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Staff Training",
+   :rdfs/subClassOf [:dpvo/OrganisationalMeasure
+                     :dpvo/StaffTraining
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Status
   "The status or state of something"
   {:db/ident            :dpvo/Status,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "The status or state of something"},
+   :dcterms/description "The status or state of something",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Status"},
-   :rdfs/subClassOf     :dpvo/Context,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Status",
+   :rdfs/subClassOf     [:dpvo/Context :dpvo/Status],
+   :vs/term_status      "accepted"})
 
 (def StorageCondition
   "Conditions required or followed regarding storage of data"
@@ -8825,15 +7814,13 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Axel Polleres" "Mark Lizar" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Conditions required or followed regarding storage of data"},
+   "Conditions required or followed regarding storage of data",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Storage Condition"},
-   :rdfs/subClassOf :dpvo/ProcessingContext,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Storage Condition",
+   :rdfs/subClassOf
+   [:dpvo/ProcessingContext :dpvo/StorageCondition :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def StorageDeletion
   "Deletion or Erasure of data including any deletion guarantees"
@@ -8842,15 +7829,15 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Mark Lizar" "Axel Polleres" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Deletion or Erasure of data including any deletion guarantees"},
+   "Deletion or Erasure of data including any deletion guarantees",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Storage Deletion"},
-   :rdfs/subClassOf :dpvo/StorageCondition,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Storage Deletion",
+   :rdfs/subClassOf [:dpvo/StorageCondition
+                     :dpvo/StorageDeletion
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "accepted"})
 
 (def StorageDuration
   "Duration or temporal limitation on storage of personal data"
@@ -8859,32 +7846,35 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Mark Lizar" "Rob Brennan" "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Duration or temporal limitation on storage of personal data"},
+   "Duration or temporal limitation on storage of personal data",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Storage Duration"},
-   :rdfs/subClassOf [:dpvo/StorageCondition :dpvo/Duration],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Storage Duration",
+   :rdfs/subClassOf [:dpvo/StorageCondition
+                     :dpvo/Duration
+                     :dpvo/StorageDuration
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "accepted"})
 
 (def StorageLocation
   "Location or geospatial scope where the data is stored"
-  {:db/ident :dpvo/StorageLocation,
-   :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
-   :dcterms/creator
-   ["Rob Brennan" "Harshvardhan J. Pandit" "Axel Polleres" "Mark Lizar"],
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Location or geospatial scope where the data is stored"},
-   :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Storage Location"},
-   :rdfs/subClassOf [:dpvo/StorageCondition :dpvo/Location],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/StorageLocation,
+   :dcterms/created     #inst "2019-04-05T00:00:00.000-04:00",
+   :dcterms/creator     ["Rob Brennan"
+                         "Harshvardhan J. Pandit"
+                         "Axel Polleres"
+                         "Mark Lizar"],
+   :dcterms/description "Location or geospatial scope where the data is stored",
+   :rdf/type            :owl/Class,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "Storage Location",
+   :rdfs/subClassOf     [:dpvo/StorageCondition
+                         :dpvo/Location
+                         :dpvo/StorageLocation
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
+   :vs/term_status      "accepted"})
 
 (def StorageRestoration
   "Regularity and temporal span of data restoration/backup mechanisms that guarantee that data is preserved"
@@ -8893,46 +7883,39 @@
    :dcterms/creator
    ["Mark Lizar" "Axel Polleres" "Harshvardhan J. Pandit" "Rob Brennan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Regularity and temporal span of data restoration/backup mechanisms that guarantee that data is preserved"},
+   "Regularity and temporal span of data restoration/backup mechanisms that guarantee that data is preserved",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Storage Restoration"},
-   :rdfs/subClassOf :dpvo/StorageCondition,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Storage Restoration",
+   :rdfs/subClassOf [:dpvo/StorageCondition
+                     :dpvo/StorageRestoration
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
+   :vs/term_status "accepted"})
 
 (def Store
   "to keep data for future use"
   {:db/ident :dpvo/Store,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to keep data for future use"},
+   :dcterms/description "to keep data for future use",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Store"},
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Store",
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Store],
+   :vs/term_status "accepted"})
 
 (def Structure
   "to arrange data according to a structure"
   {:db/ident :dpvo/Structure,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "to arrange data according to a structure"},
+   :dcterms/description "to arrange data according to a structure",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Structure"},
-   :rdfs/subClassOf :dpvo/Organise,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Structure",
+   :rdfs/subClassOf [:dpvo/Organise :dpvo/Structure :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def Student
   "Data subjects that are students"
@@ -8943,15 +7926,16 @@
                          "Julian Flake"
                          "Paul Ryan"
                          "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Data subjects that are students"},
+   :dcterms/description "Data subjects that are students",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Student"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Student",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/Student
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def SubProcessorAgreement
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Processor and a Data (Sub-)Processor"
@@ -8963,16 +7947,16 @@
                      "Georg P Krog"
                      "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Processor and a Data (Sub-)Processor"},
+   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Processor and a Data (Sub-)Processor",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Sub-Processor Agreement"},
-   :rdfs/subClassOf :dpvo/DataProcessingAgreement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Sub-Processor Agreement",
+   :rdfs/subClassOf [:dpvo/DataProcessingAgreement
+                     :dpvo/SubProcessorAgreement
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/LegalAgreement],
+   :vs/term_status "accepted"})
 
 (def Subscriber
   "Data subjects that subscribe to service(s)"
@@ -8983,19 +7967,17 @@
                          "Julian Flake"
                          "Georg P. Krog"
                          "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Data subjects that subscribe to service(s)"},
+   :dcterms/description "Data subjects that subscribe to service(s)",
    :rdf/type            :owl/Class,
-   :rdfs/comment        {:rdf/language "en",
-                         :rdf/value
-                         "note: subscriber can be customer or consumer"},
+   :rdfs/comment        "note: subscriber can be customer or consumer",
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Subscriber"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Subscriber",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/Subscriber
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def SupraNationalAuthority
   "An authority tasked with overseeing legal compliance for a supra-national union e.g. EU"
@@ -9003,17 +7985,18 @@
    :dcterms/created #inst "2022-02-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An authority tasked with overseeing legal compliance for a supra-national union e.g. EU"},
+   "An authority tasked with overseeing legal compliance for a supra-national union e.g. EU",
    :dcterms/source "http://purl.org/adms",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Supra-National Authority"},
-   :rdfs/subClassOf :dpvo/Authority,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Supra-National Authority",
+   :rdfs/subClassOf [:dpvo/Authority
+                     :dpvo/SupraNationalAuthority
+                     :dpvo/GovernmentalOrganisation
+                     :dpvo/Organisation
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def SupraNationalUnion
   "A political union of two or more countries with an establishment of common authority"
@@ -9021,16 +8004,12 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A political union of two or more countries with an establishment of common authority"},
+   "A political union of two or more countries with an establishment of common authority",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Supranational Union"},
-   :rdfs/subClassOf :dpvo/Location,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Supranational Union",
+   :rdfs/subClassOf [:dpvo/Location :dpvo/SupraNationalUnion],
+   :vs/term_status "accepted"})
 
 (def SymmetricCryptography
   "Use of cryptography where the same keys are utilised for encryption and descryption of information"
@@ -9038,36 +8017,34 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of cryptography where the same keys are utilised for encryption and descryption of information"},
+   "Use of cryptography where the same keys are utilised for encryption and descryption of information",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Symmetric Cryptography"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Symmetric Cryptography",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/SymmetricCryptography
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def SymmetricEncryption
   "Use of symmetric cryptography to encrypt data"
   {:db/ident :dpvo/SymmetricEncryption,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Use of symmetric cryptography to encrypt data"},
+   :dcterms/description "Use of symmetric cryptography to encrypt data",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Symmetric Encryption"},
-   :rdfs/subClassOf :dpvo/Encryption,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Symmetric Encryption",
+   :rdfs/subClassOf [:dpvo/Encryption
+                     :dpvo/SymmetricEncryption
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def SyntheticData
   "Synthetic data reffers to artificially created data such that it is intended to resemble real data (personal or non-personal), but does not refer to any specific identified or identifiable individual, or to the real measure of an observable parameter in the case of non-personal data"
@@ -9075,18 +8052,14 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Synthetic data reffers to artificially created data such that it is intended to resemble real data (personal or non-personal), but does not refer to any specific identified or identifiable individual, or to the real measure of an observable parameter in the case of non-personal data"},
+   "Synthetic data reffers to artificially created data such that it is intended to resemble real data (personal or non-personal), but does not refer to any specific identified or identifiable individual, or to the real measure of an observable parameter in the case of non-personal data",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Synthetic Data"},
-   :rdfs/subClassOf :dpvo/Data,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Synthetic Data",
+   :rdfs/subClassOf [:dpvo/Data :dpvo/SyntheticData],
+   :vs/term_status "accepted"})
 
 (def SystematicMonitoring
   "Processing that involves systematic monitoring of individuals"
@@ -9094,16 +8067,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Piero Bonatti" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Processing that involves systematic monitoring of individuals"},
+   "Processing that involves systematic monitoring of individuals",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Systematic Monitoring"},
-   :rdfs/subClassOf :dpvo/ProcessingContext,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Systematic Monitoring",
+   :rdfs/subClassOf
+   [:dpvo/ProcessingContext :dpvo/SystematicMonitoring :dpvo/Context],
+   :vs/term_status "accepted"})
 
 (def TargetedAdvertising
   "Purposes associated with creating and providing pesonalised advertisement where the personalisation is targeted to a specific individual or group of individuals"
@@ -9111,16 +8082,17 @@
    :dcterms/created #inst "2022-03-30T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with creating and providing pesonalised advertisement where the personalisation is targeted to a specific individual or group of individuals"},
+   "Purposes associated with creating and providing pesonalised advertisement where the personalisation is targeted to a specific individual or group of individuals",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Targeted Advertising"},
-   :rdfs/subClassOf :dpvo/PersonalisedAdvertising,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Targeted Advertising",
+   :rdfs/subClassOf [:dpvo/PersonalisedAdvertising
+                     :dpvo/TargetedAdvertising
+                     :dpvo/Marketing
+                     :dpvo/Personalisation
+                     :dpvo/Purpose
+                     :dpvo/Advertising],
+   :vs/term_status "accepted"})
 
 (def TechnicalMeasure
   "Technical measures required/followed when processing data of the declared category"
@@ -9129,32 +8101,26 @@
    :dcterms/creator
    ["Rob Brennan" "Mark Lizar" "Harshvardhan J. Pandit" "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Technical measures required/followed when processing data of the declared category"},
+   "Technical measures required/followed when processing data of the declared category",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Technical Measure"},
-   :rdfs/subClassOf :dpvo/TechnicalOrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Technical Measure",
+   :rdfs/subClassOf [:dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def TechnicalOrganisationalMeasure
   "The Technical and Organisational measures used."
   {:db/ident            :dpvo/TechnicalOrganisationalMeasure,
    :dcterms/created     #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator     "Bud Bruegger",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "The Technical and Organisational measures used."},
+   :dcterms/description "The Technical and Organisational measures used.",
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-05:00",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Technical and Organisational Measure"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Technical and Organisational Measure",
+   :rdfs/subClassOf     :dpvo/TechnicalOrganisationalMeasure,
+   :vs/term_status      "accepted"})
 
 (def TechnicalServiceProvision
   "Purposes associated with managing and providing technical processes and functions necessary for delivering services"
@@ -9162,16 +8128,13 @@
    :dcterms/created #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with managing and providing technical processes and functions necessary for delivering services"},
+   "Purposes associated with managing and providing technical processes and functions necessary for delivering services",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Technical Service Provision"},
-   :rdfs/subClassOf :dpvo/ServiceProvision,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Technical Service Provision",
+   :rdfs/subClassOf
+   [:dpvo/ServiceProvision :dpvo/TechnicalServiceProvision :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def Technology
   "The technology, technological implementation, or any techniques, skills, methods, and processes used or applied"
@@ -9179,19 +8142,13 @@
    :dcterms/created #inst "2022-01-26T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "The technology, technological implementation, or any techniques, skills, methods, and processes used or applied"},
+   "The technology, technological implementation, or any techniques, skills, methods, and processes used or applied",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Examples (non-exhaustive) include: Algorithm, Process, Method, Skill, Database, Cookies, Server, Device"},
+   "Examples (non-exhaustive) include: Algorithm, Process, Method, Skill, Database, Cookies, Server, Device",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Technology"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Technology",
+   :vs/term_status "accepted"})
 
 (def TemporalDuration
   "Duration that has a fixed temporal duration e.g. 6 months"
@@ -9199,16 +8156,13 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Duration that has a fixed temporal duration e.g. 6 months"},
+   "Duration that has a fixed temporal duration e.g. 6 months",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Temporal Duration"},
-   :rdfs/subClassOf :dpvo/Duration,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Temporal Duration",
+   :rdfs/subClassOf [:dpvo/Duration :dpvo/TemporalDuration :dpvo/Context],
+   :vs/term_status "modified"})
 
 (def ThirdCountry
   "Represents a country outside applicable or compatible jurisdiction as outlined in law"
@@ -9216,16 +8170,12 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Represents a country outside applicable or compatible jurisdiction as outlined in law"},
+   "Represents a country outside applicable or compatible jurisdiction as outlined in law",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Third Country"},
-   :rdfs/subClassOf :dpvo/Country,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Third Country",
+   :rdfs/subClassOf [:dpvo/Country :dpvo/ThirdCountry :dpvo/Location],
+   :vs/term_status "accepted"})
 
 (def ThirdParty
   "A ‘third party’ means a natural or legal person, public authority, agency or body other than the data subject, controller, processor and people who, under the direct authority of the controller or processor, are authorised to process personal data."
@@ -9233,17 +8183,14 @@
    :dcterms/created #inst "2019-06-04T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "A ‘third party’ means a natural or legal person, public authority, agency or body other than the data subject, controller, processor and people who, under the direct authority of the controller or processor, are authorised to process personal data."},
+   "A ‘third party’ means a natural or legal person, public authority, agency or body other than the data subject, controller, processor and people who, under the direct authority of the controller or processor, are authorised to process personal data.",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_10/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Third Party"},
-   :rdfs/subClassOf :dpvo/Recipient,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Third Party",
+   :rdfs/subClassOf
+   [:dpvo/Recipient :dpvo/ThirdParty :dpvo/Entity :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def ThirdPartyAgreement
   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller or Processor and a Third Party"
@@ -9251,16 +8198,16 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller or Processor and a Third Party"},
+   "An agreement outlining conditions, criteria, obligations, responsibilities, and specifics for carrying out processing of personal data between a Data Controller or Processor and a Third Party",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Third-Party Agreement"},
-   :rdfs/subClassOf :dpvo/DataProcessingAgreement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Third-Party Agreement",
+   :rdfs/subClassOf [:dpvo/DataProcessingAgreement
+                     :dpvo/ThirdPartyAgreement
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/LegalAgreement],
+   :vs/term_status "accepted"})
 
 (def ThirdPartySecurityProcedures
   "Procedures related to security associated with Third Parties"
@@ -9268,17 +8215,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Procedures related to security associated with Third Parties"},
+   "Procedures related to security associated with Third Parties",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/5g-cybersecurity-standards",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Third Party Security Procedures"},
-   :rdfs/subClassOf :dpvo/SecurityProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Third Party Security Procedures",
+   :rdfs/subClassOf [:dpvo/SecurityProcedure
+                     :dpvo/ThirdPartySecurityProcedures
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def Tourist
   "Data subjects that are tourists i.e. not citizens and not immigrants"
@@ -9290,62 +8237,53 @@
                      "Harshvardhan J. Pandit"
                      "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data subjects that are tourists i.e. not citizens and not immigrants"},
+   "Data subjects that are tourists i.e. not citizens and not immigrants",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Tourist"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Tourist",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/Tourist
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def Transfer
   "to move data from one place to another"
   {:db/ident :dpvo/Transfer,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "to move data from one place to another"},
+   :dcterms/description "to move data from one place to another",
    :dcterms/source "https://specialprivacy.ercim.eu/vocabs/processing",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Transfer"},
+   :rdfs/label "Transfer",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/processing#Transfer"],
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Transfer],
+   :vs/term_status "accepted"})
 
 (def Transform
   "to change the form or nature of data"
   {:db/ident :dpvo/Transform,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to change the form or nature of data"},
+   :dcterms/description "to change the form or nature of data",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Transform"},
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Transform",
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Transform],
+   :vs/term_status "accepted"})
 
 (def Transmit
   "to send out data"
   {:db/ident :dpvo/Transmit,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to send out data"},
+   :dcterms/description "to send out data",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Transmit"},
-   :rdfs/subClassOf :dpvo/Disclose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Transmit",
+   :rdfs/subClassOf [:dpvo/Disclose :dpvo/Transmit :dpvo/Processing],
+   :vs/term_status "accepted"})
 
 (def TrustedComputing
   "Use of cryptographic methods to restrict access and execution to trusted parties and code"
@@ -9353,18 +8291,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of cryptographic methods to restrict access and execution to trusted parties and code"},
+   "Use of cryptographic methods to restrict access and execution to trusted parties and code",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Trusted Computing"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Trusted Computing",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/TrustedComputing
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def TrustedExecutionEnvironments
   "Use of cryptographic methods to restrict access and execution to trusted parties and code within a dedicated execution environment"
@@ -9372,18 +8309,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of cryptographic methods to restrict access and execution to trusted parties and code within a dedicated execution environment"},
+   "Use of cryptographic methods to restrict access and execution to trusted parties and code within a dedicated execution environment",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Trusted Execution Environments"},
-   :rdfs/subClassOf :dpvo/CryptographicMethods,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Trusted Execution Environments",
+   :rdfs/subClassOf [:dpvo/CryptographicMethods
+                     :dpvo/TrustedExecutionEnvironments
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def TrustedThirdPartyUtilisation
   "Utilisation of a trusted third party to provide or carry out a measure"
@@ -9391,18 +8327,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Utilisation of a trusted third party to provide or carry out a measure"},
+   "Utilisation of a trusted third party to provide or carry out a measure",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Trusted Third Party Utilisation"},
-   :rdfs/subClassOf :dpvo/SecurityProcedure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Trusted Third Party Utilisation",
+   :rdfs/subClassOf [:dpvo/SecurityProcedure
+                     :dpvo/TrustedThirdPartyUtilisation
+                     :dpvo/OrganisationalMeasure
+                     :dpvo/TechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def UninformedConsent
   "Consent that is uninformed i.e. without requirement to provide sufficient information to make a consenting decision"
@@ -9411,31 +8346,27 @@
    :dcterms/creator
    ["Julian Flake" "Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Consent that is uninformed i.e. without requirement to provide sufficient information to make a consenting decision"},
+   "Consent that is uninformed i.e. without requirement to provide sufficient information to make a consenting decision",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Uninformed Consent"},
-   :rdfs/subClassOf :dpvo/Consent,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Uninformed Consent",
+   :rdfs/subClassOf [:dpvo/Consent :dpvo/UninformedConsent :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def Unlawful
   "State of being unlawful or legally non-compliant"
   {:db/ident            :dpvo/Unlawful,
    :dcterms/created     #inst "2022-10-19T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "State of being unlawful or legally non-compliant"},
-   :rdf/type            [:owl/NamedIndividual :dpvo/Lawfulness],
+   :dcterms/description "State of being unlawful or legally non-compliant",
+   :rdf/type            [:owl/NamedIndividual
+                         :dpvo/Lawfulness
+                         :dpvo/ComplianceStatus
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Unlawful"},
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Unlawful",
+   :vs/term_status      "accepted"})
 
 (def UntilEventDuration
   "Duration that takes place until a specific event occurs e.g. Account Closure"
@@ -9443,34 +8374,26 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Duration that takes place until a specific event occurs e.g. Account Closure"},
+   "Duration that takes place until a specific event occurs e.g. Account Closure",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Until Event Duration"},
-   :rdfs/subClassOf :dpvo/Duration,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Until Event Duration",
+   :rdfs/subClassOf [:dpvo/Duration :dpvo/UntilEventDuration :dpvo/Context],
+   :vs/term_status "modified"})
 
 (def UntilTimeDuration
   "Duration that has a fixed end date e.g. 2022-12-31"
   {:db/ident            :dpvo/UntilTimeDuration,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Duration that has a fixed end date e.g. 2022-12-31"},
+   :dcterms/description "Duration that has a fixed end date e.g. 2022-12-31",
    :dcterms/modified    #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Until Time Duration"},
-   :rdfs/subClassOf     :dpvo/Duration,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "modified"}})
+   :rdfs/label          "Until Time Duration",
+   :rdfs/subClassOf     [:dpvo/Duration :dpvo/UntilTimeDuration :dpvo/Context],
+   :vs/term_status      "modified"})
 
 (def UnverifiedData
   "Data that has not been verified in terms of accuracy, inconsistency, or quality"
@@ -9478,16 +8401,12 @@
    :dcterms/created #inst "2022-11-02T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data that has not been verified in terms of accuracy, inconsistency, or quality"},
+   "Data that has not been verified in terms of accuracy, inconsistency, or quality",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Unverified Data"},
-   :rdfs/subClassOf :dpvo/Data,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Unverified Data",
+   :rdfs/subClassOf [:dpvo/Data :dpvo/UnverifiedData],
+   :vs/term_status "accepted"})
 
 (def UsageControl
   "Management of usage, which is intended to be broader than access control and may cover trust, digital rights, or other relevant controls"
@@ -9495,33 +8414,29 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Management of usage, which is intended to be broader than access control and may cover trust, digital rights, or other relevant controls"},
+   "Management of usage, which is intended to be broader than access control and may cover trust, digital rights, or other relevant controls",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Usage Control"},
-   :rdfs/subClassOf :dpvo/AccessControlMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Usage Control",
+   :rdfs/subClassOf [:dpvo/AccessControlMethod
+                     :dpvo/UsageControl
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Use
   "to use data"
   {:db/ident :dpvo/Use,
    :dcterms/created #inst "2019-05-07T00:00:00.000-04:00",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "to use data"},
+   :dcterms/description "to use data",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Use"},
-   :rdfs/subClassOf :dpvo/Processing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Use",
+   :rdfs/subClassOf [:dpvo/Processing :dpvo/Use],
+   :vs/term_status "accepted"})
 
 (def UseSyntheticData
   "Use of synthetic data to preserve privacy, security, or other effects and side-effects"
@@ -9529,18 +8444,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Use of synthetic data to preserve privacy, security, or other effects and side-effects"},
+   "Use of synthetic data to preserve privacy, security, or other effects and side-effects",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Use of Synthetic Data"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Use of Synthetic Data",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/UseSyntheticData
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def User
   "Data subjects that use service(s)"
@@ -9551,15 +8465,16 @@
                          "Beatriz Esteves"
                          "Harshvardhan J. Pandit"
                          "Georg P. Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Data subjects that use service(s)"},
+   :dcterms/description "Data subjects that use service(s)",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "User"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "User",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/User
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def UserInterfacePersonalisation
   "Purposes associated with personalisation of interfaces presented to the user"
@@ -9572,20 +8487,18 @@
                      "Javier Fernandez"
                      "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with personalisation of interfaces presented to the user"},
+   "Purposes associated with personalisation of interfaces presented to the user",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "Examples of user-interface personalisation include changing the language to match the locale"},
+   "Examples of user-interface personalisation include changing the language to match the locale",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "User Interface Personalisation"},
-   :rdfs/subClassOf :dpvo/ServicePersonalisation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "User Interface Personalisation",
+   :rdfs/subClassOf [:dpvo/ServicePersonalisation
+                     :dpvo/UserInterfacePersonalisation
+                     :dpvo/Personalisation
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
+   :vs/term_status "accepted"})
 
 (def VariableLocation
   "Location that is known but is variable e.g. somewhere within a given area"
@@ -9593,17 +8506,13 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location that is known but is variable e.g. somewhere within a given area"},
+   "Location that is known but is variable e.g. somewhere within a given area",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Variable Location"},
-   :rdfs/subClassOf :dpvo/LocationFixture,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Variable Location",
+   :rdfs/subClassOf [:dpvo/LocationFixture :dpvo/VariableLocation],
+   :vs/term_status "modified"})
 
 (def VendorManagement
   "Purposes associated with manage orders, payment, evaluation, and prospecting related to vendors"
@@ -9612,18 +8521,14 @@
    :dcterms/creator
    ["Paul Ryan" "David Hickey" "Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with manage orders, payment, evaluation, and prospecting related to vendors"},
+   "Purposes associated with manage orders, payment, evaluation, and prospecting related to vendors",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vendor Management"},
-   :rdfs/subClassOf :dpvo/Purpose,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vendor Management",
+   :rdfs/subClassOf [:dpvo/Purpose :dpvo/VendorManagement],
+   :vs/term_status "accepted"})
 
 (def VendorPayment
   "Purposes associated with managing payment of vendors"
@@ -9631,18 +8536,14 @@
    :dcterms/created #inst "2021-09-01T00:00:00.000-04:00",
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Paul Ryan" "David Hickey" "Georg P Krog"],
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Purposes associated with managing payment of vendors"},
+   :dcterms/description "Purposes associated with managing payment of vendors",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vendor Payment"},
-   :rdfs/subClassOf :dpvo/VendorManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vendor Payment",
+   :rdfs/subClassOf [:dpvo/VendorManagement :dpvo/VendorPayment :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def VendorRecordsManagement
   "Purposes associated with managing records and orders related to vendors"
@@ -9651,18 +8552,15 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J. Pandit" "David Hickey" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with managing records and orders related to vendors"},
+   "Purposes associated with managing records and orders related to vendors",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vendor Records Management"},
-   :rdfs/subClassOf :dpvo/VendorManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vendor Records Management",
+   :rdfs/subClassOf
+   [:dpvo/VendorManagement :dpvo/VendorRecordsManagement :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def VendorSelectionAssessment
   "Purposes associated with managing selection, assessment, and evaluation related to vendors"
@@ -9671,18 +8569,15 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "David Hickey" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Purposes associated with managing selection, assessment, and evaluation related to vendors"},
+   "Purposes associated with managing selection, assessment, and evaluation related to vendors",
    :dcterms/source
    "https://www.privacycommission.be/nl/model-voor-een-register-van-de-verwerkingsactiviteiten",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vendor Selection Assessment"},
-   :rdfs/subClassOf :dpvo/VendorManagement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vendor Selection Assessment",
+   :rdfs/subClassOf
+   [:dpvo/VendorManagement :dpvo/VendorSelectionAssessment :dpvo/Purpose],
+   :vs/term_status "accepted"})
 
 (def VerifiedData
   "Data that has been verified in terms of accuracy, inconsistency, or quality"
@@ -9690,16 +8585,12 @@
    :dcterms/created #inst "2022-11-02T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data that has been verified in terms of accuracy, inconsistency, or quality"},
+   "Data that has been verified in terms of accuracy, inconsistency, or quality",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Verified Data"},
-   :rdfs/subClassOf :dpvo/Data,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Verified Data",
+   :rdfs/subClassOf [:dpvo/Data :dpvo/VerifiedData],
+   :vs/term_status "accepted"})
 
 (def VirtualisationSecurity
   "Security implemented at or through virtualised environments"
@@ -9707,17 +8598,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Security implemented at or through virtualised environments"},
+   "Security implemented at or through virtualised environments",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Virtualisation Security"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Virtualisation Security",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/VirtualisationSecurity
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def Visitor
   "Data subjects that are temporary visitors"
@@ -9728,16 +8619,16 @@
                          "Julian Flake"
                          "Georg P. Krog"
                          "Beatriz Esteves"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Data subjects that are temporary visitors"},
+   :dcterms/description "Data subjects that are temporary visitors",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "Visitor"},
-   :rdfs/subClassOf     :dpvo/DataSubject,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/label          "Visitor",
+   :rdfs/subClassOf     [:dpvo/DataSubject
+                         :dpvo/Visitor
+                         :dpvo/Entity
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
+   :vs/term_status      "accepted"})
 
 (def VitalInterest
   "Processing is necessary or required to protect vital interests of a data subject or other natural person"
@@ -9745,16 +8636,12 @@
    :dcterms/created #inst "2021-04-21T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing is necessary or required to protect vital interests of a data subject or other natural person"},
+   "Processing is necessary or required to protect vital interests of a data subject or other natural person",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vital Interest"},
-   :rdfs/subClassOf :dpvo/LegalBasis,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vital Interest",
+   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo/VitalInterest],
+   :vs/term_status "accepted"})
 
 (def VitalInterestOfDataSubject
   "Processing is necessary or required to protect vital interests of a data subject"
@@ -9762,16 +8649,15 @@
    :dcterms/created #inst "2021-04-21T00:00:00.000-04:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing is necessary or required to protect vital interests of a data subject"},
+   "Processing is necessary or required to protect vital interests of a data subject",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vital Interest of Data Subject"},
-   :rdfs/subClassOf :dpvo/VitalInterestOfNaturalPerson,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vital Interest of Data Subject",
+   :rdfs/subClassOf [:dpvo/VitalInterestOfNaturalPerson
+                     :dpvo/VitalInterestOfDataSubject
+                     :dpvo/LegalBasis
+                     :dpvo/VitalInterest],
+   :vs/term_status "accepted"})
 
 (def VitalInterestOfNaturalPerson
   "Processing is necessary or required to protect vital interests of a natural person"
@@ -9779,16 +8665,13 @@
    :dcterms/created #inst "2021-04-21T00:00:00.000-04:00",
    :dcterms/creator ["Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Processing is necessary or required to protect vital interests of a natural person"},
+   "Processing is necessary or required to protect vital interests of a natural person",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vital Interest of Natural Person"},
-   :rdfs/subClassOf :dpvo/VitalInterest,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vital Interest of Natural Person",
+   :rdfs/subClassOf
+   [:dpvo/VitalInterest :dpvo/VitalInterestOfNaturalPerson :dpvo/LegalBasis],
+   :vs/term_status "accepted"})
 
 (def VulnerabilityTestingMethods
   "Methods that assess or discover vulnerabilities in a system"
@@ -9796,17 +8679,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Methods that assess or discover vulnerabilities in a system"},
+   "Methods that assess or discover vulnerabilities in a system",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vulnerability Testing Methods"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vulnerability Testing Methods",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/VulnerabilityTestingMethods
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def VulnerableDataSubject
   "Data Subjects which should be considered 'vulnerable' and therefore would require additional measures and safeguards"
@@ -9814,56 +8697,52 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan Pandit" "Paul Ryan" "Georg Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Data Subjects which should be considered 'vulnerable' and therefore would require additional measures and safeguards"},
+   "Data Subjects which should be considered 'vulnerable' and therefore would require additional measures and safeguards",
    :rdf/type :owl/Class,
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "This concept denotes a Data Subject or a group are vulnerable, but not what vulnerability they possess or its context. This information can be provided additionally as comments, or as separate concepts and relations. Proposals for this are welcome."},
+   "This concept denotes a Data Subject or a group are vulnerable, but not what vulnerability they possess or its context. This information can be provided additionally as comments, or as separate concepts and relations. Proposals for this are welcome.",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Vulnerable Data Subject"},
-   :rdfs/subClassOf :dpvo/DataSubject,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Vulnerable Data Subject",
+   :rdfs/subClassOf [:dpvo/DataSubject
+                     :dpvo/VulnerableDataSubject
+                     :dpvo/Entity
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
+   :vs/term_status "accepted"})
 
 (def WebBrowserSecurity
   "Security implemented at or over web browsers"
   {:db/ident :dpvo/WebBrowserSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Security implemented at or over web browsers"},
+   :dcterms/description "Security implemented at or over web browsers",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "WebBrowser Security"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "WebBrowser Security",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/WebBrowserSecurity
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def WebSecurityProtocols
   "Security implemented at or over web-based protocols"
   {:db/ident :dpvo/WebSecurityProtocols,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Security implemented at or over web-based protocols"},
+   :dcterms/description "Security implemented at or over web-based protocols",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Web Security Protocols"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Web Security Protocols",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/WebSecurityProtocols
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def WirelessSecurityProtocols
   "Security implemented at or over wireless communication protocols"
@@ -9871,18 +8750,17 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Security implemented at or over wireless communication protocols"},
+   "Security implemented at or over wireless communication protocols",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Wireless Security Protocols"},
-   :rdfs/subClassOf :dpvo/SecurityMethod,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Wireless Security Protocols",
+   :rdfs/subClassOf [:dpvo/SecurityMethod
+                     :dpvo/WirelessSecurityProtocols
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def WithinDevice
   "Location is local and entirely within a device, such as a smartphone"
@@ -9890,17 +8768,16 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location is local and entirely within a device, such as a smartphone"},
+   "Location is local and entirely within a device, such as a smartphone",
    :dcterms/modified #inst "2020-10-05T00:00:00.000-04:00",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Within Device"},
-   :rdfs/subClassOf :dpvo/LocalLocation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "modified"}})
+   :rdfs/label "Within Device",
+   :rdfs/subClassOf [:dpvo/LocalLocation
+                     :dpvo/WithinDevice
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
+   :vs/term_status "modified"})
 
 (def WithinPhysicalEnvironment
   "Location is local and entirely within a physical environment, such as a room"
@@ -9908,16 +8785,15 @@
    :dcterms/created #inst "2020-10-06T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location is local and entirely within a physical environment, such as a room"},
+   "Location is local and entirely within a physical environment, such as a room",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Within Physical Environment"},
-   :rdfs/subClassOf :dpvo/LocalLocation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Within Physical Environment",
+   :rdfs/subClassOf [:dpvo/LocalLocation
+                     :dpvo/WithinPhysicalEnvironment
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
+   :vs/term_status "accepted"})
 
 (def WithinVirtualEnvironment
   "Location is local and entirely within a virtual environment, such as a shared network directory"
@@ -9925,52 +8801,47 @@
    :dcterms/created #inst "2020-10-06T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Location is local and entirely within a virtual environment, such as a shared network directory"},
+   "Location is local and entirely within a virtual environment, such as a shared network directory",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Within Virtual Environment"},
-   :rdfs/subClassOf :dpvo/LocalLocation,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Within Virtual Environment",
+   :rdfs/subClassOf [:dpvo/LocalLocation
+                     :dpvo/WithinVirtualEnvironment
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
+   :vs/term_status "accepted"})
 
 (def ZeroKnowledgeAuthentication
   "Authentication using Zero-Knowledge proofs"
   {:db/ident :dpvo/ZeroKnowledgeAuthentication,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Authentication using Zero-Knowledge proofs"},
+   :dcterms/description "Authentication using Zero-Knowledge proofs",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/data-protection-engineering",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "Zero Knowledge Authentication"},
-   :rdfs/subClassOf [:dpvo/AuthenticationProtocols :dpvo/CryptographicMethods],
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "Zero Knowledge Authentication",
+   :rdfs/subClassOf [:dpvo/AuthenticationProtocols
+                     :dpvo/CryptographicMethods
+                     :dpvo/ZeroKnowledgeAuthentication
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/TechnicalMeasure],
+   :vs/term_status "accepted"})
 
 (def hasActivityStatus
   "Indicates the status of activity of specified concept"
-  {:db/ident :dpvo/hasActivityStatus,
-   :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates the status of activity of specified concept"},
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
-   :rdfs/domain :owl/Thing,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has activity status"},
-   :rdfs/range :dpvo/ActivityStatus,
-   :rdfs/subPropertyOf :dpvo/hasStatus,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/hasActivityStatus,
+   :dcterms/created     #inst "2022-05-18T00:00:00.000-04:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "Indicates the status of activity of specified concept",
+   :rdf/type            [:rdf/Property :owl/ObjectProperty],
+   :rdfs/domain         :owl/Thing,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "has activity status",
+   :rdfs/range          :dpvo/ActivityStatus,
+   :rdfs/subPropertyOf  [:dpvo/hasStatus :dpvo/hasActivityStatus],
+   :vs/term_status      "accepted"})
 
 (def hasAddress
   "Specifies address of a legal entity such as street address or pin code"
@@ -9979,17 +8850,14 @@
    :dcterms/creator
    ["Beatriz Esteves" "Georg P Krog" "Paul Ryan" "Harshvardhan J.Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies address of a legal entity such as street address or pin code"},
+   "Specifies address of a legal entity such as street address or pin code",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Entity,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has address"},
+   :rdfs/label "has address",
    :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasAddress,
+   :vs/term_status "accepted"})
 
 (def hasAlgorithmicLogic
   "Indicates the logic used in processing such as for automated decision making"
@@ -9997,34 +8865,29 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg P. Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the logic used in processing such as for automated decision making"},
+   "Indicates the logic used in processing such as for automated decision making",
    :dcterms/modified #inst "2022-06-15T00:00:00.000-04:00",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has algorithmic logic"},
+   :rdfs/label "has algorithmic logic",
    :rdfs/range :dpvo/AlgorithmicLogic,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "changed"}})
+   :rdfs/subPropertyOf :dpvo/hasAlgorithmicLogic,
+   :vs/term_status "changed"})
 
 (def hasApplicableLaw
   "Indicates applicability of a Law"
   {:db/ident            :dpvo/hasApplicableLaw,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates applicability of a Law"},
+   :dcterms/description "Indicates applicability of a Law",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has applicable law"},
+   :rdfs/label          "has applicable law",
    :rdfs/range          :dpvo/Law,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasApplicableLaw,
+   :vs/term_status      "accepted"})
 
 (def hasAuditStatus
   "Indicates the status of audit associated with specified concept"
@@ -10032,18 +8895,14 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the status of audit associated with specified concept"},
+   "Indicates the status of audit associated with specified concept",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has audit status"},
+   :rdfs/label "has audit status",
    :rdfs/range :dpvo/AuditStatus,
-   :rdfs/subPropertyOf :dpvo/hasStatus,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasStatus :dpvo/hasAuditStatus],
+   :vs/term_status "accepted"})
 
 (def hasAuthority
   "Indicates applicability of authority for a jurisdiction"
@@ -10051,16 +8910,14 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates applicability of authority for a jurisdiction"},
+   "Indicates applicability of authority for a jurisdiction",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has authority"},
+   :rdfs/label "has authority",
    :rdfs/range :dpvo/Authority,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasAuthority,
+   :vs/term_status "accepted"})
 
 (def hasComplianceStatus
   "Indicates the status of compliance of specified concept"
@@ -10068,17 +8925,14 @@
    :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates the status of compliance of specified concept"},
+   "Indicates the status of compliance of specified concept",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has compliance status"},
+   :rdfs/label "has compliance status",
    :rdfs/range :dpvo/ComplianceStatus,
-   :rdfs/subPropertyOf :dpvo/hasStatus,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasStatus :dpvo/hasComplianceStatus],
+   :vs/term_status "accepted"})
 
 (def hasConsentStatus
   "Specifies the state or status of consent"
@@ -10088,16 +8942,14 @@
                          "Julian Flake"
                          "Paul Ryan"
                          "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Specifies the state or status of consent"},
+   :dcterms/description "Specifies the state or status of consent",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has consent status"},
+   :rdfs/label          "has consent status",
    :rdfs/range          :dpvo/ConsentStatus,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasConsentStatus,
+   :vs/term_status      "accepted"})
 
 (def hasConsequence
   "Indicates consenquence(s) possible or arising from specified concept"
@@ -10109,20 +8961,16 @@
                      "Fajar Ekaputra"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates consenquence(s) possible or arising from specified concept"},
+   "Indicates consenquence(s) possible or arising from specified concept",
    :dcterms/modified #inst "2021-09-21T00:00:00.000-04:00",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value    "Removed plural suffix for consistency"},
+   :rdfs/comment "Removed plural suffix for consistency",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has consequence"},
+   :rdfs/label "has consequence",
    :rdfs/range :dpvo/Consequence,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasConsequence,
+   :vs/term_status "accepted"})
 
 (def hasConsequenceOn
   "Indicates the thing (e.g. plan, process, or entity) affected by a consequence"
@@ -10130,17 +8978,14 @@
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the thing (e.g. plan, process, or entity) affected by a consequence"},
+   "Indicates the thing (e.g. plan, process, or entity) affected by a consequence",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :dpvo/Consequence,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has consequence on"},
+   :rdfs/label "has consequence on",
    :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasConsequenceOn,
+   :vs/term_status "accepted"})
 
 (def hasContact
   "Specifies contact details of a legal entity such as phone or email"
@@ -10149,51 +8994,42 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J.Pandit" "Beatriz Esteves" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies contact details of a legal entity such as phone  or email"},
+   "Specifies contact details of a legal entity such as phone  or email",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Entity,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has contact"},
+   :rdfs/label "has contact",
    :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasContact,
+   :vs/term_status "accepted"})
 
 (def hasContext
   "Indicates a purpose is restricted to the specified context(s)"
   {:db/ident :dpvo/hasContext,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Indicates a purpose is restricted to the specified context(s)"},
+   "Indicates a purpose is restricted to the specified context(s)",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has context"},
+   :rdfs/label "has context",
    :rdfs/range :dpvo/Context,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasContext,
+   :vs/term_status "accepted"})
 
 (def hasCountry
   "Indicates applicability of specified country"
   {:db/ident            :dpvo/hasCountry,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates applicability of specified country"},
+   :dcterms/description "Indicates applicability of specified country",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has country"},
+   :rdfs/label          "has country",
    :rdfs/range          :dpvo/Country,
-   :rdfs/subPropertyOf  :dpvo/hasLocation,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasLocation :dpvo/hasCountry],
+   :vs/term_status      "accepted"})
 
 (def hasData
   "Indicates associated with Data (may or may not be personal)"
@@ -10201,16 +9037,14 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Indicates associated with Data (may or may not be personal)"},
+   "Indicates associated with Data (may or may not be personal)",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has data"},
+   :rdfs/label "has data",
    :rdfs/range :dpvo/Data,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasData,
+   :vs/term_status "accepted"})
 
 (def hasDataController
   "Indicates association with Data Controller"
@@ -10221,19 +9055,15 @@
                          "Bud Bruegger"
                          "Mark Lizar"
                          "Axel Polleres"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates association with Data Controller"},
+   :dcterms/description "Indicates association with Data Controller",
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-05:00",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has data controller"},
+   :rdfs/label          "has data controller",
    :rdfs/range          [:dpvo/DataController :dpvo/LegalEntity],
-   :rdfs/subPropertyOf  :dpvo/hasEntity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasEntity :dpvo/hasDataController],
+   :vs/term_status      "accepted"})
 
 (def hasDataExporter
   "Indiciates inclusion or applicability of a LegalEntity in the role of Data Exporter"
@@ -10241,18 +9071,14 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Paul Ryan" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indiciates inclusion or applicability of a LegalEntity in the role of Data Exporter"},
+   "Indiciates inclusion or applicability of a LegalEntity in the role of Data Exporter",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has data exporter"},
+   :rdfs/label "has data exporter",
    :rdfs/range :dpvo/DataExporter,
-   :rdfs/subPropertyOf :dpvo/hasEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasEntity :dpvo/hasDataExporter],
+   :vs/term_status "accepted"})
 
 (def hasDataImporter
   "Indiciates inclusion or applicability of a LegalEntity in the role of Data Importer"
@@ -10260,18 +9086,15 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Paul Ryan" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indiciates inclusion or applicability of a LegalEntity in the role of Data Importer"},
+   "Indiciates inclusion or applicability of a LegalEntity in the role of Data Importer",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has data importer"},
+   :rdfs/label "has data importer",
    :rdfs/range :dpvo/DataImporter,
-   :rdfs/subPropertyOf :dpvo/hasRecipient,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf
+   [:dpvo/hasRecipient :dpvo/hasDataImporter :dpvo/hasEntity],
+   :vs/term_status "accepted"})
 
 (def hasDataProcessor
   "Indiciates inclusion or applicability of a Data Processor"
@@ -10279,35 +9102,31 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Paul Ryan" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indiciates inclusion or applicability of a Data Processor"},
+   "Indiciates inclusion or applicability of a Data Processor",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has data processor"},
+   :rdfs/label "has data processor",
    :rdfs/range :dpvo/DataProcessor,
-   :rdfs/subPropertyOf :dpvo/hasRecipient,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf
+   [:dpvo/hasRecipient :dpvo/hasDataProcessor :dpvo/hasEntity],
+   :vs/term_status "accepted"})
 
 (def hasDataProtectionOfficer
   "Specifices an associated data protection officer"
   {:db/ident            :dpvo/hasDataProtectionOfficer,
    :dcterms/created     #inst "2022-03-02T00:00:00.000-05:00",
    :dcterms/creator     ["Paul Ryan" "Rob Brennan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Specifices an associated data protection officer"},
+   :dcterms/description "Specifices an associated data protection officer",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has data protection officer"},
+   :rdfs/label          "has data protection officer",
    :rdfs/range          :dpvo/DataProtectionOfficer,
-   :rdfs/subPropertyOf  :dpvo/hasRepresentative,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasRepresentative
+                         :dpvo/hasDataProtectionOfficer
+                         :dpvo/hasEntity],
+   :vs/term_status      "accepted"})
 
 (def hasDataSource
   "Indicates the source or origin of data being processed"
@@ -10315,16 +9134,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Paul Ryan" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates the source or origin of data being processed"},
+   "Indicates the source or origin of data being processed",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has data source"},
+   :rdfs/label "has data source",
    :rdfs/range :dpvo/DataSource,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasDataSource,
+   :vs/term_status "accepted"})
 
 (def hasDataSubject
   "Indicates association with Data Subject"
@@ -10335,52 +9152,43 @@
                          "Axel Polleres"
                          "Bud Bruegger"
                          "Mark Lizar"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Indicates association with Data Subject"},
+   :dcterms/description "Indicates association with Data Subject",
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-05:00",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has data subject"},
+   :rdfs/label          "has data subject",
    :rdfs/range          :dpvo/DataSubject,
-   :rdfs/subPropertyOf  :dpvo/hasEntity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasEntity :dpvo/hasDataSubject],
+   :vs/term_status      "accepted"})
 
 (def hasDataSubjectScale
   "Indicates the scale of data subjects"
   {:db/ident            :dpvo/hasDataSubjectScale,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates the scale of data subjects"},
+   :dcterms/description "Indicates the scale of data subjects",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has data subject scale"},
+   :rdfs/label          "has data subject scale",
    :rdfs/range          :dpvo/DataSubjectScale,
-   :rdfs/subPropertyOf  :dpvo/hasScale,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasScale :dpvo/hasDataSubjectScale],
+   :vs/term_status      "accepted"})
 
 (def hasDataVolume
   "Indicates the volume of data"
   {:db/ident            :dpvo/hasDataVolume,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates the volume of data"},
+   :dcterms/description "Indicates the volume of data",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has data volume"},
+   :rdfs/label          "has data volume",
    :rdfs/range          :dpvo/DataVolume,
-   :rdfs/subPropertyOf  :dpvo/hasScale,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasScale :dpvo/hasDataVolume],
+   :vs/term_status      "accepted"})
 
 (def hasDuration
   "Indicates information about duration"
@@ -10390,17 +9198,15 @@
                          "Mark Lizar"
                          "Axel Polleres"
                          "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates information about duration"},
+   :dcterms/description "Indicates information about duration",
    :dcterms/source      "https://specialprivacy.ercim.eu/",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has duration"},
+   :rdfs/label          "has duration",
    :rdfs/range          :dpvo/Duration,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasDuration,
+   :vs/term_status      "accepted"})
 
 (def hasEntity
   "Indicates inclusion or applicability of an entity to some concept"
@@ -10408,21 +9214,16 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates inclusion or applicability of an entity to some concept"},
+   "Indicates inclusion or applicability of an entity to some concept",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "parent property for controller, processor, data subject, authority, etc.?"},
+   "parent property for controller, processor, data subject, authority, etc.?",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has entity"},
+   :rdfs/label "has entity",
    :rdfs/range :dpvo/Entity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasEntity,
+   :vs/term_status "accepted"})
 
 (def hasFrequency
   "Indicates the frequency with which something takes place"
@@ -10430,16 +9231,14 @@
    :dcterms/created #inst "2022-02-16T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates the frequency with which something takes place"},
+   "Indicates the frequency with which something takes place",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has frequency"},
+   :rdfs/label "has frequency",
    :rdfs/range :dpvo/Frequency,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasFrequency,
+   :vs/term_status "accepted"})
 
 (def hasGeographicCoverage
   "Indicate the geographic coverage (of specified context)"
@@ -10447,17 +9246,14 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicate the geographic coverage (of specified context)"},
+   "Indicate the geographic coverage (of specified context)",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has geographic coverage"},
+   :rdfs/label "has geographic coverage",
    :rdfs/range :dpvo/GeographicCoverage,
-   :rdfs/subPropertyOf :dpvo/hasScale,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasScale :dpvo/hasGeographicCoverage],
+   :vs/term_status "accepted"})
 
 (def hasHumanInvolvement
   "Indicates Involvement of humans in processing such as within automated decision making process"
@@ -10465,20 +9261,15 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates Involvement of humans in processing such as within automated decision making process"},
+   "Indicates Involvement of humans in processing such as within automated decision making process",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment {:rdf/language "en",
-                  :rdf/value
-                  "Human involvement is also relevant to 'human in the loop'"},
+   :rdfs/comment "Human involvement is also relevant to 'human in the loop'",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has human involvement"},
+   :rdfs/label "has human involvement",
    :rdfs/range :dpvo/HumanInvolvement,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasHumanInvolvement,
+   :vs/term_status "accepted"})
 
 (def hasIdentifier
   "Indicates an identifier associated for identification or reference"
@@ -10487,17 +9278,14 @@
    :dcterms/creator
    ["Harshvardhan J.Pandit" "Georg P Krog" "Paul Ryan" "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates an identifier associated for identification or reference"},
+   "Indicates an identifier associated for identification or reference",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has identifier"},
+   :rdfs/label "has identifier",
    :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasIdentifier,
+   :vs/term_status "accepted"})
 
 (def hasImpact
   "Indicates impact(s) possible or arising as consequences from specified concept"
@@ -10509,18 +9297,14 @@
                      "Beatriz Esteves"
                      "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates impact(s) possible or arising as consequences from specified concept"},
+   "Indicates impact(s) possible or arising as consequences from specified concept",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has impact"},
+   :rdfs/label "has impact",
    :rdfs/range :dpvo/Impact,
-   :rdfs/subPropertyOf :dpvo/hasConsequence,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasConsequence :dpvo/hasImpact],
+   :vs/term_status "accepted"})
 
 (def hasImpactOn
   "Indicates the thing (e.g. plan, process, or entity) affected by an impact"
@@ -10532,18 +9316,14 @@
                      "Fajar Ekaputra"
                      "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the thing (e.g. plan, process, or entity) affected by an impact"},
+   "Indicates the thing (e.g. plan, process, or entity) affected by an impact",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :dpvo/Impact,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has impact on"},
+   :rdfs/label "has impact on",
    :rdfs/range :owl/Thing,
-   :rdfs/subPropertyOf :dpvo/hasConsequenceOn,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasConsequenceOn :dpvo/hasImpactOn],
+   :vs/term_status "accepted"})
 
 (def hasIndicationMethod
   "Specifies the method by which an entity has indicated the specific context"
@@ -10552,16 +9332,13 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the method by which an entity has indicated the specific context"},
+   "Specifies the method by which an entity has indicated the specific context",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has indication method"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "has indication method",
+   :rdfs/subPropertyOf :dpvo/hasIndicationMethod,
+   :vs/term_status "accepted"})
 
 (def hasJointDataControllers
   "Indicates inclusion or applicability of a Joint Data Controller"
@@ -10569,35 +9346,29 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates inclusion or applicability of a Joint Data Controller"},
+   "Indicates inclusion or applicability of a Joint Data Controller",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has joint data controllers"},
+   :rdfs/label "has joint data controllers",
    :rdfs/range :dpvo/JointDataControllers,
-   :rdfs/subPropertyOf :dpvo/hasDataController,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf
+   [:dpvo/hasDataController :dpvo/hasJointDataControllers :dpvo/hasEntity],
+   :vs/term_status "accepted"})
 
 (def hasJurisdiction
   "Indicates applicability of specified jurisdiction"
   {:db/ident            :dpvo/hasJurisdiction,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates applicability of specified jurisdiction"},
+   :dcterms/description "Indicates applicability of specified jurisdiction",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has jurisdiction"},
+   :rdfs/label          "has jurisdiction",
    :rdfs/range          :dpvo/Location,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasJurisdiction,
+   :vs/term_status      "accepted"})
 
 (def hasJustification
   "Indicates a justification for specified concept or context"
@@ -10605,16 +9376,14 @@
    :dcterms/created #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates a justification for specified concept or context"},
+   "Indicates a justification for specified concept or context",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has justification"},
+   :rdfs/label "has justification",
    :rdfs/range :dpvo/Justification,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasJustification,
+   :vs/term_status "accepted"})
 
 (def hasLawfulness
   "Indicates the status of being lawful or legally compliant"
@@ -10622,35 +9391,30 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates the status of being lawful or legally compliant"},
+   "Indicates the status of being lawful or legally compliant",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has lawfulness"},
+   :rdfs/label "has lawfulness",
    :rdfs/range :dpvo/Lawfulness,
-   :rdfs/subPropertyOf :dpvo/hasComplianceStatus,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf
+   [:dpvo/hasComplianceStatus :dpvo/hasLawfulness :dpvo/hasStatus],
+   :vs/term_status "accepted"})
 
 (def hasLegalBasis
   "Indicates use or applicability of a Legal Basis"
   {:db/ident            :dpvo/hasLegalBasis,
    :dcterms/created     #inst "2019-04-04T00:00:00.000-04:00",
    :dcterms/creator     ["Axel Polleres" "Javier Fernández"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates use or applicability of a Legal Basis"},
+   :dcterms/description "Indicates use or applicability of a Legal Basis",
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-05:00",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has legal basis"},
+   :rdfs/label          "has legal basis",
    :rdfs/range          :dpvo/LegalBasis,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasLegalBasis,
+   :vs/term_status      "accepted"})
 
 (def hasLikelihood
   "Indicates the likelihood associated with a concept"
@@ -10660,17 +9424,14 @@
                          "Julian Flake"
                          "Harshvardhan J. Pandit"
                          "Georg P Krog"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates the likelihood associated with a concept"},
+   :dcterms/description "Indicates the likelihood associated with a concept",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has likelihood"},
+   :rdfs/label          "has likelihood",
    :rdfs/range          :dpvo/Likelihood,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasLikelihood,
+   :vs/term_status      "accepted"})
 
 (def hasLocation
   "Indicates information about location"
@@ -10680,17 +9441,15 @@
                          "Harshvardhan J. Pandit"
                          "Rob Brennan"
                          "Axel Polleres"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates information about location"},
+   :dcterms/description "Indicates information about location",
    :dcterms/source      "https://specialprivacy.ercim.eu/",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has location"},
+   :rdfs/label          "has location",
    :rdfs/range          :dpvo/Location,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasLocation,
+   :vs/term_status      "accepted"})
 
 (def hasName
   "Specifies name of a legal entity"
@@ -10700,16 +9459,14 @@
                          "Georg P Krog"
                          "Beatriz Esteves"
                          "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Specifies name of a legal entity"},
+   :dcterms/description "Specifies name of a legal entity",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :dpvo/Entity,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has name"},
+   :rdfs/label          "has name",
    :rdfs/range          :owl/Thing,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasName,
+   :vs/term_status      "accepted"})
 
 (def hasNotice
   "Indicates the use or applicability of a Notice for the specified context"
@@ -10718,18 +9475,16 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Paul Ryan" "Georg P Krog" "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the use or applicability of a Notice for the specified context"},
+   "Indicates the use or applicability of a Notice for the specified context",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has notice"},
+   :rdfs/label "has notice",
    :rdfs/range :dpvo/Notice,
-   :rdfs/subPropertyOf :dpvo/hasOrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasOrganisationalMeasure
+                        :dpvo/hasNotice
+                        :dpvo/hasTechnicalOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def hasObligation
   "Specifying applicability or inclusion of an obligation rule within specified context"
@@ -10738,18 +9493,14 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Beatriz Esteves" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifying applicability or inclusion of an obligation rule within specified context"},
+   "Specifying applicability or inclusion of an obligation rule within specified context",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Context,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has obligation"},
+   :rdfs/label "has obligation",
    :rdfs/range :dpvo/Obligation,
-   :rdfs/subPropertyOf :dpvo/hasRule,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasRule :dpvo/hasObligation],
+   :vs/term_status "accepted"})
 
 (def hasOrganisationalMeasure
   "Indicates use or applicability of Organisational measure"
@@ -10757,34 +9508,29 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates use or applicability of Organisational measure"},
+   "Indicates use or applicability of Organisational measure",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has organisational measure"},
+   :rdfs/label "has organisational measure",
    :rdfs/range :dpvo/OrganisationalMeasure,
-   :rdfs/subPropertyOf :dpvo/hasTechnicalOrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasTechnicalOrganisationalMeasure
+                        :dpvo/hasOrganisationalMeasure],
+   :vs/term_status "accepted"})
 
 (def hasOutcome
   "Indicates an outcome of specified concept or context"
-  {:db/ident :dpvo/hasOutcome,
-   :dcterms/created #inst "2022-05-18T00:00:00.000-04:00",
-   :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates an outcome of specified concept or context"},
-   :rdf/type [:rdf/Property :owl/ObjectProperty],
-   :rdfs/domain :owl/Thing,
-   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has outcome"},
-   :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+  {:db/ident            :dpvo/hasOutcome,
+   :dcterms/created     #inst "2022-05-18T00:00:00.000-04:00",
+   :dcterms/creator     "Harshvardhan J. Pandit",
+   :dcterms/description "Indicates an outcome of specified concept or context",
+   :rdf/type            [:rdf/Property :owl/ObjectProperty],
+   :rdfs/domain         :owl/Thing,
+   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
+   :rdfs/label          "has outcome",
+   :rdfs/range          :owl/Thing,
+   :rdfs/subPropertyOf  :dpvo/hasOutcome,
+   :vs/term_status      "accepted"})
 
 (def hasPermission
   "Specifying applicability or inclusion of a permission rule within specified context"
@@ -10793,69 +9539,57 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Beatriz Esteves" "Paul Ryan" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifying applicability or inclusion of a permission rule within specified context"},
+   "Specifying applicability or inclusion of a permission rule within specified context",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Context,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has permission"},
+   :rdfs/label "has permission",
    :rdfs/range :dpvo/Permission,
-   :rdfs/subPropertyOf :dpvo/hasRule,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasRule :dpvo/hasPermission],
+   :vs/term_status "accepted"})
 
 (def hasPersonalData
   "Indicates association with Personal Data"
   {:db/ident            :dpvo/hasPersonalData,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Indicates association with Personal Data"},
+   :dcterms/description "Indicates association with Personal Data",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has personal data"},
+   :rdfs/label          "has personal data",
    :rdfs/range          :dpvo/PersonalData,
-   :rdfs/subPropertyOf  :dpvo/hasData,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasData :dpvo/hasPersonalData],
+   :vs/term_status      "accepted"})
 
 (def hasPersonalDataHandling
   "Indicates association with Personal Data Handling"
   {:db/ident            :dpvo/hasPersonalDataHandling,
    :dcterms/created     #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates association with Personal Data Handling"},
+   :dcterms/description "Indicates association with Personal Data Handling",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has personal data handling"},
+   :rdfs/label          "has personal data handling",
    :rdfs/range          :dpvo/PersonalDataHandling,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasPersonalDataHandling,
+   :vs/term_status      "accepted"})
 
 (def hasPolicy
   "Indicates policy applicable or used"
   {:db/ident            :dpvo/hasPolicy,
    :dcterms/created     #inst "2022-01-26T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates policy applicable or used"},
+   :dcterms/description "Indicates policy applicable or used",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has policy"},
+   :rdfs/label          "has policy",
    :rdfs/range          :dpvo/Policy,
-   :rdfs/subPropertyOf  :dpvo/hasTechnicalOrganisationalMeasure,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasTechnicalOrganisationalMeasure
+                         :dpvo/hasPolicy],
+   :vs/term_status      "accepted"})
 
 (def hasProcessing
   "Indicates association with Processing"
@@ -10866,18 +9600,16 @@
                          "Javier Fernández"
                          "Mark Lizar"
                          "Harshvardhan J. Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates association with Processing"},
+   :dcterms/description "Indicates association with Processing",
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source      "https://specialprivacy.ercim.eu/",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has processing"},
+   :rdfs/label          "has processing",
    :rdfs/range          :dpvo/Processing,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasProcessing,
+   :vs/term_status      "accepted"})
 
 (def hasProcessingAutomation
   "Indicates the use or extent of automation associated with processing"
@@ -10885,17 +9617,14 @@
    :dcterms/created #inst "2022-08-13T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the use or extent of automation associated with processing"},
+   "Indicates the use or extent of automation associated with processing",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has processing automation"},
+   :rdfs/label "has processing automation",
    :rdfs/range :dpvo/AutomationOfProcessing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasProcessingAutomation,
+   :vs/term_status "accepted"})
 
 (def hasProhibition
   "Specifying applicability or inclusion of a prohibition rule within specified context"
@@ -10904,18 +9633,14 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Beatriz Esteves" "Paul Ryan" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifying applicability or inclusion of a prohibition rule within specified context"},
+   "Specifying applicability or inclusion of a prohibition rule within specified context",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Context,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has prohibition"},
+   :rdfs/label "has prohibition",
    :rdfs/range :dpvo/Prohibition,
-   :rdfs/subPropertyOf :dpvo/hasRule,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasRule :dpvo/hasProhibition],
+   :vs/term_status "accepted"})
 
 (def hasPurpose
   "Indicates association with Purpose"
@@ -10926,18 +9651,16 @@
                          "Mark Lizar"
                          "Harshvardhan J. Pandit"
                          "Javier Fernández"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates association with Purpose"},
+   :dcterms/description "Indicates association with Purpose",
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source      "https://specialprivacy.ercim.eu/",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has purpose"},
+   :rdfs/label          "has purpose",
    :rdfs/range          :dpvo/Purpose,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasPurpose,
+   :vs/term_status      "accepted"})
 
 (def hasRecipient
   "Indicates Recipient of Personal Data"
@@ -10948,19 +9671,16 @@
                          "Axel Polleres"
                          "Harshvardhan J. Pandit"
                          "Mark Lizar"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value    "Indicates Recipient of Personal Data"},
+   :dcterms/description "Indicates Recipient of Personal Data",
    :dcterms/modified    #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/source      "https://specialprivacy.ercim.eu/",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has recipient"},
+   :rdfs/label          "has recipient",
    :rdfs/range          :dpvo/Recipient,
-   :rdfs/subPropertyOf  :dpvo/hasEntity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasEntity :dpvo/hasRecipient],
+   :vs/term_status      "accepted"})
 
 (def hasRecipientDataController
   "Indiciates inclusion or applicability of a Data Controller as a Recipient of persona data"
@@ -10968,18 +9688,15 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator ["Georg P. Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indiciates inclusion or applicability of a Data Controller as a Recipient of persona data"},
+   "Indiciates inclusion or applicability of a Data Controller as a Recipient of persona data",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has recipient data controller"},
+   :rdfs/label "has recipient data controller",
    :rdfs/range :dpvo/DataController,
-   :rdfs/subPropertyOf :dpvo/hasRecipient,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf
+   [:dpvo/hasRecipient :dpvo/hasRecipientDataController :dpvo/hasEntity],
+   :vs/term_status "accepted"})
 
 (def hasRecipientThirdParty
   "Indiciates inclusion or applicability of a Third Party as a Recipient of persona data"
@@ -10987,18 +9704,15 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator ["Paul Ryan" "Harshvardhan J. Pandit" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indiciates inclusion or applicability of a Third Party as a Recipient of persona data"},
+   "Indiciates inclusion or applicability of a Third Party as a Recipient of persona data",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has recipient third party"},
+   :rdfs/label "has recipient third party",
    :rdfs/range :dpvo/ThirdParty,
-   :rdfs/subPropertyOf :dpvo/hasRecipient,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf
+   [:dpvo/hasRecipient :dpvo/hasRecipientThirdParty :dpvo/hasEntity],
+   :vs/term_status "accepted"})
 
 (def hasRelationWithDataSubject
   "Indicates the relation between specified Entity and Data Subject"
@@ -11007,18 +9721,14 @@
    :dcterms/creator
    ["Julian Flake" "Georg P Krog" "Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the relation between specified Entity and Data Subject"},
+   "Indicates the relation between specified Entity and Data Subject",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :dpvo/Entity,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has relation with data subject"},
+   :rdfs/label "has relation with data subject",
    :rdfs/range :owl/Thing,
-   :rdfs/subPropertyOf :dpvo/hasEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasEntity :dpvo/hasRelationWithDataSubject],
+   :vs/term_status "accepted"})
 
 (def hasRepresentative
   "Specifies representative of the legal entity"
@@ -11028,18 +9738,14 @@
                          "Paul Ryan"
                          "Georg P Krog"
                          "Harshvardhan J.Pandit"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Specifies representative of the legal entity"},
+   :dcterms/description "Specifies representative of the legal entity",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :dpvo/Entity,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has representative"},
+   :rdfs/label          "has representative",
    :rdfs/range          :dpvo/Representative,
-   :rdfs/subPropertyOf  :dpvo/hasEntity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasEntity :dpvo/hasRepresentative],
+   :vs/term_status      "accepted"})
 
 (def hasResidualRisk
   "Indicates the associated risk is the remaining or residual risk from applying mitigation measures or treatments to this risk"
@@ -11048,17 +9754,14 @@
    :dcterms/creator
    ["Paul Ryan" "Harshvardhan J. Pandit" "Julian Flake" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the associated risk is the remaining or residual risk from applying mitigation measures or treatments to this risk"},
+   "Indicates the associated risk is the remaining or residual risk from applying mitigation measures or treatments to this risk",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Risk,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has residual risk"},
+   :rdfs/label "has residual risk",
    :rdfs/range :dpvo/Risk,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasResidualRisk,
+   :vs/term_status "accepted"})
 
 (def hasResponsibleEntity
   "Specifies the indicated entity is responsible within some context"
@@ -11066,53 +9769,43 @@
    :dcterms/created #inst "2022-03-02T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the indicated entity is responsible within some context"},
+   "Specifies the indicated entity is responsible within some context",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has responsible entity"},
+   :rdfs/label "has responsible entity",
    :rdfs/range :dpvo/Entity,
-   :rdfs/subPropertyOf :dpvo/hasEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasEntity :dpvo/hasResponsibleEntity],
+   :vs/term_status "accepted"})
 
 (def hasRight
   "Indicates use or applicability of Right"
   {:db/ident            :dpvo/hasRight,
    :dcterms/created     #inst "2020-11-18T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Indicates use or applicability of Right"},
+   :dcterms/description "Indicates use or applicability of Right",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has right"},
+   :rdfs/label          "has right",
    :rdfs/range          :dpvo/Right,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasRight,
+   :vs/term_status      "accepted"})
 
 (def hasRisk
-  "Indicates applicability of Risk"
+  "Indicates applicability of Risk Indicates applicability of Risk for this concept"
   {:db/ident            :dpvo/hasRisk,
    :dcterms/created     #inst "2020-11-18T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description [{:rdf/language "en",
-                          :rdf/value    "Indicates applicability of Risk"}
-                         {:rdf/language "en",
-                          :rdf/value
-                          "Indicates applicability of Risk for this concept"}],
+   :dcterms/description ["Indicates applicability of Risk"
+                         "Indicates applicability of Risk for this concept"],
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has risk"},
+   :rdfs/label          "has risk",
    :rdfs/range          :dpvo/Risk,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasRisk,
+   :vs/term_status      "accepted"})
 
 (def hasRiskLevel
   "Indicates the associated risk level associated with a risk"
@@ -11121,16 +9814,14 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Harshvardhan J. Pandit" "Julian Flake"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates the associated risk level associated with a risk"},
+   "Indicates the associated risk level associated with a risk",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Risk,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has risk level"},
+   :rdfs/label "has risk level",
    :rdfs/range :dpvo/RiskLevel,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasRiskLevel,
+   :vs/term_status "accepted"})
 
 (def hasRule
   "Specifying applicability or inclusion of a rule within specified context"
@@ -11139,67 +9830,56 @@
    :dcterms/creator
    ["Beatriz Esteves" "Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifying applicability or inclusion of a rule within specified context"},
+   "Specifying applicability or inclusion of a rule within specified context",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Context,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has rule"},
+   :rdfs/label "has rule",
    :rdfs/range :dpvo/Rule,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasRule,
+   :vs/term_status "accepted"})
 
 (def hasScale
   "Indicates the scale of specified concept"
   {:db/ident            :dpvo/hasScale,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value "Indicates the scale of specified concept"},
+   :dcterms/description "Indicates the scale of specified concept",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has scale"},
+   :rdfs/label          "has scale",
    :rdfs/range          :dpvo/Scale,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasScale,
+   :vs/term_status      "accepted"})
 
 (def hasScope
   "Indicates the scope of specified concept or context"
   {:db/ident            :dpvo/hasScope,
    :dcterms/created     #inst "2022-06-15T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates the scope of specified concept or context"},
+   :dcterms/description "Indicates the scope of specified concept or context",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has scope"},
+   :rdfs/label          "has scope",
    :rdfs/range          :dpvo/Scope,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasScope,
+   :vs/term_status      "accepted"})
 
 (def hasSector
   "Indicates the purpose is associated with activities in the indicated (Economic) Sector(s)"
   {:db/ident :dpvo/hasSector,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the purpose is associated with activities in the indicated (Economic) Sector(s)"},
+   "Indicates the purpose is associated with activities in the indicated (Economic) Sector(s)",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has sector"},
+   :rdfs/label "has sector",
    :rdfs/range :dpvo/Sector,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasSector,
+   :vs/term_status "accepted"})
 
 (def hasSeverity
   "Indicates the severity associated with a concept"
@@ -11209,34 +9889,28 @@
                          "Julian Flake"
                          "Georg P Krog"
                          "Paul Ryan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates the severity associated with a concept"},
+   :dcterms/description "Indicates the severity associated with a concept",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has severity"},
+   :rdfs/label          "has severity",
    :rdfs/range          :dpvo/Severity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasSeverity,
+   :vs/term_status      "accepted"})
 
 (def hasStatus
   "Indicates the status of specified concept"
   {:db/ident            :dpvo/hasStatus,
    :dcterms/created     #inst "2022-05-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates the status of specified concept"},
+   :dcterms/description "Indicates the status of specified concept",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has status"},
+   :rdfs/label          "has status",
    :rdfs/range          :dpvo/Status,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/hasStatus,
+   :vs/term_status      "accepted"})
 
 (def hasStorageCondition
   "Indicates information about storage condition"
@@ -11246,36 +9920,30 @@
                          "Mark Lizar"
                          "Axel Polleres"
                          "Rob Brennan"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates information about storage condition"},
+   :dcterms/description "Indicates information about storage condition",
    :dcterms/source      "https://specialprivacy.ercim.eu/",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has storage condition"},
+   :rdfs/label          "has storage condition",
    :rdfs/range          :dpvo/StorageCondition,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "changed"}})
+   :rdfs/subPropertyOf  :dpvo/hasStorageCondition,
+   :vs/term_status      "changed"})
 
 (def hasTechnicalMeasure
   "Indicates use or applicability of Technical measure"
   {:db/ident            :dpvo/hasTechnicalMeasure,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates use or applicability of Technical measure"},
+   :dcterms/description "Indicates use or applicability of Technical measure",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "has technical measure"},
+   :rdfs/label          "has technical measure",
    :rdfs/range          :dpvo/TechnicalMeasure,
-   :rdfs/subPropertyOf  :dpvo/hasTechnicalOrganisationalMeasure,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasTechnicalOrganisationalMeasure
+                         :dpvo/hasTechnicalMeasure],
+   :vs/term_status      "accepted"})
 
 (def hasTechnicalOrganisationalMeasure
   "Indicates use or applicability of Technical or Organisational measure"
@@ -11287,18 +9955,15 @@
                      "Javier Fernández"
                      "Bud Bruegger"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates use or applicability of Technical or Organisational measure"},
+   "Indicates use or applicability of Technical or Organisational measure",
    :dcterms/modified #inst "2020-11-04T00:00:00.000-05:00",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has technical and organisational measure"},
+   :rdfs/label "has technical and organisational measure",
    :rdfs/range :dpvo/TechnicalOrganisationalMeasure,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/hasTechnicalOrganisationalMeasure,
+   :vs/term_status "accepted"})
 
 (def hasThirdCountry
   "Indicates applicability or relevance of a 'third country'"
@@ -11306,17 +9971,15 @@
    :dcterms/created #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates applicability or relevance of a 'third country'"},
+   "Indicates applicability or relevance of a 'third country'",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "has third country"},
+   :rdfs/label "has third country",
    :rdfs/range :dpvo/ThirdCountry,
-   :rdfs/subPropertyOf :dpvo/hasCountry,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf
+   [:dpvo/hasCountry :dpvo/hasThirdCountry :dpvo/hasLocation],
+   :vs/term_status "accepted"})
 
 (def isAfter
   "Indicates the specified concepts is 'after' this concept in some context"
@@ -11324,17 +9987,14 @@
    :dcterms/created #inst "2022-03-02T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Julian Flake" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the specified concepts is 'after' this concept in some context"},
+   "Indicates the specified concepts is 'after' this concept in some context",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is after"},
+   :rdfs/label "is after",
    :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/isAfter,
+   :vs/term_status "accepted"})
 
 (def isAuthorityFor
   "Indicates area, scope, or applicability of an Authority"
@@ -11342,16 +10002,14 @@
    :dcterms/created #inst "2022-01-19T00:00:00.000-05:00",
    :dcterms/creator ["Georg P Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates area, scope, or applicability of an Authority"},
+   "Indicates area, scope, or applicability of an Authority",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :dpvo/Authority,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is authority for"},
+   :rdfs/label "is authority for",
    :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/isAuthorityFor,
+   :vs/term_status "accepted"})
 
 (def isBefore
   "Indicates the specified concepts is 'before' this concept in some context"
@@ -11359,17 +10017,14 @@
    :dcterms/created #inst "2022-03-02T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Julian Flake" "Georg P. Krog"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates the specified concepts is 'before' this concept in some context"},
+   "Indicates the specified concepts is 'before' this concept in some context",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is before"},
+   :rdfs/label "is before",
    :rdfs/range :owl/Thing,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/isBefore,
+   :vs/term_status "accepted"})
 
 (def isExercisedAt
   "Indicates context or information about exercising a right"
@@ -11377,16 +10032,14 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value    "Indicates context or information about exercising a right"},
+   "Indicates context or information about exercising a right",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/ActiveRight,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is exercised at"},
+   :rdfs/label "is exercised at",
    :rdfs/range :dpvo/RightExerciseNotice,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/isExercisedAt,
+   :vs/term_status "accepted"})
 
 (def isImplementedByEntity
   "Indicates implementation details such as entities or agents"
@@ -11398,21 +10051,17 @@
                      "Paul Ryan"
                      "Axel Polleres"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Indicates implementation details such as entities or agents"},
+   "Indicates implementation details such as entities or agents",
    :dcterms/modified #inst "2022-01-26T00:00:00.000-05:00",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The use of 'entity' is inclusive of entities (e.g. Data Processor) as well as 'agent' (e.g. DPO). For indicating technological implementation, the property isImplementedByTechnology should be used."},
+   "The use of 'entity' is inclusive of entities (e.g. Data Processor) as well as 'agent' (e.g. DPO). For indicating technological implementation, the property isImplementedByTechnology should be used.",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is implemented by entity"},
+   :rdfs/label "is implemented by entity",
    :rdfs/range :dpvo/Entity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "changed"}})
+   :rdfs/subPropertyOf :dpvo/isImplementedByEntity,
+   :vs/term_status "changed"})
 
 (def isImplementedUsingTechnology
   "Indicates implementation details such as technologies or processes"
@@ -11421,22 +10070,17 @@
    :dcterms/creator
    ["Julian Flake" "Harshvardhan J. Pandit" "Paul Ryan" "Beatriz Esteves"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates implementation details such as technologies or processes"},
+   "Indicates implementation details such as technologies or processes",
    :dcterms/modified #inst "2022-06-15T00:00:00.000-04:00",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   {:rdf/language "en",
-    :rdf/value
-    "The term 'technology' is inclusive of technologies, processes, and methods."},
+   "The term 'technology' is inclusive of technologies, processes, and methods.",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is implemented using technology"},
+   :rdfs/label "is implemented using technology",
    :rdfs/range :dpvo/Technology,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "changed"}})
+   :rdfs/subPropertyOf :dpvo/isImplementedUsingTechnology,
+   :vs/term_status "changed"})
 
 (def isIndicatedAtTime
   "Specifies the temporal information for when the entity has indicated the specific context"
@@ -11445,16 +10089,13 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Georg P Krog" "Julian Flake" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Specifies the temporal information for when the entity has indicated the specific context"},
+   "Specifies the temporal information for when the entity has indicated the specific context",
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is indicated at time"},
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/label "is indicated at time",
+   :rdfs/subPropertyOf :dpvo/isIndicatedAtTime,
+   :vs/term_status "accepted"})
 
 (def isIndicatedBy
   "Specifies entity who indicates the specific context"
@@ -11464,52 +10105,43 @@
                          "Georg P Krog"
                          "Paul Ryan"
                          "Julian Flake"],
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Specifies entity who indicates the specific context"},
+   :dcterms/description "Specifies entity who indicates the specific context",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :owl/Thing,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "is indicated by"},
+   :rdfs/label          "is indicated by",
    :rdfs/range          :dpvo/Entity,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/isIndicatedBy,
+   :vs/term_status      "accepted"})
 
 (def isMitigatedByMeasure
   "Indicate a risk is mitigated by specified measure"
   {:db/ident            :dpvo/isMitigatedByMeasure,
    :dcterms/created     #inst "2022-02-09T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicate a risk is mitigated by specified measure"},
+   :dcterms/description "Indicate a risk is mitigated by specified measure",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Risk,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "is mitigated by measure"},
+   :rdfs/label          "is mitigated by measure",
    :rdfs/range          :dpvo/RiskMitigationMeasure,
-   :rdfs/subPropertyOf  :dpvo/hasTechnicalOrganisationalMeasure,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  [:dpvo/hasTechnicalOrganisationalMeasure
+                         :dpvo/isMitigatedByMeasure],
+   :vs/term_status      "accepted"})
 
 (def isPolicyFor
   "Indicates the context or application of policy"
   {:db/ident            :dpvo/isPolicyFor,
    :dcterms/created     #inst "2022-01-26T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates the context or application of policy"},
+   :dcterms/description "Indicates the context or application of policy",
    :rdf/type            [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain         :dpvo/Policy,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "is policy for"},
+   :rdfs/label          "is policy for",
    :rdfs/range          :owl/Thing,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/isPolicyFor,
+   :vs/term_status      "accepted"})
 
 (def isRepresentativeFor
   "Indicates the entity is a representative for specified entity"
@@ -11517,17 +10149,14 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value "Indicates the entity is a representative for specified entity"},
+   "Indicates the entity is a representative for specified entity",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Representative,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is representative for"},
+   :rdfs/label "is representative for",
    :rdfs/range :dpvo/Entity,
-   :rdfs/subPropertyOf :dpvo/hasEntity,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf [:dpvo/hasEntity :dpvo/isRepresentativeFor],
+   :vs/term_status "accepted"})
 
 (def isResidualRiskOf
   "Indicates this risk is the remaining or residual risk from applying mitigation measures or treatments to specified risk"
@@ -11536,53 +10165,42 @@
    :dcterms/creator
    ["Georg P Krog" "Julian Flake" "Harshvardhan J. Pandit" "Paul Ryan"],
    :dcterms/description
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates this risk is the remaining or residual risk from applying mitigation measures or treatments to specified risk"},
+   "Indicates this risk is the remaining or residual risk from applying mitigation measures or treatments to specified risk",
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/domain :dpvo/Risk,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "is residual risk of"},
+   :rdfs/label "is residual risk of",
    :rdfs/range :dpvo/Risk,
-   :vs/term_status {:rdf/language "en",
-                    :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf :dpvo/isResidualRiskOf,
+   :vs/term_status "accepted"})
 
 (def mitigatesRisk
   "Indicates risks mitigated by this concept"
   {:db/ident            :dpvo/mitigatesRisk,
    :dcterms/created     #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description {:rdf/language "en",
-                         :rdf/value
-                         "Indicates risks mitigated by this concept"},
+   :dcterms/description "Indicates risks mitigated by this concept",
    :rdf/type            [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain         :dpvo/RiskMitigationMeasure,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
-   :rdfs/label          {:rdf/language "en",
-                         :rdf/value    "mitigates risk"},
+   :rdfs/label          "mitigates risk",
    :rdfs/range          :dpvo/Risk,
-   :vs/term_status      {:rdf/language "en",
-                         :rdf/value    "accepted"}})
+   :rdfs/subPropertyOf  :dpvo/mitigatesRisk,
+   :vs/term_status      "accepted"})
 
 (def ^{:private true} Resource
   "dcat:Resource"
   {:db/ident :dcat/Resource,
    :rdf/type :owl/Class,
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "dcat:Resource"},
+   :rdfs/label "dcat:Resource",
    :skos/scopeNote
-   {:rdf/language "en",
-    :rdf/value
-    "A dataset, data service, or any other resource associated with Right Exercise - such as for providing a copy of personal data"}})
+   "A dataset, data service, or any other resource associated with Right Exercise - such as for providing a copy of personal data"})
 
 (def ^{:private true} page
   "foaf:page"
   {:db/ident :foaf/page,
    :rdf/type [:rdf/Property :owl/AnnotationProperty],
-   :rdfs/label {:rdf/language "en",
-                :rdf/value    "foaf:page"},
+   :rdfs/label "foaf:page",
+   :rdfs/subPropertyOf :foaf/page,
    :skos/scopeNote
-   {:rdf/language "en",
-    :rdf/value
-    "Indicates a web page or document providing information or functionality associated with a Right Exercise"}})
+   "Indicates a web page or document providing information or functionality associated with a Right Exercise"})
