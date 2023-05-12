@@ -156,7 +156,9 @@
     :owl/equivalentProperty
     :owl/sameAs
     :rdfs/domain
-    :rdfs/range})
+    :rdfs/range
+    :skos/broader
+    :skos/narrower})
 
 (declare find-metaobject)
 
@@ -282,6 +284,7 @@
              :rdf/keys  [type]
              :rdfs/keys [subClassOf equivalentClass
                          subPropertyOf equivalentProperty]
+             :skos/keys [broader narrower]
              :as        entity}]
        (cond-> h
          (some #(isa? h % :owl/NamedIndividual) type)
@@ -298,7 +301,19 @@
                    (distinct
                      (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
                              (filter keyword? subPropertyOf)
-                             (filter keyword? equivalentProperty))))))
+                             (filter keyword? equivalentProperty))))
+
+         (seq (filter keyword? broader))
+         (deriving entity (filter keyword? broader))
+
+         (seq (filter keyword? narrower))
+         (as-> h
+             (reduce (fn [h child]
+                       (try
+                         (derive h child ident)
+                         (catch Throwable ex
+                           h)))
+                     h (filter keyword? narrower)))))
      classes
      metaobjects)))
 
