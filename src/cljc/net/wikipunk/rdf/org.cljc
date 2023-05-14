@@ -1119,51 +1119,51 @@
    :rdfs/subPropertyOf
    [:org/subOrganizationOf :org/unitOf :org/transitiveSubOrganizationOf]})
 
-(def ^{:private true} Agent
-  {:db/ident        :foaf/Agent,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :foaf/Agent})
+;; (def ^{:private true} Agent
+;;   {:db/ident        :foaf/Agent,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :foaf/Agent})
 
-(def ^{:private true} Organization
-  {:db/ident        :foaf/Organization,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :foaf/Organization})
+;; (def ^{:private true} Organization
+;;   {:db/ident        :foaf/Organization,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :foaf/Organization})
 
-(def ^{:private true} BusinessEntity
-  {:db/ident        :gr/BusinessEntity,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf [:org/FormalOrganization
-                     :gr/BusinessEntity
-                     :foaf/Agent
-                     :org/Organization
-                     :rdfs/Resource
-                     :foaf/Organization]})
+;; (def ^{:private true} BusinessEntity
+;;   {:db/ident        :gr/BusinessEntity,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf [:org/FormalOrganization
+;;                      :gr/BusinessEntity
+;;                      :foaf/Agent
+;;                      :org/Organization
+;;                      :rdfs/Resource
+;;                      :foaf/Organization]})
 
-(def ^{:private true} Activity
-  {:db/ident        :prov/Activity,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :prov/Activity})
+;; (def ^{:private true} Activity
+;;   {:db/ident        :prov/Activity,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :prov/Activity})
 
-(def ^{:private true} used
-  {:db/ident :prov/used,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :prov/used})
+;; (def ^{:private true} used
+;;   {:db/ident :prov/used,
+;;    :rdf/type :rdf/Property,
+;;    :rdfs/subPropertyOf :prov/used})
 
-(def ^{:private true} wasDerivedFrom
-  {:db/ident :prov/wasDerivedFrom,
-   :owl/propertyChainAxiom [:org/resultedFrom :org/originalOrganization]})
+;; (def ^{:private true} wasDerivedFrom
+;;   {:db/ident :prov/wasDerivedFrom,
+;;    :owl/propertyChainAxiom [:org/resultedFrom :org/originalOrganization]})
 
-(def ^{:private true} wasGeneratedBy
-  {:db/ident :prov/wasGeneratedBy,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :prov/wasGeneratedBy})
+;; (def ^{:private true} wasGeneratedBy
+;;   {:db/ident :prov/wasGeneratedBy,
+;;    :rdf/type :rdf/Property,
+;;    :rdfs/subPropertyOf :prov/wasGeneratedBy})
 
-(def ^{:private true} Concept
-  {:db/ident        :skos/Concept,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :skos/Concept})
+;; (def ^{:private true} Concept
+;;   {:db/ident        :skos/Concept,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :skos/Concept})
 
-(def ^{:private true} notation
-  {:db/ident :skos/notation,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :skos/notation})
+;; (def ^{:private true} notation
+;;   {:db/ident :skos/notation,
+;;    :rdf/type :rdf/Property,
+;;    :rdfs/subPropertyOf :skos/notation})

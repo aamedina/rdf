@@ -210,22 +210,22 @@
    :rdfs/label "value",
    :rdfs/subPropertyOf :daq/value})
 
-(def ^{:private true} Entity
-  {:db/ident        :prov/Entity,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :prov/Entity})
+;; (def ^{:private true} Entity
+;;   {:db/ident        :prov/Entity,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :prov/Entity})
 
-(def ^{:private true} DataSet
-  {:db/ident        :qb/DataSet,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :qb/DataSet})
+;; (def ^{:private true} DataSet
+;;   {:db/ident        :qb/DataSet,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :qb/DataSet})
 
-(def ^{:private true} Observation
-  {:db/ident        :qb/Observation,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :qb/Observation})
+;; (def ^{:private true} Observation
+;;   {:db/ident        :qb/Observation,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :qb/Observation})
 
-(def ^{:private true} Graph
-  {:db/ident        :rdfg/Graph,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :rdfg/Graph})
+;; (def ^{:private true} Graph
+;;   {:db/ident        :rdfg/Graph,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :rdfg/Graph})

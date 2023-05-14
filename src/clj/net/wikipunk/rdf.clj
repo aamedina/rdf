@@ -410,19 +410,16 @@
 (defn freezable
   "Ensure the metaobject can be frozen and thawed by Nippy."
   [mo]
-  (walk/postwalk (fn [form]
-                   (cond
-                     ;; (instance? ont_app.vocabulary.lstr.LangStr form)
-                     ;; (str form)
-                     
-                     (map? form)
-                     (reduce-kv (fn [m k v]
-                                  (if (nippy/freezable? v)
-                                    (assoc m k v)
-                                    m))
-                                {:db/ident (:db/ident mo)} form)
-                     :else form))
-                 (walk/prewalk unroll-langString (assoc mo :xt/id (:db/ident mo)))))
+  (->> (walk/prewalk unroll-langString (assoc mo :xt/id (:db/ident mo)))
+       (walk/postwalk (fn [form]
+                        (cond
+                          (map? form)
+                          (reduce-kv (fn [m k v]
+                                       (if (nippy/freezable? v)
+                                         (assoc m k v)
+                                         m))
+                                     {} form)
+                          :else form)))))
 
 (declare iri)
 

@@ -3142,159 +3142,159 @@
    #voc/lstr
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances.@en"})
 
-(def ^{:private true} Attribution
-  "Credit be given to copyright holder and/or author."
-  {:db/ident         :cc/Attribution,
-   :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label       #voc/lstr "Attribution@en",
-   :skos/definition  #voc/lstr
-                      "Credit be given to copyright holder and/or author.@en",
-   :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote   #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} Attribution
+;;   "Credit be given to copyright holder and/or author."
+;;   {:db/ident         :cc/Attribution,
+;;    :odrl/includedIn  :odrl/use,
+;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label       #voc/lstr "Attribution@en",
+;;    :skos/definition  #voc/lstr
+;;                       "Credit be given to copyright holder and/or author.@en",
+;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} CommercialUse
-  "Exercising rights for commercial purposes."
-  {:db/ident         :cc/CommercialUse,
-   :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label       #voc/lstr "Commercial Use@en",
-   :skos/definition  #voc/lstr "Exercising rights for commercial purposes.@en",
-   :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote   #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} CommercialUse
+;;   "Exercising rights for commercial purposes."
+;;   {:db/ident         :cc/CommercialUse,
+;;    :odrl/includedIn  :odrl/use,
+;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label       #voc/lstr "Commercial Use@en",
+;;    :skos/definition  #voc/lstr "Exercising rights for commercial purposes.@en",
+;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} DerivativeWorks
-  "Distribution of derivative works."
-  {:db/ident         :cc/DerivativeWorks,
-   :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label       #voc/lstr "Derivative Works@en",
-   :skos/definition  #voc/lstr "Distribution of derivative works.@en",
-   :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote   #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} DerivativeWorks
+;;   "Distribution of derivative works."
+;;   {:db/ident         :cc/DerivativeWorks,
+;;    :odrl/includedIn  :odrl/use,
+;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label       #voc/lstr "Derivative Works@en",
+;;    :skos/definition  #voc/lstr "Distribution of derivative works.@en",
+;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} Distribution
-  "Distribution, public display, and publicly performance."
-  {:db/ident :cc/Distribution,
-   :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label #voc/lstr "Distribution@en",
-   :skos/definition
-   #voc/lstr "Distribution, public display, and publicly performance.@en",
-   :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} Distribution
+;;   "Distribution, public display, and publicly performance."
+;;   {:db/ident :cc/Distribution,
+;;    :odrl/includedIn :odrl/use,
+;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label #voc/lstr "Distribution@en",
+;;    :skos/definition
+;;    #voc/lstr "Distribution, public display, and publicly performance.@en",
+;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} Notice
-  "Copyright and license notices be kept intact."
-  {:db/ident         :cc/Notice,
-   :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label       #voc/lstr "Notice@en",
-   :skos/definition  #voc/lstr
-                      "Copyright and license notices be kept intact.@en",
-   :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote   #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} Notice
+;;   "Copyright and license notices be kept intact."
+;;   {:db/ident         :cc/Notice,
+;;    :odrl/includedIn  :odrl/use,
+;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label       #voc/lstr "Notice@en",
+;;    :skos/definition  #voc/lstr
+;;                       "Copyright and license notices be kept intact.@en",
+;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} Reproduction
-  "Making multiple copies."
-  {:db/ident         :cc/Reproduction,
-   :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label       #voc/lstr "Reproduction@en",
-   :skos/definition  #voc/lstr "Making multiple copies.@en",
-   :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote   #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} Reproduction
+;;   "Making multiple copies."
+;;   {:db/ident         :cc/Reproduction,
+;;    :odrl/includedIn  :odrl/use,
+;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label       #voc/lstr "Reproduction@en",
+;;    :skos/definition  #voc/lstr "Making multiple copies.@en",
+;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} ShareAlike
-  "Derivative works be licensed under the same terms or compatible terms as the original work."
-  {:db/ident :cc/ShareAlike,
-   :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label #voc/lstr "Share Alike@en",
-   :skos/definition
-   #voc/lstr
-    "Derivative works be licensed under the same terms or compatible terms as the original work.@en",
-   :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} ShareAlike
+;;   "Derivative works be licensed under the same terms or compatible terms as the original work."
+;;   {:db/ident :cc/ShareAlike,
+;;    :odrl/includedIn :odrl/use,
+;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label #voc/lstr "Share Alike@en",
+;;    :skos/definition
+;;    #voc/lstr
+;;     "Derivative works be licensed under the same terms or compatible terms as the original work.@en",
+;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} Sharing
-  "Permits commercial derivatives, but only non-commercial distribution."
-  {:db/ident :cc/Sharing,
-   :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label #voc/lstr "Sharing@en",
-   :skos/definition
-   #voc/lstr
-    "Permits commercial derivatives, but only non-commercial distribution.@en",
-   :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} Sharing
+;;   "Permits commercial derivatives, but only non-commercial distribution."
+;;   {:db/ident :cc/Sharing,
+;;    :odrl/includedIn :odrl/use,
+;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label #voc/lstr "Sharing@en",
+;;    :skos/definition
+;;    #voc/lstr
+;;     "Permits commercial derivatives, but only non-commercial distribution.@en",
+;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} SourceCode
-  "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license."
-  {:db/ident :cc/SourceCode,
-   :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label #voc/lstr "Source Code@en",
-   :skos/definition
-   #voc/lstr
-    "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license.@en",
-   :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-   :skos/scopeNote #voc/lstr "Non-Normative@en"})
+;; (def ^{:private true} SourceCode
+;;   "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license."
+;;   {:db/ident :cc/SourceCode,
+;;    :odrl/includedIn :odrl/use,
+;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+;;    :rdfs/label #voc/lstr "Source Code@en",
+;;    :skos/definition
+;;    #voc/lstr
+;;     "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license.@en",
+;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
+;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
 
-(def ^{:private true} Action
-  {:db/ident        :schema/Action,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :schema/Action})
+;; (def ^{:private true} Action
+;;   {:db/ident        :schema/Action,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :schema/Action})
 
-(def ^{:private true} Collection
-  {:db/ident :skos/Collection,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Collection
+;;   {:db/ident :skos/Collection,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} Concept
-  {:db/ident :skos/Concept,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Concept
+;;   {:db/ident :skos/Concept,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} ConceptScheme
-  {:db/ident :skos/ConceptScheme,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} ConceptScheme
+;;   {:db/ident :skos/ConceptScheme,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} broader
-  {:db/ident :skos/broader,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} broader
+;;   {:db/ident :skos/broader,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} broaderTransitive
-  {:db/ident :skos/broaderTransitive,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} broaderTransitive
+;;   {:db/ident :skos/broaderTransitive,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} definition
-  {:db/ident :skos/definition,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} definition
+;;   {:db/ident :skos/definition,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} hasTopConcept
-  {:db/ident :skos/hasTopConcept,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} hasTopConcept
+;;   {:db/ident :skos/hasTopConcept,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} member
-  {:db/ident :skos/member,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} member
+;;   {:db/ident :skos/member,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} note
-  {:db/ident :skos/note,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} note
+;;   {:db/ident :skos/note,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} prefLabel
-  {:db/ident :skos/prefLabel,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} prefLabel
+;;   {:db/ident :skos/prefLabel,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} scopeNote
-  {:db/ident :skos/scopeNote,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} scopeNote
+;;   {:db/ident :skos/scopeNote,
+;;    :rdf/type :owl/AnnotationProperty})

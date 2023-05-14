@@ -135,8 +135,7 @@
   "A person."
   {:db/ident            :foaf/Person,
    :owl/disjointWith    [:foaf/Project :foaf/Organization],
-   :owl/equivalentClass [:schema/Person
-                         "http://www.w3.org/2000/10/swap/pim/contact#Person"],
+   :owl/equivalentClass [:schema/Person],
    :rdf/type            [:rdfs/Class :owl/Class],
    :rdfs/comment        "A person.",
    :rdfs/isDefinedBy    "http://xmlns.com/foaf/0.1/",

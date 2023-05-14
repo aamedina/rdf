@@ -453,7 +453,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "has container@en",
    :rdfs/range         :sioc/Container,
-   :rdfs/subPropertyOf [:dcterms/partOf :sioc/has_container]})
+   :rdfs/subPropertyOf [:dcterms/isPartOf :sioc/has_container]})
 
 (def has_creator
   "This is the UserAccount that made this resource."
@@ -507,7 +507,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "has host@en",
    :rdfs/range         :sioc/Site,
-   :rdfs/subPropertyOf [:sioc/has_space :sioc/has_host :dcterms/partOf]})
+   :rdfs/subPropertyOf [:sioc/has_space :sioc/has_host :dcterms/isPartOf]})
 
 (def has_member
   "A UserAccount that is a member of this Usergroup."
@@ -568,7 +568,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "has parent@en",
    :rdfs/range :sioc/Container,
-   :rdfs/subPropertyOf [:dcterms/partOf :sioc/has_parent]})
+   :rdfs/subPropertyOf [:dcterms/isPartOf :sioc/has_parent]})
 
 (def has_part
   "An resource that is a part of this subject."
@@ -615,7 +615,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "has space@en",
    :rdfs/range         :sioc/Space,
-   :rdfs/subPropertyOf [:dcterms/partOf :sioc/has_space]})
+   :rdfs/subPropertyOf [:dcterms/isPartOf :sioc/has_space]})
 
 (def has_subscriber
   "A UserAccount that is subscribed to this Container."

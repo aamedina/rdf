@@ -21,7 +21,6 @@
    :rdfs/label   "any simple type"})
 
 (def anyURI
-  "any URI"
   {:db/ident       :xsd/anyURI,
    :owl/onDatatype :xsd/anySimpleType,
    :rdf/type       :rdfs/Datatype,
@@ -39,15 +38,15 @@
    :rdfs/label "base64 binary"})
 
 (def boolean
-  "boolean"
-  {:db/ident       :xsd/boolean,
-   :owl/onDatatype :xsd/anySimpleType,
+  {:db/ident             :xsd/boolean,
+   :db/cardinality       :db.cardinality/one
+   :db/valueType         :db.type/boolean
+   :owl/onDatatype       :xsd/anySimpleType,
    :owl/withRestrictions [{:xsd/pattern "(true|false|0|1)"}],
-   :rdf/type       :rdfs/Datatype,
-   :rdfs/label     "boolean"})
+   :rdf/type             :rdfs/Datatype,
+   :rdfs/label           "boolean"})
 
 (def byte
-  "byte"
   {:db/ident       :xsd/byte,
    :owl/onDatatype :xsd/short,
    :owl/withRestrictions [{:xsd/maxInclusive 127.0} {:xsd/minInclusive -128.0}],
@@ -55,8 +54,9 @@
    :rdfs/label     "byte"})
 
 (def date
-  "date"
   {:db/ident       :xsd/date,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/instant
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -65,8 +65,9 @@
    :rdfs/label     "date"})
 
 (def dateTime
-  "date time"
   {:db/ident       :xsd/dateTime,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/instant
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -74,9 +75,37 @@
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "date time"})
 
+(def dateTimeStamp
+  "xsd:dateTimeStamp"
+  {:db/ident        :xsd/dateTimeStamp
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/instant
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def dayTimeDuration
+  {:db/ident       :xsd/dayTimeDuration,
+   :owl/onDatatype :xsd/duration,
+   :owl/withRestrictions
+   [{:xsd/pattern
+     "-?P(T([0-9]+H)?([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?)?"}
+    {:xsd/whiteSpace "collapse"}],
+   :rdf/type       :rdfs/Datatype,
+   :rdfs/label     "dayTimeDuration"})
+
+(def yearMonthDuration
+  {:db/ident       :xsd/yearMonthDuration,
+   :owl/onDatatype :xsd/duration,
+   :owl/withRestrictions
+   [{:xsd/pattern
+     "-?P([0-9]+Y)?([0-9]+M)?"}
+    {:xsd/whiteSpace "collapse"}],
+   :rdf/type       :rdfs/Datatype,
+   :rdfs/label     "dayTimeDuration"})
+
 (def decimal
   "A subset of the real numbers, which can be represented by decimal numerals."
-  {:db/ident :xsd/decimal,
+  {:db/ident :xsd/decimal,   
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -89,6 +118,8 @@
 (def double
   "IEEE double-precision 64-bit floating point."
   {:db/ident :xsd/double,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/double
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -98,7 +129,6 @@
    :rdfs/label "double"})
 
 (def duration
-  "duration"
   {:db/ident       :xsd/duration,
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
@@ -111,6 +141,8 @@
 (def float
   "IEEE single-precision 32-bit floating point."
   {:db/ident :xsd/float,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/float
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -123,12 +155,38 @@
 (def fractionDigits
   "The total number of digits to the right of the decimal point required to represent a value."
   {:db/ident :xsd/fractionDigits,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/long
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    "The total number of digits to the right of the decimal point required to represent a value.",
    :rdfs/label "fraction digits",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :xsd/fractionDigits})
+   :rdfs/range :xsd/nonNegativeInteger})
+
+(def gDay
+  {:db/ident        :xsd/gDay
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gMonth
+  {:db/ident        :xsd/gMonth
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gYear
+  {:db/ident        :xsd/gYear
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gMonthDay
+  {:db/ident        :xsd/gMonthDay
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def gYearMonth
+  {:db/ident        :xsd/gYearMonth
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
 
 (def hexBinary
   "Hex-encoded arbitrary binary data."
@@ -140,16 +198,14 @@
    :rdfs/label           "hex binary"})
 
 (def int
-  "int"
   {:db/ident       :xsd/int,
    :owl/onDatatype :xsd/long,
-   :owl/withRestrictions [{:xsd/maxInclusive 2.147483647E9}
-                          {:xsd/minInclusive -2.147483648E9}],
+   :owl/withRestrictions [{:xsd/maxInclusive 2147483647.0}
+                          {:xsd/minInclusive -2147483648.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "int"})
 
 (def integer
-  "integer"
   {:db/ident       :xsd/integer,
    :owl/onDatatype :xsd/decimal,
    :owl/withRestrictions [{:xsd/pattern "[-+]?[0-9]+"} {:xsd/fractionDigits 0}],
@@ -157,8 +213,9 @@
    :rdfs/label     "integer"})
 
 (def language
-  "language"
   {:db/ident       :xsd/language,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/string
    :owl/onDatatype :xsd/token,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -166,49 +223,59 @@
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "language"})
 
+(def length
+  {:db/ident        :xsd/length,
+   :db/cardinality  :db.cardinality/one
+   :db/valueType    :db.type/long
+   :rdf/type        :rdfs/Datatype})
+
 (def long
-  "long"
   {:db/ident       :xsd/long,
+   :db/cardinality       :db.cardinality/one
+   :db/valueType         :db.type/long
    :owl/onDatatype :xsd/integer,
-   :owl/withRestrictions [{:xsd/maxInclusive 9.223372036854776E18}
-                          {:xsd/minInclusive -9.223372036854776E18}],
+   :owl/withRestrictions [{:xsd/maxInclusive 9223372036854775807.0}
+                          {:xsd/minInclusive -9223372036854775808.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "long"})
 
 (def maxExclusive
   "The exclusive upper bound of an ordered datatype."
-  {:db/ident           :xsd/maxExclusive,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The exclusive upper bound of an ordered datatype.",
-   :rdfs/label         "max exclusive",
-   :rdfs/subPropertyOf :xsd/maxExclusive})
+  {:db/ident       :xsd/maxExclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/double
+   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment   "The exclusive upper bound of an ordered datatype.",
+   :rdfs/label     "max exclusive"})
 
 (def maxInclusive
   "The inclusive upper bound of an ordered datatype."
-  {:db/ident           :xsd/maxInclusive,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The inclusive upper bound of an ordered datatype.",
-   :rdfs/label         "max inclusive",
-   :rdfs/subPropertyOf :xsd/maxInclusive})
+  {:db/ident     :xsd/maxInclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/double
+   :rdf/type     [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment "The inclusive upper bound of an ordered datatype.",
+   :rdfs/label   "max inclusive"})
 
 (def minExclusive
   "The exclusive lower bound of an ordered datatype."
-  {:db/ident           :xsd/minExclusive,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The exclusive lower bound of an ordered datatype.",
-   :rdfs/label         "min exclusive",
-   :rdfs/subPropertyOf :xsd/minExclusive})
+  {:db/ident     :xsd/minExclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/double
+   :rdf/type     [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment "The exclusive lower bound of an ordered datatype.",
+   :rdfs/label   "min exclusive"})
 
 (def minInclusive
   "The inclusive lower bound of an ordered datatype."
-  {:db/ident           :xsd/minInclusive,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The inclusive lower bound of an ordered datatype.",
-   :rdfs/label         "min inclusive",
-   :rdfs/subPropertyOf :xsd/minInclusive})
+  {:db/ident       :xsd/minInclusive,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/double
+   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment   "The inclusive lower bound of an ordered datatype.",
+   :rdfs/label     "min inclusive"})
 
 (def negativeInteger
-  "negative integer"
   {:db/ident       :xsd/negativeInteger,
    :owl/onDatatype :xsd/nonPositiveInteger,
    :owl/withRestrictions [{:xsd/maxInclusive -1.0}],
@@ -216,7 +283,6 @@
    :rdfs/label     "negative integer"})
 
 (def nonNegativeInteger
-  "non-negative integer"
   {:db/ident       :xsd/nonNegativeInteger,
    :owl/onDatatype :xsd/integer,
    :owl/withRestrictions [{:xsd/pattern "[+]?[0-9]+"} {:xsd/minInclusive 0.0}],
@@ -224,7 +290,6 @@
    :rdfs/label     "non-negative integer"})
 
 (def nonPositiveInteger
-  "non-positive integer"
   {:db/ident       :xsd/nonPositiveInteger,
    :owl/onDatatype :xsd/integer,
    :owl/withRestrictions [{:xsd/pattern "(0|-[0-9]+)"} {:xsd/maxInclusive 0.0}],
@@ -242,14 +307,14 @@
 
 (def pattern
   "A regular expression that matches complete valid literals."
-  {:db/ident :xsd/pattern,
-   :rdf/type [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment "A regular expression that matches complete valid literals.",
-   :rdfs/label "pattern",
-   :rdfs/subPropertyOf :xsd/pattern})
+  {:db/ident       :xsd/pattern,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
+   :rdf/type       [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment   "A regular expression that matches complete valid literals.",
+   :rdfs/label     "pattern"})
 
 (def positiveInteger
-  "positive integer"
   {:db/ident       :xsd/positiveInteger,
    :owl/onDatatype :xsd/nonNegativeInteger,
    :owl/withRestrictions [{:xsd/pattern "[+]?[0-9]*[1-9]+[0-9]*"}
@@ -258,24 +323,23 @@
    :rdfs/label     "positive integer"})
 
 (def short
-  "short"
   {:db/ident       :xsd/short,
    :owl/onDatatype :xsd/int,
-   :owl/withRestrictions [{:xsd/maxInclusive 32767.0}
-                          {:xsd/minInclusive -32768.0}],
+   :owl/withRestrictions [{:xsd/maxInclusive 32767.0} {:xsd/minInclusive -32768.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "short"})
 
 (def string
   "A character string."
   {:db/ident       :xsd/string,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
    :owl/onDatatype :xsd/anySimpleType,
    :rdf/type       :rdfs/Datatype,
    :rdfs/comment   "A character string.",
    :rdfs/label     "string"})
 
 (def time
-  "time"
   {:db/ident       :xsd/time,
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
@@ -294,7 +358,6 @@
    :rdfs/label "token"})
 
 (def unsignedByte
-  "unsigned byte"
   {:db/ident       :xsd/unsignedByte,
    :owl/onDatatype :xsd/unsignedShort,
    :owl/withRestrictions [{:xsd/maxInclusive 255.0}],
@@ -302,23 +365,20 @@
    :rdfs/label     "unsigned byte"})
 
 (def unsignedInt
-  "unsigned int"
   {:db/ident       :xsd/unsignedInt,
    :owl/onDatatype :xsd/unsignedLong,
-   :owl/withRestrictions [{:xsd/maxInclusive 4.294967295E9}],
+   :owl/withRestrictions [{:xsd/maxInclusive 4294967295.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "unsigned int"})
 
 (def unsignedLong
-  "unsigned long"
   {:db/ident       :xsd/unsignedLong,
    :owl/onDatatype :xsd/nonNegativeInteger,
-   :owl/withRestrictions [{:xsd/maxInclusive 1.8446744073709552E19}],
+   :owl/withRestrictions [{:xsd/maxInclusive 18446744073709551615.0}],
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "unsigned long"})
 
 (def unsignedShort
-  "unsigned short"
   {:db/ident       :xsd/unsignedShort,
    :owl/onDatatype :xsd/unsignedInt,
    :owl/withRestrictions [{:xsd/maxInclusive 65535.0}],
@@ -328,6 +388,8 @@
 (def whiteSpace
   "A string that describes whitespace normalization for a string type."
   {:db/ident :xsd/whiteSpace,
+   :db/cardinality :db.cardinality/one
+   :db/valueType :db.type/string
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
    "A string that describes whitespace normalization for a string type.",
@@ -335,5 +397,4 @@
    :rdfs/range {:owl/onDatatype :xsd/string,
                 :owl/withRestrictions [{:xsd/pattern
                                         "(preserve|replace|collapse)"}],
-                :rdf/type       :rdfs/Datatype},
-   :rdfs/subPropertyOf :xsd/whiteSpace})
+                :rdf/type       :rdfs/Datatype}})

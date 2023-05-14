@@ -186,7 +186,7 @@
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/License,
    :rdfs/label         #voc/lstr "deprecated\n\t\t  on@en-US",
-   :rdfs/range         "http://www.w3.org/2001/XMLSchema-datatypes#date",
+   :rdfs/range         :xsd/date,
    :rdfs/subPropertyOf :cc/deprecatedOn})
 
 (def jurisdiction
