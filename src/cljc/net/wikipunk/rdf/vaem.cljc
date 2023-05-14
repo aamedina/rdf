@@ -649,6 +649,7 @@
 (def dateCreated
   "The property \"vaem:dateCreated\" is intended for general use as the name implies. The range of the property is set as \"vaem:dateUnion\" so as to allow a value to have a number of forms from a year only to a full timestamp"
   {:db/ident :vaem/dateCreated,
+   :rdf/type         :owl/DatatypeProperty
    :dcterms/description
    "The property \"vaem:dateCreated\" is intended for general use as the name implies.  The range of the property is set as \"vaem:dateUnion\" so as to allow a value to have a number of forms from a  year only to a full timestamp"})
 
@@ -807,7 +808,8 @@
   "The property \"vaem:idString\" is intended for general use as a means to specifiy a unique reference to something. This is a data property with a string range and is a sub-property of \"vame:id\""
   {:db/ident :vaem/idString,
    :dcterms/description
-   "The property \"vaem:idString\" is intended for general use as a means to specifiy a unique reference to something. This is a data property with a string range and is a sub-property of \"vame:id\""})
+   "The property \"vaem:idString\" is intended for general use as a means to specifiy a unique reference to something. This is a data property with a string range and is a sub-property of \"vame:id\""
+   :rdf/type         :owl/DatatypeProperty})
 
 (def intent
   "The property \"vaem:intent\" is used to outline a statement of purpose. This typically expresses one or more desired outcomes"
@@ -835,6 +837,7 @@
 (def lastUpdated
   "The property \"vaem:lastUpdated\" is intended for general use as the name implies. The range of the property is set as \"vaem:dateUnion\" so as to allow a value to have a number of forms from a year only to a full timestamp"
   {:db/ident :vaem/lastUpdated,
+   :rdf/type         :owl/DatatypeProperty
    :dcterms/description
    "The property \"vaem:lastUpdated\" is intended for general use as the name implies.  The range of the property is set as \"vaem:dateUnion\" so as to allow a value to have a number of forms from a  year only to a full timestamp"})
 
@@ -911,7 +914,8 @@
   "The property \"vaem:owningParty\" is used to refer to some concept of \"Party\" and is a sub-property of \"vaem:ownedBy\""
   {:db/ident :vaem/owningParty,
    :dcterms/description
-   "The property \"vaem:owningParty\" is used to refer to some concept of \"Party\" and is a sub-property of \"vaem:ownedBy\""})
+   "The property \"vaem:owningParty\" is used to refer to some concept of \"Party\" and is a sub-property of \"vaem:ownedBy\""
+   :rdf/type         :owl/DatatypeProperty})
 
 (def previousPublishedVersion
   "The property \"vaem:previousPublishedVersion\"is a URL to documentation for the previous version of a graph."
