@@ -400,13 +400,20 @@
 ;; {:rdf/type :jsonld/Context} where namespace prefixes for your system
 ;; should be looked up.)
 
+(defn unroll-langString
+  "unrolls ont_app.vocabulary.lstr.LangStr into a string when datafying"
+  [form]
+  (if (instance? ont_app.vocabulary.lstr.LangStr form)
+    (str form)
+    form))
+
 (defn freezable
   "Ensure the metaobject can be frozen and thawed by Nippy."
   [mo]
   (walk/postwalk (fn [form]
                    (cond
-                     (instance? ont_app.vocabulary.lstr.LangStr form)
-                     (str form)
+                     ;; (instance? ont_app.vocabulary.lstr.LangStr form)
+                     ;; (str form)
                      
                      (map? form)
                      (reduce-kv (fn [m k v]
@@ -415,7 +422,7 @@
                                     m))
                                 {:db/ident (:db/ident mo)} form)
                      :else form))
-                (assoc mo :xt/id (:db/ident mo))))
+                 (walk/prewalk unroll-langString (assoc mo :xt/id (:db/ident mo)))))
 
 (declare iri)
 
@@ -1442,13 +1449,6 @@
                    (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
-
-(defn unroll-langString
-  "unrolls ont_app.vocabulary.lstr.LangStr into a string when datafying"
-  [form]
-  (if (instance? ont_app.vocabulary.lstr.LangStr form)
-    (str form)
-    form))
 
 (extend-protocol clojure.core.protocols/Datafiable
   clojure.lang.Named
