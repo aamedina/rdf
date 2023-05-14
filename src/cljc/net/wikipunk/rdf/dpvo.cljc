@@ -81,8 +81,8 @@
    :rdfs/label #voc/lstr "Academic or Scientific Organisation@en",
    :rdfs/subClassOf [:dpvo/Organisation
                      :dpvo/AcademicScientificOrganisation
-                     :dpvo/LegalEntity
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def Access
@@ -289,9 +289,9 @@
    :rdfs/label #voc/lstr "Adult@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Adult
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Advertising
@@ -326,8 +326,8 @@
    :rdfs/label #voc/lstr "Algorithmic Logic@en",
    :rdfs/subClassOf [:dpvo/AutomationOfProcessing
                      :dpvo/AlgorithmicLogic
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Align
@@ -454,9 +454,9 @@
    :rdfs/label          #voc/lstr "Applicant@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Applicant
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Assess
@@ -516,10 +516,10 @@
    :rdfs/label          #voc/lstr "Asylum Seeker@en",
    :rdfs/subClassOf     [:dpvo/VulnerableDataSubject
                          :dpvo/AsylumSeeker
-                         :dpvo/LegalEntity
                          :dpvo/Entity
                          :dpvo/DataSubject
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def AsymmetricCryptography
@@ -568,8 +568,8 @@
                          "State of being approved through the audit@en",
    :rdf/type            [:dpvo/AuditStatus
                          :owl/NamedIndividual
-                         :dpvo/Status
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Audit Approved@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -582,7 +582,7 @@
    :dcterms/description
    #voc/lstr "State of being conditionally approved through the audit@en",
    :rdf/type
-   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
    :rdfs/comment
    #voc/lstr
     "A \"conditional approval\" is intended to reflect states where the audit has identified further changes which must be implemented before considering the audit has been 'passed', without requiring another audit to validate them. This is distinct from the case where an audit has state 'rejected', which means changes must be made and submitted for review. The requirements of a 'conditional acceptance' are expected to be minor or not significant enough to warrant another audit to review them.@en",
@@ -598,7 +598,7 @@
    :dcterms/description
    #voc/lstr "State where an audit is determined as not being required@en",
    :rdf/type
-   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Audit Not Required@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -612,7 +612,7 @@
    #voc/lstr
     "State of not being approved or being rejected through the audit@en",
    :rdf/type
-   [:owl/NamedIndividual :dpvo/AuditStatus :dpvo/Status :dpvo/Context],
+   [:owl/NamedIndividual :dpvo/AuditStatus :dpvo/Context :dpvo/Status],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Audit Rejected@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -626,7 +626,7 @@
    #voc/lstr
     "State of an audit being requested whose outcome is not yet known@en",
    :rdf/type
-   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Audit Requested@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -640,7 +640,7 @@
    #voc/lstr
     "State where an audit is determined as being required but has not been conducted@en",
    :rdf/type
-   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
+   [:dpvo/AuditStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Audit Required@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -674,8 +674,8 @@
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
                      :dpvo/Authentication-ABC
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -695,8 +695,8 @@
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
                      :dpvo/Authentication-PABC
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -769,8 +769,8 @@
    :rdfs/subClassOf [:dpvo/GovernmentalOrganisation
                      :dpvo/LegalEntity
                      :dpvo/Authority
-                     :dpvo/Organisation
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/Organisation],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AutomatedDecisionMaking
@@ -791,8 +791,8 @@
    :rdfs/subClassOf [:dpvo/AutomationOfProcessing
                      :dpvo/DecisionMaking
                      :dpvo/AutomatedDecisionMaking
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def AutomatedProcessingWithHumanInput
@@ -806,8 +806,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo/HumanInvolvementForInput
               :dpvo/AutomationOfProcessing
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
    #voc/lstr
     "For example, an algorithm that takes inputs from humans and performs operations based on them@en",
@@ -826,8 +826,8 @@
    :rdf/type [:dpvo/AutomationOfProcessing
               :dpvo/HumanInvolvementForOversight
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
    #voc/lstr
     "For example, a human watching metrics to ensure correctness of procedural values and outputs as processing takes place@en",
@@ -846,8 +846,8 @@
    :rdf/type [:dpvo/HumanInvolvementForVerification
               :owl/NamedIndividual
               :dpvo/AutomationOfProcessing
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
    #voc/lstr
     "For example, a human verifying outputs of an algorithm for correctness or impact to individuals@en",
@@ -979,9 +979,9 @@
    :rdfs/label #voc/lstr "Child@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Child
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def Citizen
@@ -1000,9 +1000,9 @@
    :rdfs/label #voc/lstr "Citizen@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Citizen
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def City
@@ -1034,10 +1034,10 @@
    :rdfs/label #voc/lstr "Client@en",
    :rdfs/subClassOf [:dpvo/Customer
                      :dpvo/Client
-                     :dpvo/LegalEntity
                      :dpvo/Entity
                      :dpvo/DataSubject
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CloudLocation
@@ -1054,8 +1054,8 @@
    :rdfs/label #voc/lstr "Cloud Location@en",
    :rdfs/subClassOf [:dpvo/RemoteLocation
                      :dpvo/CloudLocation
-                     :dpvo/Location
-                     :dpvo/LocationLocality],
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def CodeOfConduct
@@ -1188,8 +1188,8 @@
    #voc/lstr "Processing that is completely un-automated or fully manual@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo/AutomationOfProcessing
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
    #voc/lstr "For example, a human performing some processing operation@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
@@ -1205,7 +1205,7 @@
    #voc/lstr
     "State where the status of compliance has not been fully assessed, evaluated, or determined@en",
    :rdf/type
-   [:owl/NamedIndividual :dpvo/ComplianceStatus :dpvo/Context :dpvo/Status],
+   [:owl/NamedIndividual :dpvo/ComplianceStatus :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Compliance Indeterminate@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1251,8 +1251,8 @@
                          "State where the status of compliance is unknown@en",
    :rdf/type            [:dpvo/ComplianceStatus
                          :owl/NamedIndividual
-                         :dpvo/Context
-                         :dpvo/Status],
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Compliance Unknown@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -1267,7 +1267,7 @@
     "State where compliance cannot be achieved due to requirements being violated@en",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
    :rdf/type
-   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
+   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/comment
    #voc/lstr
     "Changed from \"violation of compliance\" for consistency with other terms@en",
@@ -1283,8 +1283,8 @@
    :dcterms/description #voc/lstr "State of being fully compliant@en",
    :rdf/type            [:owl/NamedIndividual
                          :dpvo/ComplianceStatus
-                         :dpvo/Context
-                         :dpvo/Status],
+                         :dpvo/Status
+                         :dpvo/Context],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Compliant@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -1311,8 +1311,8 @@
    :dcterms/description #voc/lstr "State of being conformant@en",
    :rdf/type            [:dpvo/ConformanceStatus
                          :owl/NamedIndividual
-                         :dpvo/Status
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Conformant@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -1554,8 +1554,8 @@
    :rdfs/label #voc/lstr "Consent Status Invalid for Processing@en",
    :rdfs/subClassOf [:dpvo/ConsentStatus
                      :dpvo/ConsentStatusInvalidForProcessing
-                     :dpvo/Status
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/Status],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ConsentStatusValidForProcessing
@@ -1576,8 +1576,8 @@
    :rdfs/label #voc/lstr "Consent Status Valid for Processing@en",
    :rdfs/subClassOf [:dpvo/ConsentStatus
                      :dpvo/ConsentStatusValidForProcessing
-                     :dpvo/Status
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/Status],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ConsentUnknown
@@ -1791,9 +1791,9 @@
    :rdfs/label #voc/lstr "Consumer@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Consumer
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Context
@@ -1863,8 +1863,8 @@
    :rdfs/subClassOf [:dpvo/Contract
                      :dpvo/ContractPerformance
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/LegalAgreement
                      :dpvo/LegalBasis
+                     :dpvo/LegalAgreement
                      :dpvo/OrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -2062,9 +2062,9 @@
    :rdfs/label #voc/lstr "Customer@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Customer
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CustomerCare
@@ -2222,8 +2222,8 @@
    :rdfs/label #voc/lstr "Data Protection Impact Assessment (DPIA)@en",
    :rdfs/subClassOf [:dpvo/ImpactAssessment
                      :dpvo/DPIA
-                     :dpvo/Assessment
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Assessment
                      :dpvo/OrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -2324,7 +2324,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Data Importer@en",
    :rdfs/subClassOf
-   [:dpvo/Recipient :dpvo/DataImporter :dpvo/LegalEntity :dpvo/Entity],
+   [:dpvo/Recipient :dpvo/DataImporter :dpvo/Entity :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DataProcessingAgreement
@@ -2381,7 +2381,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Data Processor@en",
    :rdfs/subClassOf
-   [:dpvo/Recipient :dpvo/DataProcessor :dpvo/LegalEntity :dpvo/Entity],
+   [:dpvo/Recipient :dpvo/DataProcessor :dpvo/Entity :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DataProtectionAuthority
@@ -2397,10 +2397,10 @@
    :rdfs/label #voc/lstr "Data Protection Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
                      :dpvo/DataProtectionAuthority
-                     :dpvo/LegalEntity
-                     :dpvo/Organisation
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/Organisation
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DataProtectionOfficer
@@ -2418,8 +2418,8 @@
    :rdfs/label #voc/lstr "Data Protection Officer@en",
    :rdfs/subClassOf [:dpvo/Representative
                      :dpvo/DataProtectionOfficer
-                     :dpvo/LegalEntity
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def DataProtectionTraining
@@ -2522,9 +2522,9 @@
    :rdfs/label #voc/lstr "Data Sub-Processor@en",
    :rdfs/subClassOf [:dpvo/DataProcessor
                      :dpvo/DataSubProcessor
-                     :dpvo/LegalEntity
+                     :dpvo/Recipient
                      :dpvo/Entity
-                     :dpvo/Recipient],
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DataSubject
@@ -2574,8 +2574,8 @@
    :rdfs/label          #voc/lstr "Data Subject Scale@en",
    :rdfs/subClassOf     [:dpvo/Scale
                          :dpvo/DataSubjectScale
-                         :dpvo/ProcessingContext
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DataTransferImpactAssessment
@@ -2590,8 +2590,8 @@
    :rdfs/label          #voc/lstr "Data Transfer Impact Assessment@en",
    :rdfs/subClassOf     [:dpvo/ImpactAssessment
                          :dpvo/DataTransferImpactAssessment
-                         :dpvo/Assessment
                          :dpvo/TechnicalOrganisationalMeasure
+                         :dpvo/Assessment
                          :dpvo/OrganisationalMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2620,8 +2620,8 @@
    :rdfs/label          #voc/lstr "Data Volume@en",
    :rdfs/subClassOf     [:dpvo/Scale
                          :dpvo/DataVolume
-                         :dpvo/ProcessingContext
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DecentralisedLocations
@@ -2691,8 +2691,8 @@
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Delivery"],
    :rdfs/subClassOf [:dpvo/RequestedServiceProvision
                      :dpvo/DeliveryOfGoods
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Derive
@@ -2777,9 +2777,9 @@
    :rdfs/subClassOf [:dpvo/Pseudonymisation
                      :dpvo/DeterministicPseudonymisation
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Deidentification
                      :dpvo/TechnicalMeasure
-                     :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/DataSanitisationTechnique],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Detriment
@@ -2976,9 +2976,9 @@
    :rdfs/subClassOf [:dpvo/Pseudonymisation
                      :dpvo/DocumentRandomisedPseudonymisation
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Deidentification
                      :dpvo/TechnicalMeasure
-                     :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/DataSanitisationTechnique],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DocumentSecurity
@@ -3076,10 +3076,10 @@
    :rdfs/label #voc/lstr "Elderly Data Subject@en",
    :rdfs/subClassOf [:dpvo/VulnerableDataSubject
                      :dpvo/ElderlyDataSubject
-                     :dpvo/LegalEntity
                      :dpvo/Entity
                      :dpvo/DataSubject
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Employee
@@ -3097,9 +3097,9 @@
    :rdfs/label          #voc/lstr "Employee@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Employee
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Encryption
@@ -3262,8 +3262,8 @@
    :rdfs/subClassOf     [:dpvo/Contract
                          :dpvo/EnterIntoContract
                          :dpvo/TechnicalOrganisationalMeasure
-                         :dpvo/LegalAgreement
                          :dpvo/LegalBasis
+                         :dpvo/LegalAgreement
                          :dpvo/OrganisationalMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -3320,8 +3320,8 @@
    :rdfs/label #voc/lstr "Evaluation of Individuals@en",
    :rdfs/subClassOf [:dpvo/EvaluationScoring
                      :dpvo/EvaluationOfIndividuals
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def EvaluationScoring
@@ -3357,9 +3357,9 @@
    :rdfs/label #voc/lstr "Explicitly Expressed Consent@en",
    :rdfs/subClassOf [:dpvo/ExpressedConsent
                      :dpvo/ExplicitlyExpressedConsent
+                     :dpvo/LegalBasis
                      :dpvo/Consent
-                     :dpvo/InformedConsent
-                     :dpvo/LegalBasis],
+                     :dpvo/InformedConsent],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExpressedConsent
@@ -3379,8 +3379,8 @@
    :rdfs/label #voc/lstr "Expressed Consent@en",
    :rdfs/subClassOf [:dpvo/InformedConsent
                      :dpvo/ExpressedConsent
-                     :dpvo/Consent
-                     :dpvo/LegalBasis],
+                     :dpvo/LegalBasis
+                     :dpvo/Consent],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FederatedLocations
@@ -3503,8 +3503,8 @@
    :rdfs/label #voc/lstr "For-Profit Organisation@en",
    :rdfs/subClassOf [:dpvo/Organisation
                      :dpvo/ForProfitOrganisation
-                     :dpvo/LegalEntity
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def FraudPreventionAndDetection
@@ -3580,8 +3580,8 @@
    :dcterms/description #voc/lstr "Processing that is fully automated@en",
    :rdf/type            [:dpvo/AutomationOfProcessing
                          :owl/NamedIndividual
-                         :dpvo/ProcessingContext
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Fully Automated Processing@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -3602,9 +3602,9 @@
    :rdfs/subClassOf [:dpvo/Pseudonymisation
                      :dpvo/FullyRandomisedPseudonymisation
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Deidentification
                      :dpvo/TechnicalMeasure
-                     :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/DataSanitisationTechnique],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Generate
@@ -3648,8 +3648,8 @@
    :rdfs/label          #voc/lstr "Geographic Coverage@en",
    :rdfs/subClassOf     [:dpvo/Scale
                          :dpvo/GeographicCoverage
-                         :dpvo/ProcessingContext
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def GlobalScale
@@ -3662,8 +3662,8 @@
    :rdf/type            [:dpvo/GeographicCoverage
                          :owl/NamedIndividual
                          :dpvo/Scale
-                         :dpvo/ProcessingContext
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Global Scale@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -3699,8 +3699,8 @@
    :rdfs/label          #voc/lstr "Governmental Organisation@en",
    :rdfs/subClassOf     [:dpvo/Organisation
                          :dpvo/GovernmentalOrganisation
-                         :dpvo/LegalEntity
-                         :dpvo/Entity],
+                         :dpvo/Entity
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "modified@en"})
 
 (def GuardianOfDataSubject
@@ -3715,9 +3715,9 @@
    :rdfs/label          #voc/lstr "Guardian(s) of Data Subject@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/GuardianOfDataSubject
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def GuidelinesPrinciple
@@ -3809,8 +3809,8 @@
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
                      :dpvo/HashMessageAuthenticationCode
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -3843,9 +3843,9 @@
     "Data volume that is considered huge or more than large within the context@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo/DataVolume
-              :dpvo/ProcessingContext
+              :dpvo/Scale
               :dpvo/Context
-              :dpvo/Scale],
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Huge Data Volume@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3860,9 +3860,9 @@
     "Scale of data subjects considered huge or more than large within the context@en",
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
-              :dpvo/Scale
               :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Huge Scale Of Data Subjects@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3883,8 +3883,8 @@
    :rdfs/label #voc/lstr "Human Involvement@en",
    :rdfs/subClassOf [:dpvo/AutomationOfProcessing
                      :dpvo/HumanInvolvement
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HumanInvolvementForInput
@@ -4014,9 +4014,9 @@
    :rdfs/label #voc/lstr "Immigrant@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Immigrant
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Impact
@@ -4073,7 +4073,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Implied Consent@en",
    :rdfs/subClassOf
-   [:dpvo/InformedConsent :dpvo/ImpliedConsent :dpvo/Consent :dpvo/LegalBasis],
+   [:dpvo/InformedConsent :dpvo/ImpliedConsent :dpvo/LegalBasis :dpvo/Consent],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Importance
@@ -4114,9 +4114,9 @@
    :rdfs/label #voc/lstr "Improve Existing Products and Services@en",
    :rdfs/subClassOf [:dpvo/OptimisationForController
                      :dpvo/ImproveExistingProductsAndServices
-                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation
                      :dpvo/Purpose
-                     :dpvo/ServiceOptimisation],
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ImproveInternalCRMProcesses
@@ -4138,10 +4138,10 @@
    :rdfs/subClassOf [:dpvo/OptimisationForController
                      :dpvo/CustomerRelationshipManagement
                      :dpvo/ImproveInternalCRMProcesses
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose
                      :dpvo/ServiceOptimisation
-                     :dpvo/CustomerManagement],
+                     :dpvo/Purpose
+                     :dpvo/CustomerManagement
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def IncidentManagementProcedures
@@ -4212,9 +4212,9 @@
    :rdfs/label #voc/lstr "Increase Service Robustness@en",
    :rdfs/subClassOf [:dpvo/OptimisationForController
                      :dpvo/IncreaseServiceRobustness
-                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation
                      :dpvo/Purpose
-                     :dpvo/ServiceOptimisation],
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def IndeterminateDuration
@@ -4246,7 +4246,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Industry Consortium@en",
    :rdfs/subClassOf
-   [:dpvo/Organisation :dpvo/IndustryConsortium :dpvo/LegalEntity :dpvo/Entity],
+   [:dpvo/Organisation :dpvo/IndustryConsortium :dpvo/Entity :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def Infer
@@ -4372,9 +4372,9 @@
    :rdfs/label #voc/lstr "Internal Resource Optimisation@en",
    :rdfs/subClassOf [:dpvo/OptimisationForController
                      :dpvo/InternalResourceOptimisation
-                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation
                      :dpvo/Purpose
-                     :dpvo/ServiceOptimisation],
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def InternationalOrganisation
@@ -4392,8 +4392,8 @@
    :rdfs/label #voc/lstr "International Organisation@en",
    :rdfs/subClassOf [:dpvo/Organisation
                      :dpvo/InternationalOrganisation
-                     :dpvo/LegalEntity
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def IntrusionDetectionSystem
@@ -4431,10 +4431,10 @@
    :rdfs/label          #voc/lstr "Job Applicant@en",
    :rdfs/subClassOf     [:dpvo/Applicant
                          :dpvo/JobApplicant
-                         :dpvo/LegalEntity
                          :dpvo/Entity
                          :dpvo/DataSubject
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def JointDataControllers
@@ -4452,8 +4452,8 @@
    :rdfs/label #voc/lstr "Joint Data Controllers@en",
    :rdfs/subClassOf [:dpvo/DataController
                      :dpvo/JointDataControllers
-                     :dpvo/LegalEntity
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def JointDataControllersAgreement
@@ -4501,9 +4501,9 @@
    #voc/lstr "Data volume that is considered large within the context@en",
    :rdf/type [:dpvo/DataVolume
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
+              :dpvo/Scale
               :dpvo/Context
-              :dpvo/Scale],
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Large Data Volume@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4517,9 +4517,9 @@
    #voc/lstr "Scale of data subjects considered large within the context@en",
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
-              :dpvo/Scale
               :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Large Scale Of Data Subjects@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4537,8 +4537,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo/ProcessingScale
               :dpvo/Scale
-              :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/comment
    #voc/lstr
     "The exact definition of what constitutes \"large scale\" depends on use of jurisdictional, domain-specific, or other forms of externally defined criterias. Where possible, this should be reflected by extending this term with the appropriate context.@en",
@@ -4567,8 +4567,8 @@
                          "State of being lawful or legally compliant@en",
    :rdf/type            [:owl/NamedIndividual
                          :dpvo/Lawfulness
-                         :dpvo/Context
                          :dpvo/ComplianceStatus
+                         :dpvo/Context
                          :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Lawful@en",
@@ -4586,7 +4586,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Lawfulness@en",
    :rdfs/subClassOf
-   [:dpvo/ComplianceStatus :dpvo/Lawfulness :dpvo/Status :dpvo/Context],
+   [:dpvo/ComplianceStatus :dpvo/Lawfulness :dpvo/Context :dpvo/Status],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def LawfulnessUnkown
@@ -4597,8 +4597,8 @@
    :dcterms/description #voc/lstr "State of the lawfulness not being known@en",
    :rdf/type            [:owl/NamedIndividual
                          :dpvo/Lawfulness
-                         :dpvo/Context
                          :dpvo/ComplianceStatus
+                         :dpvo/Context
                          :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Lawfulness Unknown@en",
@@ -4790,8 +4790,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo/GeographicCoverage
               :dpvo/Scale
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
    #voc/lstr
     "For example, geographic scale of an event take place in a specific building or room@en",
@@ -4824,8 +4824,8 @@
    :rdf/type [:dpvo/GeographicCoverage
               :owl/NamedIndividual
               :dpvo/Scale
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
    #voc/lstr
     "For example, geographic scale of a city or an area within a city@en",
@@ -5016,9 +5016,9 @@
     "Data volume that is considered medium i.e. neither large nor small within the context@en",
    :rdf/type [:dpvo/DataVolume
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
+              :dpvo/Scale
               :dpvo/Context
-              :dpvo/Scale],
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Medium Data Volume@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5033,9 +5033,9 @@
     "Scale of data subjects considered medium i.e. neither large nor small within the context@en",
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
-              :dpvo/Scale
               :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Medium Scale Of Data Subjects@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5051,8 +5051,8 @@
    :rdf/type [:dpvo/ProcessingScale
               :owl/NamedIndividual
               :dpvo/Scale
-              :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Medium Scale Processing@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5074,9 +5074,9 @@
    :rdfs/label #voc/lstr "Member@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Member
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MemberPartnerManagement
@@ -5109,10 +5109,10 @@
    :rdfs/label #voc/lstr "Mentally Vulnerable Data Subject@en",
    :rdfs/subClassOf [:dpvo/VulnerableDataSubject
                      :dpvo/MentallyVulnerableDataSubject
-                     :dpvo/LegalEntity
                      :dpvo/Entity
                      :dpvo/DataSubject
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MessageAuthenticationCodes
@@ -5130,8 +5130,8 @@
    :rdfs/subClassOf [:dpvo/CryptographicAuthentication
                      :dpvo/MessageAuthenticationCodes
                      :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/TechnicalMeasure
                      :dpvo/CryptographicMethods
+                     :dpvo/TechnicalMeasure
                      :dpvo/AuthenticationProtocols],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -5164,8 +5164,8 @@
    :rdfs/label          #voc/lstr "Modify@en",
    :rdfs/subClassOf     [:dpvo/Alter
                          :dpvo/Modify
-                         :dpvo/Processing
-                         :dpvo/Transform],
+                         :dpvo/Transform
+                         :dpvo/Processing],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Monitor
@@ -5218,9 +5218,9 @@
    :rdfs/subClassOf [:dpvo/Pseudonymisation
                      :dpvo/MonotonicCounterPseudonymisation
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Deidentification
                      :dpvo/TechnicalMeasure
-                     :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/DataSanitisationTechnique],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def Move
@@ -5267,8 +5267,8 @@
    :rdf/type            [:dpvo/GeographicCoverage
                          :owl/NamedIndividual
                          :dpvo/Scale
-                         :dpvo/ProcessingContext
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Multi National Scale@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -5305,10 +5305,10 @@
    :rdfs/label #voc/lstr "National Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
                      :dpvo/NationalAuthority
-                     :dpvo/LegalEntity
-                     :dpvo/Organisation
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/Organisation
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def NationalScale
@@ -5320,8 +5320,8 @@
    :rdf/type            [:owl/NamedIndividual
                          :dpvo/GeographicCoverage
                          :dpvo/Scale
-                         :dpvo/ProcessingContext
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/ProcessingContext],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "National Scale@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -5348,8 +5348,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo/GeographicCoverage
               :dpvo/Scale
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Nearly Global Scale@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5425,9 +5425,9 @@
    :rdfs/label #voc/lstr "Non-Citizen@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/NonCitizen
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def NonCommercialResearch
@@ -5460,7 +5460,7 @@
     "State of non-compliance where objectives have not been met, but have not been violated@en",
    :dcterms/modified #inst "2022-09-07T00:00:00.000-04:00",
    :rdf/type
-   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
+   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/comment
    #voc/lstr
     "Changed from not compliant for consistency in commonly used terms@en",
@@ -5476,8 +5476,8 @@
    :dcterms/description #voc/lstr "State of being non-conformant@en",
    :rdf/type            [:dpvo/ConformanceStatus
                          :owl/NamedIndividual
-                         :dpvo/Status
-                         :dpvo/Context],
+                         :dpvo/Context
+                         :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "NonConformant@en",
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -5497,8 +5497,8 @@
    :rdfs/label #voc/lstr "Non-Governmental Organisation@en",
    :rdfs/subClassOf [:dpvo/Organisation
                      :dpvo/NonGovernmentalOrganisation
-                     :dpvo/LegalEntity
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def NonMaterialDamage
@@ -5545,8 +5545,8 @@
    :rdfs/label #voc/lstr "Non-Profit Organisation@en",
    :rdfs/subClassOf [:dpvo/Organisation
                      :dpvo/NonProfitOrganisation
-                     :dpvo/LegalEntity
-                     :dpvo/Entity],
+                     :dpvo/Entity
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def NonPublicDataSource
@@ -5726,8 +5726,8 @@
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Custom"],
    :rdfs/subClassOf [:dpvo/ServiceOptimisation
                      :dpvo/OptimisationForConsumer
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def OptimisationForController
@@ -5748,8 +5748,8 @@
    :rdfs/label #voc/lstr "Optimisation for Controller@en",
    :rdfs/subClassOf [:dpvo/ServiceOptimisation
                      :dpvo/OptimisationForController
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def OptimiseUserInterface
@@ -5770,9 +5770,9 @@
    :rdfs/label #voc/lstr "Optimise User Interface@en",
    :rdfs/subClassOf [:dpvo/OptimisationForConsumer
                      :dpvo/OptimiseUserInterface
-                     :dpvo/ServiceProvision
+                     :dpvo/ServiceOptimisation
                      :dpvo/Purpose
-                     :dpvo/ServiceOptimisation],
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Optional
@@ -5913,8 +5913,8 @@
    :rdfs/label #voc/lstr "Privacy Impact Assessment@en",
    :rdfs/subClassOf [:dpvo/ImpactAssessment
                      :dpvo/PIA
-                     :dpvo/Assessment
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Assessment
                      :dpvo/OrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -5930,9 +5930,9 @@
    :rdfs/label          #voc/lstr "Parent(s) of Data Subject@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/ParentOfDataSubject
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PartiallyAutomatedProcessing
@@ -5944,8 +5944,8 @@
    #voc/lstr "Processing that is partially automated or semi-automated@en",
    :rdf/type [:dpvo/AutomationOfProcessing
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/comment
    #voc/lstr
     "For example, a series of distinct processing operations that are automated individually or have some human involvement@en",
@@ -5962,7 +5962,7 @@
    #voc/lstr
     "State of partially being compliant i.e. only some objectives have been met, and others have not been in violation@en",
    :rdf/type
-   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Context :dpvo/Status],
+   [:dpvo/ComplianceStatus :owl/NamedIndividual :dpvo/Status :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Partially Compliant@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5984,9 +5984,9 @@
    :rdfs/label #voc/lstr "Participant@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Participant
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PassiveRight
@@ -6042,9 +6042,9 @@
    :rdfs/label #voc/lstr "Patient@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Patient
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PaymentManagement
@@ -6160,8 +6160,8 @@
    :rdfs/subClassOf [:dpvo/Personalisation
                      :dpvo/Advertising
                      :dpvo/PersonalisedAdvertising
-                     :dpvo/Marketing
-                     :dpvo/Purpose],
+                     :dpvo/Purpose
+                     :dpvo/Marketing],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PersonalisedBenefits
@@ -6182,9 +6182,9 @@
    :rdfs/label #voc/lstr "Personalised Benefits@en",
    :rdfs/subClassOf [:dpvo/ServicePersonalisation
                      :dpvo/PersonalisedBenefits
+                     :dpvo/Purpose
                      :dpvo/Personalisation
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PersonnelHiring
@@ -6200,8 +6200,8 @@
    :rdfs/label #voc/lstr "Personnel Hiring@en",
    :rdfs/subClassOf [:dpvo/PersonnelManagement
                      :dpvo/PersonnelHiring
-                     :dpvo/Purpose
-                     :dpvo/HumanResourceManagement],
+                     :dpvo/HumanResourceManagement
+                     :dpvo/Purpose],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PersonnelManagement
@@ -6234,8 +6234,8 @@
    :rdfs/label #voc/lstr "Personnel Payment@en",
    :rdfs/subClassOf [:dpvo/PersonnelManagement
                      :dpvo/PersonnelPayment
-                     :dpvo/Purpose
-                     :dpvo/HumanResourceManagement],
+                     :dpvo/HumanResourceManagement
+                     :dpvo/Purpose],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhysicalAccessControlMethod
@@ -6411,8 +6411,8 @@
    :rdfs/label #voc/lstr "Private Location@en",
    :rdfs/subClassOf [:dpvo/LocalLocation
                      :dpvo/PrivateLocation
-                     :dpvo/Location
-                     :dpvo/LocationLocality],
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Processing
@@ -6458,7 +6458,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Processing Scale@en",
    :rdfs/subClassOf
-   [:dpvo/Scale :dpvo/ProcessingScale :dpvo/ProcessingContext :dpvo/Context],
+   [:dpvo/Scale :dpvo/ProcessingScale :dpvo/Context :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ProfessionalTraining
@@ -6522,10 +6522,10 @@
    :rdfs/label #voc/lstr "Provide Event Recommendations@en",
    :rdfs/subClassOf [:dpvo/ProvidePersonalisedRecommendations
                      :dpvo/ProvideEventRecommendations
-                     :dpvo/Personalisation
-                     :dpvo/ServiceProvision
                      :dpvo/Purpose
-                     :dpvo/ServicePersonalisation],
+                     :dpvo/ServicePersonalisation
+                     :dpvo/Personalisation
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ProvidePersonalisedRecommendations
@@ -6543,9 +6543,9 @@
    :rdfs/label #voc/lstr "Provide Personalised Recommendations@en",
    :rdfs/subClassOf [:dpvo/ServicePersonalisation
                      :dpvo/ProvidePersonalisedRecommendations
+                     :dpvo/Purpose
                      :dpvo/Personalisation
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ProvideProductRecommendations
@@ -6568,10 +6568,10 @@
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/purposes#Marketing"],
    :rdfs/subClassOf [:dpvo/ProvidePersonalisedRecommendations
                      :dpvo/ProvideProductRecommendations
-                     :dpvo/Personalisation
-                     :dpvo/ServiceProvision
                      :dpvo/Purpose
-                     :dpvo/ServicePersonalisation],
+                     :dpvo/ServicePersonalisation
+                     :dpvo/Personalisation
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Pseudonymisation
@@ -6672,8 +6672,8 @@
    :rdfs/label          #voc/lstr "Public Location@en",
    :rdfs/subClassOf     [:dpvo/LocalLocation
                          :dpvo/PublicLocation
-                         :dpvo/Location
-                         :dpvo/LocationLocality],
+                         :dpvo/LocationLocality
+                         :dpvo/Location],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PublicRelations
@@ -6758,9 +6758,9 @@
    :rdfs/subClassOf [:dpvo/Pseudonymisation
                      :dpvo/RNGPseudonymisation
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Deidentification
                      :dpvo/TechnicalMeasure
-                     :dpvo/DataSanitisationTechnique
-                     :dpvo/Deidentification],
+                     :dpvo/DataSanitisationTechnique],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def RandomLocation
@@ -6868,10 +6868,10 @@
    :rdfs/label #voc/lstr "Regional Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
                      :dpvo/RegionalAuthority
-                     :dpvo/LegalEntity
-                     :dpvo/Organisation
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/Organisation
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RegionalScale
@@ -6884,8 +6884,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo/GeographicCoverage
               :dpvo/Scale
-              :dpvo/ProcessingContext
-              :dpvo/Context],
+              :dpvo/Context
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Regional Scale@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -7253,8 +7253,8 @@
    :rdfs/subClassOf [:dpvo/ReviewProcedure
                      :dpvo/ImpactAssessment
                      :dpvo/ReviewImpactAssessment
-                     :dpvo/Assessment
                      :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Assessment
                      :dpvo/OrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -7574,8 +7574,8 @@
    :rdfs/label #voc/lstr "Scoring of Individuals@en",
    :rdfs/subClassOf [:dpvo/EvaluationScoring
                      :dpvo/ScoringOfIndividuals
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def Screen
@@ -7806,8 +7806,8 @@
    :rdfs/label #voc/lstr "Sell Data to Third Parties@en",
    :rdfs/subClassOf [:dpvo/SellProducts
                      :dpvo/SellDataToThirdParties
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SellInsightsFromData
@@ -7831,8 +7831,8 @@
    :rdfs/label #voc/lstr "Sell Insights from Data@en",
    :rdfs/subClassOf [:dpvo/SellProducts
                      :dpvo/SellInsightsFromData
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SellProducts
@@ -7872,8 +7872,8 @@
    :rdfs/label #voc/lstr "Sell Products to Data Subject@en",
    :rdfs/subClassOf [:dpvo/SellProducts
                      :dpvo/SellProductsToDataSubject
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/Purpose
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SensitivePersonalData
@@ -8050,9 +8050,9 @@
     "Data volume that is considered singular i.e. a specific instance or single item@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo/DataVolume
-              :dpvo/ProcessingContext
+              :dpvo/Scale
               :dpvo/Context
-              :dpvo/Scale],
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Singular Data Volume@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -8082,9 +8082,9 @@
     "Scale of data subjects considered singular i.e. a specific data subject@en",
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
-              :dpvo/Scale
               :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Singular Scale Of Data Subjects@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -8099,9 +8099,9 @@
     "Data volume that is considered small or limited within the context@en",
    :rdf/type [:dpvo/DataVolume
               :owl/NamedIndividual
-              :dpvo/ProcessingContext
+              :dpvo/Scale
               :dpvo/Context
-              :dpvo/Scale],
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Small Data Volume@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -8116,9 +8116,9 @@
     "Scale of data subjects considered small or limited within the context@en",
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
-              :dpvo/Scale
               :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Small Scale Of Data Subjects@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -8134,8 +8134,8 @@
    :rdf/type [:dpvo/ProcessingScale
               :owl/NamedIndividual
               :dpvo/Scale
-              :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Context],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Small Scale Processing@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -8186,9 +8186,9 @@
     "Data volume that is considered sporadic or sparse within the context@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo/DataVolume
-              :dpvo/ProcessingContext
+              :dpvo/Scale
               :dpvo/Context
-              :dpvo/Scale],
+              :dpvo/ProcessingContext],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Sporadic Data Volume@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -8218,9 +8218,9 @@
     "Scale of data subjects considered sporadic or sparse within the context@en",
    :rdf/type [:dpvo/DataSubjectScale
               :owl/NamedIndividual
-              :dpvo/Scale
               :dpvo/Context
-              :dpvo/ProcessingContext],
+              :dpvo/ProcessingContext
+              :dpvo/Scale],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Sporadic Scale Of Data Subjects@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -8281,8 +8281,8 @@
    :rdfs/label #voc/lstr "Storage Deletion@en",
    :rdfs/subClassOf [:dpvo/StorageCondition
                      :dpvo/StorageDeletion
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def StorageDuration
@@ -8299,8 +8299,8 @@
    :rdfs/subClassOf [:dpvo/StorageCondition
                      :dpvo/Duration
                      :dpvo/StorageDuration
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def StorageLocation
@@ -8317,8 +8317,8 @@
    :rdfs/subClassOf [:dpvo/StorageCondition
                      :dpvo/Location
                      :dpvo/StorageLocation
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def StorageRestoration
@@ -8335,8 +8335,8 @@
    :rdfs/label #voc/lstr "Storage Restoration@en",
    :rdfs/subClassOf [:dpvo/StorageCondition
                      :dpvo/StorageRestoration
-                     :dpvo/ProcessingContext
-                     :dpvo/Context],
+                     :dpvo/Context
+                     :dpvo/ProcessingContext],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Store
@@ -8378,9 +8378,9 @@
    :rdfs/label          #voc/lstr "Student@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Student
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def SubProcessorAgreement
@@ -8423,9 +8423,9 @@
    :rdfs/label          #voc/lstr "Subscriber@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Subscriber
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def SupraNationalAuthority
@@ -8442,10 +8442,10 @@
    :rdfs/label #voc/lstr "Supra-National Authority@en",
    :rdfs/subClassOf [:dpvo/Authority
                      :dpvo/SupraNationalAuthority
-                     :dpvo/LegalEntity
-                     :dpvo/Organisation
+                     :dpvo/GovernmentalOrganisation
                      :dpvo/Entity
-                     :dpvo/GovernmentalOrganisation],
+                     :dpvo/Organisation
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SupraNationalUnion
@@ -8543,10 +8543,10 @@
    :rdfs/label #voc/lstr "Targeted Advertising@en",
    :rdfs/subClassOf [:dpvo/PersonalisedAdvertising
                      :dpvo/TargetedAdvertising
-                     :dpvo/Personalisation
-                     :dpvo/Marketing
+                     :dpvo/Purpose
                      :dpvo/Advertising
-                     :dpvo/Purpose],
+                     :dpvo/Personalisation
+                     :dpvo/Marketing],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def TechnicalMeasure
@@ -8651,7 +8651,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label #voc/lstr "Third Party@en",
    :rdfs/subClassOf
-   [:dpvo/Recipient :dpvo/ThirdParty :dpvo/LegalEntity :dpvo/Entity],
+   [:dpvo/Recipient :dpvo/ThirdParty :dpvo/Entity :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ThirdPartyAgreement
@@ -8707,9 +8707,9 @@
    :rdfs/label #voc/lstr "Tourist@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/Tourist
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Transfer
@@ -8830,8 +8830,8 @@
                          "State of being unlawful or legally non-compliant@en",
    :rdf/type            [:owl/NamedIndividual
                          :dpvo/Lawfulness
-                         :dpvo/Context
                          :dpvo/ComplianceStatus
+                         :dpvo/Context
                          :dpvo/Status],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl#",
    :rdfs/label          #voc/lstr "Unlawful@en",
@@ -8945,9 +8945,9 @@
    :rdfs/label          #voc/lstr "User@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/User
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UserInterfacePersonalisation
@@ -8971,9 +8971,9 @@
    :rdfs/label #voc/lstr "User Interface Personalisation@en",
    :rdfs/subClassOf [:dpvo/ServicePersonalisation
                      :dpvo/UserInterfacePersonalisation
+                     :dpvo/Purpose
                      :dpvo/Personalisation
-                     :dpvo/ServiceProvision
-                     :dpvo/Purpose],
+                     :dpvo/ServiceProvision],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def VariableLocation
@@ -9108,9 +9108,9 @@
    :rdfs/label          #voc/lstr "Visitor@en",
    :rdfs/subClassOf     [:dpvo/DataSubject
                          :dpvo/Visitor
-                         :dpvo/LegalEntity
                          :dpvo/Entity
-                         :dpvo/NaturalPerson],
+                         :dpvo/NaturalPerson
+                         :dpvo/LegalEntity],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VitalInterest
@@ -9193,9 +9193,9 @@
    :rdfs/label #voc/lstr "Vulnerable Data Subject@en",
    :rdfs/subClassOf [:dpvo/DataSubject
                      :dpvo/VulnerableDataSubject
-                     :dpvo/LegalEntity
                      :dpvo/Entity
-                     :dpvo/NaturalPerson],
+                     :dpvo/NaturalPerson
+                     :dpvo/LegalEntity],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def WebBrowserSecurity
@@ -9267,8 +9267,8 @@
    :rdfs/label #voc/lstr "Within Device@en",
    :rdfs/subClassOf [:dpvo/LocalLocation
                      :dpvo/WithinDevice
-                     :dpvo/Location
-                     :dpvo/LocationLocality],
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
    :vs/term_status #voc/lstr "modified@en"})
 
 (def WithinPhysicalEnvironment
@@ -9284,8 +9284,8 @@
    :rdfs/label #voc/lstr "Within Physical Environment@en",
    :rdfs/subClassOf [:dpvo/LocalLocation
                      :dpvo/WithinPhysicalEnvironment
-                     :dpvo/Location
-                     :dpvo/LocationLocality],
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def WithinVirtualEnvironment
@@ -9301,8 +9301,8 @@
    :rdfs/label #voc/lstr "Within Virtual Environment@en",
    :rdfs/subClassOf [:dpvo/LocalLocation
                      :dpvo/WithinVirtualEnvironment
-                     :dpvo/Location
-                     :dpvo/LocationLocality],
+                     :dpvo/LocationLocality
+                     :dpvo/Location],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ZeroKnowledgeAuthentication

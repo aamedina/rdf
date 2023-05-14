@@ -56,11 +56,11 @@
      "Description of date and time structured with separate values for the various elements of a calendar-clock system. The temporal reference system is fixed to Gregorian Calendar, and the range of year, month, day properties restricted to corresponding XML Schema types xsd:gYear, xsd:gMonth and xsd:gDay, respectively.@en"],
    :rdfs/label [#voc/lstr "descripción de fecha-tiempo@es"
                 #voc/lstr "Date-Time description@en"],
-   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/gMonth,
-                      :owl/onProperty    :time/month,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gDay,
+   :rdfs/subClassOf [{:owl/allValuesFrom :xsd/gDay,
                       :owl/onProperty    :time/day,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gMonth,
+                      :owl/onProperty    :time/month,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/gYear,
                       :owl/onProperty    :time/year,
@@ -73,45 +73,45 @@
                       :rdf/type :owl/Restriction}
                      :time/DateTimeDescription
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/week,
-                      :rdf/type           :owl/Restriction}
-                     :time/TemporalPosition
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/dayOfWeek,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/timeZone,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/hour,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfYear,
+                      :owl/onProperty     :time/week,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/day,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/minute,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/second,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/year,
                       :rdf/type           :owl/Restriction}
+                     :time/TemporalPosition
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/monthOfYear,
+                      :owl/onProperty     :time/hour,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/month,
                       :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/minute,
+                      :rdf/type           :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}],
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/second,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/timeZone,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/dayOfYear,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/monthOfYear,
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    [#voc/lstr
      "Descripción de fecha y tiempo estructurada con valores separados para los diferentes elementos de un sistema calendario-reloj. El sistema de referencia temporal está fijado al calendario gregoriano, y el rango de las propiedades año, mes, día restringidas a los correspondientes tipos del XML Schema xsd:gYear, xsd:gMonth y xsd:gDay respectivamente.@es"
@@ -176,10 +176,10 @@
    :rdfs/label ["duración de tiempo" #voc/lstr "Time duration@en"],
    :rdfs/subClassOf [:time/TemporalDuration
                      {:owl/cardinality 1,
-                      :owl/onProperty  :time/unitType,
+                      :owl/onProperty  :time/numericDuration,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  :time/numericDuration,
+                      :owl/onProperty  :time/unitType,
                       :rdf/type        :owl/Restriction}
                      :time/Duration],
    :skos/definition
@@ -205,7 +205,13 @@
    :rdfs/label [#voc/lstr "descripción de duración@es"
                 #voc/lstr "Duration description@en"],
    :rdfs/subClassOf [{:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/minutes,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/days,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/hours,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/seconds,
@@ -217,43 +223,37 @@
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/weeks,
+                      :owl/onProperty    :time/months,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/months,
+                      :owl/onProperty    :time/weeks,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/years,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/minutes,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/hours,
-                      :rdf/type          :owl/Restriction}
                      :time/DurationDescription
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/minutes,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/days,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/years,
-                      :rdf/type           :owl/Restriction}
+                     :time/TemporalDuration
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/weeks,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/months,
                       :rdf/type           :owl/Restriction}
-                     :time/TemporalDuration
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/hours,
                       :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/years,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/days,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/minutes,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/seconds,
                       :rdf/type           :owl/Restriction}],
@@ -298,41 +298,41 @@
    :rdfs/label [#voc/lstr "descripción de fecha-hora generalizada@es"
                 #voc/lstr "Generalized date-time description@en"],
    :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :time/second,
+                      :owl/onProperty     :time/dayOfWeek,
                       :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/year,
+                      :rdf/type           :owl/Restriction}
+                     :time/TemporalPosition
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/hour,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/dayOfYear,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/second,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/month,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/week,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/monthOfYear,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/day,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/minute,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/timeZone,
-                      :rdf/type           :owl/Restriction}
-                     :time/TemporalPosition
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfYear,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/day,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/year,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfWeek,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/monthOfYear,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/month,
                       :rdf/type           :owl/Restriction}
                      :time/GeneralDateTimeDescription
                      {:owl/cardinality 1,
@@ -358,18 +358,9 @@
      "Description of temporal extent structured with separate values for the various elements of a calendar-clock system.@en"],
    :rdfs/label [#voc/lstr "descripción de duración generalizada@es"
                 #voc/lstr "Generalized duration description@en"],
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :time/minutes,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/months,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
+   :rdfs/subClassOf [{:owl/cardinality 1,
                       :owl/onProperty  :time/hasTRS,
                       :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/seconds,
-                      :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/weeks,
                       :rdf/type           :owl/Restriction}
@@ -377,11 +368,20 @@
                       :owl/onProperty     :time/hours,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/days,
+                      :owl/onProperty     :time/years,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/months,
                       :rdf/type           :owl/Restriction}
                      :time/TemporalDuration
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/years,
+                      :owl/onProperty     :time/minutes,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/days,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/seconds,
                       :rdf/type           :owl/Restriction}
                      :time/GeneralDurationDescription],
    :skos/definition
@@ -438,24 +438,21 @@
                       :rdf/type       :owl/Restriction}
                      :time/DateTimeDescription
                      :time/January
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/week,
-                      :rdf/type           :owl/Restriction}
-                     :time/TemporalPosition
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfWeek,
-                      :rdf/type           :owl/Restriction}
+                     :time/GeneralDateTimeDescription
                      {:owl/allValuesFrom :xsd/gYear,
                       :owl/onProperty    :time/year,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gDay,
+                      :owl/onProperty    :time/day,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/timeZone,
+                      :owl/onProperty     :time/dayOfWeek,
                       :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/hour,
+                      :owl/onProperty     :time/week,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/day,
                       :rdf/type           :owl/Restriction}
                      {:owl/hasValue
                       {:rdfa/uri
@@ -463,36 +460,39 @@
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfYear,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/day,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/minute,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gDay,
-                      :owl/onProperty    :time/day,
-                      :rdf/type          :owl/Restriction}
-                     :time/GeneralDateTimeDescription
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/second,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :time/year,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gMonth,
-                      :owl/onProperty    :time/month,
-                      :rdf/type          :owl/Restriction}
+                     :time/TemporalPosition
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/monthOfYear,
+                      :owl/onProperty     :time/hour,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/month,
                       :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/minute,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gMonth,
+                      :owl/onProperty    :time/month,
+                      :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}],
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/second,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/timeZone,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/dayOfYear,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/monthOfYear,
+                      :rdf/type           :owl/Restriction}],
    :skos/historyNote
    "This class was present in the 2006 version of OWL-Time. It was presented as an example of how DateTimeDescription could be specialized, but does not belong in the revised ontology. "})
 
@@ -521,86 +521,86 @@
    :rdfs/comment [#voc/lstr "El mes del año.@es"
                   #voc/lstr "The month of the year@en"],
    :rdfs/label [#voc/lstr "Month of year@en" #voc/lstr "mes del año@es"],
-   :rdfs/subClassOf [{:owl/hasValue   :time/unitMonth,
-                      :owl/onProperty :time/unitType,
-                      :rdf/type       :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/week,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
+   :rdfs/subClassOf [{:owl/cardinality 0,
                       :owl/onProperty  :time/hour,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/year,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/month,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
                       :owl/onProperty  :time/minute,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
+                      :owl/onProperty  :time/week,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/month,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 0,
                       :owl/onProperty  :time/second,
                       :rdf/type        :owl/Restriction}
-                     :time/DateTimeDescription
+                     {:owl/hasValue   :time/unitMonth,
+                      :owl/onProperty :time/unitType,
+                      :rdf/type       :owl/Restriction}
                      {:owl/cardinality 0,
                       :owl/onProperty  :time/day,
                       :rdf/type        :owl/Restriction}
+                     :time/DateTimeDescription
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :time/year,
+                      :rdf/type        :owl/Restriction}
                      :time/MonthOfYear
-                     :time/TemporalPosition
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfWeek,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/timeZone,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/hour,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gYear,
+                      :owl/onProperty    :time/year,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/gDay,
+                      :owl/onProperty    :time/day,
+                      :rdf/type          :owl/Restriction}
                      {:owl/hasValue
                       {:rdfa/uri
                        "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"},
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/dayOfYear,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/day,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/minute,
-                      :rdf/type           :owl/Restriction}
-                     :time/GeneralDateTimeDescription
-                     {:owl/allValuesFrom :xsd/gMonth,
-                      :owl/onProperty    :time/month,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/monthOfYear,
+                      :owl/onProperty     :time/year,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/month,
                       :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/week,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gYear,
-                      :owl/onProperty    :time/year,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/unitType,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/gDay,
-                      :owl/onProperty    :time/day,
+                     {:owl/allValuesFrom :xsd/gMonth,
+                      :owl/onProperty    :time/month,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/second,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/year,
+                      :owl/onProperty     :time/timeZone,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/dayOfYear,
+                      :rdf/type           :owl/Restriction}
+                     :time/GeneralDateTimeDescription
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/dayOfWeek,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/week,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/day,
+                      :rdf/type           :owl/Restriction}
+                     :time/TemporalPosition
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/hour,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/minute,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/unitType,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/monthOfYear,
                       :rdf/type           :owl/Restriction}],
    :skos/definition [#voc/lstr "The month of the year@en"
                      #voc/lstr "El mes del año.@es"],
@@ -883,63 +883,39 @@
    :rdf/type [:owl/DeprecatedClass :owl/Class],
    :rdfs/comment "Year duration",
    :rdfs/label #voc/lstr "Year@en",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :time/years,
+   :rdfs/subClassOf [{:owl/cardinality 0,
+                      :owl/onProperty  :time/weeks,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
                       :owl/onProperty  :time/minutes,
                       :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/years,
+                      :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
-                      :owl/onProperty  :time/months,
+                      :owl/onProperty  :time/seconds,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/cardinality 0,
+                      :owl/onProperty  :time/days,
                       :rdf/type        :owl/Restriction}
                      :time/DurationDescription
                      {:owl/cardinality 0,
                       :owl/onProperty  :time/hours,
                       :rdf/type        :owl/Restriction}
                      {:owl/cardinality 0,
-                      :owl/onProperty  :time/days,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/seconds,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 0,
-                      :owl/onProperty  :time/weeks,
+                      :owl/onProperty  :time/months,
                       :rdf/type        :owl/Restriction}
                      :time/Year
                      :time/GeneralDurationDescription
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/days,
+                      :owl/onProperty    :time/weeks,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/days,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/years,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/weeks,
-                      :rdf/type           :owl/Restriction}
                      :time/TemporalDuration
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/hours,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/weeks,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/minutes,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/months,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :time/hasTRS,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/hours,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/years,
                       :rdf/type          :owl/Restriction}
                      {:owl/hasValue
                       {:rdfa/uri
@@ -947,17 +923,41 @@
                       :owl/onProperty :time/hasTRS,
                       :rdf/type :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
-                      :owl/onProperty    :time/seconds,
+                      :owl/onProperty    :time/days,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :time/months,
-                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :xsd/decimal,
                       :owl/onProperty    :time/minutes,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :time/seconds,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/months,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/seconds,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/weeks,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/months,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/years,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/days,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :time/minutes,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :xsd/decimal,
+                      :owl/onProperty    :time/years,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :time/hasTRS,
+                      :rdf/type        :owl/Restriction}],
    :skos/definition "Year duration",
    :skos/historyNote
    "Year was proposed in the 2006 version of OWL-Time as an example of how DurationDescription could be specialized to allow for a duration to be restricted to a number of years. \n\nIt is deprecated in this edition of OWL-Time. ",
@@ -2004,28 +2004,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Century (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "siècle@fr"
@@ -2056,28 +2056,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Day (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "Tag@de"
@@ -2107,28 +2107,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Decade (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "decade@en"
@@ -2159,28 +2159,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Hour (unit of temporal duration)@en",
    :skos/prefLabel ["один час\"@ru"
@@ -2211,28 +2211,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Century (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "millenium@en"
@@ -2263,28 +2263,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Minute (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "دقيقة واحدة@ar"
@@ -2315,28 +2315,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Month (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "month@en"
@@ -2366,28 +2366,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Second (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "segundo@pt"
@@ -2432,28 +2432,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Week (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "一週間@ja"
@@ -2484,28 +2484,28 @@
                     :time/GeneralDurationDescription
                     :time/TemporalDuration
                     {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/weeks,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/months,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/years,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/minutes,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/seconds,
-                     :rdf/type           :owl/Restriction}
-                    {:owl/maxCardinality 1,
-                     :owl/onProperty     :time/days,
                      :rdf/type           :owl/Restriction}
                     {:owl/cardinality 1,
                      :owl/onProperty  :time/hasTRS,
                      :rdf/type        :owl/Restriction}
                     {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/minutes,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
                      :owl/onProperty     :time/hours,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/days,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/years,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/weeks,
+                     :rdf/type           :owl/Restriction}
+                    {:owl/maxCardinality 1,
+                     :owl/onProperty     :time/months,
                      :rdf/type           :owl/Restriction}],
    :rdfs/label     #voc/lstr "Year (unit of temporal duration)@en",
    :skos/prefLabel [#voc/lstr "anno@it"

@@ -36,15 +36,15 @@
      :rdf/value    "Added isDefinedBy properties and updated documentation"}],
    :skos/historyNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2009-05-15",
-     :rdf/value    "Typed vocabulary as owl:Ontology"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2010-02-09",
      :rdf/value    "Asserted that foaf:knows is rdfs:subPropertyOf rel:knowsOf"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
-     "Incorporated changes suggested by Henry Story on foaf-dev list"}],
+     "Incorporated changes suggested by Henry Story on foaf-dev list"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2009-05-15",
+     :rdf/value    "Typed vocabulary as owl:Ontology"}],
    :vann/example ["http://purl.org/vocab/relationship/examples/1"
                   "http://purl.org/vocab/relationship/examples/2"],
    :vann/preferredNamespacePrefix "rel",
@@ -100,11 +100,11 @@
    [{:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
+     "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be ambivalent of another without that person knowing the first."}
     {:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
-     "Removed assertion that this property is a sub-property of foaf:knows due to reciprocity requirements. It is possible for one to be ambivalent of another without that person knowing the first."}]})
+     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}]})
 
 (def ancestorOf
   "A person who is a descendant of this person."
@@ -121,11 +121,11 @@
    [{:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
-     "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant ancestors."}
+     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}]})
+     "Removed assertion that this property is a sub-property of foaf:knows. foaf:knows requires a reciprocation that may not be possible for distant ancestors."}]})
 
 (def antagonistOf
   "A person who opposes and contends against this person."
@@ -493,12 +493,12 @@
     "A person who has come to be known to this person through their actions or position.@en",
    :skos/historyNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2010-02-09",
-     :rdf/value    "Assert that foaf:knows is rdfs:subPropertyOf rel:knowsOf"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
      "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2010-02-09",
+     :rdf/value    "Assert that foaf:knows is rdfs:subPropertyOf rel:knowsOf"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
@@ -594,12 +594,12 @@
    #voc/lstr "A person who lives in the same locality as this person.@en",
    :skos/historyNote
    [{:dc11/creator "Ian Davis",
+     :dc11/date    "2010-02-09",
+     :rdf/value    "Removed assertion that this property is transitive."}
+    {:dc11/creator "Ian Davis",
      :dc11/date "2010-02-09",
      :rdf/value
-     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2010-02-09",
-     :rdf/value    "Removed assertion that this property is transitive."}]})
+     "Asserted that this property is a sub-property of owl:differentFrom, indicating that this is a relationship between different individuals"}]})
 
 (def parentOf
   "A person who has given birth to or nurtured and raised this person."

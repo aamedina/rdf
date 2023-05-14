@@ -318,7 +318,6 @@
    :rdfs/label       #voc/lstr "Party Collection@en",
    :rdfs/subClassOf  [:odrl/Party
                       :odrl/PartyCollection
-                      :rdfs/Resource
                       {:owl/unionOf [:schema/Person
                                      :schema/Organization
                                      :foaf/Person
@@ -327,7 +326,8 @@
                                      :vcard/Individual
                                      :vcard/Organization
                                      :vcard/Agent],
-                       :rdf/type    :owl/Class}],
+                       :rdf/type    :owl/Class}
+                      :rdfs/Resource],
    :skos/definition  #voc/lstr
                       "A Party that is a group of individual entities@en"})
 
@@ -551,7 +551,7 @@
   "To accept that the use of the Asset may be tracked."
   {:db/ident :odrl/acceptTracking,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Accept Tracking@en",
    :skos/definition #voc/lstr
@@ -740,7 +740,7 @@
   "The act of appending data to the Asset without modifying the Asset in any other way."
   {:db/ident :odrl/appendTo,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Append To@en",
    :skos/definition
@@ -864,7 +864,7 @@
   "The act of attaching the source of the asset and its derivatives."
   {:db/ident :odrl/attachSource,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Attach source@en",
    :skos/definition
@@ -876,7 +876,7 @@
   "To attribute the use of the Asset."
   {:db/ident :odrl/attribute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Attribute@en",
    :skos/definition #voc/lstr "To attribute the use of the Asset.@en",
@@ -924,7 +924,7 @@
   "To compensate by transfer of some amount of value, if defined, for using or selling the Asset."
   {:db/ident :odrl/compensate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Compensate@en",
    :skos/definition
@@ -1171,7 +1171,7 @@
   {:db/ident :odrl/copy,
    :owl/deprecated true,
    :owl/sameAs :odrl/reproduce,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Copy@en",
    :skos/definition #voc/lstr
@@ -1324,7 +1324,7 @@
   "To create a new derivative Asset from this Asset and to edit or modify the derivative."
   {:db/ident :odrl/derive,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Derive@en",
    :skos/definition
@@ -1365,7 +1365,7 @@
   "To create a static and transient rendition of an Asset."
   {:db/ident :odrl/display,
    :odrl/includedIn :odrl/play,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Display@en",
    :skos/definition
@@ -1492,7 +1492,7 @@
   "To extract parts of the Asset and to use it as a new Asset."
   {:db/ident :odrl/extract,
    :odrl/includedIn :odrl/reproduce,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Extract@en",
    :skos/definition
@@ -1506,7 +1506,7 @@
   "The act of extracting (replicating) unchanged characters from the asset."
   {:db/ident :odrl/extractChar,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Extract character@en",
    :skos/definition
@@ -1520,7 +1520,7 @@
   "The act of extracting (replicating) unchanged pages from the asset."
   {:db/ident :odrl/extractPage,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Extract page@en",
    :skos/definition
@@ -1693,7 +1693,7 @@
   "To include other related assets in the Asset."
   {:db/ident :odrl/include,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Include@en",
    :skos/definition #voc/lstr
@@ -1750,7 +1750,7 @@
   "To inform that an action has been performed on or in relation to the Asset."
   {:db/ident :odrl/inform,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Inform@en",
    :skos/definition
@@ -1829,7 +1829,7 @@
   "To load the computer program Asset onto a storage device which allows operating or running the Asset."
   {:db/ident :odrl/install,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Install@en",
    :skos/definition
@@ -1916,7 +1916,7 @@
   "The act of making available the asset to a third-party for a fixed period of time with exchange of value."
   {:db/ident :odrl/lease,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Lease@en",
    :skos/definition
@@ -1939,7 +1939,7 @@
   "The act of making available the asset to a third-party for a fixed period of time without exchange of value."
   {:db/ident :odrl/lend,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Lend@en",
    :skos/definition
@@ -2019,7 +2019,7 @@
   "To change existing content of the Asset. A new asset is not created by this action."
   {:db/ident :odrl/modify,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Modify@en",
    :skos/definition
@@ -2368,7 +2368,7 @@
   "To create a tangible and permanent rendition of an Asset."
   {:db/ident :odrl/print,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Print@en",
    :skos/definition
@@ -2736,7 +2736,7 @@
   "The act of distributing any derivative asset under the same terms as the original asset."
   {:db/ident :odrl/shareAlike,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Share-alike@en",
    :skos/definition
@@ -2805,7 +2805,7 @@
   "To deliver the Asset in real-time."
   {:db/ident :odrl/stream,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Stream@en",
    :skos/definition #voc/lstr "To deliver the Asset in real-time.@en",
@@ -2887,7 +2887,7 @@
   "To have a text Asset read out loud."
   {:db/ident :odrl/textToSpeech,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Text-to-speech@en",
    :skos/definition #voc/lstr "To have a text Asset read out loud.@en",
@@ -2962,7 +2962,7 @@
   "To convert the Asset into a different format."
   {:db/ident :odrl/transform,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Transform@en",
    :skos/definition #voc/lstr
@@ -3102,7 +3102,7 @@
   "To apply a watermark to the Asset."
   {:db/ident         :odrl/watermark,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Watermark@en",
    :skos/definition  #voc/lstr "To apply a watermark to the Asset.@en",
@@ -3112,7 +3112,7 @@
   "The act of writing to the Asset."
   {:db/ident         :odrl/write,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Write@en",
    :skos/definition  #voc/lstr "The act of writing to the Asset.@en",
@@ -3122,7 +3122,7 @@
   "The act of adding data to the Asset."
   {:db/ident         :odrl/writeTo,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Write to@en",
    :skos/definition  #voc/lstr "The act of adding data to the Asset.@en",
@@ -3146,7 +3146,7 @@
   "Credit be given to copyright holder and/or author."
   {:db/ident         :cc/Attribution,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Attribution@en",
    :skos/definition  #voc/lstr
@@ -3158,7 +3158,7 @@
   "Exercising rights for commercial purposes."
   {:db/ident         :cc/CommercialUse,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Commercial Use@en",
    :skos/definition  #voc/lstr "Exercising rights for commercial purposes.@en",
@@ -3169,7 +3169,7 @@
   "Distribution of derivative works."
   {:db/ident         :cc/DerivativeWorks,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Derivative Works@en",
    :skos/definition  #voc/lstr "Distribution of derivative works.@en",
@@ -3180,7 +3180,7 @@
   "Distribution, public display, and publicly performance."
   {:db/ident :cc/Distribution,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Distribution@en",
    :skos/definition
@@ -3192,7 +3192,7 @@
   "Copyright and license notices be kept intact."
   {:db/ident         :cc/Notice,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Notice@en",
    :skos/definition  #voc/lstr
@@ -3204,7 +3204,7 @@
   "Making multiple copies."
   {:db/ident         :cc/Reproduction,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Reproduction@en",
    :skos/definition  #voc/lstr "Making multiple copies.@en",
@@ -3215,7 +3215,7 @@
   "Derivative works be licensed under the same terms or compatible terms as the original work."
   {:db/ident :cc/ShareAlike,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Share Alike@en",
    :skos/definition
@@ -3228,7 +3228,7 @@
   "Permits commercial derivatives, but only non-commercial distribution."
   {:db/ident :cc/Sharing,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Sharing@en",
    :skos/definition
@@ -3241,7 +3241,7 @@
   "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license."
   {:db/ident :cc/SourceCode,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Source Code@en",
    :skos/definition

@@ -13,16 +13,14 @@
    [taoensso.nippy :as nippy])
   (:refer-clojure :exclude [isa? ancestors descendants parents]))
 
-;; TODO: Refactor using OWL semantics and datalog rules to infer properties
-
 (defmethod mop/find-class-using-env :default
   [ident env]
-  (rdf/find-metaobject ident))
+  (rdf/find-ns-metaobject ident))
 
 (defmethod mop/find-class-using-env [clojure.lang.Keyword xtdb.node.XtdbNode]
   [ident env]
   (or (xt/entity (xt/db env) ident)
-      (rdf/find-metaobject ident)))
+      (rdf/find-ns-metaobject ident)))
 
 (defmethod mop/make-instance :rdfs/Class
   [class & {:as initargs}]

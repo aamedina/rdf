@@ -1,24 +1,24 @@
 (ns net.wikipunk.rdf.org
   "Core organization ontology"
-  {:dcterms/contributor [{:foaf/mbox "ogiraldo@fi.upm.es",
-                          :foaf/name "Olga Ximena Giraldo"}
-                         {:foaf/mbox "lupe@fi.upm.es",
-                          :foaf/name "Guadalupe Aguado de Cea"}
-                         {:foaf/homepage
+  {:dcterms/contributor [{:foaf/homepage
                           "http://www.asahi-net.or.jp/~ax2s-kmtn/",
                           :foaf/name "Shuji Kamitsuna"}
-                         {:foaf/mbox "dguardiola@quinode.fr",
-                          :foaf/name "Dominique Guardiola"}
+                         {:foaf/mbox "antonio.maccioni@agid.gov.it",
+                          :foaf/name "Antonio Maccioni"}
+                         {:foaf/mbox "ogiraldo@fi.upm.es",
+                          :foaf/name "Olga Ximena Giraldo"}
+                         {:foaf/mbox "giorgia.lodi@agid.gov.it",
+                          :foaf/name "Giorgia Lodi"}
                          {:foaf/mbox "emontiel@fi.upm.es",
                           :foaf/name "Elena Montiel Ponsoda"}
                          {:foaf/mbox "mpoveda@fi.upm.es",
                           :foaf/name "María Poveda Villalón"}
-                         {:foaf/mbox "giorgia.lodi@agid.gov.it",
-                          :foaf/name "Giorgia Lodi"}
-                         {:foaf/mbox "antonio.maccioni@agid.gov.it",
-                          :foaf/name "Antonio Maccioni"}
                          {:foaf/mbox "dave@epimorphics.com",
-                          :foaf/name "Dave Reynolds"}],
+                          :foaf/name "Dave Reynolds"}
+                         {:foaf/mbox "dguardiola@quinode.fr",
+                          :foaf/name "Dominique Guardiola"}
+                         {:foaf/mbox "lupe@fi.upm.es",
+                          :foaf/name "Guadalupe Aguado de Cea"}],
    :dcterms/created #inst "2010-05-28T00:00:00.000-04:00",
    :dcterms/license "http://www.opendatacommons.org/licenses/pddl/1.0/",
    :dcterms/modified [#inst "2010-06-09T00:00:00.000-04:00"
@@ -110,14 +110,14 @@
    :rdfs/subClassOf [:org/Organization
                      :foaf/Organization
                      :org/FormalOrganization
-                     :rdfs/Resource
-                     :foaf/Agent]})
+                     :foaf/Agent
+                     :rdfs/Resource]})
 
 (def Head
   "A role corresponding to the `org:headOf` property"
   {:db/ident :org/Head,
    :org/roleProperty :org/headOf,
-   :rdf/type [:org/Role :rdfs/Resource :skos/Concept],
+   :rdf/type [:org/Role :skos/Concept :rdfs/Resource],
    :rdfs/comment
    [#voc/lstr "Un rôle correspondant à la propriété `org:headOf`@fr"
     #voc/lstr "Un ruolo corrispondente alla proprietà `org:headOf`.@it"
@@ -208,8 +208,8 @@
                 #voc/lstr "Endeavour@en"],
    :rdfs/subClassOf [:org/Organization
                      :org/OrganizationalCollaboration
-                     :rdfs/Resource
-                     :foaf/Agent]})
+                     :foaf/Agent
+                     :rdfs/Resource]})
 
 (def OrganizationalUnit
   "An Organization such as a University Support Unit which is part of some larger FormalOrganization and only has full recognition within the context of that FormalOrganization, it is not a Legal Entity in its own right. Units can be large and complex containing other Units and even FormalOrganizations. Alternative names: _OU_ _Unit_ _Department_"
@@ -232,7 +232,7 @@
                 #voc/lstr "Unité opérationnelle@fr"
                 #voc/lstr "Unità Organizzativa@it"],
    :rdfs/subClassOf
-   [:org/Organization :org/OrganizationalUnit :rdfs/Resource :foaf/Agent]})
+   [:org/Organization :org/OrganizationalUnit :foaf/Agent :rdfs/Resource]})
 
 (def Post
   "A Post represents some position within an organization that exists independently of the person or persons filling it. Posts may be used to represent situations where a person is a member of an organization ex officio (for example the Secretary of State for Scotland is part of UK Cabinet by virtue of being Secretary of State for Scotland, not as an individual person). A post can be held by multiple people and hence can be treated as a organization in its own right."
@@ -1134,9 +1134,9 @@
    :rdf/type        :rdfs/Class,
    :rdfs/subClassOf [:org/FormalOrganization
                      :gr/BusinessEntity
+                     :foaf/Agent
                      :org/Organization
                      :rdfs/Resource
-                     :foaf/Agent
                      :foaf/Organization]})
 
 (def ^{:private true} Activity

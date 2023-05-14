@@ -369,9 +369,9 @@
    :rdfs/subPropertyOf [:pav/hasEarlierVersion
                         :prov/wasRevisionOf
                         :pav/previousVersion
-                        :prov/alternateOf
+                        :prov/wasInfluencedBy
                         :prov/wasDerivedFrom
-                        :prov/wasInfluencedBy]})
+                        :prov/alternateOf]})
 
 (def providedBy
   "The original provider of the encoded information (e.g. PubMed, UniProt, Science Commons). The provider might not coincide with the dct:publisher, which would describe the current publisher of the resource. For instance if the resource was retrieved, imported or derived from a source, that source was published by the original provider. pav:providedBy provides a shortcut to indicate that original provider on the new resource."

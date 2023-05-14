@@ -29,52 +29,52 @@
    :rdf/type :owl/Ontology,
    :rdfa/prefix "bio",
    :rdfa/uri "http://purl.org/vocab/bio/0.1/",
-   :skos/changeNote [{:dc11/creator "Ian Davis",
-                      :dc11/date    "2005-04-01",
-                      :rdf/value    "Added examples"}
-                     {:dc11/creator "Ian Davis",
-                      :dc11/date    "2011-06-14",
-                      :rdf/value    "Expanded description and added diagrams"}
-                     {:dc11/creator "Ian Davis",
-                      :dc11/date "2009-05-19",
-                      :rdf/value "Minor changes to improve publishing process"}
-                     {:dc11/creator "Ian Davis",
-                      :dc11/date "2010-05-20",
-                      :rdf/value
-                      "Batch of revisions based on community feedback"}
-                     {:dc11/creator "Ian Davis",
-                      :dc11/date    "2004-03-05",
-                      :rdf/value    "Added Creative Commons license"}
-                     {:dc11/creator "Ian Davis",
-                      :dc11/date    "2010-04-20",
-                      :rdf/value    "Added change history"}],
+   :skos/changeNote
+   [{:dc11/creator "Ian Davis",
+     :dc11/date    "2004-03-05",
+     :rdf/value    "Added Creative Commons license"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-04-01",
+     :rdf/value    "Added examples"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2010-04-20",
+     :rdf/value    "Added change history"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2011-06-14",
+     :rdf/value    "Expanded description and added diagrams"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2010-05-20",
+     :rdf/value    "Batch of revisions based on community feedback"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2009-05-19",
+     :rdf/value    "Minor changes to improve publishing process"}],
    :skos/historyNote
    [{:dc11/creator "Ian Davis",
+     :dc11/date    "2011-06-14",
+     :rdf/value    "Added bio:Relationship class and properties"}
+    {:dc11/creator "Ian Davis",
      :dc11/date    "2010-06-05",
      :rdf/value    "Added biography property"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2011-06-10",
-     :rdf/value    "Added bio:Formation and bio:Disbanding events"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2003-07-28",
-     :rdf/value    "Added keywords property"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2010-05-10",
-     :rdf/value    "Major expansion of properties and classes"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2010-06-06",
      :rdf/value
      "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2011-06-10",
+     :rdf/value    "Added bio:Performance event"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2011-06-10",
+     :rdf/value    "Added bio:Formation and bio:Disbanding events"}
     {:dc11/creator "Alexandre Passant",
      :dc11/date "2011-06-14",
      :rdf/value
      "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2011-06-10",
-     :rdf/value    "Added bio:Performance event"}
+     :dc11/date    "2003-07-28",
+     :rdf/value    "Added keywords property"}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2011-06-14",
-     :rdf/value    "Added bio:Relationship class and properties"}],
+     :dc11/date    "2010-05-10",
+     :rdf/value    "Major expansion of properties and classes"}],
    :vann/example "http://purl.org/vocab/bio/examples/1",
    :vann/preferredNamespacePrefix "bio",
    :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
@@ -97,14 +97,14 @@
    :rdfs/label #voc/lstr "Accession@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Accession
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Adoption
@@ -119,14 +119,14 @@
    :rdfs/label #voc/lstr "Adoption@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Adoption
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Annulment
@@ -141,14 +141,14 @@
    :rdfs/label #voc/lstr "Annulment@en",
    :rdfs/subClassOf [:bio/GroupEvent
                      :bio/Annulment
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
-                     :event/Event
-                     "http://linkedevents.org/ontology/Event"
                      :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :bio/Event
+                     :event/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Assassination
@@ -162,16 +162,16 @@
    :rdfs/label #voc/lstr "Assassination@en",
    :rdfs/subClassOf [:bio/Murder
                      :bio/Assassination
+                     :bio/IndividualEvent
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Death
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :bio/IndividualEvent
-                     :bio/Death
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Baptism
@@ -186,14 +186,14 @@
    :rdfs/label #voc/lstr "Baptism@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Baptism
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :skos/changeNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-05-20",
@@ -212,14 +212,14 @@
    :rdfs/label #voc/lstr "BarMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/BarMitzvah
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def BasMitzvah
@@ -234,14 +234,14 @@
    :rdfs/label #voc/lstr "BasMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/BasMitzvah
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Birth
@@ -253,14 +253,14 @@
    :rdfs/label #voc/lstr "Birth@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Birth
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    "Marked as testing"},
@@ -283,14 +283,14 @@
    :rdfs/label #voc/lstr "Burial@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Burial
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Coronation
@@ -305,14 +305,14 @@
    :rdfs/label #voc/lstr "Coronation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Coronation
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Cremation
@@ -327,14 +327,14 @@
    :rdfs/label #voc/lstr "Cremation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Cremation
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -351,14 +351,14 @@
    :rdfs/label #voc/lstr "Death@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Death
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    "Marked as a stable term"},
@@ -381,15 +381,15 @@
    :rdfs/label #voc/lstr "Demotion@en",
    :rdfs/subClassOf [:bio/PositionChange
                      :bio/Demotion
+                     :dcmitype/Event
+                     :bio/IndividualEvent
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :bio/IndividualEvent
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Disbanding
@@ -403,14 +403,14 @@
    :rdfs/label #voc/lstr "Disbanding@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Disbanding
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Dismissal
@@ -425,14 +425,14 @@
    :rdfs/label #voc/lstr "Dismissal@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Dismissal
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Divorce
@@ -445,14 +445,14 @@
    :rdfs/label #voc/lstr "Divorce@en",
    :rdfs/subClassOf [:bio/GroupEvent
                      :bio/Divorce
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
-                     :event/Event
-                     "http://linkedevents.org/ontology/Event"
                      :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :bio/Event
+                     :event/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -472,14 +472,14 @@
    :rdfs/label #voc/lstr "Emigration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Emigration
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -499,14 +499,14 @@
    :rdfs/label #voc/lstr "Employment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Employment
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Enrolment
@@ -521,14 +521,14 @@
    :rdfs/label #voc/lstr "Enrolment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Enrolment
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Event
@@ -546,18 +546,17 @@
                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"
                      :bio/Event],
    :skos/changeNote [{:dc11/creator "Ian Davis",
-                      :dc11/date    "2010-05-04",
-                      :rdf/value    "Marked as a stable term"}
-                     {:dc11/creator "Ian Davis",
                       :dc11/date    "2010-05-20",
-                      :rdf/value    "Marked as testing status"}],
+                      :rdf/value    "Marked as testing status"}
+                     {:dc11/creator "Ian Davis",
+                      :dc11/date    "2010-05-04",
+                      :rdf/value    "Marked as a stable term"}],
    :skos/historyNote [{:dc11/creator "Ian Davis",
-                       :dc11/date    "2010-05-04",
-                       :rdf/value    "Made equivalent to cyc:Event"}
-                      {:dc11/creator "Ian Davis",
                        :dc11/date "2010-05-20",
-                       :rdf/value
-                       "Removed subclass of owl-time ProperInteval"}],
+                       :rdf/value "Removed subclass of owl-time ProperInteval"}
+                      {:dc11/creator "Ian Davis",
+                       :dc11/date    "2010-05-04",
+                       :rdf/value    "Made equivalent to cyc:Event"}],
    :vann/usageNote
    #voc/lstr
     "This class is intended to describe biographical events, i.e. events in the life of a person.@en",
@@ -575,15 +574,15 @@
    :rdfs/label #voc/lstr "Execution@en",
    :rdfs/subClassOf [:bio/Death
                      :bio/Execution
+                     :bio/IndividualEvent
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :bio/IndividualEvent
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Formation
@@ -597,14 +596,14 @@
    :rdfs/label #voc/lstr "Formation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Formation
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Funeral
@@ -618,14 +617,14 @@
    :rdfs/label #voc/lstr "Funeral@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Funeral
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Graduation
@@ -640,14 +639,14 @@
    :rdfs/label #voc/lstr "Graduation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Graduation
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -670,10 +669,10 @@
                       :rdf/type           :owl/Restriction}
                      :bio/Event
                      :bio/GroupEvent
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :event/Event
+                     :dcmitype/Event
                      "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     :event/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Imprisonment
@@ -687,14 +686,14 @@
    :rdfs/label #voc/lstr "Imprisonment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Imprisonment
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Inauguration
@@ -709,14 +708,14 @@
    :rdfs/label #voc/lstr "Inauguration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Inauguration
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def IndividualEvent
@@ -733,10 +732,10 @@
                       :rdf/type        :owl/Restriction}
                      :bio/Event
                      :bio/IndividualEvent
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :event/Event
+                     :dcmitype/Event
                      "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     :event/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Interval
@@ -764,14 +763,14 @@
    :rdfs/label #voc/lstr "Investiture@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Investiture
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Marriage
@@ -787,14 +786,14 @@
    :rdfs/label #voc/lstr "Marriage@en",
    :rdfs/subClassOf [:bio/GroupEvent
                      :bio/Marriage
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
-                     :event/Event
-                     "http://linkedevents.org/ontology/Event"
                      :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :bio/Event
+                     :event/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    "Marked as a stable term"},
@@ -820,15 +819,15 @@
    :rdfs/label #voc/lstr "Murder@en",
    :rdfs/subClassOf [:bio/Death
                      :bio/Murder
+                     :bio/IndividualEvent
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :bio/IndividualEvent
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def NameChange
@@ -841,14 +840,14 @@
    :rdfs/label       #voc/lstr "Change of Name@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
                       :bio/NameChange
+                      :dcmitype/Event
+                      "http://linkedevents.org/ontology/Event"
+                      :bio/Event
                       {:owl/cardinality 1,
                        :owl/onProperty  :bio/principal,
                        :rdf/type        :owl/Restriction}
-                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                      :bio/Event
                       :event/Event
-                      "http://linkedevents.org/ontology/Event"
-                      :dcmitype/Event],
+                      "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status   "unstable"})
 
 (def Naturalization
@@ -863,14 +862,14 @@
    :rdfs/label #voc/lstr "Naturalization@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Naturalization
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -890,14 +889,14 @@
    :rdfs/label #voc/lstr "Ordination@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Ordination
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Performance
@@ -913,14 +912,14 @@
    :rdfs/label #voc/lstr "Performance@en",
    :rdfs/subClassOf [:bio/GroupEvent
                      :bio/Performance
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
-                     :event/Event
-                     "http://linkedevents.org/ontology/Event"
                      :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :bio/Event
+                     :event/Event
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def PositionChange
@@ -935,14 +934,14 @@
    :rdfs/label #voc/lstr "Change of Position@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/PositionChange
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Promotion
@@ -957,15 +956,15 @@
    :rdfs/label #voc/lstr "Promotion@en",
    :rdfs/subClassOf [:bio/PositionChange
                      :bio/Promotion
+                     :dcmitype/Event
+                     :bio/IndividualEvent
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :bio/IndividualEvent
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Redundancy
@@ -980,14 +979,14 @@
    :rdfs/label #voc/lstr "Redundancy@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Redundancy
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Relationship
@@ -1015,14 +1014,14 @@
    :rdfs/label #voc/lstr "Resignation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Resignation
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def Retirement
@@ -1037,14 +1036,14 @@
    :rdfs/label #voc/lstr "Retirement@en",
    :rdfs/subClassOf [:bio/IndividualEvent
                      :bio/Retirement
+                     :dcmitype/Event
+                     "http://linkedevents.org/ontology/Event"
+                     :bio/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"
-                     :bio/Event
                      :event/Event
-                     "http://linkedevents.org/ontology/Event"
-                     :dcmitype/Event],
+                     "http://sw.opencyc.org/2009/04/07/concept/en/Event"],
    :vs/term_status "unstable"})
 
 (def agent
@@ -1214,11 +1213,11 @@
                      :dc11/date    "2010-05-03",
                      :rdf/value    "Added a plural label"},
    :skos/historyNote [{:dc11/creator "Ian Davis",
-                       :dc11/date    "2010-05-03",
-                       :rdf/value    "Made a subproperty of owl:differentFrom"}
-                      {:dc11/creator "Ian Davis",
                        :dc11/date    "2011-06-14",
-                       :rdf/value    "Changed domain to foaf:Agent"}]})
+                       :rdf/value    "Changed domain to foaf:Agent"}
+                      {:dc11/creator "Ian Davis",
+                       :dc11/date "2010-05-03",
+                       :rdf/value "Made a subproperty of owl:differentFrom"}]})
 
 (def eventInterval
   "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."

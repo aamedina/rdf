@@ -53,8 +53,8 @@
    :rdfs/subClassOf [:ldp/Container
                      :ldp/BasicContainer
                      :rdfs/Resource
-                     :ldp/RDFSource
-                     :ldp/Resource],
+                     :ldp/Resource
+                     :ldp/RDFSource],
    :vs/term_status "stable"})
 
 (def Container
@@ -89,8 +89,8 @@
    :rdfs/subClassOf [:ldp/Container
                      :ldp/DirectContainer
                      :rdfs/Resource
-                     :ldp/RDFSource
-                     :ldp/Resource],
+                     :ldp/Resource
+                     :ldp/RDFSource],
    :vs/term_status "stable"})
 
 (def IndirectContainer
@@ -104,8 +104,8 @@
    :rdfs/subClassOf [:ldp/Container
                      :ldp/IndirectContainer
                      :rdfs/Resource
-                     :ldp/RDFSource
-                     :ldp/Resource],
+                     :ldp/Resource
+                     :ldp/RDFSource],
    :vs/term_status "stable"})
 
 (def MemberSubject

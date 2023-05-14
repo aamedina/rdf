@@ -257,24 +257,24 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed.",
-   :rdfs/subClassOf [{:owl/onProperty     :mls/achieves,
-                      :owl/someValuesFrom :mls/Task,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :mls/hasInput,
-                      :owl/someValuesFrom :mls/HyperParameterSetting,
-                      :rdf/type           :owl/Restriction}
-                     :mls/Process
-                     {:owl/onProperty     :mls/hasOutput,
+   :rdfs/subClassOf [{:owl/onProperty     :mls/hasOutput,
                       :owl/someValuesFrom :mls/ModelEvaluation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/executes,
                       :owl/someValuesFrom :mls/Implementation,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :mls/realizes,
-                      :owl/someValuesFrom :mls/Algorithm,
+                     :mls/Process
+                     {:owl/onProperty     :mls/hasInput,
+                      :owl/someValuesFrom :mls/HyperParameterSetting,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/hasInput,
                       :owl/someValuesFrom :mls/Data,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :mls/achieves,
+                      :owl/someValuesFrom :mls/Task,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :mls/realizes,
+                      :owl/someValuesFrom :mls/Algorithm,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/hasOutput,
                       :owl/someValuesFrom :mls/Model,

@@ -81,16 +81,16 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "predicate"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "label"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where
     [[{:rdf/type      :sp/Filter,
        :sp/expression {:rdf/type [:sp/isIRI
@@ -101,15 +101,15 @@
       :sp/elements
       [[[[{:rdf/type      :sp/Filter,
            :sp/expression {:rdf/type [:sp/or
-                                      :spin/Functions
-                                      :spl/BooleanFunctions],
+                                      :spl/BooleanFunctions
+                                      :spin/Functions],
                            :sp/arg1  {:rdf/type [:sp/not
                                                  :spin/Functions
                                                  :spl/BooleanFunctions],
                                       :sp/arg1  {:rdf/type
                                                  [:sp/bound
-                                                  :spin/Functions
-                                                  :spl/BooleanFunctions],
+                                                  :spl/BooleanFunctions
+                                                  :spin/Functions],
                                                  :sp/arg1 {:sp/varName
                                                            "optional"}}},
                            :sp/arg2  {:rdf/type [:sp/eq
@@ -135,43 +135,42 @@
                                         {:rdf/type :sp/Filter,
                                          :sp/expression
                                          {:rdf/type [:spl/instanceOf
-                                                     :spin/Functions
-                                                     :spl/BooleanFunctions],
+                                                     :spl/BooleanFunctions
+                                                     :spin/Functions],
                                           :sp/arg1  {:sp/varName "template"},
                                           :sp/arg2  :spl/UnionTemplate}}]}}]
         {:rdf/type      :sp/Bind,
          :sp/expression {:rdf/type [:sp/concat
-                                    :spl/StringFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/StringFunctions],
                          :sp/arg1  "Missing value for argument ",
                          :sp/arg2  {:rdf/type :afn/localname,
                                     :sp/arg1  {:sp/varName "predicate"}}},
          :sp/variable   {:sp/varName "label"}}]
        [[[{:rdf/type      :sp/Filter,
            :sp/expression {:rdf/type [:sp/bound
-                                      :spin/Functions
-                                      :spl/BooleanFunctions],
+                                      :spl/BooleanFunctions
+                                      :spin/Functions],
                            :sp/arg1  {:sp/varName "valueType"}}}]
          {:sp/object    {:sp/varName "value"},
           :sp/predicate {:sp/varName "predicate"},
           :sp/subject   :spin/_this}
          {:rdf/type      :sp/Filter,
           :sp/expression {:rdf/type [:sp/and
-                                     :spin/Functions
-                                     :spl/BooleanFunctions],
+                                     :spl/BooleanFunctions
+                                     :spin/Functions],
                           :sp/arg1  {:rdf/type [:sp/not
                                                 :spin/Functions
                                                 :spl/BooleanFunctions],
-                                     :sp/arg1  {:rdf/type
-                                                [:spl/instanceOf
-                                                 :spin/Functions
-                                                 :spl/BooleanFunctions],
-                                                :sp/arg1 {:sp/varName "value"},
-                                                :sp/arg2 {:sp/varName
-                                                          "valueType"}}},
+                                     :sp/arg1  {:rdf/type [:spl/instanceOf
+                                                           :spl/BooleanFunctions
+                                                           :spin/Functions],
+                                                :sp/arg1  {:sp/varName "value"},
+                                                :sp/arg2  {:sp/varName
+                                                           "valueType"}}},
                           :sp/arg2  {:rdf/type [:sp/or
-                                                :spin/Functions
-                                                :spl/BooleanFunctions],
+                                                :spl/BooleanFunctions
+                                                :spin/Functions],
                                      :sp/arg1  {:rdf/type [:sp/ne
                                                            :spl/BooleanFunctions
                                                            :spin/Functions],
@@ -186,8 +185,8 @@
                                                           "value"}}}}}]
         {:rdf/type      :sp/Bind,
          :sp/expression {:rdf/type [:sp/concat
-                                    :spl/StringFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/StringFunctions],
                          :sp/arg1  "Incorrect type of argument ",
                          :sp/arg2  {:rdf/type :afn/localname,
                                     :sp/arg1  {:sp/varName "predicate"}},
@@ -198,6 +197,18 @@
          :sp/variable   {:sp/varName "label"}}]]}]},
    :spin/constraint
    [{:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+     :rdfs/comment  "indicates whether the argument is optional",
+     :sp/arg        [:xsd/boolean :spl/optional true],
+     :spl/optional  true,
+     :spl/predicate :spl/optional,
+     :spl/valueType :xsd/boolean}
+    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+     :rdfs/comment  "the value type of the argument",
+     :sp/arg        [:rdfs/Class :spl/valueType true],
+     :spl/optional  true,
+     :spl/predicate :spl/valueType,
+     :spl/valueType :rdfs/Class}
+    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
      :rdfs/comment  "a comment describing the argument",
      :sp/arg        [:xsd/string :rdfs/comment true],
      :spl/optional  true,
@@ -208,18 +219,6 @@
      :sp/arg        [:spl/defaultValue true],
      :spl/optional  true,
      :spl/predicate :spl/defaultValue}
-    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-     :rdfs/comment  "the value type of the argument",
-     :sp/arg        [:rdfs/Class :spl/valueType true],
-     :spl/optional  true,
-     :spl/predicate :spl/valueType,
-     :spl/valueType :rdfs/Class}
-    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-     :rdfs/comment  "indicates whether the argument is optional",
-     :sp/arg        [:xsd/boolean :spl/optional true],
-     :spl/optional  true,
-     :spl/predicate :spl/optional,
-     :spl/valueType :xsd/boolean}
     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
      :rdfs/comment  "the property holding the values of each function call",
      :sp/arg        [:rdf/Property :spl/predicate],
@@ -239,23 +238,23 @@
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "predicate"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where
     [{:rdf/type :sp/Filter,
       :sp/expression
-      {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
+      {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
        :sp/arg1
-       {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
-        :sp/arg1  {:rdf/type [:sp/and :spin/Functions :spl/BooleanFunctions],
+       {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
+        :sp/arg1  {:rdf/type [:sp/and :spl/BooleanFunctions :spin/Functions],
                    :sp/arg1  {:rdf/type [:sp/bound
-                                         :spin/Functions
-                                         :spl/BooleanFunctions],
+                                         :spl/BooleanFunctions
+                                         :spin/Functions],
                               :sp/arg1  {:sp/varName "minCount"}},
                    :sp/arg2  {:rdf/type [:sp/lt
                                          :spin/Functions
@@ -266,14 +265,14 @@
                                          :sp/arg1  :spin/_this,
                                          :sp/arg2  {:sp/varName "predicate"}},
                               :sp/arg2  {:sp/varName "minCount"}}},
-        :sp/arg2  {:rdf/type [:sp/and :spin/Functions :spl/BooleanFunctions],
+        :sp/arg2  {:rdf/type [:sp/and :spl/BooleanFunctions :spin/Functions],
                    :sp/arg1  {:rdf/type [:sp/bound
-                                         :spin/Functions
-                                         :spl/BooleanFunctions],
-                              :sp/arg1  {:sp/varName "maxCount"}},
-                   :sp/arg2  {:rdf/type [:sp/gt
                                          :spl/BooleanFunctions
                                          :spin/Functions],
+                              :sp/arg1  {:sp/varName "maxCount"}},
+                   :sp/arg2  {:rdf/type [:sp/gt
+                                         :spin/Functions
+                                         :spl/BooleanFunctions],
                               :sp/arg1  {:rdf/type [:spl/objectCount
                                                     :spl/OntologyFunctions
                                                     :spin/Functions],
@@ -281,11 +280,11 @@
                                          :sp/arg2  {:sp/varName "predicate"}},
                               :sp/arg2  {:sp/varName "maxCount"}}}},
        :sp/arg2
-       {:rdf/type    [:sp/exists :spl/BooleanFunctions :spin/Functions],
+       {:rdf/type    [:sp/exists :spin/Functions :spl/BooleanFunctions],
         :sp/elements [[{:rdf/type      :sp/Filter,
                         :sp/expression {:rdf/type [:sp/bound
-                                                   :spin/Functions
-                                                   :spl/BooleanFunctions],
+                                                   :spl/BooleanFunctions
+                                                   :spin/Functions],
                                         :sp/arg1  {:sp/varName "valueType"}}}]
                       {:sp/object    {:sp/varName "value"},
                        :sp/predicate {:sp/varName "predicate"},
@@ -296,8 +295,8 @@
                                                   :spl/BooleanFunctions],
                                        :sp/arg1  {:rdf/type
                                                   [:spl/instanceOf
-                                                   :spin/Functions
-                                                   :spl/BooleanFunctions],
+                                                   :spl/BooleanFunctions
+                                                   :spin/Functions],
                                                   :sp/arg1 {:sp/varName
                                                             "value"},
                                                   :sp/arg2
@@ -305,6 +304,16 @@
                                                    "valueType"}}}}]}}}]},
    :spin/constraint
    [{:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+     :rdfs/comment  "the RDF property holding the attribute value",
+     :sp/arg        [:rdf/Property :spl/predicate],
+     :spl/predicate :spl/predicate,
+     :spl/valueType :rdf/Property}
+    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+     :rdfs/comment  "the default value of the attribute",
+     :sp/arg        [:spl/defaultValue true],
+     :spl/optional  true,
+     :spl/predicate :spl/defaultValue}
+    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
      :rdfs/comment  "the minimum number of values permitted for the property",
      :sp/arg        [:xsd/integer :spl/minCount true],
      :spl/optional  true,
@@ -317,27 +326,17 @@
      :spl/predicate :spl/maxCount,
      :spl/valueType :xsd/integer}
     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-     :rdfs/comment  "the default value of the attribute",
-     :sp/arg        [:spl/defaultValue true],
+     :rdfs/comment  "a comment describing the meaning of this attribute",
+     :sp/arg        [:xsd/string :rdfs/comment true],
      :spl/optional  true,
-     :spl/predicate :spl/defaultValue}
+     :spl/predicate :rdfs/comment,
+     :spl/valueType :xsd/string}
     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
      :rdfs/comment  "the type that all values of the property must have",
      :sp/arg        [:rdfs/Class :spl/valueType true],
      :spl/optional  true,
      :spl/predicate :spl/valueType,
-     :spl/valueType :rdfs/Class}
-    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-     :rdfs/comment  "the RDF property holding the attribute value",
-     :sp/arg        [:rdf/Property :spl/predicate],
-     :spl/predicate :spl/predicate,
-     :spl/valueType :rdf/Property}
-    {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-     :rdfs/comment  "a comment describing the meaning of this attribute",
-     :sp/arg        [:xsd/string :rdfs/comment true],
-     :spl/optional  true,
-     :spl/predicate :rdfs/comment,
-     :spl/valueType :xsd/string}],
+     :spl/valueType :rdfs/Class}],
    :spin/labelTemplate
    "Attribute {?predicate} : {?valueType} [{?minCount},{?maxCount}]"})
 
@@ -364,7 +363,7 @@
 (def ConstraintTemplates
   "Abstract superclass of templates that can be used as spin:constraints. The subclasses are expected to construct spin:ConstraintViolations and use ?this to talk about the instances of the associated class."
   {:db/ident :spl/ConstraintTemplates,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Abstract superclass of templates that can be used as spin:constraints. The subclasses are expected to construct spin:ConstraintViolations and use ?this to talk about the instances of the associated class.",
    :rdfs/label "Constraint templates",
@@ -407,14 +406,14 @@
 (def CountPropertyConstraintTemplates
   "Abstract superclass of property constraints that compare the number of values with either min or max count."
   {:db/ident :spl/CountPropertyConstraintTemplates,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Abstract superclass of property constraints that compare the number of values with either min or max count.",
    :rdfs/label "Count property constraint templates",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/CountPropertyConstraintTemplates
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/abstract true,
    :spin/constraint
    [{:rdf/type      [:spl/Argument :spin/ConstructTemplates],
@@ -443,32 +442,32 @@
 (def ExistencePropertyPairConstraint
   "Existence property pair constraint"
   {:db/ident :spl/ExistencePropertyPairConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/label "Existence property pair constraint",
    :rdfs/subClassOf [:spl/PropertyPairConstraintTemplates
                      :spl/ExistencePropertyPairConstraint
+                     :spl/ConstraintTemplates
                      :spl/PropertyConstraintTemplates
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spin/ConstructTemplates],
    :spin/body
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where
     [{:rdf/type      :sp/Filter,
       :sp/expression {:rdf/type    [:sp/exists
-                                    :spl/BooleanFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/BooleanFunctions],
                       :sp/elements [{:sp/object    {:sp/varName "someValue"},
                                      :sp/predicate {:sp/varName
                                                     "otherProperty"},
@@ -482,8 +481,8 @@
                                      :sp/subject   :spin/_this}]}}
      {:rdf/type      :sp/Bind,
       :sp/expression {:rdf/type [:sp/concat
-                                 :spl/StringFunctions
-                                 :spin/Functions],
+                                 :spin/Functions
+                                 :spl/StringFunctions],
                       :sp/arg1  "Property ",
                       :sp/arg2  {:rdf/type [:sp/str
                                             :spl/StringFunctions
@@ -520,12 +519,11 @@
                     :sp/expression {:rdf/type [:sp/not
                                                :spin/Functions
                                                :spl/BooleanFunctions],
-                                    :sp/arg1  {:rdf/type
-                                               [:sp/bound
-                                                :spin/Functions
-                                                :spl/BooleanFunctions],
-                                               :sp/arg1 {:sp/varName
-                                                         "anyValue"}}}}]},
+                                    :sp/arg1  {:rdf/type [:sp/bound
+                                                          :spl/BooleanFunctions
+                                                          :spin/Functions],
+                                               :sp/arg1  {:sp/varName
+                                                          "anyValue"}}}}]},
    :spin/constraint [{:rdf/type      [:spl/Argument :spin/ConstructTemplates],
                       :rdfs/comment  "The default value to infer.",
                       :sp/arg        :spl/defaultValue,
@@ -541,32 +539,32 @@
 (def LessThanOtherPropertyPairConstraint
   "Can be used to define a constraint between two properties (?property and ?otherProperty) enforcing the invariant that the values of ?property must be smaller than the values of ?otherProperty. For example this can be used to state that ex:startDate must be < ex:endDate."
   {:db/ident :spl/LessThanOtherPropertyPairConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Can be used to define a constraint between two properties (?property and ?otherProperty) enforcing the invariant that the values of ?property must be smaller than the values of ?otherProperty. For example this can be used to state that ex:startDate must be < ex:endDate.",
    :rdfs/label "Less than other property pair constraint",
    :rdfs/subClassOf [:spl/PropertyPairConstraintTemplates
                      :spl/LessThanOtherPropertyPairConstraint
+                     :spl/ConstraintTemplates
                      :spl/PropertyConstraintTemplates
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spin/ConstructTemplates],
    :spin/body
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "value"},
                     :sp/predicate :spin/violationValue,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "label"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where
     [{:sp/object    {:sp/varName "value"},
       :sp/predicate {:sp/varName "property"},
@@ -580,8 +578,8 @@
                       :sp/arg2  {:sp/varName "otherValue"}}}
      {:rdf/type      :sp/Bind,
       :sp/expression {:rdf/type [:sp/concat
-                                 :spl/StringFunctions
-                                 :spin/Functions],
+                                 :spin/Functions
+                                 :spl/StringFunctions],
                       :sp/arg1  "Value ",
                       :sp/arg2  {:rdf/type [:sp/str
                                             :spl/StringFunctions
@@ -627,27 +625,27 @@
 (def NonExistencePropertyPairConstraint
   "Non-existence property pair constraint"
   {:db/ident :spl/NonExistencePropertyPairConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/label "Non-existence property pair constraint",
    :rdfs/subClassOf [:spl/PropertyPairConstraintTemplates
                      :spl/NonExistencePropertyPairConstraint
+                     :spl/ConstraintTemplates
                      :spl/PropertyConstraintTemplates
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spin/ConstructTemplates],
    :spin/body
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where
     [{:rdf/type      :sp/Filter,
       :sp/expression {:rdf/type    [:sp/notExists
@@ -659,15 +657,15 @@
                                      :sp/subject   :spin/_this}]}}
      {:rdf/type      :sp/Filter,
       :sp/expression {:rdf/type    [:sp/exists
-                                    :spl/BooleanFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/BooleanFunctions],
                       :sp/elements [{:sp/object    {:sp/varName "object"},
                                      :sp/predicate {:sp/varName "property"},
                                      :sp/subject   :spin/_this}]}}
      {:rdf/type      :sp/Bind,
       :sp/expression {:rdf/type [:sp/concat
-                                 :spl/StringFunctions
-                                 :spin/Functions],
+                                 :spin/Functions
+                                 :spl/StringFunctions],
                       :sp/arg1  "Property ",
                       :sp/arg2  {:rdf/type [:sp/str
                                             :spl/StringFunctions
@@ -686,28 +684,28 @@
 (def ObjectCountPropertyConstraint
   "Represents a constraint that can be attached to a class to specify that a given property must have between min and max values."
   {:db/ident :spl/ObjectCountPropertyConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Represents a constraint that can be attached to a class to specify that a given property must have between min and max values.",
    :rdfs/label "Object count property constraint",
    :rdfs/subClassOf [:spl/CountPropertyConstraintTemplates
                      :spl/ObjectCountPropertyConstraint
+                     :spl/ConstraintTemplates
                      :spl/PropertyConstraintTemplates
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spin/ConstructTemplates],
    :spin/body {:rdf/type :sp/Construct,
                :sp/templates [{:sp/object    :spin/ConstraintViolation,
                                :sp/predicate :rdf/type,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    :spin/_this,
                                :sp/predicate :spin/violationRoot,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "property"},
                                :sp/predicate :spin/violationPath,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "message"},
                                :sp/predicate :rdfs/label,
-                               :sp/subject   :rdf/nil}],
+                               :sp/subject   nil}],
                :sp/where
                [{:rdf/type      :sp/Bind,
                  :sp/expression {:rdf/type [:spl/objectCount
@@ -718,13 +716,13 @@
                  :sp/variable   {:sp/varName "objectCount"}}
                 {:rdf/type :sp/Filter,
                  :sp/expression
-                 {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
+                 {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
                   :sp/arg1  {:rdf/type [:sp/and
-                                        :spin/Functions
-                                        :spl/BooleanFunctions],
+                                        :spl/BooleanFunctions
+                                        :spin/Functions],
                              :sp/arg1  {:rdf/type [:sp/bound
-                                                   :spin/Functions
-                                                   :spl/BooleanFunctions],
+                                                   :spl/BooleanFunctions
+                                                   :spin/Functions],
                                         :sp/arg1  {:sp/varName "minCount"}},
                              :sp/arg2  {:rdf/type [:sp/lt
                                                    :spin/Functions
@@ -732,21 +730,21 @@
                                         :sp/arg1  {:sp/varName "objectCount"},
                                         :sp/arg2  {:sp/varName "minCount"}}},
                   :sp/arg2  {:rdf/type [:sp/and
-                                        :spin/Functions
-                                        :spl/BooleanFunctions],
+                                        :spl/BooleanFunctions
+                                        :spin/Functions],
                              :sp/arg1  {:rdf/type [:sp/bound
-                                                   :spin/Functions
-                                                   :spl/BooleanFunctions],
-                                        :sp/arg1  {:sp/varName "maxCount"}},
-                             :sp/arg2  {:rdf/type [:sp/gt
                                                    :spl/BooleanFunctions
                                                    :spin/Functions],
+                                        :sp/arg1  {:sp/varName "maxCount"}},
+                             :sp/arg2  {:rdf/type [:sp/gt
+                                                   :spin/Functions
+                                                   :spl/BooleanFunctions],
                                         :sp/arg1  {:sp/varName "objectCount"},
                                         :sp/arg2  {:sp/varName "maxCount"}}}}}
                 {:rdf/type      :sp/Bind,
                  :sp/expression {:rdf/type [:sp/concat
-                                            :spl/StringFunctions
-                                            :spin/Functions],
+                                            :spin/Functions
+                                            :spl/StringFunctions],
                                  :sp/arg1  "Invalid number of values: ",
                                  :sp/arg2  {:rdf/type [:sp/str
                                                        :spl/StringFunctions
@@ -770,28 +768,28 @@
 (def PrimaryKeyPropertyConstraint
   "Specifies that the given property is a primary key for instances of the associated class (and its subclasses). If a property has been declared to be the primary key then each instance of the class must have exactly one value for that property. Furthermore, the URIs of those instances must start with a given string (arg:uriStart), followed by the URL-encoded primary key value. For example if arg:uriStart is \"http://example.org/country-\" and the primary key for an instance is \"de\" then the URI must be \"http://example.org/country-de\". Finally, as a result of the URI policy, there can not be any other instance with the same value under the same primary key policy."
   {:db/ident :spl/PrimaryKeyPropertyConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Specifies that the given property is a primary key for instances of the associated class (and its subclasses). If a property has been declared to be the primary key then each instance of the class must have exactly one value for that property. Furthermore, the URIs of those instances must start with a given string (arg:uriStart), followed by the URL-encoded primary key value. For example if arg:uriStart is \"http://example.org/country-\" and the primary key for an instance is \"de\" then the URI must be \"http://example.org/country-de\". Finally, as a result of the URI policy, there can not be any other instance with the same value under the same primary key policy.",
    :rdfs/label "Primary key property constraint",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/PrimaryKeyPropertyConstraint
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/body
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "label"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where
     [{:rdf/type :sp/Union,
       :sp/elements
@@ -807,8 +805,8 @@
          :sp/variable   {:sp/varName "label"}}]
        [{:rdf/type      :sp/Filter,
          :sp/expression {:rdf/type [:sp/gt
-                                    :spl/BooleanFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/BooleanFunctions],
                          :sp/arg1  {:rdf/type [:spl/objectCount
                                                :spl/OntologyFunctions
                                                :spin/Functions],
@@ -833,8 +831,8 @@
          :sp/subject   :spin/_this}
         {:rdf/type      :sp/Bind,
          :sp/expression {:rdf/type [:sp/concat
-                                    :spl/StringFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/StringFunctions],
                          :sp/arg1  {:sp/varName "uriStart"},
                          :sp/arg2  {:rdf/type [:sp/encode_for_uri
                                                :spin/Functions
@@ -852,8 +850,8 @@
                          :sp/arg2  {:sp/varName "uri"}}}
         {:rdf/type      :sp/Bind,
          :sp/expression {:rdf/type [:sp/concat
-                                    :spl/StringFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/StringFunctions],
                          :sp/arg1  "Primary key value ",
                          :sp/arg2  {:rdf/type [:sp/str
                                                :spl/StringFunctions
@@ -880,7 +878,7 @@
 (def PropertyConstraintTemplates
   "Abstract superclass of constraint templates that constrain exactly one property."
   {:db/ident :spl/PropertyConstraintTemplates,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Abstract superclass of constraint templates that constrain exactly one property.",
    :rdfs/label "Property constraint templates",
@@ -897,14 +895,14 @@
 (def PropertyPairConstraintTemplates
   "Abstract base class for templates that take two properties as arguments and establish a relationship between them."
   {:db/ident :spl/PropertyPairConstraintTemplates,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Abstract base class for templates that take two properties as arguments and establish a relationship between them.",
    :rdfs/label "Property pair constraint templates",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/PropertyPairConstraintTemplates
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/abstract true,
    :spin/constraint {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
                      :rdfs/comment  "The \"other\" property.",
@@ -915,43 +913,43 @@
 (def RangePropertyConstraint
   "Represents a constraint that narrows down a property by a minimum and maximum value compared by <= and >=."
   {:db/ident :spl/RangePropertyConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Represents a constraint that narrows down a property by a minimum and maximum value compared by <= and >=.",
    :rdfs/label "Range property constraint",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/RangePropertyConstraint
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/body {:rdf/type :sp/Construct,
                :sp/templates [{:sp/object    :spin/ConstraintViolation,
                                :sp/predicate :rdf/type,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    :spin/_this,
                                :sp/predicate :spin/violationRoot,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "property"},
                                :sp/predicate :spin/violationPath,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "object"},
                                :sp/predicate :spin/violationValue,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "message"},
                                :sp/predicate :rdfs/label,
-                               :sp/subject   :rdf/nil}],
+                               :sp/subject   nil}],
                :sp/where
                [{:sp/object    {:sp/varName "object"},
                  :sp/predicate {:sp/varName "property"},
                  :sp/subject   :spin/_this}
                 {:rdf/type :sp/Filter,
                  :sp/expression
-                 {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
+                 {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
                   :sp/arg1  {:rdf/type [:sp/and
-                                        :spin/Functions
-                                        :spl/BooleanFunctions],
+                                        :spl/BooleanFunctions
+                                        :spin/Functions],
                              :sp/arg1  {:rdf/type [:sp/bound
-                                                   :spin/Functions
-                                                   :spl/BooleanFunctions],
+                                                   :spl/BooleanFunctions
+                                                   :spin/Functions],
                                         :sp/arg1  {:sp/varName "min"}},
                              :sp/arg2  {:rdf/type [:sp/lt
                                                    :spin/Functions
@@ -959,21 +957,21 @@
                                         :sp/arg1  {:sp/varName "object"},
                                         :sp/arg2  {:sp/varName "min"}}},
                   :sp/arg2  {:rdf/type [:sp/and
-                                        :spin/Functions
-                                        :spl/BooleanFunctions],
+                                        :spl/BooleanFunctions
+                                        :spin/Functions],
                              :sp/arg1  {:rdf/type [:sp/bound
-                                                   :spin/Functions
-                                                   :spl/BooleanFunctions],
-                                        :sp/arg1  {:sp/varName "max"}},
-                             :sp/arg2  {:rdf/type [:sp/gt
                                                    :spl/BooleanFunctions
                                                    :spin/Functions],
+                                        :sp/arg1  {:sp/varName "max"}},
+                             :sp/arg2  {:rdf/type [:sp/gt
+                                                   :spin/Functions
+                                                   :spl/BooleanFunctions],
                                         :sp/arg1  {:sp/varName "object"},
                                         :sp/arg2  {:sp/varName "max"}}}}}
                 {:rdf/type      :sp/Bind,
                  :sp/expression {:rdf/type [:sp/concat
-                                            :spl/StringFunctions
-                                            :spin/Functions],
+                                            :spin/Functions
+                                            :spl/StringFunctions],
                                  :sp/arg1  "Value ",
                                  :sp/arg2  {:rdf/type [:sp/str
                                                        :spl/StringFunctions
@@ -1009,25 +1007,25 @@
 (def RegexPropertyConstraint
   "Regex property constraint"
   {:db/ident :spl/RegexPropertyConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/label "Regex property constraint",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/RegexPropertyConstraint
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/body {:rdf/type :sp/Construct,
                :sp/templates [{:sp/object    :spin/ConstraintViolation,
                                :sp/predicate :rdf/type,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    :spin/_this,
                                :sp/predicate :spin/violationRoot,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "property"},
                                :sp/predicate :spin/violationPath,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "message"},
                                :sp/predicate :rdfs/label,
-                               :sp/subject   :rdf/nil}],
+                               :sp/subject   nil}],
                :sp/where
                [{:sp/object    {:sp/varName "object"},
                  :sp/predicate {:sp/varName "property"},
@@ -1045,8 +1043,8 @@
                                             :sp/arg2  {:sp/varName "pattern"}}}}
                 {:rdf/type      :sp/Bind,
                  :sp/expression {:rdf/type [:sp/concat
-                                            :spl/StringFunctions
-                                            :spin/Functions],
+                                            :spin/Functions
+                                            :spl/StringFunctions],
                                  :sp/arg1 "Value ",
                                  :sp/arg2 {:rdf/type [:sp/str
                                                       :spl/StringFunctions
@@ -1089,24 +1087,24 @@
                 :sp/variable   {:sp/varName "actual"}}
                {:rdf/type :sp/Filter,
                 :sp/expression
-                {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
+                {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
                  :sp/arg1  {:rdf/type [:sp/ne
                                        :spl/BooleanFunctions
                                        :spin/Functions],
                             :sp/arg1  {:rdf/type [:sp/bound
-                                                  :spin/Functions
-                                                  :spl/BooleanFunctions],
+                                                  :spl/BooleanFunctions
+                                                  :spin/Functions],
                                        :sp/arg1  {:sp/varName "expected"}},
                             :sp/arg2  {:rdf/type [:sp/bound
-                                                  :spin/Functions
-                                                  :spl/BooleanFunctions],
+                                                  :spl/BooleanFunctions
+                                                  :spin/Functions],
                                        :sp/arg1  {:sp/varName "actual"}}},
                  :sp/arg2  {:rdf/type [:sp/and
-                                       :spin/Functions
-                                       :spl/BooleanFunctions],
+                                       :spl/BooleanFunctions
+                                       :spin/Functions],
                             :sp/arg1  {:rdf/type [:sp/bound
-                                                  :spin/Functions
-                                                  :spl/BooleanFunctions],
+                                                  :spl/BooleanFunctions
+                                                  :spin/Functions],
                                        :sp/arg1  {:sp/varName "expected"}},
                             :sp/arg2  {:rdf/type [:sp/ne
                                                   :spl/BooleanFunctions
@@ -1180,38 +1178,38 @@
 (def StringLengthPropertyConstraint
   "Represents a constraint that narrows down a property by a minimum and maximum length of the characters of the string representation of its values. This constraint is typically used for string literals, but may also be useful for integers (e.g. 4 digit numbers), and may even be used to limit the length of URIs."
   {:db/ident :spl/StringLengthPropertyConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Represents a constraint that narrows down a property by a minimum and maximum length of the characters of the string representation of its values. This constraint is typically used for string literals, but may also be useful for integers (e.g. 4 digit numbers), and may even be used to limit the length of URIs.",
    :rdfs/label "String length property constraint",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/StringLengthPropertyConstraint
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/body
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "object"},
                     :sp/predicate :spin/violationValue,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where [{:sp/object    {:sp/varName "object"},
                 :sp/predicate {:sp/varName "property"},
                 :sp/subject   :spin/_this}
                {:rdf/type      :sp/Bind,
                 :sp/expression {:rdf/type [:sp/strlen
-                                           :spl/StringFunctions
-                                           :spin/Functions],
+                                           :spin/Functions
+                                           :spl/StringFunctions],
                                 :sp/arg1  {:rdf/type [:sp/str
                                                       :spl/StringFunctions
                                                       :spin/Functions],
@@ -1219,32 +1217,32 @@
                 :sp/variable   {:sp/varName "length"}}
                {:rdf/type :sp/Filter,
                 :sp/expression
-                {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
+                {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
                  :sp/arg1  {:rdf/type [:sp/lt
                                        :spin/Functions
                                        :spl/BooleanFunctions],
                             :sp/arg1  {:sp/varName "length"},
                             :sp/arg2  {:rdf/type [:sp/coalesce
-                                                  :spin/Functions
-                                                  :spl/MiscFunctions],
+                                                  :spl/MiscFunctions
+                                                  :spin/Functions],
                                        :sp/arg1  {:sp/varName "minLength"},
                                        :sp/arg2  0}},
                  :sp/arg2  {:rdf/type [:sp/and
-                                       :spin/Functions
-                                       :spl/BooleanFunctions],
+                                       :spl/BooleanFunctions
+                                       :spin/Functions],
                             :sp/arg1  {:rdf/type [:sp/bound
-                                                  :spin/Functions
-                                                  :spl/BooleanFunctions],
-                                       :sp/arg1  {:sp/varName "maxLength"}},
-                            :sp/arg2  {:rdf/type [:sp/gt
                                                   :spl/BooleanFunctions
                                                   :spin/Functions],
+                                       :sp/arg1  {:sp/varName "maxLength"}},
+                            :sp/arg2  {:rdf/type [:sp/gt
+                                                  :spin/Functions
+                                                  :spl/BooleanFunctions],
                                        :sp/arg1  {:sp/varName "length"},
                                        :sp/arg2  {:sp/varName "maxLength"}}}}}
                {:rdf/type      :sp/Bind,
                 :sp/expression {:rdf/type [:sp/concat
-                                           :spl/StringFunctions
-                                           :spin/Functions],
+                                           :spin/Functions
+                                           :spl/StringFunctions],
                                 :sp/arg1  "Value ",
                                 :sp/arg2  {:rdf/type [:sp/str
                                                       :spl/StringFunctions
@@ -1283,12 +1281,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [true
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  #voc/lstr "test@en",
                      :sp/arg2  :xsd/string}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  #voc/lstr "test@en",
     :sp/arg2  :xsd/string},
    :spl/testResult true})
@@ -1298,12 +1296,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [true
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  :owl/Thing,
                      :sp/arg2  :rdfs/Class}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  :owl/Thing,
     :sp/arg2  :rdfs/Class},
    :spl/testResult true})
@@ -1313,12 +1311,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [false
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  :owl/versionInfo,
                      :sp/arg2  :rdfs/Class}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  :owl/versionInfo,
     :sp/arg2  :rdfs/Class},
    :spl/testResult false})
@@ -1328,12 +1326,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [true
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  :owl/Restriction,
                      :sp/arg2  :rdfs/Class}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  :owl/Restriction,
     :sp/arg2  :rdfs/Class},
    :spl/testResult true})
@@ -1343,12 +1341,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [true
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  "test",
                      :sp/arg2  :rdfs/Literal}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  "test",
     :sp/arg2  :rdfs/Literal},
    :spl/testResult true})
@@ -1358,12 +1356,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [false
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  :owl/Thing,
                      :sp/arg2  :rdfs/Literal}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  :owl/Thing,
     :sp/arg2  :rdfs/Literal},
    :spl/testResult false})
@@ -1373,12 +1371,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [true
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  "test",
                      :sp/arg2  :xsd/string}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  "test",
     :sp/arg2  :xsd/string},
    :spl/testResult true})
@@ -1388,12 +1386,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [false
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  "test",
                      :sp/arg2  :xsd/integer}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  "test",
     :sp/arg2  :xsd/integer},
    :spl/testResult false})
@@ -1403,12 +1401,12 @@
    :rdf/type       [:spl/TestCase :rdfs/Resource],
    :sp/arg         [true
                     {:rdf/type [:spl/instanceOf
-                                :spin/Functions
-                                :spl/BooleanFunctions],
+                                :spl/BooleanFunctions
+                                :spin/Functions],
                      :sp/arg1  "test",
                      :sp/arg2  :xsd/string}],
    :spl/testExpression
-   {:rdf/type [:spl/instanceOf :spin/Functions :spl/BooleanFunctions],
+   {:rdf/type [:spl/instanceOf :spl/BooleanFunctions :spin/Functions],
     :sp/arg1  "test",
     :sp/arg2  :xsd/string},
    :spl/testResult true})
@@ -1424,8 +1422,8 @@
                                                      :sp/expression
                                                      {:rdf/type
                                                       [:spl/object
-                                                       :spin/Functions
-                                                       :spl/OntologyFunctions],
+                                                       :spl/OntologyFunctions
+                                                       :spin/Functions],
                                                       :sp/arg1 :spl/Argument,
                                                       :sp/arg2 :rdfs/label},
                                                      :sp/variable {:sp/varName
@@ -1438,8 +1436,8 @@
                 :sp/elements      [{:rdf/type      :sp/Bind,
                                     :sp/expression {:rdf/type
                                                     [:spl/object
-                                                     :spin/Functions
-                                                     :spl/OntologyFunctions],
+                                                     :spl/OntologyFunctions
+                                                     :spin/Functions],
                                                     :sp/arg1 :spl/Argument,
                                                     :sp/arg2 :rdfs/label},
                                     :sp/variable   {:sp/varName "value"}}],
@@ -1449,11 +1447,11 @@
 (def Test-object-noValue
   {:db/ident :spl/Test-object-noValue,
    :rdf/type [:spl/TestCase :rdfs/Resource],
-   :sp/arg   {:rdf/type [:spl/object :spin/Functions :spl/OntologyFunctions],
+   :sp/arg   {:rdf/type [:spl/object :spl/OntologyFunctions :spin/Functions],
               :sp/arg1  :owl/versionInfo,
               :sp/arg2  :owl/versionInfo},
    :spl/testExpression
-   {:rdf/type [:spl/object :spin/Functions :spl/OntologyFunctions],
+   {:rdf/type [:spl/object :spl/OntologyFunctions :spin/Functions],
     :sp/arg1  :owl/versionInfo,
     :sp/arg2  :owl/versionInfo}})
 
@@ -1481,30 +1479,30 @@
 (def TypePropertyConstraint
   "Represents a constraint that narrows down the rdf:type of the values of a property."
   {:db/ident :spl/TypePropertyConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Represents a constraint that narrows down the rdf:type of the values of a property.",
    :rdfs/label "Type property constraint",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/TypePropertyConstraint
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/body {:rdf/type :sp/Construct,
                :sp/templates [{:sp/object    :spin/ConstraintViolation,
                                :sp/predicate :rdf/type,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    :spin/_this,
                                :sp/predicate :spin/violationRoot,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "property"},
                                :sp/predicate :spin/violationPath,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "object"},
                                :sp/predicate :spin/violationValue,
-                               :sp/subject   :rdf/nil}
+                               :sp/subject   nil}
                               {:sp/object    {:sp/varName "message"},
                                :sp/predicate :rdfs/label,
-                               :sp/subject   :rdf/nil}],
+                               :sp/subject   nil}],
                :sp/where
                [{:sp/object    {:sp/varName "object"},
                  :sp/predicate {:sp/varName "property"},
@@ -1514,14 +1512,14 @@
                                             :spin/Functions
                                             :spl/BooleanFunctions],
                                  :sp/arg1  {:rdf/type [:spl/instanceOf
-                                                       :spin/Functions
-                                                       :spl/BooleanFunctions],
+                                                       :spl/BooleanFunctions
+                                                       :spin/Functions],
                                             :sp/arg1  {:sp/varName "object"},
                                             :sp/arg2  {:sp/varName "type"}}}}
                 {:rdf/type      :sp/Bind,
                  :sp/expression {:rdf/type [:sp/concat
-                                            :spl/StringFunctions
-                                            :spin/Functions],
+                                            :spin/Functions
+                                            :spl/StringFunctions],
                                  :sp/arg1  "Value ",
                                  :sp/arg2  {:rdf/type [:sp/str
                                                        :spl/StringFunctions
@@ -1563,39 +1561,39 @@
 (def UniquePropertyValueConstraint
   "Reports an error if the given property has a value that is also used elsewhere, for the same property."
   {:db/ident :spl/UniquePropertyValueConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "Reports an error if the given property has a value that is also used elsewhere, for the same property.",
    :rdfs/label "Unique property value constraint",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/UniquePropertyValueConstraint
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/body
    {:rdf/type :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "label"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "value"},
                     :sp/predicate :spin/violationValue,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where
     [{:sp/object    {:sp/varName "value"},
       :sp/predicate {:sp/varName "property"},
       :sp/subject   :spin/_this}
      {:rdf/type      :sp/Filter,
       :sp/expression {:rdf/type    [:sp/exists
-                                    :spl/BooleanFunctions
-                                    :spin/Functions],
+                                    :spin/Functions
+                                    :spl/BooleanFunctions],
                       :sp/elements [{:sp/object    {:sp/varName "value"},
                                      :sp/predicate {:sp/varName "property"},
                                      :sp/subject   {:sp/varName "other"}}
@@ -1609,8 +1607,8 @@
                                                                "other"}}}]}}
      {:rdf/type      :sp/Bind,
       :sp/expression {:rdf/type [:sp/concat
-                                 :spl/StringFunctions
-                                 :spin/Functions],
+                                 :spin/Functions
+                                 :spl/StringFunctions],
                       :sp/arg1  "Property must have a unique value, but ",
                       :sp/arg2  {:rdf/type [:sp/str
                                             :spl/StringFunctions
@@ -1623,28 +1621,28 @@
 (def UntypedObjectPropertyConstraint
   "A generic SPIN template that can be used to declare a constraint that all values of a given property must have an rdf:type."
   {:db/ident :spl/UntypedObjectPropertyConstraint,
-   :rdf/type [:spl/ConstraintTemplate :spin/ConstructTemplate :rdfs/Resource],
+   :rdf/type [:spl/ConstraintTemplate :rdfs/Resource :spin/ConstructTemplate],
    :rdfs/comment
    "A generic SPIN template that can be used to declare a constraint that all values of a given property must have an rdf:type.",
    :rdfs/label "Untyped object property constraint",
    :rdfs/subClassOf [:spl/PropertyConstraintTemplates
                      :spl/UntypedObjectPropertyConstraint
-                     :spin/ConstructTemplates
-                     :spl/ConstraintTemplates],
+                     :spl/ConstraintTemplates
+                     :spin/ConstructTemplates],
    :spin/body
    {:rdf/type     :sp/Construct,
     :sp/templates [{:sp/object    :spin/ConstraintViolation,
                     :sp/predicate :rdf/type,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    :spin/_this,
                     :sp/predicate :spin/violationRoot,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "property"},
                     :sp/predicate :spin/violationPath,
-                    :sp/subject   :rdf/nil}
+                    :sp/subject   nil}
                    {:sp/object    {:sp/varName "message"},
                     :sp/predicate :rdfs/label,
-                    :sp/subject   :rdf/nil}],
+                    :sp/subject   nil}],
     :sp/where     [{:sp/object    {:sp/varName "object"},
                     :sp/predicate {:sp/varName "property"},
                     :sp/subject   :spin/_this}
@@ -1659,8 +1657,8 @@
                                                                   "object"}}]}}
                    {:rdf/type      :sp/Bind,
                     :sp/expression {:rdf/type [:sp/concat
-                                               :spl/StringFunctions
-                                               :spin/Functions],
+                                               :spin/Functions
+                                               :spl/StringFunctions],
                                     :sp/arg1  "Value ",
                                     :sp/arg2  {:rdf/type [:sp/str
                                                           :spl/StringFunctions
@@ -1739,8 +1737,8 @@
                            :sp/variable   {:sp/varName "primaryKey"}}
                           {:rdf/type      :sp/Filter,
                            :sp/expression {:rdf/type [:sp/bound
-                                                      :spin/Functions
-                                                      :spl/BooleanFunctions],
+                                                      :spl/BooleanFunctions
+                                                      :spin/Functions],
                                            :sp/arg1  {:sp/varName
                                                       "primaryKey"}}}]},
    :spin/constraint {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
@@ -1807,8 +1805,8 @@
                            :sp/subject   :spin/_arg1}
                           {:rdf/type      :sp/Filter,
                            :sp/expression {:rdf/type [:spl/instanceOf
-                                                      :spin/Functions
-                                                      :spl/BooleanFunctions],
+                                                      :spl/BooleanFunctions
+                                                      :spin/Functions],
                                            :sp/arg1  {:sp/varName "value"},
                                            :sp/arg2  :spin/_arg3}}]},
    :spin/constraint [{:rdf/type [:spl/Argument :spin/ConstructTemplates],
@@ -1854,15 +1852,15 @@
       :sp/elements
       [[[{:rdf/type      :sp/Filter,
           :sp/expression {:rdf/type [:sp/or
-                                     :spin/Functions
-                                     :spl/BooleanFunctions],
+                                     :spl/BooleanFunctions
+                                     :spin/Functions],
                           :sp/arg1  {:rdf/type [:sp/isIRI
                                                 :spin/Functions
                                                 :spl/BooleanFunctions],
                                      :sp/arg1  :spin/_arg1},
                           :sp/arg2  {:rdf/type [:sp/isBlank
-                                                :spin/Functions
-                                                :spl/BooleanFunctions],
+                                                :spl/BooleanFunctions
+                                                :spin/Functions],
                                      :sp/arg1  :spin/_arg1}}}]
         {:rdf/type   :sp/TriplePath,
          :sp/object  :spin/_arg2,
@@ -1887,8 +1885,8 @@
          :sp/variable   {:sp/varName "datatype"}}
         {:rdf/type :sp/Filter,
          :sp/expression
-         {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
-          :sp/arg1  {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
+         {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
+          :sp/arg1  {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
                      :sp/arg1  {:rdf/type [:sp/eq
                                            :spl/BooleanFunctions
                                            :spin/Functions],
@@ -1899,17 +1897,17 @@
                                            :spin/Functions],
                                 :sp/arg1  :spin/_arg2,
                                 :sp/arg2  :rdfs/Literal}},
-          :sp/arg2  {:rdf/type [:sp/and :spin/Functions :spl/BooleanFunctions],
+          :sp/arg2  {:rdf/type [:sp/and :spl/BooleanFunctions :spin/Functions],
                      :sp/arg1  {:rdf/type [:sp/or
-                                           :spin/Functions
-                                           :spl/BooleanFunctions],
+                                           :spl/BooleanFunctions
+                                           :spin/Functions],
                                 :sp/arg1  {:rdf/type [:sp/not
                                                       :spin/Functions
                                                       :spl/BooleanFunctions],
                                            :sp/arg1  {:rdf/type
                                                       [:sp/bound
-                                                       :spin/Functions
-                                                       :spl/BooleanFunctions],
+                                                       :spl/BooleanFunctions
+                                                       :spin/Functions],
                                                       :sp/arg1 {:sp/varName
                                                                 "datatype"}}},
                                 :sp/arg2  {:rdf/type [:sp/eq
@@ -1923,15 +1921,15 @@
                                 :sp/arg1  :spin/_arg2,
                                 :sp/arg2  :xsd/string}}}}]]}]},
    :spin/constraint [{:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-                      :rdfs/comment  "the type that the instance must have",
-                      :sp/arg        [:rdfs/Class :sp/arg2],
-                      :spl/predicate :sp/arg2,
-                      :spl/valueType :rdfs/Class}
-                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
                       :rdfs/comment  "the instance being tested",
                       :sp/arg        [:rdfs/Resource :sp/arg1],
                       :spl/predicate :sp/arg1,
-                      :spl/valueType :rdfs/Resource}],
+                      :spl/valueType :rdfs/Resource}
+                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+                      :rdfs/comment  "the type that the instance must have",
+                      :sp/arg        [:rdfs/Class :sp/arg2],
+                      :spl/predicate :sp/arg2,
+                      :spl/valueType :rdfs/Class}],
    :spin/labelTemplate "{?arg1} instance of {?arg2}",
    :spin/returnType :xsd/boolean})
 
@@ -1987,8 +1985,8 @@
    {:rdf/type :sp/Ask,
     :sp/where [{:rdf/type      :sp/Filter,
                 :sp/expression {:rdf/type [:sp/and
-                                           :spin/Functions
-                                           :spl/BooleanFunctions],
+                                           :spl/BooleanFunctions
+                                           :spin/Functions],
                                 :sp/arg1  {:rdf/type [:sp/isLiteral
                                                       :spin/Functions
                                                       :spl/BooleanFunctions],
@@ -2028,8 +2026,8 @@
                                                  :sp/arg1
                                                  {:rdf/type
                                                   [:sp/gt
-                                                   :spl/BooleanFunctions
-                                                   :spin/Functions],
+                                                   :spin/Functions
+                                                   :spl/BooleanFunctions],
                                                   :sp/arg1 :spin/_arg1,
                                                   :sp/arg2 :spin/_arg2},
                                                  :sp/arg2 :spin/_arg1,
@@ -2346,7 +2344,7 @@
                    :sp/subPath :rdfs/subPropertyOf},
       :sp/subject :spin/_arg1}
      {:rdf/type      :sp/Filter,
-      :sp/expression {:rdf/type [:sp/or :spin/Functions :spl/BooleanFunctions],
+      :sp/expression {:rdf/type [:sp/or :spl/BooleanFunctions :spin/Functions],
                       :sp/arg1  {:rdf/type [:sp/eq
                                             :spl/BooleanFunctions
                                             :spin/Functions],
@@ -3317,12 +3315,6 @@
    :rdfs/seeAlso ["http://www.w3.org/TR/sparql11-query/#func-regex"],
    :rdfs/subClassOf [:spl/StringFunctions :sp/regex :spin/Functions],
    :spin/constraint [{:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-                      :rdfs/comment  "the flags",
-                      :sp/arg        [:xsd/string :sp/arg3 true],
-                      :spl/optional  true,
-                      :spl/predicate :sp/arg3,
-                      :spl/valueType :xsd/string}
-                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
                       :rdfs/comment  "the match pattern",
                       :sp/arg        [:xsd/string :sp/arg2],
                       :spl/predicate :sp/arg2,
@@ -3331,6 +3323,12 @@
                       :rdfs/comment  "the input string",
                       :sp/arg        [:xsd/string :sp/arg1],
                       :spl/predicate :sp/arg1,
+                      :spl/valueType :xsd/string}
+                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+                      :rdfs/comment  "the flags",
+                      :sp/arg        [:xsd/string :sp/arg3 true],
+                      :spl/optional  true,
+                      :spl/predicate :sp/arg3,
                       :spl/valueType :xsd/string}],
    :spin/returnType :xsd/boolean,
    :spin/symbol "regex"})
@@ -3345,15 +3343,15 @@
    :rdfs/seeAlso ["http://www.w3.org/TR/sparql11-query/#func-replace"],
    :rdfs/subClassOf [:spl/StringFunctions :sp/replace :spin/Functions],
    :spin/constraint [{:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+                      :rdfs/comment  "The replacement string.",
+                      :sp/arg        [:xsd/string :sp/arg3],
+                      :spl/predicate :sp/arg3,
+                      :spl/valueType :xsd/string}
+                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
                       :rdfs/comment  "Additional flags for the replacement.",
                       :sp/arg        [:xsd/string :sp/arg4 true],
                       :spl/optional  true,
                       :spl/predicate :sp/arg4,
-                      :spl/valueType :xsd/string}
-                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-                      :rdfs/comment  "The pattern to replace.\n",
-                      :sp/arg        [:xsd/string :sp/arg2],
-                      :spl/predicate :sp/arg2,
                       :spl/valueType :xsd/string}
                      {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
                       :rdfs/comment  "The input string.",
@@ -3361,9 +3359,9 @@
                       :spl/predicate :sp/arg1,
                       :spl/valueType :xsd/string}
                      {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-                      :rdfs/comment  "The replacement string.",
-                      :sp/arg        [:xsd/string :sp/arg3],
-                      :spl/predicate :sp/arg3,
+                      :rdfs/comment  "The pattern to replace.\n",
+                      :sp/arg        [:xsd/string :sp/arg2],
+                      :spl/predicate :sp/arg2,
                       :spl/valueType :xsd/string}],
    :spin/returnType :xsd/string,
    :spin/symbol "REPLACE"})
@@ -3696,15 +3694,15 @@
                       :spl/predicate :sp/arg3,
                       :spl/valueType :xsd/integer}
                      {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
-                      :rdfs/comment  "The start index.",
-                      :sp/arg        [:xsd/integer :sp/arg2],
-                      :spl/predicate :sp/arg2,
-                      :spl/valueType :xsd/integer}
-                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
                       :rdfs/comment  "The input string.",
                       :sp/arg        [:xsd/string :sp/arg1],
                       :spl/predicate :sp/arg1,
-                      :spl/valueType :xsd/string}],
+                      :spl/valueType :xsd/string}
+                     {:rdf/type      [:spl/Argument :spin/ConstructTemplates],
+                      :rdfs/comment  "The start index.",
+                      :sp/arg        [:xsd/integer :sp/arg2],
+                      :spl/predicate :sp/arg2,
+                      :spl/valueType :xsd/integer}],
    :spin/returnType :xsd/string,
    :spin/symbol "SUBSTR"})
 

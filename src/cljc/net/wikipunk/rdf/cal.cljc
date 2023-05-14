@@ -37,28 +37,28 @@
    :rdfs/comment
    "Provide a grouping of component properties that define an alarm.",
    :rdfs/subClassOf [{:owl/minCardinality 0,
-                      :owl/onProperty     :cal/duration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/repeat,
+                      :owl/onProperty     :cal/summary,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/attendee,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/summary,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/action,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/attach,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/trigger,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/attach,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/duration,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/repeat,
                       :rdf/type           :owl/Restriction}
                      :cal/Valarm]})
 
@@ -100,85 +100,79 @@
    "Provide a grouping of component properties that describe an event.",
    :rdfs/label "Event",
    :rdfs/subClassOf [{:owl/minCardinality 0,
-                      :owl/onProperty     :cal/contact,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/comment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/exdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/relatedTo,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/lastModified,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/duration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/rdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/trigger,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/attendee,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/description,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/summary,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtend,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtstart,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/transp,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/resources,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/rrule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/created,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/recurrenceId,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/organizer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/class,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtstamp,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/attach,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/sequence,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/exrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/status,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/trigger,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/rdate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/contact,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/uid,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/priority,
+                      :owl/onProperty     :cal/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/lastModified,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/comment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/dtstamp,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/transp,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/class,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/sequence,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/attach,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/resources,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/recurrenceId,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/exdate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/rrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/dtend,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/organizer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/attendee,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/created,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/requestStatus,
@@ -190,10 +184,16 @@
                       :owl/onProperty     :cal/categories,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/status,
+                      :owl/onProperty     :cal/geo,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/geo,
+                      :owl/onProperty     :cal/priority,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/duration,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/dtstart,
                       :rdf/type           :owl/Restriction}
                      :cal/Vevent]})
 
@@ -204,37 +204,37 @@
    :rdfs/comment
    "Provide a grouping of component properties that describe either a request for free/busy time, describe a response to a request for free/busy time or describe a published set of busy time.",
    :rdfs/subClassOf [{:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtstamp,
+                      :owl/onProperty     :cal/comment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/dtstart,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/duration,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/requestStatus,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/attendee,
+                      :owl/onProperty     :cal/freebusy,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/freebusy,
+                      :owl/onProperty     :cal/uid,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/dtstamp,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/organizer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/attendee,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/url,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/dtend,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/uid,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/comment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/organizer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/duration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtstart,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/contact,
@@ -248,37 +248,13 @@
    :rdfs/comment
    "Provide a grouping of component properties that describe a journal entry.",
    :rdfs/subClassOf [{:owl/minCardinality 0,
-                      :owl/onProperty     :cal/attendee,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/sequence,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/requestStatus,
+                      :owl/onProperty     :cal/created,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/status,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/uid,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/rdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/created,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/comment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/class,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/dtstamp,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/contact,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/summary,
@@ -287,10 +263,19 @@
                       :owl/onProperty     :cal/categories,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/description,
+                      :owl/onProperty     :cal/recurrenceId,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/rrule,
+                      :owl/onProperty     :cal/relatedTo,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/sequence,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/exrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/description,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/lastModified,
@@ -299,22 +284,37 @@
                       :owl/onProperty     :cal/exdate,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/exrule,
+                      :owl/onProperty     :cal/organizer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/comment,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/attach,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/organizer,
+                      :owl/onProperty     :cal/rrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/class,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/rdate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/requestStatus,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/uid,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/contact,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/url,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/recurrenceId,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/relatedTo,
+                      :owl/onProperty     :cal/attendee,
                       :rdf/type           :owl/Restriction}
                      :cal/Vjournal]})
 
@@ -325,40 +325,40 @@
    :rdfs/comment
    "Provide a grouping of component properties that defines a time zone.",
    :rdfs/subClassOf [{:owl/minCardinality 0,
-                      :owl/onProperty     :cal/tzname,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/lastModified,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/tzoffsetto,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/rrule,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/comment,
+                      :owl/onProperty     :cal/tzurl,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/tzoffsetfrom,
+                      :owl/onProperty     :cal/tzname,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/rdate,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtstart,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/tzurl,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/recurrenceId,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/comment,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/exdate,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/tzid,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/tzoffsetfrom,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/lastModified,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/dtstart,
                       :rdf/type           :owl/Restriction}
                      :cal/Vtimezone]})
 
@@ -370,103 +370,103 @@
    "Provide a grouping of calendar properties that describe a to-do.",
    :rdfs/label "To-do",
    :rdfs/subClassOf [{:owl/minCardinality 0,
-                      :owl/onProperty     :cal/priority,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/rrule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/attendee,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtstart,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/attach,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/rdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/location,
+                      :owl/onProperty     :cal/class,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/created,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/exrule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/lastModified,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
                       :owl/onProperty     :cal/uid,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/exdate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/class,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/requestStatus,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/dtstamp,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/organizer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/resources,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/trigger,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/due,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/categories,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/contact,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/status,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/relatedTo,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/sequence,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/completed,
+                      :owl/onProperty     :cal/trigger,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/percentComplete,
+                      :owl/onProperty     :cal/lastModified,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/geo,
+                      :owl/onProperty     :cal/due,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/duration,
+                      :owl/onProperty     :cal/rdate,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/url,
+                      :owl/onProperty     :cal/priority,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/status,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/recurrenceId,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
-                      :owl/onProperty     :cal/summary,
+                      :owl/onProperty     :cal/dtstart,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/geo,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/url,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/location,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/resources,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/dtstamp,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/categories,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/attendee,
                       :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :cal/comment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/requestStatus,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/exdate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/exrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/percentComplete,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/relatedTo,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/attach,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/contact,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/completed,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/rrule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/summary,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/organizer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :cal/duration,
                       :rdf/type           :owl/Restriction}
                      :cal/Vtodo]})
 

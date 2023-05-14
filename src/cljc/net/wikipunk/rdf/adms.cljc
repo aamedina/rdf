@@ -18,14 +18,14 @@
    :rdfa/uri          "http://www.w3.org/ns/adms",
    :rdfs/label        [#voc/lstr "adms@nl" #voc/lstr "adms@en"],
    "http://www.w3.org/2001/02pd/rec54#editor"
-   [{:foaf/firstName "Bert",
+   [{:foaf/firstName "Makx",
+     :foaf/lastName  "Dekkers",
+     :rdf/type       :foaf/Person}
+    {:foaf/firstName "Bert",
      :foaf/lastName  "Van Nuffelen",
      :foaf/mbox      "mailto:bert.van.nuffelen@tenforce.com",
      :rdf/type       :foaf/Person,
      "https://schema.org/affiliation" {:foaf/name "TenForce"}}
-    {:foaf/firstName "Makx",
-     :foaf/lastName  "Dekkers",
-     :rdf/type       :foaf/Person}
     {:foaf/firstName "Pavlina",
      :foaf/lastName  "Fragkou",
      :rdf/type       :foaf/Person,

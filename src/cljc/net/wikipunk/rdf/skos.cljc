@@ -121,8 +121,8 @@
    :rdfs/subPropertyOf [:skos/broader
                         :skos/mappingRelation
                         :skos/broadMatch
-                        :skos/semanticRelation
-                        :skos/broaderTransitive],
+                        :skos/broaderTransitive
+                        :skos/semanticRelation],
    :skos/definition
    #voc/lstr
     "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.@en",
@@ -240,8 +240,8 @@
    :rdfs/label #voc/lstr "has exact match@en",
    :rdfs/subPropertyOf [:skos/closeMatch
                         :skos/exactMatch
-                        :skos/semanticRelation
-                        :skos/mappingRelation],
+                        :skos/mappingRelation
+                        :skos/semanticRelation],
    :skos/definition
    #voc/lstr
     "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.@en",
@@ -386,8 +386,8 @@
    :rdfs/subPropertyOf [:skos/narrower
                         :skos/mappingRelation
                         :skos/narrowMatch
-                        :skos/semanticRelation
-                        :skos/narrowerTransitive],
+                        :skos/narrowerTransitive
+                        :skos/semanticRelation],
    :skos/definition
    #voc/lstr
     "skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.@en",

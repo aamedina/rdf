@@ -153,20 +153,20 @@
     "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ssn/",
    :rdfs/label #voc/lstr "System@en",
-   :rdfs/subClassOf [{:owl/allValuesFrom :ssn/System,
-                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
+   :rdfs/subClassOf [{:owl/allValuesFrom :ssn/Deployment,
+                      :owl/onProperty    :ssn/hasDeployment,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :sosa/Procedure,
                       :owl/onProperty    :ssn/implements,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :ssn/System,
+                      :owl/onProperty    :ssn/hasSubSystem,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :sosa/Platform,
                       :owl/onProperty    :sosa/isHostedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :ssn/System,
-                      :owl/onProperty    :ssn/hasSubSystem,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :ssn/Deployment,
-                      :owl/onProperty    :ssn/hasDeployment,
+                      :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
                       :rdf/type          :owl/Restriction}
                      :ssn/System],
    :skos/definition
@@ -415,10 +415,16 @@
                        :owl/onProperty     :sosa/actsOnProperty,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/hasFeatureOfInterest,
+                       :owl/onProperty  :sosa/resultTime,
                        :rdf/type        :owl/Restriction}
                       {:owl/allValuesFrom :sosa/Actuator,
                        :owl/onProperty    :sosa/madeByActuator,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :sosa/hasFeatureOfInterest,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :sosa/ActuatableProperty,
+                       :owl/onProperty    :sosa/actsOnProperty,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :sosa/Result,
                        :owl/onProperty    :sosa/hasResult,
@@ -426,21 +432,15 @@
                       {:owl/allValuesFrom :sosa/Procedure,
                        :owl/onProperty    :sosa/usedProcedure,
                        :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/resultTime,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/ActuatableProperty,
-                       :owl/onProperty    :sosa/actsOnProperty,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/madeByActuator,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/hasResult,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :sosa/FeatureOfInterest,
                        :owl/onProperty    :sosa/hasFeatureOfInterest,
                        :rdf/type          :owl/Restriction}
+                      {:owl/minCardinality 1,
+                       :owl/onProperty     :sosa/hasResult,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :sosa/madeByActuator,
+                       :rdf/type        :owl/Restriction}
                       :sosa/Actuation]})
 
 (def ^{:private true} Actuator
@@ -465,10 +465,10 @@
                        :owl/onProperty    :ssn/implements,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :ssn/hasSubSystem,
+                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
+                       :owl/onProperty    :ssn/hasSubSystem,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :sosa/Platform,
                        :owl/onProperty    :sosa/isHostedBy,
@@ -514,43 +514,43 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/subClassOf  [{:owl/cardinality 1,
-                       :owl/onProperty  :ssn/wasOriginatedBy,
+                       :owl/onProperty  :sosa/madeBySensor,
                        :rdf/type        :owl/Restriction}
                       {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/hasFeatureOfInterest,
+                       :owl/onProperty  :ssn/wasOriginatedBy,
                        :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Sensor,
-                       :owl/onProperty    :sosa/madeBySensor,
+                      {:owl/allValuesFrom :sosa/Procedure,
+                       :owl/onProperty    :sosa/usedProcedure,
                        :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/ObservableProperty,
-                       :owl/onProperty    :sosa/observedProperty,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/Stimulus,
-                       :owl/onProperty    :ssn/wasOriginatedBy,
+                      {:owl/allValuesFrom :sosa/Result,
+                       :owl/onProperty    :sosa/hasResult,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :sosa/FeatureOfInterest,
                        :owl/onProperty    :sosa/hasFeatureOfInterest,
                        :rdf/type          :owl/Restriction}
                       {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/observedProperty,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Result,
-                       :owl/onProperty    :sosa/hasResult,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
                        :owl/onProperty  :sosa/resultTime,
                        :rdf/type        :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/phenomenonTime,
-                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :sosa/Sensor,
+                       :owl/onProperty    :sosa/madeBySensor,
+                       :rdf/type          :owl/Restriction}
                       {:owl/minCardinality 1,
                        :owl/onProperty     :sosa/hasResult,
                        :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :sosa/ObservableProperty,
+                       :owl/onProperty    :sosa/observedProperty,
+                       :rdf/type          :owl/Restriction}
                       {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/madeBySensor,
+                       :owl/onProperty  :sosa/phenomenonTime,
                        :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Procedure,
-                       :owl/onProperty    :sosa/usedProcedure,
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :sosa/hasFeatureOfInterest,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :sosa/observedProperty,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :ssn/Stimulus,
+                       :owl/onProperty    :ssn/wasOriginatedBy,
                        :rdf/type          :owl/Restriction}
                       :sosa/Observation]})
 
@@ -609,15 +609,15 @@
                       :sosa/Result
                       :sosa/FeatureOfInterest
                       :sosa/Sample
+                      {:owl/allValuesFrom :sosa/Sample,
+                       :owl/onProperty    :sosa/hasSample,
+                       :rdf/type          :owl/Restriction}
                       {:owl/minCardinality 1,
                        :owl/onProperty     :ssn/hasProperty,
                        :rdf/type           :owl/Restriction}
                       {:owl/minCardinality 1,
                        :owl/onProperty     :sosa/isResultOf,
                        :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Sample,
-                       :owl/onProperty    :sosa/hasSample,
-                       :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :ssn/Property,
                        :owl/onProperty    :ssn/hasProperty,
                        :rdf/type          :owl/Restriction}]})
@@ -641,10 +641,10 @@
                        :owl/onProperty    :ssn/implements,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :ssn/hasSubSystem,
+                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
+                       :owl/onProperty    :ssn/hasSubSystem,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :sosa/Platform,
                        :owl/onProperty    :sosa/isHostedBy,
@@ -654,27 +654,27 @@
   {:db/ident         :sosa/Sampling,
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :sosa/Sample,
-                       :owl/onProperty    :sosa/hasResult,
-                       :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf  [{:owl/minCardinality 1,
+                       :owl/onProperty     :sosa/hasResult,
+                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :sosa/FeatureOfInterest,
                        :owl/onProperty    :sosa/hasFeatureOfInterest,
                        :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/hasResult,
-                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :sosa/hasFeatureOfInterest,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :sosa/Sample,
+                       :owl/onProperty    :sosa/hasResult,
+                       :rdf/type          :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :sosa/madeBySampler,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :sosa/resultTime,
                        :rdf/type        :owl/Restriction}
                       {:owl/allValuesFrom :sosa/Sampler,
                        :owl/onProperty    :sosa/madeBySampler,
                        :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/resultTime,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/hasFeatureOfInterest,
-                       :rdf/type        :owl/Restriction}
                       {:owl/allValuesFrom :sosa/Procedure,
                        :owl/onProperty    :sosa/usedProcedure,
                        :rdf/type          :owl/Restriction}
@@ -705,10 +705,10 @@
                        :owl/onProperty    :ssn/implements,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :ssn/hasSubSystem,
+                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
+                       :owl/onProperty    :ssn/hasSubSystem,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :sosa/Platform,
                        :owl/onProperty    :sosa/isHostedBy,

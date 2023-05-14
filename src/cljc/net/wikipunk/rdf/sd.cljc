@@ -137,7 +137,7 @@
 (def SPARQL10Query
   "sd:SPARQL10Query is an sd:Language representing the SPARQL 1.0 Query language."
   {:db/ident :sd/SPARQL10Query,
-   :rdf/type [:sd/Language :rdfs/Resource :sd/Feature],
+   :rdf/type [:sd/Language :sd/Feature :rdfs/Resource],
    :rdfs/comment
    "sd:SPARQL10Query is an sd:Language representing the SPARQL 1.0 Query language.",
    :rdfs/label "SPARQL 1.0 Query"})
@@ -145,7 +145,7 @@
 (def SPARQL11Query
   "sd:SPARQL11Query is an sd:Language representing the SPARQL 1.1 Query language."
   {:db/ident :sd/SPARQL11Query,
-   :rdf/type [:sd/Language :rdfs/Resource :sd/Feature],
+   :rdf/type [:sd/Language :sd/Feature :rdfs/Resource],
    :rdfs/comment
    "sd:SPARQL11Query is an sd:Language representing the SPARQL 1.1 Query language.",
    :rdfs/label "SPARQL 1.1 Query"})
@@ -153,7 +153,7 @@
 (def SPARQL11Update
   "sd:SPARQLUpdate is an sd:Language representing the SPARQL 1.1 Update language."
   {:db/ident :sd/SPARQL11Update,
-   :rdf/type [:sd/Language :rdfs/Resource :sd/Feature],
+   :rdf/type [:sd/Language :sd/Feature :rdfs/Resource],
    :rdfs/comment
    "sd:SPARQLUpdate is an sd:Language representing the SPARQL 1.1 Update language.",
    :rdfs/label "SPARQL 1.1 Update"})

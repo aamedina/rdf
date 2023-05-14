@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.qb
   "Vocabulary for multi-dimensional (e.g. statistical) data publishing"
-  {:dcterms/contributor [{:foaf/mbox "arofan.gregory@earthlink.net"}
+  {:dcterms/contributor [{:foaf/mbox "jeni@jenitennison.com"}
+                         {:foaf/mbox "ian@epimorphics.com"}
+                         {:foaf/mbox "arofan.gregory@earthlink.net"}
                          {:foaf/mbox "richard@cyganiak.de"}
-                         {:foaf/mbox "dave@epimorphics.com"}
-                         {:foaf/mbox "jeni@jenitennison.com"}
-                         {:foaf/mbox "ian@epimorphics.com"}],
+                         {:foaf/mbox "dave@epimorphics.com"}],
    :dcterms/created #inst "2010-07-12T00:00:00.000-04:00",
    :dcterms/license "http://www.opendatacommons.org/licenses/pddl/1.0/",
    :dcterms/modified [#inst "2010-11-27T00:00:00.000-05:00"
@@ -365,8 +365,8 @@
   {:db/ident :qb/measureType,
    :rdf/type [:rdf/Property
               :qb/DimensionProperty
-              :qb/CodedProperty
               :rdfs/Resource
+              :qb/CodedProperty
               :qb/ComponentProperty],
    :rdfs/comment
    #voc/lstr

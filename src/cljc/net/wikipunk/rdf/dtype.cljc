@@ -26,15 +26,15 @@
    :rdfs/subClassOf [:dtype/Enumeration
                      :dtype/CodeList
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/defaultValue,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/value,
                       :rdf/type          :owl/Restriction}
-                     :owl/Thing],
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/defaultValue,
+                      :rdf/type          :owl/Restriction}
+                     :owl/Thing
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}],
    :vaem/comment
    "A codelist is a controlled vocabulary of terms that are used to represent permissible values of a variable in information systems. The representaiton of codes in \"dtype\" has been influenced by CCTS and UBL."})
 
@@ -52,15 +52,15 @@
                       :rdf/type          :owl/Restriction}
                      :dtype/CompositeCodeList
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/value,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/defaultValue,
                       :rdf/type          :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/defaultValue,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
-                      :rdf/type          :owl/Restriction}
-                     :owl/Thing
                      :dtype/Enumeration],
    :vaem/comment
    "A composite codelist is a codelist made up of other codelists. It does not introduce any new codes."})
@@ -73,27 +73,27 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/1.1/schema/dtype"
                       "http://www.linkedmodel.org/schema/dtype"],
    :rdfs/label "Derived Code List",
-   :rdfs/subClassOf [:dtype/CodeList
-                     {:owl/maxCardinality 1,
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/derivedFrom,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/ValueReference,
-                      :owl/onProperty    :dtype/hasMember,
-                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :dtype/CodeList,
                       :owl/onProperty    :dtype/derivedFrom,
                       :rdf/type          :owl/Restriction}
-                     :dtype/DerivedCodeList
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/defaultValue,
+                     :dtype/CodeList
+                     {:owl/allValuesFrom :dtype/ValueReference,
+                      :owl/onProperty    :dtype/hasMember,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :dtype/defaultValue,
-                      :rdf/type           :owl/Restriction}
+                     :dtype/DerivedCodeList
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/value,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/defaultValue,
+                      :rdf/type          :owl/Restriction}
                      :owl/Thing
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/defaultValue,
+                      :rdf/type           :owl/Restriction}
                      :dtype/Enumeration],
    :vaem/comment
    "A derived codelist is a sublist of another codelist. The members that it has must be members of the source list."})
@@ -107,28 +107,28 @@
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/schema/dtype"
                       "http://www.linkedmodel.org/1.1/schema/dtype"],
    :rdfs/label "DTYPE Enumerated value",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :dtype/value,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing
-                     {:owl/minCardinality 0,
+   :rdfs/subClassOf [{:owl/minCardinality 0,
                       :owl/onProperty     :vaem/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/position,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :dtype/code,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/order,
                       :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :dtype/code,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :dtype/value,
+                      :rdf/type        :owl/Restriction}
                      :dtype/EnumeratedValue]})
 
 (def Enumeration
@@ -166,15 +166,15 @@
                       :rdf/type          :owl/Restriction}
                      :dtype/SimpleCodeList
                      {:owl/allValuesFrom :dtype/EnumeratedValue,
+                      :owl/onProperty    :dtype/value,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :dtype/EnumeratedValue,
                       :owl/onProperty    :dtype/defaultValue,
                       :rdf/type          :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :dtype/defaultValue,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :dtype/EnumeratedValue,
-                      :owl/onProperty    :dtype/value,
-                      :rdf/type          :owl/Restriction}
-                     :owl/Thing
                      :dtype/Enumeration],
    :vaem/comment "A simple codelist is one made up only of enumerated values."})
 

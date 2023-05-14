@@ -71,11 +71,11 @@
    :rdfs/label #voc/lstr "Arrive@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
                      :as/Arrive
+                     :as/Object
                      :as/Activity
                      {:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
-                      :rdf/type           :owl/Restriction}
-                     :as/Object]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Article
   "A written work. Typically several paragraphs long. For example, a blog post or a news article."
@@ -100,7 +100,7 @@
   {:db/ident        :as/Block,
    :rdf/type        :owl/Class,
    :rdfs/label      #voc/lstr "Block@en",
-   :rdfs/subClassOf [:as/Ignore :as/Block :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Ignore :as/Block :as/Object :as/Activity]})
 
 (def Collection
   "An ordered or unordered collection of Objects or Links"
@@ -221,7 +221,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #voc/lstr "To invite someone or something to something@en",
    :rdfs/label      #voc/lstr "Invite@en",
-   :rdfs/subClassOf [:as/Offer :as/Invite :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Offer :as/Invite :as/Object :as/Activity]})
 
 (def Join
   "To Join Something"
@@ -342,6 +342,8 @@
    :rdfs/subClassOf [:as/CollectionPage
                      :as/OrderedCollection
                      :as/OrderedCollectionPage
+                     :as/Collection
+                     :as/Object
                      {:owl/intersectionOf [:as/Collection
                                            {:owl/allValuesFrom
                                             {:owl/intersectionOf
@@ -355,9 +357,7 @@
                                              :rdf/type :owl/Class},
                                             :owl/onProperty :as/items,
                                             :rdf/type :owl/Restriction}],
-                      :rdf/type :owl/Class}
-                     :as/Collection
-                     :as/Object]})
+                      :rdf/type :owl/Class}]})
 
 (def OrderedItems
   "A rdf:List variant for Objects and Links"
@@ -427,11 +427,11 @@
    :rdfs/label      #voc/lstr "Question@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
                      :as/Question
+                     :as/Object
                      :as/Activity
                      {:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
-                      :rdf/type           :owl/Restriction}
-                     :as/Object]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Read
   "The actor read the object"
@@ -481,7 +481,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #voc/lstr "Actor tentatively accepts the Object@en",
    :rdfs/label      #voc/lstr "TentativeAccept@en",
-   :rdfs/subClassOf [:as/Accept :as/TentativeAccept :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Accept :as/TentativeAccept :as/Object :as/Activity]})
 
 (def TentativeReject
   "Actor tentatively rejects the object"
@@ -489,7 +489,7 @@
    :rdf/type        :owl/Class,
    :rdfs/comment    #voc/lstr "Actor tentatively rejects the object@en",
    :rdfs/label      #voc/lstr "TentativeReject@en",
-   :rdfs/subClassOf [:as/Reject :as/TentativeReject :as/Activity :as/Object]})
+   :rdfs/subClassOf [:as/Reject :as/TentativeReject :as/Object :as/Activity]})
 
 (def Tombstone
   "A placeholder for a deleted object"
@@ -508,11 +508,11 @@
    :rdfs/label #voc/lstr "Travel@en",
    :rdfs/subClassOf [:as/IntransitiveActivity
                      :as/Travel
+                     :as/Object
                      :as/Activity
                      {:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
-                      :rdf/type           :owl/Restriction}
-                     :as/Object]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Undo
   "To Undo Something. This would typically be used to indicate that a previous Activity has been undone."

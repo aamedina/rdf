@@ -18,8 +18,8 @@
    :rdfs/label #voc/lstr "Byte Offset Compound Pointer@en",
    :rdfs/subClassOf [:pointers/CompoundPointer
                      :pointers/ByteOffsetCompoundPointer
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def ByteOffsetPointer
   "Single pointer using a byte offset from the start of the reference."
@@ -31,9 +31,9 @@
    :rdfs/label #voc/lstr "Byte Offset Pointer@en",
    :rdfs/subClassOf [:pointers/OffsetPointer
                      :pointers/ByteOffsetPointer
+                     :pointers/Pointer
                      :rdfs/Resource
-                     :pointers/SinglePointer
-                     :pointers/Pointer]})
+                     :pointers/SinglePointer]})
 
 (def ByteSnippetCompoundPointer
   "Pointer to a range with a defined start and a byte snippet from there."
@@ -45,8 +45,8 @@
    :rdfs/label #voc/lstr "Byte Snippet Compound Pointer@en",
    :rdfs/subClassOf [:pointers/CompoundPointer
                      :pointers/ByteSnippetCompoundPointer
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def CSSSelectorPointer
   "Single pointer using a CSS selector."
@@ -56,9 +56,9 @@
    :rdfs/label      #voc/lstr "CSS selector Pointer@en",
    :rdfs/subClassOf [:pointers/ExpressionPointer
                      :pointers/CSSSelectorPointer
+                     :pointers/Pointer
                      :rdfs/Resource
-                     :pointers/SinglePointer
-                     :pointers/Pointer]})
+                     :pointers/SinglePointer]})
 
 (def CharOffsetCompoundPointer
   "Pointer to a char range with a defined start and a char offset from there."
@@ -70,8 +70,8 @@
    :rdfs/label #voc/lstr "Char Offset Compound Pointer@en",
    :rdfs/subClassOf [:pointers/CompoundPointer
                      :pointers/CharOffsetCompoundPointer
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def CharOffsetPointer
   "Single pointer using a character offset from the start of the reference."
@@ -83,9 +83,9 @@
    :rdfs/label #voc/lstr "Char Offset Pointer@en",
    :rdfs/subClassOf [:pointers/OffsetPointer
                      :pointers/CharOffsetPointer
+                     :pointers/Pointer
                      :rdfs/Resource
-                     :pointers/SinglePointer
-                     :pointers/Pointer]})
+                     :pointers/SinglePointer]})
 
 (def CharSnippetCompoundPointer
   "Pointer to a range with a defined start and a character snippet from there."
@@ -120,8 +120,8 @@
    :rdfs/label #voc/lstr "Equivalent Pointers@en",
    :rdfs/subClassOf [:pointers/PointersGroup
                      :pointers/EquivalentPointers
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def ExpressionPointer
   "Generic single pointer that make use of an expression language such as xPath, CSS selectors, etc."
@@ -133,8 +133,8 @@
    :rdfs/label #voc/lstr "Expression Pointer@en",
    :rdfs/subClassOf [:pointers/SinglePointer
                      :pointers/ExpressionPointer
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def LineCharPointer
   "Single pointer using line and char numbers."
@@ -144,8 +144,8 @@
    :rdfs/label      #voc/lstr "Line-Char Pointer@en",
    :rdfs/subClassOf [:pointers/SinglePointer
                      :pointers/LineCharPointer
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def OffsetPointer
   "Generic single pointer based on an offset."
@@ -155,8 +155,8 @@
    :rdfs/label      #voc/lstr "Offset Pointer@en",
    :rdfs/subClassOf [:pointers/SinglePointer
                      :pointers/OffsetPointer
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def Pointer
   "Abstract Pointer to be subclassed for extensibility."
@@ -184,8 +184,8 @@
    :rdfs/label #voc/lstr "Related Pointers@en",
    :rdfs/subClassOf [:pointers/PointersGroup
                      :pointers/RelatedPointers
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def SinglePointer
   "Abstract pointer to a single point to be subclassed for extensibility."
@@ -206,8 +206,8 @@
    :rdfs/label #voc/lstr "Start-End Pointer@en",
    :rdfs/subClassOf [:pointers/CompoundPointer
                      :pointers/StartEndPointer
-                     :rdfs/Resource
-                     :pointers/Pointer]})
+                     :pointers/Pointer
+                     :rdfs/Resource]})
 
 (def XMLNamespace
   "An XML Namespace."
@@ -225,9 +225,9 @@
    :rdfs/label      #voc/lstr "XPath Pointer@en",
    :rdfs/subClassOf [:pointers/ExpressionPointer
                      :pointers/XPathPointer
+                     :pointers/Pointer
                      :rdfs/Resource
-                     :pointers/SinglePointer
-                     :pointers/Pointer]})
+                     :pointers/SinglePointer]})
 
 (def XPointerPointer
   "Single pointer using an XPointer expression."
@@ -237,10 +237,10 @@
    :rdfs/label      #voc/lstr "XPointer Pointer@en",
    :rdfs/subClassOf [:pointers/XPathPointer
                      :pointers/XPointerPointer
-                     :pointers/ExpressionPointer
+                     :pointers/Pointer
                      :rdfs/Resource
                      :pointers/SinglePointer
-                     :pointers/Pointer]})
+                     :pointers/ExpressionPointer]})
 
 (def byteOffset
   "Number of bytes counting from the start point."

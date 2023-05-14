@@ -417,8 +417,8 @@
    :rdfs/label          #voc/lstr "Physical Medium@en",
    :rdfs/subClassOf     [:dcterms/MediaType
                          :dcterms/PhysicalMedium
-                         :dcterms/MediaTypeOrExtent
-                         :rdfs/Resource]})
+                         :rdfs/Resource
+                         :dcterms/MediaTypeOrExtent]})
 
 (def PhysicalResource
   "A material thing."

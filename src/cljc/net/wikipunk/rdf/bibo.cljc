@@ -80,7 +80,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Bill@en",
    :rdfs/subClassOf
-   [:bibo/Legislation :bibo/Bill :bibo/Document :bibo/LegalDocument],
+   [:bibo/Legislation :bibo/Bill :bibo/LegalDocument :bibo/Document],
    :vs/term_status "stable"})
 
 (def Book
@@ -119,8 +119,8 @@
    :rdfs/label       #voc/lstr "Brief@en",
    :rdfs/subClassOf  [:bibo/LegalCaseDocument
                       :bibo/Brief
-                      :bibo/Document
-                      :bibo/LegalDocument],
+                      :bibo/LegalDocument
+                      :bibo/Document],
    :vs/term_status   "unstable"})
 
 (def Chapter
@@ -132,8 +132,8 @@
    :rdfs/label       #voc/lstr "Chapter@en",
    :rdfs/subClassOf  [:bibo/BookSection
                       :bibo/Chapter
-                      :bibo/Document
                       :bibo/DocumentPart
+                      :bibo/Document
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :dcterms/isPartOf,
                        :rdf/type           :owl/Restriction}],
@@ -157,6 +157,7 @@
                       {:owl/allValuesFrom :bibo/Issue,
                        :owl/onProperty    :dcterms/hasPart,
                        :rdf/type          :owl/Restriction}
+                      :bibo/Collection
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
@@ -164,8 +165,7 @@
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection],
+                       :rdf/type          :owl/Restriction}],
    :vs/term_status   "stable"})
 
 (def CollectedDocument
@@ -229,6 +229,7 @@
                       {:owl/allValuesFrom :bibo/Issue,
                        :owl/onProperty    :dcterms/hasPart,
                        :rdf/type          :owl/Restriction}
+                      :bibo/Collection
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
@@ -236,8 +237,7 @@
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection],
+                       :rdf/type          :owl/Restriction}],
    :vs/term_status   "stable"})
 
 (def Document
@@ -287,13 +287,13 @@
    :rdfs/label       #voc/lstr "Edited Book@en",
    :rdfs/subClassOf  [:bibo/CollectedDocument
                       :bibo/EditedBook
+                      {:owl/allValuesFrom :bibo/Document,
+                       :owl/onProperty    :dcterms/hasPart,
+                       :rdf/type          :owl/Restriction}
                       :bibo/Document
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :bibo/Document,
-                       :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}],
+                       :rdf/type           :owl/Restriction}],
    :vs/term_status   "stable"})
 
 (def Email
@@ -390,13 +390,13 @@
                       :rdf/type           :owl/Restriction}
                      :bibo/CollectedDocument
                      :bibo/Issue
+                     {:owl/allValuesFrom :bibo/Document,
+                      :owl/onProperty    :dcterms/hasPart,
+                      :rdf/type          :owl/Restriction}
                      :bibo/Document
                      {:owl/minCardinality 1,
                       :owl/onProperty     :dcterms/hasPart,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :bibo/Document,
-                      :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}],
    :vs/term_status "stable"})
 
 (def Journal
@@ -417,6 +417,7 @@
                       {:owl/allValuesFrom :bibo/Issue,
                        :owl/onProperty    :dcterms/hasPart,
                        :rdf/type          :owl/Restriction}
+                      :bibo/Collection
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
@@ -424,8 +425,7 @@
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection],
+                       :rdf/type          :owl/Restriction}],
    :vs/term_status   "stable"})
 
 (def LegalCaseDocument
@@ -451,8 +451,8 @@
    :rdfs/label #voc/lstr "Decision@en",
    :rdfs/subClassOf [:bibo/LegalCaseDocument
                      :bibo/LegalDecision
-                     :bibo/Document
-                     :bibo/LegalDocument],
+                     :bibo/LegalDocument
+                     :bibo/Document],
    :vs/term_status "unstable"})
 
 (def LegalDocument
@@ -512,6 +512,7 @@
                      {:owl/allValuesFrom :bibo/Issue,
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
+                     :bibo/Collection
                      {:owl/minCardinality 1,
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
@@ -519,8 +520,7 @@
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}
-                     :bibo/Collection],
+                      :rdf/type          :owl/Restriction}],
    :vs/term_status "stable"})
 
 (def Manual
@@ -597,6 +597,7 @@
                      {:owl/allValuesFrom :bibo/Issue,
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
+                     :bibo/Collection
                      {:owl/minCardinality 1,
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
@@ -604,8 +605,7 @@
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}
-                     :bibo/Collection],
+                      :rdf/type          :owl/Restriction}],
    :vs/term_status "stable"})
 
 (def Note
@@ -707,11 +707,11 @@
    :rdfs/label       #voc/lstr "Quote@en",
    :rdfs/subClassOf  [:bibo/Excerpt
                       :bibo/Quote
+                      :bibo/DocumentPart
                       :bibo/Document
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :dcterms/isPartOf,
-                       :rdf/type           :owl/Restriction}
-                      :bibo/DocumentPart],
+                       :rdf/type           :owl/Restriction}],
    :vs/term_status   "stable"})
 
 (def ReferenceSource
@@ -820,8 +820,8 @@
    :rdfs/label       #voc/lstr "Statute@en",
    :rdfs/subClassOf  [:bibo/Legislation
                       :bibo/Statute
-                      :bibo/Document
-                      :bibo/LegalDocument],
+                      :bibo/LegalDocument
+                      :bibo/Document],
    :vs/term_status   "stable"})
 
 (def Thesis

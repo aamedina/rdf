@@ -161,7 +161,7 @@
     :skos/broader
     :skos/narrower})
 
-(declare find-metaobject)
+(declare find-ns-metaobject)
 
 (defn all-ns-metaobjects
   "Searches Clojure namespaces for metaobjects.
@@ -355,7 +355,7 @@
                     h (filter keyword? narrower)))))
     (make-hierarchy)
     (->> (descendants metaobjects :skos/Concept)
-         (map find-metaobject)
+         (map find-ns-metaobject)
          (pmap (fn [v]
                  (reduce (fn [entity term]
                            (if (contains? entity term)
@@ -1082,6 +1082,39 @@
                      (sort-by :db/ident privates))
       (merge md the-ont))))
 
+(defn rdf-doc
+  "Returns docstring for v."
+  [v]  
+  (let [docstring (or (some-> (:lv2/documentation v))
+                      (:dcterms/abstract v)
+                      (:dcterms/description v)
+                      (:dc11/description v)
+                      (:skos/definition v)
+                      (:prov/definition v)
+                      (:prov/editorsDefinition v)
+                      (:madsrdf/definitionNote v)
+                      (:madsrdf/authoritativeLabel v)
+                      (:d3fend/definition v)
+                      (:d3fend/d3fend-comment v)
+                      (:d3fend/kb-article v)
+                      (:d3fend/control-name v)
+                      (:rdfs/comment v)
+                      (:skos/prefLabel v)
+                      (:rdfs/label v))
+        docstring (if (vector? docstring)
+                    (if (every? string? docstring)
+                      (str/join \newline docstring)
+                      (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
+                                 (get (group-by lstr/lang (remove string? docstring)) "en-US")
+                                 (seq (filter string? docstring)))))
+                    docstring)
+        docstring (if (map? docstring)
+                    (:rdf/value docstring "")
+                    docstring)
+        docstring (when docstring
+                    (str/trim (str/replace docstring #"\s+" " ")))]
+    docstring))
+
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
@@ -1134,34 +1167,7 @@
                                             :else sym)
                                       sym       (if (:private v) (with-meta sym {:private true}) sym)
                                       v         (if (:private v) (dissoc v :private) v)
-                                      docstring (or (some-> (:lv2/documentation v))
-                                                    (:dcterms/abstract v)
-                                                    (:dcterms/description v)
-                                                    (:dc11/description v)
-                                                    (:skos/definition v)
-                                                    (:prov/definition v)
-                                                    (:prov/editorsDefinition v)
-                                                    (:madsrdf/definitionNote v)
-                                                    (:madsrdf/authoritativeLabel v)
-                                                    (:d3fend/definition v)
-                                                    (:d3fend/d3fend-comment v)
-                                                    (:d3fend/kb-article v)
-                                                    (:d3fend/control-name v)
-                                                    (:rdfs/comment v)
-                                                    (:skos/prefLabel v)
-                                                    (:rdfs/label v))
-                                      docstring (if (vector? docstring)
-                                                  (if (every? string? docstring)
-                                                    (str/join \newline docstring)
-                                                    (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
-                                                               (get (group-by lstr/lang (remove string? docstring)) "en-US")
-                                                               (seq (filter string? docstring)))))
-                                                  docstring)
-                                      docstring (if (map? docstring)
-                                                  (:rdf/value docstring "")
-                                                  docstring)
-                                      docstring (when docstring
-                                                  (str/trim (str/replace docstring #"\s+" " ")))
+                                      docstring (rdf-doc v)  
                                       v         (cond-> (assoc v :db/ident k)
                                                   (and (nil? (:rdf/type v))
                                                        (:rdfs/subClassOf v))
@@ -1298,7 +1304,7 @@
             (throw (ex-info "Could not resolve OBO metaobject" {:ident ident}))))
         nil))))
 
-(defn find-metaobject
+(defn find-ns-metaobject
   "Finds a metaobject by namespace-qualified keyword identity by
   looking up its namespace in the system's registry and attempting to
   resolve the name as a Var in that namespace, requiring it when
@@ -1337,10 +1343,10 @@
 (defn print-doc
   "Prints documentation from metadata on a metaobject's var"
   [ident]
-  (when-some [metaobject (find-metaobject ident)]
+  (when-some [metaobject (mop/find-class ident)]
     (println "-------------------------")
     (println (:db/ident metaobject))
-    (when-some [doc (:doc (meta (:var (meta metaobject))))]
+    (when-some [doc (rdf-doc metaobject)]
       (println "  " doc))
     (when-some [supers (next (mop/compute-class-precedence-list metaobject))]
       (println "  isa?")
@@ -1409,7 +1415,7 @@
           (set/rename-keys
             (cond
               (qualified-keyword? x)
-              (find-metaobject x)
+              (mop/find-class x)
               (map? x)
               x
               :else (throw (ex-info "cannot coerce x to direct-slot-definition" {:x x})))
@@ -1460,7 +1466,7 @@
                                        (not= (namespace k) "mop"))
                                 (assoc m k v)
                                 m))
-                            {} (find-metaobject ident)))
+                            {} (dissoc (mop/find-class ident) :xt/id)))
 
       (qualified-symbol? ident)
       (resolve ident)

@@ -1,9 +1,9 @@
 (ns net.wikipunk.rdf.oa
   "The Web Annotation ontology defines the terms of the Web Annotation vocabulary. Any changes to this document MUST be from a Working Group in the W3C that has established expertise in the area."
   {:dc11/title "Web Annotation Ontology",
-   :dcterms/creator [{:foaf/name "Benjamin Young",
+   :dcterms/creator [{:foaf/name "Paolo Ciccarese",
                       :rdf/type  :foaf/Person}
-                     {:foaf/name "Paolo Ciccarese",
+                     {:foaf/name "Benjamin Young",
                       :rdf/type  :foaf/Person}
                      {:foaf/name "Robert Sanderson",
                       :rdf/type  :foaf/Person}],
@@ -309,7 +309,7 @@
 (def bookmarking
   "The motivation for when the user intends to create a bookmark to the Target or part thereof."
   {:db/ident :oa/bookmarking,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
    :rdfs/comment
    "The motivation for when the user intends to create a bookmark to the Target or part thereof.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -348,7 +348,7 @@
 (def commenting
   "The motivation for when the user intends to comment about the Target."
   {:db/ident :oa/commenting,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    "The motivation for when the user intends to comment about the Target.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -357,7 +357,7 @@
 (def describing
   "The motivation for when the user intends to describe the Target, as opposed to a comment about them."
   {:db/ident :oa/describing,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
    :rdfs/comment
    "The motivation for when the user intends to describe the Target, as opposed to a comment about them.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -366,7 +366,7 @@
 (def editing
   "The motivation for when the user intends to request a change or edit to the Target resource."
   {:db/ident :oa/editing,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
    :rdfs/comment
    "The motivation for when the user intends to request a change or edit to the Target resource.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -498,7 +498,7 @@
 (def highlighting
   "The motivation for when the user intends to highlight the Target resource or segment of it."
   {:db/ident :oa/highlighting,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    "The motivation for when the user intends to highlight the Target resource or segment of it.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -507,7 +507,7 @@
 (def identifying
   "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target."
   {:db/ident :oa/identifying,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
    :rdfs/comment
    "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -516,7 +516,7 @@
 (def linking
   "The motivation for when the user intends to link to a resource related to the Target."
   {:db/ident :oa/linking,
-   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
+   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
    :rdfs/comment
    "The motivation for when the user intends to link to a resource related to the Target.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -576,7 +576,7 @@
 (def questioning
   "The motivation for when the user intends to ask a question about the Target."
   {:db/ident :oa/questioning,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    "The motivation for when the user intends to ask a question about the Target.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",

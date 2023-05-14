@@ -60,8 +60,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "ALARA@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -78,8 +78,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "ALARP@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -184,8 +184,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Bayesian Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -201,8 +201,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Bayesian Networks@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -232,8 +232,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Bow Tie Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -248,8 +248,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Brainstorming@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -294,8 +294,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Business Impact Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -389,8 +389,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Conditional Value at Risk (CVaR)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -406,8 +406,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Causal Mapping@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -423,8 +423,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cause-Consequence Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -468,8 +468,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Checklists@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -499,8 +499,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cindynic Approach@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -530,8 +530,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Classifications@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -753,8 +753,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cost/benefit Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -848,8 +848,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cross Impact Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -907,8 +907,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Data Protection Impact Assessment (DPIA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -977,8 +977,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Decision Tree Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -994,8 +994,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Delphi Technique@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1211,8 +1211,8 @@
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Event Tree Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1369,8 +1369,8 @@
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Failure Modes And Effects Analysis (FMEA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1387,8 +1387,8 @@
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr
                 "Failure Modes And Effects And Criticality Analysis (FMECA)@en",
@@ -1405,8 +1405,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "F-N Diagrams@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1423,8 +1423,8 @@
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Fault Tree Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1506,8 +1506,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Ishikawa (Fishbone)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1553,8 +1553,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Game Theory@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1583,8 +1583,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr
                 "Hazard Analysis And Critical Control Points (HACCP)@en",
@@ -1601,8 +1601,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Hazard And Operability Studies (HAZOP)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1751,8 +1751,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Human Reliability Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2008,8 +2008,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Influence Diagrams@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2065,8 +2065,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Interviews@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2097,8 +2097,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Layer Protection Analysis (LOPA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2453,8 +2453,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Multi-criteria Analysis (MCA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2536,8 +2536,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Markov Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2726,8 +2726,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Monte Carlo Simulation@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2811,8 +2811,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Nominal Group Technique@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2926,8 +2926,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Privacy Impact Analysis (PIA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2943,8 +2943,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Pareto Charts@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4665,8 +4665,8 @@
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Reliability Centred Maintenance@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4812,8 +4812,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Indices@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4847,8 +4847,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Matrix@en",
    :rdfs/subClassOf :dpvo-risk/RiskMatrix,
@@ -4907,8 +4907,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Registers@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4924,8 +4924,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "S-curves@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4942,8 +4942,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "SFAIRP@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4959,8 +4959,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Structured \"What If?\" (SWIFT)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5003,8 +5003,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Scenario Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5138,8 +5138,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Surveys@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5196,8 +5196,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Taxonomies@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5279,8 +5279,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Toxicological Risk Assessment@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5530,8 +5530,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Value At Risk (VaR)@en",
    :vs/term_status #voc/lstr "accepted@en"})

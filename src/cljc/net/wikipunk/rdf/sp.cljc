@@ -52,8 +52,8 @@
    :rdfs/label      "Asc",
    :rdfs/subClassOf [:sp/OrderByCondition
                      :sp/Asc
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def Ask
   "An ASK query that returns true if the condition in the body is met by at least one result set."
@@ -71,7 +71,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "Represents AVG aggregations.",
    :rdfs/label      "AVG",
-   :rdfs/subClassOf [:sp/Aggregation :sp/Avg :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Aggregation :sp/Avg :rdfs/Resource :sp/SystemClass]})
 
 (def Bind
   "A BIND element."
@@ -79,7 +79,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "A BIND element.",
    :rdfs/label      "Bind",
-   :rdfs/subClassOf [:sp/Element :sp/Bind :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Element :sp/Bind :rdfs/Resource :sp/SystemClass]})
 
 (def Clear
   "An Update operation that removes all triples from a specified graph. Must specify the graph using sp:graphIRI, or sp:default, sp:named or sp:all. May have the SILENT flag, encoded using sp:silent."
@@ -117,7 +117,7 @@
    :rdfs/comment
    "Counts the number of times a variable is used. The variable is stored in the variable property. This might be left blank to indicate COUNT(*).",
    :rdfs/label "COUNT",
-   :rdfs/subClassOf [:sp/Aggregation :sp/Count :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Aggregation :sp/Count :rdfs/Resource :sp/SystemClass]})
 
 (def Create
   "An Update operation that creates a new empty graph with a name specified by sp:graphIRI. May have sp:silent set to true."
@@ -171,8 +171,8 @@
    :rdfs/label      "Desc",
    :rdfs/subClassOf [:sp/OrderByCondition
                      :sp/Desc
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def Describe
   "A DESCRIBE-type Query."
@@ -209,8 +209,8 @@
    :rdfs/label      "Element group",
    :rdfs/subClassOf [:sp/Element
                      :sp/ElementGroup
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def ElementList
   "A list of Elements. This class is never instantiated directly as SPIN will use plain rdf:Lists to store element lists."
@@ -223,8 +223,8 @@
                      :rdf/List
                      :sp/ElementList
                      :sp/Element
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def Exists
   "An EXISTS element group."
@@ -233,7 +233,7 @@
    :rdfs/comment "An EXISTS element group.",
    :rdfs/label "Exists",
    :rdfs/subClassOf
-   [:sp/ElementGroup :sp/Exists :sp/Element :sp/SystemClass :rdfs/Resource]})
+   [:sp/ElementGroup :sp/Exists :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def Filter
   "A constraint element that evaluates a given expression to true or false."
@@ -242,7 +242,7 @@
    :rdfs/comment
    "A constraint element that evaluates a given expression to true or false.",
    :rdfs/label "Filter",
-   :rdfs/subClassOf [:sp/Element :sp/Filter :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Element :sp/Filter :rdfs/Resource :sp/SystemClass]})
 
 (def GroupConcat
   "Represents GROUP_CONCAT aggregations."
@@ -252,8 +252,8 @@
    :rdfs/label      "GROUP_CONCAT",
    :rdfs/subClassOf [:sp/Aggregation
                      :sp/GroupConcat
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def Insert
   "Deprecated - use sp:Modify instead. Represents a INSERT INTO (part of SPARQL UPDATE language). The graph IRIs are stored in sp:graphIRI. The template patterns to delete are stored in sp:insertPattern. The WHERE clause is represented using sp:where."
@@ -287,7 +287,7 @@
    "Deprecated: use sp:Bind instead.\n\nA variable assignment (LET (?<varName> := <expression>)). Not part of the SPARQL 1.0 standard, but (for example) ARQ.",
    :rdfs/label "Let",
    :rdfs/subClassOf
-   [:sp/Bind :sp/Let :sp/Element :sp/SystemClass :rdfs/Resource]})
+   [:sp/Bind :sp/Let :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def Load
   "A LOAD Update operation. The document to load is specified using sp:document, and the (optional) target graph using sp:into."
@@ -305,7 +305,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "Represents MAX aggregations.",
    :rdfs/label      "MAX",
-   :rdfs/subClassOf [:sp/Aggregation :sp/Max :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Aggregation :sp/Max :rdfs/Resource :sp/SystemClass]})
 
 (def Min
   "Represents MIN aggregations."
@@ -313,7 +313,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "Represents MIN aggregations.",
    :rdfs/label      "MIN",
-   :rdfs/subClassOf [:sp/Aggregation :sp/Min :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Aggregation :sp/Min :rdfs/Resource :sp/SystemClass]})
 
 (def Minus
   "A MINUS element group."
@@ -322,7 +322,7 @@
    :rdfs/comment "A MINUS element group.",
    :rdfs/label "Minus",
    :rdfs/subClassOf
-   [:sp/ElementGroup :sp/Minus :sp/Element :sp/SystemClass :rdfs/Resource]})
+   [:sp/ElementGroup :sp/Minus :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def ModPath
   "A modified path such as rdfs:subClassOf*."
@@ -351,8 +351,8 @@
    :rdfs/subClassOf [:sp/ElementGroup
                      :sp/NamedGraph
                      :sp/Element
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def NotExists
   "A NOT EXISTS element group."
@@ -361,7 +361,7 @@
    :rdfs/comment "A NOT EXISTS element group.",
    :rdfs/label "Not exists",
    :rdfs/subClassOf
-   [:sp/ElementGroup :sp/NotExists :sp/Element :sp/SystemClass :rdfs/Resource]})
+   [:sp/ElementGroup :sp/NotExists :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def Optional
   "An optional element in a query."
@@ -370,7 +370,7 @@
    :rdfs/comment "An optional element in a query.",
    :rdfs/label "Optional",
    :rdfs/subClassOf
-   [:sp/ElementGroup :sp/Optional :sp/Element :sp/SystemClass :rdfs/Resource]})
+   [:sp/ElementGroup :sp/Optional :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def OrderByCondition
   "An abstract base class for ascending or descending order conditions. Instances of this class (typically bnodes) must have a value for expression to point to the actual values."
@@ -425,8 +425,8 @@
    :rdfs/label      "SAMPLE",
    :rdfs/subClassOf [:sp/Aggregation
                      :sp/Sample
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def Select
   "A SELECT-type query that returns variable bindings as its result."
@@ -454,7 +454,7 @@
    "A SERVICE call that matches a nested sub-pattern against a SPARQL end point specified by a URI.",
    :rdfs/label "Service",
    :rdfs/subClassOf
-   [:sp/ElementGroup :sp/Service :sp/Element :sp/SystemClass :rdfs/Resource]})
+   [:sp/ElementGroup :sp/Service :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def SubQuery
   "A nested SELECT query inside of an element list. The query is stored in sp:query."
@@ -463,7 +463,7 @@
    :rdfs/comment
    "A nested SELECT query inside of an element list. The query is stored in sp:query.",
    :rdfs/label "Sub query",
-   :rdfs/subClassOf [:sp/Element :sp/SubQuery :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Element :sp/SubQuery :rdfs/Resource :sp/SystemClass]})
 
 (def Sum
   "Represents sum aggregations, e.g. SELECT SUM(?varName)..."
@@ -471,7 +471,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    "Represents sum aggregations, e.g. SELECT SUM(?varName)...",
    :rdfs/label      "SUM",
-   :rdfs/subClassOf [:sp/Aggregation :sp/Sum :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Aggregation :sp/Sum :rdfs/Resource :sp/SystemClass]})
 
 (def SystemClass
   "An \"artificial\" root class that groups all SP classes. This makes them look much less overwhelming in UI tools. Typical end users don't need to see those classes anyway."
@@ -489,7 +489,7 @@
    :rdfs/comment
    "A base class for TriplePattern and TripleTemplate. This basically specifies that subject, predicate and object must be present.",
    :rdfs/label "Triple",
-   :rdfs/subClassOf [:sp/Tuple :sp/Triple :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Tuple :sp/Triple :rdfs/Resource :sp/SystemClass]})
 
 (def TriplePath
   "Similar to a TriplePattern, but with a path expression as its predicate. For example, this can be used to express transitive sub-class relationships (?subClass rdfs:subClassOf* ?superClass)."
@@ -499,7 +499,7 @@
    "Similar to a TriplePattern, but with a path expression as its predicate. For example, this can be used to express transitive sub-class relationships (?subClass rdfs:subClassOf* ?superClass).",
    :rdfs/label "Triple path",
    :rdfs/subClassOf
-   [:sp/Element :sp/Tuple :sp/TriplePath :sp/SystemClass :rdfs/Resource]})
+   [:sp/Element :sp/Tuple :sp/TriplePath :rdfs/Resource :sp/SystemClass]})
 
 (def TriplePattern
   "A triple pattern used in the body of a query."
@@ -511,8 +511,8 @@
                      :sp/Triple
                      :sp/TriplePattern
                      :sp/Tuple
-                     :sp/SystemClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sp/SystemClass]})
 
 (def TripleTemplate
   "A prototypical triple used as template in the head of a Construct query. May contain variables."
@@ -522,7 +522,7 @@
    "A prototypical triple used as template in the head of a Construct query. May contain variables.",
    :rdfs/label "Triple template",
    :rdfs/subClassOf
-   [:sp/Triple :sp/TripleTemplate :sp/Tuple :sp/SystemClass :rdfs/Resource]})
+   [:sp/Triple :sp/TripleTemplate :sp/Tuple :rdfs/Resource :sp/SystemClass]})
 
 (def Tuple
   "Abstract base class for things that have subject and object."
@@ -539,7 +539,7 @@
    :rdfs/comment "A UNION group.",
    :rdfs/label "Union",
    :rdfs/subClassOf
-   [:sp/ElementGroup :sp/Union :sp/Element :sp/SystemClass :rdfs/Resource]})
+   [:sp/ElementGroup :sp/Union :sp/Element :rdfs/Resource :sp/SystemClass]})
 
 (def Update
   "Abstract base class to group the various SPARQL UPDATE commands."
@@ -557,7 +557,7 @@
    :rdfs/comment
    "A VALUES element. sp:varNames points to an rdf:List of strings for the variables, sp:values to an rdf:List of rdf:Lists with nodes for each variable, in the order defined by the variables list.",
    :rdfs/label "Values",
-   :rdfs/subClassOf [:sp/Element :sp/Values :sp/SystemClass :rdfs/Resource]})
+   :rdfs/subClassOf [:sp/Element :sp/Values :rdfs/Resource :sp/SystemClass]})
 
 (def Variable
   "A variable mentioned in a Triple or expression. Variables are often blank nodes with the variable name stored in ts:name. Variables can also be supplied with a URI in which case the system will attempt to reuse the same variable instance across multiple query definitions."

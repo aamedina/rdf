@@ -256,8 +256,8 @@
    :rdfs/subClassOf [:dpvo-gdpr/BindingCorporateRules
                      :dpvo/DataTransferLegalBasis
                      :dpvo-gdpr/A46-2-b
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo-gdpr/DataTransferTool],
+                     :dpvo-gdpr/DataTransferTool
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-c
@@ -280,10 +280,10 @@
    :rdfs/subClassOf [:dpvo-gdpr/SCCByCommission
                      :dpvo/DataTransferLegalBasis
                      :dpvo-gdpr/A46-2-c
-                     :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Contract
                      :dpvo-gdpr/DataTransferTool
-                     :dpvo/Contract],
+                     :dpvo-gdpr/StandardContractualClauses
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-d
@@ -307,10 +307,10 @@
    :rdfs/subClassOf [:dpvo-gdpr/SCCBySupervisoryAuthority
                      :dpvo/DataTransferLegalBasis
                      :dpvo-gdpr/A46-2-d
-                     :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Contract
                      :dpvo-gdpr/DataTransferTool
-                     :dpvo/Contract],
+                     :dpvo-gdpr/StandardContractualClauses
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-e
@@ -1549,8 +1549,8 @@
    :rdfs/subClassOf [:dpvo-gdpr/StandardContractualClauses
                      :dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/SCCByCommission
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/Contract],
+                     :dpvo/Contract
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SCCBySupervisoryAuthority
@@ -1570,8 +1570,8 @@
    :rdfs/subClassOf [:dpvo-gdpr/StandardContractualClauses
                      :dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/SCCBySupervisoryAuthority
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo/Contract],
+                     :dpvo/Contract
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def StandardContractualClauses

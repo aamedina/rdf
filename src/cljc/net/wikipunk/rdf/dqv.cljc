@@ -1,12 +1,12 @@
 (ns net.wikipunk.rdf.dqv
   "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."
   {:dcat/downloadURL "https://www.w3.org/ns/dqv.ttl",
-   :dcterms/contributor [{:foaf/name "Jeremy Debattista"}
-                         {:foaf/name "Nandana Mihindukulasooriya"}
-                         {:foaf/name "Christophe Guéret"}
-                         {:foaf/name "Amrapali Zaveri"}
+   :dcterms/contributor [{:foaf/name "Makx Dekkers"}
                          {:foaf/name "Deirdre Lee"}
-                         {:foaf/name "Makx Dekkers"}],
+                         {:foaf/name "Christophe Guéret"}
+                         {:foaf/name "Jeremy Debattista"}
+                         {:foaf/name "Amrapali Zaveri"}
+                         {:foaf/name "Nandana Mihindukulasooriya"}],
    :dcterms/created #inst "2015-12-17T00:00:00.000-05:00",
    :dcterms/creator [{:foaf/name "Riccardo Albertoni"}
                      {:foaf/name "Antoine Isaac"}],
@@ -573,7 +573,7 @@
 (def bookmarking
   "The motivation for when the user intends to create a bookmark to the Target or part thereof."
   {:db/ident :oa/bookmarking,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    "The motivation for when the user intends to create a bookmark to the Target or part thereof.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -771,7 +771,7 @@
 (def identifying
   "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target."
   {:db/ident :oa/identifying,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",
@@ -870,7 +870,7 @@
 (def replying
   "The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource."
   {:db/ident :oa/replying,
-   :rdf/type [:oa/Motivation :skos/Concept :rdfs/Resource],
+   :rdf/type [:oa/Motivation :rdfs/Resource :skos/Concept],
    :rdfs/comment
    "The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/oa#",

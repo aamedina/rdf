@@ -35,7 +35,7 @@
                        "vann" "http://purl.org/vocab/vann/",
                        "voaf" "http://purl.org/vocommons/voaf#",
                        "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#"},
-   :rdf/type [:owl/Ontology :voaf/Vocabulary :void/Dataset :frbr/Work],
+   :rdf/type [:owl/Ontology :voaf/Vocabulary :frbr/Work :void/Dataset],
    :rdfa/prefix "voaf",
    :rdfa/uri "http://purl.org/vocommons/voaf",
    :vann/preferredNamespacePrefix "voaf",
@@ -150,7 +150,7 @@
    :rdfs/label [#voc/lstr "étend@fr" #voc/lstr "extends@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/extends :void/vocabulary :dc11/references],
+   [:voaf/reliesOn :voaf/extends :dc11/references :void/vocabulary],
    :vs/term_status "stable"})
 
 (def generalizes
@@ -169,7 +169,7 @@
    :rdfs/label [#voc/lstr "généralise@fr" #voc/lstr "generalizes@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/generalizes :void/vocabulary :dc11/references],
+   [:voaf/reliesOn :voaf/generalizes :dc11/references :void/vocabulary],
    :vs/term_status "stable"})
 
 (def hasDisjunctionsWith
@@ -189,7 +189,7 @@
                 #voc/lstr "has disjunctions with@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/hasDisjunctionsWith :void/vocabulary :dc11/references],
+   [:voaf/reliesOn :voaf/hasDisjunctionsWith :dc11/references :void/vocabulary],
    :vs/term_status "testing"})
 
 (def hasEquivalencesWith
@@ -209,7 +209,7 @@
                 #voc/lstr "has equivalences with@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/hasEquivalencesWith :void/vocabulary :dc11/references],
+   [:voaf/reliesOn :voaf/hasEquivalencesWith :dc11/references :void/vocabulary],
    :vs/term_status "testing"})
 
 (def inDataset
@@ -243,7 +243,7 @@
                 #voc/lstr "metadata vocabulary@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/metadataVoc :void/vocabulary :dc11/references],
+   [:voaf/reliesOn :voaf/metadataVoc :dc11/references :void/vocabulary],
    :vs/term_status "stable"})
 
 (def occurrences
@@ -376,7 +376,7 @@
    :rdfs/label [#voc/lstr "specializes@en" #voc/lstr "spécialise@fr"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/specializes :void/vocabulary :dc11/references],
+   [:voaf/reliesOn :voaf/specializes :dc11/references :void/vocabulary],
    :vs/term_status "stable"})
 
 (def toDoList

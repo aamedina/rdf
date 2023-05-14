@@ -67,10 +67,10 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
    :rdfs/label "ActivityInfluence",
    :rdfs/seeAlso ["http://www.w3.org/ns/prov#activity"],
-   :rdfs/subClassOf [:prov/Influence
-                     {:owl/maxCardinality 0,
+   :rdfs/subClassOf [{:owl/maxCardinality 0,
                       :owl/onProperty     :prov/hadActivity,
                       :rdf/type           :owl/Restriction}
+                     :prov/Influence
                      :prov/ActivityInfluence]})
 
 (def Agent
@@ -1118,9 +1118,9 @@
    [#voc/lstr
      "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ].@en"
     "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>."],
-   :rdfs/domain [:prov/Influence
-                 {:owl/unionOf [:prov/Association :prov/InstantaneousEvent],
-                  :rdf/type    :owl/Class}],
+   :rdfs/domain [{:owl/unionOf [:prov/Association :prov/InstantaneousEvent],
+                  :rdf/type    :owl/Class}
+                 :prov/Influence],
    :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
    :rdfs/label "hadRole",
    :rdfs/range :prov/Role,

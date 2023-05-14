@@ -26,9 +26,9 @@
    :rdfs/label       #voc/lstr "AMRadioChannel@en",
    :rdfs/subClassOf  [:schema/RadioChannel
                       :schema/AMRadioChannel
+                      :schema/Intangible
                       :schema/BroadcastChannel
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def APIReference
   "Reference documentation for application programming interfaces (APIs)."
@@ -42,8 +42,8 @@
    :rdfs/subClassOf [:schema/TechArticle
                      :schema/APIReference
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def AboutPage
   "Web page type: About page."
@@ -54,8 +54,8 @@
    :rdfs/label       #voc/lstr "AboutPage@en",
    :rdfs/subClassOf  [:schema/WebPage
                       :schema/AboutPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def AcceptAction
   "The act of committing to/adopting an object.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/RejectAction\">RejectAction</a>: The antonym of AcceptAction.</li> </ul>"
@@ -68,9 +68,9 @@
    :rdfs/label #voc/lstr "AcceptAction@en",
    :rdfs/subClassOf [:schema/AllocateAction
                      :schema/AcceptAction
+                     :schema/Action
                      :schema/OrganizeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Accommodation
   "An accommodation is a place that can accommodate human beings, e.g. a hotel room, a camping pitch, or a meeting room. Many accommodations are for overnight stays, but this is not a mandatory requirement. For more specific types of accommodations not defined in schema.org, one can use additionalType with external vocabularies. <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -94,10 +94,10 @@
    :rdfs/label #voc/lstr "AccountingService@en",
    :rdfs/subClassOf [:schema/FinancialService
                      :schema/AccountingService
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def AchieveAction
   "The act of accomplishing something via previous efforts. It is an instantaneous action rather than an ongoing process."
@@ -142,9 +142,9 @@
    :rdfs/label       #voc/lstr "ActionStatusType@en",
    :rdfs/subClassOf  [:schema/StatusEnumeration
                       :schema/ActionStatusType
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def ActivateAction
   "The act of starting or activating a device or application (e.g. starting a timer or turning on a flashlight)."
@@ -156,7 +156,7 @@
    :rdfs/isDefinedBy :schema/ActivateAction,
    :rdfs/label #voc/lstr "ActivateAction@en",
    :rdfs/subClassOf
-   [:schema/ControlAction :schema/ActivateAction :schema/Thing :schema/Action]})
+   [:schema/ControlAction :schema/ActivateAction :schema/Action :schema/Thing]})
 
 (def AddAction
   "The act of editing by adding an object to a collection."
@@ -167,7 +167,7 @@
    :rdfs/isDefinedBy :schema/AddAction,
    :rdfs/label #voc/lstr "AddAction@en",
    :rdfs/subClassOf
-   [:schema/UpdateAction :schema/AddAction :schema/Thing :schema/Action]})
+   [:schema/UpdateAction :schema/AddAction :schema/Action :schema/Thing]})
 
 (def AdministrativeArea
   "A geographical region, typically under the jurisdiction of a particular government."
@@ -189,10 +189,10 @@
    :rdfs/label       #voc/lstr "AdultEntertainment@en",
    :rdfs/subClassOf  [:schema/EntertainmentBusiness
                       :schema/AdultEntertainment
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AdultOrientedEnumeration
   "Enumeration of considerations that make a product relevant or potentially restricted for adults only."
@@ -205,8 +205,8 @@
    :rdfs/label #voc/lstr "AdultOrientedEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/AdultOrientedEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def AdvertiserContentArticle
   "An <a class=\"localLink\" href=\"https://schema.org/Article\">Article</a> that an external entity has paid to place or to produce to its specifications. Includes <a href=\"https://en.wikipedia.org/wiki/Advertorial\">advertorials</a>, sponsored content, native advertising and other paid content."
@@ -219,8 +219,8 @@
    :rdfs/label #voc/lstr "AdvertiserContentArticle@en",
    :rdfs/subClassOf [:schema/Article
                      :schema/AdvertiserContentArticle
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def AggregateOffer
   "When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.<br/><br/> Note: AggregateOffers are normally expected to associate multiple offers that all share the same defined <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a> value, or default to http://purl.org/goodrelations/v1#Sell if businessFunction is not explicitly defined."
@@ -232,7 +232,7 @@
    :rdfs/isDefinedBy :schema/AggregateOffer,
    :rdfs/label #voc/lstr "AggregateOffer@en",
    :rdfs/subClassOf
-   [:schema/Offer :schema/AggregateOffer :schema/Thing :schema/Intangible]})
+   [:schema/Offer :schema/AggregateOffer :schema/Intangible :schema/Thing]})
 
 (def AggregateRating
   "The average rating based on multiple ratings or reviews."
@@ -243,7 +243,7 @@
    :rdfs/isDefinedBy :schema/AggregateRating,
    :rdfs/label #voc/lstr "AggregateRating@en",
    :rdfs/subClassOf
-   [:schema/Rating :schema/AggregateRating :schema/Thing :schema/Intangible]})
+   [:schema/Rating :schema/AggregateRating :schema/Intangible :schema/Thing]})
 
 (def AgreeAction
   "The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants."
@@ -256,9 +256,9 @@
    :rdfs/label #voc/lstr "AgreeAction@en",
    :rdfs/subClassOf [:schema/ReactAction
                      :schema/AgreeAction
-                     :schema/Thing
                      :schema/Action
-                     :schema/AssessAction]})
+                     :schema/AssessAction
+                     :schema/Thing]})
 
 (def Airline
   "An organization that provides flights for passengers."
@@ -279,8 +279,8 @@
    :rdfs/label       #voc/lstr "Airport@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Airport
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def AlignmentObject
   "An intangible item that describes an alignment between a learning resource and a node in an educational framework.<br/><br/> Should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource <a class=\"localLink\" href=\"https://schema.org/teaches\">teaches</a> or <a class=\"localLink\" href=\"https://schema.org/assesses\">assesses</a> a competency."
@@ -304,8 +304,8 @@
    :rdfs/label #voc/lstr "AllocateAction@en",
    :rdfs/subClassOf [:schema/OrganizeAction
                      :schema/AllocateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def AmpStory
   "A creative work with a visual storytelling format intended to be viewed online, particularly on mobile devices."
@@ -328,10 +328,10 @@
    :rdfs/label       #voc/lstr "AmusementPark@en",
    :rdfs/subClassOf  [:schema/EntertainmentBusiness
                       :schema/AmusementPark
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AnalysisNewsArticle
   "An AnalysisNewsArticle is a <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> that, while based on factual reporting, incorporates the expertise of the author/producer, offering interpretations and conclusions."
@@ -345,8 +345,8 @@
    :rdfs/subClassOf [:schema/NewsArticle
                      :schema/AnalysisNewsArticle
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def AnatomicalStructure
   "Any part of the human body, typically a component of an anatomical system. Organs, tissues, and cells are all anatomical structures."
@@ -381,9 +381,9 @@
    :rdfs/label       #voc/lstr "AnimalShelter@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/AnimalShelter
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Answer
   "An answer offered to a question; perhaps correct, perhaps opinionated or wrong."
@@ -395,7 +395,7 @@
    :rdfs/isDefinedBy :schema/Answer,
    :rdfs/label #voc/lstr "Answer@en",
    :rdfs/subClassOf
-   [:schema/Comment :schema/Answer :schema/Thing :schema/CreativeWork]})
+   [:schema/Comment :schema/Answer :schema/CreativeWork :schema/Thing]})
 
 (def Apartment
   "An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Apartment\">http://en.wikipedia.org/wiki/Apartment</a>)."
@@ -407,7 +407,7 @@
    :rdfs/isDefinedBy :schema/Apartment,
    :rdfs/label #voc/lstr "Apartment@en",
    :rdfs/subClassOf
-   [:schema/Accommodation :schema/Apartment :schema/Thing :schema/Place]})
+   [:schema/Accommodation :schema/Apartment :schema/Place :schema/Thing]})
 
 (def ApartmentComplex
   "Residence type: Apartment complex."
@@ -418,8 +418,8 @@
    :rdfs/label       #voc/lstr "ApartmentComplex@en",
    :rdfs/subClassOf  [:schema/Residence
                       :schema/ApartmentComplex
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def AppendAction
   "The act of inserting at the end if an ordered collection."
@@ -432,9 +432,9 @@
    :rdfs/subClassOf [:schema/InsertAction
                      :schema/AppendAction
                      :schema/AddAction
+                     :schema/Action
                      :schema/UpdateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def ApplyAction
   "The act of registering to an organization/service without the guarantee to receive it.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: Unlike RegisterAction, ApplyAction has no guarantees that the application will be accepted.</li> </ul>"
@@ -446,7 +446,7 @@
    :rdfs/isDefinedBy :schema/ApplyAction,
    :rdfs/label #voc/lstr "ApplyAction@en",
    :rdfs/subClassOf
-   [:schema/OrganizeAction :schema/ApplyAction :schema/Thing :schema/Action]})
+   [:schema/OrganizeAction :schema/ApplyAction :schema/Action :schema/Thing]})
 
 (def ApprovedIndication
   "An indication for a medical therapy that has been formally specified or approved by a regulatory body that regulates use of the therapy; for example, the US FDA approves indications for most drugs in the US."
@@ -459,8 +459,8 @@
    :rdfs/label #voc/lstr "ApprovedIndication@en",
    :rdfs/subClassOf [:schema/MedicalIndication
                      :schema/ApprovedIndication
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Aquarium
   "Aquarium."
@@ -471,8 +471,8 @@
    :rdfs/label       #voc/lstr "Aquarium@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Aquarium
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def ArchiveComponent
   "An intangible type to be applied to any archive content, carrying with it a set of properties required to describe archival items and collections."
@@ -497,9 +497,9 @@
    :rdfs/label #voc/lstr "ArchiveOrganization@en",
    :rdfs/subClassOf [:schema/LocalBusiness
                      :schema/ArchiveOrganization
-                     :schema/Thing
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def ArriveAction
   "The act of arriving at a place. An agent arrives at a destination from a fromLocation, optionally with participants."
@@ -511,7 +511,7 @@
    :rdfs/isDefinedBy :schema/ArriveAction,
    :rdfs/label #voc/lstr "ArriveAction@en",
    :rdfs/subClassOf
-   [:schema/MoveAction :schema/ArriveAction :schema/Thing :schema/Action]})
+   [:schema/MoveAction :schema/ArriveAction :schema/Action :schema/Thing]})
 
 (def ArtGallery
   "An art gallery."
@@ -522,10 +522,10 @@
    :rdfs/label       #voc/lstr "ArtGallery@en",
    :rdfs/subClassOf  [:schema/EntertainmentBusiness
                       :schema/ArtGallery
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Artery
   "A type of blood vessel that specifically carries blood away from the heart."
@@ -538,9 +538,9 @@
    :rdfs/label #voc/lstr "Artery@en",
    :rdfs/subClassOf [:schema/Vessel
                      :schema/Artery
-                     :schema/Thing
                      :schema/AnatomicalStructure
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Article
   "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.<br/><br/> See also <a href=\"http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html\">blog post</a>."
@@ -564,9 +564,9 @@
    :rdfs/label #voc/lstr "AskAction@en",
    :rdfs/subClassOf [:schema/CommunicateAction
                      :schema/AskAction
+                     :schema/Action
                      :schema/InteractAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def AskPublicNewsArticle
   "A <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> expressing an open call by a <a class=\"localLink\" href=\"https://schema.org/NewsMediaOrganization\">NewsMediaOrganization</a> asking the public for input, insights, clarifications, anecdotes, documentation, etc., on an issue, for reporting purposes."
@@ -580,8 +580,8 @@
    :rdfs/subClassOf [:schema/NewsArticle
                      :schema/AskPublicNewsArticle
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def AssessAction
   "The act of forming one's opinion, reaction or sentiment."
@@ -604,9 +604,9 @@
    :rdfs/label #voc/lstr "AssignAction@en",
    :rdfs/subClassOf [:schema/AllocateAction
                      :schema/AssignAction
+                     :schema/Action
                      :schema/OrganizeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Atlas
   "A collection or bound volume of maps, charts, plates or tables, physical or in media form illustrating any subject."
@@ -630,10 +630,10 @@
    :rdfs/label #voc/lstr "Attorney@en",
    :rdfs/subClassOf [:schema/LegalService
                      :schema/Attorney
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def Audience
   "Intended audience for an item, i.e. the group for whom the item was created."
@@ -655,8 +655,8 @@
    :rdfs/label       #voc/lstr "AudioObject@en",
    :rdfs/subClassOf  [:schema/MediaObject
                       :schema/AudioObject
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def AudioObjectSnapshot
   "A specific and exact (byte-for-byte) version of an <a class=\"localLink\" href=\"https://schema.org/AudioObject\">AudioObject</a>. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity."
@@ -669,9 +669,9 @@
    :rdfs/label #voc/lstr "AudioObjectSnapshot@en",
    :rdfs/subClassOf [:schema/AudioObject
                      :schema/AudioObjectSnapshot
-                     :schema/Thing
+                     :schema/MediaObject
                      :schema/CreativeWork
-                     :schema/MediaObject]})
+                     :schema/Thing]})
 
 (def Audiobook
   "An audiobook."
@@ -683,9 +683,9 @@
    :rdfs/subClassOf  [:schema/AudioObject
                       :schema/Book
                       :schema/Audiobook
-                      :schema/Thing
+                      :schema/MediaObject
                       :schema/CreativeWork
-                      :schema/MediaObject]})
+                      :schema/Thing]})
 
 (def AuthorizeAction
   "The act of granting permission to an object."
@@ -697,9 +697,9 @@
    :rdfs/label       #voc/lstr "AuthorizeAction@en",
    :rdfs/subClassOf  [:schema/AllocateAction
                       :schema/AuthorizeAction
+                      :schema/Action
                       :schema/OrganizeAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Thing]})
 
 (def AutoBodyShop
   "Auto body shop."
@@ -710,10 +710,10 @@
    :rdfs/label       #voc/lstr "AutoBodyShop@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/AutoBodyShop
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AutoDealer
   "An car dealership."
@@ -724,10 +724,10 @@
    :rdfs/label       #voc/lstr "AutoDealer@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/AutoDealer
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AutoPartsStore
   "An auto parts store."
@@ -739,10 +739,10 @@
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/Store
                       :schema/AutoPartsStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AutoRental
   "A car rental business."
@@ -753,10 +753,10 @@
    :rdfs/label       #voc/lstr "AutoRental@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/AutoRental
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AutoRepair
   "Car repair business."
@@ -767,10 +767,10 @@
    :rdfs/label       #voc/lstr "AutoRepair@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/AutoRepair
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AutoWash
   "A car wash business."
@@ -781,10 +781,10 @@
    :rdfs/label       #voc/lstr "AutoWash@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/AutoWash
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AutomatedTeller
   "ATM/cash machine."
@@ -795,10 +795,10 @@
    :rdfs/label       #voc/lstr "AutomatedTeller@en",
    :rdfs/subClassOf  [:schema/FinancialService
                       :schema/AutomatedTeller
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def AutomotiveBusiness
   "Car repair, sales, or parts."
@@ -809,9 +809,9 @@
    :rdfs/label       #voc/lstr "AutomotiveBusiness@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/AutomotiveBusiness
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def BackgroundNewsArticle
   "A <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> providing historical context, definition and detail on a specific topic (aka \"explainer\" or \"backgrounder\"). For example, an in-depth article or frequently-asked-questions (<a href=\"https://en.wikipedia.org/wiki/FAQ\">FAQ</a>) document on topics such as Climate Change or the European Union. Other kinds of background material from a non-news setting are often described using <a class=\"localLink\" href=\"https://schema.org/Book\">Book</a> or <a class=\"localLink\" href=\"https://schema.org/Article\">Article</a>, in particular <a class=\"localLink\" href=\"https://schema.org/ScholarlyArticle\">ScholarlyArticle</a>. See also <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> for related vocabulary from a learning/education perspective."
@@ -825,8 +825,8 @@
    :rdfs/subClassOf [:schema/NewsArticle
                      :schema/BackgroundNewsArticle
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def Bakery
   "A bakery."
@@ -837,10 +837,10 @@
    :rdfs/label       #voc/lstr "Bakery@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/Bakery
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def BankAccount
   "A product or service offered by a bank whereby one may deposit, withdraw or transfer money and in some cases be paid interest."
@@ -853,9 +853,9 @@
    :rdfs/label #voc/lstr "BankAccount@en",
    :rdfs/subClassOf [:schema/FinancialProduct
                      :schema/BankAccount
+                     :schema/Intangible
                      :schema/Service
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def BankOrCreditUnion
   "Bank or credit union."
@@ -866,10 +866,10 @@
    :rdfs/label       #voc/lstr "BankOrCreditUnion@en",
    :rdfs/subClassOf  [:schema/FinancialService
                       :schema/BankOrCreditUnion
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def BarOrPub
   "A bar or pub."
@@ -880,10 +880,10 @@
    :rdfs/label       #voc/lstr "BarOrPub@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/BarOrPub
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Barcode
   "An image of a visual machine-readable code such as a barcode or QR code."
@@ -896,9 +896,9 @@
    :rdfs/label #voc/lstr "Barcode@en",
    :rdfs/subClassOf [:schema/ImageObject
                      :schema/Barcode
-                     :schema/Thing
+                     :schema/MediaObject
                      :schema/CreativeWork
-                     :schema/MediaObject]})
+                     :schema/Thing]})
 
 (def Beach
   "Beach."
@@ -909,8 +909,8 @@
    :rdfs/label       #voc/lstr "Beach@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Beach
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def BeautySalon
   "Beauty salon."
@@ -921,10 +921,10 @@
    :rdfs/label       #voc/lstr "BeautySalon@en",
    :rdfs/subClassOf  [:schema/HealthAndBeautyBusiness
                       :schema/BeautySalon
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def BedAndBreakfast
   "Bed and breakfast. <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -937,10 +937,10 @@
    :rdfs/label #voc/lstr "BedAndBreakfast@en",
    :rdfs/subClassOf [:schema/LodgingBusiness
                      :schema/BedAndBreakfast
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def BedDetails
   "An entity holding detailed information about the available bed types, e.g. the quantity of twin beds for a hotel room. For the single case of just one bed of a certain type, you can use bed directly with a text. See also <a class=\"localLink\" href=\"https://schema.org/BedType\">BedType</a> (under development)."
@@ -964,9 +964,9 @@
    :rdfs/label #voc/lstr "BedType@en",
    :rdfs/subClassOf [:schema/QualitativeValue
                      :schema/BedType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def BefriendAction
   "The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.</li> </ul>"
@@ -979,8 +979,8 @@
    :rdfs/label #voc/lstr "BefriendAction@en",
    :rdfs/subClassOf [:schema/InteractAction
                      :schema/BefriendAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def BikeStore
   "A bike store."
@@ -991,10 +991,10 @@
    :rdfs/label       #voc/lstr "BikeStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/BikeStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def BioChemEntity
   "Any biological, chemical, or biochemical thing. For example: a protein; a gene; a chemical; a synthetic chemical."
@@ -1028,8 +1028,8 @@
    :rdfs/subClassOf  [:schema/SocialMediaPosting
                       :schema/BlogPosting
                       :schema/Article
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def BloodTest
   "A medical test performed on a sample of a patient's blood."
@@ -1040,7 +1040,7 @@
    :rdfs/isDefinedBy "https://health-lifesci.schema.org/BloodTest",
    :rdfs/label #voc/lstr "BloodTest@en",
    :rdfs/subClassOf
-   [:schema/MedicalTest :schema/BloodTest :schema/Thing :schema/MedicalEntity]})
+   [:schema/MedicalTest :schema/BloodTest :schema/MedicalEntity :schema/Thing]})
 
 (def BoardingPolicyType
   "A type of boarding policy used by an airline."
@@ -1052,8 +1052,8 @@
    :rdfs/label       #voc/lstr "BoardingPolicyType@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/BoardingPolicyType
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def BoatReservation
   "A reservation for boat travel.<br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."
@@ -1066,8 +1066,8 @@
    :rdfs/label #voc/lstr "BoatReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/BoatReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def BoatTerminal
   "A terminal for boats, ships, and other water vessels."
@@ -1078,7 +1078,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/BoatTerminal",
    :rdfs/label #voc/lstr "BoatTerminal@en",
    :rdfs/subClassOf
-   [:schema/CivicStructure :schema/BoatTerminal :schema/Thing :schema/Place]})
+   [:schema/CivicStructure :schema/BoatTerminal :schema/Place :schema/Thing]})
 
 (def BoatTrip
   "A trip on a commercial ferry line."
@@ -1089,8 +1089,8 @@
    :rdfs/label       #voc/lstr "BoatTrip@en",
    :rdfs/subClassOf  [:schema/Trip
                       :schema/BoatTrip
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def BodyMeasurementTypeEnumeration
   "Enumerates types (or dimensions) of a person's body measurements, for example for fitting of clothes."
@@ -1104,9 +1104,9 @@
    :rdfs/label #voc/lstr "BodyMeasurementTypeEnumeration@en",
    :rdfs/subClassOf [:schema/MeasurementTypeEnumeration
                      :schema/BodyMeasurementTypeEnumeration
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def BodyOfWater
   "A body of water, such as a sea, ocean, or lake."
@@ -1118,8 +1118,8 @@
    :rdfs/label       #voc/lstr "BodyOfWater@en",
    :rdfs/subClassOf  [:schema/Landform
                       :schema/BodyOfWater
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Bone
   "Rigid connective tissue that comprises up the skeletal structure of the human body."
@@ -1132,8 +1132,8 @@
    :rdfs/label #voc/lstr "Bone@en",
    :rdfs/subClassOf [:schema/AnatomicalStructure
                      :schema/Bone
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Book
   "A book."
@@ -1153,8 +1153,8 @@
    :rdfs/label       #voc/lstr "BookFormatType@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/BookFormatType
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def BookSeries
   "A series of books. Included books can be indicated with the hasPart property."
@@ -1167,10 +1167,10 @@
    :rdfs/label #voc/lstr "BookSeries@en",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
                      :schema/BookSeries
-                     :schema/Thing
-                     :schema/CreativeWork
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def BookStore
   "A bookstore."
@@ -1181,10 +1181,10 @@
    :rdfs/label       #voc/lstr "BookStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/BookStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def BookmarkAction
   "An agent bookmarks/flags/labels/tags/marks an object."
@@ -1196,8 +1196,8 @@
    :rdfs/label #voc/lstr "BookmarkAction@en",
    :rdfs/subClassOf [:schema/OrganizeAction
                      :schema/BookmarkAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def BooleanClass
   "Boolean: True or False."
@@ -1218,7 +1218,7 @@
    :rdfs/isDefinedBy :schema/BorrowAction,
    :rdfs/label #voc/lstr "BorrowAction@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/BorrowAction :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/BorrowAction :schema/Action :schema/Thing]})
 
 (def BowlingAlley
   "A bowling alley."
@@ -1229,10 +1229,10 @@
    :rdfs/label       #voc/lstr "BowlingAlley@en",
    :rdfs/subClassOf  [:schema/SportsActivityLocation
                       :schema/BowlingAlley
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def BrainStructure
   "Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity."
@@ -1245,8 +1245,8 @@
    :rdfs/label #voc/lstr "BrainStructure@en",
    :rdfs/subClassOf [:schema/AnatomicalStructure
                      :schema/BrainStructure
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Brand
   "A brand is a name used by an organization or business person for labeling a product, product group, or similar."
@@ -1269,7 +1269,7 @@
    :rdfs/isDefinedBy :schema/BreadcrumbList,
    :rdfs/label #voc/lstr "BreadcrumbList@en",
    :rdfs/subClassOf
-   [:schema/ItemList :schema/BreadcrumbList :schema/Thing :schema/Intangible]})
+   [:schema/ItemList :schema/BreadcrumbList :schema/Intangible :schema/Thing]})
 
 (def Brewery
   "Brewery."
@@ -1280,10 +1280,10 @@
    :rdfs/label       #voc/lstr "Brewery@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/Brewery
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Bridge
   "A bridge."
@@ -1294,8 +1294,8 @@
    :rdfs/label       #voc/lstr "Bridge@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Bridge
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def BroadcastChannel
   "A unique instance of a BroadcastService on a CableOrSatelliteService lineup."
@@ -1343,7 +1343,7 @@
    :rdfs/isDefinedBy :schema/BroadcastService,
    :rdfs/label #voc/lstr "BroadcastService@en",
    :rdfs/subClassOf
-   [:schema/Service :schema/BroadcastService :schema/Thing :schema/Intangible]})
+   [:schema/Service :schema/BroadcastService :schema/Intangible :schema/Thing]})
 
 (def BrokerageAccount
   "An account that allows an investor to deposit funds and place investment orders with a licensed broker or brokerage firm."
@@ -1356,10 +1356,10 @@
    :rdfs/label #voc/lstr "BrokerageAccount@en",
    :rdfs/subClassOf [:schema/InvestmentOrDeposit
                      :schema/BrokerageAccount
-                     :schema/Service
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/FinancialProduct]})
+                     :schema/FinancialProduct
+                     :schema/Service
+                     :schema/Thing]})
 
 (def BuddhistTemple
   "A Buddhist temple."
@@ -1370,9 +1370,9 @@
    :rdfs/label       #voc/lstr "BuddhistTemple@en",
    :rdfs/subClassOf  [:schema/PlaceOfWorship
                       :schema/BuddhistTemple
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def BusOrCoach
   "A bus (also omnibus or autobus) is a road vehicle designed to carry passengers. Coaches are luxury busses, usually in service for long distance travel."
@@ -1397,8 +1397,8 @@
    :rdfs/label #voc/lstr "BusReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/BusReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def BusStation
   "A bus station."
@@ -1409,8 +1409,8 @@
    :rdfs/label       #voc/lstr "BusStation@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/BusStation
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def BusStop
   "A bus stop."
@@ -1421,8 +1421,8 @@
    :rdfs/label       #voc/lstr "BusStop@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/BusStop
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def BusTrip
   "A trip on a commercial bus line."
@@ -1433,8 +1433,8 @@
    :rdfs/label       #voc/lstr "BusTrip@en",
    :rdfs/subClassOf  [:schema/Trip
                       :schema/BusTrip
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def BusinessAudience
   "A set of characteristics belonging to businesses, e.g. who compose an item's target audience."
@@ -1447,8 +1447,8 @@
    :rdfs/label #voc/lstr "BusinessAudience@en",
    :rdfs/subClassOf [:schema/Audience
                      :schema/BusinessAudience
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def BusinessEntityType
   "A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of an organization or business person.<br/><br/> Commonly used values:<br/><br/> <ul> <li>http://purl.org/goodrelations/v1#Business</li> <li>http://purl.org/goodrelations/v1#Enduser</li> <li>http://purl.org/goodrelations/v1#PublicInstitution</li> <li>http://purl.org/goodrelations/v1#Reseller</li> </ul>"
@@ -1461,8 +1461,8 @@
    :rdfs/label #voc/lstr "BusinessEntityType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/BusinessEntityType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def BusinessEvent
   "Event type: Business event."
@@ -1484,8 +1484,8 @@
    :rdfs/label #voc/lstr "BusinessFunction@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/BusinessFunction
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def BuyAction
   "The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction."
@@ -1497,7 +1497,7 @@
    :rdfs/isDefinedBy :schema/BuyAction,
    :rdfs/label #voc/lstr "BuyAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/BuyAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/BuyAction :schema/Action :schema/Thing]})
 
 (def CDCPMDRecord
   "A CDCPMDRecord is a data structure representing a record in a CDC tabular data format used for hospital data reporting. See <a href=\"/docs/cdc-covid.html\">documentation</a> for details, and the linked CDC materials for authoritative definitions used as the source here."
@@ -1510,8 +1510,8 @@
    :rdfs/label #voc/lstr "CDCPMDRecord@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/CDCPMDRecord
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def CableOrSatelliteService
   "A service which provides access to media programming like TV or radio. Access may be via cable or satellite."
@@ -1524,8 +1524,8 @@
    :rdfs/label #voc/lstr "CableOrSatelliteService@en",
    :rdfs/subClassOf [:schema/Service
                      :schema/CableOrSatelliteService
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def CafeOrCoffeeShop
   "A cafe or coffee shop."
@@ -1536,10 +1536,10 @@
    :rdfs/label       #voc/lstr "CafeOrCoffeeShop@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/CafeOrCoffeeShop
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Campground
   "A camping site, campsite, or <a class=\"localLink\" href=\"https://schema.org/Campground\">Campground</a> is a place used for overnight stay in the outdoors, typically containing individual <a class=\"localLink\" href=\"https://schema.org/CampingPitch\">CampingPitch</a> locations. <br/><br/> In British English a campsite is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites (source: Wikipedia, see <a href=\"https://en.wikipedia.org/wiki/Campsite\">https://en.wikipedia.org/wiki/Campsite</a>).<br/><br/> See also the dedicated <a href=\"/docs/hotels.html\">document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -1553,10 +1553,10 @@
    :rdfs/subClassOf [:schema/CivicStructure
                      :schema/LodgingBusiness
                      :schema/Campground
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def CampingPitch
   "A <a class=\"localLink\" href=\"https://schema.org/CampingPitch\">CampingPitch</a> is an individual place for overnight stay in the outdoors, typically being part of a larger camping site, or <a class=\"localLink\" href=\"https://schema.org/Campground\">Campground</a>.<br/><br/> In British English a campsite, or campground, is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites. (Source: Wikipedia, see <a href=\"https://en.wikipedia.org/wiki/Campsite\">https://en.wikipedia.org/wiki/Campsite</a>.)<br/><br/> See also the dedicated <a href=\"/docs/hotels.html\">document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -1568,7 +1568,7 @@
    :rdfs/isDefinedBy :schema/CampingPitch,
    :rdfs/label #voc/lstr "CampingPitch@en",
    :rdfs/subClassOf
-   [:schema/Accommodation :schema/CampingPitch :schema/Thing :schema/Place]})
+   [:schema/Accommodation :schema/CampingPitch :schema/Place :schema/Thing]})
 
 (def Canal
   "A canal, like the Panama Canal."
@@ -1580,8 +1580,8 @@
    :rdfs/subClassOf  [:schema/BodyOfWater
                       :schema/Canal
                       :schema/Landform
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def CancelAction
   "The act of asserting that a future event/action is no longer going to happen.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/ConfirmAction\">ConfirmAction</a>: The antonym of CancelAction.</li> </ul>"
@@ -1594,9 +1594,9 @@
    :rdfs/label #voc/lstr "CancelAction@en",
    :rdfs/subClassOf [:schema/PlanAction
                      :schema/CancelAction
+                     :schema/Action
                      :schema/OrganizeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Car
   "A car is a wheeled, self-powered motor vehicle used for transportation."
@@ -1620,7 +1620,7 @@
    :rdfs/isDefinedBy "https://auto.schema.org/CarUsageType",
    :rdfs/label #voc/lstr "CarUsageType@en",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/CarUsageType :schema/Thing :schema/Intangible]})
+   [:schema/Enumeration :schema/CarUsageType :schema/Intangible :schema/Thing]})
 
 (def Casino
   "A casino."
@@ -1631,10 +1631,10 @@
    :rdfs/label       #voc/lstr "Casino@en",
    :rdfs/subClassOf  [:schema/EntertainmentBusiness
                       :schema/Casino
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def CategoryCode
   "A Category Code."
@@ -1645,8 +1645,8 @@
    :rdfs/label       #voc/lstr "CategoryCode@en",
    :rdfs/subClassOf  [:schema/DefinedTerm
                       :schema/CategoryCode
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def CategoryCodeSet
   "A set of Category Code values."
@@ -1657,8 +1657,8 @@
    :rdfs/label       #voc/lstr "CategoryCodeSet@en",
    :rdfs/subClassOf  [:schema/DefinedTermSet
                       :schema/CategoryCodeSet
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def CatholicChurch
   "A Catholic church."
@@ -1669,10 +1669,10 @@
    :rdfs/label       #voc/lstr "CatholicChurch@en",
    :rdfs/subClassOf  [:schema/Church
                       :schema/CatholicChurch
-                      :schema/Thing
-                      :schema/PlaceOfWorship
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/PlaceOfWorship
+                      :schema/Thing]})
 
 (def Cemetery
   "A graveyard."
@@ -1683,8 +1683,8 @@
    :rdfs/label       #voc/lstr "Cemetery@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Cemetery
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Chapter
   "One of the sections into which a book is divided. A chapter usually has a section number or a name."
@@ -1707,7 +1707,7 @@
    :rdfs/isDefinedBy :schema/CheckAction,
    :rdfs/label #voc/lstr "CheckAction@en",
    :rdfs/subClassOf
-   [:schema/FindAction :schema/CheckAction :schema/Thing :schema/Action]})
+   [:schema/FindAction :schema/CheckAction :schema/Action :schema/Thing]})
 
 (def CheckInAction
   "The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e.g. flight check-in) or at a place (e.g. hotel), possibly resulting in a result (boarding pass, etc).<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/CheckOutAction\">CheckOutAction</a>: The antonym of CheckInAction.</li> <li><a class=\"localLink\" href=\"https://schema.org/ArriveAction\">ArriveAction</a>: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.</li> <li><a class=\"localLink\" href=\"https://schema.org/ConfirmAction\">ConfirmAction</a>: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the <em>start</em> of a previously reserved service rather than its validity/existence.</li> </ul>"
@@ -1720,9 +1720,9 @@
    :rdfs/label #voc/lstr "CheckInAction@en",
    :rdfs/subClassOf [:schema/CommunicateAction
                      :schema/CheckInAction
+                     :schema/Action
                      :schema/InteractAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def CheckOutAction
   "The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e.g. flight check-in) or place (e.g. hotel).<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/CheckInAction\">CheckInAction</a>: The antonym of CheckOutAction.</li> <li><a class=\"localLink\" href=\"https://schema.org/DepartAction\">DepartAction</a>: Unlike DepartAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.</li> <li><a class=\"localLink\" href=\"https://schema.org/CancelAction\">CancelAction</a>: Unlike CancelAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.</li> </ul>"
@@ -1735,9 +1735,9 @@
    :rdfs/label #voc/lstr "CheckOutAction@en",
    :rdfs/subClassOf [:schema/CommunicateAction
                      :schema/CheckOutAction
+                     :schema/Action
                      :schema/InteractAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def CheckoutPage
   "Web page type: Checkout page."
@@ -1748,8 +1748,8 @@
    :rdfs/label       #voc/lstr "CheckoutPage@en",
    :rdfs/subClassOf  [:schema/WebPage
                       :schema/CheckoutPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def ChemicalSubstance
   "A chemical substance is 'a portion of matter of constant composition, composed of molecular entities of the same type or of different types' (source: <a href=\"https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59999\">ChEBI:59999</a>)."
@@ -1772,9 +1772,9 @@
    :rdfs/label       #voc/lstr "ChildCare@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/ChildCare
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def ChildrensEvent
   "Event type: Children's event."
@@ -1795,7 +1795,7 @@
    :rdfs/isDefinedBy :schema/ChooseAction,
    :rdfs/label #voc/lstr "ChooseAction@en",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/ChooseAction :schema/Thing :schema/Action]})
+   [:schema/AssessAction :schema/ChooseAction :schema/Action :schema/Thing]})
 
 (def Church
   "A church."
@@ -1806,9 +1806,9 @@
    :rdfs/label       #voc/lstr "Church@en",
    :rdfs/subClassOf  [:schema/PlaceOfWorship
                       :schema/Church
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def City
   "A city or town."
@@ -1819,8 +1819,8 @@
    :rdfs/label       #voc/lstr "City@en",
    :rdfs/subClassOf  [:schema/AdministrativeArea
                       :schema/City
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def CityHall
   "A city hall."
@@ -1831,9 +1831,9 @@
    :rdfs/label       #voc/lstr "CityHall@en",
    :rdfs/subClassOf  [:schema/GovernmentBuilding
                       :schema/CityHall
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def CivicStructure
   "A public structure, such as a town hall or concert hall."
@@ -1866,7 +1866,7 @@
    :rdfs/isDefinedBy :schema/ClaimReview,
    :rdfs/label #voc/lstr "ClaimReview@en",
    :rdfs/subClassOf
-   [:schema/Review :schema/ClaimReview :schema/Thing :schema/CreativeWork]})
+   [:schema/Review :schema/ClaimReview :schema/CreativeWork :schema/Thing]})
 
 (def T
   "A class, also often called a 'Type'; equivalent to rdfs:Class."
@@ -1898,10 +1898,10 @@
    :rdfs/label       #voc/lstr "ClothingStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/ClothingStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Code
   "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."
@@ -1933,8 +1933,8 @@
    :rdfs/label       #voc/lstr "CollectionPage@en",
    :rdfs/subClassOf  [:schema/WebPage
                       :schema/CollectionPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def CollegeOrUniversity
   "A college, university, or other third-level educational institution."
@@ -1947,10 +1947,10 @@
    :rdfs/label #voc/lstr "CollegeOrUniversity@en",
    :rdfs/subClassOf [:schema/EducationalOrganization
                      :schema/CollegeOrUniversity
-                     :schema/Thing
-                     :schema/CivicStructure
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/CivicStructure
+                     :schema/Thing]})
 
 (def ComedyClub
   "A comedy club."
@@ -1961,10 +1961,10 @@
    :rdfs/label       #voc/lstr "ComedyClub@en",
    :rdfs/subClassOf  [:schema/EntertainmentBusiness
                       :schema/ComedyClub
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def ComedyEvent
   "Event type: Comedy event."
@@ -1986,8 +1986,8 @@
                       :schema/CoverArt
                       :schema/ComicCoverArt
                       :schema/VisualArtwork
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def ComicIssue
   "Individual comic issues are serially published as part of a larger series. For the sake of consistency, even one-shot issues belong to a series comprised of a single issue. All comic issues can be uniquely identified by: the combination of the name and volume number of the series to which the issue belongs; the issue number; and the variant description of the issue (if any)."
@@ -2000,8 +2000,8 @@
    :rdfs/label #voc/lstr "ComicIssue@en",
    :rdfs/subClassOf [:schema/PublicationIssue
                      :schema/ComicIssue
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def ComicSeries
   "A sequential publication of comic stories under a unifying title, for example \"The Amazing Spider-Man\" or \"Groo the Wanderer\"."
@@ -2015,10 +2015,10 @@
    :rdfs/subClassOf [:schema/Periodical
                      :schema/ComicSeries
                      :schema/CreativeWorkSeries
-                     :schema/Thing
-                     :schema/CreativeWork
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def ComicStory
   "The term \"story\" is any indivisible, re-printable unit of a comic, including the interior stories, covers, and backmatter. Most comics have at least two stories: a cover (ComicCoverArt) and an interior story."
@@ -2052,9 +2052,9 @@
    :rdfs/label       #voc/lstr "CommentAction@en",
    :rdfs/subClassOf  [:schema/CommunicateAction
                       :schema/CommentAction
+                      :schema/Action
                       :schema/InteractAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Thing]})
 
 (def CommunicateAction
   "The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation."
@@ -2067,8 +2067,8 @@
    :rdfs/label #voc/lstr "CommunicateAction@en",
    :rdfs/subClassOf [:schema/InteractAction
                      :schema/CommunicateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def CompleteDataFeed
   "A <a class=\"localLink\" href=\"https://schema.org/CompleteDataFeed\">CompleteDataFeed</a> is a <a class=\"localLink\" href=\"https://schema.org/DataFeed\">DataFeed</a> whose standard representation includes content for every item currently in the feed.<br/><br/> This is the equivalent of Atom's element as defined in Feed Paging and Archiving <a href=\"https://tools.ietf.org/html/rfc5005\">RFC 5005</a>, for example (and as defined for Atom), when using data from a feed that represents a collection of items that varies over time (e.g. \"Top Twenty Records\") there is no need to have newer entries mixed in alongside older, obsolete entries. By marking this feed as a CompleteDataFeed, old entries can be safely discarded when the feed is refreshed, since we can assume the feed has provided descriptions for all current items."
@@ -2081,9 +2081,9 @@
    :rdfs/label #voc/lstr "CompleteDataFeed@en",
    :rdfs/subClassOf [:schema/DataFeed
                      :schema/CompleteDataFeed
-                     :schema/Thing
+                     :schema/Dataset
                      :schema/CreativeWork
-                     :schema/Dataset]})
+                     :schema/Thing]})
 
 (def CompoundPriceSpecification
   "A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. \"electricity\" or \"final cleaning\")."
@@ -2096,9 +2096,9 @@
    :rdfs/label #voc/lstr "CompoundPriceSpecification@en",
    :rdfs/subClassOf [:schema/PriceSpecification
                      :schema/CompoundPriceSpecification
-                     :schema/Thing
+                     :schema/StructuredValue
                      :schema/Intangible
-                     :schema/StructuredValue]})
+                     :schema/Thing]})
 
 (def ComputerLanguage
   "This type covers computer programming languages such as Scheme and Lisp, as well as other language-like computer representations. Natural languages are best represented with the <a class=\"localLink\" href=\"https://schema.org/Language\">Language</a> type."
@@ -2121,10 +2121,10 @@
    :rdfs/label       #voc/lstr "ComputerStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/ComputerStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def ConfirmAction
   "The act of notifying someone that a future event/action is going to happen as expected.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/CancelAction\">CancelAction</a>: The antonym of ConfirmAction.</li> </ul>"
@@ -2137,10 +2137,10 @@
    :rdfs/label #voc/lstr "ConfirmAction@en",
    :rdfs/subClassOf [:schema/InformAction
                      :schema/ConfirmAction
-                     :schema/InteractAction
                      :schema/CommunicateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/InteractAction
+                     :schema/Thing]})
 
 (def Consortium
   "A Consortium is a membership <a class=\"localLink\" href=\"https://schema.org/Organization\">Organization</a> whose members are typically Organizations."
@@ -2172,8 +2172,8 @@
    :rdfs/label       #voc/lstr "ContactPage@en",
    :rdfs/subClassOf  [:schema/WebPage
                       :schema/ContactPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def ContactPoint
   "A contact point&#x2014;for example, a Customer Complaints department."
@@ -2186,8 +2186,8 @@
    :rdfs/label #voc/lstr "ContactPoint@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/ContactPoint
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ContactPointOption
   "Enumerated options related to a ContactPoint."
@@ -2199,8 +2199,8 @@
    :rdfs/label       #voc/lstr "ContactPointOption@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/ContactPointOption
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def Continent
   "One of the continents (for example, Europe or Africa)."
@@ -2211,7 +2211,7 @@
    :rdfs/isDefinedBy :schema/Continent,
    :rdfs/label #voc/lstr "Continent@en",
    :rdfs/subClassOf
-   [:schema/Landform :schema/Continent :schema/Thing :schema/Place]})
+   [:schema/Landform :schema/Continent :schema/Place :schema/Thing]})
 
 (def ControlAction
   "An agent controls a device or application."
@@ -2231,10 +2231,10 @@
    :rdfs/label       #voc/lstr "ConvenienceStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/ConvenienceStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Conversation
   "One or more messages between organizations or people on a particular topic. Individual messages can be linked to the conversation with isPartOf or hasPart properties."
@@ -2256,8 +2256,8 @@
    :rdfs/label       #voc/lstr "CookAction@en",
    :rdfs/subClassOf  [:schema/CreateAction
                       :schema/CookAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def Corporation
   "Organization: A business corporation."
@@ -2279,8 +2279,8 @@
    :rdfs/label #voc/lstr "CorrectionComment@en",
    :rdfs/subClassOf [:schema/Comment
                      :schema/CorrectionComment
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def Country
   "A country."
@@ -2291,8 +2291,8 @@
    :rdfs/label       #voc/lstr "Country@en",
    :rdfs/subClassOf  [:schema/AdministrativeArea
                       :schema/Country
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Course
   "A description of an educational course which may be offered as distinct instances which take place at different times or take place at different locations, or be offered through different media or modes of study. An educational course is a sequence of one or more educational events and/or creative works which aims to build knowledge, competence or ability of learners."
@@ -2328,9 +2328,9 @@
    :rdfs/label       #voc/lstr "Courthouse@en",
    :rdfs/subClassOf  [:schema/GovernmentBuilding
                       :schema/Courthouse
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def CoverArt
   "The artwork on the outer surface of a CreativeWork."
@@ -2342,8 +2342,8 @@
    :rdfs/label       #voc/lstr "CoverArt@en",
    :rdfs/subClassOf  [:schema/VisualArtwork
                       :schema/CoverArt
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def CovidTestingFacility
   "A CovidTestingFacility is a <a class=\"localLink\" href=\"https://schema.org/MedicalClinic\">MedicalClinic</a> where testing for the COVID-19 Coronavirus disease is available. If the facility is being made available from an established <a class=\"localLink\" href=\"https://schema.org/Pharmacy\">Pharmacy</a>, <a class=\"localLink\" href=\"https://schema.org/Hotel\">Hotel</a>, or other non-medical organization, multiple types can be listed. This makes it easier to re-use existing schema.org information about that place, e.g. contact info, address, opening hours. Note that in an emergency, such information may not always be reliable."
@@ -2356,12 +2356,12 @@
    :rdfs/label #voc/lstr "CovidTestingFacility@en",
    :rdfs/subClassOf [:schema/MedicalClinic
                      :schema/CovidTestingFacility
-                     :schema/Thing
-                     :schema/MedicalOrganization
                      :schema/Organization
-                     :schema/LocalBusiness
+                     :schema/Place
                      :schema/MedicalBusiness
-                     :schema/Place]})
+                     :schema/MedicalOrganization
+                     :schema/LocalBusiness
+                     :schema/Thing]})
 
 (def CreateAction
   "The act of deliberately creating/producing/generating/building a result out of the agent."
@@ -2409,8 +2409,8 @@
    :rdfs/subClassOf [:schema/CreativeWork
                      :schema/Series
                      :schema/CreativeWorkSeries
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def CreditCard
   "A card payment method of a particular brand or name. Used to mark up a particular payment method and/or the financial product/service that supplies the card account.<br/><br/> Commonly used values:<br/><br/> <ul> <li>http://purl.org/goodrelations/v1#AmericanExpress</li> <li>http://purl.org/goodrelations/v1#DinersClub</li> <li>http://purl.org/goodrelations/v1#Discover</li> <li>http://purl.org/goodrelations/v1#JCB</li> <li>http://purl.org/goodrelations/v1#MasterCard</li> <li>http://purl.org/goodrelations/v1#VISA</li> </ul>"
@@ -2424,12 +2424,12 @@
    :rdfs/subClassOf [:schema/LoanOrCredit
                      :schema/PaymentCard
                      :schema/CreditCard
+                     :schema/PaymentMethod
+                     :schema/Intangible
+                     :schema/FinancialProduct
                      :schema/Enumeration
                      :schema/Service
-                     :schema/PaymentMethod
-                     :schema/Thing
-                     :schema/Intangible
-                     :schema/FinancialProduct]})
+                     :schema/Thing]})
 
 (def Crematorium
   "A crematorium."
@@ -2440,8 +2440,8 @@
    :rdfs/label       #voc/lstr "Crematorium@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Crematorium
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def CriticReview
   "A <a class=\"localLink\" href=\"https://schema.org/CriticReview\">CriticReview</a> is a more specialized form of Review written or published by a source that is recognized for its reviewing activities. These can include online columns, travel and food guides, TV and radio shows, blogs and other independent Web sites. <a class=\"localLink\" href=\"https://schema.org/CriticReview\">CriticReview</a>s are typically more in-depth and professionally written. For simpler, casually written user/visitor/viewer/customer reviews, it is more appropriate to use the <a class=\"localLink\" href=\"https://schema.org/UserReview\">UserReview</a> type. Review aggregator sites such as Metacritic already separate out the site's user reviews from selected critic reviews that originate from third-party sources."
@@ -2453,7 +2453,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/CriticReview",
    :rdfs/label #voc/lstr "CriticReview@en",
    :rdfs/subClassOf
-   [:schema/Review :schema/CriticReview :schema/Thing :schema/CreativeWork]})
+   [:schema/Review :schema/CriticReview :schema/CreativeWork :schema/Thing]})
 
 (def CssSelectorType
   "Text representing a CSS selector."
@@ -2464,8 +2464,8 @@
    :rdfs/label       #voc/lstr "CssSelectorType@en",
    :rdfs/subClassOf  [:schema/Text
                       :schema/CssSelectorType
-                      :rdfs/Class
-                      :schema/DataType]})
+                      :schema/DataType
+                      :rdfs/Class]})
 
 (def CurrencyConversionService
   "A service to convert funds from one currency to another currency."
@@ -2478,9 +2478,9 @@
    :rdfs/label #voc/lstr "CurrencyConversionService@en",
    :rdfs/subClassOf [:schema/FinancialProduct
                      :schema/CurrencyConversionService
+                     :schema/Intangible
                      :schema/Service
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def DDxElement
   "An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it."
@@ -2493,8 +2493,8 @@
    :rdfs/label #voc/lstr "DDxElement@en",
    :rdfs/subClassOf [:schema/MedicalIntangible
                      :schema/DDxElement
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def DanceEvent
   "Event type: A social dance."
@@ -2516,8 +2516,8 @@
    :rdfs/label #voc/lstr "DanceGroup@en",
    :rdfs/subClassOf [:schema/PerformingGroup
                      :schema/DanceGroup
-                     :schema/Thing
-                     :schema/Organization]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def DataCatalog
   "A collection of datasets."
@@ -2539,8 +2539,8 @@
    :rdfs/label #voc/lstr "DataDownload@en",
    :rdfs/subClassOf [:schema/MediaObject
                      :schema/DataDownload
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def DataFeed
   "A single feed providing structured information about one or more entities or topics."
@@ -2552,7 +2552,7 @@
    :rdfs/isDefinedBy :schema/DataFeed,
    :rdfs/label #voc/lstr "DataFeed@en",
    :rdfs/subClassOf
-   [:schema/Dataset :schema/DataFeed :schema/Thing :schema/CreativeWork]})
+   [:schema/Dataset :schema/DataFeed :schema/CreativeWork :schema/Thing]})
 
 (def DataFeedItem
   "A single item within a larger data feed."
@@ -2617,8 +2617,8 @@
    :rdfs/label #voc/lstr "DatedMoneySpecification@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/DatedMoneySpecification
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def DayOfWeek
   "The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.<br/><br/> Originally, URLs from <a href=\"http://purl.org/goodrelations/v1\">GoodRelations</a> were used (for <a class=\"localLink\" href=\"https://schema.org/Monday\">Monday</a>, <a class=\"localLink\" href=\"https://schema.org/Tuesday\">Tuesday</a>, <a class=\"localLink\" href=\"https://schema.org/Wednesday\">Wednesday</a>, <a class=\"localLink\" href=\"https://schema.org/Thursday\">Thursday</a>, <a class=\"localLink\" href=\"https://schema.org/Friday\">Friday</a>, <a class=\"localLink\" href=\"https://schema.org/Saturday\">Saturday</a>, <a class=\"localLink\" href=\"https://schema.org/Sunday\">Sunday</a> plus a special entry for <a class=\"localLink\" href=\"https://schema.org/PublicHolidays\">PublicHolidays</a>); these have now been integrated directly into schema.org."
@@ -2630,7 +2630,7 @@
    :rdfs/isDefinedBy :schema/DayOfWeek,
    :rdfs/label #voc/lstr "DayOfWeek@en",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/DayOfWeek :schema/Thing :schema/Intangible]})
+   [:schema/Enumeration :schema/DayOfWeek :schema/Intangible :schema/Thing]})
 
 (def DaySpa
   "A day spa."
@@ -2641,10 +2641,10 @@
    :rdfs/label       #voc/lstr "DaySpa@en",
    :rdfs/subClassOf  [:schema/HealthAndBeautyBusiness
                       :schema/DaySpa
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def DeactivateAction
   "The act of stopping or deactivating a device or application (e.g. stopping a timer or turning off a flashlight)."
@@ -2657,8 +2657,8 @@
    :rdfs/label #voc/lstr "DeactivateAction@en",
    :rdfs/subClassOf [:schema/ControlAction
                      :schema/DeactivateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def DefenceEstablishment
   "A defence establishment, such as an army or navy base."
@@ -2670,9 +2670,9 @@
    :rdfs/label #voc/lstr "DefenceEstablishment@en",
    :rdfs/subClassOf [:schema/GovernmentBuilding
                      :schema/DefenceEstablishment
-                     :schema/Thing
+                     :schema/Place
                      :schema/CivicStructure
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def DefinedRegion
   "A DefinedRegion is a geographic area defined by potentially arbitrary (rather than political, administrative or natural geographical) criteria. Properties are provided for defining a region by reference to sets of postal codes.<br/><br/> Examples: a delivery destination when shopping. Region where regional pricing is configured.<br/><br/> Requirement 1: Country: US States: \"NY\", \"CA\"<br/><br/> Requirement 2: Country: US PostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]} { [12345, 12345], [78945, 78945], } Region = state, canton, prefecture, autonomous community..."
@@ -2685,8 +2685,8 @@
    :rdfs/label #voc/lstr "DefinedRegion@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/DefinedRegion
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def DefinedTerm
   "A word, name, acronym, phrase, etc. with a formal definition. Often used in the context of category or subject classification, glossaries or dictionaries, product or creative work types, etc. Use the name property for the term being defined, use termCode if the term has an alpha-numeric code allocated, use description to provide the definition of the term."
@@ -2721,7 +2721,7 @@
    :rdfs/isDefinedBy :schema/DeleteAction,
    :rdfs/label #voc/lstr "DeleteAction@en",
    :rdfs/subClassOf
-   [:schema/UpdateAction :schema/DeleteAction :schema/Thing :schema/Action]})
+   [:schema/UpdateAction :schema/DeleteAction :schema/Action :schema/Thing]})
 
 (def DeliveryChargeSpecification
   "The price for the delivery of an offer using a particular delivery method."
@@ -2734,9 +2734,9 @@
    :rdfs/label #voc/lstr "DeliveryChargeSpecification@en",
    :rdfs/subClassOf [:schema/PriceSpecification
                      :schema/DeliveryChargeSpecification
-                     :schema/Thing
+                     :schema/StructuredValue
                      :schema/Intangible
-                     :schema/StructuredValue]})
+                     :schema/Thing]})
 
 (def DeliveryEvent
   "An event involving the delivery of an item."
@@ -2758,8 +2758,8 @@
    :rdfs/label #voc/lstr "DeliveryMethod@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/DeliveryMethod
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def DeliveryTimeSettings
   "A DeliveryTimeSettings represents re-usable pieces of shipping information, relating to timing. It is designed for publication on an URL that may be referenced via the <a class=\"localLink\" href=\"https://schema.org/shippingSettingsLink\">shippingSettingsLink</a> property of an <a class=\"localLink\" href=\"https://schema.org/OfferShippingDetails\">OfferShippingDetails</a>. Several occurrences can be published, distinguished (and identified/referenced) by their different values for <a class=\"localLink\" href=\"https://schema.org/transitTimeLabel\">transitTimeLabel</a>."
@@ -2772,8 +2772,8 @@
    :rdfs/label #voc/lstr "DeliveryTimeSettings@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/DeliveryTimeSettings
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Demand
   "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply."
@@ -2797,9 +2797,9 @@
                       :schema/MedicalOrganization
                       :schema/LocalBusiness
                       :schema/Dentist
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def DepartAction
   "The act of departing from a place. An agent departs from a fromLocation for a destination, optionally with participants."
@@ -2811,7 +2811,7 @@
    :rdfs/isDefinedBy :schema/DepartAction,
    :rdfs/label #voc/lstr "DepartAction@en",
    :rdfs/subClassOf
-   [:schema/MoveAction :schema/DepartAction :schema/Thing :schema/Action]})
+   [:schema/MoveAction :schema/DepartAction :schema/Action :schema/Thing]})
 
 (def DepartmentStore
   "A department store."
@@ -2822,10 +2822,10 @@
    :rdfs/label       #voc/lstr "DepartmentStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/DepartmentStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def DepositAccount
   "A type of Bank Account with a main purpose of depositing funds to gain interest or other benefits."
@@ -2839,10 +2839,10 @@
    :rdfs/subClassOf [:schema/InvestmentOrDeposit
                      :schema/BankAccount
                      :schema/DepositAccount
-                     :schema/Service
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/FinancialProduct]})
+                     :schema/FinancialProduct
+                     :schema/Service
+                     :schema/Thing]})
 
 (def DiagnosticLab
   "A medical laboratory that offers on-site or off-site diagnostic services."
@@ -2855,8 +2855,8 @@
    :rdfs/label #voc/lstr "DiagnosticLab@en",
    :rdfs/subClassOf [:schema/MedicalOrganization
                      :schema/DiagnosticLab
-                     :schema/Thing
-                     :schema/Organization]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def DiagnosticProcedure
   "A medical procedure intended primarily for diagnostic, as opposed to therapeutic, purposes."
@@ -2869,8 +2869,8 @@
    :rdfs/label #voc/lstr "DiagnosticProcedure@en",
    :rdfs/subClassOf [:schema/MedicalProcedure
                      :schema/DiagnosticProcedure
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Diet
   "A strategy of regulating the intake of food to achieve or maintain a specific health-related goal."
@@ -2884,8 +2884,8 @@
    :rdfs/subClassOf [:schema/LifestyleModification
                      :schema/CreativeWork
                      :schema/Diet
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def DietarySupplement
   "A product taken by mouth that contains a dietary ingredient intended to supplement the diet. Dietary ingredients may include vitamins, minerals, herbs or other botanicals, amino acids, and substances such as enzymes, organ tissues, glandulars and metabolites."
@@ -2899,8 +2899,8 @@
    :rdfs/subClassOf [:schema/Substance
                      :schema/Product
                      :schema/DietarySupplement
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def DigitalDocument
   "An electronic file or document."
@@ -2936,8 +2936,8 @@
    :rdfs/label #voc/lstr "DigitalDocumentPermissionType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/DigitalDocumentPermissionType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def DigitalPlatformEnumeration
   "Enumerates some common technology platforms, for use with properties such as <a class=\"localLink\" href=\"https://schema.org/actionPlatform\">actionPlatform</a>. It is not supposed to be comprehensive - when a suitable code is not enumerated here, textual or URL values can be used instead. These codes are at a fairly high level and do not deal with versioning and other nuance. Additional codes can be suggested <a href=\"https://github.com/schemaorg/schemaorg/issues/3057\">in github</a>."
@@ -2950,8 +2950,8 @@
    :rdfs/label #voc/lstr "DigitalPlatformEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/DigitalPlatformEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def DisagreeAction
   "The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants."
@@ -2964,9 +2964,9 @@
    :rdfs/label #voc/lstr "DisagreeAction@en",
    :rdfs/subClassOf [:schema/ReactAction
                      :schema/DisagreeAction
-                     :schema/Thing
                      :schema/Action
-                     :schema/AssessAction]})
+                     :schema/AssessAction
+                     :schema/Thing]})
 
 (def DiscoverAction
   "The act of discovering/finding an object."
@@ -2977,8 +2977,8 @@
    :rdfs/label       #voc/lstr "DiscoverAction@en",
    :rdfs/subClassOf  [:schema/FindAction
                       :schema/DiscoverAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def DiscussionForumPosting
   "A posting to a discussion forum."
@@ -2990,8 +2990,8 @@
    :rdfs/subClassOf  [:schema/SocialMediaPosting
                       :schema/DiscussionForumPosting
                       :schema/Article
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def DislikeAction
   "The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants."
@@ -3004,9 +3004,9 @@
    :rdfs/label #voc/lstr "DislikeAction@en",
    :rdfs/subClassOf [:schema/ReactAction
                      :schema/DislikeAction
-                     :schema/Thing
                      :schema/Action
-                     :schema/AssessAction]})
+                     :schema/AssessAction
+                     :schema/Thing]})
 
 (def Distance
   "Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'."
@@ -3018,7 +3018,7 @@
    :rdfs/isDefinedBy :schema/Distance,
    :rdfs/label #voc/lstr "Distance@en",
    :rdfs/subClassOf
-   [:schema/Quantity :schema/Distance :schema/Thing :schema/Intangible]})
+   [:schema/Quantity :schema/Distance :schema/Intangible :schema/Thing]})
 
 (def Distillery
   "A distillery."
@@ -3029,10 +3029,10 @@
    :rdfs/label       #voc/lstr "Distillery@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/Distillery
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def DonateAction
   "The act of providing goods, services, or money without compensation, often for philanthropic reasons."
@@ -3044,7 +3044,7 @@
    :rdfs/isDefinedBy :schema/DonateAction,
    :rdfs/label #voc/lstr "DonateAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/DonateAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/DonateAction :schema/Action :schema/Thing]})
 
 (def DoseSchedule
   "A specific dosing schedule for a drug or supplement."
@@ -3056,8 +3056,8 @@
    :rdfs/label       #voc/lstr "DoseSchedule@en",
    :rdfs/subClassOf  [:schema/MedicalIntangible
                       :schema/DoseSchedule
-                      :schema/Thing
-                      :schema/MedicalEntity]})
+                      :schema/MedicalEntity
+                      :schema/Thing]})
 
 (def DownloadAction
   "The act of downloading an object."
@@ -3068,8 +3068,8 @@
    :rdfs/label       #voc/lstr "DownloadAction@en",
    :rdfs/subClassOf  [:schema/TransferAction
                       :schema/DownloadAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def DrawAction
   "The act of producing a visual/graphical representation of an object, typically with a pen/pencil and paper as instruments."
@@ -3081,7 +3081,7 @@
    :rdfs/isDefinedBy :schema/DrawAction,
    :rdfs/label #voc/lstr "DrawAction@en",
    :rdfs/subClassOf
-   [:schema/CreateAction :schema/DrawAction :schema/Thing :schema/Action]})
+   [:schema/CreateAction :schema/DrawAction :schema/Action :schema/Thing]})
 
 (def Drawing
   "A picture or diagram made with a pencil, pen, or crayon rather than paint."
@@ -3103,8 +3103,8 @@
    :rdfs/label       #voc/lstr "DrinkAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/DrinkAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def DriveWheelConfigurationValue
   "A value indicating which roadwheels will receive torque."
@@ -3116,9 +3116,9 @@
    :rdfs/label #voc/lstr "DriveWheelConfigurationValue@en",
    :rdfs/subClassOf [:schema/QualitativeValue
                      :schema/DriveWheelConfigurationValue
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def Drug
   "A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism. Here the term drug is used interchangeably with the term medicine although clinical knowledge makes a clear difference between them."
@@ -3132,8 +3132,8 @@
    :rdfs/subClassOf [:schema/Product
                      :schema/Substance
                      :schema/Drug
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def DrugClass
   "A class of medical drugs, e.g., statins. Classes can represent general pharmacological class, common mechanisms of action, common physiological effects, etc."
@@ -3167,9 +3167,9 @@
    :rdfs/label       #voc/lstr "DrugCostCategory@en",
    :rdfs/subClassOf  [:schema/MedicalEnumeration
                       :schema/DrugCostCategory
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def DrugLegalStatus
   "The legal availability status of a medical drug."
@@ -3181,8 +3181,8 @@
    :rdfs/label       #voc/lstr "DrugLegalStatus@en",
    :rdfs/subClassOf  [:schema/MedicalIntangible
                       :schema/DrugLegalStatus
-                      :schema/Thing
-                      :schema/MedicalEntity]})
+                      :schema/MedicalEntity
+                      :schema/Thing]})
 
 (def DrugPregnancyCategory
   "Categories that represent an assessment of the risk of fetal injury due to a drug or pharmaceutical used as directed by the mother during pregnancy."
@@ -3195,9 +3195,9 @@
    :rdfs/label #voc/lstr "DrugPregnancyCategory@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/DrugPregnancyCategory
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def DrugPrescriptionStatus
   "Indicates whether this drug is available by prescription or over-the-counter."
@@ -3210,9 +3210,9 @@
    :rdfs/label #voc/lstr "DrugPrescriptionStatus@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/DrugPrescriptionStatus
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def DrugStrength
   "A specific strength in which a medical drug is available in a specific country."
@@ -3225,8 +3225,8 @@
    :rdfs/label #voc/lstr "DrugStrength@en",
    :rdfs/subClassOf [:schema/MedicalIntangible
                      :schema/DrugStrength
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def DryCleaningOrLaundry
   "A dry-cleaning business."
@@ -3237,9 +3237,9 @@
    :rdfs/label       #voc/lstr "DryCleaningOrLaundry@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/DryCleaningOrLaundry
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Duration
   "Quantity: Duration (use <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 duration format</a>)."
@@ -3251,7 +3251,7 @@
    :rdfs/isDefinedBy :schema/Duration,
    :rdfs/label #voc/lstr "Duration@en",
    :rdfs/subClassOf
-   [:schema/Quantity :schema/Duration :schema/Thing :schema/Intangible]})
+   [:schema/Quantity :schema/Duration :schema/Intangible :schema/Thing]})
 
 (def EUEnergyEfficiencyEnumeration
   "Enumerates the EU energy efficiency classes A-G as well as A+, A++, and A+++ as defined in EU directive 2017/1369."
@@ -3264,9 +3264,9 @@
    :rdfs/label #voc/lstr "EUEnergyEfficiencyEnumeration@en",
    :rdfs/subClassOf [:schema/EnergyEfficiencyEnumeration
                      :schema/EUEnergyEfficiencyEnumeration
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def EatAction
   "The act of swallowing solid objects."
@@ -3277,8 +3277,8 @@
    :rdfs/label       #voc/lstr "EatAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/EatAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def EducationEvent
   "Event type: Education event."
@@ -3298,8 +3298,8 @@
    :rdfs/label       #voc/lstr "EducationalAudience@en",
    :rdfs/subClassOf  [:schema/Audience
                       :schema/EducationalAudience
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def EducationalOccupationalCredential
   "An educational or occupational credential. A diploma, academic degree, certification, qualification, badge, etc., that may be awarded to a person or other entity that meets the requirements defined by the credentialer."
@@ -3338,8 +3338,8 @@
    :rdfs/subClassOf  [:schema/Organization
                       :schema/CivicStructure
                       :schema/EducationalOrganization
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Electrician
   "An electrician."
@@ -3350,10 +3350,10 @@
    :rdfs/label       #voc/lstr "Electrician@en",
    :rdfs/subClassOf  [:schema/HomeAndConstructionBusiness
                       :schema/Electrician
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def ElectronicsStore
   "An electronics store."
@@ -3364,10 +3364,10 @@
    :rdfs/label       #voc/lstr "ElectronicsStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/ElectronicsStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def ElementarySchool
   "An elementary school."
@@ -3378,10 +3378,10 @@
    :rdfs/label       #voc/lstr "ElementarySchool@en",
    :rdfs/subClassOf  [:schema/EducationalOrganization
                       :schema/ElementarySchool
-                      :schema/Thing
-                      :schema/CivicStructure
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/CivicStructure
+                      :schema/Thing]})
 
 (def EmailMessage
   "An email message."
@@ -3392,8 +3392,8 @@
    :rdfs/label       #voc/lstr "EmailMessage@en",
    :rdfs/subClassOf  [:schema/Message
                       :schema/EmailMessage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def Embassy
   "An embassy."
@@ -3404,9 +3404,9 @@
    :rdfs/label       #voc/lstr "Embassy@en",
    :rdfs/subClassOf  [:schema/GovernmentBuilding
                       :schema/Embassy
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def EmergencyService
   "An emergency service, such as a fire station or ER."
@@ -3418,9 +3418,9 @@
    :rdfs/label       #voc/lstr "EmergencyService@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/EmergencyService
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def EmployeeRole
   "A subclass of OrganizationRole used to describe employee relationships."
@@ -3433,9 +3433,9 @@
    :rdfs/label #voc/lstr "EmployeeRole@en",
    :rdfs/subClassOf [:schema/OrganizationRole
                      :schema/EmployeeRole
+                     :schema/Intangible
                      :schema/Role
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def EmployerAggregateRating
   "An aggregate rating of an Organization related to its role as an employer."
@@ -3448,9 +3448,9 @@
    :rdfs/label #voc/lstr "EmployerAggregateRating@en",
    :rdfs/subClassOf [:schema/AggregateRating
                      :schema/EmployerAggregateRating
+                     :schema/Intangible
                      :schema/Rating
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def EmployerReview
   "An <a class=\"localLink\" href=\"https://schema.org/EmployerReview\">EmployerReview</a> is a review of an <a class=\"localLink\" href=\"https://schema.org/Organization\">Organization</a> regarding its role as an employer, written by a current or former employee of that organization."
@@ -3462,7 +3462,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/EmployerReview",
    :rdfs/label #voc/lstr "EmployerReview@en",
    :rdfs/subClassOf
-   [:schema/Review :schema/EmployerReview :schema/Thing :schema/CreativeWork]})
+   [:schema/Review :schema/EmployerReview :schema/CreativeWork :schema/Thing]})
 
 (def EmploymentAgency
   "An employment agency."
@@ -3473,9 +3473,9 @@
    :rdfs/label       #voc/lstr "EmploymentAgency@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/EmploymentAgency
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def EndorseAction
   "An agent approves/certifies/likes/supports/sanctions an object."
@@ -3488,9 +3488,9 @@
    :rdfs/label #voc/lstr "EndorseAction@en",
    :rdfs/subClassOf [:schema/ReactAction
                      :schema/EndorseAction
-                     :schema/Thing
                      :schema/Action
-                     :schema/AssessAction]})
+                     :schema/AssessAction
+                     :schema/Thing]})
 
 (def EndorsementRating
   "An EndorsementRating is a rating that expresses some level of endorsement, for example inclusion in a \"critic's pick\" blog, a \"Like\" or \"+1\" on a social network. It can be considered the <a class=\"localLink\" href=\"https://schema.org/result\">result</a> of an <a class=\"localLink\" href=\"https://schema.org/EndorseAction\">EndorseAction</a> in which the <a class=\"localLink\" href=\"https://schema.org/object\">object</a> of the action is rated positively by some <a class=\"localLink\" href=\"https://schema.org/agent\">agent</a>. As is common elsewhere in schema.org, it is sometimes more useful to describe the results of such an action without explicitly describing the <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>.<br/><br/> An <a class=\"localLink\" href=\"https://schema.org/EndorsementRating\">EndorsementRating</a> may be part of a numeric scale or organized system, but this is not required: having an explicit type for indicating a positive, endorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive."
@@ -3502,7 +3502,7 @@
    :rdfs/isDefinedBy :schema/EndorsementRating,
    :rdfs/label #voc/lstr "EndorsementRating@en",
    :rdfs/subClassOf
-   [:schema/Rating :schema/EndorsementRating :schema/Thing :schema/Intangible]})
+   [:schema/Rating :schema/EndorsementRating :schema/Intangible :schema/Thing]})
 
 (def Energy
   "Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'."
@@ -3514,7 +3514,7 @@
    :rdfs/isDefinedBy :schema/Energy,
    :rdfs/label #voc/lstr "Energy@en",
    :rdfs/subClassOf
-   [:schema/Quantity :schema/Energy :schema/Thing :schema/Intangible]})
+   [:schema/Quantity :schema/Energy :schema/Intangible :schema/Thing]})
 
 (def EnergyConsumptionDetails
   "EnergyConsumptionDetails represents information related to the energy efficiency of a product that consumes energy. The information that can be provided is based on international regulations such as for example <a href=\"https://eur-lex.europa.eu/eli/reg/2017/1369/oj\">EU directive 2017/1369</a> for energy labeling and the <a href=\"https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/energy-water-use-labeling-consumer\">Energy labeling rule</a> under the Energy Policy and Conservation Act (EPCA) in the US."
@@ -3539,8 +3539,8 @@
    :rdfs/label #voc/lstr "EnergyEfficiencyEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/EnergyEfficiencyEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def EnergyStarEnergyEfficiencyEnumeration
   "Used to indicate whether a product is EnergyStar certified."
@@ -3553,9 +3553,9 @@
    :rdfs/label #voc/lstr "EnergyStarEnergyEfficiencyEnumeration@en",
    :rdfs/subClassOf [:schema/EnergyEfficiencyEnumeration
                      :schema/EnergyStarEnergyEfficiencyEnumeration
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def EngineSpecification
   "Information about the engine of the vehicle. A vehicle can have multiple engines represented by multiple engine specification entities."
@@ -3568,8 +3568,8 @@
    :rdfs/label #voc/lstr "EngineSpecification@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/EngineSpecification
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def EntertainmentBusiness
   "A business providing entertainment."
@@ -3580,9 +3580,9 @@
    :rdfs/label       #voc/lstr "EntertainmentBusiness@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/EntertainmentBusiness
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def EntryPoint
   "An entry point, within some Web-based protocol."
@@ -3639,8 +3639,8 @@
    :rdfs/label #voc/lstr "EventAttendanceModeEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/EventAttendanceModeEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def EventReservation
   "A reservation for an event like a concert, sporting event, or lecture.<br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."
@@ -3653,8 +3653,8 @@
    :rdfs/label #voc/lstr "EventReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/EventReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def EventSeries
   "A series of <a class=\"localLink\" href=\"https://schema.org/Event\">Event</a>s. Included events can relate with the series using the <a class=\"localLink\" href=\"https://schema.org/superEvent\">superEvent</a> property.<br/><br/> An EventSeries is a collection of events that share some unifying characteristic. For example, \"The Olympic Games\" is a series, which is repeated regularly. The \"2012 London Olympics\" can be presented both as an <a class=\"localLink\" href=\"https://schema.org/Event\">Event</a> in the series \"Olympic Games\", and as an <a class=\"localLink\" href=\"https://schema.org/EventSeries\">EventSeries</a> that included a number of sporting competitions as Events.<br/><br/> The nature of the association between the events in an <a class=\"localLink\" href=\"https://schema.org/EventSeries\">EventSeries</a> can vary, but typical examples could include a thematic event series (e.g. topical meetups or classes), or a series of regular events that share a location, attendee group and/or organizers.<br/><br/> EventSeries has been defined as a kind of Event to make it easy for publishers to use it in an Event context without worrying about which kinds of series are really event-like enough to call an Event. In general an EventSeries may seem more Event-like when the period of time is compact and when aspects such as location are fixed, but it may also sometimes prove useful to describe a longer-term series as an Event."
@@ -3668,8 +3668,8 @@
    :rdfs/subClassOf [:schema/Series
                      :schema/Event
                      :schema/EventSeries
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def EventStatusType
   "EventStatusType is an enumeration type whose instances represent several states that an Event may be in."
@@ -3682,9 +3682,9 @@
    :rdfs/label #voc/lstr "EventStatusType@en",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/EventStatusType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def EventVenue
   "An event venue."
@@ -3695,8 +3695,8 @@
    :rdfs/label       #voc/lstr "EventVenue@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/EventVenue
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def ExchangeRateSpecification
   "A structured value representing exchange rate."
@@ -3708,8 +3708,8 @@
    :rdfs/label       #voc/lstr "ExchangeRateSpecification@en",
    :rdfs/subClassOf  [:schema/StructuredValue
                       :schema/ExchangeRateSpecification
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def ExerciseAction
   "The act of participating in exertive activity for the purposes of improving health and fitness."
@@ -3721,7 +3721,7 @@
    :rdfs/isDefinedBy :schema/ExerciseAction,
    :rdfs/label #voc/lstr "ExerciseAction@en",
    :rdfs/subClassOf
-   [:schema/PlayAction :schema/ExerciseAction :schema/Thing :schema/Action]})
+   [:schema/PlayAction :schema/ExerciseAction :schema/Action :schema/Thing]})
 
 (def ExerciseGym
   "A gym."
@@ -3732,10 +3732,10 @@
    :rdfs/label       #voc/lstr "ExerciseGym@en",
    :rdfs/subClassOf  [:schema/SportsActivityLocation
                       :schema/ExerciseGym
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def ExercisePlan
   "Fitness-related activity designed for a specific health-related purpose, including defined exercise routines as well as activity prescribed by a clinician."
@@ -3749,9 +3749,9 @@
    :rdfs/subClassOf [:schema/CreativeWork
                      :schema/PhysicalActivity
                      :schema/ExercisePlan
-                     :schema/Thing
+                     :schema/LifestyleModification
                      :schema/MedicalEntity
-                     :schema/LifestyleModification]})
+                     :schema/Thing]})
 
 (def ExhibitionEvent
   "Event type: Exhibition event, e.g. at a museum, library, archive, tradeshow, ..."
@@ -3774,7 +3774,7 @@
    :rdfs/isDefinedBy :schema/FAQPage,
    :rdfs/label #voc/lstr "FAQPage@en",
    :rdfs/subClassOf
-   [:schema/WebPage :schema/FAQPage :schema/Thing :schema/CreativeWork]})
+   [:schema/WebPage :schema/FAQPage :schema/CreativeWork :schema/Thing]})
 
 (def FMRadioChannel
   "A radio channel that uses FM."
@@ -3785,9 +3785,9 @@
    :rdfs/label       #voc/lstr "FMRadioChannel@en",
    :rdfs/subClassOf  [:schema/RadioChannel
                       :schema/FMRadioChannel
+                      :schema/Intangible
                       :schema/BroadcastChannel
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def False
   "The boolean value false."
@@ -3806,10 +3806,10 @@
    :rdfs/label       #voc/lstr "FastFoodRestaurant@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/FastFoodRestaurant
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Festival
   "Event type: Festival."
@@ -3830,7 +3830,7 @@
    :rdfs/isDefinedBy :schema/FilmAction,
    :rdfs/label #voc/lstr "FilmAction@en",
    :rdfs/subClassOf
-   [:schema/CreateAction :schema/FilmAction :schema/Thing :schema/Action]})
+   [:schema/CreateAction :schema/FilmAction :schema/Action :schema/Thing]})
 
 (def FinancialProduct
   "A product provided to consumers and businesses by financial institutions such as banks, insurance companies, brokerage firms, consumer finance companies, and investment companies which comprise the financial services industry."
@@ -3842,7 +3842,7 @@
    :rdfs/isDefinedBy :schema/FinancialProduct,
    :rdfs/label #voc/lstr "FinancialProduct@en",
    :rdfs/subClassOf
-   [:schema/Service :schema/FinancialProduct :schema/Thing :schema/Intangible]})
+   [:schema/Service :schema/FinancialProduct :schema/Intangible :schema/Thing]})
 
 (def FinancialService
   "Financial services business."
@@ -3853,9 +3853,9 @@
    :rdfs/label       #voc/lstr "FinancialService@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/FinancialService
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def FindAction
   "The act of finding an object.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/SearchAction\">SearchAction</a>: FindAction is generally lead by a SearchAction, but not necessarily.</li> </ul>"
@@ -3878,10 +3878,10 @@
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/EmergencyService
                       :schema/FireStation
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Flight
   "An airline flight."
@@ -3892,8 +3892,8 @@
    :rdfs/label       #voc/lstr "Flight@en",
    :rdfs/subClassOf  [:schema/Trip
                       :schema/Flight
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def FlightReservation
   "A reservation for air travel.<br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."
@@ -3906,8 +3906,8 @@
    :rdfs/label #voc/lstr "FlightReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/FlightReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def FloatClass
   "Data type: Floating number."
@@ -3918,8 +3918,8 @@
    :rdfs/label       #voc/lstr "Float@en",
    :rdfs/subClassOf  [:schema/Number
                       :schema/Float
-                      :rdfs/Class
-                      :schema/DataType]})
+                      :schema/DataType
+                      :rdfs/Class]})
 
 (def FloorPlan
   "A FloorPlan is an explicit representation of a collection of similar accommodations, allowing the provision of common information (room counts, sizes, layout diagrams) and offers for rental or sale. In typical use, some <a class=\"localLink\" href=\"https://schema.org/ApartmentComplex\">ApartmentComplex</a> has an <a class=\"localLink\" href=\"https://schema.org/accommodationFloorPlan\">accommodationFloorPlan</a> which is a <a class=\"localLink\" href=\"https://schema.org/FloorPlan\">FloorPlan</a>. A FloorPlan is always in the context of a particular place, either a larger <a class=\"localLink\" href=\"https://schema.org/ApartmentComplex\">ApartmentComplex</a> or a single <a class=\"localLink\" href=\"https://schema.org/Apartment\">Apartment</a>. The visual/spatial aspects of a floor plan (i.e. room layout, <a href=\"https://en.wikipedia.org/wiki/Floor_plan\">see wikipedia</a>) can be indicated using <a class=\"localLink\" href=\"https://schema.org/image\">image</a>."
@@ -3941,10 +3941,10 @@
    :rdfs/label       #voc/lstr "Florist@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/Florist
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def FollowAction
   "The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates polled from.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/BefriendAction\">BefriendAction</a>: Unlike BefriendAction, FollowAction implies that the connection is <em>not</em> necessarily reciprocal.</li> <li><a class=\"localLink\" href=\"https://schema.org/SubscribeAction\">SubscribeAction</a>: Unlike SubscribeAction, FollowAction implies that the follower acts as an active agent constantly/actively polling for updates.</li> <li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: Unlike RegisterAction, FollowAction implies that the agent is interested in continuing receiving updates from the object.</li> <li><a class=\"localLink\" href=\"https://schema.org/JoinAction\">JoinAction</a>: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.</li> <li><a class=\"localLink\" href=\"https://schema.org/TrackAction\">TrackAction</a>: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it).</li> </ul>"
@@ -3956,7 +3956,7 @@
    :rdfs/isDefinedBy :schema/FollowAction,
    :rdfs/label #voc/lstr "FollowAction@en",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/FollowAction :schema/Thing :schema/Action]})
+   [:schema/InteractAction :schema/FollowAction :schema/Action :schema/Thing]})
 
 (def FoodEstablishment
   "A food-related business."
@@ -3967,9 +3967,9 @@
    :rdfs/label       #voc/lstr "FoodEstablishment@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/FoodEstablishment
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def FoodEstablishmentReservation
   "A reservation to dine at a food-related business.<br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."
@@ -3982,8 +3982,8 @@
    :rdfs/label #voc/lstr "FoodEstablishmentReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/FoodEstablishmentReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def FoodEvent
   "Event type: Food event."
@@ -4004,8 +4004,8 @@
    :rdfs/label       #voc/lstr "FoodService@en",
    :rdfs/subClassOf  [:schema/Service
                       :schema/FoodService
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def FundingAgency
   "A FundingAgency is an organization that implements one or more <a class=\"localLink\" href=\"https://schema.org/FundingScheme\">FundingScheme</a>s and manages the granting process (via <a class=\"localLink\" href=\"https://schema.org/Grant\">Grant</a>s, typically <a class=\"localLink\" href=\"https://schema.org/MonetaryGrant\">MonetaryGrant</a>s). A funding agency is not always required for grant funding, e.g. philanthropic giving, corporate sponsorship etc.<br/><br/> Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ..."
@@ -4017,7 +4017,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/FundingAgency",
    :rdfs/label #voc/lstr "FundingAgency@en",
    :rdfs/subClassOf
-   [:schema/Project :schema/FundingAgency :schema/Thing :schema/Organization]})
+   [:schema/Project :schema/FundingAgency :schema/Organization :schema/Thing]})
 
 (def FundingScheme
   "A FundingScheme combines organizational, project and policy aspects of grant-based funding that sets guidelines, principles and mechanisms to support other kinds of projects and activities. Funding is typically organized via <a class=\"localLink\" href=\"https://schema.org/Grant\">Grant</a> funding. Examples of funding schemes: Swiss Priority Programmes (SPPs); EU Framework 7 (FP7); Horizon 2020; the NIH-R01 Grant Program; Wellcome institutional strategic support fund. For large scale public sector funding, the management and administration of grant awards is often handled by other, dedicated, organizations - <a class=\"localLink\" href=\"https://schema.org/FundingAgency\">FundingAgency</a>s such as ERC, REA, ..."
@@ -4039,10 +4039,10 @@
    :rdfs/label       #voc/lstr "FurnitureStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/FurnitureStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Game
   "The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting."
@@ -4066,8 +4066,8 @@
    :rdfs/label #voc/lstr "GameAvailabilityEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/GameAvailabilityEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def GamePlayMode
   "Indicates whether this game is multi-player, co-op or single-player."
@@ -4079,7 +4079,7 @@
    :rdfs/isDefinedBy :schema/GamePlayMode,
    :rdfs/label #voc/lstr "GamePlayMode@en",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/GamePlayMode :schema/Thing :schema/Intangible]})
+   [:schema/Enumeration :schema/GamePlayMode :schema/Intangible :schema/Thing]})
 
 (def GameServer
   "Server that provides game interaction in a multiplayer game."
@@ -4100,9 +4100,9 @@
    :rdfs/label       #voc/lstr "GameServerStatus@en",
    :rdfs/subClassOf  [:schema/StatusEnumeration
                       :schema/GameServerStatus
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def GardenStore
   "A garden store."
@@ -4113,10 +4113,10 @@
    :rdfs/label       #voc/lstr "GardenStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/GardenStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def GasStation
   "A gas station."
@@ -4127,10 +4127,10 @@
    :rdfs/label       #voc/lstr "GasStation@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/GasStation
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def GatedResidenceCommunity
   "Residence type: Gated community."
@@ -4141,8 +4141,8 @@
    :rdfs/label       #voc/lstr "GatedResidenceCommunity@en",
    :rdfs/subClassOf  [:schema/Residence
                       :schema/GatedResidenceCommunity
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def GenderType
   "An enumeration of genders."
@@ -4153,8 +4153,8 @@
    :rdfs/label       #voc/lstr "GenderType@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/GenderType
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def Gene
   "A discrete unit of inheritance which affects one or more biological traits (Source: <a href=\"https://en.wikipedia.org/wiki/Gene\">https://en.wikipedia.org/wiki/Gene</a>). Examples include FOXP2 (Forkhead box protein P2), SCARNA21 (small Cajal body-specific RNA 21), A- (agouti genotype)."
@@ -4176,10 +4176,10 @@
    :rdfs/label       #voc/lstr "GeneralContractor@en",
    :rdfs/subClassOf  [:schema/HomeAndConstructionBusiness
                       :schema/GeneralContractor
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def GeoCircle
   "A GeoCircle is a GeoShape representing a circular geographic area. As it is a GeoShape it provides the simple textual property 'circle', but also allows the combination of postalCode alongside geoRadius. The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'."
@@ -4192,9 +4192,9 @@
    :rdfs/label #voc/lstr "GeoCircle@en",
    :rdfs/subClassOf [:schema/GeoShape
                      :schema/GeoCircle
-                     :schema/Thing
                      :schema/StructuredValue
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def GeoCoordinates
   "The geographic coordinates of a place or event."
@@ -4206,8 +4206,8 @@
    :rdfs/label       #voc/lstr "GeoCoordinates@en",
    :rdfs/subClassOf  [:schema/StructuredValue
                       :schema/GeoCoordinates
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def GeoShape
   "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points."
@@ -4219,7 +4219,7 @@
    :rdfs/isDefinedBy :schema/GeoShape,
    :rdfs/label #voc/lstr "GeoShape@en",
    :rdfs/subClassOf
-   [:schema/StructuredValue :schema/GeoShape :schema/Thing :schema/Intangible]})
+   [:schema/StructuredValue :schema/GeoShape :schema/Intangible :schema/Thing]})
 
 (def GeospatialGeometry
   "(Eventually to be defined as) a supertype of GeoShape designed to accommodate definitions from Geo-Spatial best practices."
@@ -4243,7 +4243,7 @@
    :rdfs/isDefinedBy :schema/GiveAction,
    :rdfs/label #voc/lstr "GiveAction@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/GiveAction :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/GiveAction :schema/Action :schema/Thing]})
 
 (def GolfCourse
   "A golf course."
@@ -4254,10 +4254,10 @@
    :rdfs/label       #voc/lstr "GolfCourse@en",
    :rdfs/subClassOf  [:schema/SportsActivityLocation
                       :schema/GolfCourse
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def GovernmentBenefitsType
   "GovernmentBenefitsType enumerates several kinds of government benefits to support the COVID-19 situation. Note that this structure may not capture all benefits offered."
@@ -4270,8 +4270,8 @@
    :rdfs/label #voc/lstr "GovernmentBenefitsType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/GovernmentBenefitsType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def GovernmentBuilding
   "A government building."
@@ -4282,8 +4282,8 @@
    :rdfs/label       #voc/lstr "GovernmentBuilding@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/GovernmentBuilding
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def GovernmentOffice
   "A government office&#x2014;for example, an IRS or DMV office."
@@ -4295,9 +4295,9 @@
    :rdfs/label #voc/lstr "GovernmentOffice@en",
    :rdfs/subClassOf [:schema/LocalBusiness
                      :schema/GovernmentOffice
-                     :schema/Thing
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def GovernmentOrganization
   "A governmental organization or agency."
@@ -4319,8 +4319,8 @@
    :rdfs/label       #voc/lstr "GovernmentPermit@en",
    :rdfs/subClassOf  [:schema/Permit
                       :schema/GovernmentPermit
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def GovernmentService
   "A service provided by a government organization, e.g. food stamps, veterans benefits, etc."
@@ -4333,8 +4333,8 @@
    :rdfs/label #voc/lstr "GovernmentService@en",
    :rdfs/subClassOf [:schema/Service
                      :schema/GovernmentService
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Grant
   "A grant, typically financial or otherwise quantifiable, of resources. Typically a <a class=\"localLink\" href=\"https://schema.org/funder\">funder</a> sponsors some <a class=\"localLink\" href=\"https://schema.org/MonetaryAmount\">MonetaryAmount</a> to an <a class=\"localLink\" href=\"https://schema.org/Organization\">Organization</a> or <a class=\"localLink\" href=\"https://schema.org/Person\">Person</a>, sometimes not necessarily via a dedicated or long-lived <a class=\"localLink\" href=\"https://schema.org/Project\">Project</a>, resulting in one or more outputs, or <a class=\"localLink\" href=\"https://schema.org/fundedItem\">fundedItem</a>s. For financial sponsorship, indicate the <a class=\"localLink\" href=\"https://schema.org/funder\">funder</a> of a <a class=\"localLink\" href=\"https://schema.org/MonetaryGrant\">MonetaryGrant</a>. For non-financial support, indicate <a class=\"localLink\" href=\"https://schema.org/sponsor\">sponsor</a> of <a class=\"localLink\" href=\"https://schema.org/Grant\">Grant</a>s of resources (e.g. office space).<br/><br/> Grants support activities directed towards some agreed collective goals, often but not always organized as <a class=\"localLink\" href=\"https://schema.org/Project\">Project</a>s. Long-lived projects are sometimes sponsored by a variety of grants over time, but it is also common for a project to be associated with a single grant.<br/><br/> The amount of a <a class=\"localLink\" href=\"https://schema.org/Grant\">Grant</a> is represented using <a class=\"localLink\" href=\"https://schema.org/amount\">amount</a> as a <a class=\"localLink\" href=\"https://schema.org/MonetaryAmount\">MonetaryAmount</a>."
@@ -4356,10 +4356,10 @@
    :rdfs/label       #voc/lstr "GroceryStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/GroceryStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Guide
   "<a class=\"localLink\" href=\"https://schema.org/Guide\">Guide</a> is a page or article that recommends specific products or services, or aspects of a thing for a user to consider. A <a class=\"localLink\" href=\"https://schema.org/Guide\">Guide</a> may represent a Buying Guide and detail aspects of products or services for a user to consider. A <a class=\"localLink\" href=\"https://schema.org/Guide\">Guide</a> may represent a Product Guide and recommend specific products or services. A <a class=\"localLink\" href=\"https://schema.org/Guide\">Guide</a> may represent a Ranked List and recommend specific products or services with ranking."
@@ -4383,10 +4383,10 @@
    :rdfs/label #voc/lstr "HVACBusiness@en",
    :rdfs/subClassOf [:schema/HomeAndConstructionBusiness
                      :schema/HVACBusiness
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def Hackathon
   "A <a href=\"https://en.wikipedia.org/wiki/Hackathon\">hackathon</a> event."
@@ -4408,10 +4408,10 @@
    :rdfs/label       #voc/lstr "HairSalon@en",
    :rdfs/subClassOf  [:schema/HealthAndBeautyBusiness
                       :schema/HairSalon
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def HardwareStore
   "A hardware store."
@@ -4422,10 +4422,10 @@
    :rdfs/label       #voc/lstr "HardwareStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/HardwareStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def HealthAndBeautyBusiness
   "Health and beauty."
@@ -4436,9 +4436,9 @@
    :rdfs/label       #voc/lstr "HealthAndBeautyBusiness@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/HealthAndBeautyBusiness
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def HealthAspectEnumeration
   "HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using <a class=\"localLink\" href=\"https://schema.org/hasHealthAspect\">hasHealthAspect</a> and <a class=\"localLink\" href=\"https://schema.org/HealthTopicContent\">HealthTopicContent</a>."
@@ -4451,8 +4451,8 @@
    :rdfs/label #voc/lstr "HealthAspectEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/HealthAspectEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def HealthClub
   "A health club."
@@ -4464,10 +4464,10 @@
    :rdfs/subClassOf  [:schema/SportsActivityLocation
                       :schema/HealthAndBeautyBusiness
                       :schema/HealthClub
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def HealthInsurancePlan
   "A US-style health insurance plan, including PPOs, EPOs, and HMOs."
@@ -4529,8 +4529,8 @@
    :rdfs/label #voc/lstr "HealthTopicContent@en",
    :rdfs/subClassOf [:schema/WebContent
                      :schema/HealthTopicContent
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def HighSchool
   "A high school."
@@ -4541,10 +4541,10 @@
    :rdfs/label       #voc/lstr "HighSchool@en",
    :rdfs/subClassOf  [:schema/EducationalOrganization
                       :schema/HighSchool
-                      :schema/Thing
-                      :schema/CivicStructure
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/CivicStructure
+                      :schema/Thing]})
 
 (def HinduTemple
   "A Hindu temple."
@@ -4555,9 +4555,9 @@
    :rdfs/label       #voc/lstr "HinduTemple@en",
    :rdfs/subClassOf  [:schema/PlaceOfWorship
                       :schema/HinduTemple
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def HobbyShop
   "A store that sells materials useful or necessary for various hobbies."
@@ -4570,10 +4570,10 @@
    :rdfs/label #voc/lstr "HobbyShop@en",
    :rdfs/subClassOf [:schema/Store
                      :schema/HobbyShop
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def HomeAndConstructionBusiness
   "A construction business.<br/><br/> A HomeAndConstructionBusiness is a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a> that provides services around homes and buildings.<br/><br/> As a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a> it can be described as a <a class=\"localLink\" href=\"https://schema.org/provider\">provider</a> of one or more <a class=\"localLink\" href=\"https://schema.org/Service\">Service</a>(s)."
@@ -4586,9 +4586,9 @@
    :rdfs/label #voc/lstr "HomeAndConstructionBusiness@en",
    :rdfs/subClassOf [:schema/LocalBusiness
                      :schema/HomeAndConstructionBusiness
-                     :schema/Thing
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def HomeGoodsStore
   "A home goods store."
@@ -4599,10 +4599,10 @@
    :rdfs/label       #voc/lstr "HomeGoodsStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/HomeGoodsStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Hospital
   "A hospital."
@@ -4615,10 +4615,10 @@
                       :schema/MedicalOrganization
                       :schema/EmergencyService
                       :schema/Hospital
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Hostel
   "A hostel - cheap accommodation, often in shared dormitories. <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -4631,10 +4631,10 @@
    :rdfs/label #voc/lstr "Hostel@en",
    :rdfs/subClassOf [:schema/LodgingBusiness
                      :schema/Hostel
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def Hotel
   "A hotel is an establishment that provides lodging paid on a short-term basis (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Hotel). <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -4647,10 +4647,10 @@
    :rdfs/label #voc/lstr "Hotel@en",
    :rdfs/subClassOf [:schema/LodgingBusiness
                      :schema/Hotel
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def HotelRoom
   "A hotel room is a single room in a hotel. <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -4663,9 +4663,9 @@
    :rdfs/label #voc/lstr "HotelRoom@en",
    :rdfs/subClassOf [:schema/Room
                      :schema/HotelRoom
-                     :schema/Thing
+                     :schema/Place
                      :schema/Accommodation
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def House
   "A house is a building or structure that has the ability to be occupied for habitation by humans or other creatures (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/House\">http://en.wikipedia.org/wiki/House</a>)."
@@ -4677,7 +4677,7 @@
    :rdfs/isDefinedBy :schema/House,
    :rdfs/label #voc/lstr "House@en",
    :rdfs/subClassOf
-   [:schema/Accommodation :schema/House :schema/Thing :schema/Place]})
+   [:schema/Accommodation :schema/House :schema/Place :schema/Thing]})
 
 (def HousePainter
   "A house painting service."
@@ -4688,10 +4688,10 @@
    :rdfs/label       #voc/lstr "HousePainter@en",
    :rdfs/subClassOf  [:schema/HomeAndConstructionBusiness
                       :schema/HousePainter
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def HowTo
   "Instructions that explain how to achieve a result by performing a sequence of steps."
@@ -4716,8 +4716,8 @@
    :rdfs/subClassOf [:schema/ListItem
                      :schema/CreativeWork
                      :schema/HowToDirection
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def HowToItem
   "An item used as either a tool or supply when performing the instructions for how to achieve a result."
@@ -4729,7 +4729,7 @@
    :rdfs/isDefinedBy :schema/HowToItem,
    :rdfs/label #voc/lstr "HowToItem@en",
    :rdfs/subClassOf
-   [:schema/ListItem :schema/HowToItem :schema/Thing :schema/Intangible]})
+   [:schema/ListItem :schema/HowToItem :schema/Intangible :schema/Thing]})
 
 (def HowToSection
   "A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe)."
@@ -4744,8 +4744,8 @@
                      :schema/CreativeWork
                      :schema/ItemList
                      :schema/HowToSection
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def HowToStep
   "A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items."
@@ -4760,8 +4760,8 @@
                      :schema/CreativeWork
                      :schema/ItemList
                      :schema/HowToStep
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def HowToSupply
   "A supply consumed when performing the instructions for how to achieve a result."
@@ -4774,9 +4774,9 @@
    :rdfs/label #voc/lstr "HowToSupply@en",
    :rdfs/subClassOf [:schema/HowToItem
                      :schema/HowToSupply
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/ListItem]})
+                     :schema/ListItem
+                     :schema/Thing]})
 
 (def HowToTip
   "An explanation in the instructions for how to achieve a result. It provides supplementary information about a technique, supply, author's preference, etc. It can explain what could be done, or what should not be done, but doesn't specify what should be done (see HowToDirection)."
@@ -4790,8 +4790,8 @@
    :rdfs/subClassOf [:schema/CreativeWork
                      :schema/ListItem
                      :schema/HowToTip
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def HowToTool
   "A tool used (but not consumed) when performing instructions for how to achieve a result."
@@ -4804,9 +4804,9 @@
    :rdfs/label #voc/lstr "HowToTool@en",
    :rdfs/subClassOf [:schema/HowToItem
                      :schema/HowToTool
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/ListItem]})
+                     :schema/ListItem
+                     :schema/Thing]})
 
 (def HyperToc
   "A HyperToc represents a hypertext table of contents for complex media objects, such as <a class=\"localLink\" href=\"https://schema.org/VideoObject\">VideoObject</a>, <a class=\"localLink\" href=\"https://schema.org/AudioObject\">AudioObject</a>. Items in the table of contents are indicated using the <a class=\"localLink\" href=\"https://schema.org/tocEntry\">tocEntry</a> property, and typed <a class=\"localLink\" href=\"https://schema.org/HyperTocEntry\">HyperTocEntry</a>. For cases where the same larger work is split into multiple files, <a class=\"localLink\" href=\"https://schema.org/associatedMedia\">associatedMedia</a> can be used on individual <a class=\"localLink\" href=\"https://schema.org/HyperTocEntry\">HyperTocEntry</a> items."
@@ -4839,10 +4839,10 @@
    :rdfs/label       #voc/lstr "IceCreamShop@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/IceCreamShop
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def IgnoreAction
   "The act of intentionally disregarding the object. An agent ignores an object."
@@ -4854,7 +4854,7 @@
    :rdfs/isDefinedBy :schema/IgnoreAction,
    :rdfs/label #voc/lstr "IgnoreAction@en",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/IgnoreAction :schema/Thing :schema/Action]})
+   [:schema/AssessAction :schema/IgnoreAction :schema/Action :schema/Thing]})
 
 (def ImageGallery
   "Web page type: Image gallery page."
@@ -4865,10 +4865,10 @@
    :rdfs/label       #voc/lstr "ImageGallery@en",
    :rdfs/subClassOf  [:schema/MediaGallery
                       :schema/ImageGallery
-                      :schema/WebPage
                       :schema/CollectionPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/WebPage
+                      :schema/Thing]})
 
 (def ImageObject
   "An image file."
@@ -4879,8 +4879,8 @@
    :rdfs/label       #voc/lstr "ImageObject@en",
    :rdfs/subClassOf  [:schema/MediaObject
                       :schema/ImageObject
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def ImageObjectSnapshot
   "A specific and exact (byte-for-byte) version of an <a class=\"localLink\" href=\"https://schema.org/ImageObject\">ImageObject</a>. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata (e.g. XMP, EXIF) the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity."
@@ -4893,9 +4893,9 @@
    :rdfs/label #voc/lstr "ImageObjectSnapshot@en",
    :rdfs/subClassOf [:schema/ImageObject
                      :schema/ImageObjectSnapshot
-                     :schema/Thing
+                     :schema/MediaObject
                      :schema/CreativeWork
-                     :schema/MediaObject]})
+                     :schema/Thing]})
 
 (def ImagingTest
   "Any medical imaging modality typically used for diagnostic purposes."
@@ -4908,8 +4908,8 @@
    :rdfs/label #voc/lstr "ImagingTest@en",
    :rdfs/subClassOf [:schema/MedicalTest
                      :schema/ImagingTest
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def IndividualProduct
   "A single, identifiable product instance (e.g. a laptop with a particular serial number)."
@@ -4933,9 +4933,9 @@
    :rdfs/label #voc/lstr "InfectiousAgentClass@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/InfectiousAgentClass
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def InfectiousDisease
   "An infectious disease is a clinically evident human disease resulting from the presence of pathogenic microbial agents, like pathogenic viruses, pathogenic bacteria, fungi, protozoa, multicellular parasites, and prions. To be considered an infectious disease, such pathogens are known to be able to cause this disease."
@@ -4948,8 +4948,8 @@
    :rdfs/label #voc/lstr "InfectiousDisease@en",
    :rdfs/subClassOf [:schema/MedicalCondition
                      :schema/InfectiousDisease
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def InformAction
   "The act of notifying someone of information pertinent to them, with no expectation of a response."
@@ -4962,9 +4962,9 @@
    :rdfs/label #voc/lstr "InformAction@en",
    :rdfs/subClassOf [:schema/CommunicateAction
                      :schema/InformAction
+                     :schema/Action
                      :schema/InteractAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def InsertAction
   "The act of adding at a specific location in an ordered collection."
@@ -4977,9 +4977,9 @@
    :rdfs/label #voc/lstr "InsertAction@en",
    :rdfs/subClassOf [:schema/AddAction
                      :schema/InsertAction
+                     :schema/Action
                      :schema/UpdateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def InstallAction
   "The act of installing an application."
@@ -4990,8 +4990,8 @@
    :rdfs/label       #voc/lstr "InstallAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/InstallAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def InsuranceAgency
   "An Insurance agency."
@@ -5002,10 +5002,10 @@
    :rdfs/label       #voc/lstr "InsuranceAgency@en",
    :rdfs/subClassOf  [:schema/FinancialService
                       :schema/InsuranceAgency
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Intangible
   "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."
@@ -5027,8 +5027,8 @@
    :rdfs/label       #voc/lstr "Integer@en",
    :rdfs/subClassOf  [:schema/Number
                       :schema/Integer
-                      :rdfs/Class
-                      :schema/DataType]})
+                      :schema/DataType
+                      :rdfs/Class]})
 
 (def InteractAction
   "The act of interacting with another person or organization."
@@ -5051,8 +5051,8 @@
    :rdfs/label #voc/lstr "InteractionCounter@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/InteractionCounter
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def InternetCafe
   "An internet cafe."
@@ -5063,9 +5063,9 @@
    :rdfs/label       #voc/lstr "InternetCafe@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/InternetCafe
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def InvestmentFund
   "A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets."
@@ -5078,10 +5078,10 @@
    :rdfs/label #voc/lstr "InvestmentFund@en",
    :rdfs/subClassOf [:schema/InvestmentOrDeposit
                      :schema/InvestmentFund
-                     :schema/Service
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/FinancialProduct]})
+                     :schema/FinancialProduct
+                     :schema/Service
+                     :schema/Thing]})
 
 (def InvestmentOrDeposit
   "A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return."
@@ -5094,9 +5094,9 @@
    :rdfs/label #voc/lstr "InvestmentOrDeposit@en",
    :rdfs/subClassOf [:schema/FinancialProduct
                      :schema/InvestmentOrDeposit
+                     :schema/Intangible
                      :schema/Service
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def InviteAction
   "The act of asking someone to attend an event. Reciprocal of RsvpAction."
@@ -5109,9 +5109,9 @@
    :rdfs/label #voc/lstr "InviteAction@en",
    :rdfs/subClassOf [:schema/CommunicateAction
                      :schema/InviteAction
+                     :schema/Action
                      :schema/InteractAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Invoice
   "A statement of the money due for goods or services; a bill."
@@ -5133,8 +5133,8 @@
    :rdfs/label       #voc/lstr "ItemAvailability@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/ItemAvailability
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def ItemList
   "A list of items of any sort&#x2014;for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. Not to be confused with HTML lists, which are often used only for formatting."
@@ -5158,8 +5158,8 @@
    :rdfs/label #voc/lstr "ItemListOrderType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/ItemListOrderType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ItemPage
   "A page devoted to a single item, such as a particular product or hotel."
@@ -5171,7 +5171,7 @@
    :rdfs/isDefinedBy :schema/ItemPage,
    :rdfs/label #voc/lstr "ItemPage@en",
    :rdfs/subClassOf
-   [:schema/WebPage :schema/ItemPage :schema/Thing :schema/CreativeWork]})
+   [:schema/WebPage :schema/ItemPage :schema/CreativeWork :schema/Thing]})
 
 (def JewelryStore
   "A jewelry store."
@@ -5182,10 +5182,10 @@
    :rdfs/label       #voc/lstr "JewelryStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/JewelryStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def JobPosting
   "A listing that describes a job opening in a certain organization."
@@ -5208,7 +5208,7 @@
    :rdfs/isDefinedBy :schema/JoinAction,
    :rdfs/label #voc/lstr "JoinAction@en",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/JoinAction :schema/Thing :schema/Action]})
+   [:schema/InteractAction :schema/JoinAction :schema/Action :schema/Thing]})
 
 (def Joint
   "The anatomical location at which two or more bones make contact."
@@ -5221,8 +5221,8 @@
    :rdfs/label #voc/lstr "Joint@en",
    :rdfs/subClassOf [:schema/AnatomicalStructure
                      :schema/Joint
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def LakeBodyOfWater
   "A lake (for example, Lake Pontrachain)."
@@ -5234,8 +5234,8 @@
    :rdfs/subClassOf  [:schema/BodyOfWater
                       :schema/LakeBodyOfWater
                       :schema/Landform
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Landform
   "A landform or physical feature. Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins."
@@ -5292,7 +5292,7 @@
    :rdfs/isDefinedBy :schema/LeaveAction,
    :rdfs/label #voc/lstr "LeaveAction@en",
    :rdfs/subClassOf
-   [:schema/InteractAction :schema/LeaveAction :schema/Thing :schema/Action]})
+   [:schema/InteractAction :schema/LeaveAction :schema/Action :schema/Thing]})
 
 (def LegalForceStatus
   "A list of possible statuses for the legal force of a legislation."
@@ -5305,9 +5305,9 @@
    :rdfs/label #voc/lstr "LegalForceStatus@en",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/LegalForceStatus
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def LegalService
   "A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.<br/><br/> As a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a> it can be described as a <a class=\"localLink\" href=\"https://schema.org/provider\">provider</a> of one or more <a class=\"localLink\" href=\"https://schema.org/Service\">Service</a>(s)."
@@ -5320,9 +5320,9 @@
    :rdfs/label #voc/lstr "LegalService@en",
    :rdfs/subClassOf [:schema/LocalBusiness
                      :schema/LegalService
-                     :schema/Thing
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def LegalValueLevel
   "A list of possible levels for the legal validity of a legislation."
@@ -5335,8 +5335,8 @@
    :rdfs/label #voc/lstr "LegalValueLevel@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/LegalValueLevel
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Legislation
   "A legal document such as an act, decree, bill, etc. (enforceable or not) or a component of a legal act (like an article)."
@@ -5361,8 +5361,8 @@
    :rdfs/subClassOf [:schema/MediaObject
                      :schema/Legislation
                      :schema/LegislationObject
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def LegislativeBuilding
   "A legislative building&#x2014;for example, the state capitol."
@@ -5374,9 +5374,9 @@
    :rdfs/label #voc/lstr "LegislativeBuilding@en",
    :rdfs/subClassOf [:schema/GovernmentBuilding
                      :schema/LegislativeBuilding
-                     :schema/Thing
+                     :schema/Place
                      :schema/CivicStructure
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def LendAction
   "The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/BorrowAction\">BorrowAction</a>: Reciprocal of LendAction.</li> </ul>"
@@ -5388,7 +5388,7 @@
    :rdfs/isDefinedBy :schema/LendAction,
    :rdfs/label #voc/lstr "LendAction@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/LendAction :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/LendAction :schema/Action :schema/Thing]})
 
 (def Library
   "A library."
@@ -5399,9 +5399,9 @@
    :rdfs/label       #voc/lstr "Library@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/Library
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def LibrarySystem
   "A <a class=\"localLink\" href=\"https://schema.org/LibrarySystem\">LibrarySystem</a> is a collaborative system amongst several libraries."
@@ -5437,8 +5437,8 @@
    :rdfs/label #voc/lstr "Ligament@en",
    :rdfs/subClassOf [:schema/AnatomicalStructure
                      :schema/Ligament
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def LikeAction
   "The act of expressing a positive sentiment about the object. An agent likes an object (a proposition, topic or theme) with participants."
@@ -5451,9 +5451,9 @@
    :rdfs/label #voc/lstr "LikeAction@en",
    :rdfs/subClassOf [:schema/ReactAction
                      :schema/LikeAction
-                     :schema/Thing
                      :schema/Action
-                     :schema/AssessAction]})
+                     :schema/AssessAction
+                     :schema/Thing]})
 
 (def LinkRole
   "A Role that represents a Web link, e.g. as expressed via the 'url' property. Its linkRelationship property can indicate URL-based and plain textual link types, e.g. those in IANA link registry or others such as 'amphtml'. This structure provides a placeholder where details from HTML's link element can be represented outside of HTML, e.g. in JSON-LD feeds."
@@ -5465,7 +5465,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/LinkRole",
    :rdfs/label #voc/lstr "LinkRole@en",
    :rdfs/subClassOf
-   [:schema/Role :schema/LinkRole :schema/Thing :schema/Intangible]})
+   [:schema/Role :schema/LinkRole :schema/Intangible :schema/Thing]})
 
 (def LiquorStore
   "A shop that sells alcoholic drinks such as wine, beer, whisky and other spirits."
@@ -5478,10 +5478,10 @@
    :rdfs/label #voc/lstr "LiquorStore@en",
    :rdfs/subClassOf [:schema/Store
                      :schema/LiquorStore
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def ListItem
   "An list item, e.g. a step in a checklist or how-to description."
@@ -5503,8 +5503,8 @@
    :rdfs/label       #voc/lstr "ListenAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/ListenAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def LiteraryEvent
   "Event type: Literary event."
@@ -5527,9 +5527,9 @@
    :rdfs/subClassOf [:schema/BlogPosting
                      :schema/LiveBlogPosting
                      :schema/Article
-                     :schema/Thing
+                     :schema/CreativeWork
                      :schema/SocialMediaPosting
-                     :schema/CreativeWork]})
+                     :schema/Thing]})
 
 (def LoanOrCredit
   "A financial product for the loaning of an amount of money, or line of credit, under agreed terms and charges."
@@ -5542,9 +5542,9 @@
    :rdfs/label #voc/lstr "LoanOrCredit@en",
    :rdfs/subClassOf [:schema/FinancialProduct
                      :schema/LoanOrCredit
+                     :schema/Intangible
                      :schema/Service
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def LocalBusiness
   "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc."
@@ -5569,9 +5569,9 @@
    :rdfs/label #voc/lstr "LocationFeatureSpecification@en",
    :rdfs/subClassOf [:schema/PropertyValue
                      :schema/LocationFeatureSpecification
-                     :schema/Thing
                      :schema/StructuredValue
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Locksmith
   "A locksmith."
@@ -5582,10 +5582,10 @@
    :rdfs/label       #voc/lstr "Locksmith@en",
    :rdfs/subClassOf  [:schema/HomeAndConstructionBusiness
                       :schema/Locksmith
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def LodgingBusiness
   "A lodging business, such as a motel, hotel, or inn."
@@ -5597,9 +5597,9 @@
    :rdfs/label       #voc/lstr "LodgingBusiness@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/LodgingBusiness
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def LodgingReservation
   "A reservation for lodging at a hotel, motel, inn, etc.<br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."
@@ -5612,8 +5612,8 @@
    :rdfs/label #voc/lstr "LodgingReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/LodgingReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def LoseAction
   "The act of being defeated in a competitive activity."
@@ -5625,8 +5625,8 @@
    :rdfs/label       #voc/lstr "LoseAction@en",
    :rdfs/subClassOf  [:schema/AchieveAction
                       :schema/LoseAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def LymphaticVessel
   "A type of blood vessel that specifically carries lymph fluid unidirectionally toward the heart."
@@ -5639,9 +5639,9 @@
    :rdfs/label #voc/lstr "LymphaticVessel@en",
    :rdfs/subClassOf [:schema/Vessel
                      :schema/LymphaticVessel
-                     :schema/Thing
                      :schema/AnatomicalStructure
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Manuscript
   "A book, document, or piece of music written by hand rather than typed or printed."
@@ -5672,8 +5672,8 @@
    :rdfs/label       #voc/lstr "MapCategoryType@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/MapCategoryType
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def MarryAction
   "The act of marrying a person."
@@ -5684,8 +5684,8 @@
    :rdfs/label       #voc/lstr "MarryAction@en",
    :rdfs/subClassOf  [:schema/InteractAction
                       :schema/MarryAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def Mass
   "Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'."
@@ -5697,7 +5697,7 @@
    :rdfs/isDefinedBy :schema/Mass,
    :rdfs/label #voc/lstr "Mass@en",
    :rdfs/subClassOf
-   [:schema/Quantity :schema/Mass :schema/Thing :schema/Intangible]})
+   [:schema/Quantity :schema/Mass :schema/Intangible :schema/Thing]})
 
 (def MathSolver
   "A math solver which is capable of solving a subset of mathematical problems."
@@ -5722,8 +5722,8 @@
    :rdfs/subClassOf [:schema/DoseSchedule
                      :schema/MaximumDoseSchedule
                      :schema/MedicalIntangible
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MeasurementTypeEnumeration
   "Enumeration of common measurement types (or dimensions), for example \"chest\" for a person, \"inseam\" for pants, \"gauge\" for screws, or \"wheel\" for bicycles."
@@ -5736,8 +5736,8 @@
    :rdfs/label #voc/lstr "MeasurementTypeEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/MeasurementTypeEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def MediaGallery
   "Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia."
@@ -5750,9 +5750,9 @@
    :rdfs/label #voc/lstr "MediaGallery@en",
    :rdfs/subClassOf [:schema/CollectionPage
                      :schema/MediaGallery
+                     :schema/CreativeWork
                      :schema/WebPage
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/Thing]})
 
 (def MediaManipulationRatingEnumeration
   "Codes for use with the <a class=\"localLink\" href=\"https://schema.org/mediaAuthenticityCategory\">mediaAuthenticityCategory</a> property, indicating the authenticity of a media object (in the context of how it was published or shared). In general these codes are not mutually exclusive, although some combinations (such as 'original' versus 'transformed', 'edited' and 'staged') would be contradictory if applied in the same <a class=\"localLink\" href=\"https://schema.org/MediaReview\">MediaReview</a>. Note that the application of these codes is with regard to a piece of media shared or published in a particular context."
@@ -5766,8 +5766,8 @@
    :rdfs/label #voc/lstr "MediaManipulationRatingEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/MediaManipulationRatingEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def MediaObject
   "A media object, such as an image, video, or audio object embedded in a web page or a downloadable dataset, i.e. DataDownload. Note that a creative work may have many media objects associated with it on the same web page. For example, a page about a single song (MusicRecording) may have a music video (VideoObject), and a high and low bandwidth audio stream (2 <a class=\"localLink\" href=\"https://schema.org/AudioObject\">AudioObject</a>s)."
@@ -5790,7 +5790,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/MediaReview",
    :rdfs/label #voc/lstr "MediaReview@en",
    :rdfs/subClassOf
-   [:schema/Review :schema/MediaReview :schema/Thing :schema/CreativeWork]})
+   [:schema/Review :schema/MediaReview :schema/CreativeWork :schema/Thing]})
 
 (def MediaReviewItem
   "Represents an item or group of closely related items treated as a unit for the sake of evaluation in a <a class=\"localLink\" href=\"https://schema.org/MediaReview\">MediaReview</a>. Authorship etc. apply to the items rather than to the curation/grouping or reviewing party."
@@ -5826,8 +5826,8 @@
    :rdfs/subClassOf  [:schema/Audience
                       :schema/PeopleAudience
                       :schema/MedicalAudience
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def MedicalAudienceType
   "Target audiences types for medical web pages. Enumerated type."
@@ -5840,9 +5840,9 @@
    :rdfs/label #voc/lstr "MedicalAudienceType@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/MedicalAudienceType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def MedicalBusiness
   "A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include different businesses run by health professionals."
@@ -5855,9 +5855,9 @@
    :rdfs/label #voc/lstr "MedicalBusiness@en",
    :rdfs/subClassOf [:schema/LocalBusiness
                      :schema/MedicalBusiness
-                     :schema/Thing
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def MedicalCause
   "The causative agent(s) that are responsible for the pathophysiologic process that eventually results in a medical condition, symptom or sign. In this schema, unless otherwise specified this is meant to be the proximate cause of the medical condition, symptom or sign. The proximate cause is defined as the causative agent that most directly results in the medical condition, symptom or sign. For example, the HIV virus could be considered a cause of AIDS. Or in a diagnostic context, if a patient fell and sustained a hip fracture and two days later sustained a pulmonary embolism which eventuated in a cardiac arrest, the cause of the cardiac arrest (the proximate cause) would be the pulmonary embolism and not the fall. Medical causes can include cardiovascular, chemical, dermatologic, endocrine, environmental, gastroenterologic, genetic, hematologic, gynecologic, iatrogenic, infectious, musculoskeletal, neurologic, nutritional, obstetric, oncologic, otolaryngologic, pharmacologic, psychiatric, pulmonary, renal, rheumatologic, toxic, traumatic, or urologic causes; medical conditions can be causes as well."
@@ -5882,10 +5882,10 @@
    :rdfs/subClassOf [:schema/MedicalBusiness
                      :schema/MedicalOrganization
                      :schema/MedicalClinic
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def MedicalCode
   "A code for a medical entity."
@@ -5897,10 +5897,10 @@
    :rdfs/subClassOf  [:schema/MedicalIntangible
                       :schema/CategoryCode
                       :schema/MedicalCode
-                      :schema/DefinedTerm
-                      :schema/Thing
                       :schema/Intangible
-                      :schema/MedicalEntity]})
+                      :schema/DefinedTerm
+                      :schema/MedicalEntity
+                      :schema/Thing]})
 
 (def MedicalCondition
   "Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc."
@@ -5924,8 +5924,8 @@
    :rdfs/label #voc/lstr "MedicalConditionStage@en",
    :rdfs/subClassOf [:schema/MedicalIntangible
                      :schema/MedicalConditionStage
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalContraindication
   "A condition or factor that serves as a reason to withhold a certain medical therapy. Contraindications can be absolute (there are no reasonable circumstances for undertaking a course of action) or relative (the patient is at higher risk of complications, but these risks may be outweighed by other considerations or mitigated by other measures)."
@@ -5963,9 +5963,9 @@
    :rdfs/label #voc/lstr "MedicalDevicePurpose@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/MedicalDevicePurpose
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def MedicalEntity
   "The most generic type of entity related to health and the practice of medicine."
@@ -5989,8 +5989,8 @@
    :rdfs/label #voc/lstr "MedicalEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/MedicalEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def MedicalEvidenceLevel
   "Level of evidence for a medical guideline. Enumerated type."
@@ -6002,9 +6002,9 @@
    :rdfs/label #voc/lstr "MedicalEvidenceLevel@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/MedicalEvidenceLevel
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def MedicalGuideline
   "Any recommendation made by a standard society (e.g. ACC/AHA) or consensus statement that denotes how to diagnose and treat a particular condition. Note: this type should be used to tag the actual guideline recommendation; if the guideline recommendation occurs in a larger scholarly article, use MedicalScholarlyArticle to tag the overall article, not this type. Note also: the organization making the recommendation should be captured in the recognizingAuthority base property of MedicalEntity."
@@ -6030,8 +6030,8 @@
    :rdfs/label #voc/lstr "MedicalGuidelineContraindication@en",
    :rdfs/subClassOf [:schema/MedicalGuideline
                      :schema/MedicalGuidelineContraindication
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalGuidelineRecommendation
   "A guideline recommendation that is regarded as efficacious and where quality of the data supporting the recommendation is sound."
@@ -6045,8 +6045,8 @@
    :rdfs/label #voc/lstr "MedicalGuidelineRecommendation@en",
    :rdfs/subClassOf [:schema/MedicalGuideline
                      :schema/MedicalGuidelineRecommendation
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalImagingTechnique
   "Any medical imaging modality typically used for diagnostic purposes. Enumerated type."
@@ -6060,9 +6060,9 @@
    :rdfs/label #voc/lstr "MedicalImagingTechnique@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/MedicalImagingTechnique
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def MedicalIndication
   "A condition or factor that indicates use of a medical therapy, including signs, symptoms, risk factors, anatomical states, etc."
@@ -6100,8 +6100,8 @@
    :rdfs/label #voc/lstr "MedicalObservationalStudy@en",
    :rdfs/subClassOf [:schema/MedicalStudy
                      :schema/MedicalObservationalStudy
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalObservationalStudyDesign
   "Design models for observational medical studies. Enumerated type."
@@ -6115,9 +6115,9 @@
    :rdfs/label #voc/lstr "MedicalObservationalStudyDesign@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/MedicalObservationalStudyDesign
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def MedicalOrganization
   "A medical organization (physical or not), such as hospital, institution or clinic."
@@ -6154,9 +6154,9 @@
    :rdfs/label #voc/lstr "MedicalProcedureType@en",
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/MedicalProcedureType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def MedicalRiskCalculator
   "A complex mathematical calculation requiring an online calculator, used to assess prognosis. Note: use the url property of Thing to record any URLs for online calculators."
@@ -6169,8 +6169,8 @@
    :rdfs/label #voc/lstr "MedicalRiskCalculator@en",
    :rdfs/subClassOf [:schema/MedicalRiskEstimator
                      :schema/MedicalRiskCalculator
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalRiskEstimator
   "Any rule set or interactive tool for estimating the risk of developing a complication or condition."
@@ -6207,8 +6207,8 @@
    :rdfs/label #voc/lstr "MedicalRiskScore@en",
    :rdfs/subClassOf [:schema/MedicalRiskEstimator
                      :schema/MedicalRiskScore
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalScholarlyArticle
   "A scholarly article in the medical domain."
@@ -6221,8 +6221,8 @@
    :rdfs/subClassOf [:schema/ScholarlyArticle
                      :schema/MedicalScholarlyArticle
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def MedicalSign
   "Any physical manifestation of a person's medical condition discoverable by objective diagnostic tests or physical examination."
@@ -6235,9 +6235,9 @@
    :rdfs/label #voc/lstr "MedicalSign@en",
    :rdfs/subClassOf [:schema/MedicalSignOrSymptom
                      :schema/MedicalSign
-                     :schema/MedicalCondition
+                     :schema/MedicalEntity
                      :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalCondition]})
 
 (def MedicalSignOrSymptom
   "Any feature associated or not with a medical condition. In medicine a symptom is generally subjective while a sign is objective."
@@ -6250,8 +6250,8 @@
    :rdfs/label #voc/lstr "MedicalSignOrSymptom@en",
    :rdfs/subClassOf [:schema/MedicalCondition
                      :schema/MedicalSignOrSymptom
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalSpecialty
   "Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type."
@@ -6265,9 +6265,9 @@
    :rdfs/subClassOf [:schema/Specialty
                      :schema/MedicalEnumeration
                      :schema/MedicalSpecialty
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def MedicalStudy
   "A medical study is an umbrella type covering all kinds of research studies relating to human medicine or health, including observational studies and interventional trials and registries, randomized, controlled or not. When the specific type of study is known, use one of the extensions of this type, such as MedicalTrial or MedicalObservationalStudy. Also, note that this type should be used to mark up data that describes the study itself; to tag an article that publishes the results of a study, use MedicalScholarlyArticle. Note: use the code property of MedicalEntity to store study IDs, e.g. clinicaltrials.gov ID."
@@ -6290,9 +6290,9 @@
    :rdfs/label       #voc/lstr "MedicalStudyStatus@en",
    :rdfs/subClassOf  [:schema/MedicalEnumeration
                       :schema/MedicalStudyStatus
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def MedicalSymptom
   "Any complaint sensed and expressed by the patient (therefore defined as subjective) like stomachache, lower-back pain, or fatigue."
@@ -6305,9 +6305,9 @@
    :rdfs/label #voc/lstr "MedicalSymptom@en",
    :rdfs/subClassOf [:schema/MedicalSignOrSymptom
                      :schema/MedicalSymptom
-                     :schema/MedicalCondition
+                     :schema/MedicalEntity
                      :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalCondition]})
 
 (def MedicalTest
   "Any medical test, typically performed for diagnostic purposes."
@@ -6330,8 +6330,8 @@
    :rdfs/label       #voc/lstr "MedicalTestPanel@en",
    :rdfs/subClassOf  [:schema/MedicalTest
                       :schema/MedicalTestPanel
-                      :schema/Thing
-                      :schema/MedicalEntity]})
+                      :schema/MedicalEntity
+                      :schema/Thing]})
 
 (def MedicalTherapy
   "Any medical intervention designed to prevent, treat, and cure human diseases and medical conditions, including both curative and palliative therapies. Medical therapies are typically processes of care relying upon pharmacotherapy, behavioral therapy, supportive therapy (with fluid or nutrition for example), or detoxification (e.g. hemodialysis) aimed at improving or preventing a health condition."
@@ -6344,9 +6344,9 @@
    :rdfs/label #voc/lstr "MedicalTherapy@en",
    :rdfs/subClassOf [:schema/TherapeuticProcedure
                      :schema/MedicalTherapy
+                     :schema/MedicalEntity
                      :schema/MedicalProcedure
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/Thing]})
 
 (def MedicalTrial
   "A medical trial is a type of medical study that uses a scientific process to compare the safety and efficacy of medical therapies or medical procedures. In general, medical trials are controlled and subjects are allocated at random to the different treatment and/or control groups."
@@ -6359,8 +6359,8 @@
    :rdfs/label #voc/lstr "MedicalTrial@en",
    :rdfs/subClassOf [:schema/MedicalStudy
                      :schema/MedicalTrial
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def MedicalTrialDesign
   "Design models for medical trials. Enumerated type."
@@ -6372,9 +6372,9 @@
    :rdfs/label       #voc/lstr "MedicalTrialDesign@en",
    :rdfs/subClassOf  [:schema/MedicalEnumeration
                       :schema/MedicalTrialDesign
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def MedicalWebPage
   "A web page that provides medical information."
@@ -6386,8 +6386,8 @@
    :rdfs/label       #voc/lstr "MedicalWebPage@en",
    :rdfs/subClassOf  [:schema/WebPage
                       :schema/MedicalWebPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def MedicineSystem
   "Systems of medical practice."
@@ -6398,9 +6398,9 @@
    :rdfs/label       #voc/lstr "MedicineSystem@en",
    :rdfs/subClassOf  [:schema/MedicalEnumeration
                       :schema/MedicineSystem
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def MeetingRoom
   "A meeting room, conference room, or conference hall is a room provided for singular events such as business conferences and meetings (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Conference_hall\">http://en.wikipedia.org/wiki/Conference_hall</a>). <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -6413,9 +6413,9 @@
    :rdfs/label #voc/lstr "MeetingRoom@en",
    :rdfs/subClassOf [:schema/Room
                      :schema/MeetingRoom
-                     :schema/Thing
+                     :schema/Place
                      :schema/Accommodation
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def MensClothingStore
   "A men's clothing store."
@@ -6426,10 +6426,10 @@
    :rdfs/label       #voc/lstr "MensClothingStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/MensClothingStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Menu
   "A structured representation of food or drink items available from a FoodEstablishment."
@@ -6473,8 +6473,8 @@
    :rdfs/label       #voc/lstr "MerchantReturnEnumeration@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/MerchantReturnEnumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def MerchantReturnPolicy
   "A MerchantReturnPolicy provides information about product return policies associated with an <a class=\"localLink\" href=\"https://schema.org/Organization\">Organization</a>, <a class=\"localLink\" href=\"https://schema.org/Product\">Product</a>, or <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."
@@ -6524,10 +6524,10 @@
    :rdfs/label #voc/lstr "MiddleSchool@en",
    :rdfs/subClassOf [:schema/EducationalOrganization
                      :schema/MiddleSchool
-                     :schema/Thing
-                     :schema/CivicStructure
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/CivicStructure
+                     :schema/Thing]})
 
 (def MobileApplication
   "A software application designed specifically to work well on a mobile device such as a telephone."
@@ -6540,8 +6540,8 @@
    :rdfs/label #voc/lstr "MobileApplication@en",
    :rdfs/subClassOf [:schema/SoftwareApplication
                      :schema/MobileApplication
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def MobilePhoneStore
   "A store that sells mobile phones and related accessories."
@@ -6553,10 +6553,10 @@
    :rdfs/label #voc/lstr "MobilePhoneStore@en",
    :rdfs/subClassOf [:schema/Store
                      :schema/MobilePhoneStore
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def MolecularEntity
   "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity."
@@ -6581,8 +6581,8 @@
    :rdfs/label #voc/lstr "MonetaryAmount@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/MonetaryAmount
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def MonetaryAmountDistribution
   "A statistical distribution of monetary amounts."
@@ -6594,9 +6594,9 @@
    :rdfs/label       #voc/lstr "MonetaryAmountDistribution@en",
    :rdfs/subClassOf  [:schema/QuantitativeValueDistribution
                       :schema/MonetaryAmountDistribution
-                      :schema/Thing
                       :schema/StructuredValue
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def MonetaryGrant
   "A monetary grant."
@@ -6607,8 +6607,8 @@
    :rdfs/label       #voc/lstr "MonetaryGrant@en",
    :rdfs/subClassOf  [:schema/Grant
                       :schema/MonetaryGrant
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def MoneyTransfer
   "The act of transferring money from one place to another place. This may occur electronically or physically."
@@ -6620,7 +6620,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/MoneyTransfer",
    :rdfs/label #voc/lstr "MoneyTransfer@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/MoneyTransfer :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/MoneyTransfer :schema/Action :schema/Thing]})
 
 (def MortgageLoan
   "A loan in which property or real estate is used as collateral. (A loan securitized against some real estate.)"
@@ -6633,10 +6633,10 @@
    :rdfs/label #voc/lstr "MortgageLoan@en",
    :rdfs/subClassOf [:schema/LoanOrCredit
                      :schema/MortgageLoan
-                     :schema/Service
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/FinancialProduct]})
+                     :schema/FinancialProduct
+                     :schema/Service
+                     :schema/Thing]})
 
 (def Mosque
   "A mosque."
@@ -6647,9 +6647,9 @@
    :rdfs/label       #voc/lstr "Mosque@en",
    :rdfs/subClassOf  [:schema/PlaceOfWorship
                       :schema/Mosque
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Motel
   "A motel. <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -6662,10 +6662,10 @@
    :rdfs/label #voc/lstr "Motel@en",
    :rdfs/subClassOf [:schema/LodgingBusiness
                      :schema/Motel
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def Motorcycle
   "A motorcycle or motorbike is a single-track, two-wheeled motor vehicle."
@@ -6688,10 +6688,10 @@
    :rdfs/label       #voc/lstr "MotorcycleDealer@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/MotorcycleDealer
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def MotorcycleRepair
   "A motorcycle repair shop."
@@ -6702,10 +6702,10 @@
    :rdfs/label       #voc/lstr "MotorcycleRepair@en",
    :rdfs/subClassOf  [:schema/AutomotiveBusiness
                       :schema/MotorcycleRepair
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def MotorizedBicycle
   "A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling."
@@ -6729,8 +6729,8 @@
    :rdfs/label       #voc/lstr "Mountain@en",
    :rdfs/subClassOf  [:schema/Landform
                       :schema/Mountain
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def MoveAction
   "The act of an agent relocating to a place.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/TransferAction\">TransferAction</a>: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object.</li> </ul>"
@@ -6761,8 +6761,8 @@
    :rdfs/label       #voc/lstr "MovieClip@en",
    :rdfs/subClassOf  [:schema/Clip
                       :schema/MovieClip
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def MovieRentalStore
   "A movie rental store."
@@ -6773,10 +6773,10 @@
    :rdfs/label       #voc/lstr "MovieRentalStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/MovieRentalStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def MovieSeries
   "A series of movies. Included movies can be indicated with the hasPart property."
@@ -6789,10 +6789,10 @@
    :rdfs/label #voc/lstr "MovieSeries@en",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
                      :schema/MovieSeries
-                     :schema/Thing
-                     :schema/CreativeWork
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def MovieTheater
   "A movie theater."
@@ -6804,10 +6804,10 @@
    :rdfs/subClassOf  [:schema/EntertainmentBusiness
                       :schema/CivicStructure
                       :schema/MovieTheater
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def MovingCompany
   "A moving company."
@@ -6818,10 +6818,10 @@
    :rdfs/label       #voc/lstr "MovingCompany@en",
    :rdfs/subClassOf  [:schema/HomeAndConstructionBusiness
                       :schema/MovingCompany
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Muscle
   "A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement."
@@ -6834,8 +6834,8 @@
    :rdfs/label #voc/lstr "Muscle@en",
    :rdfs/subClassOf [:schema/AnatomicalStructure
                      :schema/Muscle
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Museum
   "A museum."
@@ -6846,8 +6846,8 @@
    :rdfs/label       #voc/lstr "Museum@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Museum
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def MusicAlbum
   "A collection of music tracks."
@@ -6858,8 +6858,8 @@
    :rdfs/label       #voc/lstr "MusicAlbum@en",
    :rdfs/subClassOf  [:schema/MusicPlaylist
                       :schema/MusicAlbum
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def MusicAlbumProductionType
   "Classification of the album by its type of content: soundtrack, live album, studio album, etc."
@@ -6872,8 +6872,8 @@
    :rdfs/label #voc/lstr "MusicAlbumProductionType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/MusicAlbumProductionType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def MusicAlbumReleaseType
   "The kind of release which this album is: single, EP or album."
@@ -6885,8 +6885,8 @@
    :rdfs/label #voc/lstr "MusicAlbumReleaseType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/MusicAlbumReleaseType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def MusicComposition
   "A musical composition."
@@ -6919,8 +6919,8 @@
    :rdfs/label #voc/lstr "MusicGroup@en",
    :rdfs/subClassOf [:schema/PerformingGroup
                      :schema/MusicGroup
-                     :schema/Thing
-                     :schema/Organization]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def MusicPlaylist
   "A collection of music tracks in playlist form."
@@ -6956,8 +6956,8 @@
    :rdfs/label #voc/lstr "MusicRelease@en",
    :rdfs/subClassOf [:schema/MusicPlaylist
                      :schema/MusicRelease
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def MusicReleaseFormatType
   "Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.)."
@@ -6970,8 +6970,8 @@
    :rdfs/label #voc/lstr "MusicReleaseFormatType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/MusicReleaseFormatType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def MusicStore
   "A music store."
@@ -6982,10 +6982,10 @@
    :rdfs/label       #voc/lstr "MusicStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/MusicStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def MusicVenue
   "A music venue."
@@ -6996,8 +6996,8 @@
    :rdfs/label       #voc/lstr "MusicVenue@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/MusicVenue
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def MusicVideoObject
   "A music video file."
@@ -7008,8 +7008,8 @@
    :rdfs/label       #voc/lstr "MusicVideoObject@en",
    :rdfs/subClassOf  [:schema/MediaObject
                       :schema/MusicVideoObject
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def NGO
   "Organization: Non-governmental Organization."
@@ -7032,9 +7032,9 @@
    :rdfs/label #voc/lstr "NLNonprofitType@en",
    :rdfs/subClassOf [:schema/NonprofitType
                      :schema/NLNonprofitType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def NailSalon
   "A nail salon."
@@ -7045,10 +7045,10 @@
    :rdfs/label       #voc/lstr "NailSalon@en",
    :rdfs/subClassOf  [:schema/HealthAndBeautyBusiness
                       :schema/NailSalon
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Nerve
   "A common pathway for the electrochemical nerve impulses that are transmitted along each of the axons."
@@ -7061,8 +7061,8 @@
    :rdfs/label #voc/lstr "Nerve@en",
    :rdfs/subClassOf [:schema/AnatomicalStructure
                      :schema/Nerve
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def NewsArticle
   "A NewsArticle is an article whose content reports news, or provides background context and supporting materials for understanding the news.<br/><br/> A more detailed overview of <a href=\"/docs/news.html\">schema.org News markup</a> is also available."
@@ -7074,7 +7074,7 @@
    :rdfs/isDefinedBy :schema/NewsArticle,
    :rdfs/label #voc/lstr "NewsArticle@en",
    :rdfs/subClassOf
-   [:schema/Article :schema/NewsArticle :schema/Thing :schema/CreativeWork]})
+   [:schema/Article :schema/NewsArticle :schema/CreativeWork :schema/Thing]})
 
 (def NewsMediaOrganization
   "A News/Media organization such as a newspaper or TV station."
@@ -7099,10 +7099,10 @@
    :rdfs/subClassOf [:schema/Periodical
                      :schema/Newspaper
                      :schema/CreativeWorkSeries
-                     :schema/Thing
-                     :schema/CreativeWork
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def NightClub
   "A nightclub or discotheque."
@@ -7113,10 +7113,10 @@
    :rdfs/label       #voc/lstr "NightClub@en",
    :rdfs/subClassOf  [:schema/EntertainmentBusiness
                       :schema/NightClub
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def NonprofitType
   "NonprofitType enumerates several kinds of official non-profit types of which a non-profit organization can be."
@@ -7129,8 +7129,8 @@
    :rdfs/label #voc/lstr "NonprofitType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/NonprofitType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Notary
   "A notary."
@@ -7141,10 +7141,10 @@
    :rdfs/label       #voc/lstr "Notary@en",
    :rdfs/subClassOf  [:schema/LegalService
                       :schema/Notary
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def NoteDigitalDocument
   "A file containing a note, primarily for the author."
@@ -7156,8 +7156,8 @@
    :rdfs/label       #voc/lstr "NoteDigitalDocument@en",
    :rdfs/subClassOf  [:schema/DigitalDocument
                       :schema/NoteDigitalDocument
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def NumberClass
   "Data type: Number.<br/><br/> Usage guidelines:<br/><br/> <ul> <li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.</li> <li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li> </ul>"
@@ -7179,8 +7179,8 @@
    :rdfs/label       #voc/lstr "NutritionInformation@en",
    :rdfs/subClassOf  [:schema/StructuredValue
                       :schema/NutritionInformation
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def Observation
   "Instances of the class <a class=\"localLink\" href=\"https://schema.org/Observation\">Observation</a> are used to specify observations about an entity (which may or may not be an instance of a <a class=\"localLink\" href=\"https://schema.org/StatisticalPopulation\">StatisticalPopulation</a>), at a particular time. The principal properties of an <a class=\"localLink\" href=\"https://schema.org/Observation\">Observation</a> are <a class=\"localLink\" href=\"https://schema.org/observedNode\">observedNode</a>, <a class=\"localLink\" href=\"https://schema.org/measuredProperty\">measuredProperty</a>, <a class=\"localLink\" href=\"https://schema.org/measuredValue\">measuredValue</a> (or <a class=\"localLink\" href=\"https://schema.org/median\">median</a>, etc.) and <a class=\"localLink\" href=\"https://schema.org/observationDate\">observationDate</a> (<a class=\"localLink\" href=\"https://schema.org/measuredProperty\">measuredProperty</a> properties can, but need not always, be W3C RDF Data Cube \"measure properties\", as in the <a href=\"https://www.w3.org/TR/vocab-data-cube/#dsd-example\">lifeExpectancy example</a>). See also <a class=\"localLink\" href=\"https://schema.org/StatisticalPopulation\">StatisticalPopulation</a>, and the <a href=\"/docs/data-and-datasets.html\">data and datasets</a> overview for more details."
@@ -7229,10 +7229,10 @@
    :rdfs/label #voc/lstr "OccupationalTherapy@en",
    :rdfs/subClassOf [:schema/MedicalTherapy
                      :schema/OccupationalTherapy
-                     :schema/MedicalProcedure
-                     :schema/Thing
+                     :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/TherapeuticProcedure]})
+                     :schema/MedicalProcedure
+                     :schema/Thing]})
 
 (def OceanBodyOfWater
   "An ocean (for example, the Pacific)."
@@ -7244,8 +7244,8 @@
    :rdfs/subClassOf  [:schema/BodyOfWater
                       :schema/OceanBodyOfWater
                       :schema/Landform
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Offer
   "An offer to transfer some rights to an item or to provide a service — for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.<br/><br/> Note: As the <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a> property, which identifies the form of offer (e.g. sell, lease, repair, dispose), defaults to http://purl.org/goodrelations/v1#Sell; an Offer without a defined businessFunction value can be assumed to be an offer to sell.<br/><br/> For <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GTIN</a>-related fields, see <a href=\"http://www.gs1.org/barcodes/support/check_digit_calculator\">Check Digit calculator</a> and <a href=\"http://www.gs1us.org/resources/standards/gtin-validation-guide\">validation guide</a> from <a href=\"http://www.gs1.org/\">GS1</a>."
@@ -7268,7 +7268,7 @@
    :rdfs/isDefinedBy :schema/OfferCatalog,
    :rdfs/label #voc/lstr "OfferCatalog@en",
    :rdfs/subClassOf
-   [:schema/ItemList :schema/OfferCatalog :schema/Thing :schema/Intangible]})
+   [:schema/ItemList :schema/OfferCatalog :schema/Intangible :schema/Thing]})
 
 (def OfferForLease
   "An <a class=\"localLink\" href=\"https://schema.org/OfferForLease\">OfferForLease</a> in Schema.org represents an <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a> to lease out something, i.e. an <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a> whose <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a> is <a href=\"http://purl.org/goodrelations/v1#LeaseOut.\">lease out</a>. See <a href=\"https://en.wikipedia.org/wiki/GoodRelations\">Good Relations</a> for background on the underlying concepts."
@@ -7280,7 +7280,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/OfferForLease",
    :rdfs/label #voc/lstr "OfferForLease@en",
    :rdfs/subClassOf
-   [:schema/Offer :schema/OfferForLease :schema/Thing :schema/Intangible]})
+   [:schema/Offer :schema/OfferForLease :schema/Intangible :schema/Thing]})
 
 (def OfferForPurchase
   "An <a class=\"localLink\" href=\"https://schema.org/OfferForPurchase\">OfferForPurchase</a> in Schema.org represents an <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a> to sell something, i.e. an <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a> whose <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a> is <a href=\"http://purl.org/goodrelations/v1#Sell.\">sell</a>. See <a href=\"https://en.wikipedia.org/wiki/GoodRelations\">Good Relations</a> for background on the underlying concepts."
@@ -7292,7 +7292,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/OfferForPurchase",
    :rdfs/label #voc/lstr "OfferForPurchase@en",
    :rdfs/subClassOf
-   [:schema/Offer :schema/OfferForPurchase :schema/Thing :schema/Intangible]})
+   [:schema/Offer :schema/OfferForPurchase :schema/Intangible :schema/Thing]})
 
 (def OfferItemCondition
   "A list of possible conditions for the item."
@@ -7303,8 +7303,8 @@
    :rdfs/label       #voc/lstr "OfferItemCondition@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/OfferItemCondition
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def OfferShippingDetails
   "OfferShippingDetails represents information about shipping destinations.<br/><br/> Multiple of these entities can be used to represent different shipping rates for different destinations:<br/><br/> One entity for Alaska/Hawaii. A different one for continental US. A different one for all France.<br/><br/> Multiple of these entities can be used to represent different shipping costs and delivery times.<br/><br/> Two entities that are identical but differ in rate and time:<br/><br/> E.g. Cheaper and slower: $5 in 5-7 days or Fast and expensive: $15 in 1-2 days."
@@ -7317,8 +7317,8 @@
    :rdfs/label #voc/lstr "OfferShippingDetails@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/OfferShippingDetails
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def OfficeEquipmentStore
   "An office equipment store."
@@ -7329,10 +7329,10 @@
    :rdfs/label       #voc/lstr "OfficeEquipmentStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/OfficeEquipmentStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def OnDemandEvent
   "A publication event, e.g. catch-up TV or radio podcast, during which a program is available on-demand."
@@ -7369,8 +7369,8 @@
    :rdfs/label       #voc/lstr "OnlineStore@en",
    :rdfs/subClassOf  [:schema/OnlineBusiness
                       :schema/OnlineStore
-                      :schema/Thing
-                      :schema/Organization]})
+                      :schema/Organization
+                      :schema/Thing]})
 
 (def OpeningHoursSpecification
   "A structured value providing information about the opening hours of a place or a certain service inside a place.<br/><br/> The place is <strong>open</strong> if the <a class=\"localLink\" href=\"https://schema.org/opens\">opens</a> property is specified, and <strong>closed</strong> otherwise.<br/><br/> If the value for the <a class=\"localLink\" href=\"https://schema.org/closes\">closes</a> property is less than the value for the <a class=\"localLink\" href=\"https://schema.org/opens\">opens</a> property then the hour range is assumed to span over the next day."
@@ -7383,8 +7383,8 @@
    :rdfs/label #voc/lstr "OpeningHoursSpecification@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/OpeningHoursSpecification
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def OpinionNewsArticle
   "An <a class=\"localLink\" href=\"https://schema.org/OpinionNewsArticle\">OpinionNewsArticle</a> is a <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> that primarily expresses opinions rather than journalistic reporting of news and events. For example, a <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> consisting of a column or <a class=\"localLink\" href=\"https://schema.org/Blog\">Blog</a>/<a class=\"localLink\" href=\"https://schema.org/BlogPosting\">BlogPosting</a> entry in the Opinions section of a news publication."
@@ -7398,8 +7398,8 @@
    :rdfs/subClassOf [:schema/NewsArticle
                      :schema/OpinionNewsArticle
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def Optician
   "A store that sells reading glasses and similar devices for improving vision."
@@ -7412,10 +7412,10 @@
    :rdfs/label #voc/lstr "Optician@en",
    :rdfs/subClassOf [:schema/MedicalBusiness
                      :schema/Optician
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def Order
   "An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer."
@@ -7438,7 +7438,7 @@
    :rdfs/isDefinedBy :schema/OrderAction,
    :rdfs/label #voc/lstr "OrderAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/OrderAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/OrderAction :schema/Action :schema/Thing]})
 
 (def OrderItem
   "An order item is a line of an order. It includes the quantity and shipping details of a bought offer."
@@ -7460,9 +7460,9 @@
    :rdfs/label       #voc/lstr "OrderStatus@en",
    :rdfs/subClassOf  [:schema/StatusEnumeration
                       :schema/OrderStatus
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def Organization
   "An organization such as a school, NGO, corporation, club, etc."
@@ -7485,7 +7485,7 @@
    :rdfs/isDefinedBy :schema/OrganizationRole,
    :rdfs/label #voc/lstr "OrganizationRole@en",
    :rdfs/subClassOf
-   [:schema/Role :schema/OrganizationRole :schema/Thing :schema/Intangible]})
+   [:schema/Role :schema/OrganizationRole :schema/Intangible :schema/Thing]})
 
 (def OrganizeAction
   "The act of manipulating/administering/supervising/controlling one or more objects."
@@ -7507,10 +7507,10 @@
    :rdfs/label       #voc/lstr "OutletStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/OutletStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def OwnershipInfo
   "A structured value providing information about when a certain organization or person owned a certain product."
@@ -7523,8 +7523,8 @@
    :rdfs/label #voc/lstr "OwnershipInfo@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/OwnershipInfo
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def PaintAction
   "The act of producing a painting, typically with paint and canvas as instruments."
@@ -7536,7 +7536,7 @@
    :rdfs/isDefinedBy :schema/PaintAction,
    :rdfs/label #voc/lstr "PaintAction@en",
    :rdfs/subClassOf
-   [:schema/CreateAction :schema/PaintAction :schema/Thing :schema/Action]})
+   [:schema/CreateAction :schema/PaintAction :schema/Action :schema/Thing]})
 
 (def Painting
   "A painting."
@@ -7559,9 +7559,9 @@
    :rdfs/subClassOf [:schema/MedicalTherapy
                      :schema/MedicalProcedure
                      :schema/PalliativeProcedure
-                     :schema/Thing
+                     :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/TherapeuticProcedure]})
+                     :schema/Thing]})
 
 (def ParcelDelivery
   "The delivery of a parcel either via the postal service or a commercial service."
@@ -7585,9 +7585,9 @@
    :rdfs/label #voc/lstr "ParentAudience@en",
    :rdfs/subClassOf [:schema/PeopleAudience
                      :schema/ParentAudience
+                     :schema/Intangible
                      :schema/Audience
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def Park
   "A park."
@@ -7598,8 +7598,8 @@
    :rdfs/label       #voc/lstr "Park@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Park
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def ParkingFacility
   "A parking lot or other parking facility."
@@ -7610,8 +7610,8 @@
    :rdfs/label       #voc/lstr "ParkingFacility@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/ParkingFacility
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def PathologyTest
   "A medical test performed by a laboratory that typically involves examination of a tissue sample by a pathologist."
@@ -7624,8 +7624,8 @@
    :rdfs/label #voc/lstr "PathologyTest@en",
    :rdfs/subClassOf [:schema/MedicalTest
                      :schema/PathologyTest
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Patient
   "A patient is any person recipient of health care services."
@@ -7638,10 +7638,10 @@
    :rdfs/subClassOf [:schema/MedicalAudience
                      :schema/Person
                      :schema/Patient
+                     :schema/Intangible
                      :schema/PeopleAudience
                      :schema/Audience
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def PawnShop
   "A shop that will buy, or lend money against the security of, personal possessions."
@@ -7654,10 +7654,10 @@
    :rdfs/label #voc/lstr "PawnShop@en",
    :rdfs/subClassOf [:schema/Store
                      :schema/PawnShop
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def PayAction
   "An agent pays a price to a participant."
@@ -7668,8 +7668,8 @@
    :rdfs/label       #voc/lstr "PayAction@en",
    :rdfs/subClassOf  [:schema/TradeAction
                       :schema/PayAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def PaymentCard
   "A payment method using a credit, debit, store or other card to associate the payment with an account."
@@ -7683,10 +7683,10 @@
    :rdfs/subClassOf [:schema/FinancialProduct
                      :schema/PaymentMethod
                      :schema/PaymentCard
+                     :schema/Intangible
                      :schema/Enumeration
                      :schema/Service
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def PaymentChargeSpecification
   "The costs of settling the payment using a particular payment method."
@@ -7699,9 +7699,9 @@
    :rdfs/label #voc/lstr "PaymentChargeSpecification@en",
    :rdfs/subClassOf [:schema/PriceSpecification
                      :schema/PaymentChargeSpecification
-                     :schema/Thing
+                     :schema/StructuredValue
                      :schema/Intangible
-                     :schema/StructuredValue]})
+                     :schema/Thing]})
 
 (def PaymentMethod
   "A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction.<br/><br/> Commonly used values:<br/><br/> <ul> <li>http://purl.org/goodrelations/v1#ByBankTransferInAdvance</li> <li>http://purl.org/goodrelations/v1#ByInvoice</li> <li>http://purl.org/goodrelations/v1#Cash</li> <li>http://purl.org/goodrelations/v1#CheckInAdvance</li> <li>http://purl.org/goodrelations/v1#COD</li> <li>http://purl.org/goodrelations/v1#DirectDebit</li> <li>http://purl.org/goodrelations/v1#GoogleCheckout</li> <li>http://purl.org/goodrelations/v1#PayPal</li> <li>http://purl.org/goodrelations/v1#PaySwarm</li> </ul>"
@@ -7714,8 +7714,8 @@
    :rdfs/label #voc/lstr "PaymentMethod@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/PaymentMethod
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def PaymentService
   "A Service to transfer funds from a person or organization to a beneficiary person or organization."
@@ -7728,9 +7728,9 @@
    :rdfs/label #voc/lstr "PaymentService@en",
    :rdfs/subClassOf [:schema/FinancialProduct
                      :schema/PaymentService
+                     :schema/Intangible
                      :schema/Service
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def PaymentStatusType
   "A specific payment status. For example, PaymentDue, PaymentComplete, etc."
@@ -7743,9 +7743,9 @@
    :rdfs/label #voc/lstr "PaymentStatusType@en",
    :rdfs/subClassOf [:schema/StatusEnumeration
                      :schema/PaymentStatusType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def PeopleAudience
   "A set of characteristics belonging to people, e.g. who compose an item's target audience."
@@ -7757,7 +7757,7 @@
    :rdfs/isDefinedBy :schema/PeopleAudience,
    :rdfs/label #voc/lstr "PeopleAudience@en",
    :rdfs/subClassOf
-   [:schema/Audience :schema/PeopleAudience :schema/Thing :schema/Intangible]})
+   [:schema/Audience :schema/PeopleAudience :schema/Intangible :schema/Thing]})
 
 (def PerformAction
   "The act of participating in performance arts."
@@ -7769,8 +7769,8 @@
    :rdfs/label       #voc/lstr "PerformAction@en",
    :rdfs/subClassOf  [:schema/PlayAction
                       :schema/PerformAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def PerformanceRole
   "A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc."
@@ -7782,7 +7782,7 @@
    :rdfs/isDefinedBy :schema/PerformanceRole,
    :rdfs/label #voc/lstr "PerformanceRole@en",
    :rdfs/subClassOf
-   [:schema/Role :schema/PerformanceRole :schema/Thing :schema/Intangible]})
+   [:schema/Role :schema/PerformanceRole :schema/Intangible :schema/Thing]})
 
 (def PerformingArtsTheater
   "A theater or other performing art center."
@@ -7793,8 +7793,8 @@
    :rdfs/label       #voc/lstr "PerformingArtsTheater@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/PerformingArtsTheater
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def PerformingGroup
   "A performance group, such as a band, an orchestra, or a circus."
@@ -7819,10 +7819,10 @@
    :rdfs/label #voc/lstr "Periodical@en",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
                      :schema/Periodical
-                     :schema/Thing
-                     :schema/CreativeWork
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def Permit
   "A permit issued by an organization, e.g. a parking pass."
@@ -7853,10 +7853,10 @@
    :rdfs/label       #voc/lstr "PetStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/PetStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Pharmacy
   "A pharmacy or drugstore."
@@ -7868,10 +7868,10 @@
    :rdfs/subClassOf  [:schema/MedicalBusiness
                       :schema/MedicalOrganization
                       :schema/Pharmacy
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Photograph
   "A photograph."
@@ -7892,8 +7892,8 @@
    :rdfs/label #voc/lstr "PhotographAction@en",
    :rdfs/subClassOf [:schema/CreateAction
                      :schema/PhotographAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def PhysicalActivity
   "Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan."
@@ -7906,8 +7906,8 @@
    :rdfs/label #voc/lstr "PhysicalActivity@en",
    :rdfs/subClassOf [:schema/LifestyleModification
                      :schema/PhysicalActivity
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def PhysicalActivityCategory
   "Categories of physical activity, organized by physiologic classification."
@@ -7921,8 +7921,8 @@
    :rdfs/label #voc/lstr "PhysicalActivityCategory@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/PhysicalActivityCategory
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def PhysicalExam
   "A type of physical examination of a patient performed by a physician."
@@ -7936,10 +7936,10 @@
    :rdfs/subClassOf [:schema/MedicalEnumeration
                      :schema/MedicalProcedure
                      :schema/PhysicalExam
-                     :schema/Enumeration
-                     :schema/Thing
                      :schema/Intangible
-                     :schema/MedicalEntity]})
+                     :schema/Enumeration
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def PhysicalTherapy
   "A process of progressive physical care and rehabilitation aimed at improving a health condition."
@@ -7952,10 +7952,10 @@
    :rdfs/label #voc/lstr "PhysicalTherapy@en",
    :rdfs/subClassOf [:schema/MedicalTherapy
                      :schema/PhysicalTherapy
-                     :schema/MedicalProcedure
-                     :schema/Thing
+                     :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/TherapeuticProcedure]})
+                     :schema/MedicalProcedure
+                     :schema/Thing]})
 
 (def Physician
   "A doctor's office."
@@ -7967,10 +7967,10 @@
    :rdfs/subClassOf  [:schema/MedicalBusiness
                       :schema/MedicalOrganization
                       :schema/Physician
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Place
   "Entities that have a somewhat fixed, physical extension."
@@ -7991,7 +7991,7 @@
    :rdfs/isDefinedBy :schema/PlaceOfWorship,
    :rdfs/label #voc/lstr "PlaceOfWorship@en",
    :rdfs/subClassOf
-   [:schema/CivicStructure :schema/PlaceOfWorship :schema/Thing :schema/Place]})
+   [:schema/CivicStructure :schema/PlaceOfWorship :schema/Place :schema/Thing]})
 
 (def PlanAction
   "The act of planning the execution of an event/task/action/reservation/plan to a future date."
@@ -8003,7 +8003,7 @@
    :rdfs/isDefinedBy :schema/PlanAction,
    :rdfs/label #voc/lstr "PlanAction@en",
    :rdfs/subClassOf
-   [:schema/OrganizeAction :schema/PlanAction :schema/Thing :schema/Action]})
+   [:schema/OrganizeAction :schema/PlanAction :schema/Action :schema/Thing]})
 
 (def Play
   "A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a <a class=\"localLink\" href=\"https://schema.org/TheaterEvent\">TheaterEvent</a> or <a class=\"localLink\" href=\"https://schema.org/BroadcastEvent\">BroadcastEvent</a> - the <em>Play</em> being the <a class=\"localLink\" href=\"https://schema.org/workPerformed\">workPerformed</a>."
@@ -8036,8 +8036,8 @@
    :rdfs/label       #voc/lstr "PlayGameAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/PlayGameAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def Playground
   "A playground."
@@ -8048,8 +8048,8 @@
    :rdfs/label       #voc/lstr "Playground@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Playground
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Plumber
   "A plumbing service."
@@ -8060,10 +8060,10 @@
    :rdfs/label       #voc/lstr "Plumber@en",
    :rdfs/subClassOf  [:schema/HomeAndConstructionBusiness
                       :schema/Plumber
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def PodcastEpisode
   "A single episode of a podcast series."
@@ -8074,8 +8074,8 @@
    :rdfs/label       #voc/lstr "PodcastEpisode@en",
    :rdfs/subClassOf  [:schema/Episode
                       :schema/PodcastEpisode
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def PodcastSeason
   "A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used."
@@ -8088,8 +8088,8 @@
    :rdfs/label #voc/lstr "PodcastSeason@en",
    :rdfs/subClassOf [:schema/CreativeWorkSeason
                      :schema/PodcastSeason
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def PodcastSeries
   "A podcast is an episodic series of digital audio or video files which a user can download and listen to."
@@ -8102,10 +8102,10 @@
    :rdfs/label #voc/lstr "PodcastSeries@en",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
                      :schema/PodcastSeries
-                     :schema/Thing
-                     :schema/CreativeWork
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def PoliceStation
   "A police station."
@@ -8117,10 +8117,10 @@
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/EmergencyService
                       :schema/PoliceStation
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Pond
   "A pond."
@@ -8132,8 +8132,8 @@
    :rdfs/subClassOf  [:schema/BodyOfWater
                       :schema/Pond
                       :schema/Landform
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def PostOffice
   "A post office."
@@ -8144,10 +8144,10 @@
    :rdfs/label       #voc/lstr "PostOffice@en",
    :rdfs/subClassOf  [:schema/GovernmentOffice
                       :schema/PostOffice
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def PostalAddress
   "The mailing address."
@@ -8158,9 +8158,9 @@
    :rdfs/label       #voc/lstr "PostalAddress@en",
    :rdfs/subClassOf  [:schema/ContactPoint
                       :schema/PostalAddress
-                      :schema/Thing
+                      :schema/StructuredValue
                       :schema/Intangible
-                      :schema/StructuredValue]})
+                      :schema/Thing]})
 
 (def PostalCodeRangeSpecification
   "Indicates a range of postal codes, usually defined as the set of valid codes between <a class=\"localLink\" href=\"https://schema.org/postalCodeBegin\">postalCodeBegin</a> and <a class=\"localLink\" href=\"https://schema.org/postalCodeEnd\">postalCodeEnd</a>, inclusively."
@@ -8173,8 +8173,8 @@
    :rdfs/label #voc/lstr "PostalCodeRangeSpecification@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/PostalCodeRangeSpecification
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Poster
   "A large, usually printed placard, bill, or announcement, often illustrated, that is posted to advertise or publicize something."
@@ -8197,7 +8197,7 @@
    :rdfs/isDefinedBy :schema/PreOrderAction,
    :rdfs/label #voc/lstr "PreOrderAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/PreOrderAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/PreOrderAction :schema/Action :schema/Thing]})
 
 (def PrependAction
   "The act of inserting at the beginning if an ordered collection."
@@ -8211,9 +8211,9 @@
    :rdfs/subClassOf [:schema/InsertAction
                      :schema/PrependAction
                      :schema/AddAction
+                     :schema/Action
                      :schema/UpdateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Preschool
   "A preschool."
@@ -8224,10 +8224,10 @@
    :rdfs/label       #voc/lstr "Preschool@en",
    :rdfs/subClassOf  [:schema/EducationalOrganization
                       :schema/Preschool
-                      :schema/Thing
-                      :schema/CivicStructure
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/CivicStructure
+                      :schema/Thing]})
 
 (def PresentationDigitalDocument
   "A file containing slides or used for a presentation."
@@ -8239,8 +8239,8 @@
    :rdfs/label       #voc/lstr "PresentationDigitalDocument@en",
    :rdfs/subClassOf  [:schema/DigitalDocument
                       :schema/PresentationDigitalDocument
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def PreventionIndication
   "An indication for preventing an underlying condition, symptom, etc."
@@ -8253,8 +8253,8 @@
    :rdfs/label #voc/lstr "PreventionIndication@en",
    :rdfs/subClassOf [:schema/MedicalIndication
                      :schema/PreventionIndication
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def PriceComponentTypeEnumeration
   "Enumerates different price components that together make up the total price for an offered product."
@@ -8267,8 +8267,8 @@
    :rdfs/label #voc/lstr "PriceComponentTypeEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/PriceComponentTypeEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def PriceSpecification
   "A structured value representing a price or price range. Typically, only the subclasses of this type are used for markup. It is recommended to use <a class=\"localLink\" href=\"https://schema.org/MonetaryAmount\">MonetaryAmount</a> to describe independent amounts of money such as a salary, credit card limits, etc."
@@ -8281,8 +8281,8 @@
    :rdfs/label #voc/lstr "PriceSpecification@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/PriceSpecification
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def PriceTypeEnumeration
   "Enumerates different price types, for example list price, invoice price, and sale price."
@@ -8295,8 +8295,8 @@
    :rdfs/label #voc/lstr "PriceTypeEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/PriceTypeEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def Product
   "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online."
@@ -8321,8 +8321,8 @@
    :rdfs/subClassOf [:schema/Collection
                      :schema/Product
                      :schema/ProductCollection
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def ProductGroup
   "A ProductGroup represents a group of <a class=\"localLink\" href=\"https://schema.org/Product\">Product</a>s that vary only in certain well-described ways, such as by <a class=\"localLink\" href=\"https://schema.org/size\">size</a>, <a class=\"localLink\" href=\"https://schema.org/color\">color</a>, <a class=\"localLink\" href=\"https://schema.org/material\">material</a> etc.<br/><br/> While a ProductGroup itself is not directly offered for sale, the various varying products that it represents can be. The ProductGroup serves as a prototype or template, standing in for all of the products who have an <a class=\"localLink\" href=\"https://schema.org/isVariantOf\">isVariantOf</a> relationship to it. As such, properties (including additional types) can be applied to the ProductGroup to represent characteristics shared by each of the (possibly very many) variants. Properties that reference a ProductGroup are not included in this mechanism; neither are the following specific properties <a class=\"localLink\" href=\"https://schema.org/variesBy\">variesBy</a>, <a class=\"localLink\" href=\"https://schema.org/hasVariant\">hasVariant</a>, <a class=\"localLink\" href=\"https://schema.org/url\">url</a>."
@@ -8357,8 +8357,8 @@
    :rdfs/label #voc/lstr "ProductReturnEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/ProductReturnEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ProductReturnPolicy
   "A ProductReturnPolicy provides information about product return policies associated with an <a class=\"localLink\" href=\"https://schema.org/Organization\">Organization</a> or <a class=\"localLink\" href=\"https://schema.org/Product\">Product</a>."
@@ -8383,9 +8383,9 @@
    :rdfs/label #voc/lstr "ProfessionalService@en",
    :rdfs/subClassOf [:schema/LocalBusiness
                      :schema/ProfessionalService
-                     :schema/Thing
                      :schema/Organization
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def ProfilePage
   "Web page type: Profile page."
@@ -8396,8 +8396,8 @@
    :rdfs/label       #voc/lstr "ProfilePage@en",
    :rdfs/subClassOf  [:schema/WebPage
                       :schema/ProfilePage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def ProgramMembership
   "Used to describe membership in a loyalty programs (e.g. \"StarAliance\"), traveler clubs (e.g. \"AAA\"), purchase clubs (\"Safeway Club\"), etc."
@@ -8431,8 +8431,8 @@
    :rdfs/label       #voc/lstr "PronounceableText@en",
    :rdfs/subClassOf  [:schema/Text
                       :schema/PronounceableText
-                      :rdfs/Class
-                      :schema/DataType]})
+                      :schema/DataType
+                      :rdfs/Class]})
 
 (def Property
   "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property."
@@ -8456,8 +8456,8 @@
    :rdfs/label #voc/lstr "PropertyValue@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/PropertyValue
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def PropertyValueSpecification
   "A Property value specification."
@@ -8492,9 +8492,9 @@
    :rdfs/label #voc/lstr "PsychologicalTreatment@en",
    :rdfs/subClassOf [:schema/TherapeuticProcedure
                      :schema/PsychologicalTreatment
+                     :schema/MedicalEntity
                      :schema/MedicalProcedure
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/Thing]})
 
 (def PublicSwimmingPool
   "A public swimming pool."
@@ -8505,10 +8505,10 @@
    :rdfs/label       #voc/lstr "PublicSwimmingPool@en",
    :rdfs/subClassOf  [:schema/SportsActivityLocation
                       :schema/PublicSwimmingPool
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def PublicToilet
   "A public toilet is a room or small building containing one or more toilets (and possibly also urinals) which is available for use by the general public, or by customers or employees of certain businesses."
@@ -8520,7 +8520,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/PublicToilet",
    :rdfs/label #voc/lstr "PublicToilet@en",
    :rdfs/subClassOf
-   [:schema/CivicStructure :schema/PublicToilet :schema/Thing :schema/Place]})
+   [:schema/CivicStructure :schema/PublicToilet :schema/Place :schema/Thing]})
 
 (def PublicationEvent
   "A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type, e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media."
@@ -8567,7 +8567,7 @@
    :rdfs/isDefinedBy :schema/QAPage,
    :rdfs/label #voc/lstr "QAPage@en",
    :rdfs/subClassOf
-   [:schema/WebPage :schema/QAPage :schema/Thing :schema/CreativeWork]})
+   [:schema/WebPage :schema/QAPage :schema/CreativeWork :schema/Thing]})
 
 (def QualitativeValue
   "A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'."
@@ -8580,8 +8580,8 @@
    :rdfs/label #voc/lstr "QualitativeValue@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/QualitativeValue
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def QuantitativeValue
   "A point value or interval for product characteristics and other purposes."
@@ -8594,8 +8594,8 @@
    :rdfs/label #voc/lstr "QuantitativeValue@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/QuantitativeValue
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def QuantitativeValueDistribution
   "A statistical distribution of values."
@@ -8606,8 +8606,8 @@
    :rdfs/label       #voc/lstr "QuantitativeValueDistribution@en",
    :rdfs/subClassOf  [:schema/StructuredValue
                       :schema/QuantitativeValueDistribution
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def Quantity
   "Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are entities like '3 kg' or '4 milligrams'."
@@ -8630,7 +8630,7 @@
    :rdfs/isDefinedBy :schema/Question,
    :rdfs/label #voc/lstr "Question@en",
    :rdfs/subClassOf
-   [:schema/Comment :schema/Question :schema/Thing :schema/CreativeWork]})
+   [:schema/Comment :schema/Question :schema/CreativeWork :schema/Thing]})
 
 (def Quiz
   "Quiz: A test of knowledge, skills and abilities."
@@ -8642,8 +8642,8 @@
    :rdfs/label       #voc/lstr "Quiz@en",
    :rdfs/subClassOf  [:schema/LearningResource
                       :schema/Quiz
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def Quotation
   "A quotation. Often but not necessarily from some written work, attributable to a real world author and - if associated with a fictional character - to any fictional Person. Use <a class=\"localLink\" href=\"https://schema.org/isBasedOn\">isBasedOn</a> to link to source/origin. The <a class=\"localLink\" href=\"https://schema.org/recordedIn\">recordedIn</a> property can be used to reference a Quotation from an <a class=\"localLink\" href=\"https://schema.org/Event\">Event</a>."
@@ -8666,7 +8666,7 @@
    :rdfs/isDefinedBy :schema/QuoteAction,
    :rdfs/label #voc/lstr "QuoteAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/QuoteAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/QuoteAction :schema/Action :schema/Thing]})
 
 (def RVPark
   "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like."
@@ -8678,7 +8678,7 @@
    :rdfs/isDefinedBy :schema/RVPark,
    :rdfs/label #voc/lstr "RVPark@en",
    :rdfs/subClassOf
-   [:schema/CivicStructure :schema/RVPark :schema/Thing :schema/Place]})
+   [:schema/CivicStructure :schema/RVPark :schema/Place :schema/Thing]})
 
 (def RadiationTherapy
   "A process of care using radiation aimed at improving a health condition."
@@ -8691,10 +8691,10 @@
    :rdfs/label #voc/lstr "RadiationTherapy@en",
    :rdfs/subClassOf [:schema/MedicalTherapy
                      :schema/RadiationTherapy
-                     :schema/MedicalProcedure
-                     :schema/Thing
+                     :schema/TherapeuticProcedure
                      :schema/MedicalEntity
-                     :schema/TherapeuticProcedure]})
+                     :schema/MedicalProcedure
+                     :schema/Thing]})
 
 (def RadioBroadcastService
   "A delivery service through which radio content is provided via broadcast over the air or online."
@@ -8707,9 +8707,9 @@
    :rdfs/label #voc/lstr "RadioBroadcastService@en",
    :rdfs/subClassOf [:schema/BroadcastService
                      :schema/RadioBroadcastService
+                     :schema/Intangible
                      :schema/Service
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def RadioChannel
   "A unique instance of a radio BroadcastService on a CableOrSatelliteService lineup."
@@ -8722,8 +8722,8 @@
    :rdfs/label #voc/lstr "RadioChannel@en",
    :rdfs/subClassOf [:schema/BroadcastChannel
                      :schema/RadioChannel
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def RadioClip
   "A short radio program or a segment/part of a radio program."
@@ -8734,7 +8734,7 @@
    :rdfs/isDefinedBy :schema/RadioClip,
    :rdfs/label #voc/lstr "RadioClip@en",
    :rdfs/subClassOf
-   [:schema/Clip :schema/RadioClip :schema/Thing :schema/CreativeWork]})
+   [:schema/Clip :schema/RadioClip :schema/CreativeWork :schema/Thing]})
 
 (def RadioEpisode
   "A radio episode which can be part of a series or season."
@@ -8745,7 +8745,7 @@
    :rdfs/isDefinedBy :schema/RadioEpisode,
    :rdfs/label #voc/lstr "RadioEpisode@en",
    :rdfs/subClassOf
-   [:schema/Episode :schema/RadioEpisode :schema/Thing :schema/CreativeWork]})
+   [:schema/Episode :schema/RadioEpisode :schema/CreativeWork :schema/Thing]})
 
 (def RadioSeason
   "Season dedicated to radio broadcast and associated online delivery."
@@ -8758,8 +8758,8 @@
    :rdfs/label #voc/lstr "RadioSeason@en",
    :rdfs/subClassOf [:schema/CreativeWorkSeason
                      :schema/RadioSeason
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def RadioSeries
   "CreativeWorkSeries dedicated to radio broadcast and associated online delivery."
@@ -8772,10 +8772,10 @@
    :rdfs/label #voc/lstr "RadioSeries@en",
    :rdfs/subClassOf [:schema/CreativeWorkSeries
                      :schema/RadioSeries
-                     :schema/Thing
-                     :schema/CreativeWork
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def RadioStation
   "A radio station."
@@ -8786,9 +8786,9 @@
    :rdfs/label       #voc/lstr "RadioStation@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/RadioStation
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Rating
   "A rating is an evaluation on a numeric scale, such as 1 to 5 stars."
@@ -8811,7 +8811,7 @@
    :rdfs/isDefinedBy :schema/ReactAction,
    :rdfs/label #voc/lstr "ReactAction@en",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/ReactAction :schema/Thing :schema/Action]})
+   [:schema/AssessAction :schema/ReactAction :schema/Action :schema/Thing]})
 
 (def ReadAction
   "The act of consuming written content."
@@ -8822,8 +8822,8 @@
    :rdfs/label       #voc/lstr "ReadAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/ReadAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def RealEstateAgent
   "A real-estate agent."
@@ -8834,9 +8834,9 @@
    :rdfs/label       #voc/lstr "RealEstateAgent@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/RealEstateAgent
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def RealEstateListing
   "A <a class=\"localLink\" href=\"https://schema.org/RealEstateListing\">RealEstateListing</a> is a listing that describes one or more real-estate <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>s (whose <a class=\"localLink\" href=\"https://schema.org/businessFunction\">businessFunction</a> is typically to lease out, or to sell). The <a class=\"localLink\" href=\"https://schema.org/RealEstateListing\">RealEstateListing</a> type itself represents the overall listing, as manifested in some <a class=\"localLink\" href=\"https://schema.org/WebPage\">WebPage</a>."
@@ -8849,8 +8849,8 @@
    :rdfs/label #voc/lstr "RealEstateListing@en",
    :rdfs/subClassOf [:schema/WebPage
                      :schema/RealEstateListing
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def ReceiveAction
   "The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/SendAction\">SendAction</a>: The reciprocal of ReceiveAction.</li> <li><a class=\"localLink\" href=\"https://schema.org/TakeAction\">TakeAction</a>: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transferred (e.g. I can receive a package, but it does not mean the package is now mine).</li> </ul>"
@@ -8862,7 +8862,7 @@
    :rdfs/isDefinedBy :schema/ReceiveAction,
    :rdfs/label #voc/lstr "ReceiveAction@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/ReceiveAction :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/ReceiveAction :schema/Action :schema/Thing]})
 
 (def Recipe
   "A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via <a class=\"localLink\" href=\"https://schema.org/suitableForDiet\">suitableForDiet</a>. The <a class=\"localLink\" href=\"https://schema.org/keywords\">keywords</a> property can also be used to add more detail."
@@ -8874,7 +8874,7 @@
    :rdfs/isDefinedBy :schema/Recipe,
    :rdfs/label #voc/lstr "Recipe@en",
    :rdfs/subClassOf
-   [:schema/HowTo :schema/Recipe :schema/Thing :schema/CreativeWork]})
+   [:schema/HowTo :schema/Recipe :schema/CreativeWork :schema/Thing]})
 
 (def Recommendation
   "<a class=\"localLink\" href=\"https://schema.org/Recommendation\">Recommendation</a> is a type of <a class=\"localLink\" href=\"https://schema.org/Review\">Review</a> that suggests or proposes something as the best option or best course of action. Recommendations may be for products or services, or other concrete things, as in the case of a ranked list or product guide. A <a class=\"localLink\" href=\"https://schema.org/Guide\">Guide</a> may list multiple recommendations for different categories. For example, in a <a class=\"localLink\" href=\"https://schema.org/Guide\">Guide</a> about which TVs to buy, the author may have several <a class=\"localLink\" href=\"https://schema.org/Recommendation\">Recommendation</a>s."
@@ -8886,7 +8886,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/Recommendation",
    :rdfs/label #voc/lstr "Recommendation@en",
    :rdfs/subClassOf
-   [:schema/Review :schema/Recommendation :schema/Thing :schema/CreativeWork]})
+   [:schema/Review :schema/Recommendation :schema/CreativeWork :schema/Thing]})
 
 (def RecommendedDoseSchedule
   "A recommended dosing schedule for a drug or supplement as prescribed or recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity."
@@ -8901,8 +8901,8 @@
    :rdfs/subClassOf [:schema/DoseSchedule
                      :schema/RecommendedDoseSchedule
                      :schema/MedicalIntangible
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def RecyclingCenter
   "A recycling center."
@@ -8913,9 +8913,9 @@
    :rdfs/label       #voc/lstr "RecyclingCenter@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/RecyclingCenter
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def RefundTypeEnumeration
   "Enumerates several kinds of product return refund types."
@@ -8927,8 +8927,8 @@
    :rdfs/label #voc/lstr "RefundTypeEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/RefundTypeEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def RegisterAction
   "The act of registering to be a user of a service, product or web page.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/JoinAction\">JoinAction</a>: Unlike JoinAction, RegisterAction implies you are registering to be a user of a service, <em>not</em> a group/team of people.</li> <li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.</li> <li><a class=\"localLink\" href=\"https://schema.org/SubscribeAction\">SubscribeAction</a>: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.</li> </ul>"
@@ -8941,8 +8941,8 @@
    :rdfs/label #voc/lstr "RegisterAction@en",
    :rdfs/subClassOf [:schema/InteractAction
                      :schema/RegisterAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def RejectAction
   "The act of rejecting to/adopting an object.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/AcceptAction\">AcceptAction</a>: The antonym of RejectAction.</li> </ul>"
@@ -8955,9 +8955,9 @@
    :rdfs/label #voc/lstr "RejectAction@en",
    :rdfs/subClassOf [:schema/AllocateAction
                      :schema/RejectAction
+                     :schema/Action
                      :schema/OrganizeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def RentAction
   "The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment."
@@ -8969,7 +8969,7 @@
    :rdfs/isDefinedBy :schema/RentAction,
    :rdfs/label #voc/lstr "RentAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/RentAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/RentAction :schema/Action :schema/Thing]})
 
 (def RentalCarReservation
   "A reservation for a rental car.<br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations."
@@ -8982,8 +8982,8 @@
    :rdfs/label #voc/lstr "RentalCarReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/RentalCarReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def RepaymentSpecification
   "A structured value representing repayment."
@@ -8994,8 +8994,8 @@
    :rdfs/label       #voc/lstr "RepaymentSpecification@en",
    :rdfs/subClassOf  [:schema/StructuredValue
                       :schema/RepaymentSpecification
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def ReplaceAction
   "The act of editing a recipient by replacing an old object with a new object."
@@ -9007,7 +9007,7 @@
    :rdfs/isDefinedBy :schema/ReplaceAction,
    :rdfs/label #voc/lstr "ReplaceAction@en",
    :rdfs/subClassOf
-   [:schema/UpdateAction :schema/ReplaceAction :schema/Thing :schema/Action]})
+   [:schema/UpdateAction :schema/ReplaceAction :schema/Action :schema/Thing]})
 
 (def ReplyAction
   "The act of responding to a question/message asked/sent by the object. Related to <a class=\"localLink\" href=\"https://schema.org/AskAction\">AskAction</a>.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/AskAction\">AskAction</a>: Appears generally as an origin of a ReplyAction.</li> </ul>"
@@ -9020,9 +9020,9 @@
    :rdfs/label #voc/lstr "ReplyAction@en",
    :rdfs/subClassOf [:schema/CommunicateAction
                      :schema/ReplyAction
+                     :schema/Action
                      :schema/InteractAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Report
   "A Report generated by governmental or non-governmental organization."
@@ -9034,7 +9034,7 @@
    :rdfs/isDefinedBy :schema/Report,
    :rdfs/label #voc/lstr "Report@en",
    :rdfs/subClassOf
-   [:schema/Article :schema/Report :schema/Thing :schema/CreativeWork]})
+   [:schema/Article :schema/Report :schema/CreativeWork :schema/Thing]})
 
 (def ReportageNewsArticle
   "The <a class=\"localLink\" href=\"https://schema.org/ReportageNewsArticle\">ReportageNewsArticle</a> type is a subtype of <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> representing news articles which are the result of journalistic news reporting conventions.<br/><br/> In practice many news publishers produce a wide variety of article types, many of which might be considered a <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> but not a <a class=\"localLink\" href=\"https://schema.org/ReportageNewsArticle\">ReportageNewsArticle</a>. For example, opinion pieces, reviews, analysis, sponsored or satirical articles, or articles that combine several of these elements.<br/><br/> The <a class=\"localLink\" href=\"https://schema.org/ReportageNewsArticle\">ReportageNewsArticle</a> type is based on a stricter ideal for \"news\" as a work of journalism, with articles based on factual information either observed or verified by the author, or reported and verified from knowledgeable sources. This often includes perspectives from multiple viewpoints on a particular issue (distinguishing news reports from public relations or propaganda). News reports in the <a class=\"localLink\" href=\"https://schema.org/ReportageNewsArticle\">ReportageNewsArticle</a> sense de-emphasize the opinion of the author, with commentary and value judgements typically expressed elsewhere.<br/><br/> A <a class=\"localLink\" href=\"https://schema.org/ReportageNewsArticle\">ReportageNewsArticle</a> which goes deeper into analysis can also be marked with an additional type of <a class=\"localLink\" href=\"https://schema.org/AnalysisNewsArticle\">AnalysisNewsArticle</a>."
@@ -9048,8 +9048,8 @@
    :rdfs/subClassOf [:schema/NewsArticle
                      :schema/ReportageNewsArticle
                      :schema/Article
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def ReportedDoseSchedule
   "A patient-reported or observed dosing schedule for a drug or supplement."
@@ -9063,8 +9063,8 @@
    :rdfs/subClassOf [:schema/DoseSchedule
                      :schema/ReportedDoseSchedule
                      :schema/MedicalIntangible
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def ResearchOrganization
   "A Research Organization (e.g. scientific institute, research company)."
@@ -9087,8 +9087,8 @@
    :rdfs/label       #voc/lstr "ResearchProject@en",
    :rdfs/subClassOf  [:schema/Project
                       :schema/ResearchProject
-                      :schema/Thing
-                      :schema/Organization]})
+                      :schema/Organization
+                      :schema/Thing]})
 
 (def Researcher
   "Researchers."
@@ -9099,8 +9099,8 @@
    :rdfs/label       #voc/lstr "Researcher@en",
    :rdfs/subClassOf  [:schema/Audience
                       :schema/Researcher
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def Reservation
   "Describes a reservation for travel, dining or an event. Some reservations require tickets. <br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, restaurant reservations, flights, or rental cars, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."
@@ -9124,8 +9124,8 @@
    :rdfs/label #voc/lstr "ReservationPackage@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/ReservationPackage
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ReservationStatusType
   "Enumerated status values for Reservation."
@@ -9136,9 +9136,9 @@
    :rdfs/label       #voc/lstr "ReservationStatusType@en",
    :rdfs/subClassOf  [:schema/StatusEnumeration
                       :schema/ReservationStatusType
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def ReserveAction
   "Reserving a concrete object.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/ScheduleAction\">ScheduleAction</a>: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation.</li> </ul>"
@@ -9151,9 +9151,9 @@
    :rdfs/label #voc/lstr "ReserveAction@en",
    :rdfs/subClassOf [:schema/PlanAction
                      :schema/ReserveAction
+                     :schema/Action
                      :schema/OrganizeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def Reservoir
   "A reservoir of water, typically an artificially created lake, like the Lake Kariba reservoir."
@@ -9167,8 +9167,8 @@
    :rdfs/subClassOf [:schema/BodyOfWater
                      :schema/Reservoir
                      :schema/Landform
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def Residence
   "The place where a person lives."
@@ -9190,10 +9190,10 @@
    :rdfs/label #voc/lstr "Resort@en",
    :rdfs/subClassOf [:schema/LodgingBusiness
                      :schema/Resort
-                     :schema/Thing
                      :schema/Organization
+                     :schema/Place
                      :schema/LocalBusiness
-                     :schema/Place]})
+                     :schema/Thing]})
 
 (def Restaurant
   "A restaurant."
@@ -9204,10 +9204,10 @@
    :rdfs/label       #voc/lstr "Restaurant@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/Restaurant
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def RestrictedDiet
   "A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons."
@@ -9220,8 +9220,8 @@
    :rdfs/label #voc/lstr "RestrictedDiet@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/RestrictedDiet
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ResumeAction
   "The act of resuming a device or application which was formerly paused (e.g. resume music playback or resume a timer)."
@@ -9233,7 +9233,7 @@
    :rdfs/isDefinedBy :schema/ResumeAction,
    :rdfs/label #voc/lstr "ResumeAction@en",
    :rdfs/subClassOf
-   [:schema/ControlAction :schema/ResumeAction :schema/Thing :schema/Action]})
+   [:schema/ControlAction :schema/ResumeAction :schema/Action :schema/Thing]})
 
 (def ReturnAction
   "The act of returning to the origin that which was previously received (concrete objects) or taken (ownership)."
@@ -9245,7 +9245,7 @@
    :rdfs/isDefinedBy :schema/ReturnAction,
    :rdfs/label #voc/lstr "ReturnAction@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/ReturnAction :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/ReturnAction :schema/Action :schema/Thing]})
 
 (def ReturnFeesEnumeration
   "Enumerates several kinds of policies for product return fees."
@@ -9257,8 +9257,8 @@
    :rdfs/label #voc/lstr "ReturnFeesEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/ReturnFeesEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ReturnLabelSourceEnumeration
   "Enumerates several types of return labels for product returns."
@@ -9271,8 +9271,8 @@
    :rdfs/label #voc/lstr "ReturnLabelSourceEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/ReturnLabelSourceEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ReturnMethodEnumeration
   "Enumerates several types of product return methods."
@@ -9284,8 +9284,8 @@
    :rdfs/label       #voc/lstr "ReturnMethodEnumeration@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/ReturnMethodEnumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def Review
   "A review of an item - for example, of a restaurant, movie, or store."
@@ -9308,7 +9308,7 @@
    :rdfs/isDefinedBy :schema/ReviewAction,
    :rdfs/label #voc/lstr "ReviewAction@en",
    :rdfs/subClassOf
-   [:schema/AssessAction :schema/ReviewAction :schema/Thing :schema/Action]})
+   [:schema/AssessAction :schema/ReviewAction :schema/Action :schema/Thing]})
 
 (def ReviewNewsArticle
   "A <a class=\"localLink\" href=\"https://schema.org/NewsArticle\">NewsArticle</a> and <a class=\"localLink\" href=\"https://schema.org/CriticReview\">CriticReview</a> providing a professional critic's assessment of a service, product, performance, or artistic or literary work."
@@ -9323,9 +9323,9 @@
                      :schema/NewsArticle
                      :schema/ReviewNewsArticle
                      :schema/Article
-                     :schema/Thing
                      :schema/CreativeWork
-                     :schema/Review]})
+                     :schema/Review
+                     :schema/Thing]})
 
 (def RiverBodyOfWater
   "A river (for example, the broad majestic Shannon)."
@@ -9338,8 +9338,8 @@
    :rdfs/subClassOf  [:schema/BodyOfWater
                       :schema/RiverBodyOfWater
                       :schema/Landform
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Role
   "Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.<br/><br/> See also <a href=\"http://blog.schema.org/2014/06/introducing-role.html\">blog post</a>."
@@ -9361,10 +9361,10 @@
    :rdfs/label       #voc/lstr "RoofingContractor@en",
    :rdfs/subClassOf  [:schema/HomeAndConstructionBusiness
                       :schema/RoofingContractor
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Room
   "A room is a distinguishable space within a structure, usually separated from other spaces by interior walls (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Room\">http://en.wikipedia.org/wiki/Room</a>). <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -9376,7 +9376,7 @@
    :rdfs/isDefinedBy :schema/Room,
    :rdfs/label #voc/lstr "Room@en",
    :rdfs/subClassOf
-   [:schema/Accommodation :schema/Room :schema/Thing :schema/Place]})
+   [:schema/Accommodation :schema/Room :schema/Place :schema/Thing]})
 
 (def RsvpAction
   "The act of notifying an event organizer as to whether you expect to attend the event."
@@ -9389,10 +9389,10 @@
    :rdfs/label #voc/lstr "RsvpAction@en",
    :rdfs/subClassOf [:schema/InformAction
                      :schema/RsvpAction
-                     :schema/InteractAction
                      :schema/CommunicateAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/InteractAction
+                     :schema/Thing]})
 
 (def RsvpResponseType
   "RsvpResponseType is an enumeration type whose instances represent responding to an RSVP request."
@@ -9405,8 +9405,8 @@
    :rdfs/label #voc/lstr "RsvpResponseType@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/RsvpResponseType
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def SaleEvent
   "Event type: Sales event."
@@ -9428,8 +9428,8 @@
    :rdfs/label #voc/lstr "SatiricalArticle@en",
    :rdfs/subClassOf [:schema/Article
                      :schema/SatiricalArticle
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def Schedule
   "A schedule defines a repeating time period used to describe a regularly occurring <a class=\"localLink\" href=\"https://schema.org/Event\">Event</a>. At a minimum a schedule will specify <a class=\"localLink\" href=\"https://schema.org/repeatFrequency\">repeatFrequency</a> which describes the interval between occurrences of the event. Additional information can be provided to specify the schedule more precisely. This includes identifying the day(s) of the week or month when the recurring event will take place, in addition to its start and end time. Schedules may also have start and end dates to indicate when they are active, e.g. to define a limited calendar of events."
@@ -9453,9 +9453,9 @@
    :rdfs/label #voc/lstr "ScheduleAction@en",
    :rdfs/subClassOf [:schema/PlanAction
                      :schema/ScheduleAction
+                     :schema/Action
                      :schema/OrganizeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def ScholarlyArticle
   "A scholarly article."
@@ -9466,8 +9466,8 @@
    :rdfs/label       #voc/lstr "ScholarlyArticle@en",
    :rdfs/subClassOf  [:schema/Article
                       :schema/ScholarlyArticle
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def School
   "A school."
@@ -9478,10 +9478,10 @@
    :rdfs/label       #voc/lstr "School@en",
    :rdfs/subClassOf  [:schema/EducationalOrganization
                       :schema/School
-                      :schema/Thing
-                      :schema/CivicStructure
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/CivicStructure
+                      :schema/Thing]})
 
 (def SchoolDistrict
   "A School District is an administrative area for the administration of schools."
@@ -9494,8 +9494,8 @@
    :rdfs/label #voc/lstr "SchoolDistrict@en",
    :rdfs/subClassOf [:schema/AdministrativeArea
                      :schema/SchoolDistrict
-                     :schema/Thing
-                     :schema/Place]})
+                     :schema/Place
+                     :schema/Thing]})
 
 (def ScreeningEvent
   "A screening of a movie or other video."
@@ -9525,8 +9525,8 @@
    :rdfs/subClassOf  [:schema/BodyOfWater
                       :schema/SeaBodyOfWater
                       :schema/Landform
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def SearchAction
   "The act of searching for an object.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/FindAction\">FindAction</a>: SearchAction generally leads to a FindAction, but not necessarily.</li> </ul>"
@@ -9560,8 +9560,8 @@
    :rdfs/label       #voc/lstr "SearchResultsPage@en",
    :rdfs/subClassOf  [:schema/WebPage
                       :schema/SearchResultsPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def Season
   "A media season, e.g. TV, radio, video game etc."
@@ -9604,9 +9604,9 @@
    :rdfs/label       #voc/lstr "SelfStorage@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/SelfStorage
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def SellAction
   "The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction."
@@ -9618,7 +9618,7 @@
    :rdfs/isDefinedBy :schema/SellAction,
    :rdfs/label #voc/lstr "SellAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/SellAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/SellAction :schema/Action :schema/Thing]})
 
 (def SendAction
   "The act of physically/electronically dispatching an object for transfer from an origin to a destination. Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/ReceiveAction\">ReceiveAction</a>: The reciprocal of SendAction.</li> <li><a class=\"localLink\" href=\"https://schema.org/GiveAction\">GiveAction</a>: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).</li> </ul>"
@@ -9630,7 +9630,7 @@
    :rdfs/isDefinedBy :schema/SendAction,
    :rdfs/label #voc/lstr "SendAction@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/SendAction :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/SendAction :schema/Action :schema/Thing]})
 
 (def Series
   "A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also <a class=\"localLink\" href=\"https://schema.org/CreativeWorkSeries\">CreativeWorkSeries</a>, <a class=\"localLink\" href=\"https://schema.org/EventSeries\">EventSeries</a>."
@@ -9676,9 +9676,9 @@
    :rdfs/label #voc/lstr "ShareAction@en",
    :rdfs/subClassOf [:schema/CommunicateAction
                      :schema/ShareAction
+                     :schema/Action
                      :schema/InteractAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Thing]})
 
 (def SheetMusic
   "Printed music, as opposed to performed or recorded music."
@@ -9701,8 +9701,8 @@
    :rdfs/label #voc/lstr "ShippingDeliveryTime@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/ShippingDeliveryTime
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ShippingRateSettings
   "A ShippingRateSettings represents re-usable pieces of shipping information. It is designed for publication on an URL that may be referenced via the <a class=\"localLink\" href=\"https://schema.org/shippingSettingsLink\">shippingSettingsLink</a> property of an <a class=\"localLink\" href=\"https://schema.org/OfferShippingDetails\">OfferShippingDetails</a>. Several occurrences can be published, distinguished and matched (i.e. identified/referenced) by their different values for <a class=\"localLink\" href=\"https://schema.org/shippingLabel\">shippingLabel</a>."
@@ -9715,8 +9715,8 @@
    :rdfs/label #voc/lstr "ShippingRateSettings@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/ShippingRateSettings
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def ShoeStore
   "A shoe store."
@@ -9727,10 +9727,10 @@
    :rdfs/label       #voc/lstr "ShoeStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/ShoeStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def ShoppingCenter
   "A shopping center or mall."
@@ -9741,9 +9741,9 @@
    :rdfs/label       #voc/lstr "ShoppingCenter@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/ShoppingCenter
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def ShortStory
   "Short story or tale. A brief work of literature, usually written in narrative prose."
@@ -9765,9 +9765,9 @@
    :rdfs/label       #voc/lstr "SingleFamilyResidence@en",
    :rdfs/subClassOf  [:schema/House
                       :schema/SingleFamilyResidence
-                      :schema/Thing
+                      :schema/Place
                       :schema/Accommodation
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def SiteNavigationElement
   "A navigation element of the page."
@@ -9778,8 +9778,8 @@
    :rdfs/label       #voc/lstr "SiteNavigationElement@en",
    :rdfs/subClassOf  [:schema/WebPageElement
                       :schema/SiteNavigationElement
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def SizeGroupEnumeration
   "Enumerates common size groups for various product categories."
@@ -9791,8 +9791,8 @@
    :rdfs/label #voc/lstr "SizeGroupEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/SizeGroupEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def SizeSpecification
   "Size related properties of a product, typically a size code (<a class=\"localLink\" href=\"https://schema.org/name\">name</a>) and optionally a <a class=\"localLink\" href=\"https://schema.org/sizeSystem\">sizeSystem</a>, <a class=\"localLink\" href=\"https://schema.org/sizeGroup\">sizeGroup</a>, and product measurements (<a class=\"localLink\" href=\"https://schema.org/hasMeasurement\">hasMeasurement</a>). In addition, the intended audience can be defined through <a class=\"localLink\" href=\"https://schema.org/suggestedAge\">suggestedAge</a>, <a class=\"localLink\" href=\"https://schema.org/suggestedGender\">suggestedGender</a>, and suggested body measurements (<a class=\"localLink\" href=\"https://schema.org/suggestedMeasurement\">suggestedMeasurement</a>)."
@@ -9805,9 +9805,9 @@
    :rdfs/label #voc/lstr "SizeSpecification@en",
    :rdfs/subClassOf [:schema/QualitativeValue
                      :schema/SizeSpecification
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def SizeSystemEnumeration
   "Enumerates common size systems for different categories of products, for example \"EN-13402\" or \"UK\" for wearables or \"Imperial\" for screws."
@@ -9820,8 +9820,8 @@
    :rdfs/label #voc/lstr "SizeSystemEnumeration@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/SizeSystemEnumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def SkiResort
   "A ski resort."
@@ -9833,11 +9833,11 @@
    :rdfs/subClassOf  [:schema/Resort
                       :schema/SportsActivityLocation
                       :schema/SkiResort
-                      :schema/Thing
-                      :schema/LodgingBusiness
                       :schema/Organization
+                      :schema/LodgingBusiness
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def SocialEvent
   "Event type: Social event."
@@ -9859,8 +9859,8 @@
    :rdfs/label #voc/lstr "SocialMediaPosting@en",
    :rdfs/subClassOf [:schema/Article
                      :schema/SocialMediaPosting
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def SoftwareApplication
   "A software application."
@@ -9940,7 +9940,7 @@
    :rdfs/isDefinedBy :schema/Specialty,
    :rdfs/label #voc/lstr "Specialty@en",
    :rdfs/subClassOf
-   [:schema/Enumeration :schema/Specialty :schema/Thing :schema/Intangible]})
+   [:schema/Enumeration :schema/Specialty :schema/Intangible :schema/Thing]})
 
 (def SportingGoodsStore
   "A sporting goods store."
@@ -9951,10 +9951,10 @@
    :rdfs/label       #voc/lstr "SportingGoodsStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/SportingGoodsStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def SportsActivityLocation
   "A sports location, such as a playing field."
@@ -9965,9 +9965,9 @@
    :rdfs/label       #voc/lstr "SportsActivityLocation@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/SportsActivityLocation
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def SportsClub
   "A sports club."
@@ -9978,10 +9978,10 @@
    :rdfs/label       #voc/lstr "SportsClub@en",
    :rdfs/subClassOf  [:schema/SportsActivityLocation
                       :schema/SportsClub
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def SportsEvent
   "Event type: Sports event."
@@ -10013,8 +10013,8 @@
    :rdfs/label       #voc/lstr "SportsTeam@en",
    :rdfs/subClassOf  [:schema/SportsOrganization
                       :schema/SportsTeam
-                      :schema/Thing
-                      :schema/Organization]})
+                      :schema/Organization
+                      :schema/Thing]})
 
 (def SpreadsheetDigitalDocument
   "A spreadsheet file."
@@ -10025,8 +10025,8 @@
    :rdfs/label       #voc/lstr "SpreadsheetDigitalDocument@en",
    :rdfs/subClassOf  [:schema/DigitalDocument
                       :schema/SpreadsheetDigitalDocument
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def StadiumOrArena
   "A stadium."
@@ -10038,10 +10038,10 @@
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/SportsActivityLocation
                       :schema/StadiumOrArena
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def State
   "A state or province of a country."
@@ -10052,8 +10052,8 @@
    :rdfs/label       #voc/lstr "State@en",
    :rdfs/subClassOf  [:schema/AdministrativeArea
                       :schema/State
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Statement
   "A statement about something, for example a fun or interesting fact. If known, the main entity this statement is about can be indicated using mainEntity. For more formal claims (e.g. in Fact Checking), consider using <a class=\"localLink\" href=\"https://schema.org/Claim\">Claim</a> instead. Use the <a class=\"localLink\" href=\"https://schema.org/text\">text</a> property to capture the text of the statement."
@@ -10088,8 +10088,8 @@
    :rdfs/label       #voc/lstr "StatusEnumeration@en",
    :rdfs/subClassOf  [:schema/Enumeration
                       :schema/StatusEnumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def SteeringPositionValue
   "A value indicating a steering position."
@@ -10100,9 +10100,9 @@
    :rdfs/label       #voc/lstr "SteeringPositionValue@en",
    :rdfs/subClassOf  [:schema/QualitativeValue
                       :schema/SteeringPositionValue
+                      :schema/Intangible
                       :schema/Enumeration
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Thing]})
 
 (def Store
   "A retail good store."
@@ -10113,9 +10113,9 @@
    :rdfs/label       #voc/lstr "Store@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/Store
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def StructuredValue
   "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing."
@@ -10148,8 +10148,8 @@
    :rdfs/label #voc/lstr "SubscribeAction@en",
    :rdfs/subClassOf [:schema/InteractAction
                      :schema/SubscribeAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def Substance
   "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical."
@@ -10171,8 +10171,8 @@
    :rdfs/label       #voc/lstr "SubwayStation@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/SubwayStation
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Suite
   "A suite in a hotel or other public accommodation, denotes a class of luxury accommodations, the key feature of which is multiple rooms (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Suite_(hotel)\">http://en.wikipedia.org/wiki/Suite_(hotel)</a>). <br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>."
@@ -10184,7 +10184,7 @@
    :rdfs/isDefinedBy :schema/Suite,
    :rdfs/label #voc/lstr "Suite@en",
    :rdfs/subClassOf
-   [:schema/Accommodation :schema/Suite :schema/Thing :schema/Place]})
+   [:schema/Accommodation :schema/Suite :schema/Place :schema/Thing]})
 
 (def SuperficialAnatomy
   "Anatomical features that can be observed by sight (without dissection), including the form and proportions of the human body as well as surface landmarks that correspond to deeper subcutaneous structures. Superficial anatomy plays an important role in sports medicine, phlebotomy, and other medical specialties as underlying anatomical structures can be identified through surface palpation. For example, during back surgery, superficial anatomy can be used to palpate and count vertebrae to find the site of incision. Or in phlebotomy, superficial anatomy can be used to locate an underlying vein; for example, the median cubital vein can be located by palpating the borders of the cubital fossa (such as the epicondyles of the humerus) and then looking for the superficial signs of the vein, such as size, prominence, ability to refill after depression, and feel of surrounding tissue support. As another example, in a subluxation (dislocation) of the glenohumeral joint, the bony structure becomes pronounced with the deltoid muscle failing to cover the glenohumeral joint allowing the edges of the scapula to be superficially visible. Here, the superficial anatomy is the visible edges of the scapula, implying the underlying dislocation of the joint (the related anatomical structure)."
@@ -10209,8 +10209,8 @@
    :rdfs/label #voc/lstr "SurgicalProcedure@en",
    :rdfs/subClassOf [:schema/MedicalProcedure
                      :schema/SurgicalProcedure
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def SuspendAction
   "The act of momentarily pausing a device or application (e.g. pause music playback or pause a timer)."
@@ -10222,7 +10222,7 @@
    :rdfs/isDefinedBy :schema/SuspendAction,
    :rdfs/label #voc/lstr "SuspendAction@en",
    :rdfs/subClassOf
-   [:schema/ControlAction :schema/SuspendAction :schema/Thing :schema/Action]})
+   [:schema/ControlAction :schema/SuspendAction :schema/Action :schema/Thing]})
 
 (def Synagogue
   "A synagogue."
@@ -10233,9 +10233,9 @@
    :rdfs/label       #voc/lstr "Synagogue@en",
    :rdfs/subClassOf  [:schema/PlaceOfWorship
                       :schema/Synagogue
-                      :schema/Thing
+                      :schema/Place
                       :schema/CivicStructure
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def TVClip
   "A short TV program or a segment/part of a TV program."
@@ -10246,7 +10246,7 @@
    :rdfs/isDefinedBy :schema/TVClip,
    :rdfs/label #voc/lstr "TVClip@en",
    :rdfs/subClassOf
-   [:schema/Clip :schema/TVClip :schema/Thing :schema/CreativeWork]})
+   [:schema/Clip :schema/TVClip :schema/CreativeWork :schema/Thing]})
 
 (def TVEpisode
   "A TV episode which can be part of a series or season."
@@ -10257,7 +10257,7 @@
    :rdfs/isDefinedBy :schema/TVEpisode,
    :rdfs/label #voc/lstr "TVEpisode@en",
    :rdfs/subClassOf
-   [:schema/Episode :schema/TVEpisode :schema/Thing :schema/CreativeWork]})
+   [:schema/Episode :schema/TVEpisode :schema/CreativeWork :schema/Thing]})
 
 (def TVSeason
   "Season dedicated to TV broadcast and associated online delivery."
@@ -10285,9 +10285,9 @@
    :rdfs/subClassOf [:schema/CreativeWorkSeries
                      :schema/CreativeWork
                      :schema/TVSeries
-                     :schema/Thing
+                     :schema/Series
                      :schema/Intangible
-                     :schema/Series]})
+                     :schema/Thing]})
 
 (def Table
   "A table on a Web page."
@@ -10298,8 +10298,8 @@
    :rdfs/label       #voc/lstr "Table@en",
    :rdfs/subClassOf  [:schema/WebPageElement
                       :schema/Table
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def TakeAction
   "The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/GiveAction\">GiveAction</a>: The reciprocal of TakeAction.</li> <li><a class=\"localLink\" href=\"https://schema.org/ReceiveAction\">ReceiveAction</a>: Unlike ReceiveAction, TakeAction implies that ownership has been transferred.</li> </ul>"
@@ -10311,7 +10311,7 @@
    :rdfs/isDefinedBy :schema/TakeAction,
    :rdfs/label #voc/lstr "TakeAction@en",
    :rdfs/subClassOf
-   [:schema/TransferAction :schema/TakeAction :schema/Thing :schema/Action]})
+   [:schema/TransferAction :schema/TakeAction :schema/Action :schema/Thing]})
 
 (def TattooParlor
   "A tattoo parlor."
@@ -10322,10 +10322,10 @@
    :rdfs/label       #voc/lstr "TattooParlor@en",
    :rdfs/subClassOf  [:schema/HealthAndBeautyBusiness
                       :schema/TattooParlor
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Taxi
   "A taxi."
@@ -10336,8 +10336,8 @@
    :rdfs/label       #voc/lstr "Taxi@en",
    :rdfs/subClassOf  [:schema/Service
                       :schema/Taxi
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def TaxiReservation
   "A reservation for a taxi.<br/><br/> Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use <a class=\"localLink\" href=\"https://schema.org/Offer\">Offer</a>."
@@ -10350,8 +10350,8 @@
    :rdfs/label #voc/lstr "TaxiReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/TaxiReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def TaxiService
   "A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled."
@@ -10363,7 +10363,7 @@
    :rdfs/isDefinedBy :schema/TaxiService,
    :rdfs/label #voc/lstr "TaxiService@en",
    :rdfs/subClassOf
-   [:schema/Service :schema/TaxiService :schema/Thing :schema/Intangible]})
+   [:schema/Service :schema/TaxiService :schema/Intangible :schema/Thing]})
 
 (def TaxiStand
   "A taxi stand."
@@ -10374,8 +10374,8 @@
    :rdfs/label       #voc/lstr "TaxiStand@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/TaxiStand
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def Taxon
   "A set of organisms asserted to represent a natural cohesive biological unit."
@@ -10398,7 +10398,7 @@
    :rdfs/isDefinedBy :schema/TechArticle,
    :rdfs/label #voc/lstr "TechArticle@en",
    :rdfs/subClassOf
-   [:schema/Article :schema/TechArticle :schema/Thing :schema/CreativeWork]})
+   [:schema/Article :schema/TechArticle :schema/CreativeWork :schema/Thing]})
 
 (def TelevisionChannel
   "A unique instance of a television BroadcastService on a CableOrSatelliteService lineup."
@@ -10411,8 +10411,8 @@
    :rdfs/label #voc/lstr "TelevisionChannel@en",
    :rdfs/subClassOf [:schema/BroadcastChannel
                      :schema/TelevisionChannel
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def TelevisionStation
   "A television station."
@@ -10423,9 +10423,9 @@
    :rdfs/label       #voc/lstr "TelevisionStation@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/TelevisionStation
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def TennisComplex
   "A tennis complex."
@@ -10436,10 +10436,10 @@
    :rdfs/label       #voc/lstr "TennisComplex@en",
    :rdfs/subClassOf  [:schema/SportsActivityLocation
                       :schema/TennisComplex
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def Text
   "Data type: Text."
@@ -10459,8 +10459,8 @@
    :rdfs/label       #voc/lstr "TextDigitalDocument@en",
    :rdfs/subClassOf  [:schema/DigitalDocument
                       :schema/TextDigitalDocument
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def TheaterEvent
   "Event type: Theater performance."
@@ -10482,8 +10482,8 @@
    :rdfs/label #voc/lstr "TheaterGroup@en",
    :rdfs/subClassOf [:schema/PerformingGroup
                      :schema/TheaterGroup
-                     :schema/Thing
-                     :schema/Organization]})
+                     :schema/Organization
+                     :schema/Thing]})
 
 (def TherapeuticProcedure
   "A medical procedure intended primarily for therapeutic purposes, aimed at improving a health condition."
@@ -10496,8 +10496,8 @@
    :rdfs/label #voc/lstr "TherapeuticProcedure@en",
    :rdfs/subClassOf [:schema/MedicalProcedure
                      :schema/TherapeuticProcedure
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Thesis
   "A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification."
@@ -10539,7 +10539,7 @@
    :rdfs/isDefinedBy :schema/TieAction,
    :rdfs/label #voc/lstr "TieAction@en",
    :rdfs/subClassOf
-   [:schema/AchieveAction :schema/TieAction :schema/Thing :schema/Action]})
+   [:schema/AchieveAction :schema/TieAction :schema/Action :schema/Thing]})
 
 (def Time
   "A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm] (see <a href=\"http://www.w3.org/TR/xmlschema-2/#time\">XML schema for details</a>)."
@@ -10562,7 +10562,7 @@
    :rdfs/isDefinedBy :schema/TipAction,
    :rdfs/label #voc/lstr "TipAction@en",
    :rdfs/subClassOf
-   [:schema/TradeAction :schema/TipAction :schema/Thing :schema/Action]})
+   [:schema/TradeAction :schema/TipAction :schema/Action :schema/Thing]})
 
 (def TireShop
   "A tire shop."
@@ -10573,10 +10573,10 @@
    :rdfs/label       #voc/lstr "TireShop@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/TireShop
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def TouristAttraction
   "A tourist attraction. In principle any Thing can be a <a class=\"localLink\" href=\"https://schema.org/TouristAttraction\">TouristAttraction</a>, from a <a class=\"localLink\" href=\"https://schema.org/Mountain\">Mountain</a> and <a class=\"localLink\" href=\"https://schema.org/LandmarksOrHistoricalBuildings\">LandmarksOrHistoricalBuildings</a> to a <a class=\"localLink\" href=\"https://schema.org/LocalBusiness\">LocalBusiness</a>. This Type can be used on its own to describe a general <a class=\"localLink\" href=\"https://schema.org/TouristAttraction\">TouristAttraction</a>, or be used as an <a class=\"localLink\" href=\"https://schema.org/additionalType\">additionalType</a> to add tourist attraction properties to any other type. (See examples below)"
@@ -10609,9 +10609,9 @@
    :rdfs/label       #voc/lstr "TouristInformationCenter@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/TouristInformationCenter
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def TouristTrip
   "A tourist trip. A created itinerary of visits to one or more places of interest (<a class=\"localLink\" href=\"https://schema.org/TouristAttraction\">TouristAttraction</a>/<a class=\"localLink\" href=\"https://schema.org/TouristDestination\">TouristDestination</a>) often linked by a similar theme, geographic area, or interest to a particular <a class=\"localLink\" href=\"https://schema.org/touristType\">touristType</a>. The <a href=\"http://www2.unwto.org/\">UNWTO</a> defines tourism trip as the Trip taken by visitors. (See examples below.)"
@@ -10623,7 +10623,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/TouristTrip",
    :rdfs/label #voc/lstr "TouristTrip@en",
    :rdfs/subClassOf
-   [:schema/Trip :schema/TouristTrip :schema/Thing :schema/Intangible]})
+   [:schema/Trip :schema/TouristTrip :schema/Intangible :schema/Thing]})
 
 (def ToyStore
   "A toy store."
@@ -10634,10 +10634,10 @@
    :rdfs/label       #voc/lstr "ToyStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/ToyStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def TrackAction
   "An agent tracks an object for updates.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/FollowAction\">FollowAction</a>: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.</li> <li><a class=\"localLink\" href=\"https://schema.org/SubscribeAction\">SubscribeAction</a>: Unlike SubscribeAction, TrackAction refers to the interest on the location of innanimate objects.</li> </ul>"
@@ -10649,7 +10649,7 @@
    :rdfs/isDefinedBy :schema/TrackAction,
    :rdfs/label #voc/lstr "TrackAction@en",
    :rdfs/subClassOf
-   [:schema/FindAction :schema/TrackAction :schema/Thing :schema/Action]})
+   [:schema/FindAction :schema/TrackAction :schema/Action :schema/Thing]})
 
 (def TradeAction
   "The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment."
@@ -10673,8 +10673,8 @@
    :rdfs/label #voc/lstr "TrainReservation@en",
    :rdfs/subClassOf [:schema/Reservation
                      :schema/TrainReservation
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def TrainStation
   "A train station."
@@ -10685,8 +10685,8 @@
    :rdfs/label       #voc/lstr "TrainStation@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/TrainStation
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def TrainTrip
   "A trip on a commercial train line."
@@ -10697,8 +10697,8 @@
    :rdfs/label       #voc/lstr "TrainTrip@en",
    :rdfs/subClassOf  [:schema/Trip
                       :schema/TrainTrip
-                      :schema/Thing
-                      :schema/Intangible]})
+                      :schema/Intangible
+                      :schema/Thing]})
 
 (def TransferAction
   "The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another."
@@ -10721,7 +10721,7 @@
    :rdfs/isDefinedBy :schema/TravelAction,
    :rdfs/label #voc/lstr "TravelAction@en",
    :rdfs/subClassOf
-   [:schema/MoveAction :schema/TravelAction :schema/Thing :schema/Action]})
+   [:schema/MoveAction :schema/TravelAction :schema/Action :schema/Thing]})
 
 (def TravelAgency
   "A travel agency."
@@ -10732,9 +10732,9 @@
    :rdfs/label       #voc/lstr "TravelAgency@en",
    :rdfs/subClassOf  [:schema/LocalBusiness
                       :schema/TravelAgency
-                      :schema/Thing
                       :schema/Organization
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def TreatmentIndication
   "An indication for treating an underlying condition, symptom, etc."
@@ -10747,8 +10747,8 @@
    :rdfs/label #voc/lstr "TreatmentIndication@en",
    :rdfs/subClassOf [:schema/MedicalIndication
                      :schema/TreatmentIndication
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Trip
   "A trip or journey. An itinerary of visits to one or more places."
@@ -10780,8 +10780,8 @@
    :rdfs/label #voc/lstr "TypeAndQuantityNode@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/TypeAndQuantityNode
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def UKNonprofitType
   "UKNonprofitType: Non-profit organization type originating from the United Kingdom."
@@ -10794,9 +10794,9 @@
    :rdfs/label #voc/lstr "UKNonprofitType@en",
    :rdfs/subClassOf [:schema/NonprofitType
                      :schema/UKNonprofitType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def URL
   "Data type: URL."
@@ -10805,7 +10805,7 @@
    :rdfs/comment     #voc/lstr "Data type: URL.@en",
    :rdfs/isDefinedBy :schema/URL,
    :rdfs/label       #voc/lstr "URL@en",
-   :rdfs/subClassOf  [:schema/Text :schema/URL :rdfs/Class :schema/DataType]})
+   :rdfs/subClassOf  [:schema/Text :schema/URL :schema/DataType :rdfs/Class]})
 
 (def USNonprofitType
   "USNonprofitType: Non-profit organization type originating from the United States."
@@ -10818,9 +10818,9 @@
    :rdfs/label #voc/lstr "USNonprofitType@en",
    :rdfs/subClassOf [:schema/NonprofitType
                      :schema/USNonprofitType
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def UnRegisterAction
   "The act of un-registering from a service.<br/><br/> Related actions:<br/><br/> <ul> <li><a class=\"localLink\" href=\"https://schema.org/RegisterAction\">RegisterAction</a>: antonym of UnRegisterAction.</li> <li><a class=\"localLink\" href=\"https://schema.org/LeaveAction\">LeaveAction</a>: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you were previously registered, rather than leaving a team/group of people.</li> </ul>"
@@ -10833,8 +10833,8 @@
    :rdfs/label #voc/lstr "UnRegisterAction@en",
    :rdfs/subClassOf [:schema/InteractAction
                      :schema/UnRegisterAction
-                     :schema/Thing
-                     :schema/Action]})
+                     :schema/Action
+                     :schema/Thing]})
 
 (def UnitPriceSpecification
   "The price asked for a given offer by the respective organization or person."
@@ -10847,9 +10847,9 @@
    :rdfs/label #voc/lstr "UnitPriceSpecification@en",
    :rdfs/subClassOf [:schema/PriceSpecification
                      :schema/UnitPriceSpecification
-                     :schema/Thing
+                     :schema/StructuredValue
                      :schema/Intangible
-                     :schema/StructuredValue]})
+                     :schema/Thing]})
 
 (def UpdateAction
   "The act of managing by changing/editing the state of the object."
@@ -10871,7 +10871,7 @@
    :rdfs/isDefinedBy :schema/UseAction,
    :rdfs/label #voc/lstr "UseAction@en",
    :rdfs/subClassOf
-   [:schema/ConsumeAction :schema/UseAction :schema/Thing :schema/Action]})
+   [:schema/ConsumeAction :schema/UseAction :schema/Action :schema/Thing]})
 
 (def UserBlocks
   "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."
@@ -10992,7 +10992,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/UserReview",
    :rdfs/label #voc/lstr "UserReview@en",
    :rdfs/subClassOf
-   [:schema/Review :schema/UserReview :schema/Thing :schema/CreativeWork]})
+   [:schema/Review :schema/UserReview :schema/CreativeWork :schema/Thing]})
 
 (def UserTweets
   "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"https://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"https://schema.org/Comment\">Comment</a>."
@@ -11028,9 +11028,9 @@
    :rdfs/label #voc/lstr "Vein@en",
    :rdfs/subClassOf [:schema/Vessel
                      :schema/Vein
-                     :schema/Thing
                      :schema/AnatomicalStructure
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def Vessel
   "A component of the human body circulatory system comprised of an intricate network of hollow tubes that transport blood throughout the entire body."
@@ -11043,8 +11043,8 @@
    :rdfs/label #voc/lstr "Vessel@en",
    :rdfs/subClassOf [:schema/AnatomicalStructure
                      :schema/Vessel
-                     :schema/Thing
-                     :schema/MedicalEntity]})
+                     :schema/MedicalEntity
+                     :schema/Thing]})
 
 (def VeterinaryCare
   "A vet's office."
@@ -11055,8 +11055,8 @@
    :rdfs/label       #voc/lstr "VeterinaryCare@en",
    :rdfs/subClassOf  [:schema/MedicalOrganization
                       :schema/VeterinaryCare
-                      :schema/Thing
-                      :schema/Organization]})
+                      :schema/Organization
+                      :schema/Thing]})
 
 (def VideoGallery
   "Web page type: Video gallery page."
@@ -11067,10 +11067,10 @@
    :rdfs/label       #voc/lstr "VideoGallery@en",
    :rdfs/subClassOf  [:schema/MediaGallery
                       :schema/VideoGallery
-                      :schema/WebPage
                       :schema/CollectionPage
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/WebPage
+                      :schema/Thing]})
 
 (def VideoGame
   "A video game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device."
@@ -11084,8 +11084,8 @@
    :rdfs/subClassOf [:schema/Game
                      :schema/SoftwareApplication
                      :schema/VideoGame
-                     :schema/Thing
-                     :schema/CreativeWork]})
+                     :schema/CreativeWork
+                     :schema/Thing]})
 
 (def VideoGameClip
   "A short segment/part of a video game."
@@ -11096,8 +11096,8 @@
    :rdfs/label       #voc/lstr "VideoGameClip@en",
    :rdfs/subClassOf  [:schema/Clip
                       :schema/VideoGameClip
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def VideoGameSeries
   "A video game series."
@@ -11108,10 +11108,10 @@
    :rdfs/label       #voc/lstr "VideoGameSeries@en",
    :rdfs/subClassOf  [:schema/CreativeWorkSeries
                       :schema/VideoGameSeries
-                      :schema/Thing
-                      :schema/CreativeWork
+                      :schema/Series
                       :schema/Intangible
-                      :schema/Series]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def VideoObject
   "A video file."
@@ -11122,8 +11122,8 @@
    :rdfs/label       #voc/lstr "VideoObject@en",
    :rdfs/subClassOf  [:schema/MediaObject
                       :schema/VideoObject
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def VideoObjectSnapshot
   "A specific and exact (byte-for-byte) version of a <a class=\"localLink\" href=\"https://schema.org/VideoObject\">VideoObject</a>. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity."
@@ -11136,9 +11136,9 @@
    :rdfs/label #voc/lstr "VideoObjectSnapshot@en",
    :rdfs/subClassOf [:schema/VideoObject
                      :schema/VideoObjectSnapshot
-                     :schema/Thing
+                     :schema/MediaObject
                      :schema/CreativeWork
-                     :schema/MediaObject]})
+                     :schema/Thing]})
 
 (def ViewAction
   "The act of consuming static visual content."
@@ -11149,8 +11149,8 @@
    :rdfs/label       #voc/lstr "ViewAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/ViewAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def VirtualLocation
   "An online or virtual location for attending events. For example, one may attend an online seminar or educational event. While a virtual location may be used as the location of an event, virtual locations should not be confused with physical locations in the real world."
@@ -11195,10 +11195,10 @@
    :rdfs/label #voc/lstr "VitalSign@en",
    :rdfs/subClassOf [:schema/MedicalSign
                      :schema/VitalSign
-                     :schema/MedicalCondition
-                     :schema/Thing
+                     :schema/MedicalSignOrSymptom
                      :schema/MedicalEntity
-                     :schema/MedicalSignOrSymptom]})
+                     :schema/Thing
+                     :schema/MedicalCondition]})
 
 (def Volcano
   "A volcano, like Fujisan."
@@ -11209,8 +11209,8 @@
    :rdfs/label       #voc/lstr "Volcano@en",
    :rdfs/subClassOf  [:schema/Landform
                       :schema/Volcano
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def VoteAction
   "The act of expressing a preference from a fixed/finite/structured set of choices/options."
@@ -11223,9 +11223,9 @@
    :rdfs/label #voc/lstr "VoteAction@en",
    :rdfs/subClassOf [:schema/ChooseAction
                      :schema/VoteAction
-                     :schema/Thing
                      :schema/Action
-                     :schema/AssessAction]})
+                     :schema/AssessAction
+                     :schema/Thing]})
 
 (def WPAdBlock
   "An advertising section of the page."
@@ -11236,8 +11236,8 @@
    :rdfs/label       #voc/lstr "WPAdBlock@en",
    :rdfs/subClassOf  [:schema/WebPageElement
                       :schema/WPAdBlock
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def WPFooter
   "The footer section of the page."
@@ -11248,8 +11248,8 @@
    :rdfs/label       #voc/lstr "WPFooter@en",
    :rdfs/subClassOf  [:schema/WebPageElement
                       :schema/WPFooter
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def WPHeader
   "The header section of the page."
@@ -11260,8 +11260,8 @@
    :rdfs/label       #voc/lstr "WPHeader@en",
    :rdfs/subClassOf  [:schema/WebPageElement
                       :schema/WPHeader
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def WPSideBar
   "A sidebar section of the page."
@@ -11272,8 +11272,8 @@
    :rdfs/label       #voc/lstr "WPSideBar@en",
    :rdfs/subClassOf  [:schema/WebPageElement
                       :schema/WPSideBar
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def WantAction
   "The act of expressing a desire about the object. An agent wants an object."
@@ -11286,9 +11286,9 @@
    :rdfs/label #voc/lstr "WantAction@en",
    :rdfs/subClassOf [:schema/ReactAction
                      :schema/WantAction
-                     :schema/Thing
                      :schema/Action
-                     :schema/AssessAction]})
+                     :schema/AssessAction
+                     :schema/Thing]})
 
 (def WarrantyPromise
   "A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product."
@@ -11301,8 +11301,8 @@
    :rdfs/label #voc/lstr "WarrantyPromise@en",
    :rdfs/subClassOf [:schema/StructuredValue
                      :schema/WarrantyPromise
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def WarrantyScope
   "A range of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.<br/><br/> Commonly used values:<br/><br/> <ul> <li>http://purl.org/goodrelations/v1#Labor-BringIn</li> <li>http://purl.org/goodrelations/v1#PartsAndLabor-BringIn</li> <li>http://purl.org/goodrelations/v1#PartsAndLabor-PickUp</li> </ul>"
@@ -11315,8 +11315,8 @@
    :rdfs/label #voc/lstr "WarrantyScope@en",
    :rdfs/subClassOf [:schema/Enumeration
                      :schema/WarrantyScope
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def WatchAction
   "The act of consuming dynamic/moving visual content."
@@ -11328,8 +11328,8 @@
    :rdfs/label       #voc/lstr "WatchAction@en",
    :rdfs/subClassOf  [:schema/ConsumeAction
                       :schema/WatchAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def Waterfall
   "A waterfall, like Niagara."
@@ -11341,8 +11341,8 @@
    :rdfs/subClassOf  [:schema/BodyOfWater
                       :schema/Waterfall
                       :schema/Landform
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def WearAction
   "The act of dressing oneself in clothing."
@@ -11353,9 +11353,9 @@
    :rdfs/label       #voc/lstr "WearAction@en",
    :rdfs/subClassOf  [:schema/UseAction
                       :schema/WearAction
-                      :schema/Thing
+                      :schema/Action
                       :schema/ConsumeAction
-                      :schema/Action]})
+                      :schema/Thing]})
 
 (def WearableMeasurementTypeEnumeration
   "Enumerates common types of measurement for wearables products."
@@ -11369,9 +11369,9 @@
    :rdfs/label #voc/lstr "WearableMeasurementTypeEnumeration@en",
    :rdfs/subClassOf [:schema/MeasurementTypeEnumeration
                      :schema/WearableMeasurementTypeEnumeration
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def WearableSizeGroupEnumeration
   "Enumerates common size groups (also known as \"size types\") for wearable products."
@@ -11384,9 +11384,9 @@
    :rdfs/label #voc/lstr "WearableSizeGroupEnumeration@en",
    :rdfs/subClassOf [:schema/SizeGroupEnumeration
                      :schema/WearableSizeGroupEnumeration
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def WearableSizeSystemEnumeration
   "Enumerates common size systems specific for wearable products"
@@ -11398,9 +11398,9 @@
    :rdfs/label #voc/lstr "WearableSizeSystemEnumeration@en",
    :rdfs/subClassOf [:schema/SizeSystemEnumeration
                      :schema/WearableSizeSystemEnumeration
+                     :schema/Intangible
                      :schema/Enumeration
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Thing]})
 
 (def WebAPI
   "An application programming interface accessible over Web/Internet technologies."
@@ -11412,7 +11412,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/WebAPI",
    :rdfs/label #voc/lstr "WebAPI@en",
    :rdfs/subClassOf
-   [:schema/Service :schema/WebAPI :schema/Thing :schema/Intangible]})
+   [:schema/Service :schema/WebAPI :schema/Intangible :schema/Thing]})
 
 (def WebApplication
   "Web applications."
@@ -11423,8 +11423,8 @@
    :rdfs/label       #voc/lstr "WebApplication@en",
    :rdfs/subClassOf  [:schema/SoftwareApplication
                       :schema/WebApplication
-                      :schema/Thing
-                      :schema/CreativeWork]})
+                      :schema/CreativeWork
+                      :schema/Thing]})
 
 (def WebContent
   "WebContent is a type representing all <a class=\"localLink\" href=\"https://schema.org/WebPage\">WebPage</a>, <a class=\"localLink\" href=\"https://schema.org/WebSite\">WebSite</a> and <a class=\"localLink\" href=\"https://schema.org/WebPageElement\">WebPageElement</a> content. It is sometimes the case that detailed distinctions between Web pages, sites and their parts are not always important or obvious. The <a class=\"localLink\" href=\"https://schema.org/WebContent\">WebContent</a> type makes it easier to describe Web-addressable content without requiring such distinctions to always be stated. (The intent is that the existing types <a class=\"localLink\" href=\"https://schema.org/WebPage\">WebPage</a>, <a class=\"localLink\" href=\"https://schema.org/WebSite\">WebSite</a> and <a class=\"localLink\" href=\"https://schema.org/WebPageElement\">WebPageElement</a> will eventually be declared as subtypes of <a class=\"localLink\" href=\"https://schema.org/WebContent\">WebContent</a>.)"
@@ -11480,10 +11480,10 @@
    :rdfs/label       #voc/lstr "WholesaleStore@en",
    :rdfs/subClassOf  [:schema/Store
                       :schema/WholesaleStore
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def WinAction
   "The act of achieving victory in a competitive activity."
@@ -11494,7 +11494,7 @@
    :rdfs/isDefinedBy :schema/WinAction,
    :rdfs/label #voc/lstr "WinAction@en",
    :rdfs/subClassOf
-   [:schema/AchieveAction :schema/WinAction :schema/Thing :schema/Action]})
+   [:schema/AchieveAction :schema/WinAction :schema/Action :schema/Thing]})
 
 (def Winery
   "A winery."
@@ -11505,10 +11505,10 @@
    :rdfs/label       #voc/lstr "Winery@en",
    :rdfs/subClassOf  [:schema/FoodEstablishment
                       :schema/Winery
-                      :schema/Thing
                       :schema/Organization
+                      :schema/Place
                       :schema/LocalBusiness
-                      :schema/Place]})
+                      :schema/Thing]})
 
 (def WorkBasedProgram
   "A program with both an educational and employment component. Typically based at a workplace and structured around work-based learning, with the aim of instilling competencies related to an occupation. WorkBasedProgram is used to distinguish programs such as apprenticeships from school, college or other classroom based educational programs."
@@ -11521,8 +11521,8 @@
    :rdfs/label #voc/lstr "WorkBasedProgram@en",
    :rdfs/subClassOf [:schema/EducationalOccupationalProgram
                      :schema/WorkBasedProgram
-                     :schema/Thing
-                     :schema/Intangible]})
+                     :schema/Intangible
+                     :schema/Thing]})
 
 (def WorkersUnion
   "A Workers Union (also known as a Labor Union, Labour Union, or Trade Union) is an organization that promotes the interests of its worker members by collectively bargaining with management, organizing, and political lobbying."
@@ -11545,8 +11545,8 @@
    :rdfs/label       #voc/lstr "WriteAction@en",
    :rdfs/subClassOf  [:schema/CreateAction
                       :schema/WriteAction
-                      :schema/Thing
-                      :schema/Action]})
+                      :schema/Action
+                      :schema/Thing]})
 
 (def XPathType
   "Text representing an XPath (typically but not necessarily version 1.0)."
@@ -11558,7 +11558,7 @@
    :rdfs/isDefinedBy "https://pending.schema.org/XPathType",
    :rdfs/label #voc/lstr "XPathType@en",
    :rdfs/subClassOf
-   [:schema/Text :schema/XPathType :rdfs/Class :schema/DataType]})
+   [:schema/Text :schema/XPathType :schema/DataType :rdfs/Class]})
 
 (def Zoo
   "A zoo."
@@ -11569,8 +11569,8 @@
    :rdfs/label       #voc/lstr "Zoo@en",
    :rdfs/subClassOf  [:schema/CivicStructure
                       :schema/Zoo
-                      :schema/Thing
-                      :schema/Place]})
+                      :schema/Place
+                      :schema/Thing]})
 
 (def about
   "The subject matter of the content."
@@ -34867,4 +34867,4 @@
    :rdfs/isDefinedBy "https://pending.schema.org/3DModel",
    :rdfs/label #voc/lstr "3DModel@en",
    :rdfs/subClassOf
-   [:schema/MediaObject :schema/|3DModel| :schema/Thing :schema/CreativeWork]})
+   [:schema/MediaObject :schema/|3DModel| :schema/CreativeWork :schema/Thing]})

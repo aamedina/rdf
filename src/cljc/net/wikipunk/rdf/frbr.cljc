@@ -38,19 +38,19 @@
      "Added experimental paraphrases to property and class descriptions"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-10",
-     :rdf/value    "Sorted properties and classes alphabetically by URI"}
+     :rdf/value    "Fixed type in film example and added creator and date"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-10",
-     :rdf/value    "Fixed type in film example and added creator and date"}],
+     :rdf/value    "Sorted properties and classes alphabetically by URI"}],
    :skos/example "https://vocab.org/frbr/frbr-example-film-20050809.html",
    :skos/historyNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-10",
-     :rdf/value    "Item is now not a subclass of geo:SpatialThing"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-10",
      :rdf/value
      "Added alternate, alternateOf, reconfiguration, reconfigurationOf properties"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-10",
+     :rdf/value    "Item is now not a subclass of geo:SpatialThing"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-10",
      :rdf/value    "Made domains and ranges of many properties more specific"}],
@@ -100,14 +100,14 @@
    :rdfs/subClassOf [:frbr/ResponsibleEntity :frbr/CorporateBody],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
+     :dc11/date    "2005-08-08",
+     :rdf/value    "Added comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
      :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-08",
-     :rdf/value    "Added comment"}],
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Extracted definition from existing comment"}],
    :skos/definition
    #voc/lstr
     "An organization or group of individuals and/or other organizations.@en"})
@@ -128,14 +128,14 @@
    :rdfs/subClassOf :frbr/Endeavour,
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
      :rdf/value    "Extracted definition from existing comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-08",
-     :rdf/value    "Added comment"}],
+     :rdf/value    "Added comment"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition
    #voc/lstr "Any of the products of artistic or creative endeavour.@en"})
 
@@ -178,14 +178,14 @@
    :rdfs/subClassOf [:frbr/Endeavour :frbr/Expression],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-08",
-     :rdf/value    "Added comment"}
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Extracted definition from existing comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
      :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
+     :dc11/date    "2005-08-08",
+     :rdf/value    "Added comment"}],
    :skos/definition
    #voc/lstr "A realization of a single work usually in a physical form.@en"})
 
@@ -202,21 +202,21 @@
    :rdfs/subClassOf [:frbr/Endeavour :frbr/Item],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
      :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-08",
+     :rdf/value    "Added comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
      :rdf/value    "Extracted definition from existing comment"}],
    :skos/definition #voc/lstr "An exemplar of a single manifestation.@en",
    :skos/historyNote [{:dc11/creator "Ian Davis",
-                       :dc11/date    "2005-08-10",
-                       :rdf/value    "Removed subclass of geo:SpatialThing"}
-                      {:dc11/creator "Ian Davis",
                        :dc11/date    "2005-08-08",
-                       :rdf/value    "Made subclass of geo:SpatialThing"}]})
+                       :rdf/value    "Made subclass of geo:SpatialThing"}
+                      {:dc11/creator "Ian Davis",
+                       :dc11/date    "2005-08-10",
+                       :rdf/value    "Removed subclass of geo:SpatialThing"}]})
 
 (def Manifestation
   "The physical embodiment of one or more expressions."
@@ -232,14 +232,14 @@
    :rdfs/subClassOf [:frbr/Endeavour :frbr/Manifestation],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
+     :dc11/date    "2005-08-08",
+     :rdf/value    "Added comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
      :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-08",
-     :rdf/value    "Added comment"}],
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Extracted definition from existing comment"}],
    :skos/definition #voc/lstr
                      "The physical embodiment of one or more expressions.@en"})
 
@@ -257,14 +257,14 @@
    :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject :frbr/Object],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-08",
      :rdf/value    "Added comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value    "Extracted definition from existing comment"}],
    :skos/definition #voc/lstr "A tangible or material thing.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date    "2005-08-08",
@@ -283,14 +283,14 @@
    :rdfs/label #voc/lstr "person@en",
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
      :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
+     :rdf/value    "Extracted definition from existing comment"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-08",
+     :rdf/value    "Added comment"}],
    :skos/definition #voc/lstr "A living or dead individual.@en"})
 
 (def Place
@@ -307,14 +307,14 @@
    :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject :frbr/Place],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-08",
      :rdf/value    "Added comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Extracted definition from existing comment"}],
    :skos/definition #voc/lstr "A location.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date    "2005-08-08",
@@ -335,11 +335,11 @@
    :rdfs/subClassOf :frbr/ResponsibleEntity,
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
      :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Extracted definition from existing comment"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-08",
      :rdf/value    "Added comment"}],
@@ -388,14 +388,14 @@
    [:frbr/Endeavour "http://xmlns.com/wordnet/1.6/Work~2" :frbr/Work],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
      :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-08",
-     :rdf/value    "Added comment"}],
+     :rdf/value    "Added comment"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Extracted definition from existing comment"}],
    :skos/definition
    #voc/lstr "An abstract notion of an artistic or intellectual creation.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
@@ -438,11 +438,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/abridgementOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr "An expression that is abridged.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date    "2005-08-10",
@@ -463,11 +463,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/adaption],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}],
+     :rdf/value    "Added definition"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition #voc/lstr "An adaption of a work or expression.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -489,11 +489,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/adaptionOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}],
+     :rdf/value    "Added definition"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition #voc/lstr "A work or expression that is adapted.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -587,11 +587,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/complement],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr "A complement to a work or expression.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -613,11 +613,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/complementOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}],
+     :rdf/value    "Added definition"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition #voc/lstr "A work or expression that is complemented.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -659,11 +659,11 @@
    :rdfs/subPropertyOf [:frbr/responsibleEntityOf :frbr/creatorOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr
                      "A work that was in some way created by of an entity.@en"})
 
@@ -680,11 +680,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/embodiment],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr
                      "A manifestation that embodies an expression.@en"})
 
@@ -701,11 +701,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/embodimentOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr
                      "An expression that is embodied by a manifestation.@en"})
 
@@ -743,11 +743,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/exemplarOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr
                      "The manifestation that is exemplified by a item.@en"})
 
@@ -766,11 +766,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/imitation],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}],
+     :rdf/value    "Added definition"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition #voc/lstr "An imitation of a work or expression.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -792,11 +792,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/imitationOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr "A work or expression that is imitated.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -979,11 +979,11 @@
    :rdfs/subPropertyOf [:frbr/responsibleEntity :frbr/realizer],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}],
+     :rdf/value    "Added definition"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition
    #voc/lstr
     "An entity in some way responsible for realizing an expression.@en"})
@@ -1163,11 +1163,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/revision],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}],
+     :rdf/value    "Added definition"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition #voc/lstr "A revision of an expression.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date    "2005-08-10",
@@ -1257,11 +1257,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/successorOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr "A work or expression that is succeeded.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -1361,11 +1361,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/supplementOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}],
+     :rdf/value    "Added definition"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date "2005-08-08",
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition #voc/lstr "A work or expression that is supplemented.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -1413,11 +1413,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/transformationOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr "A work or expression that is transformed.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-10",
@@ -1460,11 +1460,11 @@
    :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/translationOf],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-08-09",
+     :rdf/value    "Added definition"}],
    :skos/definition #voc/lstr "An expression that is translated.@en",
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date    "2005-08-10",

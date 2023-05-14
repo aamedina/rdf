@@ -898,8 +898,8 @@
    :rdfs/subClassOf [:sh/SPARQLAskExecutable
                      :sh/Validator
                      :sh/SPARQLAskValidator
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLConstraint
   "The class of constraints based on SPARQL SELECT queries."
@@ -911,8 +911,8 @@
    :rdfs/label #voc/lstr "SPARQL constraint@en",
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/SPARQLConstraint
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLConstraintComponent
   "A constraint component that can be used to define constraints based on SPARQL queries."
@@ -965,9 +965,9 @@
                      :sh/SPARQLAskExecutable
                      :sh/Function
                      :sh/SPARQLFunction
-                     :sh/SPARQLExecutable
                      :rdfs/Resource
-                     :sh/Parameterizable]})
+                     :sh/Parameterizable
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLRule
   "The class of SHACL rules based on SPARQL CONSTRUCT queries."
@@ -980,8 +980,8 @@
    :rdfs/subClassOf [:sh/SPARQLConstructExecutable
                      :sh/Rule
                      :sh/SPARQLRule
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLSelectExecutable
   "The class of SPARQL executables based on a SELECT query."
@@ -1006,8 +1006,8 @@
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/Validator
                      :sh/SPARQLSelectValidator
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLTarget
   "The class of targets that are based on SPARQL queries."
@@ -1021,8 +1021,8 @@
                      :sh/SPARQLAskExecutable
                      :sh/Target
                      :sh/SPARQLTarget
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLTargetType
   "The (meta) class for parameterizable targets that are based on SPARQL queries."
@@ -1038,9 +1038,9 @@
                      :sh/TargetType
                      :sh/SPARQLTargetType
                      :rdfs/Class
-                     :sh/SPARQLExecutable
                      :rdfs/Resource
-                     :sh/Parameterizable]})
+                     :sh/Parameterizable
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLUpdateExecutable
   "The class of SPARQL executables based on a SPARQL UPDATE."
