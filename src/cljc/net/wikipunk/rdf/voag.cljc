@@ -2964,7 +2964,7 @@
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Unknown maturity"})
 
-(def VAEM-CatalogEntry
+#_(def VAEM-CatalogEntry
   {:db/ident         :voag/VAEM-CatalogEntry,
    :rdf/type         [:voag/SchemaGraph
                       {:owl/cardinality 1,
@@ -3072,7 +3072,7 @@
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag"})
 
-(def VAEM-XINA-CatalogEntry
+#_(def VAEM-XINA-CatalogEntry
   {:db/ident         :voag/VAEM-XINA-CatalogEntry,
    :rdf/type         [:voag/SchemaGraph
                       {:owl/cardinality 1,
@@ -3180,7 +3180,7 @@
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag"})
 
-(def VOAG-CatalogEntry
+#_(def VOAG-CatalogEntry
   "VOAG Catalog Entry"
   {:db/ident         :voag/VOAG-CatalogEntry,
    :rdf/type         [:voag/SchemaGraph
@@ -3291,7 +3291,7 @@
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "VOAG Catalog Entry"})
 
-(def VOAG-OntologyLogo_360x110
+#_(def VOAG-OntologyLogo_360x110
   "VOAG Logo"
   {:db/ident :voag/VOAG-OntologyLogo_360x110,
    :rdf/type [:voag/ProductLogo
@@ -3518,7 +3518,7 @@
    :rdfs/domain        :voag/LicenseModel,
    :rdfs/isDefinedBy   "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label         "deprecated on",
-   :rdfs/range         :vaem/dateUnion,
+   ;; :rdfs/range         :vaem/dateUnion,
    :rdfs/subPropertyOf :voag/deprecated})
 
 (def derivedFrom
@@ -3573,7 +3573,8 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "end date",
-   :rdfs/range       :vaem/dateUnion})
+   ;; :rdfs/range       :vaem/dateUnion
+   })
 
 (def eventDate
   "event date"
@@ -3581,7 +3582,8 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "event date",
-   :rdfs/range       :vaem/dateUnion})
+   ;; :rdfs/range       :vaem/dateUnion
+   })
 
 (def exclude
   "exclude"
@@ -4150,7 +4152,8 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "release date",
-   :rdfs/range       :vaem/dateUnion})
+   ;; :rdfs/range       :vaem/dateUnion
+   })
 
 (def requires
   "requires"
@@ -4203,7 +4206,8 @@
    :rdf/type         :owl/DatatypeProperty,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "start date",
-   :rdfs/range       :vaem/dateUnion})
+   ;; :rdfs/range       :vaem/dateUnion
+   })
 
 (def subject
   "subject"
