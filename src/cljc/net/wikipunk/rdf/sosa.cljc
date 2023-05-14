@@ -1,15 +1,18 @@
 (ns net.wikipunk.rdf.sosa
   "This ontology is based on the SSN Ontology by the W3C Semantic Sensor Networks Incubator Group (SSN-XG), together with considerations from the W3C/OGC Spatial Data on the Web Working Group."
   {:dcterms/created #inst "2017-04-17T00:00:00.000-04:00",
-   :dcterms/creator {:foaf/name "W3C/OGC Spatial Data on the Web Working Group",
-                     :rdf/type  :foaf/Agent},
+   :dcterms/creator
+   {:foaf/name #voc/lstr "W3C/OGC Spatial Data on the Web Working Group@en",
+    :rdf/type  :foaf/Agent},
    :dcterms/description
-   "This ontology is based on the SSN Ontology by the W3C Semantic Sensor Networks Incubator Group (SSN-XG), together with considerations from the W3C/OGC Spatial Data on the Web Working Group.",
+   #voc/lstr
+    "This ontology is based on the SSN Ontology by the W3C Semantic Sensor Networks Incubator Group (SSN-XG), together with considerations from the W3C/OGC Spatial Data on the Web Working Group.@en",
    :dcterms/license
    ["http://www.opengeospatial.org/ogc/Software"
     "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document"],
    :dcterms/rights "Copyright 2017 W3C/OGC.",
-   :dcterms/title "Sensor, Observation, Sample, and Actuator (SOSA) Ontology",
+   :dcterms/title
+   #voc/lstr "Sensor, Observation, Sample, and Actuator (SOSA) Ontology@en",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "foaf"    "http://xmlns.com/foaf/0.1/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -36,199 +39,242 @@
   {:db/ident :sosa/ActuatableProperty,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "An actuatable quality (property, characteristic) of a FeatureOfInterest.",
+   #voc/lstr
+    "An actuatable quality (property, characteristic) of a FeatureOfInterest.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Actuatable Property",
+   :rdfs/label #voc/lstr "Actuatable Property@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/ActuatableProperty],
    :skos/definition
-   "An actuatable quality (property, characteristic) of a FeatureOfInterest.",
+   #voc/lstr
+    "An actuatable quality (property, characteristic) of a FeatureOfInterest.@en",
    :skos/example
-   "A window actuator acts by changing the state between a frame and a window. The ability of the window to be opened and closed is its ActuatableProperty."})
+   #voc/lstr
+    "A window actuator acts by changing the state between a frame and a window. The ability of the window to be opened and closed is its ActuatableProperty.@en"})
 
 (def Actuation
   "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator."
   {:db/ident :sosa/Actuation,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.",
+   #voc/lstr
+    "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Actuation",
+   :rdfs/label #voc/lstr "Actuation@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Actuation],
    :skos/definition
-   "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.",
+   #voc/lstr
+    "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.@en",
    :skos/example
-   "The activity of automatically closing a window if the temperature in a room drops below 20 degree Celsius. The activity is the Actuation and the device that closes the window is the Actuator. The Procedure is the rule, plan, or specification that defines the conditions that triggers the Actuation, here a drop in temperature. "})
+   #voc/lstr
+    "The activity of automatically closing a window if the temperature in a room drops below 20 degree Celsius. The activity is the Actuation and the device that closes the window is the Actuator. The Procedure is the rule, plan, or specification that defines the conditions that triggers the Actuation, here a drop in temperature. @en"})
 
 (def Actuator
   "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world."
   {:db/ident :sosa/Actuator,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world.",
+   #voc/lstr
+    "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Actuator",
+   :rdfs/label #voc/lstr "Actuator@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Actuator],
    :skos/definition
-   "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world.",
+   #voc/lstr
+    "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world.@en",
    :skos/example
-   "A window actuator for automatic window control, i.e., opening or closing the window."})
+   #voc/lstr
+    "A window actuator for automatic window control, i.e., opening or closing the window.@en"})
 
 (def FeatureOfInterest
   "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."
   {:db/ident :sosa/FeatureOfInterest,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.",
+   #voc/lstr
+    "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Feature Of Interest",
+   :rdfs/label #voc/lstr "Feature Of Interest@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/FeatureOfInterest],
    :skos/definition
-   "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.",
+   #voc/lstr
+    "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.@en",
    :skos/example
-   "When measuring the height of a tree, the height is the observed ObservableProperty, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuator."})
+   #voc/lstr
+    "When measuring the height of a tree, the height is the observed ObservableProperty, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuator.@en"})
 
 (def ObservableProperty
   "An observable quality (property, characteristic) of a FeatureOfInterest."
   {:db/ident :sosa/ObservableProperty,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "An observable quality (property, characteristic) of a FeatureOfInterest.",
+   #voc/lstr
+    "An observable quality (property, characteristic) of a FeatureOfInterest.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Observable Property",
+   :rdfs/label #voc/lstr "Observable Property@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/ObservableProperty],
    :skos/definition
-   "An observable quality (property, characteristic) of a FeatureOfInterest.",
+   #voc/lstr
+    "An observable quality (property, characteristic) of a FeatureOfInterest.@en",
    :skos/example
-   "The height of a tree, the depth of a water body, or the temperature of a surface are examples of observable properties, while the value of a classic car is not (directly) observable but asserted."})
+   #voc/lstr
+    "The height of a tree, the depth of a water body, or the temperature of a surface are examples of observable properties, while the value of a classic car is not (directly) observable but asserted.@en"})
 
 (def Observation
   "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."
   {:db/ident :sosa/Observation,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.",
+   #voc/lstr
+    "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Observation",
+   :rdfs/label #voc/lstr "Observation@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Observation],
    :skos/definition
-   "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.",
+   #voc/lstr
+    "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.@en",
    :skos/example
-   "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."})
+   #voc/lstr
+    "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake.@en"})
 
 (def Platform
   "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms."
   {:db/ident :sosa/Platform,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms.",
+   #voc/lstr
+    "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Platform",
+   :rdfs/label #voc/lstr "Platform@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Platform],
    :skos/definition
-   "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms.",
+   #voc/lstr
+    "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms.@en",
    :skos/example
-   "A post, buoy, vehicle, ship, aircraft, satellite, cell-phone, human or animal may act as platforms for (technical or biological) sensors or actuators."})
+   #voc/lstr
+    "A post, buoy, vehicle, ship, aircraft, satellite, cell-phone, human or animal may act as platforms for (technical or biological) sensors or actuators.@en"})
 
 (def Procedure
   "A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible results."
   {:db/ident :sosa/Procedure,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible results.",
+   #voc/lstr
+    "A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible results.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Procedure",
+   :rdfs/label #voc/lstr "Procedure@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Procedure],
    :skos/definition
-   "A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible results.",
+   #voc/lstr
+    "A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible results.@en",
    :skos/example
-   "The measured wind speed differs depending on the height of the sensor above the surface, e.g., due to friction. Consequently, procedures for measuring wind speed define a standard height for anemometers above ground, typically 10m for meteorological measures and 2m in Agrometeorology. This definition of height, sensor placement, and so forth are defined by the Procedure.",
+   #voc/lstr
+    "The measured wind speed differs depending on the height of the sensor above the surface, e.g., due to friction. Consequently, procedures for measuring wind speed define a standard height for anemometers above ground, typically 10m for meteorological measures and 2m in Agrometeorology. This definition of height, sensor placement, and so forth are defined by the Procedure.@en",
    :skos/note
-   "Many observations may be created via the same Procedure, the same way as many tables are assembled using the same instructions (as information objects, not their concrete realization)."})
+   #voc/lstr
+    "Many observations may be created via the same Procedure, the same way as many tables are assembled using the same instructions (as information objects, not their concrete realization).@en"})
 
 (def Result
   "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."
   {:db/ident :sosa/Result,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property.",
+   #voc/lstr
+    "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Result",
+   :rdfs/label #voc/lstr "Result@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Result],
    :skos/definition
-   "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property.",
+   #voc/lstr
+    "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property.@en",
    :skos/example
-   "The value 20 as the height of a certain tree together with the unit, e.g., Meter."})
+   #voc/lstr
+    "The value 20 as the height of a certain tree together with the unit, e.g., Meter.@en"})
 
 (def Sample
   "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made."
   {:db/ident :sosa/Sample,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   ["Samples are artifacts of an observational strategy, and have no significant function outside of their role in the observation process. The characteristics of the samples themselves are of little interest, except perhaps to the manager of a sampling campaign.\n\nA Sample is intended to sample some FatureOfInterest, so there is an expectation of at least one isSampleOf property. However, in some cases the identity, and even the exact type, of the sampled feature may not be known when observations are made using the sampling features."
-    "A Sample is the result from an act of Sampling."
-    "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made."
-    "Physical samples are sometimes known as 'specimens'."],
+   [#voc/lstr
+     "Samples are artifacts of an observational strategy, and have no significant function outside of their role in the observation process. The characteristics of the samples themselves are of little interest, except perhaps to the manager of a sampling campaign.\n\nA Sample is intended to sample some FatureOfInterest, so there is an expectation of at least one isSampleOf property. However, in some cases the identity, and even the exact type, of the sampled feature may not be known when observations are made using the sampling features.@en"
+    #voc/lstr "A Sample is the result from an act of Sampling.@en"
+    #voc/lstr
+     "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.@en"
+    #voc/lstr "Physical samples are sometimes known as 'specimens'.@en"],
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Sample",
+   :rdfs/label #voc/lstr "Sample@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Sample],
    :skos/definition
-   "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.",
+   #voc/lstr
+    "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.@en",
    :skos/example
-   ["A 'station' is essentially an identifiable locality where a sensor system or Procedure may be deployed and an observation made. In the context of the observation model, it connotes the 'world in the vicinity of the station', so the observed properties relate to the physical medium at the station, and not to any physical artifact such as a mooring, buoy, benchmark, monument, well, etc."
-    "A statistical sample is often designed to be characteristic of an entire population, so that observations can be made regarding the sample that provide a good estimate of the properties of the population."],
+   [#voc/lstr
+     "A 'station' is essentially an identifiable locality where a sensor system or Procedure may be deployed and an observation made. In the context of the observation model, it connotes the 'world in the vicinity of the station', so the observed properties relate to the physical medium at the station, and not to any physical artifact such as a mooring, buoy, benchmark, monument, well, etc.@en"
+    #voc/lstr
+     "A statistical sample is often designed to be characteristic of an entire population, so that observations can be made regarding the sample that provide a good estimate of the properties of the population.@en"],
    :skos/note
-   "A transient sample, such as a ships-track or flight-line, might be identified and described, but is unlikely to be revisited exactly."})
+   #voc/lstr
+    "A transient sample, such as a ships-track or flight-line, might be identified and described, but is unlikely to be revisited exactly.@en"})
 
 (def Sampler
   "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples."
   {:db/ident :sosa/Sampler,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples.",
+   #voc/lstr
+    "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Sampler",
+   :rdfs/label #voc/lstr "Sampler@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Sampler],
    :skos/definition
-   "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples.",
+   #voc/lstr
+    "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples.@en",
    :skos/example
-   "A ball mill, diamond drill, hammer, hypodermic syringe and needle, image Sensor or a soil auger can all act as sampling devices (i.e., be Samplers). However, sometimes the distinction between the Sampler and the Sensor is not evident, as they are packaged as a unit. A Sampler need not be a physical device."})
+   #voc/lstr
+    "A ball mill, diamond drill, hammer, hypodermic syringe and needle, image Sensor or a soil auger can all act as sampling devices (i.e., be Samplers). However, sometimes the distinction between the Sampler and the Sensor is not evident, as they are packaged as a unit. A Sampler need not be a physical device.@en"})
 
 (def Sampling
   "An act of Sampling carries out a sampling Procedure to create or transform one or more samples."
   {:db/ident :sosa/Sampling,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "An act of Sampling carries out a sampling Procedure to create or transform one or more samples.",
+   #voc/lstr
+    "An act of Sampling carries out a sampling Procedure to create or transform one or more samples.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Sampling",
+   :rdfs/label #voc/lstr "Sampling@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Sampling],
    :skos/definition
-   "An act of Sampling carries out a sampling Procedure to create or transform one or more samples.",
-   :skos/example ["Taking a diamond-drill core from a rock outcrop."
-                  "Drilling an observation well."
-                  "Sieving a powder to separate the subset finer than 100-mesh."
-                  "Selecting a subset of a population."
-                  "Establishing a station for environmental monitoring."
-                  "Dividing a field site into quadrants."
-                  "Drawing blood from a patient."
-                  "Digging a pit through a soil sequence."
-                  "Splitting a piece of drill-core to create two new samples."
-                  "Registering an image of the landscape."
-                  "Crushing a rock sample in a ball mill."]})
+   #voc/lstr
+    "An act of Sampling carries out a sampling Procedure to create or transform one or more samples.@en",
+   :skos/example
+   [#voc/lstr "Taking a diamond-drill core from a rock outcrop.@en"
+    #voc/lstr "Drilling an observation well.@en"
+    #voc/lstr "Sieving a powder to separate the subset finer than 100-mesh.@en"
+    #voc/lstr "Selecting a subset of a population.@en"
+    #voc/lstr "Establishing a station for environmental monitoring.@en"
+    #voc/lstr "Dividing a field site into quadrants.@en"
+    #voc/lstr "Drawing blood from a patient.@en"
+    #voc/lstr "Digging a pit through a soil sequence.@en"
+    #voc/lstr "Splitting a piece of drill-core to create two new samples.@en"
+    #voc/lstr "Registering an image of the landscape.@en"
+    #voc/lstr "Crushing a rock sample in a ball mill.@en"]})
 
 (def Sensor
   "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."
   {:db/ident :sosa/Sensor,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.",
+   #voc/lstr
+    "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "Sensor",
+   :rdfs/label #voc/lstr "Sensor@en",
    :rdfs/subClassOf [:rdfs/Resource :sosa/Sensor],
    :skos/definition
-   "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.",
+   #voc/lstr
+    "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.@en",
    :skos/example
-   "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."})
+   #voc/lstr
+    "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes.@en"})
 
 (def actsOnProperty
   "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."
@@ -236,15 +282,18 @@
    :owl/inverseOf :sosa/isActedOnBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon.",
+   #voc/lstr
+    "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "acts on property",
+   :rdfs/label #voc/lstr "acts on property@en",
    :schema/domainIncludes :sosa/Actuation,
    :schema/rangeIncludes :sosa/ActuatableProperty,
    :skos/definition
-   "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon.",
+   #voc/lstr
+    "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon.@en",
    :skos/example
-   "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "})
+   #voc/lstr
+    "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. @en"})
 
 (def hasFeatureOfInterest
   "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled."
@@ -252,15 +301,18 @@
    :owl/inverseOf :sosa/isFeatureOfInterestOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled.",
+   #voc/lstr
+    "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "has feature of interest",
+   :rdfs/label #voc/lstr "has feature of interest@en",
    :schema/domainIncludes [:sosa/Observation :sosa/Sampling :sosa/Actuation],
    :schema/rangeIncludes [:sosa/FeatureOfInterest :sosa/Sample],
    :skos/definition
-   "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled.",
+   #voc/lstr
+    "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled.@en",
    :skos/example
-   "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."})
+   #voc/lstr
+    "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight.@en"})
 
 (def hasResult
   "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."
@@ -268,13 +320,15 @@
    :owl/inverseOf :sosa/isResultOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.",
+   #voc/lstr
+    "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "has result",
+   :rdfs/label #voc/lstr "has result@en",
    :schema/domainIncludes [:sosa/Sampling :sosa/Actuation :sosa/Observation],
    :schema/rangeIncludes [:sosa/Result :sosa/Sample],
    :skos/definition
-   "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."})
+   #voc/lstr
+    "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.@en"})
 
 (def hasSample
   "Relation between a FeatureOfInterest and the Sample used to represent it."
@@ -282,26 +336,30 @@
    :owl/inverseOf :sosa/isSampleOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between a FeatureOfInterest and the Sample used to represent it.",
+   #voc/lstr
+    "Relation between a FeatureOfInterest and the Sample used to represent it.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "has sample",
+   :rdfs/label #voc/lstr "has sample@en",
    :schema/domainIncludes :sosa/FeatureOfInterest,
    :schema/rangeIncludes :sosa/Sample,
    :skos/definition
-   "Relation between a FeatureOfInterest and the Sample used to represent it."})
+   #voc/lstr
+    "Relation between a FeatureOfInterest and the Sample used to represent it.@en"})
 
 (def hasSimpleResult
   "The simple value of an Observation or Actuation or act of Sampling."
   {:db/ident :sosa/hasSimpleResult,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "The simple value of an Observation or Actuation or act of Sampling.",
+   #voc/lstr
+    "The simple value of an Observation or Actuation or act of Sampling.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "has simple result",
+   :rdfs/label #voc/lstr "has simple result@en",
    :schema/domainIncludes [:sosa/Sampling :sosa/Observation :sosa/Actuation],
    :skos/definition
-   "The simple value of an Observation or Actuation or act of Sampling.",
-   :skos/example "For instance, the values 23 or true."})
+   #voc/lstr
+    "The simple value of an Observation or Actuation or act of Sampling.@en",
+   :skos/example #voc/lstr "For instance, the values 23 or true.@en"})
 
 (def hosts
   "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."
@@ -309,14 +367,16 @@
    :owl/inverseOf :sosa/isHostedBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it.",
+   #voc/lstr
+    "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "hosts",
+   :rdfs/label #voc/lstr "hosts@en",
    :schema/domainIncludes :sosa/Platform,
    :schema/rangeIncludes
    [:sosa/Platform :sosa/Actuator :sosa/Sampler :sosa/Sensor],
    :skos/definition
-   "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."})
+   #voc/lstr
+    "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it.@en"})
 
 (def isActedOnBy
   "Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state."
@@ -324,15 +384,18 @@
    :owl/inverseOf :sosa/actsOnProperty,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state.",
+   #voc/lstr
+    "Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "is acted on by",
+   :rdfs/label #voc/lstr "is acted on by@en",
    :schema/domainIncludes :sosa/ActuatableProperty,
    :schema/rangeIncludes :sosa/Actuation,
    :skos/definition
-   "Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state.",
+   #voc/lstr
+    "Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state.@en",
    :skos/example
-   "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "})
+   #voc/lstr
+    "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. @en"})
 
 (def isFeatureOfInterestOf
   "A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it."
@@ -340,13 +403,15 @@
    :owl/inverseOf :sosa/hasFeatureOfInterest,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it.",
+   #voc/lstr
+    "A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "is feature of interest of",
+   :rdfs/label #voc/lstr "is feature of interest of@en",
    :schema/domainIncludes [:sosa/FeatureOfInterest :sosa/Sample],
    :schema/rangeIncludes [:sosa/Actuation :sosa/Sampling :sosa/Observation],
    :skos/definition
-   "A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it."})
+   #voc/lstr
+    "A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it.@en"})
 
 (def isHostedBy
   "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by."
@@ -354,14 +419,16 @@
    :owl/inverseOf :sosa/hosts,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by.",
+   #voc/lstr
+    "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "is hosted by",
+   :rdfs/label #voc/lstr "is hosted by@en",
    :schema/domainIncludes
    [:sosa/Platform :sosa/Sampler :sosa/Sensor :sosa/Actuator],
    :schema/rangeIncludes :sosa/Platform,
    :skos/definition
-   "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by."})
+   #voc/lstr
+    "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by.@en"})
 
 (def isObservedBy
   "Relation between an ObservableProperty and the Sensor able to observe it."
@@ -369,13 +436,15 @@
    :owl/inverseOf :sosa/observes,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between an ObservableProperty and the Sensor able to observe it.",
+   #voc/lstr
+    "Relation between an ObservableProperty and the Sensor able to observe it.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "is observed by",
+   :rdfs/label #voc/lstr "is observed by@en",
    :schema/domainIncludes :sosa/ObservableProperty,
    :schema/rangeIncludes :sosa/Sensor,
    :skos/definition
-   "Relation between an ObservableProperty and the Sensor able to observe it."})
+   #voc/lstr
+    "Relation between an ObservableProperty and the Sensor able to observe it.@en"})
 
 (def isResultOf
   "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."
@@ -383,13 +452,15 @@
    :owl/inverseOf :sosa/hasResult,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it.",
+   #voc/lstr
+    "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "is result of",
+   :rdfs/label #voc/lstr "is result of@en",
    :schema/domainIncludes [:sosa/Sample :sosa/Result],
    :schema/rangeIncludes [:sosa/Actuation :sosa/Observation :sosa/Sampling],
    :skos/definition
-   "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."})
+   #voc/lstr
+    "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it.@en"})
 
 (def isSampleOf
   "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."
@@ -397,26 +468,29 @@
    :owl/inverseOf :sosa/hasSample,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of.",
+   #voc/lstr
+    "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "is sample of",
+   :rdfs/label #voc/lstr "is sample of@en",
    :schema/domainIncludes :sosa/Sample,
    :schema/rangeIncludes :sosa/FeatureOfInterest,
    :skos/definition
-   "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."})
+   #voc/lstr
+    "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of.@en"})
 
 (def madeActuation
   "Relation between an Actuator and the Actuation it has made."
   {:db/ident :sosa/madeActuation,
    :owl/inverseOf :sosa/madeByActuator,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/comment "Relation between an Actuator and the Actuation it has made.",
+   :rdfs/comment
+   #voc/lstr "Relation between an Actuator and the Actuation it has made.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "made actuation",
+   :rdfs/label #voc/lstr "made actuation@en",
    :schema/domainIncludes :sosa/Actuator,
    :schema/rangeIncludes :sosa/Actuation,
    :skos/definition
-   "Relation between an Actuator and the Actuation it has made."})
+   #voc/lstr "Relation between an Actuator and the Actuation it has made.@en"})
 
 (def madeByActuator
   "Relation linking an Actuation to the Actuator that made that Actuation."
@@ -424,13 +498,15 @@
    :owl/inverseOf :sosa/madeActuation,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation linking an Actuation to the Actuator that made that Actuation.",
+   #voc/lstr
+    "Relation linking an Actuation to the Actuator that made that Actuation.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "made by actuator",
+   :rdfs/label #voc/lstr "made by actuator@en",
    :schema/domainIncludes :sosa/Actuation,
    :schema/rangeIncludes :sosa/Actuator,
    :skos/definition
-   "Relation linking an Actuation to the Actuator that made that Actuation."})
+   #voc/lstr
+    "Relation linking an Actuation to the Actuator that made that Actuation.@en"})
 
 (def madeBySampler
   "Relation linking an act of Sampling to the Sampler (sampling device or entity) that made it."
@@ -438,13 +514,15 @@
    :owl/inverseOf :sosa/madeSampling,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation linking an act of Sampling to the Sampler (sampling device or entity) that made it.",
+   #voc/lstr
+    "Relation linking an act of Sampling to the Sampler (sampling device or entity) that made it.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "made by sampler",
+   :rdfs/label #voc/lstr "made by sampler@en",
    :schema/domainIncludes :sosa/Sampling,
    :schema/rangeIncludes :sosa/Sampler,
    :skos/definition
-   "Relation linking an act of Sampling to the Sampler (sampling device or entity) that made it."})
+   #voc/lstr
+    "Relation linking an act of Sampling to the Sampler (sampling device or entity) that made it.@en"})
 
 (def madeBySensor
   "Relation between an Observation and the Sensor which made the Observation."
@@ -452,13 +530,15 @@
    :owl/inverseOf :sosa/madeObservation,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between an Observation and the Sensor which made the Observation.",
+   #voc/lstr
+    "Relation between an Observation and the Sensor which made the Observation.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "made by sensor",
+   :rdfs/label #voc/lstr "made by sensor@en",
    :schema/domainIncludes :sosa/Observation,
    :schema/rangeIncludes :sosa/Sensor,
    :skos/definition
-   "Relation between an Observation and the Sensor which made the Observation."})
+   #voc/lstr
+    "Relation between an Observation and the Sensor which made the Observation.@en"})
 
 (def madeObservation
   "Relation between a Sensor and an Observation made by the Sensor."
@@ -466,13 +546,15 @@
    :owl/inverseOf :sosa/madeBySensor,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between a Sensor and an Observation made by the Sensor.",
+   #voc/lstr
+    "Relation between a Sensor and an Observation made by the Sensor.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "made observation",
+   :rdfs/label #voc/lstr "made observation@en",
    :schema/domainIncludes :sosa/Sensor,
    :schema/rangeIncludes :sosa/Observation,
    :skos/definition
-   "Relation between a Sensor and an Observation made by the Sensor."})
+   #voc/lstr
+    "Relation between a Sensor and an Observation made by the Sensor.@en"})
 
 (def madeSampling
   "Relation between a Sampler (sampling device or entity) and the Sampling act it performed."
@@ -480,26 +562,30 @@
    :owl/inverseOf :sosa/madeBySampler,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between a Sampler (sampling device or entity) and the Sampling act it performed.",
+   #voc/lstr
+    "Relation between a Sampler (sampling device or entity) and the Sampling act it performed.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "made sampling",
+   :rdfs/label #voc/lstr "made sampling@en",
    :schema/domainIncludes :sosa/Sampler,
    :schema/rangeIncludes :sosa/Sampling,
    :skos/definition
-   "Relation between a Sampler (sampling device or entity) and the Sampling act it performed."})
+   #voc/lstr
+    "Relation between a Sampler (sampling device or entity) and the Sampling act it performed.@en"})
 
 (def observedProperty
   "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."
   {:db/ident :sosa/observedProperty,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.",
+   #voc/lstr
+    "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "observed property",
+   :rdfs/label #voc/lstr "observed property@en",
    :schema/domainIncludes :sosa/Observation,
    :schema/rangeIncludes :sosa/ObservableProperty,
    :skos/definition
-   "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."})
+   #voc/lstr
+    "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.@en"})
 
 (def observes
   "Relation between a Sensor and an ObservableProperty that it is capable of sensing."
@@ -507,52 +593,60 @@
    :owl/inverseOf :sosa/isObservedBy,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Relation between a Sensor and an ObservableProperty that it is capable of sensing.",
+   #voc/lstr
+    "Relation between a Sensor and an ObservableProperty that it is capable of sensing.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "observes",
+   :rdfs/label #voc/lstr "observes@en",
    :schema/domainIncludes :sosa/Sensor,
    :schema/rangeIncludes :sosa/ObservableProperty,
    :skos/definition
-   "Relation between a Sensor and an ObservableProperty that it is capable of sensing."})
+   #voc/lstr
+    "Relation between a Sensor and an ObservableProperty that it is capable of sensing.@en"})
 
 (def phenomenonTime
   "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."
   {:db/ident :sosa/phenomenonTime,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.",
+   #voc/lstr
+    "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "phenomenon time",
+   :rdfs/label #voc/lstr "phenomenon time@en",
    :schema/domainIncludes [:sosa/Sampling :sosa/Observation :sosa/Actuation],
    :schema/rangeIncludes :time/TemporalEntity,
    :skos/definition
-   "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."})
+   #voc/lstr
+    "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.@en"})
 
 (def resultTime
   "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."
   {:db/ident :sosa/resultTime,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.",
+   #voc/lstr
+    "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "result time",
+   :rdfs/label #voc/lstr "result time@en",
    :rdfs/range :xsd/dateTime,
    :schema/domainIncludes [:sosa/Sampling :sosa/Observation :sosa/Actuation],
    :skos/definition
-   "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."})
+   #voc/lstr
+    "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.@en"})
 
 (def usedProcedure
   "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler."
   {:db/ident :sosa/usedProcedure,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler.",
+   #voc/lstr
+    "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/label "used procedure",
+   :rdfs/label #voc/lstr "used procedure@en",
    :schema/domainIncludes [:sosa/Sampling :sosa/Observation :sosa/Actuation],
    :schema/rangeIncludes :sosa/Procedure,
    :skos/definition
-   "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler."})
+   #voc/lstr
+    "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler.@en"})
 
 (def ^{:private true} Agent
   {:db/ident :foaf/Agent,

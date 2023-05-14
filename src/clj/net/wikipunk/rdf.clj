@@ -19,6 +19,7 @@
    [clojure.string :as str]
    [clojure.walk :as walk]   
    [com.stuartsierra.component :as com]
+   [ont-app.vocabulary.lstr :as lstr]
    [net.wikipunk.boot :as boot]
    [net.wikipunk.mop :as mop]
    [taoensso.nippy :as nippy]
@@ -402,14 +403,18 @@
 (defn freezable
   "Ensure the metaobject can be frozen and thawed by Nippy."
   [mo]
-  (walk/prewalk (fn [form]
-                  (if (map? form)
-                    (reduce-kv (fn [m k v]
-                                 (if (nippy/freezable? v)
-                                   (assoc m k v)
-                                   m))
-                               {:db/ident (:db/ident mo)} form)
-                    form))
+  (walk/postwalk (fn [form]
+                   (cond
+                     (instance? ont_app.vocabulary.lstr.LangStr form)
+                     (str form)
+                     
+                     (map? form)
+                     (reduce-kv (fn [m k v]
+                                  (if (nippy/freezable? v)
+                                    (assoc m k v)
+                                    m))
+                                {:db/ident (:db/ident mo)} form)
+                     :else form))
                 (assoc mo :xt/id (:db/ident mo))))
 
 (declare iri)
@@ -667,9 +672,10 @@
       (if (= XSDDatatype/XSDdateTime (.getLiteralDatatype n))
         (.getTime (.asCalendar ^XSDDateTime (.getLiteralValue n)))
         (if-let [lang (not-empty (.getLiteralLanguage n))]
-          (.getLiteralValue n)
-          #_{:rdf/value    (.getLiteralValue n)
-             :rdf/language lang}
+          (lstr/->LangStr (.getLiteralValue n) lang)
+          #_(if (str/starts-with? lang "en")
+            (.getLiteralValue n)
+            (lstr/->LangStr (.getLiteralValue n) lang))
           (let [value (.getLiteralValue n)]
             (if (instance? BaseDatatype$TypedValue value)
               (.-lexicalValue value)
@@ -836,24 +842,28 @@
 
 (defn walk-blanks
   "Replaces blank nodes with their values."
-  [index form]
-  (if-some [_ (:rdf/blank form)]
-    (let [{:rdfs/keys [subClassOf] :as node} (get index form)]
-      (if subClassOf
-        (let [node' (update node :rdfs/subClassOf (fn [subClassOf]
-                                                    (cond
-                                                      (= subClassOf form)
-                                                      nil
-                                                      (when (sequential? form)
-                                                        (some #(= subClassOf %) form))
-                                                      (not-empty (into [] (remove #(= subClassOf %) form)))
-                                                      :else subClassOf)))]
-          (if (and (contains? node' :rdfs/subClassOf)
-                   (nil? (:rdfs/subClassOf node')))
-            (dissoc node' :rdfs/subClassOf)
-            node))
-        node))
-    form))
+  ([index form]
+   (walk-blanks index form #{:rdfs/subClassOf :rdfs/subPropertyOf}))
+  ([index form keys]
+   (if-some [_ (:rdf/blank form)]
+     (let [node (get index form)]
+       (reduce (fn [n k]
+                 (if (contains? n k)
+                   (let [value     (get n k)
+                         new-value (cond
+                                     (= value form)
+                                     nil
+                                     (when (sequential? value)
+                                       (some #(= form %) value))
+                                     (not-empty (into [] (remove #(= form %) value)))
+                                     :else value)]
+                     (if (nil? new-value)
+                       (dissoc n k)
+                       (assoc n k new-value)))
+                   n))
+               node
+               keys))
+     form)))
 
 (defn walk-dcterms
   "dcterms is a superset of dc(11)
@@ -1090,7 +1100,7 @@
                                                   (dissoc :private))
                                           form))
                                     (catch Throwable ex
-                                      (println (:db/ident form) (.getMessage ex))
+                                      (log/error (:db/ident form) (.getMessage ex))
                                       form))
                                   form))))
         exclusions (->> forms
@@ -1136,8 +1146,8 @@
                                       docstring (if (vector? docstring)
                                                   (if (every? string? docstring)
                                                     (str/join \newline docstring)
-                                                    (first (or (get (group-by :rdf/language docstring) "en")
-                                                               (get (group-by :rdf/language docstring) "en-US")
+                                                    (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
+                                                               (get (group-by lstr/lang (remove string? docstring)) "en-US")
                                                                (seq (filter string? docstring)))))
                                                   docstring)
                                       docstring (if (map? docstring)
@@ -1170,8 +1180,8 @@
                       docstring (if (vector? docstring)
                                   (if (every? string? docstring)
                                     (str/join \newline docstring)
-                                    (first (or (get (group-by :rdf/language docstring) "en")
-                                               (get (group-by :rdf/language docstring) "en-US")
+                                    (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
+                                               (get (group-by lstr/lang (remove string? docstring)) "en-US")
                                                (seq (filter string? docstring)))))
                                   docstring)
                       docstring (if (map? docstring)
@@ -1353,15 +1363,6 @@
       (resolve name)                         `(#'clojure.repl/print-doc (meta (var ~name)))
       :else                                  nil)))
 
-(defn unroll-langString
-  [form]
-  (if (and (:rdf/language form) (:rdf/value form))
-    (:rdf/value form) ; todo: revisit
-    #_(if (str/starts-with? (:rdf/language form) "en")
-        (:rdf/value form)
-        (str (:rdf/value form) "@" (:rdf/language form)))
-    form))
-
 (defn unroll-blank
   [form]
   (if (and (map? form)
@@ -1442,24 +1443,24 @@
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
 
+(defn unroll-langString
+  "unrolls ont_app.vocabulary.lstr.LangStr into a string when datafying"
+  [form]
+  (if (instance? ont_app.vocabulary.lstr.LangStr form)
+    (str form)
+    form))
 
 (extend-protocol clojure.core.protocols/Datafiable
   clojure.lang.Named
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
-      (not-empty (walk/prewalk unroll-langString
-                               (reduce-kv (fn [m k v]
-                                            (if (and (qualified-keyword? k)
-                                                     (not= (namespace k) "mop"))
-                                              (assoc m k v)
-                                              m))
-                                          {} (find-metaobject ident)
-                                          #_(cond
-                                            (mop/isa? ident :rdf/Property)
-                                            (direct-slot-definition ident)
-
-                                            :else (find-metaobject ident)))))
+      (not-empty (reduce-kv (fn [m k v]
+                              (if (and (qualified-keyword? k)
+                                       (not= (namespace k) "mop"))
+                                (assoc m k v)
+                                m))
+                            {} (find-metaobject ident)))
 
       (qualified-symbol? ident)
       (resolve ident)

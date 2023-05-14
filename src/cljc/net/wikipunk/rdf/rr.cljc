@@ -4,11 +4,11 @@
    :dc11/contributor  ["http://www.w3.org/People/Ivan/"
                        "http://boris.villazon.terrazas.name"],
    :dc11/creator      "http://richard.cyganiak.de/foaf.rdf#cygri",
-   :dc11/description  "RDB to RDF Mapping Language - Vocabulary",
+   :dc11/description  #voc/lstr "RDB to RDF Mapping Language - Vocabulary@en",
    :dc11/issued       #inst "2012-01-24T00:00:00.000-05:00",
    :dc11/modified     #inst "2012-07-16T00:00:00.000-04:00",
    :dc11/publisher    "http://www.w3.org/",
-   :dc11/title        "R2RML vocabulary",
+   :dc11/title        #voc/lstr "R2RML vocabulary@en",
    :rdf/ns-prefix-map {"cc"    "http://creativecommons.org/ns#",
                        "dc11"  "http://purl.org/dc/elements/1.1/",
                        "foaf"  "http://xmlns.com/foaf/0.1/",
@@ -39,26 +39,26 @@
   "Denotes a blank node, used with termType"
   {:db/ident     :rr/BlankNode,
    :rdf/type     :owl/Class,
-   :rdfs/comment "Denotes a blank node, used with termType"})
+   :rdfs/comment #voc/lstr "Denotes a blank node, used with termType@en"})
 
 (def GraphMap
   "Represents a graph map."
   {:db/ident        :rr/GraphMap,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents a graph map.",
+   :rdfs/comment    #voc/lstr "Represents a graph map.@en",
    :rdfs/subClassOf [:rr/TermMap :rr/GraphMap]})
 
 (def IRI
   "Denotes an IRI, used with termpType."
   {:db/ident     :rr/IRI,
    :rdf/type     :owl/Class,
-   :rdfs/comment "Denotes an IRI, used with termpType."})
+   :rdfs/comment #voc/lstr "Denotes an IRI, used with termpType.@en"})
 
 (def Join
   "Represents a join condition."
   {:db/ident        :rr/Join,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents a join condition.",
+   :rdfs/comment    #voc/lstr "Represents a join condition.@en",
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 1,
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :rr/child,
@@ -82,21 +82,21 @@
   "Denotes a Literal, used with termType."
   {:db/ident        :rr/Literal,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Denotes a Literal, used with termType.",
+   :rdfs/comment    #voc/lstr "Denotes a Literal, used with termType.@en",
    :rdfs/subClassOf [:owl/Thing :rr/Literal]})
 
 (def LogicalTable
   "Represents a logical table."
   {:db/ident        :rr/LogicalTable,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents a logical table.",
+   :rdfs/comment    #voc/lstr "Represents a logical table.@en",
    :rdfs/subClassOf [:owl/Thing :rr/LogicalTable]})
 
 (def ObjectMap
   "Represents an object map."
   {:db/ident        :rr/ObjectMap,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents an object map.",
+   :rdfs/comment    #voc/lstr "Represents an object map.@en",
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onClass    :rdfs/Datatype,
                       :owl/onProperty :rr/datatype,
@@ -121,7 +121,7 @@
   "Represents a predicate map."
   {:db/ident        :rr/PredicateMap,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents a predicate map.",
+   :rdfs/comment    #voc/lstr "Represents a predicate map.@en",
    :rdfs/subClassOf [{:owl/onClass    :rdf/Property,
                       :owl/onProperty :rr/predicate,
                       :owl/qualifiedCardinality 1,
@@ -134,7 +134,7 @@
   "Represents a predicate-object map."
   {:db/ident        :rr/PredicateObjectMap,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents a predicate-object map.",
+   :rdfs/comment    #voc/lstr "Represents a predicate-object map.@en",
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 1,
                       :owl/onClass    :rr/PredicateMap,
                       :owl/onProperty :rr/predicateMap,
@@ -155,20 +155,20 @@
   "Denotes a reference to an object map."
   {:db/ident        :rr/RefObjectMap,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Denotes a reference to an object map.",
+   :rdfs/comment    #voc/lstr "Denotes a reference to an object map.@en",
    :rdfs/subClassOf [:owl/Thing :rr/RefObjectMap]})
 
 (def SQL2008
   "Core SQL 2008"
   {:db/ident     :rr/SQL2008,
    :rdf/type     :owl/NamedIndividual,
-   :rdfs/comment "Core SQL 2008"})
+   :rdfs/comment #voc/lstr "Core SQL 2008@en"})
 
 (def SubjectMap
   "Represents a subject map."
   {:db/ident        :rr/SubjectMap,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents a subject map.",
+   :rdfs/comment    #voc/lstr "Represents a subject map.@en",
    :rdfs/subClassOf [{:owl/minQualifiedCardinality 0,
                       :owl/onClass    :rdfs/Class,
                       :owl/onProperty :rr/class,
@@ -182,15 +182,16 @@
   {:db/ident :rr/TermMap,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "A function that generates an RDF term from a logical table row.",
-   :rdfs/label "Term Map",
+   #voc/lstr
+    "A function that generates an RDF term from a logical table row.@en",
+   :rdfs/label #voc/lstr "Term Map@en",
    :rdfs/subClassOf :rr/TermMap})
 
 (def TriplesMap
   "Represents a triples map."
   {:db/ident        :rr/TriplesMap,
    :rdf/type        :owl/Class,
-   :rdfs/comment    "Represents a triples map.",
+   :rdfs/comment    #voc/lstr "Represents a triples map.@en",
    :rdfs/subClassOf [{:owl/onClass    :rr/SubjectMap,
                       :owl/onProperty :rr/subjectMap,
                       :owl/qualifiedCardinality 1,
@@ -206,7 +207,7 @@
   "Names a column in the child table of a join."
   {:db/ident     :rr/child,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment "Names a column in the child table of a join.",
+   :rdfs/comment #voc/lstr "Names a column in the child table of a join.@en",
    :rdfs/domain  :rr/Join,
    :rdfs/range   :xsd/string})
 
@@ -215,7 +216,8 @@
   {:db/ident :rr/class,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "The subject value generated for a logical table row will be asserted as an instance of this RDFS class.",
+   #voc/lstr
+    "The subject value generated for a logical table row will be asserted as an instance of this RDFS class.@en",
    :rdfs/domain :rr/SubjectMap,
    :rdfs/range :rdfs/Class})
 
@@ -224,7 +226,8 @@
   {:db/ident :rr/column,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "Name of a column in the logical table. When generating RDF triples from a logical table row, value from the specified column is used as the subject, predicate, or object (based upon the specific domain).",
+   #voc/lstr
+    "Name of a column in the logical table. When generating RDF triples from a logical table row, value from the specified column is used as the subject, predicate, or object (based upon the specific domain).@en",
    :rdfs/domain :rr/TermMap,
    :rdfs/range :xsd/string})
 
@@ -237,7 +240,8 @@
   {:db/ident :rr/datatype,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Specifies the datatype of the object component for the generated triple from a logical table row.",
+   #voc/lstr
+    "Specifies the datatype of the object component for the generated triple from a logical table row.@en",
    :rdfs/domain :rr/ObjectMap,
    :rdfs/range :rdfs/Datatype})
 
@@ -245,14 +249,15 @@
   "Denotes a default graph"
   {:db/ident     :rr/defaultGraph,
    :rdf/type     :owl/NamedIndividual,
-   :rdfs/comment "Denotes a default graph"})
+   :rdfs/comment #voc/lstr "Denotes a default graph@en"})
 
 (def graph
   "An IRI reference for use as the graph name of all triples generated with the GraphMap."
   {:db/ident :rr/graph,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "An IRI reference for use as the graph name of all triples generated with the GraphMap.",
+   #voc/lstr
+    "An IRI reference for use as the graph name of all triples generated with the GraphMap.@en",
    :rdfs/domain {:owl/intersectionOf [:rr/GraphMap
                                       {:owl/maxQualifiedCardinality 0,
                                        :owl/onDataRange :xsd/string,
@@ -265,7 +270,8 @@
   {:db/ident :rr/graphMap,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Specifies a GraphMap. When used with a SubjectMap element, all the RDF triples generated from a logical row will be stored in the specified named graph. Otherwise, the RDF triple generated using the (predicate, object) pair will be stored in the specified named graph.",
+   #voc/lstr
+    "Specifies a GraphMap. When used with a SubjectMap element, all the RDF triples generated from a logical row will be stored in the specified named graph. Otherwise, the RDF triple generated using the (predicate, object) pair will be stored in the specified named graph.@en",
    :rdfs/domain {:owl/unionOf [:rr/PredicateObjectMap :rr/SubjectMap],
                  :rdf/type    :owl/Class},
    :rdfs/range :rr/GraphMap})
@@ -275,7 +281,8 @@
   {:db/ident :rr/inverseExpression,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "An expression that allows, at query processing time, use of index-based access to the the (underlying) relational tables, instead of simply retrieving the table rows first and then applying a filter. This property is useful for retrieval based on conditions involving subject, predicate, or object generated from logical table column(s) and involves some transformation.",
+   #voc/lstr
+    "An expression that allows, at query processing time, use of index-based access to the the (underlying) relational tables, instead of simply retrieving the table rows first and then applying a filter. This property is useful for retrieval based on conditions involving subject, predicate, or object generated from logical table column(s) and involves some transformation.@en",
    :rdfs/domain :rr/TermMap,
    :rdfs/range :xsd/string})
 
@@ -284,7 +291,8 @@
   {:db/ident :rr/joinCondition,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Specifies the join condition for joining the child logical table with the parent logical table of the foreign key constraint.",
+   #voc/lstr
+    "Specifies the join condition for joining the child logical table with the parent logical table of the foreign key constraint.@en",
    :rdfs/domain :rr/RefObjectMap,
    :rdfs/range :rr/Join})
 
@@ -293,7 +301,8 @@
   {:db/ident :rr/language,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "Specified the language for the object component for the generated triple from a logical table row.",
+   #voc/lstr
+    "Specified the language for the object component for the generated triple from a logical table row.@en",
    :rdfs/domain :rr/ObjectMap,
    :rdfs/range :xsd/string})
 
@@ -301,7 +310,7 @@
   "Definition of logical table to be mapped."
   {:db/ident     :rr/logicalTable,
    :rdf/type     :owl/ObjectProperty,
-   :rdfs/comment "Definition of logical table to be mapped.",
+   :rdfs/comment #voc/lstr "Definition of logical table to be mapped.@en",
    :rdfs/domain  :rr/TriplesMap,
    :rdfs/range   :rr/LogicalTable})
 
@@ -310,7 +319,8 @@
   {:db/ident :rr/object,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Specifies the object for the generated triple from the logical table row.",
+   #voc/lstr
+    "Specifies the object for the generated triple from the logical table row.@en",
    :rdfs/domain {:owl/intersectionOf [:rr/ObjectMap
                                       {:owl/maxQualifiedCardinality 0,
                                        :owl/onDataRange :xsd/string,
@@ -324,7 +334,8 @@
   {:db/ident :rr/objectMap,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "An ObjectMap element to generate the object component of the (predicate, object) pair from a logical table row.",
+   #voc/lstr
+    "An ObjectMap element to generate the object component of the (predicate, object) pair from a logical table row.@en",
    :rdfs/domain :rr/PredicateObjectMap,
    :rdfs/range {:owl/unionOf [:rr/ObjectMap :rr/RefObjectMap],
                 :rdf/type    :owl/Class}})
@@ -333,7 +344,7 @@
   "Names a column in the parent table of a join."
   {:db/ident     :rr/parent,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment "Names a column in the parent table of a join.",
+   :rdfs/comment #voc/lstr "Names a column in the parent table of a join.@en",
    :rdfs/domain  :rr/Join,
    :rdfs/range   :xsd/string})
 
@@ -342,7 +353,8 @@
   {:db/ident :rr/parentTriplesMap,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Specifies the TriplesMap element corresponding to the parent logical table of the foreign key constraint.",
+   #voc/lstr
+    "Specifies the TriplesMap element corresponding to the parent logical table of the foreign key constraint.@en",
    :rdfs/domain :rr/RefObjectMap,
    :rdfs/range :rr/TriplesMap})
 
@@ -351,7 +363,8 @@
   {:db/ident :rr/predicate,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "Specifies the predicate for the generated triple from the logical table row.",
+   #voc/lstr
+    "Specifies the predicate for the generated triple from the logical table row.@en",
    :rdfs/domain {:owl/intersectionOf [:rr/PredicateMap
                                       {:owl/maxQualifiedCardinality 0,
                                        :owl/onDataRange :xsd/string,
@@ -365,7 +378,8 @@
   {:db/ident :rr/predicateMap,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "A PredicateMap element to generate the predicate component of the (predicate, object) pair from a logical table row.",
+   #voc/lstr
+    "A PredicateMap element to generate the predicate component of the (predicate, object) pair from a logical table row.@en",
    :rdfs/domain :rr/PredicateObjectMap,
    :rdfs/range :rr/PredicateMap})
 
@@ -374,14 +388,15 @@
   {:db/ident :rr/predicateObjectMap,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "A PredicateObjectMap element to generate (predicate, object) pair from a logical table row.",
+   #voc/lstr
+    "A PredicateObjectMap element to generate (predicate, object) pair from a logical table row.@en",
    :rdfs/range :rr/PredicateObjectMap})
 
 (def sqlQuery
   "A valid SQL query."
   {:db/ident     :rr/sqlQuery,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment "A valid SQL query.",
+   :rdfs/comment #voc/lstr "A valid SQL query.@en",
    :rdfs/domain  :rr/R2RMLView,
    :rdfs/range   :xsd/string})
 
@@ -389,7 +404,7 @@
   "An identifier for a SQL version."
   {:db/ident     :rr/sqlVersion,
    :rdf/type     :owl/ObjectProperty,
-   :rdfs/comment "An identifier for a SQL version.",
+   :rdfs/comment #voc/lstr "An identifier for a SQL version.@en",
    :rdfs/domain  :rr/R2RMLView})
 
 (def subject
@@ -397,7 +412,8 @@
   {:db/ident :rr/subject,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "An IRI reference for use as subject for all the RDF triples generated from a logical table row.",
+   #voc/lstr
+    "An IRI reference for use as subject for all the RDF triples generated from a logical table row.@en",
    :rdfs/domain {:owl/intersectionOf [:rr/SubjectMap
                                       {:owl/maxQualifiedCardinality 0,
                                        :owl/onDataRange :xsd/string,
@@ -410,7 +426,8 @@
   {:db/ident :rr/subjectMap,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "A SubjectMap element to generate a subject from a logical table row.",
+   #voc/lstr
+    "A SubjectMap element to generate a subject from a logical table row.@en",
    :rdfs/domain :rr/TriplesMap,
    :rdfs/range :rr/SubjectMap})
 
@@ -418,7 +435,7 @@
   "Schema-qualified name of a table or view."
   {:db/ident     :rr/tableName,
    :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment "Schema-qualified name of a table or view.",
+   :rdfs/comment #voc/lstr "Schema-qualified name of a table or view.@en",
    :rdfs/domain  :rr/BaseTableOrView,
    :rdfs/range   :xsd/string})
 
@@ -427,7 +444,8 @@
   {:db/ident :rr/template,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "A template (format string) to specify how to generate a value for a subject, predicate, or object, using one or more columns from a logical table row.",
+   #voc/lstr
+    "A template (format string) to specify how to generate a value for a subject, predicate, or object, using one or more columns from a logical table row.@en",
    :rdfs/domain :rr/TermMap,
    :rdfs/range :xsd/string})
 
@@ -436,7 +454,8 @@
   {:db/ident :rr/termType,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "A string indicating whether subject or object generated using the value from column name specified for rr:column should be an IRI reference, blank node, or a literal.",
+   #voc/lstr
+    "A string indicating whether subject or object generated using the value from column name specified for rr:column should be an IRI reference, blank node, or a literal.@en",
    :rdfs/domain :rr/TermMap,
    :rdfs/range {:owl/unionOf [:rr/BlankNode :rr/IRI :rr/Literal],
                 :rdf/type    :owl/Class}})

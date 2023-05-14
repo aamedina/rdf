@@ -58,10 +58,10 @@
    :rdfs/subClassOf  [:voag/Qualifier
                       :voag/Accredidation
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing]})
 
@@ -76,30 +76,30 @@
    :rdfs/subClassOf [:voag/Event
                      :voag/AdministrativeEvent
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/endDate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/eventDate,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/endDate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/instigatedBy,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Party,
-                      :owl/onProperty    :voag/instigatedBy,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/startDate,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     {:owl/allValuesFrom :voag/Party,
+                      :owl/onProperty    :voag/instigatedBy,
+                      :rdf/type          :owl/Restriction}]})
 
 (def Annually
   "Annually"
@@ -130,30 +130,30 @@
    :rdfs/subClassOf  [:voag/Event
                       :voag/ApprovalEvent
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/endDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing],
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}],
    :vaem/description "A \"Governance Event\"."})
 
 (def ApprovalProcess
@@ -167,10 +167,10 @@
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
+                      :owl/Thing
                       :voag/Process],
    :vaem/description "A \"Governance Process\"."})
 
@@ -201,28 +201,28 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Attributed Source",
-   :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :vaem/name,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/AttributionLogo,
+   :rdfs/subClassOf [{:owl/allValuesFrom :voag/AttributionLogo,
                       :owl/onProperty    :voag/hasLogo,
                       :rdf/type          :owl/Restriction}
                      :voag/Qualifier
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasLogo,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :vaem/name,
+                      :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :xsd/string,
                       :owl/onProperty    :voag/pointOfContact,
                       :rdf/type          :owl/Restriction}
-                     :voag/Attribution
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
+                      :owl/onProperty     :voag/hasLogo,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/url,
+                      :rdf/type           :owl/Restriction}
+                     :voag/Attribution
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      :owl/Thing]})
 
@@ -235,19 +235,19 @@
    :rdfs/subClassOf  [:voag/Logo
                       :voag/AttributionLogo
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/width,
+                       :owl/onProperty     :voag/caption,
+                       :rdf/type           :owl/Restriction}
+                      :voag/Image
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
-                      :voag/Image
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/height,
-                       :rdf/type           :owl/Restriction}]})
+                      :owl/Thing]})
 
 (def BiMonthly
   "Bi monthly"
@@ -283,50 +283,18 @@
   "Creative Commons Attribution-Share Alike 3.0 United States License"
   {:db/ident :voag/CC-SHAREALIKE_3PT0-US,
    :rdf/type [:voag/LicenseModel
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/id,
-               :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/Provenance,
-               :owl/onProperty    :voag/hasProvenance,
-               :rdf/type          :owl/Restriction}
-              :voag/GovernedObject
-              {:owl/allValuesFrom :voag/LicenseModel,
-               :owl/onProperty    :voag/incompatibleWith,
-               :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/image,
-               :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/compatibleWith,
+               :rdf/type          :owl/Restriction}
+              {:owl/allValuesFrom :voag/Provenance,
+               :owl/onProperty    :voag/hasProvenance,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality 1,
                :owl/onProperty     :voag/title,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/acronym,
-               :rdf/type           :owl/Restriction}
-              {:owl/minCardinality 0,
-               :owl/onProperty     :voag/url,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/documentedAt,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/revision,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/description,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/hasProvenance,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
                :owl/onProperty     :voag/normativeURL,
                :rdf/type           :owl/Restriction}
-              :prov/Entity
               {:owl/maxCardinality 1,
                :owl/onProperty     :vaem/dateCreated,
                :rdf/type           :owl/Restriction}
@@ -334,16 +302,48 @@
                :owl/onProperty     :voag/hasGovernance,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/hasProvenance,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
                :owl/onProperty     :vaem/lastUpdated,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/description,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/name,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/documentedAt,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/id,
+               :rdf/type           :owl/Restriction}
+              {:owl/minCardinality 0,
+               :owl/onProperty     :voag/url,
+               :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/Governance,
+               :owl/onProperty    :voag/hasGovernance,
+               :rdf/type          :owl/Restriction}
+              :prov/Entity
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/revision,
+               :rdf/type           :owl/Restriction}
+              :voag/GovernedObject
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/url,
                :rdf/type           :owl/Restriction}
               {:owl/allValuesFrom :voag/LicenseModel,
                :owl/onProperty    :voag/derivedFrom,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/name,
+               :owl/onProperty     :voag/image,
                :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :voag/Governance,
-               :owl/onProperty    :voag/hasGovernance,
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/acronym,
+               :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :voag/LicenseModel,
+               :owl/onProperty    :voag/incompatibleWith,
                :rdf/type          :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label
@@ -353,130 +353,141 @@
   "Creative Commons Commercial Use"
   {:db/ident         :voag/CCPH_CommercialUse,
    :rdf/type         [:voag/CreativeCommonsProhibition
-                      :voag/EnumeratedValue
-                      :dtype/EnumeratedValue],
+                      :dtype/EnumeratedValue
+                      :voag/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       "Creative Commons Commercial Use",
-   :vaem/description "Exercising rights for commercial purposes"})
+   :rdfs/label       #voc/lstr "Creative Commons Commercial Use@en-us",
+   :vaem/description #voc/lstr
+                      "Exercising rights for commercial purposes@en-us"})
 
 (def CCPH_HighIncomeNationUse
-  "Creative Commons High Income Nation Use High income nation use"
+  "High income nation use"
   {:db/ident         :voag/CCPH_HighIncomeNationUse,
    :rdf/type         [:voag/CreativeCommonsProhibition
-                      :voag/EnumeratedValue
-                      :dtype/EnumeratedValue],
+                      :dtype/EnumeratedValue
+                      :voag/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       ["Creative Commons High Income Nation Use"
+   :rdfs/label       [#voc/lstr "Creative Commons High Income Nation Use@en-us"
                       "High income nation use"],
-   :vaem/description "Use in a non-developing country"})
+   :vaem/description #voc/lstr "Use in a non-developing country@en-us"})
 
 (def CCP_DerivativeWorks
-  "Creative Commons Derivative Works Derivative works"
+  "Derivative works"
   {:db/ident         :voag/CCP_DerivativeWorks,
    :rdf/type         [:voag/CreativeCommonsPermission
                       :dtype/EnumeratedValue
                       :voag/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       ["Creative Commons Derivative Works" "Derivative works"],
-   :vaem/description "Distribution of derivative works"})
+   :rdfs/label       [#voc/lstr "Creative Commons Derivative Works@en-us"
+                      "Derivative works"],
+   :vaem/description #voc/lstr "Distribution of derivative works@en-us"})
 
 (def CCP_Distribution
-  "Creative Commons Distribution Distribution"
+  "Distribution"
   {:db/ident :voag/CCP_Distribution,
    :rdf/type [:voag/CreativeCommonsPermission
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label ["Creative Commons Distribution" "Distribution"],
+   :rdfs/label [#voc/lstr "Creative Commons Distribution@en-us" "Distribution"],
    :vaem/description
-   "Creative Commons - distribution, public display, and publicly performance"})
+   #voc/lstr
+    "Creative Commons - distribution, public display, and publicly performance@en-us"})
 
 (def CCP_Reproduction
-  "Creative Commons Reproduction Reproduction"
+  "Reproduction"
   {:db/ident         :voag/CCP_Reproduction,
    :rdf/type         [:voag/CreativeCommonsPermission
                       :dtype/EnumeratedValue
                       :voag/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       ["Creative Commons Reproduction" "Reproduction"],
-   :vaem/description "making multiple copies"})
+   :rdfs/label       [#voc/lstr "Creative Commons Reproduction@en-us"
+                      "Reproduction"],
+   :vaem/description #voc/lstr "making multiple copies@en-us"})
 
 (def CCP_Sharing
-  "Creative Commons Sharing Sharing"
+  "Sharing"
   {:db/ident :voag/CCP_Sharing,
    :rdf/type [:voag/CreativeCommonsPermission
               :dtype/EnumeratedValue
               :voag/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label ["Creative Commons Sharing" "Sharing"],
+   :rdfs/label [#voc/lstr "Creative Commons Sharing@en-us" "Sharing"],
    :vaem/description
-   "permits commercial derivatives, but only non-commercial distribution"})
+   #voc/lstr
+    "permits commercial derivatives, but only non-commercial distribution@en-us"})
 
 (def CCR_Attribution
   "Creative Commons Attribution"
-  {:db/ident         :voag/CCR_Attribution,
-   :rdf/type         [:voag/CreativeCommonsRequirement
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+  {:db/ident :voag/CCR_Attribution,
+   :rdf/type [:voag/CreativeCommonsRequirement
+              :voag/EnumeratedValue
+              :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       "Creative Commons Attribution",
-   :vaem/description "Credit to be given to copyright holder and/or author"})
+   :rdfs/label #voc/lstr "Creative Commons Attribution@en-us",
+   :vaem/description
+   #voc/lstr "Credit to be given to copyright holder and/or author@en-us"})
 
 (def CCR_Copyleft
   "Creative Commons Copyleft"
   {:db/ident :voag/CCR_Copyleft,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :dtype/EnumeratedValue
-              :voag/EnumeratedValue],
+              :voag/EnumeratedValue
+              :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label "Creative Commons Copyleft",
+   :rdfs/label #voc/lstr "Creative Commons Copyleft@en-us",
    :vaem/description
    ["Copyleft is a general method for making a program (or other work) free, and requiring all modified and extended versions of the program to be free as well. The simplest way to make a program free software is to put it in the public domain, uncopyrighted. This allows people to share the program and their improvements, if they are so minded. But it also allows uncooperative people to convert the program into proprietary software. They can make changes, many or few, and distribute the result as a proprietary product. People who receive the program in that modified form do not have the freedom that the original author gave them; the middleman has stripped it away.  In the GNU project, Copyleft says that anyone who redistributes the software, with or without changes, must pass along the freedom to further copy and change it. Copyleft guarantees that every user has freedom."
-    "combined works must be licensed under specified terms, similar to those on the original work"],
+    #voc/lstr
+     "combined works must be licensed under specified terms, similar to those on the original work@en-us"],
    :vaem/url "http://www.gnu.org/copyleft/copyleft.html"})
 
 (def CCR_LesserCopyleft
   "Creative Commons Lesser Copyleft"
   {:db/ident :voag/CCR_LesserCopyleft,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :dtype/EnumeratedValue
-              :voag/EnumeratedValue],
+              :voag/EnumeratedValue
+              :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label "Creative Commons Lesser Copyleft",
+   :rdfs/label #voc/lstr "Creative Commons Lesser Copyleft@en-us",
    :vaem/description
-   "derivative works must be licensed under specified terms, with at least the same conditions as the original work; combinations with the work may be licensed under different terms"})
+   #voc/lstr
+    "derivative works must be licensed under specified terms, with at least the same conditions as the original work; combinations with the work may be licensed under different terms@en-us"})
 
 (def CCR_Notice
   "Creative Commons Notice"
   {:db/ident         :voag/CCR_Notice,
    :rdf/type         [:voag/CreativeCommonsRequirement
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       "Creative Commons Notice",
-   :vaem/description "copyright and license notices be kept intact"})
+   :rdfs/label       #voc/lstr "Creative Commons Notice@en-us",
+   :vaem/description #voc/lstr
+                      "copyright and license notices be kept intact@en-us"})
 
 (def CCR_ShareAlike
   "Creative Commons Share Alike"
   {:db/ident :voag/CCR_ShareAlike,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :dtype/EnumeratedValue
-              :voag/EnumeratedValue],
+              :voag/EnumeratedValue
+              :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label "Creative Commons Share Alike",
+   :rdfs/label #voc/lstr "Creative Commons Share Alike@en-us",
    :vaem/description
-   "derivative works be licensed under the same terms or compatible terms as the original work"})
+   #voc/lstr
+    "derivative works be licensed under the same terms or compatible terms as the original work@en-us"})
 
 (def CCR_SourceCode
   "Creative Commons Source Code"
   {:db/ident :voag/CCR_SourceCode,
    :rdf/type [:voag/CreativeCommonsRequirement
-              :dtype/EnumeratedValue
-              :voag/EnumeratedValue],
+              :voag/EnumeratedValue
+              :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label "Creative Commons Source Code",
+   :rdfs/label #voc/lstr "Creative Commons Source Code@en-us",
    :vaem/description
-   "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license."})
+   #voc/lstr
+    "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license.@en-us"})
 
 (def CL_None
   "None"
@@ -567,47 +578,47 @@
                        :rdf/type           :owl/Restriction}
                       :voag/Catalog
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
+                       :owl/onProperty     :voag/normativeURL,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/title,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Governance,
+                       :owl/onProperty    :voag/hasGovernance,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/documentedAt,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/documentedAt,
+                       :owl/onProperty     :vaem/dateCreated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :vaem/revision,
                        :rdf/type           :owl/Restriction}
                       :prov/Entity
-                      {:owl/allValuesFrom :voag/Governance,
-                       :owl/onProperty    :voag/hasGovernance,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
                       {:owl/minCardinality 0,
                        :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/dateCreated,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Provenance,
                        :owl/onProperty    :voag/hasProvenance,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/title,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasGovernance,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/normativeURL,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}],
    :vaem/description "An index to a set of resources"})
 
@@ -643,10 +654,10 @@
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
+                      :owl/Thing
                       :voag/Process]})
 
 (def ChangeType
@@ -681,30 +692,30 @@
    :rdfs/subClassOf  [:voag/Event
                       :voag/ConcurrenceEvent
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/endDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing]})
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}]})
 
 (def ConfidentialityLevel
   "Confidentiality level"
@@ -720,54 +731,58 @@
 (def CreativeCommonsJurisdiction
   "the legal jurisdiction of a license"
   {:db/ident         :voag/CreativeCommonsJurisdiction,
-   :dc11/description "the legal jurisdiction of a license",
+   :dc11/description #voc/lstr "the legal jurisdiction of a license@en-us",
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       ["Creative Commons Jurisdiction"
+   :rdfs/label       [#voc/lstr "Creative Commons Jurisdiction@en-us"
                       "Creative commons jurisdiction"],
    :rdfs/subClassOf  [:owl/Thing :voag/CreativeCommonsJurisdiction]})
 
 (def CreativeCommonsPermission
   "An action that may or may not be allowed or desired"
-  {:db/ident         :voag/CreativeCommonsPermission,
-   :dc11/description "An action that may or may not be allowed or desired",
-   :rdf/type         :owl/Class,
+  {:db/ident :voag/CreativeCommonsPermission,
+   :dc11/description
+   #voc/lstr "An action that may or may not be allowed or desired@en-us",
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       "Creative Commons Permission",
-   :rdfs/subClassOf  [:voag/EnumeratedValue
-                      :voag/CreativeCommonsPermission
-                      :dtype/EnumeratedValue]})
+   :rdfs/label #voc/lstr "Creative Commons Permission@en-us",
+   :rdfs/subClassOf [:voag/EnumeratedValue
+                     :voag/CreativeCommonsPermission
+                     :dtype/EnumeratedValue]})
 
 (def CreativeCommonsProhibition
   "something you may be asked not to do"
   {:db/ident         :voag/CreativeCommonsProhibition,
-   :dc11/description "something you may be asked not to do",
+   :dc11/description #voc/lstr "something you may be asked not to do@en-us",
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       "Creative Commons Prohibition",
+   :rdfs/label       #voc/lstr "Creative Commons Prohibition@en-us",
    :rdfs/subClassOf  [:voag/EnumeratedValue
                       :voag/CreativeCommonsProhibition
                       :dtype/EnumeratedValue]})
 
 (def CreativeCommonsRequirement
   "an action that may or may not be requested of you"
-  {:db/ident         :voag/CreativeCommonsRequirement,
-   :dc11/description "an action that may or may not be requested of you",
-   :rdf/type         :owl/Class,
+  {:db/ident :voag/CreativeCommonsRequirement,
+   :dc11/description #voc/lstr
+                      "an action that may or may not be requested of you@en-us",
+   :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       "Requirement",
-   :rdfs/subClassOf  [:voag/EnumeratedValue
-                      :voag/CreativeCommonsRequirement
-                      :dtype/EnumeratedValue],
-   :vaem/description "An action that may or may not be requested of you"})
+   :rdfs/label #voc/lstr "Requirement@en-us",
+   :rdfs/subClassOf [:voag/EnumeratedValue
+                     :voag/CreativeCommonsRequirement
+                     :dtype/EnumeratedValue],
+   :vaem/description
+   #voc/lstr "An action that may or may not be requested of you@en-us"})
 
 (def CreativeCommonsWork
   "A potentially copyrightable work"
   {:db/ident         :voag/CreativeCommonsWork,
-   :dc11/description "A potentially copyrightable work",
+   :dc11/description #voc/lstr "A potentially copyrightable work@en-us",
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label       ["Creative Commons Work" "Creative commons work"],
+   :rdfs/label       [#voc/lstr "Creative Commons Work@en-us"
+                      "Creative commons work"],
    :rdfs/subClassOf  [:owl/Thing
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/url,
@@ -777,109 +792,109 @@
 (def DTYPE-CatalogEntry
   {:db/ident         :voag/DTYPE-CatalogEntry,
    :rdf/type         [:voag/SchemaGraph
-                      :void/Dataset
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Discipline,
-                       :owl/onProperty    :vaem/disciplineScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/hasValue   :vaem/SchemaGraph,
-                       :owl/onProperty :vaem/hasGraphRole,
-                       :rdf/type       :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Viewpoint,
-                       :owl/onProperty    :vaem/viewpointScope,
-                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasGovernance,
+                       :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/curatedGraphURI,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Domain,
+                       :owl/onProperty    :vaem/domainScope,
+                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/dateCreated,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/hasValue   :vaem/SchemaGraph,
+                       :owl/onProperty :vaem/hasGraphRole,
+                       :rdf/type       :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/urlOfTurtleFile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/minCardinality 0,
+                       :owl/onProperty     :voag/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/attributionText,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :voag/LicenseModel,
+                       :owl/onProperty    :vaem/hasLicenseType,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Aspect,
+                       :owl/onProperty    :vaem/aspectScope,
+                       :rdf/type          :owl/Restriction}
+                      :prov/Entity
+                      :voag/Graph
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :vaem/namespace,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Discipline,
+                       :owl/onProperty    :vaem/disciplineScope,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasLogo,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :vaem/namespacePrefix,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/normativeURL,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Viewpoint,
+                       :owl/onProperty    :vaem/viewpointScope,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/urlOfRDFfile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/downloads,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/hasGraphRole,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/ProductLogo,
+                       :owl/onProperty    :voag/hasLogo,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/GraphRole,
+                       :owl/onProperty    :vaem/hasGraphRole,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/revision,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Provenance,
                        :owl/onProperty    :voag/hasProvenance,
                        :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/curatedGraphURI,
-                       :rdf/type        :owl/Restriction}
-                      :prov/Entity
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasGovernance,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/documentedAt,
+                       :owl/onProperty     :vaem/hasLicenseType,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Governance,
                        :owl/onProperty    :voag/hasGovernance,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      :voag/GovernedObject
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/normativeURL,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/title,
                        :rdf/type           :owl/Restriction}
-                      {:owl/minCardinality 0,
-                       :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Domain,
-                       :owl/onProperty    :vaem/domainScope,
-                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasLogo,
+                       :owl/onProperty     :voag/documentedAt,
                        :rdf/type           :owl/Restriction}
+                      :voag/GovernedObject
                       {:owl/allValuesFrom :voag/Attribution,
                        :owl/onProperty    :vaem/withAttributionTo,
                        :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Aspect,
-                       :owl/onProperty    :vaem/aspectScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/hasLicenseType,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/GraphRole,
-                       :owl/onProperty    :vaem/hasGraphRole,
-                       :rdf/type          :owl/Restriction}
-                      :voag/Graph
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/attributionText,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/urlOfTurtleFile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/namespacePrefix,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :voag/ProductLogo,
-                       :owl/onProperty    :voag/hasLogo,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/LicenseModel,
-                       :owl/onProperty    :vaem/hasLicenseType,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/urlOfRDFfile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/namespace,
-                       :rdf/type        :owl/Restriction}],
+                      :void/Dataset],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag"})
 
 (def Daily
@@ -911,30 +926,30 @@
    :rdfs/subClassOf  [:voag/Event
                       :voag/DeletionEvent
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/endDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing]})
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}]})
 
 (def DesignatedGovernanceRole
   "A \"Assigned Role\" with the following instance(s): \"Assurer\", \"Project Management\", \"Resource & Process Policy\", \"Technical Definitions\", \"User\", \"Verifier\"."
@@ -953,30 +968,30 @@
                       :rdf/type        :owl/Restriction}
                      :voag/DesignatedGovernanceRole
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/endDate,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/eventDate,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/endDate,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/instigatedBy,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Party,
-                      :owl/onProperty    :voag/instigatedBy,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/startDate,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     {:owl/allValuesFrom :voag/Party,
+                      :owl/onProperty    :voag/instigatedBy,
+                      :rdf/type          :owl/Restriction}]})
 
 (def DisapprovedIssue
   "Disapproved Issue"
@@ -994,7 +1009,7 @@
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Document",
    :rdfs/subClassOf  [{:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/dateCreated,
+                       :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/title,
@@ -1004,13 +1019,13 @@
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/lastUpdated,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/dateCreated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :voag/Document]})
 
@@ -1027,8 +1042,8 @@
   "Early adoption"
   {:db/ident         :voag/EarlyAdoption,
    :rdf/type         [:voag/Maturity
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Early adoption"})
 
@@ -1050,27 +1065,27 @@
    :rdfs/subClassOf  [{:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/endDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/eventDate,
+                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/instigatedBy,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/eventDate,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/endDate,
+                       :owl/onProperty     :voag/instigatedBy,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :voag/Event]})
 
@@ -1078,8 +1093,8 @@
   "Experimental"
   {:db/ident         :voag/Experimental,
    :rdf/type         [:voag/Maturity
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Experimental"})
 
@@ -1095,18 +1110,18 @@
                        :rdf/type           :owl/Restriction}
                       :voag/Figure
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/width,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/width,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/height,
-                       :rdf/type           :owl/Restriction}],
+                      :owl/Thing],
    :vaem/description "An illustration of some kind."})
 
 (def GR_Authorizer
@@ -1114,8 +1129,8 @@
   {:db/ident         :voag/GR_Authorizer,
    :dtype/value      "authorizer",
    :rdf/type         [:voag/GovernanceRole
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Authorizer"})
 
@@ -1124,8 +1139,8 @@
   {:db/ident         :voag/GR_Steward,
    :dtype/value      "steward",
    :rdf/type         [:voag/GovernanceRole
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Steward"})
 
@@ -1134,8 +1149,8 @@
   {:db/ident         :voag/GR_Submitter,
    :dtype/value      "submitter",
    :rdf/type         [:voag/GovernanceRole
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Submitter"})
 
@@ -1147,66 +1162,66 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Governance",
-   :rdfs/subClassOf [{:owl/allValuesFrom :voag/ChangeType,
-                      :owl/onProperty    :voag/hasAnticipatedChangeType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasOwner,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/GovernanceProtocol,
-                      :owl/onProperty    :voag/hasProtocol,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/isITAR,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :voag/hasProtocol,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
                       :owl/onProperty     :voag/isFOSS,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/supercedes,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Issue,
-                      :owl/onProperty    :voag/hasIssue,
-                      :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
                       :owl/onProperty  :voag/hasApprovalStatus,
                       :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Document,
-                      :owl/onProperty    :voag/hasReferenceDocument,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Document,
-                      :owl/onProperty    :voag/hasNormativeDocument,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Document,
-                      :owl/onProperty    :voag/hasApplicableDocument,
-                      :rdf/type          :owl/Restriction}
-                     :voag/Qualifier
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/isITAR,
+                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/ChangeFrequency,
                       :owl/onProperty    :voag/frequencyOfChange,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/hasConfidentiality,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/GovernanceEvent,
+                      :owl/onProperty    :voag/hasGovernanceEvent,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/GovernanceProtocol,
+                      :owl/onProperty    :voag/hasProtocol,
+                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/ConfidentialityLevel,
                       :owl/onProperty    :voag/hasConfidentiality,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/supercedes,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Document,
+                      :owl/onProperty    :voag/hasNormativeDocument,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/ChangeType,
+                      :owl/onProperty    :voag/hasAnticipatedChangeType,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Document,
+                      :owl/onProperty    :voag/hasApplicableDocument,
+                      :rdf/type          :owl/Restriction}
+                     :voag/Qualifier
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :voag/hasProtocol,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Issue,
+                      :owl/onProperty    :voag/hasIssue,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Document,
+                      :owl/onProperty    :voag/hasReferenceDocument,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/Party,
                       :owl/onProperty    :voag/hasOwner,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/GovernanceEvent,
-                      :owl/onProperty    :voag/hasGovernanceEvent,
-                      :rdf/type          :owl/Restriction}
-                     :voag/Governance
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
+                      :owl/onProperty     :voag/hasOwner,
                       :rdf/type           :owl/Restriction}
+                     :voag/Governance
+                     :owl/Thing
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/id,
+                      :rdf/type           :owl/Restriction}]})
 
 (def GovernanceEvent
   "A \"Governance Event\"."
@@ -1218,30 +1233,30 @@
    :rdfs/subClassOf  [:voag/Event
                       :voag/GovernanceEvent
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/endDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing]})
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}]})
 
 (def GovernanceProcess
   "A \"Process\"."
@@ -1255,10 +1270,10 @@
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}]})
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing]})
 
 (def GovernanceProtocol
   "Governance is used to mean the processes that need to exist for a successful initiaitve, mission, program, or project. Such governance needs to outline the relationships between all internal and external groups involved, describe the proper flow of information regarding to all stakeholders, ensure the appropriate review of issues encountered and ensure that required approvals and direction for a 'GovernedEntity' is obtained at each appropriate stage."
@@ -1281,62 +1296,62 @@
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Governance Protocol",
    :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
+                      :owl/onProperty     :voag/hasChangeManagementProcess,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/StakeholderGroup,
+                      :owl/onProperty    :voag/reviewedBy,
+                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/StakeholderGroup,
                       :owl/onProperty    :voag/mayNeedConcurrenceFrom,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasApprovalProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Organization,
-                      :owl/onProperty    :voag/isGovernedBy,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/onProperty     :voag/hasNormativeDocument,
-                      :owl/someValuesFrom :voag/Document,
-                      :rdf/type           :owl/Restriction}
                      {:owl/cardinality 1,
                       :owl/onProperty  :voag/isGovernedBy,
                       :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasChangeManagementProcess,
+                     {:owl/onProperty     :voag/hasNormativeDocument,
+                      :owl/someValuesFrom :voag/Document,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasIssueResolutionProcess,
+                      :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
-                     :voag/Qualifier
-                     {:owl/onProperty     :voag/isGovernedBy,
-                      :owl/someValuesFrom :voag/StakeholderGroup,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ApprovalProcess,
-                      :owl/onProperty    :voag/hasApprovalProcess,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 3,
-                      :owl/onProperty  :voag/hasProcess,
-                      :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :voag/StakeholderGroup,
                       :owl/onProperty    :voag/isInterestOf,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/ChangeManagementProcess,
                       :owl/onProperty    :voag/hasChangeManagementProcess,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/StakeholderGroup,
-                      :owl/onProperty    :voag/reviewedBy,
+                     {:owl/onProperty     :voag/isGovernedBy,
+                      :owl/someValuesFrom :voag/StakeholderGroup,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/hasApprovalProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Organization,
+                      :owl/onProperty    :voag/isGovernedBy,
                       :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/hasIssueResolutionProcess,
+                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/IssueResolutionProcess,
                       :owl/onProperty    :voag/hasIssueResolutionProcess,
+                      :rdf/type          :owl/Restriction}
+                     :voag/Qualifier
+                     {:owl/cardinality 3,
+                      :owl/onProperty  :voag/hasProcess,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :voag/ApprovalProcess,
+                      :owl/onProperty    :voag/hasApprovalProcess,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/StakeholderGroup,
                       :owl/onProperty    :voag/isApprovedBy,
                       :rdf/type          :owl/Restriction}
                      :voag/GovernanceProtocol
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing]})
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/id,
+                      :rdf/type           :owl/Restriction}]})
 
 (def GovernanceRole
   "A \"Role\" with the following instance(s): \"authorizer\", \"steward\", \"submitter\"."
@@ -1359,13 +1374,34 @@
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/revision,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/documentedAt,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasGovernance,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/normativeURL,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Provenance,
+                       :owl/onProperty    :voag/hasProvenance,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/title,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasGovernance,
+                       :owl/onProperty     :vaem/dateCreated,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Governance,
                        :owl/onProperty    :voag/hasGovernance,
@@ -1373,30 +1409,9 @@
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/documentedAt,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/normativeURL,
-                       :rdf/type           :owl/Restriction}
                       :prov/Entity
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/dateCreated,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Provenance,
-                       :owl/onProperty    :voag/hasProvenance,
-                       :rdf/type          :owl/Restriction}
                       {:owl/minCardinality 0,
                        :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}
                       :voag/GovernedObject],
    :vaem/description "An abstract class for all governed entities"})
@@ -1410,12 +1425,12 @@
    :rdfs/subClassOf  [:voag/Service
                       :voag/GovernedService
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}]})
+                      :owl/Thing]})
 
 (def Graph
   "Graph"
@@ -1423,106 +1438,106 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Graph",
-   :rdfs/subClassOf [{:owl/allValuesFrom :voag/LicenseModel,
-                      :owl/onProperty    :vaem/hasLicenseType,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :voag/attributionText,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ProductLogo,
-                      :owl/onProperty    :voag/hasLogo,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Viewpoint,
-                      :owl/onProperty    :vaem/viewpointScope,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Domain,
-                      :owl/onProperty    :vaem/domainScope,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :voag/curatedGraphURI,
-                      :rdf/type        :owl/Restriction}
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/hasGraphRole,
+                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :vaem/Aspect,
                       :owl/onProperty    :vaem/aspectScope,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/urlOfTurtleFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :vaem/namespace,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Viewpoint,
+                      :owl/onProperty    :vaem/viewpointScope,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/Attribution,
                       :owl/onProperty    :vaem/withAttributionTo,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/downloads,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/urlOfTurtleFile,
-                      :rdf/type           :owl/Restriction}
-                     :void/Dataset
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasLogo,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :voag/attributionText,
+                      :rdf/type        :owl/Restriction}
                      {:owl/allValuesFrom :vaem/GraphRole,
                       :owl/onProperty    :vaem/hasGraphRole,
                       :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :vaem/namespace,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/hasGraphRole,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :vaem/namespacePrefix,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Discipline,
-                      :owl/onProperty    :vaem/disciplineScope,
+                     {:owl/allValuesFrom :vaem/Domain,
+                      :owl/onProperty    :vaem/domainScope,
                       :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/downloads,
+                      :rdf/type           :owl/Restriction}
+                     :void/Dataset
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/hasLicenseType,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/hasLogo,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :vaem/namespacePrefix,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/urlOfRDFfile,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Discipline,
+                      :owl/onProperty    :vaem/disciplineScope,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/ProductLogo,
+                      :owl/onProperty    :voag/hasLogo,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/LicenseModel,
+                      :owl/onProperty    :vaem/hasLicenseType,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :voag/curatedGraphURI,
+                      :rdf/type        :owl/Restriction}
                      :voag/Graph
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/revision,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
-                      :rdf/type           :owl/Restriction}
-                     :prov/Entity
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 0,
-                      :owl/onProperty     :voag/url,
+                      :owl/onProperty     :voag/normativeURL,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/title,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/normativeURL,
+                      :owl/onProperty     :vaem/revision,
                       :rdf/type           :owl/Restriction}
-                     :voag/GovernedObject
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/documentedAt,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/hasGovernance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/dateCreated,
+                     {:owl/minCardinality 0,
+                      :owl/onProperty     :voag/url,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/Provenance,
                       :owl/onProperty    :voag/hasProvenance,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/name,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/lastUpdated,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasGovernance,
+                      :owl/onProperty     :voag/id,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/hasGovernance,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/documentedAt,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/hasProvenance,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/dateCreated,
+                      :rdf/type           :owl/Restriction}
+                     :prov/Entity
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/hasGovernance,
+                      :rdf/type           :owl/Restriction}
+                     :voag/GovernedObject],
    :vaem/description
    "A set of RDF triples in an ontology graph specified according to VOAG."})
 
@@ -1535,18 +1550,18 @@
    :rdfs/subClassOf  [:voag/Image
                       :voag/Icon
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/width,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/width,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/height,
-                       :rdf/type           :owl/Restriction}],
+                      :owl/Thing],
    :vaem/description "A logo of some kind"})
 
 (def Image
@@ -1576,8 +1591,8 @@
   "In development"
   {:db/ident         :voag/InDevelopment,
    :rdf/type         [:voag/Maturity
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "In development"})
 
@@ -1590,36 +1605,36 @@
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Issue",
    :rdfs/subClassOf [{:owl/cardinality 1,
-                      :owl/onProperty  :voag/title,
+                      :owl/onProperty  :voag/disposition,
                       :rdf/type        :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/description,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/IssueStatus,
-                      :owl/onProperty    :voag/hasStatus,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/priority,
-                      :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      {:owl/cardinality 1,
-                      :owl/onProperty  :voag/disposition,
+                      :owl/onProperty  :voag/userID,
                       :rdf/type        :owl/Restriction}
+                     {:owl/allValuesFrom :voag/IssueStatus,
+                      :owl/onProperty    :voag/hasStatus,
+                      :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
                       :owl/onProperty  :voag/hasStatus,
                       :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :voag/userID,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :voag/BoardDispositionStatus,
-                      :owl/onProperty    :voag/dispositionStatus,
-                      :rdf/type          :owl/Restriction}
-                     :owl/Thing
                      {:owl/allValuesFrom :voag/PriorityValue,
                       :owl/onProperty    :voag/priority,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/BoardDispositionStatus,
+                      :owl/onProperty    :voag/dispositionStatus,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/description,
+                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :voag/title,
+                      :rdf/type        :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/priority,
+                      :rdf/type           :owl/Restriction}
                      :voag/Issue]})
 
 (def IssueResolutionProcess
@@ -1634,10 +1649,10 @@
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
+                      :owl/Thing
                       :voag/Process]})
 
 (def IssueStatus
@@ -1657,68 +1672,68 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "License Model",
-   :rdfs/subClassOf [{:owl/allValuesFrom :voag/LicenseModel,
-                      :owl/onProperty    :voag/incompatibleWith,
-                      :rdf/type          :owl/Restriction}
+   :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/acronym,
+                      :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/image,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/LicenseModel,
-                      :owl/onProperty    :voag/compatibleWith,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/LicenseModel,
                       :owl/onProperty    :voag/derivedFrom,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/acronym,
-                      :rdf/type           :owl/Restriction}
-                     :voag/GovernedObject
+                     {:owl/allValuesFrom :voag/LicenseModel,
+                      :owl/onProperty    :voag/compatibleWith,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/url,
                       :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/LicenseModel,
+                      :owl/onProperty    :voag/incompatibleWith,
+                      :rdf/type          :owl/Restriction}
+                     :voag/GovernedObject
                      :voag/LicenseModel
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/revision,
+                      :owl/onProperty     :voag/normativeURL,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/title,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Governance,
+                      :owl/onProperty    :voag/hasGovernance,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/documentedAt,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/hasProvenance,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/description,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/documentedAt,
+                      :owl/onProperty     :vaem/dateCreated,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
+                      :owl/onProperty     :vaem/revision,
                       :rdf/type           :owl/Restriction}
                      :prov/Entity
-                     {:owl/allValuesFrom :voag/Governance,
-                      :owl/onProperty    :voag/hasGovernance,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
                      {:owl/minCardinality 0,
                       :owl/onProperty     :voag/url,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/dateCreated,
                       :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/Provenance,
                       :owl/onProperty    :voag/hasProvenance,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/title,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/lastUpdated,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/id,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/hasGovernance,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/normativeURL,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasProvenance,
                       :rdf/type           :owl/Restriction}],
    :vaem/description
    "A License Model describes the licensing conditions associated with a software artifact."})
@@ -1727,20 +1742,20 @@
   "LinkedModel ICON 200 x 80"
   {:db/ident :voag/LinkedModelLogo-200x80,
    :rdf/type [:voag/Logo
-              :owl/Thing
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
               {:owl/cardinality 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
-              :voag/Image
+              :owl/Thing
               {:owl/maxCardinality 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
                :owl/onProperty     :voag/caption,
-               :rdf/type           :owl/Restriction}],
+               :rdf/type           :owl/Restriction}
+              :voag/Image],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "LinkedModel ICON 200 x 80",
    :vaem/description "LinkedModel Logo",
@@ -1759,18 +1774,18 @@
    :rdfs/subClassOf  [:voag/Image
                       :voag/Logo
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/width,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/caption,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/width,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/height,
-                       :rdf/type           :owl/Restriction}],
+                      :owl/Thing],
    :vaem/description "Logo is ..."})
 
 (def Maturity
@@ -1821,28 +1836,28 @@
   "No attribution specified"
   {:db/ident         :voag/NoAttributionSpecified,
    :rdf/type         [:voag/Attribution
-                      :voag/Qualifier
-                      :owl/Thing
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/AttributionLogo,
                        :owl/onProperty    :voag/hasLogo,
                        :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/url,
+                       :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :vaem/name,
                        :rdf/type        :owl/Restriction}
+                      :voag/Qualifier
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :xsd/string,
                        :owl/onProperty    :voag/pointOfContact,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasLogo,
                        :rdf/type           :owl/Restriction}
+                      :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/url,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "No attribution specified"})
@@ -1851,65 +1866,65 @@
   "No governance specified"
   {:db/ident         :voag/NoGovernanceSpecified,
    :rdf/type         [:voag/Governance
-                      {:owl/allValuesFrom :voag/ConfidentialityLevel,
-                       :owl/onProperty    :voag/hasConfidentiality,
-                       :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :voag/Document,
-                       :owl/onProperty    :voag/hasApplicableDocument,
+                       :owl/onProperty    :voag/hasNormativeDocument,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :voag/ChangeFrequency,
                        :owl/onProperty    :voag/frequencyOfChange,
                        :rdf/type          :owl/Restriction}
                       :voag/Qualifier
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/hasProtocol,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Issue,
-                       :owl/onProperty    :voag/hasIssue,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Document,
-                       :owl/onProperty    :voag/hasNormativeDocument,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/hasOwner,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Document,
-                       :owl/onProperty    :voag/hasReferenceDocument,
-                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasConfidentiality,
                        :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/GovernanceEvent,
-                       :owl/onProperty    :voag/hasGovernanceEvent,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/isITAR,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/hasApprovalStatus,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :voag/GovernanceProtocol,
-                       :owl/onProperty    :voag/hasProtocol,
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/hasOwner,
                        :rdf/type          :owl/Restriction}
                       :owl/Thing
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/ChangeType,
                        :owl/onProperty    :voag/hasAnticipatedChangeType,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/isFOSS,
+                       :owl/onProperty     :voag/isITAR,
                        :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Document,
+                       :owl/onProperty    :voag/hasApplicableDocument,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :voag/GovernanceProtocol,
+                       :owl/onProperty    :voag/hasProtocol,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/hasApprovalStatus,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Document,
+                       :owl/onProperty    :voag/hasReferenceDocument,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :voag/GovernanceEvent,
+                       :owl/onProperty    :voag/hasGovernanceEvent,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :voag/ConfidentialityLevel,
+                       :owl/onProperty    :voag/hasConfidentiality,
+                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasOwner,
                        :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/hasProtocol,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/isFOSS,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Issue,
+                       :owl/onProperty    :voag/hasIssue,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Governance,
                        :owl/onProperty    :voag/supercedes,
-                       :rdf/type          :owl/Restriction}],
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "No governance specified"})
 
@@ -1917,31 +1932,31 @@
   "No pedigree specified"
   {:db/ident         :voag/NoPedigreeSpecified,
    :rdf/type         [:voag/Pedigree
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/usage,
-                       :rdf/type           :owl/Restriction}
-                      :owl/Thing
                       :voag/Qualifier
                       {:owl/allValuesFrom :voag/Party,
                        :owl/onProperty    :voag/usedBy,
                        :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Accredidation,
-                       :owl/onProperty    :voag/hasAccredidation,
-                       :rdf/type          :owl/Restriction}
+                      :owl/Thing
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasAccredidation,
+                       :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Maturity,
                        :owl/onProperty    :voag/hasMaturity,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Accredidation,
+                       :owl/onProperty    :voag/hasAccredidation,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasMaturity,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasAccredidation,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :voag/usage,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "No pedigree specified"})
@@ -1950,9 +1965,29 @@
   "No provenance specified"
   {:db/ident         :voag/NoProvenanceSpecified,
    :rdf/type         [:voag/Provenance
+                      {:owl/minCardinality 0,
+                       :owl/onProperty     :voag/derivedFrom,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Pedigree,
+                       :owl/onProperty    :voag/hasPedigree,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/lastUpdated,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      :voag/Qualifier
                       {:owl/minCardinality 1,
                        :owl/onProperty     :voag/source,
                        :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/ChangeType,
+                       :owl/onProperty    :voag/hasChangeType,
+                       :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom
                        {:owl/unionOf [:voag/Party :voag/Document],
                         :rdf/type :owl/Class,
@@ -1960,41 +1995,21 @@
                         "http://voag.linkedmodel.org/schema/voag"},
                        :owl/onProperty :voag/source,
                        :rdf/type :owl/Restriction}
-                      :voag/Qualifier
-                      {:owl/minCardinality 0,
-                       :owl/onProperty     :voag/derivedFrom,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/ChangeType,
-                       :owl/onProperty    :voag/hasChangeType,
-                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasPedigree,
+                       :owl/onProperty     :vaem/revision,
                        :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Pedigree,
-                       :owl/onProperty    :voag/hasPedigree,
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :vaem/timestamp,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :voag/GovernedObject,
+                       :owl/onProperty    :voag/supercedes,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :voag/GovernedObject,
                        :owl/onProperty    :voag/supercededBy,
                        :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/timestamp,
-                       :rdf/type        :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/lastUpdated,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
-                      :owl/Thing
-                      {:owl/allValuesFrom :voag/GovernedObject,
-                       :owl/onProperty    :voag/supercedes,
-                       :rdf/type          :owl/Restriction}],
+                       :owl/onProperty     :voag/hasPedigree,
+                       :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "No provenance specified"})
 
@@ -2008,31 +2023,31 @@
    :rdfs/subClassOf  [:voag/GovernanceEvent
                       :voag/NonConcurrenceEvent
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/eventDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       :voag/Event
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/instigatedBy,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing]})
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}]})
 
 (def NonIssue
   "Non-issue"
@@ -2074,10 +2089,10 @@
                        :rdf/type           :owl/Restriction}
                       :voag/Organization
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}]})
 
 (def OrganizationLogo
@@ -2089,19 +2104,19 @@
    :rdfs/subClassOf  [:voag/Logo
                       :voag/OrganizationLogo
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/width,
+                       :owl/onProperty     :voag/caption,
+                       :rdf/type           :owl/Restriction}
+                      :voag/Image
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
-                      :voag/Image
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/height,
-                       :rdf/type           :owl/Restriction}],
+                      :owl/Thing],
    :vaem/description "A logo for an organization"})
 
 (def PS_Draft
@@ -2109,8 +2124,8 @@
   {:db/ident         :voag/PS_Draft,
    :dtype/value      "draft",
    :rdf/type         [:voag/PublicationStatus
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Draft Status"})
 
@@ -2118,8 +2133,8 @@
   "Final Status"
   {:db/ident         :voag/PS_Final,
    :rdf/type         [:voag/PublicationStatus
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Final Status"})
 
@@ -2128,8 +2143,8 @@
   {:db/ident         :voag/PS_Interim,
    :dtype/value      "interim",
    :rdf/type         [:voag/PublicationStatus
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Interim Status"})
 
@@ -2138,8 +2153,8 @@
   {:db/ident         :voag/PS_Obsolete,
    :dtype/value      "obsolete",
    :rdf/type         [:voag/PublicationStatus
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Obsolete"})
 
@@ -2148,8 +2163,8 @@
   {:db/ident         :voag/PS_Review,
    :dtype/value      "review",
    :rdf/type         [:voag/PublicationStatus
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Review"})
 
@@ -2158,8 +2173,8 @@
   {:db/ident         :voag/PS_Unknown,
    :dtype/value      "unknown",
    :rdf/type         [:voag/PublicationStatus
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Unknown Status"})
 
@@ -2168,8 +2183,8 @@
   {:db/ident         :voag/PV_HighPriority,
    :dtype/value      "high",
    :rdf/type         [:voag/PriorityValue
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "High priority"})
 
@@ -2178,8 +2193,8 @@
   {:db/ident         :voag/PV_LowPriority,
    :dtype/value      "low",
    :rdf/type         [:voag/PriorityValue
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Low priority"})
 
@@ -2188,8 +2203,8 @@
   {:db/ident         :voag/PV_MediumPriority,
    :dtype/value      "medium",
    :rdf/type         [:voag/PriorityValue
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Medium priority"})
 
@@ -2198,8 +2213,8 @@
   {:db/ident         :voag/PV_NotApplicable,
    :dtype/value      "na",
    :rdf/type         [:voag/PriorityValue
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Not Applicable"})
 
@@ -2208,8 +2223,8 @@
   {:db/ident         :voag/PV_ToBeDetermined,
    :dtype/value      "tbd",
    :rdf/type         [:voag/PriorityValue
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "TBD"})
 
@@ -2236,30 +2251,30 @@
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Pedigree",
    :rdfs/subClassOf [{:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/hasAccredidation,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/hasMaturity,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Maturity,
-                      :owl/onProperty    :voag/hasMaturity,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/Accredidation,
-                      :owl/onProperty    :voag/hasAccredidation,
-                      :rdf/type          :owl/Restriction}
                      :voag/Qualifier
                      {:owl/allValuesFrom :voag/Party,
                       :owl/onProperty    :voag/usedBy,
                       :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Accredidation,
+                      :owl/onProperty    :voag/hasAccredidation,
+                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/usage,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasAccredidation,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Maturity,
+                      :owl/onProperty    :voag/hasMaturity,
+                      :rdf/type          :owl/Restriction}
                      :voag/Pedigree
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
+                      :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
                      :owl/Thing],
    :vaem/description
@@ -2275,10 +2290,10 @@
                       :prov/Person
                       :voag/Person
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}]})
 
 (def PriorityValue
@@ -2315,27 +2330,27 @@
    :rdfs/subClassOf  [:voag/Logo
                       :voag/ProductLogo
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/caption,
+                       :owl/onProperty     :voag/width,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/width,
+                       :owl/onProperty     :voag/caption,
+                       :rdf/type           :owl/Restriction}
+                      :voag/Image
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/height,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :voag/image,
                        :rdf/type        :owl/Restriction}
-                      :owl/Thing
-                      :voag/Image
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/height,
-                       :rdf/type           :owl/Restriction}],
+                      :owl/Thing],
    :vaem/description "Product logo is used for products, solutions, etc."})
 
 (def Proposed
   "Proposed"
   {:db/ident         :voag/Proposed,
    :rdf/type         [:voag/Maturity
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Proposed"})
 
@@ -2347,11 +2362,17 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Provenance",
-   :rdfs/subClassOf [{:owl/allValuesFrom :voag/Pedigree,
-                      :owl/onProperty    :voag/hasPedigree,
+   :rdfs/subClassOf [{:owl/minCardinality 1,
+                      :owl/onProperty     :voag/source,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/GovernedObject,
+                      :owl/onProperty    :voag/supercededBy,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :voag/ChangeType,
-                      :owl/onProperty    :voag/hasChangeType,
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/hasPedigree,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :voag/Pedigree,
+                      :owl/onProperty    :voag/hasPedigree,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/revision,
@@ -2359,18 +2380,16 @@
                      {:owl/minCardinality 0,
                       :owl/onProperty     :voag/derivedFrom,
                       :rdf/type           :owl/Restriction}
-                     {:owl/minCardinality 1,
-                      :owl/onProperty     :voag/source,
-                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom :voag/GovernedObject,
-                      :owl/onProperty    :voag/supercededBy,
+                      :owl/onProperty    :voag/supercedes,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/lastUpdated,
                       :rdf/type           :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :vaem/timestamp,
-                      :rdf/type        :owl/Restriction}
+                     :voag/Qualifier
+                     {:owl/allValuesFrom :voag/ChangeType,
+                      :owl/onProperty    :voag/hasChangeType,
+                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom
                       {:owl/unionOf [:voag/Party :voag/Document],
                        :rdf/type :owl/Class,
@@ -2378,21 +2397,17 @@
                        "http://voag.linkedmodel.org/schema/voag"},
                       :owl/onProperty :voag/source,
                       :rdf/type :owl/Restriction}
-                     {:owl/allValuesFrom :voag/GovernedObject,
-                      :owl/onProperty    :voag/supercedes,
-                      :rdf/type          :owl/Restriction}
-                     :voag/Qualifier
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/hasPedigree,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :vaem/timestamp,
+                      :rdf/type        :owl/Restriction}
                      :voag/Provenance
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
-                      :rdf/type           :owl/Restriction}
+                     :owl/Thing
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
-                     :owl/Thing],
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :voag/id,
+                      :rdf/type           :owl/Restriction}],
    :vaem/description
    "Provenance specifies the origin or source of some artifact. The primary purpose of provenance is to capture the time, place, and if appropriate the person responsible, for the creation, production or provisioning of The artifact. Provenance also captures a record of how a version may have been superceded by another version of the artifact."})
 
@@ -2434,20 +2449,20 @@
   "RDF Icon 32 X 35"
   {:db/ident :voag/RDFIcon-32X35,
    :rdf/type [:voag/Icon
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/caption,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
               {:owl/cardinality 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              :voag/Image
-              :owl/Thing
-              {:owl/maxCardinality 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/caption,
-               :rdf/type           :owl/Restriction}],
+              :voag/Image
+              :owl/Thing],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "RDF Icon 32 X 35",
    :vaem/description "RDF Standard",
@@ -2476,30 +2491,30 @@
    :rdfs/subClassOf  [:voag/Event
                       :voag/RejectionEvent
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/endDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing]})
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}]})
 
 (def ResolvedIssue
   "Resolved"
@@ -2521,30 +2536,30 @@
    :rdfs/subClassOf  [:voag/Event
                       :voag/RetreivalEvent
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/name,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/endDate,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/endDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing]})
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}]})
 
 (def ReviewEvent
   "A \"Governance Event\"."
@@ -2559,50 +2574,50 @@
                        :rdf/type          :owl/Restriction}
                       :voag/ReviewEvent
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/eventDate,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/endDate,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/instigatedBy,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :voag/eventDate,
                        :rdf/type           :owl/Restriction}
                       :voag/Event
-                      {:owl/allValuesFrom :voag/Party,
-                       :owl/onProperty    :voag/instigatedBy,
-                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/instigatedBy,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/startDate,
                        :rdf/type           :owl/Restriction}
-                      :owl/Thing]})
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      :owl/Thing
+                      {:owl/allValuesFrom :voag/Party,
+                       :owl/onProperty    :voag/instigatedBy,
+                       :rdf/type          :owl/Restriction}]})
 
 (def SPARQLIcon-80X15
   "SPARQL ICON 80 X 15"
   {:db/ident :voag/SPARQLIcon-80X15,
    :rdf/type [:voag/Icon
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/caption,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
               {:owl/cardinality 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              :voag/Image
-              :owl/Thing
-              {:owl/maxCardinality 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/caption,
-               :rdf/type           :owl/Restriction}],
+              :voag/Image
+              :owl/Thing],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "SPARQL ICON 80 X 15",
    :vaem/description "SPARQL Standard",
@@ -2631,77 +2646,75 @@
                           :owl/onProperty :vaem/hasGraphRole,
                           :rdf/type       :owl/Restriction}
                          :voag/SchemaGraph
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :voag/curatedGraphURI,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/GraphRole,
-                          :owl/onProperty    :vaem/hasGraphRole,
-                          :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/revision,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/name,
-                          :rdf/type           :owl/Restriction}
-                         :prov/Entity
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/id,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :vaem/namespacePrefix,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/minCardinality 0,
-                          :owl/onProperty     :voag/url,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :voag/Attribution,
-                          :owl/onProperty    :vaem/withAttributionTo,
-                          :rdf/type          :owl/Restriction}
-                         :void/Dataset
-                         {:owl/allValuesFrom :vaem/Domain,
-                          :owl/onProperty    :vaem/domainScope,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :vaem/namespace,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/urlOfRDFfile,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/hasLicenseType,
+                          :owl/onProperty     :voag/normativeURL,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/title,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/normativeURL,
-                          :rdf/type           :owl/Restriction}
-                         :voag/GovernedObject
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/description,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/hasGraphRole,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Viewpoint,
-                          :owl/onProperty    :vaem/viewpointScope,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/documentedAt,
+                          :owl/onProperty     :vaem/hasLicenseType,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/urlOfTurtleFile,
                           :rdf/type           :owl/Restriction}
+                         :void/Dataset
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :voag/curatedGraphURI,
+                          :rdf/type        :owl/Restriction}
+                         {:owl/allValuesFrom :vaem/Discipline,
+                          :owl/onProperty    :vaem/disciplineScope,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/revision,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/minCardinality 0,
+                          :owl/onProperty     :voag/url,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/hasGraphRole,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/allValuesFrom :voag/Provenance,
+                          :owl/onProperty    :voag/hasProvenance,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/name,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/lastUpdated,
+                          :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/downloads,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/id,
                           :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :voag/Governance,
                           :owl/onProperty    :voag/hasGovernance,
                           :rdf/type          :owl/Restriction}
-                         {:owl/allValuesFrom :voag/LicenseModel,
-                          :owl/onProperty    :vaem/hasLicenseType,
+                         {:owl/allValuesFrom :vaem/Domain,
+                          :owl/onProperty    :vaem/domainScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/documentedAt,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :vaem/namespacePrefix,
+                          :rdf/type        :owl/Restriction}
+                         {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/hasLogo,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/allValuesFrom :voag/Attribution,
+                          :owl/onProperty    :vaem/withAttributionTo,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :voag/attributionText,
+                          :rdf/type        :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/hasProvenance,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/description,
                           :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :vaem/Aspect,
                           :owl/onProperty    :vaem/aspectScope,
@@ -2709,27 +2722,29 @@
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :vaem/dateCreated,
                           :rdf/type           :owl/Restriction}
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :vaem/namespace,
+                          :rdf/type        :owl/Restriction}
+                         :prov/Entity
+                         {:owl/allValuesFrom :vaem/GraphRole,
+                          :owl/onProperty    :vaem/hasGraphRole,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/urlOfRDFfile,
+                          :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :voag/ProductLogo,
                           :owl/onProperty    :voag/hasLogo,
                           :rdf/type          :owl/Restriction}
-                         {:owl/allValuesFrom :voag/Provenance,
-                          :owl/onProperty    :voag/hasProvenance,
+                         {:owl/allValuesFrom :voag/LicenseModel,
+                          :owl/onProperty    :vaem/hasLicenseType,
                           :rdf/type          :owl/Restriction}
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :voag/attributionText,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Discipline,
-                          :owl/onProperty    :vaem/disciplineScope,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/lastUpdated,
-                          :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/hasGovernance,
                           :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/hasProvenance,
-                          :rdf/type           :owl/Restriction}]})
+                         {:owl/allValuesFrom :vaem/Viewpoint,
+                          :owl/onProperty    :vaem/viewpointScope,
+                          :rdf/type          :owl/Restriction}
+                         :voag/GovernedObject]})
 
 (def Service
   "Service"
@@ -2750,8 +2765,8 @@
   "Some adoption"
   {:db/ident         :voag/SomeAdoption,
    :rdf/type         [:voag/Maturity
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Some adoption"})
 
@@ -2776,10 +2791,10 @@
                       :rdf/type           :owl/Restriction}
                      :voag/StakeholderGroup
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :voag/id,
+                      :owl/onProperty     :vaem/name,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/name,
+                      :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}]})
 
 (def Standard
@@ -2797,47 +2812,47 @@
                        :rdf/type           :owl/Restriction}
                       :voag/Standard
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
+                       :owl/onProperty     :voag/normativeURL,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/title,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Governance,
+                       :owl/onProperty    :voag/hasGovernance,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/documentedAt,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/documentedAt,
+                       :owl/onProperty     :vaem/dateCreated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
+                       :owl/onProperty     :vaem/revision,
                        :rdf/type           :owl/Restriction}
                       :prov/Entity
-                      {:owl/allValuesFrom :voag/Governance,
-                       :owl/onProperty    :voag/hasGovernance,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
                       {:owl/minCardinality 0,
                        :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/dateCreated,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Provenance,
                        :owl/onProperty    :voag/hasProvenance,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/title,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasGovernance,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/normativeURL,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}],
    :vaem/description "An industry, de facto or de jure standard"})
 
@@ -2845,28 +2860,28 @@
   "TopQuadrant attribution"
   {:db/ident            :voag/TopQuadrantAttribution,
    :rdf/type            [:voag/Attribution
-                         :voag/Qualifier
-                         :owl/Thing
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/name,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/id,
-                          :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :voag/AttributionLogo,
                           :owl/onProperty    :voag/hasLogo,
                           :rdf/type          :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/url,
+                          :rdf/type           :owl/Restriction}
                          {:owl/cardinality 1,
                           :owl/onProperty  :vaem/name,
                           :rdf/type        :owl/Restriction}
+                         :voag/Qualifier
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/id,
+                          :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :xsd/string,
                           :owl/onProperty    :voag/pointOfContact,
                           :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/hasLogo,
                           :rdf/type           :owl/Restriction}
+                         :owl/Thing
                          {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/url,
+                          :owl/onProperty     :vaem/name,
                           :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy    "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label          "TopQuadrant attribution",
@@ -2881,10 +2896,6 @@
    :rdf/type [:voag/AttributionLogo
               :voag/OrganizationLogo
               :voag/Logo
-              :voag/Image
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/width,
-               :rdf/type           :owl/Restriction}
               {:owl/cardinality 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
@@ -2894,7 +2905,11 @@
               {:owl/maxCardinality 1,
                :owl/onProperty     :voag/caption,
                :rdf/type           :owl/Restriction}
-              :owl/Thing],
+              :owl/Thing
+              :voag/Image
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/width,
+               :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "TopQuadrant Logo 613 x 150",
    :vaem/description
@@ -2908,20 +2923,20 @@
   "Turtle Icon 32 X 35"
   {:db/ident :voag/TurtleIcon-32bX35,
    :rdf/type [:voag/Icon
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/caption,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
               {:owl/cardinality 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              :voag/Image
-              :owl/Thing
-              {:owl/maxCardinality 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/caption,
-               :rdf/type           :owl/Restriction}],
+              :voag/Image
+              :owl/Thing],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "Turtle Icon 32 X 35",
    :vaem/description "Turtle is a representation format for RDF/OWL.",
@@ -2944,225 +2959,225 @@
   "Unknown maturity"
   {:db/ident         :voag/UnknownMaturity,
    :rdf/type         [:voag/Maturity
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Unknown maturity"})
 
 (def VAEM-CatalogEntry
   {:db/ident         :voag/VAEM-CatalogEntry,
    :rdf/type         [:voag/SchemaGraph
-                      :void/Dataset
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Discipline,
-                       :owl/onProperty    :vaem/disciplineScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/hasValue   :vaem/SchemaGraph,
-                       :owl/onProperty :vaem/hasGraphRole,
-                       :rdf/type       :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Viewpoint,
-                       :owl/onProperty    :vaem/viewpointScope,
-                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasGovernance,
+                       :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/curatedGraphURI,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Domain,
+                       :owl/onProperty    :vaem/domainScope,
+                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/dateCreated,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/hasValue   :vaem/SchemaGraph,
+                       :owl/onProperty :vaem/hasGraphRole,
+                       :rdf/type       :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/urlOfTurtleFile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/minCardinality 0,
+                       :owl/onProperty     :voag/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/attributionText,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :voag/LicenseModel,
+                       :owl/onProperty    :vaem/hasLicenseType,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Aspect,
+                       :owl/onProperty    :vaem/aspectScope,
+                       :rdf/type          :owl/Restriction}
+                      :prov/Entity
+                      :voag/Graph
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :vaem/namespace,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Discipline,
+                       :owl/onProperty    :vaem/disciplineScope,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasLogo,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :vaem/namespacePrefix,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/normativeURL,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Viewpoint,
+                       :owl/onProperty    :vaem/viewpointScope,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/urlOfRDFfile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/downloads,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/hasGraphRole,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/ProductLogo,
+                       :owl/onProperty    :voag/hasLogo,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/GraphRole,
+                       :owl/onProperty    :vaem/hasGraphRole,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/revision,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Provenance,
                        :owl/onProperty    :voag/hasProvenance,
                        :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/curatedGraphURI,
-                       :rdf/type        :owl/Restriction}
-                      :prov/Entity
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasGovernance,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/documentedAt,
+                       :owl/onProperty     :vaem/hasLicenseType,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Governance,
                        :owl/onProperty    :voag/hasGovernance,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      :voag/GovernedObject
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/normativeURL,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/title,
                        :rdf/type           :owl/Restriction}
-                      {:owl/minCardinality 0,
-                       :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Domain,
-                       :owl/onProperty    :vaem/domainScope,
-                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasLogo,
+                       :owl/onProperty     :voag/documentedAt,
                        :rdf/type           :owl/Restriction}
+                      :voag/GovernedObject
                       {:owl/allValuesFrom :voag/Attribution,
                        :owl/onProperty    :vaem/withAttributionTo,
                        :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Aspect,
-                       :owl/onProperty    :vaem/aspectScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/hasLicenseType,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/GraphRole,
-                       :owl/onProperty    :vaem/hasGraphRole,
-                       :rdf/type          :owl/Restriction}
-                      :voag/Graph
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/attributionText,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/urlOfTurtleFile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/namespacePrefix,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :voag/ProductLogo,
-                       :owl/onProperty    :voag/hasLogo,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/LicenseModel,
-                       :owl/onProperty    :vaem/hasLicenseType,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/urlOfRDFfile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/namespace,
-                       :rdf/type        :owl/Restriction}],
+                      :void/Dataset],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag"})
 
 (def VAEM-XINA-CatalogEntry
   {:db/ident         :voag/VAEM-XINA-CatalogEntry,
    :rdf/type         [:voag/SchemaGraph
-                      :void/Dataset
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Discipline,
-                       :owl/onProperty    :vaem/disciplineScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/hasValue   :vaem/SchemaGraph,
-                       :owl/onProperty :vaem/hasGraphRole,
-                       :rdf/type       :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Viewpoint,
-                       :owl/onProperty    :vaem/viewpointScope,
-                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasGovernance,
+                       :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasProvenance,
                        :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/curatedGraphURI,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Domain,
+                       :owl/onProperty    :vaem/domainScope,
+                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/dateCreated,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/hasValue   :vaem/SchemaGraph,
+                       :owl/onProperty :vaem/hasGraphRole,
+                       :rdf/type       :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/urlOfTurtleFile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/minCardinality 0,
+                       :owl/onProperty     :voag/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/attributionText,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :voag/LicenseModel,
+                       :owl/onProperty    :vaem/hasLicenseType,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Aspect,
+                       :owl/onProperty    :vaem/aspectScope,
+                       :rdf/type          :owl/Restriction}
+                      :prov/Entity
+                      :voag/Graph
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :vaem/namespace,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Discipline,
+                       :owl/onProperty    :vaem/disciplineScope,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasLogo,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :vaem/namespacePrefix,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/normativeURL,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Viewpoint,
+                       :owl/onProperty    :vaem/viewpointScope,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/urlOfRDFfile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/downloads,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/hasGraphRole,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/ProductLogo,
+                       :owl/onProperty    :voag/hasLogo,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/GraphRole,
+                       :owl/onProperty    :vaem/hasGraphRole,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/revision,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Provenance,
                        :owl/onProperty    :voag/hasProvenance,
                        :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/curatedGraphURI,
-                       :rdf/type        :owl/Restriction}
-                      :prov/Entity
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasGovernance,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/documentedAt,
+                       :owl/onProperty     :vaem/hasLicenseType,
                        :rdf/type           :owl/Restriction}
                       {:owl/allValuesFrom :voag/Governance,
                        :owl/onProperty    :voag/hasGovernance,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      :voag/GovernedObject
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/normativeURL,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/title,
                        :rdf/type           :owl/Restriction}
-                      {:owl/minCardinality 0,
-                       :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Domain,
-                       :owl/onProperty    :vaem/domainScope,
-                       :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasLogo,
+                       :owl/onProperty     :voag/documentedAt,
                        :rdf/type           :owl/Restriction}
+                      :voag/GovernedObject
                       {:owl/allValuesFrom :voag/Attribution,
                        :owl/onProperty    :vaem/withAttributionTo,
                        :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Aspect,
-                       :owl/onProperty    :vaem/aspectScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/hasLicenseType,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/GraphRole,
-                       :owl/onProperty    :vaem/hasGraphRole,
-                       :rdf/type          :owl/Restriction}
-                      :voag/Graph
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :voag/attributionText,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/urlOfTurtleFile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/namespacePrefix,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :voag/ProductLogo,
-                       :owl/onProperty    :voag/hasLogo,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/LicenseModel,
-                       :owl/onProperty    :vaem/hasLicenseType,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/urlOfRDFfile,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/namespace,
-                       :rdf/type        :owl/Restriction}],
+                      :void/Dataset],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag"})
 
 (def VOAG-CatalogEntry
@@ -3171,64 +3186,16 @@
    :rdf/type         [:voag/SchemaGraph
                       :vaem/CatalogEntry
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/title,
+                       :owl/onProperty     :vaem/name,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasGovernance,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/documentedAt,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Governance,
-                       :owl/onProperty    :voag/hasGovernance,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/revision,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :vaem/lastUpdated,
                        :rdf/type           :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
-                       :rdf/type           :owl/Restriction}
-                      :prov/Entity
-                      :voag/GovernedObject
-                      {:owl/minCardinality 0,
-                       :owl/onProperty     :voag/url,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/id,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/normativeURL,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/name,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/dateCreated,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/hasProvenance,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Provenance,
-                       :owl/onProperty    :voag/hasProvenance,
-                       :rdf/type          :owl/Restriction}
-                      :void/Dataset
-                      {:owl/allValuesFrom :vaem/Discipline,
-                       :owl/onProperty    :vaem/disciplineScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/hasValue   :vaem/SchemaGraph,
-                       :owl/onProperty :vaem/hasGraphRole,
-                       :rdf/type       :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Viewpoint,
-                       :owl/onProperty    :vaem/viewpointScope,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/downloads,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/hasGraphRole,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :voag/curatedGraphURI,
@@ -3237,42 +3204,90 @@
                        :owl/onProperty    :vaem/domainScope,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/hasLogo,
+                       :owl/onProperty     :vaem/dateCreated,
                        :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :voag/Attribution,
-                       :owl/onProperty    :vaem/withAttributionTo,
+                      {:owl/hasValue   :vaem/SchemaGraph,
+                       :owl/onProperty :vaem/hasGraphRole,
+                       :rdf/type       :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/urlOfTurtleFile,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/minCardinality 0,
+                       :owl/onProperty     :voag/url,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/cardinality 1,
+                       :owl/onProperty  :voag/attributionText,
+                       :rdf/type        :owl/Restriction}
+                      {:owl/allValuesFrom :voag/LicenseModel,
+                       :owl/onProperty    :vaem/hasLicenseType,
                        :rdf/type          :owl/Restriction}
                       {:owl/allValuesFrom :vaem/Aspect,
                        :owl/onProperty    :vaem/aspectScope,
                        :rdf/type          :owl/Restriction}
-                      {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/hasLicenseType,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/GraphRole,
-                       :owl/onProperty    :vaem/hasGraphRole,
-                       :rdf/type          :owl/Restriction}
+                      :prov/Entity
                       :voag/Graph
                       {:owl/cardinality 1,
-                       :owl/onProperty  :voag/attributionText,
+                       :owl/onProperty  :vaem/namespace,
                        :rdf/type        :owl/Restriction}
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :voag/urlOfTurtleFile,
+                       :owl/onProperty     :vaem/description,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Discipline,
+                       :owl/onProperty    :vaem/disciplineScope,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/hasLogo,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :vaem/namespacePrefix,
                        :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :voag/ProductLogo,
-                       :owl/onProperty    :voag/hasLogo,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :voag/LicenseModel,
-                       :owl/onProperty    :vaem/hasLicenseType,
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/normativeURL,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/Viewpoint,
+                       :owl/onProperty    :vaem/viewpointScope,
                        :rdf/type          :owl/Restriction}
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :voag/urlOfRDFfile,
                        :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :vaem/namespace,
-                       :rdf/type        :owl/Restriction}],
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/id,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/downloads,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/hasGraphRole,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/ProductLogo,
+                       :owl/onProperty    :voag/hasLogo,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :vaem/GraphRole,
+                       :owl/onProperty    :vaem/hasGraphRole,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/revision,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Provenance,
+                       :owl/onProperty    :voag/hasProvenance,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :vaem/hasLicenseType,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :voag/Governance,
+                       :owl/onProperty    :voag/hasGovernance,
+                       :rdf/type          :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/title,
+                       :rdf/type           :owl/Restriction}
+                      {:owl/maxCardinality 1,
+                       :owl/onProperty     :voag/documentedAt,
+                       :rdf/type           :owl/Restriction}
+                      :voag/GovernedObject
+                      {:owl/allValuesFrom :voag/Attribution,
+                       :owl/onProperty    :vaem/withAttributionTo,
+                       :rdf/type          :owl/Restriction}
+                      :void/Dataset],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "VOAG Catalog Entry"})
 
@@ -3280,21 +3295,21 @@
   "VOAG Logo"
   {:db/ident :voag/VOAG-OntologyLogo_360x110,
    :rdf/type [:voag/ProductLogo
-              :owl/Thing
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :voag/height,
+               :rdf/type           :owl/Restriction}
               {:owl/cardinality 1,
                :owl/onProperty  :voag/image,
                :rdf/type        :owl/Restriction}
-              :voag/Logo
-              :voag/Image
+              :owl/Thing
               {:owl/maxCardinality 1,
                :owl/onProperty     :voag/width,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :voag/height,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
                :owl/onProperty     :voag/caption,
-               :rdf/type           :owl/Restriction}],
+               :rdf/type           :owl/Restriction}
+              :voag/Logo
+              :voag/Image],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label "VOAG Logo",
    :voag/caption "VOAG Logo",
@@ -3323,77 +3338,75 @@
                           :owl/onProperty :vaem/hasGraphRole,
                           :rdf/type       :owl/Restriction}
                          :voag/VocabGraph
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :voag/curatedGraphURI,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/GraphRole,
-                          :owl/onProperty    :vaem/hasGraphRole,
-                          :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/revision,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/name,
-                          :rdf/type           :owl/Restriction}
-                         :prov/Entity
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/id,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :vaem/namespacePrefix,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/minCardinality 0,
-                          :owl/onProperty     :voag/url,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :voag/Attribution,
-                          :owl/onProperty    :vaem/withAttributionTo,
-                          :rdf/type          :owl/Restriction}
-                         :void/Dataset
-                         {:owl/allValuesFrom :vaem/Domain,
-                          :owl/onProperty    :vaem/domainScope,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :vaem/namespace,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/urlOfRDFfile,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/hasLicenseType,
+                          :owl/onProperty     :voag/normativeURL,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/title,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/normativeURL,
-                          :rdf/type           :owl/Restriction}
-                         :voag/GovernedObject
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/description,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/hasGraphRole,
-                          :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Viewpoint,
-                          :owl/onProperty    :vaem/viewpointScope,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/documentedAt,
+                          :owl/onProperty     :vaem/hasLicenseType,
                           :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/urlOfTurtleFile,
                           :rdf/type           :owl/Restriction}
+                         :void/Dataset
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :voag/curatedGraphURI,
+                          :rdf/type        :owl/Restriction}
+                         {:owl/allValuesFrom :vaem/Discipline,
+                          :owl/onProperty    :vaem/disciplineScope,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/revision,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/minCardinality 0,
+                          :owl/onProperty     :voag/url,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/hasGraphRole,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/allValuesFrom :voag/Provenance,
+                          :owl/onProperty    :voag/hasProvenance,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/name,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/lastUpdated,
+                          :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/downloads,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/id,
                           :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :voag/Governance,
                           :owl/onProperty    :voag/hasGovernance,
                           :rdf/type          :owl/Restriction}
-                         {:owl/allValuesFrom :voag/LicenseModel,
-                          :owl/onProperty    :vaem/hasLicenseType,
+                         {:owl/allValuesFrom :vaem/Domain,
+                          :owl/onProperty    :vaem/domainScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/documentedAt,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :vaem/namespacePrefix,
+                          :rdf/type        :owl/Restriction}
+                         {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/hasLogo,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/allValuesFrom :voag/Attribution,
+                          :owl/onProperty    :vaem/withAttributionTo,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :voag/attributionText,
+                          :rdf/type        :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/hasProvenance,
+                          :rdf/type           :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :vaem/description,
                           :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :vaem/Aspect,
                           :owl/onProperty    :vaem/aspectScope,
@@ -3401,27 +3414,29 @@
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :vaem/dateCreated,
                           :rdf/type           :owl/Restriction}
+                         {:owl/cardinality 1,
+                          :owl/onProperty  :vaem/namespace,
+                          :rdf/type        :owl/Restriction}
+                         :prov/Entity
+                         {:owl/allValuesFrom :vaem/GraphRole,
+                          :owl/onProperty    :vaem/hasGraphRole,
+                          :rdf/type          :owl/Restriction}
+                         {:owl/maxCardinality 1,
+                          :owl/onProperty     :voag/urlOfRDFfile,
+                          :rdf/type           :owl/Restriction}
                          {:owl/allValuesFrom :voag/ProductLogo,
                           :owl/onProperty    :voag/hasLogo,
                           :rdf/type          :owl/Restriction}
-                         {:owl/allValuesFrom :voag/Provenance,
-                          :owl/onProperty    :voag/hasProvenance,
+                         {:owl/allValuesFrom :voag/LicenseModel,
+                          :owl/onProperty    :vaem/hasLicenseType,
                           :rdf/type          :owl/Restriction}
-                         {:owl/cardinality 1,
-                          :owl/onProperty  :voag/attributionText,
-                          :rdf/type        :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Discipline,
-                          :owl/onProperty    :vaem/disciplineScope,
-                          :rdf/type          :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :vaem/lastUpdated,
-                          :rdf/type           :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/hasGovernance,
                           :rdf/type           :owl/Restriction}
-                         {:owl/maxCardinality 1,
-                          :owl/onProperty     :voag/hasProvenance,
-                          :rdf/type           :owl/Restriction}]})
+                         {:owl/allValuesFrom :vaem/Viewpoint,
+                          :owl/onProperty    :vaem/viewpointScope,
+                          :rdf/type          :owl/Restriction}
+                         :voag/GovernedObject]})
 
 (def Weekly
   "Weekly"
@@ -3436,8 +3451,8 @@
   "Widely adopted"
   {:db/ident         :voag/WidelyAdopted,
    :rdf/type         [:voag/Maturity
-                      :dtype/EnumeratedValue
-                      :voag/EnumeratedValue],
+                      :voag/EnumeratedValue
+                      :dtype/EnumeratedValue],
    :rdfs/isDefinedBy "http://voag.linkedmodel.org/schema/voag",
    :rdfs/label       "Widely adopted"})
 
@@ -3952,12 +3967,12 @@
    :rdfs/label "interest of"})
 
 (def jurisdiction
-  "jurisdiction jurisdiction"
+  "jurisdiction"
   {:db/ident           :voag/jurisdiction,
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain        :voag/LicenseModel,
    :rdfs/isDefinedBy   "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label         ["jurisdiction" "jurisdiction"],
+   :rdfs/label         [#voc/lstr "jurisdiction@en-us" "jurisdiction"],
    :rdfs/range         :voag/CreativeCommonsJurisdiction,
    :rdfs/subPropertyOf :voag/jurisdiction})
 
@@ -4059,12 +4074,12 @@
    :rdfs/label       "performed by"})
 
 (def permits
-  "permits permits"
+  "permits"
   {:db/ident           :voag/permits,
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain        :voag/LicenseModel,
    :rdfs/isDefinedBy   "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label         ["permits" "permits"],
+   :rdfs/label         [#voc/lstr "permits@en-us" "permits"],
    :rdfs/range         :voag/CreativeCommonsPermission,
    :rdfs/subPropertyOf :voag/permits})
 
@@ -4092,12 +4107,12 @@
    :rdfs/label       "priority"})
 
 (def prohibits
-  "prohibits prohibits"
+  "prohibits"
   {:db/ident           :voag/prohibits,
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain        :voag/LicenseModel,
    :rdfs/isDefinedBy   "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label         ["prohibits" "prohibits"],
+   :rdfs/label         [#voc/lstr "prohibits@en-us" "prohibits"],
    :rdfs/range         :voag/CreativeCommonsProhibition,
    :rdfs/subPropertyOf :voag/prohibits})
 
@@ -4138,12 +4153,12 @@
    :rdfs/range       :vaem/dateUnion})
 
 (def requires
-  "requires requires"
+  "requires"
   {:db/ident           :voag/requires,
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain        :voag/LicenseModel,
    :rdfs/isDefinedBy   "http://voag.linkedmodel.org/schema/voag",
-   :rdfs/label         ["requires" "requires"],
+   :rdfs/label         [#voc/lstr "requires@en-us" "requires"],
    :rdfs/range         :voag/CreativeCommonsRequirement,
    :rdfs/subPropertyOf :voag/requires})
 
@@ -4376,24 +4391,24 @@
 ;;                       :owl/onProperty     :voag/hasLogo,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :vaem/name,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/cardinality 1,
+;;                       :owl/onProperty  :vaem/name,
+;;                       :rdf/type        :owl/Restriction}
+;;                      {:owl/allValuesFrom :voag/AttributionLogo,
+;;                       :owl/onProperty    :voag/hasLogo,
+;;                       :rdf/type          :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :voag/url,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :voag/id,
 ;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/allValuesFrom :voag/AttributionLogo,
-;;                       :owl/onProperty    :voag/hasLogo,
-;;                       :rdf/type          :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/name,
-;;                       :rdf/type           :owl/Restriction}
-;;                      :owl/Thing
 ;;                      {:owl/allValuesFrom :xsd/string,
 ;;                       :owl/onProperty    :voag/pointOfContact,
 ;;                       :rdf/type          :owl/Restriction}
-;;                      {:owl/cardinality 1,
-;;                       :owl/onProperty  :vaem/name,
-;;                       :rdf/type        :owl/Restriction}
+;;                      :owl/Thing
 ;;                      :voag/Qualifier]})
 
 ;; (def ^{:private true} CatalogEntry
@@ -4402,47 +4417,47 @@
 ;;    :rdfs/subClassOf [:voag/GovernedObject
 ;;                      :vaem/CatalogEntry
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/revision,
+;;                       :owl/onProperty     :voag/normativeURL,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/title,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/allValuesFrom :voag/Governance,
+;;                       :owl/onProperty    :voag/hasGovernance,
+;;                       :rdf/type          :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/documentedAt,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/hasProvenance,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :vaem/description,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/documentedAt,
+;;                       :owl/onProperty     :vaem/dateCreated,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/name,
+;;                       :owl/onProperty     :vaem/revision,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      :prov/Entity
-;;                      {:owl/allValuesFrom :voag/Governance,
-;;                       :owl/onProperty    :voag/hasGovernance,
-;;                       :rdf/type          :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/id,
-;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/minCardinality 0,
 ;;                       :owl/onProperty     :voag/url,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/dateCreated,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/allValuesFrom :voag/Provenance,
 ;;                       :owl/onProperty    :voag/hasProvenance,
 ;;                       :rdf/type          :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/title,
+;;                       :owl/onProperty     :vaem/name,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :vaem/lastUpdated,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/id,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :voag/hasGovernance,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/normativeURL,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/hasProvenance,
 ;;                       :rdf/type           :owl/Restriction}]})
 
 ;; (def ^{:private true} LicenseModel
@@ -4451,18 +4466,17 @@
 ;;    :rdfs/subClassOf [:voag/LicenseModel
 ;;                      :vaem/LicenseModel
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/image,
-;;                       :rdf/type           :owl/Restriction}
-;;                      :voag/GovernedObject
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/revision,
+;;                       :owl/onProperty     :voag/normativeURL,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/description,
+;;                       :owl/onProperty     :voag/title,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :vaem/acronym,
 ;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/allValuesFrom :voag/Governance,
+;;                       :owl/onProperty    :voag/hasGovernance,
+;;                       :rdf/type          :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :voag/documentedAt,
 ;;                       :rdf/type           :owl/Restriction}
@@ -4470,48 +4484,49 @@
 ;;                       :owl/onProperty    :voag/compatibleWith,
 ;;                       :rdf/type          :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/name,
+;;                       :owl/onProperty     :voag/hasProvenance,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/url,
-;;                       :rdf/type           :owl/Restriction}
-;;                      :prov/Entity
-;;                      {:owl/allValuesFrom :voag/Governance,
-;;                       :owl/onProperty    :voag/hasGovernance,
-;;                       :rdf/type          :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/id,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/minCardinality 0,
-;;                       :owl/onProperty     :voag/url,
+;;                       :owl/onProperty     :vaem/description,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/allValuesFrom :voag/LicenseModel,
 ;;                       :owl/onProperty    :voag/incompatibleWith,
 ;;                       :rdf/type          :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/url,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/image,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :vaem/dateCreated,
 ;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/allValuesFrom :voag/LicenseModel,
-;;                       :owl/onProperty    :voag/derivedFrom,
-;;                       :rdf/type          :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :vaem/revision,
+;;                       :rdf/type           :owl/Restriction}
+;;                      :prov/Entity
+;;                      {:owl/minCardinality 0,
+;;                       :owl/onProperty     :voag/url,
+;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/allValuesFrom :voag/Provenance,
 ;;                       :owl/onProperty    :voag/hasProvenance,
 ;;                       :rdf/type          :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/title,
+;;                       :owl/onProperty     :vaem/name,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :vaem/lastUpdated,
 ;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/allValuesFrom :voag/LicenseModel,
+;;                       :owl/onProperty    :voag/derivedFrom,
+;;                       :rdf/type          :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/id,
+;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :voag/hasGovernance,
 ;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/normativeURL,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/hasProvenance,
-;;                       :rdf/type           :owl/Restriction}]})
+;;                      :voag/GovernedObject]})
 
 ;; (def ^{:private true} description
 ;;   "description"
@@ -4528,47 +4543,47 @@
 ;;    :rdfs/subClassOf [:voag/GovernedObject
 ;;                      :void/Dataset
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/revision,
+;;                       :owl/onProperty     :voag/normativeURL,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/title,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/allValuesFrom :voag/Governance,
+;;                       :owl/onProperty    :voag/hasGovernance,
+;;                       :rdf/type          :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/documentedAt,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/hasProvenance,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :vaem/description,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/documentedAt,
+;;                       :owl/onProperty     :vaem/dateCreated,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/name,
+;;                       :owl/onProperty     :vaem/revision,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      :prov/Entity
-;;                      {:owl/allValuesFrom :voag/Governance,
-;;                       :owl/onProperty    :voag/hasGovernance,
-;;                       :rdf/type          :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/id,
-;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/minCardinality 0,
 ;;                       :owl/onProperty     :voag/url,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :vaem/dateCreated,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/allValuesFrom :voag/Provenance,
 ;;                       :owl/onProperty    :voag/hasProvenance,
 ;;                       :rdf/type          :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/title,
+;;                       :owl/onProperty     :vaem/name,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :vaem/lastUpdated,
 ;;                       :rdf/type           :owl/Restriction}
 ;;                      {:owl/maxCardinality 1,
+;;                       :owl/onProperty     :voag/id,
+;;                       :rdf/type           :owl/Restriction}
+;;                      {:owl/maxCardinality 1,
 ;;                       :owl/onProperty     :voag/hasGovernance,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/normativeURL,
-;;                       :rdf/type           :owl/Restriction}
-;;                      {:owl/maxCardinality 1,
-;;                       :owl/onProperty     :voag/hasProvenance,
 ;;                       :rdf/type           :owl/Restriction}],
 ;;    :vaem/description
 ;;    "A set of RDF triples that are published, maintained or aggregated by a single provider."})

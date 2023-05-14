@@ -24,9 +24,10 @@
   {:db/ident :sioc.types/AddressBook,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a collection of personal or organisational addresses.",
+   #voc/lstr
+    "Describes a collection of personal or organisational addresses.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Address Book",
+   :rdfs/label #voc/lstr "Address Book@en",
    :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/Agent"],
    :rdfs/subClassOf [:sioc/Container :sioc.types/AddressBook]})
 
@@ -35,29 +36,32 @@
   {:db/ident :sioc.types/AnnotationSet,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a set of annotations, for example, those created by a particular user or related to a particular topic.",
+   #voc/lstr
+    "Describes a set of annotations, for example, those created by a particular user or related to a particular topic.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Annotation Set",
+   :rdfs/label #voc/lstr "Annotation Set@en",
    :rdfs/seeAlso ["http://www.w3.org/2000/10/annotation-ns#Annotation"],
    :rdfs/subClassOf [:sioc/Container :sioc.types/AnnotationSet]})
 
 (def Answer
   "A Post that provides an answer in reply to a Question."
-  {:db/ident         :sioc.types/Answer,
-   :rdf/type         :owl/Class,
-   :rdfs/comment     "A Post that provides an answer in reply to a Question.",
+  {:db/ident :sioc.types/Answer,
+   :rdf/type :owl/Class,
+   :rdfs/comment #voc/lstr
+                  "A Post that provides an answer in reply to a Question.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Answer",
-   :rdfs/subClassOf  [:sioc/Post :sioc.types/Answer]})
+   :rdfs/label #voc/lstr "Answer@en",
+   :rdfs/subClassOf [:sioc/Post :sioc.types/Answer]})
 
 (def ArgumentativeDiscussion
   "Describes a discussion area where logical arguments can take place."
   {:db/ident :sioc.types/ArgumentativeDiscussion,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a discussion area where logical arguments can take place.",
+   #voc/lstr
+    "Describes a discussion area where logical arguments can take place.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Argumentative Discussion",
+   :rdfs/label #voc/lstr "Argumentative Discussion@en",
    :rdfs/seeAlso ["http://purl.org/ibis#Idea"],
    :rdfs/subClassOf [:sioc/Forum :sioc.types/ArgumentativeDiscussion]})
 
@@ -66,9 +70,10 @@
   {:db/ident :sioc.types/AudioChannel,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a channel for distributing audio or sound files, for example, a podcast.",
+   #voc/lstr
+    "Describes a channel for distributing audio or sound files, for example, a podcast.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Audio Channel",
+   :rdfs/label #voc/lstr "Audio Channel@en",
    :rdfs/seeAlso ["http://purl.org/dc/dcmitype/Sound"],
    :rdfs/subClassOf [:sioc/Container :sioc.types/AudioChannel]})
 
@@ -77,29 +82,32 @@
   {:db/ident :sioc.types/BestAnswer,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "A Post that is the best answer to a Question, as chosen by the UserAccount who asked the Question or as voted by a Community of UserAccounts.",
+   #voc/lstr
+    "A Post that is the best answer to a Question, as chosen by the UserAccount who asked the Question or as voted by a Community of UserAccounts.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Best Answer",
+   :rdfs/label #voc/lstr "Best Answer@en",
    :rdfs/subClassOf [:sioc/Post :sioc.types/BestAnswer]})
 
 (def BlogPost
   "Describes a post that is specifically made on a weblog."
-  {:db/ident         :sioc.types/BlogPost,
-   :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a post that is specifically made on a weblog.",
+  {:db/ident :sioc.types/BlogPost,
+   :rdf/type :owl/Class,
+   :rdfs/comment #voc/lstr
+                  "Describes a post that is specifically made on a weblog.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Blog Post",
-   :rdfs/seeAlso     ["http://rdfs.org/sioc/types#Weblog"],
-   :rdfs/subClassOf  [:sioc/Post :sioc.types/BlogPost]})
+   :rdfs/label #voc/lstr "Blog Post@en",
+   :rdfs/seeAlso ["http://rdfs.org/sioc/types#Weblog"],
+   :rdfs/subClassOf [:sioc/Post :sioc.types/BlogPost]})
 
 (def BoardPost
   "Describes a post that is specifically made on a message board."
   {:db/ident :sioc.types/BoardPost,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a post that is specifically made on a message board.",
+   #voc/lstr
+    "Describes a post that is specifically made on a message board.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Board Post",
+   :rdfs/label #voc/lstr "Board Post@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#MessageBoard"],
    :rdfs/subClassOf [:sioc/Post :sioc.types/BoardPost]})
 
@@ -107,9 +115,9 @@
   "Describes a shared collection of bookmarks."
   {:db/ident         :sioc.types/BookmarkFolder,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a shared collection of bookmarks.",
+   :rdfs/comment     #voc/lstr "Describes a shared collection of bookmarks.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Bookmark Folder",
+   :rdfs/label       #voc/lstr "Bookmark Folder@en",
    :rdfs/seeAlso     ["http://www.w3.org/2002/01/bookmark#Bookmark"],
    :rdfs/subClassOf  [:sioc/Container :sioc.types/BookmarkFolder]})
 
@@ -117,9 +125,9 @@
   "Describes a briefcase or file service."
   {:db/ident         :sioc.types/Briefcase,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a briefcase or file service.",
+   :rdfs/comment     #voc/lstr "Describes a briefcase or file service.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Briefcase",
+   :rdfs/label       #voc/lstr "Briefcase@en",
    :rdfs/seeAlso     ["http://xmlns.com/foaf/0.1/Document"],
    :rdfs/subClassOf  [:sioc/Container :sioc.types/Briefcase]})
 
@@ -128,9 +136,10 @@
   {:db/ident :sioc.types/Category,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Category is used on the object of sioc:topic to indicate that this resource is a category on a site.",
+   #voc/lstr
+    "Category is used on the object of sioc:topic to indicate that this resource is a category on a site.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Category",
+   :rdfs/label #voc/lstr "Category@en",
    :rdfs/subClassOf ["http://www.w3.org/2008/05/skos#Concept"
                      :sioc.types/Category]})
 
@@ -139,9 +148,10 @@
   {:db/ident :sioc.types/ChatChannel,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a channel for chat or instant messages, for example, via IRC or IM.",
+   #voc/lstr
+    "Describes a channel for chat or instant messages, for example, via IRC or IM.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Chat Channel",
+   :rdfs/label #voc/lstr "Chat Channel@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#InstantMessage"],
    :rdfs/subClassOf [:sioc/Forum :sioc.types/ChatChannel]})
 
@@ -150,9 +160,10 @@
   {:db/ident :sioc.types/Comment,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Comment is a subtype of sioc:Post and allows one to explicitly indicate that this SIOC post is a comment.  Note that comments have a narrower scope than sioc:Post and may not apply to all types of community site.",
+   #voc/lstr
+    "Comment is a subtype of sioc:Post and allows one to explicitly indicate that this SIOC post is a comment.  Note that comments have a narrower scope than sioc:Post and may not apply to all types of community site.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Comment",
+   :rdfs/label #voc/lstr "Comment@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#Forum"],
    :rdfs/subClassOf [:sioc/Post :sioc.types/Comment]})
 
@@ -160,9 +171,9 @@
   "Describes a calendar of events."
   {:db/ident         :sioc.types/EventCalendar,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a calendar of events.",
+   :rdfs/comment     #voc/lstr "Describes a calendar of events.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Event Calendar",
+   :rdfs/label       #voc/lstr "Event Calendar@en",
    :rdfs/seeAlso     ["http://www.w3.org/2002/12/cal/icaltzd#VEVENT"],
    :rdfs/subClassOf  [:sioc/Container :sioc.types/EventCalendar]})
 
@@ -170,28 +181,31 @@
   "Describes a list or a collection of one's favourite things."
   {:db/ident :sioc.types/FavouriteThings,
    :rdf/type :owl/Class,
-   :rdfs/comment "Describes a list or a collection of one's favourite things.",
+   :rdfs/comment
+   #voc/lstr "Describes a list or a collection of one's favourite things.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Favourite Things",
+   :rdfs/label #voc/lstr "Favourite Things@en",
    :rdfs/subClassOf [:sioc/Container :sioc.types/FavouriteThings]})
 
 (def ImageGallery
   "Describes an image gallery, for example, a photo album."
-  {:db/ident         :sioc.types/ImageGallery,
-   :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes an image gallery, for example, a photo album.",
+  {:db/ident :sioc.types/ImageGallery,
+   :rdf/type :owl/Class,
+   :rdfs/comment #voc/lstr
+                  "Describes an image gallery, for example, a photo album.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Image Gallery",
-   :rdfs/seeAlso     ["http://www.w3.org/2003/12/exif/ns#IFD"],
-   :rdfs/subClassOf  [:sioc/Container :sioc.types/ImageGallery]})
+   :rdfs/label #voc/lstr "Image Gallery@en",
+   :rdfs/seeAlso ["http://www.w3.org/2003/12/exif/ns#IFD"],
+   :rdfs/subClassOf [:sioc/Container :sioc.types/ImageGallery]})
 
 (def InstantMessage
   "Describes an instant message, e.g. sent via Jabber."
   {:db/ident         :sioc.types/InstantMessage,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes an instant message, e.g. sent via Jabber.",
+   :rdfs/comment     #voc/lstr
+                      "Describes an instant message, e.g. sent via Jabber.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Instant Message",
+   :rdfs/label       #voc/lstr "Instant Message@en",
    :rdfs/seeAlso     ["http://rdfs.org/sioc/types#ChatChannel"],
    :rdfs/subClassOf  [:sioc/Post :sioc.types/InstantMessage]})
 
@@ -200,9 +214,10 @@
   {:db/ident :sioc.types/MailMessage,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes an electronic mail message, e.g. a post sent to a mailing list.",
+   #voc/lstr
+    "Describes an electronic mail message, e.g. a post sent to a mailing list.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Mail Message",
+   :rdfs/label #voc/lstr "Mail Message@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#MailingList"],
    :rdfs/subClassOf [:sioc/Post :sioc.types/MailMessage]})
 
@@ -210,9 +225,9 @@
   "Describes an electronic mailing list."
   {:db/ident         :sioc.types/MailingList,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes an electronic mailing list.",
+   :rdfs/comment     #voc/lstr "Describes an electronic mailing list.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Mailing List",
+   :rdfs/label       #voc/lstr "Mailing List@en",
    :rdfs/seeAlso     ["http://rdfs.org/sioc/types#MailMessage"],
    :rdfs/subClassOf  [:sioc/Forum :sioc.types/MailingList]})
 
@@ -221,9 +236,10 @@
   {:db/ident :sioc.types/MessageBoard,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a message board, also known as an online bulletin board or discussion forum.",
+   #voc/lstr
+    "Describes a message board, also known as an online bulletin board or discussion forum.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Message Board",
+   :rdfs/label #voc/lstr "Message Board@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#BoardPost"],
    :rdfs/subClassOf [:sioc/Forum :sioc.types/MessageBoard]})
 
@@ -232,9 +248,10 @@
   {:db/ident :sioc.types/Microblog,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a microblog, i.e. a blog consisting of short text messages.",
+   #voc/lstr
+    "Describes a microblog, i.e. a blog consisting of short text messages.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Microblog",
+   :rdfs/label #voc/lstr "Microblog@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#MicroblogPost"],
    :rdfs/subClassOf [:sioc/Forum :sioc.types/Microblog]})
 
@@ -242,9 +259,10 @@
   "Describes a post that is specifically made on a microblog."
   {:db/ident :sioc.types/MicroblogPost,
    :rdf/type :owl/Class,
-   :rdfs/comment "Describes a post that is specifically made on a microblog.",
+   :rdfs/comment
+   #voc/lstr "Describes a post that is specifically made on a microblog.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Microblog Post",
+   :rdfs/label #voc/lstr "Microblog Post@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#Microblog"],
    :rdfs/subClassOf [:sioc/Post :sioc.types/MicroblogPost]})
 
@@ -253,9 +271,9 @@
   {:db/ident :sioc.types/OfferList,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a list of the items someone has available to offer.",
+   #voc/lstr "Describes a list of the items someone has available to offer.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Offer List",
+   :rdfs/label #voc/lstr "Offer List@en",
    :rdfs/subClassOf [:sioc/Container :sioc.types/OfferList]})
 
 (def Playlist
@@ -263,9 +281,10 @@
   {:db/ident :sioc.types/Playlist,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a list of media items that have been played or can be played.",
+   #voc/lstr
+    "Describes a list of media items that have been played or can be played.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Playlist",
+   :rdfs/label #voc/lstr "Playlist@en",
    :rdfs/subClassOf [:sioc/Container :sioc.types/Playlist]})
 
 (def Poll
@@ -273,9 +292,10 @@
   {:db/ident :sioc.types/Poll,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a posted item that contains a poll or survey content.",
+   #voc/lstr
+    "Describes a posted item that contains a poll or survey content.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Poll",
+   :rdfs/label #voc/lstr "Poll@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#SurveyCollection"],
    :rdfs/subClassOf [:sioc/Item :sioc.types/Poll]})
 
@@ -283,9 +303,9 @@
   "Describes a project directory."
   {:db/ident         :sioc.types/ProjectDirectory,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a project directory.",
+   :rdfs/comment     #voc/lstr "Describes a project directory.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Project Directory",
+   :rdfs/label       #voc/lstr "Project Directory@en",
    :rdfs/seeAlso     ["http://usefulinc.com/ns/doap#Project"],
    :rdfs/subClassOf  [:sioc/Container :sioc.types/ProjectDirectory]})
 
@@ -293,9 +313,9 @@
   "A Post that asks a Question."
   {:db/ident         :sioc.types/Question,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "A Post that asks a Question.",
+   :rdfs/comment     #voc/lstr "A Post that asks a Question.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Question",
+   :rdfs/label       #voc/lstr "Question@en",
    :rdfs/subClassOf  [:sioc/Post :sioc.types/Question]})
 
 (def ReadingList
@@ -303,18 +323,19 @@
   {:db/ident :sioc.types/ReadingList,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a list of books or other materials that have been read or are suggested for reading.",
+   #voc/lstr
+    "Describes a list of books or other materials that have been read or are suggested for reading.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Reading List",
+   :rdfs/label #voc/lstr "Reading List@en",
    :rdfs/subClassOf [:sioc/Container :sioc.types/ReadingList]})
 
 (def ResumeBank
   "Describes a collection of resumes."
   {:db/ident         :sioc.types/ResumeBank,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a collection of resumes.",
+   :rdfs/comment     #voc/lstr "Describes a collection of resumes.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Resume Bank",
+   :rdfs/label       #voc/lstr "Resume Bank@en",
    :rdfs/seeAlso     ["http://captsolo.net/semweb/resume/cv.rdfs#Resume"],
    :rdfs/subClassOf  [:sioc/Container :sioc.types/ResumeBank]})
 
@@ -322,9 +343,9 @@
   "Describes an area where reviews are posted."
   {:db/ident :sioc.types/ReviewArea,
    :rdf/type :owl/Class,
-   :rdfs/comment "Describes an area where reviews are posted.",
+   :rdfs/comment #voc/lstr "Describes an area where reviews are posted.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Review Area",
+   :rdfs/label #voc/lstr "Review Area@en",
    :rdfs/seeAlso
    ["http://purl.org/stuff/rev#Review"
     "http://www.isi.edu/webscripter/communityreview/abstract-review-o#Review"],
@@ -334,9 +355,10 @@
   "Describes a shared set of feed subscriptions."
   {:db/ident         :sioc.types/SubscriptionList,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a shared set of feed subscriptions.",
+   :rdfs/comment     #voc/lstr
+                      "Describes a shared set of feed subscriptions.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Subscription List",
+   :rdfs/label       #voc/lstr "Subscription List@en",
    :rdfs/seeAlso     ["http://atomowl.org/ontologies/atomrdf#Feed"],
    :rdfs/subClassOf  [:sioc/Container :sioc.types/SubscriptionList]})
 
@@ -345,9 +367,10 @@
   {:db/ident :sioc.types/SurveyCollection,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes an area where survey data can be collected, e.g. from polls.",
+   #voc/lstr
+    "Describes an area where survey data can be collected, e.g. from polls.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Survey Collection",
+   :rdfs/label #voc/lstr "Survey Collection@en",
    :rdfs/seeAlso ["http://rdfs.org/sioc/types#Poll"],
    :rdfs/subClassOf [:sioc/Container :sioc.types/SurveyCollection]})
 
@@ -356,18 +379,20 @@
   {:db/ident :sioc.types/Tag,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Tag is used on the object of sioc:topic to indicate that this resource is a tag on a site.",
+   #voc/lstr
+    "Tag is used on the object of sioc:topic to indicate that this resource is a tag on a site.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Tag"})
+   :rdfs/label #voc/lstr "Tag@en"})
 
 (def VideoChannel
   "Describes a channel for distributing videos (moving image) files, for example, a video podcast."
   {:db/ident :sioc.types/VideoChannel,
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Describes a channel for distributing videos (moving image) files, for example, a video podcast.",
+   #voc/lstr
+    "Describes a channel for distributing videos (moving image) files, for example, a video podcast.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label "Video Channel",
+   :rdfs/label #voc/lstr "Video Channel@en",
    :rdfs/seeAlso ["http://purl.org/dc/dcmitype/MovingImage"],
    :rdfs/subClassOf [:sioc/Container :sioc.types/VideoChannel]})
 
@@ -375,9 +400,10 @@
   "Describes a weblog (blog), i.e. an online journal."
   {:db/ident         :sioc.types/Weblog,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a weblog (blog), i.e. an online journal.",
+   :rdfs/comment     #voc/lstr
+                      "Describes a weblog (blog), i.e. an online journal.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Weblog",
+   :rdfs/label       #voc/lstr "Weblog@en",
    :rdfs/seeAlso     ["http://rdfs.org/sioc/types#BlogPost"],
    :rdfs/subClassOf  [:sioc/Forum :sioc.types/Weblog]})
 
@@ -385,9 +411,9 @@
   "Describes a wiki space."
   {:db/ident         :sioc.types/Wiki,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a wiki space.",
+   :rdfs/comment     #voc/lstr "Describes a wiki space.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Wiki",
+   :rdfs/label       #voc/lstr "Wiki@en",
    :rdfs/seeAlso     ["http://rdfs.org/sioc/types#WikiArticle"],
    :rdfs/subClassOf  [:sioc/Container :sioc.types/Wiki]})
 
@@ -395,9 +421,9 @@
   "Describes a wiki article."
   {:db/ident         :sioc.types/WikiArticle,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a wiki article.",
+   :rdfs/comment     #voc/lstr "Describes a wiki article.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Wiki Article",
+   :rdfs/label       #voc/lstr "Wiki Article@en",
    :rdfs/seeAlso     ["http://rdfs.org/sioc/types#Wiki"],
    :rdfs/subClassOf  [:sioc/Item :sioc.types/WikiArticle]})
 
@@ -405,9 +431,10 @@
   "Describes a list of the items someone wishes to get."
   {:db/ident         :sioc.types/WishList,
    :rdf/type         :owl/Class,
-   :rdfs/comment     "Describes a list of the items someone wishes to get.",
+   :rdfs/comment     #voc/lstr
+                      "Describes a list of the items someone wishes to get.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
-   :rdfs/label       "Wish List",
+   :rdfs/label       #voc/lstr "Wish List@en",
    :rdfs/subClassOf  [:sioc/Container :sioc.types/WishList]})
 
 (def ^{:private true} Container

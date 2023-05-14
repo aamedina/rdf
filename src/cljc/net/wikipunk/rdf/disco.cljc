@@ -13,8 +13,9 @@
                   "Thomas Bosch"
                   "Richard Cyganiak"],
    :dc11/description
-   "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.",
-   :dc11/title "DDI-RDF Discovery Vocabulary",
+   #voc/lstr
+    "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.@en",
+   :dc11/title #voc/lstr "DDI-RDF Discovery Vocabulary@en",
    :owl/versionInfo "Version 0.6 - 2013-09-30",
    :rdf/ns-prefix-map {"adms" "http://www.w3.org/ns/adms#",
                        "dc11" "http://purl.org/dc/elements/1.1/",
@@ -37,16 +38,18 @@
    :rdfa/prefix "disco",
    :rdfa/uri "http://rdf-vocabulary.ddialliance.org/discovery",
    :rdfs/comment
-   "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats."})
+   #voc/lstr
+    "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.@en"})
 
 (def AnalysisUnit
   "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons."
   {:db/ident :disco/AnalysisUnit,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons.",
+   #voc/lstr
+    "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Analyseeinheit" "Analysis Unit"],
+   :rdfs/label [#voc/lstr "Analyseeinheit@de" #voc/lstr "Analysis Unit@en"],
    :rdfs/subClassOf [:rdfs/Resource :skos/Concept :disco/AnalysisUnit]})
 
 (def CategoryStatistics
@@ -54,9 +57,10 @@
   {:db/ident :disco/CategoryStatistics,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "For CategoryStatistics, frequencies, percentages, and weighted percentages can be defined.",
+   #voc/lstr
+    "For CategoryStatistics, frequencies, percentages, and weighted percentages can be defined.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "Category statistics",
+   :rdfs/label #voc/lstr "Category statistics@en",
    :rdfs/subClassOf
    [:rdfs/Resource :disco/DescriptiveStatistics :disco/CategoryStatistics]})
 
@@ -65,9 +69,10 @@
   {:db/ident :disco/DataFile,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The class DataFile, which is also a dcmitype:Dataset, represents all the data files containing the microdata datasets.",
+   #voc/lstr
+    "The class DataFile, which is also a dcmitype:Dataset, represents all the data files containing the microdata datasets.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Fichier de données" "Data file"],
+   :rdfs/label [#voc/lstr "Fichier de données@fr" #voc/lstr "Data file@en"],
    :rdfs/subClassOf
    [:rdfs/Resource :dcmitype/Dataset :dcat/Distribution :disco/DataFile]})
 
@@ -76,9 +81,11 @@
   {:db/ident :disco/DescriptiveStatistics,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both DescriptiveStatistics.",
+   #voc/lstr
+    "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both DescriptiveStatistics.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Statistique descriptive" "Descriptive statistics"],
+   :rdfs/label [#voc/lstr "Statistique descriptive@fr"
+                #voc/lstr "Descriptive statistics@en"],
    :rdfs/subClassOf [:rdfs/Resource :disco/DescriptiveStatistics]})
 
 (def Instrument
@@ -86,9 +93,11 @@
   {:db/ident :disco/Instrument,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions.",
+   #voc/lstr
+    "The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Instrument de collecte" "Instrument"],
+   :rdfs/label [#voc/lstr "Instrument de collecte@fr"
+                #voc/lstr "Instrument@en"],
    :rdfs/subClassOf [:rdfs/Resource :disco/Instrument]})
 
 (def LogicalDataSet
@@ -96,9 +105,11 @@
   {:db/ident :disco/LogicalDataSet,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Each study has a set of logical metadata associated with the processing of data, at the time of collection or later during cleaning, and re-coding. LogicalDataSet represents the microdata dataset.",
+   #voc/lstr
+    "Each study has a set of logical metadata associated with the processing of data, at the time of collection or later during cleaning, and re-coding. LogicalDataSet represents the microdata dataset.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Ensemble de données" "LogicalDataSet"],
+   :rdfs/label [#voc/lstr "Ensemble de données@fr"
+                #voc/lstr "LogicalDataSet@en"],
    :rdfs/subClassOf
    [:rdfs/Resource :skos/Concept :dcat/Dataset :disco/LogicalDataSet]})
 
@@ -107,9 +118,10 @@
   {:db/ident :disco/Mapping,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "This class is for representing mappings betwenn DDI-RDF and DDI-XML. See Section 10 in the specification for more details and examples.",
+   #voc/lstr
+    "This class is for representing mappings betwenn DDI-RDF and DDI-XML. See Section 10 in the specification for more details and examples.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "Mapping",
+   :rdfs/label #voc/lstr "Mapping@en",
    :rdfs/subClassOf [:rdfs/Resource :disco/Mapping]})
 
 (def Question
@@ -117,9 +129,10 @@
   {:db/ident :disco/Question,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent.",
+   #voc/lstr
+    "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Question" "Question"],
+   :rdfs/label [#voc/lstr "Question@fr" #voc/lstr "Question@en"],
    :rdfs/subClassOf [:rdfs/Resource :skos/Concept :disco/Question]})
 
 (def Questionnaire
@@ -127,18 +140,21 @@
   {:db/ident :disco/Questionnaire,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A questionnaire contains a flow of questions. Questionnaires must contain 1 to n questions using the object property question. Particular questions may be contained in 0 to n questionnaires.",
+   #voc/lstr
+    "A questionnaire contains a flow of questions. Questionnaires must contain 1 to n questions using the object property question. Particular questions may be contained in 0 to n questionnaires.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Fragebogen" "Questionnaire"],
+   :rdfs/label [#voc/lstr "Fragebogen@de" #voc/lstr "Questionnaire@en"],
    :rdfs/subClassOf [:rdfs/Resource :disco/Instrument :disco/Questionnaire]})
 
 (def Representation
   "Representation of a variable or question definition."
   {:db/ident         :disco/Representation,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     "Representation of a variable or question definition.",
+   :rdfs/comment     #voc/lstr
+                      "Representation of a variable or question definition.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label       "Representation of a variable or question definition.",
+   :rdfs/label       #voc/lstr
+                      "Representation of a variable or question definition.@en",
    :rdfs/subClassOf  [:rdfs/Resource
                       {:owl/unionOf [:rdfs/Datatype
                                      :skos/ConceptScheme
@@ -151,9 +167,10 @@
   {:db/ident :disco/RepresentedVariable,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "RepresentedVariables encompasse study-independent, re-usable parts of variables like occupation classification.",
+   #voc/lstr
+    "RepresentedVariables encompasse study-independent, re-usable parts of variables like occupation classification.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Élément de donnée" "Data element"],
+   :rdfs/label [#voc/lstr "Élément de donnée@fr" #voc/lstr "Data element@en"],
    :rdfs/subClassOf [:rdfs/Resource :disco/RepresentedVariable]})
 
 (def Study
@@ -161,9 +178,10 @@
   {:db/ident :disco/Study,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A Study represents the process by which a data set was generated or collected.",
+   #voc/lstr
+    "A Study represents the process by which a data set was generated or collected.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Étude" "Study"],
+   :rdfs/label [#voc/lstr "Étude@fr" #voc/lstr "Study@en"],
    :rdfs/subClassOf [:rdfs/Resource :disco/Study]})
 
 (def StudyGroup
@@ -171,9 +189,10 @@
   {:db/ident :disco/StudyGroup,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "In some cases, where data collection is cyclic or on-going, data sets may be released as a StudyGroup, where each cycle or wave of the data collection activity produces one or more data sets. This is typical for longitudinal studies, panel studies, and other types of series (to use the DDI term). In this case, a number of Study objects would be collected into a single StudyGroup.",
+   #voc/lstr
+    "In some cases, where data collection is cyclic or on-going, data sets may be released as a StudyGroup, where each cycle or wave of the data collection activity produces one or more data sets. This is typical for longitudinal studies, panel studies, and other types of series (to use the DDI term). In this case, a number of Study objects would be collected into a single StudyGroup.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Studiengruppe" "Study Group"],
+   :rdfs/label [#voc/lstr "Studiengruppe@de" #voc/lstr "Study Group@en"],
    :rdfs/subClassOf [:rdfs/Resource :disco/StudyGroup]})
 
 (def SummaryStatistics
@@ -181,9 +200,10 @@
   {:db/ident :disco/SummaryStatistics,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "For SummaryStatistics, maximum values, minimum values, and standard deviations can be defined.",
+   #voc/lstr
+    "For SummaryStatistics, maximum values, minimum values, and standard deviations can be defined.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "Summary statistics",
+   :rdfs/label #voc/lstr "Summary statistics@en",
    :rdfs/subClassOf
    [:disco/DescriptiveStatistics :disco/SummaryStatistics :rdfs/Resource]})
 
@@ -192,9 +212,10 @@
   {:db/ident :disco/Universe,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A Universe is the total membership or population of a defined class of people, objects or events.",
+   #voc/lstr
+    "A Universe is the total membership or population of a defined class of people, objects or events.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Univers" "Universe"],
+   :rdfs/label [#voc/lstr "Univers@fr" #voc/lstr "Universe@en"],
    :rdfs/subClassOf [:rdfs/Resource :skos/Concept :disco/Universe]})
 
 (def Variable
@@ -203,9 +224,10 @@
    :owl/equivalentClass "http://semanticscience.org/resource/SIO_000367",
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables.",
+   #voc/lstr
+    "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables.@en",
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Variable" "Variable"],
+   :rdfs/label [#voc/lstr "Variable@fr" #voc/lstr "Variable@en"],
    :rdfs/subClassOf [:rdfs/Resource :skos/Concept :disco/Variable]})
 
 (def aggregation
@@ -213,10 +235,11 @@
   {:db/ident :disco/aggregation,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points to the aggregated data set of a microdata data set. The aggregated data set is a qb:DataSet of the RDF Data Cube Vocabulary.",
+   #voc/lstr
+    "This property points to the aggregated data set of a microdata data set. The aggregated data set is a qb:DataSet of the RDF Data Cube Vocabulary.@en",
    :rdfs/domain :disco/LogicalDataSet,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "aggregation",
+   :rdfs/label #voc/lstr "aggregation@en",
    :rdfs/range :qb/DataSet,
    :rdfs/subPropertyOf :disco/aggregation})
 
@@ -225,11 +248,12 @@
   {:db/ident :disco/analysisUnit,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property links to the analysis unit of a Study, a StudyGroup, or a Variable.",
+   #voc/lstr
+    "This property links to the analysis unit of a Study, a StudyGroup, or a Variable.@en",
    :rdfs/domain {:owl/unionOf [:disco/Study :disco/StudyGroup :disco/Variable],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Analyseeinheit" "analysis unit"],
+   :rdfs/label [#voc/lstr "Analyseeinheit@de" #voc/lstr "analysis unit@en"],
    :rdfs/range :disco/AnalysisUnit,
    :rdfs/subPropertyOf :disco/analysisUnit})
 
@@ -238,10 +262,12 @@
   {:db/ident :disco/basedOn,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points to the RepresentedVariable the Variable is based on.",
+   #voc/lstr
+    "This property points to the RepresentedVariable the Variable is based on.@en",
    :rdfs/domain :disco/Variable,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["utilise l'élément de donnée" "based on"],
+   :rdfs/label [#voc/lstr "utilise l'élément de donnée@fr"
+                #voc/lstr "based on@en"],
    :rdfs/range :disco/RepresentedVariable,
    :rdfs/subPropertyOf :disco/basedOn})
 
@@ -250,10 +276,12 @@
   {:db/ident :disco/caseQuantity,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "This property is used for representing the case quantity of a DataFile.",
+   #voc/lstr
+    "This property is used for representing the case quantity of a DataFile.@en",
    :rdfs/domain :disco/DataFile,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["nombre d'observations" "number of cases"],
+   :rdfs/label [#voc/lstr "nombre d'observations@fr"
+                #voc/lstr "number of cases@en"],
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :disco/caseQuantity})
 
@@ -262,10 +290,12 @@
   {:db/ident :disco/collectionMode,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points to the mode of collection of a Questionnaire which is a skos:Concept.",
+   #voc/lstr
+    "This property points to the mode of collection of a Questionnaire which is a skos:Concept.@en",
    :rdfs/domain :disco/Questionnaire,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Datenerfassungsmodus" "collection mode"],
+   :rdfs/label [#voc/lstr "Datenerfassungsmodus@de"
+                #voc/lstr "collection mode@en"],
    :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :disco/collectionMode})
 
@@ -274,10 +304,11 @@
   {:db/ident :disco/computationBase,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "computationBase expresses if the cases - which are the basis of the computation of a statistics value - are valid, invalid or the total of both. The usage of computationBase for frequency differs from the usage for the percentage statistics and the summary statistics. A distinction regarding computationBase doesn’t apply to frequency as category statistic. Please find more details in Section 6.3 of the specification.",
+   #voc/lstr
+    "computationBase expresses if the cases - which are the basis of the computation of a statistics value - are valid, invalid or the total of both. The usage of computationBase for frequency differs from the usage for the percentage statistics and the summary statistics. A distinction regarding computationBase doesn’t apply to frequency as category statistic. Please find more details in Section 6.3 of the specification.@en",
    :rdfs/domain :disco/CategoryStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["pourcentage" "computation base"],
+   :rdfs/label [#voc/lstr "pourcentage@fr" #voc/lstr "computation base@en"],
    :rdfs/range :rdf/langString,
    :rdfs/subPropertyOf :disco/computationBase})
 
@@ -286,12 +317,13 @@
   {:db/ident :disco/concept,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points to the DDI concept of a RepresentedVariable, a Variable, or a Question",
+   #voc/lstr
+    "This property points to the DDI concept of a RepresentedVariable, a Variable, or a Question@en",
    :rdfs/domain
    {:owl/unionOf [:disco/RepresentedVariable :disco/Question :disco/Variable],
     :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a pour concept" "concept"],
+   :rdfs/label [#voc/lstr "a pour concept@fr" #voc/lstr "concept@en"],
    :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :disco/concept})
 
@@ -300,11 +332,13 @@
   {:db/ident :disco/context,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "context specifies conditions which have to be fulfilled for particular mappings. Context information can be either a SPARQL query or an informal description as plain literal.",
+   #voc/lstr
+    "context specifies conditions which have to be fulfilled for particular mappings. Context information can be either a SPARQL query or an informal description as plain literal.@en",
    :rdfs/domain :disco/Mapping,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
    :rdfs/label
-   "context specifies conditions which have to be fulfilled for specific mappings",
+   #voc/lstr
+    "context specifies conditions which have to be fulfilled for specific mappings@en",
    :rdfs/range :rdf/langString,
    :rdfs/subPropertyOf :disco/context})
 
@@ -313,10 +347,11 @@
   {:db/ident :disco/cumulativePercentage,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "This property is used to describe the cumulative percentages within category statistics. See Sections 6 and 7 more more details and examples.",
+   #voc/lstr
+    "This property is used to describe the cumulative percentages within category statistics. See Sections 6 and 7 more more details and examples.@en",
    :rdfs/domain :disco/CategoryStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "cumulative percentage",
+   :rdfs/label #voc/lstr "cumulative percentage@en",
    :rdfs/range :xsd/double,
    :rdfs/subPropertyOf :disco/cumulativePercentage})
 
@@ -325,11 +360,13 @@
   {:db/ident :disco/dataFile,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points to the DataFile of a Study or a LogicalDataSet.",
+   #voc/lstr
+    "This property points to the DataFile of a Study or a LogicalDataSet.@en",
    :rdfs/domain {:owl/unionOf [:disco/Study :disco/LogicalDataSet],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a pour fichier de données" "data file"],
+   :rdfs/label [#voc/lstr "a pour fichier de données@fr"
+                #voc/lstr "data file@en"],
    :rdfs/range :disco/DataFile,
    :rdfs/subPropertyOf :disco/dataFile})
 
@@ -338,11 +375,12 @@
   {:db/ident :disco/ddifile,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.",
+   #voc/lstr
+    "This property points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.@en",
    :rdfs/domain {:owl/unionOf [:disco/Study :disco/StudyGroup],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["DDI-Datei" "DDI file"],
+   :rdfs/label [#voc/lstr "DDI-Datei@de" #voc/lstr "DDI file@en"],
    :rdfs/range :foaf/Document,
    :rdfs/subPropertyOf :disco/ddifile})
 
@@ -351,10 +389,11 @@
   {:db/ident :disco/endDate,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "Defines the end date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.",
+   #voc/lstr
+    "Defines the end date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.@en",
    :rdfs/domain :dcterms/PeriodOfTime,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "end date",
+   :rdfs/label #voc/lstr "end date@en",
    :rdfs/range :xsd/date,
    :rdfs/subPropertyOf :disco/endDate})
 
@@ -363,10 +402,12 @@
   {:db/ident :disco/externalDocumentation,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points from an Instrument to a foaf:Document which is the external documentation of the Instrument.",
+   #voc/lstr
+    "This property points from an Instrument to a foaf:Document which is the external documentation of the Instrument.@en",
    :rdfs/domain :disco/Instrument,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["externe Dokumentation" "external documentation"],
+   :rdfs/label [#voc/lstr "externe Dokumentation@de"
+                #voc/lstr "external documentation@en"],
    :rdfs/range :foaf/Document,
    :rdfs/subPropertyOf :disco/externalDocumentation})
 
@@ -375,10 +416,11 @@
   {:db/ident :disco/frequency,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "This property is used to describe the frequencies within category statistics. See Sections 6 and 7 more more details and examples.",
+   #voc/lstr
+    "This property is used to describe the frequencies within category statistics. See Sections 6 and 7 more more details and examples.@en",
    :rdfs/domain :disco/CategoryStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["fréquence" "frequency"],
+   :rdfs/label [#voc/lstr "fréquence@fr" #voc/lstr "frequency@en"],
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :disco/frequency})
 
@@ -387,11 +429,12 @@
   {:db/ident :disco/fundedBy,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person or a org:Organization.",
+   #voc/lstr
+    "This property points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person or a org:Organization.@en",
    :rdfs/domain {:owl/unionOf [:disco/Study :disco/StudyGroup],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "funded by",
+   :rdfs/label #voc/lstr "funded by@en",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf [:dcterms/contributor :disco/fundedBy]})
 
@@ -400,10 +443,11 @@
   {:db/ident :disco/hadRole,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the role of an Agent, e.g. analyst, data modeler, programmer, co-investigator or others.",
+   #voc/lstr
+    "This property indicates the role of an Agent, e.g. analyst, data modeler, programmer, co-investigator or others.@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "had role",
+   :rdfs/label #voc/lstr "had role@en",
    :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :disco/hadRole})
 
@@ -412,10 +456,11 @@
   {:db/ident :disco/inGroup,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points from a Study to the StudyGroup which contains the Study.",
+   #voc/lstr
+    "This property points from a Study to the StudyGroup which contains the Study.@en",
    :rdfs/domain :disco/Study,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "in group",
+   :rdfs/label #voc/lstr "in group@en",
    :rdfs/range :disco/StudyGroup,
    :rdfs/subPropertyOf :disco/inGroup})
 
@@ -424,10 +469,12 @@
   {:db/ident :disco/inputVariable,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the original Variable of an aggregated qb:DataSet. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.",
+   #voc/lstr
+    "This property indicates the original Variable of an aggregated qb:DataSet. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.@en",
    :rdfs/domain :qb/DataSet,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["variable en entrée" "input variable"],
+   :rdfs/label [#voc/lstr "variable en entrée@fr"
+                #voc/lstr "input variable@en"],
    :rdfs/range :disco/Variable,
    :rdfs/subPropertyOf :disco/inputVariable})
 
@@ -436,11 +483,12 @@
   {:db/ident :disco/instrument,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the Instrument of a Study or a LogicalDataSet.",
+   #voc/lstr
+    "This property indicates the Instrument of a Study or a LogicalDataSet.@en",
    :rdfs/domain {:owl/unionOf [:disco/Study :disco/LogicalDataSet],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a comme instrument" "instrument"],
+   :rdfs/label [#voc/lstr "a comme instrument@fr" #voc/lstr "instrument@en"],
    :rdfs/range :disco/Instrument,
    :rdfs/subPropertyOf :disco/instrument})
 
@@ -449,10 +497,11 @@
   {:db/ident :disco/isPublic,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "This property is used as a flag indicating if the microdata dataset is publicly available. The value true indicates that the dataset can be accessed (usually downloaded) by anyone.",
+   #voc/lstr
+    "This property is used as a flag indicating if the microdata dataset is publicly available. The value true indicates that the dataset can be accessed (usually downloaded) by anyone.@en",
    :rdfs/domain :disco/LogicalDataSet,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["ist öffentlich" "is public"],
+   :rdfs/label [#voc/lstr "ist öffentlich@de" #voc/lstr "is public@en"],
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :disco/isPublic})
 
@@ -461,10 +510,11 @@
   {:db/ident :disco/isValid,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "Indicates if the code (represented by skos:Concept) is valid or missing. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.",
+   #voc/lstr
+    "Indicates if the code (represented by skos:Concept) is valid or missing. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.@en",
    :rdfs/domain :skos/Concept,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "is valid",
+   :rdfs/label #voc/lstr "is valid@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :disco/isValid})
 
@@ -477,7 +527,7 @@
    :rdfs/domain {:owl/unionOf [:disco/Study :disco/StudyGroup],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "kind of data",
+   :rdfs/label #voc/lstr "kind of data@en",
    :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :disco/kindOfData})
 
@@ -486,10 +536,11 @@
   {:db/ident :disco/mappingDDI-C,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "Mapping from and to DDI-C. See Section 10 in the specification for more details and examples.",
+   #voc/lstr
+    "Mapping from and to DDI-C. See Section 10 in the specification for more details and examples.@en",
    :rdfs/domain :disco/Mapping,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "Mapping from and to DDI-C",
+   :rdfs/label #voc/lstr "Mapping from and to DDI-C@en",
    :rdfs/range :rdf/langString,
    :rdfs/subPropertyOf :disco/mappingDDI-C})
 
@@ -498,10 +549,11 @@
   {:db/ident :disco/mappingDDI-L,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "Mapping from and to DDI-L. See Section 10 in the specification for more details and examples.",
+   #voc/lstr
+    "Mapping from and to DDI-L. See Section 10 in the specification for more details and examples.@en",
    :rdfs/domain :disco/Mapping,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "Mapping from and to DDI-L",
+   :rdfs/label #voc/lstr "Mapping from and to DDI-L@en",
    :rdfs/range :rdf/langString,
    :rdfs/subPropertyOf :disco/mappingDDI-L})
 
@@ -510,10 +562,11 @@
   {:db/ident :disco/percentage,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "This property is used to describe the percentages within category statistics. See Sections 6 and 7 more more details and examples.",
+   #voc/lstr
+    "This property is used to describe the percentages within category statistics. See Sections 6 and 7 more more details and examples.@en",
    :rdfs/domain :disco/CategoryStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["pourcentage" "percentage"],
+   :rdfs/label [#voc/lstr "pourcentage@fr" #voc/lstr "percentage@en"],
    :rdfs/range :xsd/double,
    :rdfs/subPropertyOf :disco/percentage})
 
@@ -521,10 +574,11 @@
   "This property indicates the LogicalDataSets of a Study."
   {:db/ident :disco/product,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment "This property indicates the LogicalDataSets of a Study.",
+   :rdfs/comment #voc/lstr
+                  "This property indicates the LogicalDataSets of a Study.@en",
    :rdfs/domain :disco/Study,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Produkt" "product"],
+   :rdfs/label [#voc/lstr "Produkt@de" #voc/lstr "product@en"],
    :rdfs/range :qb/LogicalDataSet,
    :rdfs/subPropertyOf :disco/product})
 
@@ -532,11 +586,11 @@
   "The purpose of a Study of a StudyGroup."
   {:db/ident           :disco/purpose,
    :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The purpose of a Study of a StudyGroup.",
+   :rdfs/comment       #voc/lstr "The purpose of a Study of a StudyGroup.@en",
    :rdfs/domain        {:owl/unionOf [:disco/Study :disco/StudyGroup],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label         ["Grund" "purpose"],
+   :rdfs/label         [#voc/lstr "Grund@de" #voc/lstr "purpose@en"],
    :rdfs/range         :rdf/langString,
    :rdfs/subPropertyOf :disco/purpose})
 
@@ -545,11 +599,12 @@
   {:db/ident :disco/question,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the Questions associated to Variables or contained in Questionnaires.",
+   #voc/lstr
+    "This property indicates the Questions associated to Variables or contained in Questionnaires.@en",
    :rdfs/domain {:owl/unionOf [:disco/Variable :disco/Questionnaire],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a comme question" "question"],
+   :rdfs/label [#voc/lstr "a comme question@fr" #voc/lstr "question@en"],
    :rdfs/range :disco/Question,
    :rdfs/subPropertyOf :disco/question})
 
@@ -558,10 +613,11 @@
   {:db/ident :disco/questionText,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "This property contains the actual text of a question as string. See Section 8.2 for examples.",
+   #voc/lstr
+    "This property contains the actual text of a question as string. See Section 8.2 for examples.@en",
    :rdfs/domain :disco/Question,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Fragetext" "question text"],
+   :rdfs/label [#voc/lstr "Fragetext@de" #voc/lstr "question text@en"],
    :rdfs/range :rdf/langString,
    :rdfs/subPropertyOf :disco/questionText})
 
@@ -570,12 +626,14 @@
   {:db/ident :disco/representation,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "RepresentedVariables and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists).",
+   #voc/lstr
+    "RepresentedVariables and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists).@en",
    :rdfs/domain
    {:owl/unionOf [:disco/RepresentedVariable :disco/Variable :disco/Question],
     :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a pour représentation" "representation"],
+   :rdfs/label [#voc/lstr "a pour représentation@fr"
+                #voc/lstr "representation@en"],
    :rdfs/range {:owl/unionOf [:skos/ConceptScheme :rdfs/Datatype],
                 :rdf/type    :owl/Class},
    :rdfs/subPropertyOf :disco/representation})
@@ -585,10 +643,11 @@
   {:db/ident :disco/responseDomain,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "The response domain of questions. The response domain has to be an instance of the class Representation.",
+   #voc/lstr
+    "The response domain of questions. The response domain has to be an instance of the class Representation.@en",
    :rdfs/domain :disco/Question,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "responseDomain",
+   :rdfs/label #voc/lstr "responseDomain@en",
    :rdfs/range :disco/Representation,
    :rdfs/subPropertyOf :disco/responseDomain})
 
@@ -597,10 +656,11 @@
   {:db/ident :disco/startDate,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "Defines the start date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.",
+   #voc/lstr
+    "Defines the start date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.@en",
    :rdfs/domain :dcterms/PeriodOfTime,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "start date",
+   :rdfs/label #voc/lstr "start date@en",
    :rdfs/range :xsd/date,
    :rdfs/subPropertyOf :disco/startDate})
 
@@ -609,10 +669,12 @@
   {:db/ident :disco/statisticsCategory,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points to the skos:Concept (representing codes and categories) of a specific CategoryStatistics individual.",
+   #voc/lstr
+    "This property points to the skos:Concept (representing codes and categories) of a specific CategoryStatistics individual.@en",
    :rdfs/domain :disco/CategoryStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a pour concept statistique" "statistics category"],
+   :rdfs/label [#voc/lstr "a pour concept statistique@fr"
+                #voc/lstr "statistics category@en"],
    :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :disco/statisticsCategory})
 
@@ -621,10 +683,12 @@
   {:db/ident :disco/statisticsDataFile,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the DataFile of a specific DesciptiveStatistics individual. DescriptiveStatistics may have statisticsDataFile relations to 0 to n data files (DataFile) and data files (DataFile) may be in 0 to n statisticsDataFile relations to DescriptiveStatistics individuals.",
+   #voc/lstr
+    "This property indicates the DataFile of a specific DesciptiveStatistics individual. DescriptiveStatistics may have statisticsDataFile relations to 0 to n data files (DataFile) and data files (DataFile) may be in 0 to n statisticsDataFile relations to DescriptiveStatistics individuals.@en",
    :rdfs/domain :disco/DescriptiveStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a pour fichier statistique" "statistics data file"],
+   :rdfs/label [#voc/lstr "a pour fichier statistique@fr"
+                #voc/lstr "statistics data file@en"],
    :rdfs/range :disco/DataFile,
    :rdfs/subPropertyOf :disco/statisticsDataFile})
 
@@ -633,10 +697,12 @@
   {:db/ident :disco/statisticsVariable,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the Variable of a specific SummaryStatistics individual. SummaryStatistics point to 0 to n variables (Variable) using the object property statisticsVariable.",
+   #voc/lstr
+    "This property indicates the Variable of a specific SummaryStatistics individual. SummaryStatistics point to 0 to n variables (Variable) using the object property statisticsVariable.@en",
    :rdfs/domain :disco/SummaryStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a pour variable statistique" "statistics variable"],
+   :rdfs/label [#voc/lstr "a pour variable statistique@fr"
+                #voc/lstr "statistics variable@en"],
    :rdfs/range :disco/Variable,
    :rdfs/subPropertyOf :disco/statisticsVariable})
 
@@ -644,11 +710,11 @@
   "The sub-title of a Study of a StudyGroup."
   {:db/ident           :disco/subtitle,
    :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The sub-title of a Study of a StudyGroup.",
+   :rdfs/comment       #voc/lstr "The sub-title of a Study of a StudyGroup.@en",
    :rdfs/domain        {:owl/unionOf [:disco/Study :disco/StudyGroup],
                         :rdf/type    :owl/Class},
    :rdfs/isDefinedBy   "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label         ["Untertitel" "subtitle"],
+   :rdfs/label         [#voc/lstr "Untertitel@de" #voc/lstr "subtitle@en"],
    :rdfs/range         :rdf/langString,
    :rdfs/subPropertyOf :disco/subtitle})
 
@@ -657,10 +723,11 @@
   {:db/ident :disco/summaryStatisticsType,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property points to the summary statistics type of a Questionnaire which is a skos:Concept.",
+   #voc/lstr
+    "This property points to the summary statistics type of a Questionnaire which is a skos:Concept.@en",
    :rdfs/domain :disco/SummaryStatistics,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "summary statistics type",
+   :rdfs/label #voc/lstr "summary statistics type@en",
    :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :disco/summaryStatisticsType})
 
@@ -669,7 +736,8 @@
   {:db/ident :disco/universe,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables, Questions, and LogicalDataSets.",
+   #voc/lstr
+    "This property indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables, Questions, and LogicalDataSets.@en",
    :rdfs/domain {:owl/unionOf [:disco/Study
                                :disco/StudyGroup
                                :disco/RepresentedVariable
@@ -678,7 +746,7 @@
                                :disco/LogicalDataSet],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["a comme univers" "universe"],
+   :rdfs/label [#voc/lstr "a comme univers@fr" #voc/lstr "universe@en"],
    :rdfs/range :disco/Universe,
    :rdfs/subPropertyOf :disco/universe})
 
@@ -687,11 +755,12 @@
   {:db/ident :disco/variable,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property indicates the Variable of a Study and points to Variable contained in the LogicalDataSet.",
+   #voc/lstr
+    "This property indicates the Variable of a Study and points to Variable contained in the LogicalDataSet.@en",
    :rdfs/domain {:owl/unionOf [:disco/Study :disco/LogicalDataSet],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["Variable" "variable"],
+   :rdfs/label [#voc/lstr "Variable@de" #voc/lstr "variable@en"],
    :rdfs/range :disco/Variable,
    :rdfs/subPropertyOf :disco/variable})
 
@@ -700,11 +769,12 @@
   {:db/ident :disco/variableQuantity,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "This property can be used when (1) no variable level information is available and when (2) only a stub of the RDF is requested e.g when returning basic information on a study of file, no information on potentially hundreds or thousands of variables references or metadata has to be returned.",
+   #voc/lstr
+    "This property can be used when (1) no variable level information is available and when (2) only a stub of the RDF is requested e.g when returning basic information on a study of file, no information on potentially hundreds or thousands of variables references or metadata has to be returned.@en",
    :rdfs/domain {:owl/unionOf [:disco/LogicalDataSet :disco/DataFile],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label "variable quantity",
+   :rdfs/label #voc/lstr "variable quantity@en",
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :disco/variableQuantity})
 
@@ -713,12 +783,13 @@
   {:db/ident :disco/weightedBy,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable.",
+   #voc/lstr
+    "SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable.@en",
    :rdfs/domain {:owl/unionOf [:disco/SummaryStatistics
                                :disco/CategoryStatistics],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
-   :rdfs/label ["" "weighted by"],
+   :rdfs/label [#voc/lstr "@fr" #voc/lstr "weighted by@en"],
    :rdfs/range :disco/Variable,
    :rdfs/subPropertyOf :disco/weightedBy})
 

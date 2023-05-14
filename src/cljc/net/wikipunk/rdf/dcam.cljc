@@ -4,7 +4,7 @@
    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_abstract_model.ttl",
    :dcterms/modified #inst "2012-06-14T00:00:00.000-04:00",
    :dcterms/publisher "http://purl.org/dc/aboutdcmi#DCMI",
-   :dcterms/title "Metadata terms for vocabulary description",
+   :dcterms/title #voc/lstr "Metadata terms for vocabulary description@en",
    :rdf/ns-prefix-map {"dcam"    "http://purl.org/dc/dcam/",
                        "dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -20,9 +20,9 @@
   {:db/ident :dcam/VocabularyEncodingScheme,
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "An enumerated set of resources.",
+   :rdfs/comment #voc/lstr "An enumerated set of resources.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcam/",
-   :rdfs/label "Vocabulary Encoding Scheme",
+   :rdfs/label #voc/lstr "Vocabulary Encoding Scheme@en",
    :rdfs/seeAlso
    ["https://www.dublincore.org/specifications/dublin-core/2007/06/04/abstract-model/"],
    :rdfs/subClassOf [:rdfs/Resource :dcam/VocabularyEncodingScheme]})
@@ -32,9 +32,10 @@
   {:db/ident           :dcam/domainIncludes,
    :dcterms/issued     #inst "2020-01-20T00:00:00.000-05:00",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "A suggested class for subjects of this property.",
+   :rdfs/comment       #voc/lstr
+                        "A suggested class for subjects of this property.@en",
    :rdfs/isDefinedBy   "http://purl.org/dc/dcam/",
-   :rdfs/label         "Domain Includes",
+   :rdfs/label         #voc/lstr "Domain Includes@en",
    :rdfs/subPropertyOf :dcam/domainIncludes})
 
 (def memberOf
@@ -43,9 +44,10 @@
    :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A relationship between a resource and a vocabulary encoding scheme which indicates that the resource is a member of a set.",
+   #voc/lstr
+    "A relationship between a resource and a vocabulary encoding scheme which indicates that the resource is a member of a set.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcam/",
-   :rdfs/label "Member Of",
+   :rdfs/label #voc/lstr "Member Of@en",
    :rdfs/range :dcam/VocabularyEncodingScheme,
    :rdfs/seeAlso
    ["https://www.dublincore.org/specifications/dublin-core/2007/06/04/abstract-model/"],
@@ -56,7 +58,8 @@
   {:db/ident           :dcam/rangeIncludes,
    :dcterms/issued     #inst "2020-01-20T00:00:00.000-05:00",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "A suggested class for values of this property.",
+   :rdfs/comment       #voc/lstr
+                        "A suggested class for values of this property.@en",
    :rdfs/isDefinedBy   "http://purl.org/dc/dcam/",
-   :rdfs/label         "Range Includes",
+   :rdfs/label         #voc/lstr "Range Includes@en",
    :rdfs/subPropertyOf :dcam/rangeIncludes})

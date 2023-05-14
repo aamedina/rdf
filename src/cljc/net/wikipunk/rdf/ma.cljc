@@ -38,7 +38,7 @@
    :rdfs/comment
    "A specialisation of Track for Audio to provide a link to specific data properties such as sampleRate, etc. Specialisation is defined through object properties.",
    :rdfs/subClassOf
-   [:ma/Track :ma/AudioTrack :ma/MediaResource :ma/MediaFragment]})
+   [:ma/Track :ma/AudioTrack :ma/MediaFragment :ma/MediaResource]})
 
 (def Collection
   "Any group of media resource e.g. a series."
@@ -58,7 +58,7 @@
    :rdfs/comment
    "Ancillary data track e.g. captioning  in addition to video and audio tracks. Specialisation is made through the use of appropriate object properties.",
    :rdfs/subClassOf
-   [:ma/Track :ma/DataTrack :ma/MediaResource :ma/MediaFragment]})
+   [:ma/Track :ma/DataTrack :ma/MediaFragment :ma/MediaResource]})
 
 (def Image
   "A still image / thumbnail / key frame related to the media resource or being the media resource itself."
@@ -136,7 +136,7 @@
    :rdfs/comment
    "A specialisation of Track for Video to provide a link to specific data properties such as frameRate, etc. Signing is another possible example of video track. Specialisation is defined through object properties.",
    :rdfs/subClassOf
-   [:ma/Track :ma/VideoTrack :ma/MediaResource :ma/MediaFragment]})
+   [:ma/Track :ma/VideoTrack :ma/MediaFragment :ma/MediaResource]})
 
 (def alternativeTitle
   "Corresponds to 'title.title' in the Ontology for Media Resources with a 'title.type' meaning \"alternative\"."

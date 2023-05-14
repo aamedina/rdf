@@ -9,7 +9,8 @@
    :rdf/type    :rdfa/PrefixMapping})
 
 (def adms
-  {:rdfa/uri    "http://www.w3.org/ns/adms#"
+  {:dcat/downloadURL "http://uri.semic.eu/w3c/ns/adms.ttl"
+   :rdfa/uri    "http://www.w3.org/ns/adms#"
    :rdfa/prefix "adms"
    :rdf/type    :rdfa/PrefixMapping})
 

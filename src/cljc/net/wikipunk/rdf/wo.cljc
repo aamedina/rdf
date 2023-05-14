@@ -3,8 +3,9 @@
   {:dc11/creator "http://foaf.me/zazi#me",
    :dc11/date #inst "2010-09-14T10:40:52.000-00:00",
    :dc11/description
-   "A vocabulary for describing weightings and their referenced scales.",
-   :dc11/title "Weighting Ontology",
+   #voc/lstr
+    "A vocabulary for describing weightings and their referenced scales.@en",
+   :dc11/title #voc/lstr "Weighting Ontology@en",
    :dcat/downloadURL "http://purl.org/ontology/wo/weightingontology.owl",
    :owl/imports ["http://purl.org/NET/scovo"
                  "http://www.w3.org/2003/06/sw-vocab-status/ns"
@@ -35,24 +36,26 @@
   "A concept for describing scales for weights."
   {:db/ident         :wo/Scale,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     "A concept for describing scales for weights.",
+   :rdfs/comment     #voc/lstr
+                      "A concept for describing scales for weights.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
-   :rdfs/label       "Scale",
+   :rdfs/label       #voc/lstr "Scale@en",
    :rdfs/subClassOf  [:rdfs/Resource :scovo/Dimension :wo/Scale],
-   :vs/term_status   "unstable"})
+   :vs/term_status   #voc/lstr "unstable@en"})
 
 (def Weight
   "A weight class to enable timestamped (etc.) weights."
-  {:db/ident            :wo/Weight,
+  {:db/ident :wo/Weight,
    :owl/equivalentClass {:owl/cardinality 1,
                          :owl/onProperty  :wo/weight_value,
                          :rdf/type        :owl/Restriction},
-   :rdf/type            [:owl/Class :rdfs/Class],
-   :rdfs/comment        "A weight class to enable timestamped (etc.) weights.",
-   :rdfs/isDefinedBy    "http://purl.org/ontology/wo/core#",
-   :rdfs/label          "Weight",
-   :rdfs/subClassOf     [:rdfs/Resource :scovo/Item :wo/Weight],
-   :vs/term_status      "testing"})
+   :rdf/type [:owl/Class :rdfs/Class],
+   :rdfs/comment #voc/lstr
+                  "A weight class to enable timestamped (etc.) weights.@en",
+   :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
+   :rdfs/label #voc/lstr "Weight@en",
+   :rdfs/subClassOf [:rdfs/Resource :scovo/Item :wo/Weight],
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def max_weight
   "A maximum weight of a scale."
@@ -60,13 +63,13 @@
    :rdf/type           [:rdf/Property
                         :owl/FunctionalProperty
                         :owl/DatatypeProperty],
-   :rdfs/comment       "A maximum weight of a scale.",
+   :rdfs/comment       #voc/lstr "A maximum weight of a scale.@en",
    :rdfs/domain        :wo/Scale,
    :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
-   :rdfs/label         "has max weight",
+   :rdfs/label         #voc/lstr "has max weight@en",
    :rdfs/range         :xsd/decimal,
    :rdfs/subPropertyOf [:rev/maxRating :scovo/max :wo/max_weight],
-   :vs/term_status     "unstable"})
+   :vs/term_status     #voc/lstr "unstable@en"})
 
 (def min_weight
   "A minimum weight of a scale."
@@ -74,13 +77,13 @@
    :rdf/type           [:rdf/Property
                         :owl/DatatypeProperty
                         :owl/FunctionalProperty],
-   :rdfs/comment       "A minimum weight of a scale.",
+   :rdfs/comment       #voc/lstr "A minimum weight of a scale.@en",
    :rdfs/domain        :wo/Scale,
    :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
-   :rdfs/label         "has min weight",
+   :rdfs/label         #voc/lstr "has min weight@en",
    :rdfs/range         :xsd/decimal,
    :rdfs/subPropertyOf [:rev/minRating :scovo/min :wo/min_weight],
-   :vs/term_status     "unstable"})
+   :vs/term_status     #voc/lstr "unstable@en"})
 
 (def scale
   "A scale for the weighting of some relation."
@@ -88,40 +91,41 @@
    :rdf/type           [:owl/FunctionalProperty
                         :rdf/Property
                         :owl/ObjectProperty],
-   :rdfs/comment       "A scale for the weighting of some relation.",
+   :rdfs/comment       #voc/lstr
+                        "A scale for the weighting of some relation.@en",
    :rdfs/domain        :wo/Weight,
    :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
-   :rdfs/label         "has scale",
+   :rdfs/label         #voc/lstr "has scale@en",
    :rdfs/range         :wo/Scale,
    :rdfs/subPropertyOf [:scovo/dimension :wo/scale],
-   :vs/term_status     "unstable"})
+   :vs/term_status     #voc/lstr "unstable@en"})
 
 (def step_size
   "A predefined step size for weight of a specific scale."
-  {:db/ident           :wo/step_size,
-   :rdf/type           [:owl/DatatypeProperty
-                        :rdf/Property
-                        :owl/FunctionalProperty],
-   :rdfs/comment       "A predefined step size for weight of a specific scale.",
-   :rdfs/domain        :wo/Scale,
-   :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
-   :rdfs/label         "has step size",
-   :rdfs/range         :xsd/decimal,
+  {:db/ident :wo/step_size,
+   :rdf/type [:owl/DatatypeProperty :rdf/Property :owl/FunctionalProperty],
+   :rdfs/comment #voc/lstr
+                  "A predefined step size for weight of a specific scale.@en",
+   :rdfs/domain :wo/Scale,
+   :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
+   :rdfs/label #voc/lstr "has step size@en",
+   :rdfs/range :xsd/decimal,
    :rdfs/subPropertyOf :wo/step_size,
-   :vs/term_status     "unstable"})
+   :vs/term_status #voc/lstr "unstable@en"})
 
 (def weight
   "The weight on some relation, e.g. a interest in a topic, or of an interest that is valid for a specific period of time or was raised up in a specific period of time."
   {:db/ident :wo/weight,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   "The weight on some relation, e.g. a interest in a topic, or of an interest that is valid for a specific period of time or was raised up in a specific period of time.",
+   #voc/lstr
+    "The weight on some relation, e.g. a interest in a topic, or of an interest that is valid for a specific period of time or was raised up in a specific period of time.@en",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
-   :rdfs/label "has weight",
+   :rdfs/label #voc/lstr "has weight@en",
    :rdfs/range :wo/Weight,
    :rdfs/subPropertyOf [:event/factor :wo/weight],
-   :vs/term_status "unstable"})
+   :vs/term_status #voc/lstr "unstable@en"})
 
 (def weight_value
   "The specific value of a weight."
@@ -129,13 +133,13 @@
    :rdf/type           [:owl/FunctionalProperty
                         :owl/DatatypeProperty
                         :rdf/Property],
-   :rdfs/comment       "The specific value of a weight.",
+   :rdfs/comment       #voc/lstr "The specific value of a weight.@en",
    :rdfs/domain        :wo/Weight,
    :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
-   :rdfs/label         "has weight value",
+   :rdfs/label         #voc/lstr "has weight value@en",
    :rdfs/range         :xsd/decimal,
    :rdfs/subPropertyOf :wo/weight_value,
-   :vs/term_status     "testing"})
+   :vs/term_status     #voc/lstr "testing@en"})
 
 (def ^{:private true} factor
   {:db/ident :event/factor,

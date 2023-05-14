@@ -53,10 +53,10 @@
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:mls/Data
                      :mls/Dataset
+                     :mls/InformationEntity
                      {:owl/onProperty     :mls/hasQuality,
                       :owl/someValuesFrom :mls/DataCharacteristic,
-                      :rdf/type           :owl/Restriction}
-                     :mls/InformationEntity]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DatasetCharacteristic
   {:db/ident        :mls/DatasetCharacteristic,
@@ -122,10 +122,10 @@
    :rdf/type        :owl/Class,
    :rdfs/subClassOf [:mls/Data
                      :mls/Feature
+                     :mls/InformationEntity
                      {:owl/onProperty     :mls/hasQuality,
                       :owl/someValuesFrom :mls/DataCharacteristic,
-                      :rdf/type           :owl/Restriction}
-                     :mls/InformationEntity]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FeatureCharacteristic
   {:db/ident        :mls/FeatureCharacteristic,
@@ -241,7 +241,7 @@
   "Process"
   {:db/ident        :mls/Process,
    :rdf/type        :owl/Class,
-   :rdfs/label      "Process",
+   :rdfs/label      #voc/lstr "Process@en",
    :rdfs/subClassOf :mls/Process})
 
 (def Quality
@@ -257,27 +257,27 @@
    :rdf/type :owl/Class,
    :rdfs/comment
    "Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed.",
-   :rdfs/subClassOf [{:owl/onProperty     :mls/hasOutput,
-                      :owl/someValuesFrom :mls/Model,
+   :rdfs/subClassOf [{:owl/onProperty     :mls/achieves,
+                      :owl/someValuesFrom :mls/Task,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :mls/hasInput,
+                      :owl/someValuesFrom :mls/HyperParameterSetting,
+                      :rdf/type           :owl/Restriction}
+                     :mls/Process
                      {:owl/onProperty     :mls/hasOutput,
                       :owl/someValuesFrom :mls/ModelEvaluation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/executes,
                       :owl/someValuesFrom :mls/Implementation,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :mls/hasInput,
-                      :owl/someValuesFrom :mls/HyperParameterSetting,
-                      :rdf/type           :owl/Restriction}
-                     :mls/Process
-                     {:owl/onProperty     :mls/achieves,
-                      :owl/someValuesFrom :mls/Task,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/realizes,
                       :owl/someValuesFrom :mls/Algorithm,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :mls/hasInput,
                       :owl/someValuesFrom :mls/Data,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :mls/hasOutput,
+                      :owl/someValuesFrom :mls/Model,
                       :rdf/type           :owl/Restriction}
                      :mls/Run]})
 
@@ -340,7 +340,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between a task and either the data or an evaluation specification pertinent to this task.",
-   :rdfs/label "definedOn",
+   :rdfs/label #voc/lstr "definedOn@en",
    :rdfs/subPropertyOf [:owl/topObjectProperty :mls/definedOn]})
 
 (def defines
@@ -366,7 +366,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between an implementation of a machine learning algorithm and its hyperparameter.",
-   :rdfs/label "hasHyperParameter",
+   :rdfs/label #voc/lstr "hasHyperParameter@en",
    :rdfs/subPropertyOf [:owl/topObjectProperty :mls/hasHyperParameter]})
 
 (def hasInput
@@ -377,7 +377,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between a run and data that is taken as input to the run.",
-   :rdfs/label "hasInput",
+   :rdfs/label #voc/lstr "hasInput@en",
    :rdfs/subPropertyOf [:owl/topObjectProperty :mls/hasInput]})
 
 (def hasOutput
@@ -397,7 +397,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation which represents a part-whole relationship holding between an entity and its part.",
-   :rdfs/label "hasPart"})
+   :rdfs/label #voc/lstr "hasPart@en"})
 
 (def hasQuality
   "A relation between entities and their various characteristics."
@@ -420,7 +420,7 @@
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    "A relation between an information entity and a specification that it conforms to.",
-   :rdfs/label "implements"})
+   :rdfs/label #voc/lstr "implements@en"})
 
 (def realizes
   "A relation between a run and an algorithm, where the run realizes specifications formulated by the algorithm."

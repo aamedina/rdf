@@ -1,6 +1,6 @@
 (ns net.wikipunk.rdf.dpvo-risk
   "Risk Extension for DPV-OWL"
-  {:dcterms/abstract "Risk Extension for DPV-OWL",
+  {:dcterms/abstract #voc/lstr "Risk Extension for DPV-OWL@en",
    :dcterms/contributor ["Julian Flake"
                          "Paul Ryan"
                          "Beatriz Esteves"
@@ -9,11 +9,12 @@
    :dcterms/created #inst "2022-08-14T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The Risk extension to Data Privacy Vocabulary provides terms (classes and properties) related to risk management, assessment, and consequences.",
+   #voc/lstr
+    "The Risk extension to Data Privacy Vocabulary provides terms (classes and properties) related to risk management, assessment, and consequences.@en",
    :dcterms/license "https://www.w3.org/Consortium/Legal/2015/doc-license",
    :dcterms/modified #inst "2022-10-06T00:00:00.000-04:00",
    :dcterms/source "https://www.w3.org/community/dpvcg/",
-   :dcterms/title "Risk Extension for DPV-OWL",
+   :dcterms/title #voc/lstr "Risk Extension for DPV-OWL@en",
    :owl/imports "https://w3id.org/dpv/dpv-owl",
    :owl/versionInfo "0.8.2",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
@@ -36,15 +37,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The Australian Cyber Security Centre (ACSC) published the Australian Government Information Security Manual (ISM) which adopts the use of a risk management framework that draws from NIST 800-37, and includes six steps: define the system, select security controls, implement security controls, assess security controls, authorise the system and monitor the system",
+   #voc/lstr
+    "The Australian Cyber Security Centre (ACSC) published the Australian Government Information Security Manual (ISM) which adopts the use of a risk management framework that draws from NIST 800-37, and includes six steps: define the system, select security controls, implement security controls, assess security controls, authorise the system and monitor the system@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ACSC-ISM",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ACSC-ISM@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ALARA
   "As Low as Resonably Achievable (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk"
@@ -52,7 +54,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "As Low as Resonably Achievable (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk",
+   #voc/lstr
+    "As Low as Resonably Achievable (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
@@ -60,8 +63,8 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ALARA",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ALARA@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ALARP
   "As Low as Resonably Possible (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk"
@@ -69,7 +72,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "As Low as Resonably Possible (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk",
+   #voc/lstr
+    "As Low as Resonably Possible (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
@@ -77,8 +81,8 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ALARP",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ALARP@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ANSI-ISA-62443-3‑2-2020
   "ANSI/ISA-62443-3-2-2020 standard, entitled ‘Security for industrial automation and control systems, Part 3-2: Security risk assessment for system design’, from the International Society of Automation (ISA), dedicates an entire part to the assessment of security risk for system design targeting Security and IT professionals"
@@ -86,70 +90,71 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "ANSI/ISA-62443-3-2-2020 standard, entitled ‘Security for industrial automation and control systems, Part 3-2: Security risk assessment for system design’, from the International Society of Automation (ISA), dedicates an entire part to the assessment of security risk for system design targeting Security and IT professionals",
+   #voc/lstr
+    "ANSI/ISA-62443-3-2-2020 standard, entitled ‘Security for industrial automation and control systems, Part 3-2: Security risk assessment for system design’, from the International Society of Automation (ISA), dedicates an entire part to the assessment of security risk for system design targeting Security and IT professionals@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ANSI/ISA-62443-3‑2-2020",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ANSI/ISA-62443-3‑2-2020@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def AbusiveContentUtilisation
   ""
   {:db/ident :dpvo-risk/AbusiveContentUtilisation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Abusive Content Utilisation",
+   :rdfs/label #voc/lstr "Abusive Content Utilisation@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/AbusiveContentUtilisation],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def AttackonPrivateLife
   ""
   {:db/ident            :dpvo-risk/AttackonPrivateLife,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Attack on Private Life",
+   :rdfs/label          #voc/lstr "Attack on Private Life@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/AttackonPrivateLife],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def AuthorisationFailure
   ""
   {:db/ident :dpvo-risk/AuthorisationFailure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/trust-services-security-incidents-2021",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Authorisation Failure",
+   :rdfs/label #voc/lstr "Authorisation Failure@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/AuthorisationFailure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def AvoidSource
   "Risk Control that avoids the risk source"
   {:db/ident            :dpvo-risk/AvoidSource,
    :dcterms/created     #inst "2022-08-21T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that avoids the risk source",
+   :dcterms/description #voc/lstr "Risk Control that avoids the risk source@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Avoid Source",
+   :rdfs/label          #voc/lstr "Avoid Source@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlRiskSource
                          :dpvo-risk/AvoidSource
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def BSI-200-2
   "The BSI-Standard 200-2 (‘IT-Grundschutz Methodology’) provides a methodology for the management of information security which can be adapted to the requirements of organisations of various types and sizes"
@@ -157,15 +162,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The BSI-Standard 200-2 (‘IT-Grundschutz Methodology’) provides a methodology for the management of information security which can be adapted to the requirements of organisations of various types and sizes",
+   #voc/lstr
+    "The BSI-Standard 200-2 (‘IT-Grundschutz Methodology’) provides a methodology for the management of information security which can be adapted to the requirements of organisations of various types and sizes@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "BSI Standard 200-2",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "BSI Standard 200-2@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def BayesianAnalysis
   "A means of making inference about model parameters using Bayes' theorem which has the capability of incorporating empirical data into prior judgements about probabilities"
@@ -173,15 +179,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A means of making inference about model parameters using Bayes' theorem which has the capability of incorporating empirical data into prior judgements about probabilities",
+   #voc/lstr
+    "A means of making inference about model parameters using Bayes' theorem which has the capability of incorporating empirical data into prior judgements about probabilities@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Bayesian Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Bayesian Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def BayesianNetworks
   "A graphical model of variables and their cause-effect relationships expressed using probabilities"
@@ -189,28 +196,29 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A graphical model of variables and their cause-effect relationships expressed using probabilities",
+   #voc/lstr
+    "A graphical model of variables and their cause-effect relationships expressed using probabilities@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Bayesian Networks",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Bayesian Networks@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Blackmail
   ""
   {:db/ident            :dpvo-risk/Blackmail,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Blackmail",
+   :rdfs/label          #voc/lstr "Blackmail@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Blackmail],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def BowTie
   "A diagrammatic way of describing the pathways from sources of risk to outcomes, and of reviewing controls"
@@ -218,7 +226,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A diagrammatic way of describing the pathways from sources of risk to outcomes, and of reviewing controls",
+   #voc/lstr
+    "A diagrammatic way of describing the pathways from sources of risk to outcomes, and of reviewing controls@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
@@ -226,8 +235,8 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Bow Tie Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Bow Tie Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Brainstorming
   "Technique used in workshops to encourage imaginative thinking"
@@ -235,43 +244,43 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Technique used in workshops to encourage imaginative thinking",
+   #voc/lstr "Technique used in workshops to encourage imaginative thinking@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Brainstorming",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Brainstorming@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def BruteForceAuthorisations
   ""
   {:db/ident :dpvo-risk/BruteForceAuthorisations,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Brute Force Authorisations",
+   :rdfs/label #voc/lstr "Brute Force Authorisations@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/BruteForceAuthorisations],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def BusinessImpact
   ""
   {:db/ident :dpvo-risk/BusinessImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Business impact",
+   :rdfs/label #voc/lstr "Business impact@en",
    :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/BusinessImpact],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def BusinessImpactAnalysis
   "A process that analyses the consequences of a disruptive incident on the organization which determines the recovery priorities of an organization's products and services and, thereby, the priorities of the activities and resources which deliver them"
@@ -279,7 +288,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A process that analyses the consequences of a disruptive incident on the organization which determines the recovery priorities of an organization's products and services and, thereby, the priorities of the activities and resources which deliver them",
+   #voc/lstr
+    "A process that analyses the consequences of a disruptive incident on the organization which determines the recovery priorities of an organization's products and services and, thereby, the priorities of the activities and resources which deliver them@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
@@ -287,35 +297,35 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Business Impact Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Business Impact Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def BusinessPerformanceImpairment
   ""
   {:db/ident            :dpvo-risk/BusinessPerformanceImpairment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Business Performance Impairment",
+   :rdfs/label          #voc/lstr "Business Performance Impairment@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/BusinessPerformanceImpairment],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Businessdisruption
   ""
   {:db/ident            :dpvo-risk/Businessdisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Business disruption",
+   :rdfs/label          #voc/lstr "Business disruption@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/Businessdisruption],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CCRACII
   "The Guide to Conducting Cybersecurity Risk Assessment for Critical Information Infrastructure (CCRACII) defines commonly used terms such as threat event, vulnerability, likelihood, impact and risk, roles, and responsibilities, in addition to a range for risk levels, ranging from low to very high with different level of risk toleranc"
@@ -323,15 +333,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The Guide to Conducting Cybersecurity Risk Assessment for Critical Information Infrastructure (CCRACII) defines commonly used terms such as threat event, vulnerability, likelihood, impact and risk, roles, and responsibilities, in addition to a range for risk levels, ranging from low to very high with different level of risk toleranc",
+   #voc/lstr
+    "The Guide to Conducting Cybersecurity Risk Assessment for Critical Information Infrastructure (CCRACII) defines commonly used terms such as threat event, vulnerability, likelihood, impact and risk, roles, and responsibilities, in addition to a range for risk levels, ranging from low to very high with different level of risk toleranc@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "CCRACII",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "CCRACII@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CORAS
   "The CORAS method was developed and is supported by SourceForge. It is a method for conducting the analysis and management of security risk. It provides a customised language for modelling threats and risks as well as detailed guidelines explaining how the language should be used to capture and model relevant information during the various stages of the security analysis"
@@ -339,15 +350,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The CORAS method was developed and is supported by SourceForge. It is a method for conducting the analysis and management of security risk. It provides a customised language for modelling threats and risks as well as detailed guidelines explaining how the language should be used to capture and model relevant information during the various stages of the security analysis",
+   #voc/lstr
+    "The CORAS method was developed and is supported by SourceForge. It is a method for conducting the analysis and management of security risk. It provides a customised language for modelling threats and risks as well as detailed guidelines explaining how the language should be used to capture and model relevant information during the various stages of the security analysis@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "CORAS",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "CORAS@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CRAMM
   "CCTA Risk Assessment and Management Methodology (CRAMM) is a method that an analyst or group of analysts may use to evaluate the security and risk level of an organisation by analysing and combining the diverse knowledge distributed in the local corporate environment"
@@ -355,15 +367,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "CCTA Risk Assessment and Management Methodology (CRAMM) is a method that an analyst or group of analysts may use to evaluate the security and risk level of an organisation by analysing and combining the diverse knowledge distributed in the local corporate environment",
+   #voc/lstr
+    "CCTA Risk Assessment and Management Methodology (CRAMM) is a method that an analyst or group of analysts may use to evaluate the security and risk level of an organisation by analysing and combining the diverse knowledge distributed in the local corporate environment@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "CRAMM",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "CRAMM@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CVaR
   "A measure of the expected loss from a financial portfolio in the worst a % of cases. Also called expected shortfall (ES)"
@@ -371,15 +384,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A measure of the expected loss from a financial portfolio in the worst a % of cases. Also called expected shortfall (ES)",
+   #voc/lstr
+    "A measure of the expected loss from a financial portfolio in the worst a % of cases. Also called expected shortfall (ES)@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Conditional Value at Risk (CVaR)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Conditional Value at Risk (CVaR)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CausalMapping
   "A network diagram representing events, causes and effects and their relationships."
@@ -387,15 +401,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A network diagram representing events, causes and effects and their relationships.",
+   #voc/lstr
+    "A network diagram representing events, causes and effects and their relationships.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Causal Mapping",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Causal Mapping@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CauseConsequenceAnalysis
   "A combination of fault and event tree analysis that allows inclusion of time delays. Both causes and consequences of an initiating event are considered."
@@ -403,43 +418,44 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A combination of fault and event tree analysis that allows inclusion of time delays. Both causes and consequences of an initiating event are considered.",
+   #voc/lstr
+    "A combination of fault and event tree analysis that allows inclusion of time delays. Both causes and consequences of an initiating event are considered.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Cause-Consequence Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Cause-Consequence Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ChangeConsequence
   "Risk Control that changes Consequence"
   {:db/ident            :dpvo-risk/ChangeConsequence,
    :dcterms/created     #inst "2022-08-25T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that changes Consequence",
+   :dcterms/description #voc/lstr "Risk Control that changes Consequence@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Change Consequence",
+   :rdfs/label          #voc/lstr "Change Consequence@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlConsequence
                          :dpvo-risk/ChangeConsequence
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ChangeImpact
   "Risk Control that changes Impact"
   {:db/ident            :dpvo-risk/ChangeImpact,
    :dcterms/created     #inst "2022-08-26T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that changes Impact",
+   :dcterms/description #voc/lstr "Risk Control that changes Impact@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Change Impact",
+   :rdfs/label          #voc/lstr "Change Impact@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlConsequence
                          :dpvo-risk/ChangeImpact
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Checklists
   "A checklist based on experience or on concepts and models that can be used to help identify risks or controls."
@@ -447,29 +463,30 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A checklist based on experience or on concepts and models that can be used to help identify risks or controls.",
+   #voc/lstr
+    "A checklist based on experience or on concepts and models that can be used to help identify risks or controls.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Checklists",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Checklists@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ChildViolence
   ""
   {:db/ident :dpvo-risk/ChildViolence,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Child Violence",
+   :rdfs/label #voc/lstr "Child Violence@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/ChildViolence],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Cindynic
   "Considers goals, values, rules, data and models of stakeholders and identifies inconsistencies, ambiguities, omissions and ignorance. These form systemic sources and drivers of risk."
@@ -477,29 +494,30 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Considers goals, values, rules, data and models of stakeholders and identifies inconsistencies, ambiguities, omissions and ignorance. These form systemic sources and drivers of risk.",
+   #voc/lstr
+    "Considers goals, values, rules, data and models of stakeholders and identifies inconsistencies, ambiguities, omissions and ignorance. These form systemic sources and drivers of risk.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Cindynic Approach",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Cindynic Approach@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CitizensImpact
   ""
   {:db/ident :dpvo-risk/CitizensImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Citizens impact",
+   :rdfs/label #voc/lstr "Citizens impact@en",
    :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/CitizensImpact],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Classifications
   "A classification list based on experience or on concepts and models that can be used to help identify risks or controls."
@@ -507,125 +525,126 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A classification list based on experience or on concepts and models that can be used to help identify risks or controls.",
+   #voc/lstr
+    "A classification list based on experience or on concepts and models that can be used to help identify risks or controls.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Classifications",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Classifications@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Coercion
   ""
   {:db/ident :dpvo-risk/Coercion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Coercion",
+   :rdfs/label #voc/lstr "Coercion@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Coercion],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ComplianceImpact
   ""
   {:db/ident :dpvo-risk/ComplianceImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Compliance impact",
+   :rdfs/label #voc/lstr "Compliance impact@en",
    :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/ComplianceImpact],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CompromiseAccount
   ""
   {:db/ident :dpvo-risk/CompromiseAccount,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Compromise Account",
+   :rdfs/label #voc/lstr "Compromise Account@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/CompromiseAccount],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CompromiseAccountCredentials
   ""
   {:db/ident :dpvo-risk/CompromiseAccountCredentials,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Compromise Account Credentials",
+   :rdfs/label #voc/lstr "Compromise Account Credentials@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/CompromiseAccountCredentials],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CompromiseAccountSecurity
   ""
   {:db/ident :dpvo-risk/CompromiseAccountSecurity,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Compromise Account Security",
+   :rdfs/label #voc/lstr "Compromise Account Security@en",
    :rdfs/subClassOf [:dpvo/NonMaterialDamage
                      :dpvo-risk/CompromiseAccountSecurity],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ConfidentialityBreach
   ""
   {:db/ident            :dpvo-risk/ConfidentialityBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Confidentiality Breach",
+   :rdfs/label          #voc/lstr "Confidentiality Breach@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ConfidentialityBreach],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ConsequenceForDataSubject
   ""
   {:db/ident            :dpvo-risk/ConsequenceForDataSubject,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Consequence for Data Subject",
+   :rdfs/label          #voc/lstr "Consequence for Data Subject@en",
    :rdfs/subClassOf     [:dpvo/Consequence
                          :dpvo-risk/ConsequenceForDataSubject],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ConsequenceOnDataSecurity
   ""
   {:db/ident            :dpvo-risk/ConsequenceOnDataSecurity,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Consequence on Data Security",
+   :rdfs/label          #voc/lstr "Consequence on Data Security@en",
    :rdfs/subClassOf     [:dpvo/Consequence
                          :dpvo-risk/ConsequenceOnDataSecurity],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ControlConsequence
   "Risk Mitigation Measure that controls the Consequences and Impacts"
@@ -633,12 +652,13 @@
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Risk Mitigation Measure that controls the Consequences and Impacts",
+   #voc/lstr
+    "Risk Mitigation Measure that controls the Consequences and Impacts@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Control Consequence",
+   :rdfs/label #voc/lstr "Control Consequence@en",
    :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ControlConsequence],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ControlMonitors
   "Risk Mitigation Measure that uses controls to monitor events"
@@ -646,80 +666,81 @@
    :dcterms/created #inst "2022-08-30T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Risk Mitigation Measure that uses controls to monitor events",
+   #voc/lstr "Risk Mitigation Measure that uses controls to monitor events@en",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Monitoring can be associated with characteristics such as assessing or detecting whether something is active, operational, performant, effective, has potential to materialise, is materialising, or has already materialised.",
+   #voc/lstr
+    "Monitoring can be associated with characteristics such as assessing or detecting whether something is active, operational, performant, effective, has potential to materialise, is materialising, or has already materialised.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Control Monitors",
+   :rdfs/label #voc/lstr "Control Monitors@en",
    :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ControlMonitors],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ControlRiskSource
   "Risk Mitigation Measure that controls the Risk Source"
-  {:db/ident            :dpvo-risk/ControlRiskSource,
-   :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Mitigation Measure that controls the Risk Source",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Control Risk Source",
-   :rdfs/subClassOf     [:dpvo/RiskMitigationMeasure
-                         :dpvo-risk/ControlRiskSource],
-   :vs/term_status      "accepted"})
+  {:db/ident :dpvo-risk/ControlRiskSource,
+   :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
+   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/description
+   #voc/lstr "Risk Mitigation Measure that controls the Risk Source@en",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
+   :rdfs/label #voc/lstr "Control Risk Source@en",
+   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ControlRiskSource],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CopyrightViolation
   ""
   {:db/ident :dpvo-risk/CopyrightViolation,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Copyright Violation",
+   :rdfs/label #voc/lstr "Copyright Violation@en",
    :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/CopyrightViolation],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CorruptionData
   ""
   {:db/ident            :dpvo-risk/CorruptionData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Corruption of Data",
+   :rdfs/label          #voc/lstr "Corruption of Data@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/CorruptionData],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostAcquisition
   ""
   {:db/ident            :dpvo-risk/CostAcquisition,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Acquisition",
+   :rdfs/label          #voc/lstr "Cost of Acquisition@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostAcquisition],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostBackup
   ""
   {:db/ident            :dpvo-risk/CostBackup,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Backup",
+   :rdfs/label          #voc/lstr "Cost of Backup@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostBackup],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostBenefitAnalysis
   "Uses money as a scale for estimating positive and negative, tangible and intangible, consequences of different options."
@@ -727,93 +748,94 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Uses money as a scale for estimating positive and negative, tangible and intangible, consequences of different options.",
+   #voc/lstr
+    "Uses money as a scale for estimating positive and negative, tangible and intangible, consequences of different options.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Cost/benefit Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Cost/benefit Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CostConfiguration
   ""
   {:db/ident            :dpvo-risk/CostConfiguration,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Configuration",
+   :rdfs/label          #voc/lstr "Cost of Configuration@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostConfiguration],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostInstallation
   ""
   {:db/ident            :dpvo-risk/CostInstallation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Installation",
+   :rdfs/label          #voc/lstr "Cost of Installation@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostInstallation],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostJudicialPenalties
   ""
   {:db/ident            :dpvo-risk/CostJudicialPenalties,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Judicial Penalties",
+   :rdfs/label          #voc/lstr "Cost of Judicial Penalties@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostJudicialPenalties],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostJudicialProceedings
   ""
   {:db/ident            :dpvo-risk/CostJudicialProceedings,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Judicial Proceedings",
+   :rdfs/label          #voc/lstr "Cost of Judicial Proceedings@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostJudicialProceedings],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostOperationInterruption
   ""
   {:db/ident            :dpvo-risk/CostOperationInterruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Operation Interruption",
+   :rdfs/label          #voc/lstr "Cost of Operation Interruption@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostOperationInterruption],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostSuspendedOperations
   ""
   {:db/ident            :dpvo-risk/CostSuspendedOperations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cost of Suspended Operations",
+   :rdfs/label          #voc/lstr "Cost of Suspended Operations@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostSuspendedOperations],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CrossImpactAnalysis
   "Evaluates changes in the probability of the occurrence of a given set of events consequent on the actual occurrence of one of them."
@@ -821,15 +843,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Evaluates changes in the probability of the occurrence of a given set of events consequent on the actual occurrence of one of them.",
+   #voc/lstr
+    "Evaluates changes in the probability of the occurrence of a given set of events consequent on the actual occurrence of one of them.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Cross Impact Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Cross Impact Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Cryptojacking
   "Cryptojacking or hidden cryptomining is a type of cybercrime where a criminal secretly uses a victim’s computing power to generate cryptocurrency"
@@ -837,40 +860,41 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Cryptojacking or hidden cryptomining is a type of cybercrime where a criminal secretly uses a victim’s computing power to generate cryptocurrency",
+   #voc/lstr
+    "Cryptojacking or hidden cryptomining is a type of cybercrime where a criminal secretly uses a victim’s computing power to generate cryptocurrency@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/enisa-threat-landscape-2021",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Cryptojacking",
+   :rdfs/label #voc/lstr "Cryptojacking@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/Cryptojacking],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CyberSpying
   ""
   {:db/ident            :dpvo-risk/CyberSpying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cyber Spying",
+   :rdfs/label          #voc/lstr "Cyber Spying@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/CyberSpying],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CyberStalking
   ""
   {:db/ident            :dpvo-risk/CyberStalking,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Cyber Stalking",
+   :rdfs/label          #voc/lstr "Cyber Stalking@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/CyberStalking],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIA
   "Analyses how incidents and events could affect the protection of data and its effects on persons and identifies and quantifies the capabilities that would be needed to manage it."
@@ -878,68 +902,69 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Analyses how incidents and events could affect the protection of data and its effects on persons and identifies and quantifies the capabilities that would be needed to manage it.",
+   #voc/lstr
+    "Analyses how incidents and events could affect the protection of data and its effects on persons and identifies and quantifies the capabilities that would be needed to manage it.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Data Protection Impact Assessment (DPIA)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Data Protection Impact Assessment (DPIA)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DamageByThirdParty
   ""
   {:db/ident :dpvo-risk/DamageByThirdParty,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Damage by Third Party",
+   :rdfs/label #voc/lstr "Damage by Third Party@en",
    :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/DamageByThirdParty],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DangertoCustomers
   ""
   {:db/ident            :dpvo-risk/DangertoCustomers,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Danger to Customers",
+   :rdfs/label          #voc/lstr "Danger to Customers@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/DangertoCustomers],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DangertoPersonnel
   ""
   {:db/ident            :dpvo-risk/DangertoPersonnel,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Danger to Personnel",
+   :rdfs/label          #voc/lstr "Danger to Personnel@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/DangertoPersonnel],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DataBreach
   ""
   {:db/ident            :dpvo-risk/DataBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Data Breach",
+   :rdfs/label          #voc/lstr "Data Breach@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/DataBreach],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DecisionTreeAnalysis
   "Uses a tree-like representation or model of decisions and their possible consequences. Outcomes are usually expressed in monetary terms or in terms of utility."
@@ -947,15 +972,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Uses a tree-like representation or model of decisions and their possible consequences. Outcomes are usually expressed in monetary terms or in terms of utility.",
+   #voc/lstr
+    "Uses a tree-like representation or model of decisions and their possible consequences. Outcomes are usually expressed in monetary terms or in terms of utility.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Decision Tree Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Decision Tree Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DelphiTechnique
   "Collects judgements through a set of sequential questionnaires. People participate individually but receive feedback on the responses of others after each set of questions."
@@ -963,68 +989,70 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Collects judgements through a set of sequential questionnaires. People participate individually but receive feedback on the responses of others after each set of questions.",
+   #voc/lstr
+    "Collects judgements through a set of sequential questionnaires. People participate individually but receive feedback on the responses of others after each set of questions.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Delphi Technique",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Delphi Technique@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DenialServiceAttack
   ""
   {:db/ident            :dpvo-risk/DenialServiceAttack,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Denial of Service Attack (DoS)",
+   :rdfs/label          #voc/lstr "Denial of Service Attack (DoS)@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/DenialServiceAttack],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DetrimentToRecovery
   ""
   {:db/ident :dpvo-risk/DetrimentToRecovery,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Detriment to Recovery",
+   :rdfs/label #voc/lstr "Detriment to Recovery@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/DetrimentToRecovery],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Discrimination
   ""
   {:db/ident            :dpvo-risk/Discrimination,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Discrimination",
+   :rdfs/label          #voc/lstr "Discrimination@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Discrimination],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DistributedDenialServiceAttack
   ""
   {:db/ident            :dpvo-risk/DistributedDenialServiceAttack,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Distributed Denial of Service Attack (DDoS)",
+   :rdfs/label          #voc/lstr
+                         "Distributed Denial of Service Attack (DDoS)@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/DistributedDenialServiceAttack],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EBIOS
   "Expression des Besoins et Identification des Objectifs de Sécurité (EBIOS) Risk Manager is an information security risk management method, created under the French General Secretariat of National Defence, consistent with ISO 31000 and ISO/IEC 27005, and enables the risk management requirements of ISO/IEC 27001 to be met"
@@ -1032,15 +1060,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Expression des Besoins et Identification des Objectifs de Sécurité (EBIOS) Risk Manager is an information security risk management method, created under the French General Secretariat of National Defence, consistent with ISO 31000 and ISO/IEC 27005, and enables the risk management requirements of ISO/IEC 27001 to be met",
+   #voc/lstr
+    "Expression des Besoins et Identification des Objectifs de Sécurité (EBIOS) Risk Manager is an information security risk management method, created under the French General Secretariat of National Defence, consistent with ISO 31000 and ISO/IEC 27005, and enables the risk management requirements of ISO/IEC 27001 to be met@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "EBIOS",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "EBIOS@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ERM-IF
   "Enterprise Risk Management - Integrated Framework (ERM-IF) defines the essential components of enterprise risk management. It is based on a set of principles and concepts for the enterprise and has as its objective to offer a common language for enterprise risk"
@@ -1048,15 +1077,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Enterprise Risk Management - Integrated Framework (ERM-IF) defines the essential components of enterprise risk management. It is based on a set of principles and concepts for the enterprise and has as its objective to offer a common language for enterprise risk",
+   #voc/lstr
+    "Enterprise Risk Management - Integrated Framework (ERM-IF) defines the essential components of enterprise risk management. It is based on a set of principles and concepts for the enterprise and has as its objective to offer a common language for enterprise risk@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ERM-IF",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ERM-IF@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ETSI-TS-102-165-1
   "ETSI TS 102 165-1 offers methodology and pro-forma for threat, vulnerability and risk analysis (TVRA). According to ETSI TS 102 165-1, threat vulnerability and risk analysis (TVRA) is used to identify risk to an information system based upon the product of the likelihood of an attack and the impact that such an attack will have on the system"
@@ -1064,15 +1094,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "ETSI TS 102 165-1 offers methodology and pro-forma for threat, vulnerability and risk analysis (TVRA). According to ETSI TS 102 165-1, threat vulnerability and risk analysis (TVRA) is used to identify risk to an information system based upon the product of the likelihood of an attack and the impact that such an attack will have on the system",
+   #voc/lstr
+    "ETSI TS 102 165-1 offers methodology and pro-forma for threat, vulnerability and risk analysis (TVRA). According to ETSI TS 102 165-1, threat vulnerability and risk analysis (TVRA) is used to identify risk to an information system based upon the product of the likelihood of an attack and the impact that such an attack will have on the system@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ETSI TS 102 165-1",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ETSI TS 102 165-1@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def EU-ITSRM
   "ITSRM² IT Security Risk Management Methodology is a methodology provided by DG DIGIT and the European Commission as part of a set of standards for information security"
@@ -1080,92 +1111,93 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "ITSRM² IT Security Risk Management Methodology is a methodology provided by DG DIGIT and the European Commission as part of a set of standards for information security",
+   #voc/lstr
+    "ITSRM² IT Security Risk Management Methodology is a methodology provided by DG DIGIT and the European Commission as part of a set of standards for information security@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ITSRM²",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ITSRM²@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Eavesdropping
   ""
   {:db/ident            :dpvo-risk/Eavesdropping,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Eavesdropping",
+   :rdfs/label          #voc/lstr "Eavesdropping@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/Eavesdropping],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EconomicDisadvantage
   ""
   {:db/ident            :dpvo-risk/EconomicDisadvantage,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Economic Disadvantage",
+   :rdfs/label          #voc/lstr "Economic Disadvantage@en",
    :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/EconomicDisadvantage],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EnvironmentalSafetyEndangerment
   ""
   {:db/ident            :dpvo-risk/EnvironmentalSafetyEndangerment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Environmental Safety Endangerment",
+   :rdfs/label          #voc/lstr "Environmental Safety Endangerment@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/EnvironmentalSafetyEndangerment],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EquipmentFailure
   ""
   {:db/ident            :dpvo-risk/EquipmentFailure,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Equipment Failure",
+   :rdfs/label          #voc/lstr "Equipment Failure@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/EquipmentFailure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EquipmentMalfunction
   ""
   {:db/ident            :dpvo-risk/EquipmentMalfunction,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Equipment Malfunction",
+   :rdfs/label          #voc/lstr "Equipment Malfunction@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/EquipmentMalfunction],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ErrornousSystemUse
   ""
   {:db/ident            :dpvo-risk/ErrornousSystemUse,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Errornous System Use",
+   :rdfs/label          #voc/lstr "Errornous System Use@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ErrornousSystemUse],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EventTreeAnalysis
   "Models the possible outcomes from a given initiating event and the status of controls thus analysing the frequency or probability of the various possible outcomes."
@@ -1173,7 +1205,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Models the possible outcomes from a given initiating event and the status of controls thus analysing the frequency or probability of the various possible outcomes.",
+   #voc/lstr
+    "Models the possible outcomes from a given initiating event and the status of controls thus analysing the frequency or probability of the various possible outcomes.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
@@ -1181,108 +1214,114 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Event Tree Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Event Tree Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Extorsion
   ""
   {:db/ident :dpvo-risk/Extorsion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extorsion",
+   :rdfs/label #voc/lstr "Extorsion@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Extorsion],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExtremelyHighLikelihood
   "Level where Likelihood is Extremely High"
   {:db/ident :dpvo-risk/ExtremelyHighLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Likelihood is Extremely High",
+   :dcterms/description #voc/lstr "Level where Likelihood is Extremely High@en",
    :rdf/type
    [:owl/NamedIndividual :dpvo/Likelihood :dpvo-risk/|7LikelihoodLevels|],
    :rdf/value 0.99M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Likelihood",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Likelihood@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExtremelyHighRisk
   "Level where Risk is Extremely High"
   {:db/ident :dpvo-risk/ExtremelyHighRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Risk is Extremely High",
+   :dcterms/description #voc/lstr "Level where Risk is Extremely High@en",
    :rdf/type [:dpvo-risk/|7RiskLevels| :owl/NamedIndividual :dpvo/RiskLevel],
    :rdf/value 0.99M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExtremelyHighSeverity
   "Level where Severity is Extremely High"
   {:db/ident :dpvo-risk/ExtremelyHighSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Severity is Extremely High",
+   :dcterms/description #voc/lstr "Level where Severity is Extremely High@en",
    :rdf/type [:dpvo-risk/|7SeverityLevels| :dpvo/Severity :owl/NamedIndividual],
    :rdf/value 0.99M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Severity",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Severity@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExtremelyLowLikelihood
   "Level where Likelihood is Extremely Low"
   {:db/ident :dpvo-risk/ExtremelyLowLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Likelihood is Extremely Low",
+   :dcterms/description #voc/lstr "Level where Likelihood is Extremely Low@en",
    :rdf/type
    [:dpvo-risk/|7LikelihoodLevels| :dpvo/Likelihood :owl/NamedIndividual],
    :rdf/value 0.01M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Likelihood",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Likelihood@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExtremelyLowRisk
   "Level where Risk is Extremely Low"
   {:db/ident :dpvo-risk/ExtremelyLowRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Risk is Extremely Low",
+   :dcterms/description #voc/lstr "Level where Risk is Extremely Low@en",
    :rdf/type [:dpvo/RiskLevel :dpvo-risk/|7RiskLevels| :owl/NamedIndividual],
    :rdf/value 0.01M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExtremelyLowSeverity
   "Level where Severity is Extremely Low"
   {:db/ident :dpvo-risk/ExtremelyLowSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Severity is Extremely Low",
+   :dcterms/description #voc/lstr "Level where Severity is Extremely Low@en",
    :rdf/type [:owl/NamedIndividual :dpvo-risk/|7SeverityLevels| :dpvo/Severity],
    :rdf/value 0.01M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Severity",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Severity@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def FAIR
   "The purpose of the FAIR (Factor Analysis of Information Risk) model is to help organisations understand, analyse, and measure information risk. The model provides an approach to quantify risk and defines the necessary building blocks for implementing effective cyber risk management programmes"
@@ -1290,15 +1329,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The purpose of the FAIR (Factor Analysis of Information Risk) model is to help organisations understand, analyse, and measure information risk. The model provides an approach to quantify risk and defines the necessary building blocks for implementing effective cyber risk management programmes",
+   #voc/lstr
+    "The purpose of the FAIR (Factor Analysis of Information Risk) model is to help organisations understand, analyse, and measure information risk. The model provides an approach to quantify risk and defines the necessary building blocks for implementing effective cyber risk management programmes@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "FAIR",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "FAIR@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def FAIR-Privacy
   "Factors Analysis in Information Risk (FAIR Privacy) is a quantitative privacy risk framework based on FAIR (Factors Analysis in Information Risk) that examines personal privacy risks (to individuals), not organisational risks"
@@ -1306,15 +1346,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Factors Analysis in Information Risk (FAIR Privacy) is a quantitative privacy risk framework based on FAIR (Factors Analysis in Information Risk) that examines personal privacy risks (to individuals), not organisational risks",
+   #voc/lstr
+    "Factors Analysis in Information Risk (FAIR Privacy) is a quantitative privacy risk framework based on FAIR (Factors Analysis in Information Risk) that examines personal privacy risks (to individuals), not organisational risks@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "FAIR Privacy",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "FAIR Privacy@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def FMEA
   "Considers the ways in which each component of a system might fail and the failure causes and effects."
@@ -1322,7 +1363,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Considers the ways in which each component of a system might fail and the failure causes and effects.",
+   #voc/lstr
+    "Considers the ways in which each component of a system might fail and the failure causes and effects.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
@@ -1330,8 +1372,8 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Failure Modes And Effects Analysis (FMEA)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Failure Modes And Effects Analysis (FMEA)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def FMECA
   "Considers the ways in which each component of a system might fail and the failure causes and effects. FMEA followed by a criticality analysis which defines the significance of each failure mode (FMECA)."
@@ -1339,7 +1381,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Considers the ways in which each component of a system might fail and the failure causes and effects. FMEA followed by a criticality analysis which defines the significance of each failure mode (FMECA).",
+   #voc/lstr
+    "Considers the ways in which each component of a system might fail and the failure causes and effects. FMEA followed by a criticality analysis which defines the significance of each failure mode (FMECA).@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
@@ -1347,8 +1390,9 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Failure Modes And Effects And Criticality Analysis (FMECA)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr
+                "Failure Modes And Effects And Criticality Analysis (FMECA)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def FNDiagrams
   "Special case of quantitative consequence/likelihood graph applied to consideration of tolerability of risk to human life."
@@ -1356,15 +1400,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Special case of quantitative consequence/likelihood graph applied to consideration of tolerability of risk to human life.",
+   #voc/lstr
+    "Special case of quantitative consequence/likelihood graph applied to consideration of tolerability of risk to human life.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "F-N Diagrams",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "F-N Diagrams@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def FaultTreeAnalysis
   "Analyses causes of a focus event using Boolean logic to describe combinations of faults. Variations include a success tree where the top event is desired and a cause tree used to investigate past events."
@@ -1372,7 +1417,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Analyses causes of a focus event using Boolean logic to describe combinations of faults. Variations include a success tree where the top event is desired and a cause tree used to investigate past events.",
+   #voc/lstr
+    "Analyses causes of a focus event using Boolean logic to describe combinations of faults. Variations include a success tree where the top event is desired and a cause tree used to investigate past events.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
@@ -1380,74 +1426,74 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Fault Tree Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Fault Tree Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def FinancialEquipmentCosts
   ""
   {:db/ident            :dpvo-risk/FinancialEquipmentCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Financial Equipment Costs",
+   :rdfs/label          #voc/lstr "Financial Equipment Costs@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/FinancialEquipmentCosts],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialInvestigationCosts
   ""
   {:db/ident            :dpvo-risk/FinancialInvestigationCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Financial Investigation Costs",
+   :rdfs/label          #voc/lstr "Financial Investigation Costs@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/FinancialInvestigationCosts],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialLoss
   ""
   {:db/ident            :dpvo-risk/FinancialLoss,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Financial Loss",
+   :rdfs/label          #voc/lstr "Financial Loss@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/FinancialLoss],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialPersonnelCosts
   ""
   {:db/ident            :dpvo-risk/FinancialPersonnelCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Financial Personnel Costs",
+   :rdfs/label          #voc/lstr "Financial Personnel Costs@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/FinancialPersonnelCosts],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialRepairCosts
   ""
   {:db/ident            :dpvo-risk/FinancialRepairCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Financial Repair Costs",
+   :rdfs/label          #voc/lstr "Financial Repair Costs@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/FinancialRepairCosts],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Fishbone
   "Identifies contributory factors to a defined outcome (wanted or unwanted). Contributory factors are usually divided into predefined categories and displayed in a tree structure or a fishbone diagram."
@@ -1455,28 +1501,29 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Identifies contributory factors to a defined outcome (wanted or unwanted). Contributory factors are usually divided into predefined categories and displayed in a tree structure or a fishbone diagram.",
+   #voc/lstr
+    "Identifies contributory factors to a defined outcome (wanted or unwanted). Contributory factors are usually divided into predefined categories and displayed in a tree structure or a fishbone diagram.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Ishikawa (Fishbone)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Ishikawa (Fishbone)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Fraud
   ""
   {:db/ident            :dpvo-risk/Fraud,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Fraud",
+   :rdfs/label          #voc/lstr "Fraud@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Fraud],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def GCSOS
   "The Guidelines on Cyber Security Onboard Ships (GCSOS) guidelines explain why and how cyber risks should be managed in a shipping context. They outline the risk assessment process with an explanation of the part played by each component of cyber risk and offer advice on how to respond to and recover from cyber incidents"
@@ -1484,15 +1531,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The Guidelines on Cyber Security Onboard Ships (GCSOS) guidelines explain why and how cyber risks should be managed in a shipping context. They outline the risk assessment process with an explanation of the part played by each component of cyber risk and offer advice on how to respond to and recover from cyber incidents",
+   #voc/lstr
+    "The Guidelines on Cyber Security Onboard Ships (GCSOS) guidelines explain why and how cyber risks should be managed in a shipping context. They outline the risk assessment process with an explanation of the part played by each component of cyber risk and offer advice on how to respond to and recover from cyber incidents@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "GCSOS",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "GCSOS@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def GameTheory
   "The study of strategic decision making to model the impact of the decisions of different players involved in the game. Example application area can be risk based pricing."
@@ -1500,28 +1548,29 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The study of strategic decision making to model the impact of the decisions of different players involved in the game. Example application area can be risk based pricing.",
+   #voc/lstr
+    "The study of strategic decision making to model the impact of the decisions of different players involved in the game. Example application area can be risk based pricing.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Game Theory",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Game Theory@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def GovernmentCrisis
   ""
   {:db/ident            :dpvo-risk/GovernmentCrisis,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Government Crisis",
+   :rdfs/label          #voc/lstr "Government Crisis@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/GovernmentCrisis],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def HACCP
   "Analyses the risk reduction that can be achieved by various layers of protection."
@@ -1529,15 +1578,17 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Analyses the risk reduction that can be achieved by various layers of protection.",
+   #voc/lstr
+    "Analyses the risk reduction that can be achieved by various layers of protection.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Hazard Analysis And Critical Control Points (HACCP)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr
+                "Hazard Analysis And Critical Control Points (HACCP)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HAZOP
   "A structured and systematic examination of a planned or existing process or operation in order to identify and evaluate problems that might represent risk to personnel or equipment, or prevent efficient operation"
@@ -1545,15 +1596,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A structured and systematic examination of a planned or existing process or operation in order to identify and evaluate problems that might represent risk to personnel or equipment, or prevent efficient operation",
+   #voc/lstr
+    "A structured and systematic examination of a planned or existing process or operation in order to identify and evaluate problems that might represent risk to personnel or equipment, or prevent efficient operation@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Hazard And Operability Studies (HAZOP)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Hazard And Operability Studies (HAZOP)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HITRUST-CSF
   "The HITRUST Cyber-Security Framework (CSF) is a framework created by security industry experts to safeguard sensitive information and manage information risk for organisations across all industries and throughout the third-party supply chain"
@@ -1561,15 +1613,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The HITRUST Cyber-Security Framework (CSF) is a framework created by security industry experts to safeguard sensitive information and manage information risk for organisations across all industries and throughout the third-party supply chain",
+   #voc/lstr
+    "The HITRUST Cyber-Security Framework (CSF) is a framework created by security industry experts to safeguard sensitive information and manage information risk for organisations across all industries and throughout the third-party supply chain@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "HITRUST-CSF",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "HITRUST-CSF@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HaltSource
   "Risk Control that halts the risk source or prevents it from materialising"
@@ -1577,49 +1630,50 @@
    :dcterms/created #inst "2022-08-19T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Risk Control that halts the risk source or prevents it from materialising",
+   #voc/lstr
+    "Risk Control that halts the risk source or prevents it from materialising@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Halt Source",
+   :rdfs/label #voc/lstr "Halt Source@en",
    :rdfs/subClassOf [:dpvo-risk/ControlRiskSource
                      :dpvo-risk/HaltSource
                      :dpvo/RiskMitigationMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HarmfulSpeech
   ""
   {:db/ident :dpvo-risk/HarmfulSpeech,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Harmful Spech",
+   :rdfs/label #voc/lstr "Harmful Spech@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/HarmfulSpeech],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HealthLifeImpact
   ""
   {:db/ident :dpvo-risk/HealthLifeImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Health and life impact",
+   :rdfs/label #voc/lstr "Health and life impact@en",
    :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/HealthLifeImpact],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HighLikelihood
   "Level where Likelihood is High"
   {:db/ident :dpvo-risk/HighLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Likelihood is High",
+   :dcterms/description #voc/lstr "Level where Likelihood is High@en",
    :rdf/type [:dpvo-risk/|3LikelihoodLevels|
               :dpvo-risk/|5LikelihoodLevels|
               :owl/NamedIndividual
@@ -1627,17 +1681,18 @@
               :dpvo-risk/|7LikelihoodLevels|],
    :rdf/value 0.75M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Likelihood",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Likelihood@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HighRisk
   "Level where Risk is High"
   {:db/ident :dpvo-risk/HighRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Risk is High",
+   :dcterms/description #voc/lstr "Level where Risk is High@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo/RiskLevel
               :dpvo-risk/|5RiskLevels|
@@ -1645,17 +1700,18 @@
               :dpvo-risk/|3RiskLevels|],
    :rdf/value 0.75M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HighSeverity
   "Level where Severity is High"
   {:db/ident :dpvo-risk/HighSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Severity is High",
+   :dcterms/description #voc/lstr "Level where Severity is High@en",
    :rdf/type [:dpvo/Severity
               :dpvo-risk/|5SeverityLevels|
               :dpvo-risk/|7SeverityLevels|
@@ -1663,24 +1719,25 @@
               :owl/NamedIndividual],
    :rdf/value 0.75M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Severity",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Severity@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HumanErrors
   ""
   {:db/ident :dpvo-risk/HumanErrors,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Human Errors",
+   :rdfs/label #voc/lstr "Human Errors@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/HumanErrors],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def HumanReliabilityAnalysis
   "A set of techniques for identifying the potential for human error and estimating the likelihood of failure."
@@ -1688,7 +1745,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A set of techniques for identifying the potential for human error and estimating the likelihood of failure.",
+   #voc/lstr
+    "A set of techniques for identifying the potential for human error and estimating the likelihood of failure.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
@@ -1696,8 +1754,8 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Human Reliability Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Human Reliability Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IMO-MSC-FAL1-CIRC3
   "The official International Maritime Organization guidelines IMO MSC-FAL.1/CIRC.3 provide a high-level approach to the management pf maritime cyber risk which refers to the extent a technology asset is exposed to risks during an event that could result in shipping-related operational failure"
@@ -1705,15 +1763,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The official International Maritime Organization guidelines IMO MSC-FAL.1/CIRC.3 provide a high-level approach to the management pf maritime cyber risk which refers to the extent a technology asset is exposed to risks during an event that could result in shipping-related operational failure",
+   #voc/lstr
+    "The official International Maritime Organization guidelines IMO MSC-FAL.1/CIRC.3 provide a high-level approach to the management pf maritime cyber risk which refers to the extent a technology asset is exposed to risks during an event that could result in shipping-related operational failure@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "IMO MSC-FAL.1/CIRC.3",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "IMO MSC-FAL.1/CIRC.3@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IRAM2
   "Information Risk Assessment Methodology (IRAM2) supports risk assessment and treatment and entails a six-phase process, and is is implemented by an automated toolset"
@@ -1721,15 +1780,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Information Risk Assessment Methodology (IRAM2) supports risk assessment and treatment and entails a six-phase process, and is is implemented by an automated toolset",
+   #voc/lstr
+    "Information Risk Assessment Methodology (IRAM2) supports risk assessment and treatment and entails a six-phase process, and is is implemented by an automated toolset@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "IRAM2",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "IRAM2@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IS-BM
   "The IS risk analysis method is based on a business model using a quantitative approach. The values of IS assets come from their importance towards operational continuity, as well as from their replacement costs"
@@ -1737,15 +1797,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The IS risk analysis method is based on a business model using a quantitative approach. The values of IS assets come from their importance towards operational continuity, as well as from their replacement costs",
+   #voc/lstr
+    "The IS risk analysis method is based on a business model using a quantitative approach. The values of IS assets come from their importance towards operational continuity, as well as from their replacement costs@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "IS-BM",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "IS-BM@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ISACA-RISK-IT
   "The ISACA Risk IT Framework provides a set of guiding principles and supporting practices for enterprise management, combined to deliver a comprehensive process model for governing and managing IT risk"
@@ -1753,15 +1814,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The ISACA Risk IT Framework provides a set of guiding principles and supporting practices for enterprise management, combined to deliver a comprehensive process model for governing and managing IT risk",
+   #voc/lstr
+    "The ISACA Risk IT Framework provides a set of guiding principles and supporting practices for enterprise management, combined to deliver a comprehensive process model for governing and managing IT risk@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ISACA-RISK-IT",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ISACA-RISK-IT@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ISAMM
   "Information Security Assessment and Monitoring Method (ISAMM) is a quantitative type of risk management methodology that can be applied by various organisations such as governmental agencies, large companies and small and medium size enterprises"
@@ -1769,15 +1831,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Information Security Assessment and Monitoring Method (ISAMM) is a quantitative type of risk management methodology that can be applied by various organisations such as governmental agencies, large companies and small and medium size enterprises",
+   #voc/lstr
+    "Information Security Assessment and Monitoring Method (ISAMM) is a quantitative type of risk management methodology that can be applied by various organisations such as governmental agencies, large companies and small and medium size enterprises@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ISAMM",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ISAMM@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ISO-IEC-27005-2018
   "ISO/IEC 27005:2018 ‘Information technology — Security techniques — Information security risk management’ is a risk management framework applicable to all types of organisations (e.g. commercial enterprises, government agencies, non-profit organisations) which intend to manage risks that could compromise the organisation’s information security"
@@ -1785,15 +1848,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "ISO/IEC 27005:2018 ‘Information technology — Security techniques — Information security risk management’ is a risk management framework applicable to all types of organisations (e.g. commercial enterprises, government agencies, non-profit organisations) which intend to manage risks that could compromise the organisation’s information security",
+   #voc/lstr
+    "ISO/IEC 27005:2018 ‘Information technology — Security techniques — Information security risk management’ is a risk management framework applicable to all types of organisations (e.g. commercial enterprises, government agencies, non-profit organisations) which intend to manage risks that could compromise the organisation’s information security@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ISO/IEC 27005:2018",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ISO/IEC 27005:2018@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ISRAM
   "ISRAM is a quantitative, paper-based risk analysis method that is designed to allow effective participation of managers and staff in the process"
@@ -1801,15 +1865,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "ISRAM is a quantitative, paper-based risk analysis method that is designed to allow effective participation of managers and staff in the process",
+   #voc/lstr
+    "ISRAM is a quantitative, paper-based risk analysis method that is designed to allow effective participation of managers and staff in the process@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "ISRAM",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "ISRAM@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IT-Grundschutz
   "IT-Grundschutz has been developed by the Federal Office for Information Security in Germany. IT-Grundschutz provides a configuration for the establishment of an integrated and effective IT security managemen"
@@ -1817,119 +1882,120 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "IT-Grundschutz has been developed by the Federal Office for Information Security in Germany. IT-Grundschutz provides a configuration for the establishment of an integrated and effective IT security managemen",
+   #voc/lstr
+    "IT-Grundschutz has been developed by the Federal Office for Information Security in Germany. IT-Grundschutz provides a configuration for the establishment of an integrated and effective IT security managemen@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "IT-Grundschutz",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "IT-Grundschutz@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IdentityDispute
   ""
   {:db/ident            :dpvo-risk/IdentityDispute,
    :dcterms/created     #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Identity Dispute",
+   :rdfs/label          #voc/lstr "Identity Dispute@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/IdentityDispute],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def IdentityFraud
   ""
   {:db/ident :dpvo-risk/IdentityFraud,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Identity Fraud",
+   :rdfs/label #voc/lstr "Identity Fraud@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/IdentityFraud],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IdentityTheft
   ""
   {:db/ident :dpvo-risk/IdentityTheft,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Identity Theft",
+   :rdfs/label #voc/lstr "Identity Theft@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/IdentityTheft],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IllegalProcessingData
   ""
   {:db/ident            :dpvo-risk/IllegalProcessingData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Illegal Processing of Data",
+   :rdfs/label          #voc/lstr "Illegal Processing of Data@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/IllegalProcessingData],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ImpactOnDataSubject
   ""
   {:db/ident            :dpvo-risk/ImpactOnDataSubject,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Impact on Data Subject",
+   :rdfs/label          #voc/lstr "Impact on Data Subject@en",
    :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/ImpactOnDataSubject],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ImpacttoRights
   ""
   {:db/ident            :dpvo-risk/ImpacttoRights,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Impact to Rights",
+   :rdfs/label          #voc/lstr "Impact to Rights@en",
    :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/ImpacttoRights],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def IncreaseInternalCost
   ""
   {:db/ident            :dpvo-risk/IncreaseInternalCost,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Increase Internal Cost",
+   :rdfs/label          #voc/lstr "Increase Internal Cost@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/IncreaseInternalCost],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def IndustrialCrisis
   ""
   {:db/ident            :dpvo-risk/IndustrialCrisis,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Industrial Crisis",
+   :rdfs/label          #voc/lstr "Industrial Crisis@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/IndustrialCrisis],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def InfluenceDiagrams
   "An extended version of Bayesian networks that includes variables representing uncertainties, consequences and actions"
@@ -1937,55 +2003,56 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "An extended version of Bayesian networks that includes variables representing uncertainties, consequences and actions",
+   #voc/lstr
+    "An extended version of Bayesian networks that includes variables representing uncertainties, consequences and actions@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Influence Diagrams",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Influence Diagrams@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Injury
   ""
   {:db/ident            :dpvo-risk/Injury,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Injury",
+   :rdfs/label          #voc/lstr "Injury@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Injury],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def InterceptionCommunications
   ""
   {:db/ident            :dpvo-risk/InterceptionCommunications,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Interception of Communications",
+   :rdfs/label          #voc/lstr "Interception of Communications@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/InterceptionCommunications],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def InternalOperationDisruption
   ""
   {:db/ident            :dpvo-risk/InternalOperationDisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Internal Operation Disruption",
+   :rdfs/label          #voc/lstr "Internal Operation Disruption@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/InternalOperationDisruption],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Interviews
   "Structured or semi- structured one-to-one conversations to elicit views."
@@ -1993,29 +2060,30 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Structured or semi- structured one-to-one conversations to elicit views.",
+   #voc/lstr
+    "Structured or semi- structured one-to-one conversations to elicit views.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Interviews",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Interviews@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def KnownVulnerabilityExploited
   ""
   {:db/ident :dpvo-risk/KnownVulnerabilityExploited,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Known Vulnerability Exploited",
+   :rdfs/label #voc/lstr "Known Vulnerability Exploited@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/KnownVulnerabilityExploited],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def LOPA
   "Analyses the risk reduction that can be achieved by various layers of protection."
@@ -2023,7 +2091,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Analyses the risk reduction that can be achieved by various layers of protection.",
+   #voc/lstr
+    "Analyses the risk reduction that can be achieved by various layers of protection.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
@@ -2031,280 +2100,280 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Layer Protection Analysis (LOPA)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Layer Protection Analysis (LOPA)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def LawEnforcementAdverseEffects
   ""
   {:db/ident            :dpvo-risk/LawEnforcementAdverseEffects,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Law Enforcement Adverse Effects",
+   :rdfs/label          #voc/lstr "Law Enforcement Adverse Effects@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/LawEnforcementAdverseEffects],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LimitationOfRights
   ""
   {:db/ident            :dpvo-risk/LimitationOfRights,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Limitation of Rights",
+   :rdfs/label          #voc/lstr "Limitation of Rights@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/LimitationOfRights],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossAssets
   ""
   {:db/ident            :dpvo-risk/LossAssets,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Assets",
+   :rdfs/label          #voc/lstr "Loss of Assets@en",
    :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/LossAssets],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCompetitiveAdvantage
   ""
   {:db/ident            :dpvo-risk/LossCompetitiveAdvantage,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Competitive Advantage",
+   :rdfs/label          #voc/lstr "Loss of Competitive Advantage@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage
                          :dpvo-risk/LossCompetitiveAdvantage],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossControlOverData
   ""
   {:db/ident            :dpvo-risk/LossControlOverData,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Control over Data",
+   :rdfs/label          #voc/lstr "Loss of Control over Data@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage
                          :dpvo-risk/LossControlOverData],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCredibility
   ""
   {:db/ident            :dpvo-risk/LossCredibility,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Credibility",
+   :rdfs/label          #voc/lstr "Loss of Credibility@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossCredibility],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCustomerConfidence
   ""
   {:db/ident            :dpvo-risk/LossCustomerConfidence,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Customer Confidence",
+   :rdfs/label          #voc/lstr "Loss of Customer Confidence@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossCustomerConfidence],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCustomers
   ""
   {:db/ident            :dpvo-risk/LossCustomers,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Customers",
+   :rdfs/label          #voc/lstr "Loss of Customers@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/LossCustomers],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossData
   ""
   {:db/ident :dpvo-risk/LossData,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Loss of Data",
+   :rdfs/label #voc/lstr "Loss of Data@en",
    :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/LossData],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def LossFunds
   ""
   {:db/ident            :dpvo-risk/LossFunds,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Funds",
+   :rdfs/label          #voc/lstr "Loss of Funds@en",
    :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/LossFunds],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossGoods
   ""
   {:db/ident            :dpvo-risk/LossGoods,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Goods",
+   :rdfs/label          #voc/lstr "Loss of Goods@en",
    :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/LossGoods],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossGoodwill
   ""
   {:db/ident            :dpvo-risk/LossGoodwill,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Goodwill",
+   :rdfs/label          #voc/lstr "Loss of Goodwill@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossGoodwill],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossNegotiatingCapacity
   ""
   {:db/ident            :dpvo-risk/LossNegotiatingCapacity,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Negotiating Capacity",
+   :rdfs/label          #voc/lstr "Loss of Negotiating Capacity@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossNegotiatingCapacity],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossOpportunity
   ""
   {:db/ident            :dpvo-risk/LossOpportunity,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Opportunity",
+   :rdfs/label          #voc/lstr "Loss of Opportunity@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossOpportunity],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossProprietaryInformation
   ""
   {:db/ident            :dpvo-risk/LossProprietaryInformation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Proprietary Information",
+   :rdfs/label          #voc/lstr "Loss of Proprietary Information@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage
                          :dpvo-risk/LossProprietaryInformation],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossReputation
   ""
   {:db/ident            :dpvo-risk/LossReputation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Reputation",
+   :rdfs/label          #voc/lstr "Loss of Reputation@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossReputation],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossResources
   ""
   {:db/ident :dpvo-risk/LossResources,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Loss of Resources",
+   :rdfs/label #voc/lstr "Loss of Resources@en",
    :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/LossResources],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def LossSuppliers
   ""
   {:db/ident            :dpvo-risk/LossSuppliers,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Suppliers",
+   :rdfs/label          #voc/lstr "Loss of Suppliers@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/LossSuppliers],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossTechnologicalAdvantage
   ""
   {:db/ident            :dpvo-risk/LossTechnologicalAdvantage,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Technological Advantage",
+   :rdfs/label          #voc/lstr "Loss of Technological Advantage@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage
                          :dpvo-risk/LossTechnologicalAdvantage],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossTrust
   ""
   {:db/ident            :dpvo-risk/LossTrust,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Loss of Trust",
+   :rdfs/label          #voc/lstr "Loss of Trust@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossTrust],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LowLikelihood
   "Level where Likelihood is Low"
   {:db/ident :dpvo-risk/LowLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Likelihood is Low",
+   :dcterms/description #voc/lstr "Level where Likelihood is Low@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/|7LikelihoodLevels|
               :dpvo/Likelihood
@@ -2312,17 +2381,18 @@
               :dpvo-risk/|3LikelihoodLevels|],
    :rdf/value 0.25M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Likelihood",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Likelihood@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def LowRisk
   "Level where Risk is Low"
   {:db/ident :dpvo-risk/LowRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Risk is Low",
+   :dcterms/description #voc/lstr "Level where Risk is Low@en",
    :rdf/type [:dpvo-risk/|3RiskLevels|
               :dpvo-risk/|5RiskLevels|
               :dpvo/RiskLevel
@@ -2330,17 +2400,18 @@
               :dpvo-risk/|7RiskLevels|],
    :rdf/value 0.25M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def LowSeverity
   "Level where Severity is Low"
   {:db/ident :dpvo-risk/LowSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Severity is Low",
+   :dcterms/description #voc/lstr "Level where Severity is Low@en",
    :rdf/type [:dpvo-risk/|5SeverityLevels|
               :dpvo-risk/|3SeverityLevels|
               :dpvo-risk/|7SeverityLevels|
@@ -2348,10 +2419,11 @@
               :owl/NamedIndividual],
    :rdf/value 0.25M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Severity",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Severity@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MAGERIT
   "Method for the Harmonised Analysis of Risk (MAGERIT) is an open methodology for risk analysis and management developed by the Spanish Higher Council for Electronic Government and offered as a framework and guide to the public administration"
@@ -2359,15 +2431,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Method for the Harmonised Analysis of Risk (MAGERIT) is an open methodology for risk analysis and management developed by the Spanish Higher Council for Electronic Government and offered as a framework and guide to the public administration",
+   #voc/lstr
+    "Method for the Harmonised Analysis of Risk (MAGERIT) is an open methodology for risk analysis and management developed by the Spanish Higher Council for Electronic Government and offered as a framework and guide to the public administration@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "MAGERIT",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "MAGERIT@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MCA
   "Compares options in a way that makes trade-offs explicit. Provides an alternative to cost/benefit analysis that does not need a monetary value to be allocated to all inputs."
@@ -2375,15 +2448,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Compares options in a way that makes trade-offs explicit. Provides an alternative to cost/benefit analysis that does not need a monetary value to be allocated to all inputs.",
+   #voc/lstr
+    "Compares options in a way that makes trade-offs explicit. Provides an alternative to cost/benefit analysis that does not need a monetary value to be allocated to all inputs.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Multi-criteria Analysis (MCA)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Multi-criteria Analysis (MCA)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MEHARI
   "MEHARI is a free of charge qualitative risk analysis and management method developed by CLUSIF (Club for the Security of Information in France/Club de la Sécurité de l'Information Français)"
@@ -2391,15 +2465,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "MEHARI is a free of charge qualitative risk analysis and management method developed by CLUSIF (Club for the Security of Information in France/Club de la Sécurité de l'Information Français)",
+   #voc/lstr
+    "MEHARI is a free of charge qualitative risk analysis and management method developed by CLUSIF (Club for the Security of Information in France/Club de la Sécurité de l'Information Français)@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "MEHARI",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "MEHARI@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MONARC
   "MONARC (Méthode Optimisée d’analyse des risques CASES – ‘Method for an Optimised Analysis of Risks by CASES’ is a tool and a method allowing precise and repeatable risk assessments to take place"
@@ -2407,15 +2482,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "MONARC (Méthode Optimisée d’analyse des risques CASES – ‘Method for an Optimised Analysis of Risks by CASES’ is a tool and a method allowing precise and repeatable risk assessments to take place",
+   #voc/lstr
+    "MONARC (Méthode Optimisée d’analyse des risques CASES – ‘Method for an Optimised Analysis of Risks by CASES’ is a tool and a method allowing precise and repeatable risk assessments to take place@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "MONARC",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "MONARC@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MaliciousCodeAttack
   "Intentional use of software by including or inserting in a system for a harmful purpose"
@@ -2423,14 +2499,15 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Intentional use of software by including or inserting in a system for a harmful purpose",
+   #voc/lstr
+    "Intentional use of software by including or inserting in a system for a harmful purpose@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Malicious Code Attack",
+   :rdfs/label #voc/lstr "Malicious Code Attack@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/MaliciousCodeAttack],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MalwareAttack
   "Malware is software or firmware intended to perform an unauthorised process that will have an adverse impact on the confidentiality, integrity, or availability of a system"
@@ -2438,14 +2515,15 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Malware is software or firmware intended to perform an unauthorised process that will have an adverse impact on the confidentiality, integrity, or availability of a system",
+   #voc/lstr
+    "Malware is software or firmware intended to perform an unauthorised process that will have an adverse impact on the confidentiality, integrity, or availability of a system@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Malware Attack",
+   :rdfs/label #voc/lstr "Malware Attack@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/MalwareAttack],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MarkovAnalysis
   "Calculates the probability that a system that has the capacity to be in one of a number of states will be in a particular state at a time t in the future."
@@ -2453,15 +2531,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Calculates the probability that a system that has the capacity to be in one of a number of states will be in a particular state at a time t in the future.",
+   #voc/lstr
+    "Calculates the probability that a system that has the capacity to be in one of a number of states will be in a particular state at a time t in the future.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Markov Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Markov Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MisinformationDisinformation
   "Information that is untrue, misleading, or false and used intentionally (disinformation) or unintentionally (misinformation)"
@@ -2469,34 +2548,35 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Information that is untrue, misleading, or false and used intentionally (disinformation) or unintentionally (misinformation)",
+   #voc/lstr
+    "Information that is untrue, misleading, or false and used intentionally (disinformation) or unintentionally (misinformation)@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/enisa-threat-landscape-2021",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "MisinformationDisinformation",
+   :rdfs/label #voc/lstr "MisinformationDisinformation@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/MisinformationDisinformation],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MisuseBreachedInformation
   ""
   {:db/ident            :dpvo-risk/MisuseBreachedInformation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Misuse of Breached Information",
+   :rdfs/label          #voc/lstr "Misuse of Breached Information@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/MisuseBreachedInformation],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ModerateLikelihood
   "Level where Likelihood is Moderate"
   {:db/ident :dpvo-risk/ModerateLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Likelihood is Moderate",
+   :dcterms/description #voc/lstr "Level where Likelihood is Moderate@en",
    :rdf/type [:dpvo-risk/|5LikelihoodLevels|
               :dpvo/Likelihood
               :dpvo-risk/|3LikelihoodLevels|
@@ -2504,17 +2584,18 @@
               :owl/NamedIndividual],
    :rdf/value 0.5M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Likelihood",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Likelihood@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ModerateRisk
   "Level where Risk is Moderate"
   {:db/ident :dpvo-risk/ModerateRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Risk is Moderate",
+   :dcterms/description #voc/lstr "Level where Risk is Moderate@en",
    :rdf/type [:dpvo-risk/|3RiskLevels|
               :dpvo-risk/|7RiskLevels|
               :dpvo/RiskLevel
@@ -2522,17 +2603,18 @@
               :dpvo-risk/|5RiskLevels|],
    :rdf/value 0.5M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ModerateSeverity
   "Level where Severity is Moderate"
   {:db/ident :dpvo-risk/ModerateSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Severity is Moderate",
+   :dcterms/description #voc/lstr "Level where Severity is Moderate@en",
    :rdf/type [:dpvo/Severity
               :dpvo-risk/|5SeverityLevels|
               :dpvo-risk/|3SeverityLevels|
@@ -2540,94 +2622,98 @@
               :owl/NamedIndividual],
    :rdf/value 0.5M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Severity",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Severity@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def MonitorConsequence
   "Risk Control that monitors a Risk Consequence"
   {:db/ident            :dpvo-risk/MonitorConsequence,
    :dcterms/created     #inst "2022-09-03T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that monitors a Risk Consequence",
+   :dcterms/description #voc/lstr
+                         "Risk Control that monitors a Risk Consequence@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Monitor Consequence",
+   :rdfs/label          #voc/lstr "Monitor Consequence@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
                          :dpvo-risk/MonitorConsequence
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def MonitorImpact
   "Risk Control that monitors a Risk Impact"
   {:db/ident            :dpvo-risk/MonitorImpact,
    :dcterms/created     #inst "2022-09-04T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that monitors a Risk Impact",
+   :dcterms/description #voc/lstr "Risk Control that monitors a Risk Impact@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Monitor Impact",
+   :rdfs/label          #voc/lstr "Monitor Impact@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
                          :dpvo-risk/MonitorImpact
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def MonitorRisk
   "Risk Control that monitors a Risk"
   {:db/ident            :dpvo-risk/MonitorRisk,
    :dcterms/created     #inst "2022-08-31T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that monitors a Risk",
+   :dcterms/description #voc/lstr "Risk Control that monitors a Risk@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Monitor Risk",
+   :rdfs/label          #voc/lstr "Monitor Risk@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
                          :dpvo-risk/MonitorRisk
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def MonitorRiskControl
   "Risk Control that monitors another Risk Control"
   {:db/ident            :dpvo-risk/MonitorRiskControl,
    :dcterms/created     #inst "2022-09-05T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that monitors another Risk Control",
+   :dcterms/description #voc/lstr
+                         "Risk Control that monitors another Risk Control@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Monitor Risk Control",
+   :rdfs/label          #voc/lstr "Monitor Risk Control@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
                          :dpvo-risk/MonitorRiskControl
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def MonitorRiskSource
   "Risk Control that monitors a Risk Source"
   {:db/ident            :dpvo-risk/MonitorRiskSource,
    :dcterms/created     #inst "2022-09-01T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that monitors a Risk Source",
+   :dcterms/description #voc/lstr "Risk Control that monitors a Risk Source@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Monitor Risk Source",
+   :rdfs/label          #voc/lstr "Monitor Risk Source@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
                          :dpvo-risk/MonitorRiskSource
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def MonitorVulnerabilities
   "Risk Control that monitors a Risk Vulnerability"
   {:db/ident            :dpvo-risk/MonitorVulnerabilities,
    :dcterms/created     #inst "2022-09-02T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that monitors a Risk Vulnerability",
+   :dcterms/description #voc/lstr
+                         "Risk Control that monitors a Risk Vulnerability@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Monitor Vulnerabilities",
+   :rdfs/label          #voc/lstr "Monitor Vulnerabilities@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
                          :dpvo-risk/MonitorVulnerabilities
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def MonteCarloSimulation
   "Calculates the probability of outcomes by running multiple simulations using random variables."
@@ -2635,15 +2721,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Calculates the probability of outcomes by running multiple simulations using random variables.",
+   #voc/lstr
+    "Calculates the probability of outcomes by running multiple simulations using random variables.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Monte Carlo Simulation",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Monte Carlo Simulation@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def NIST-SP-800-30
   "NIST 800-30 is a free guide that provides a foundation for the development of an effective risk management programme, containing both the definitions and the practical guidance necessary for assessing and mitigating risks identified within IT systems"
@@ -2651,15 +2738,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "NIST 800-30 is a free guide that provides a foundation for the development of an effective risk management programme, containing both the definitions and the practical guidance necessary for assessing and mitigating risks identified within IT systems",
+   #voc/lstr
+    "NIST 800-30 is a free guide that provides a foundation for the development of an effective risk management programme, containing both the definitions and the practical guidance necessary for assessing and mitigating risks identified within IT systems@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "NIST SP 800-30",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "NIST SP 800-30@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def NIST-SP-800-37
   "NIST SP 800-37 Rev. 2 is an asset-based RMF which comprises 7 steps, namely Prepare, Categorise, Select, Implement, Assess, Authorise and Monitor. It does not adopt a specific risk assessment methodology, although the NIST 800-30 guide is extensively referenced"
@@ -2667,15 +2755,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "NIST SP 800-37 Rev. 2 is an asset-based RMF which comprises 7 steps, namely Prepare, Categorise, Select, Implement, Assess, Authorise and Monitor. It does not adopt a specific risk assessment methodology, although the NIST 800-30 guide is extensively referenced",
+   #voc/lstr
+    "NIST SP 800-37 Rev. 2 is an asset-based RMF which comprises 7 steps, namely Prepare, Categorise, Select, Implement, Assess, Authorise and Monitor. It does not adopt a specific risk assessment methodology, although the NIST 800-30 guide is extensively referenced@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "NIST SP 800-37",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "NIST SP 800-37@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def NIST-SP-800-39
   "The purpose of NIST SP 800-39 is to provide a structured, yet flexible approach for an integrated, enterprise-wide programme for managing the risk to information security of organisational operations (i.e. mission, functions, image, and reputation) and assets, individuals, other organisations etc. on an ongoing basis"
@@ -2683,15 +2772,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The purpose of NIST SP 800-39 is to provide a structured, yet flexible approach for an integrated, enterprise-wide programme for managing the risk to information security of organisational operations (i.e. mission, functions, image, and reputation) and assets, individuals, other organisations etc. on an ongoing basis",
+   #voc/lstr
+    "The purpose of NIST SP 800-39 is to provide a structured, yet flexible approach for an integrated, enterprise-wide programme for managing the risk to information security of organisational operations (i.e. mission, functions, image, and reputation) and assets, individuals, other organisations etc. on an ongoing basis@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "NIST SP 800–39",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "NIST SP 800–39@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def NIST-SP-800-82
   "NIST SP 800-82 Rev. 2 (Stouffer, et al., 2015), entitled ‘Guide to industrial control systems (ISC) security’, is an Industrial Control Systems Security Guide"
@@ -2699,15 +2789,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "NIST SP 800-82 Rev. 2 (Stouffer, et al., 2015), entitled ‘Guide to industrial control systems (ISC) security’, is an Industrial Control Systems Security Guide",
+   #voc/lstr
+    "NIST SP 800-82 Rev. 2 (Stouffer, et al., 2015), entitled ‘Guide to industrial control systems (ISC) security’, is an Industrial Control Systems Security Guide@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "NIST SP 800–82",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "NIST SP 800–82@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def NominalGroupTechnique
   "Technique for eliciting views from a group of people where initial participation is as individuals with no interaction, then group discussion of ideas follows."
@@ -2715,15 +2806,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Technique for eliciting views from a group of people where initial participation is as individuals with no interaction, then group discussion of ideas follows.",
+   #voc/lstr
+    "Technique for eliciting views from a group of people where initial participation is as individuals with no interaction, then group discussion of ideas follows.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Nominal Group Technique",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Nominal Group Technique@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def O-RA
   "The Open Group Standard for Risk Analysis (O-RA) provides a set of standards for various aspects of information security risk analysis that is based on the Open FAIR framework and can be applied to any risk scenario"
@@ -2731,15 +2823,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The Open Group Standard for Risk Analysis (O-RA) provides a set of standards for various aspects of information security risk analysis that is based on the Open FAIR framework and can be applied to any risk scenario",
+   #voc/lstr
+    "The Open Group Standard for Risk Analysis (O-RA) provides a set of standards for various aspects of information security risk analysis that is based on the Open FAIR framework and can be applied to any risk scenario@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "O-RA",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "O-RA@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def OCTAVE
   "Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE) is a free of charge approach to evaluations of information security risk that is comprehensive, systematic, context-driven, and self-directed"
@@ -2747,15 +2840,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE) is a free of charge approach to evaluations of information security risk that is comprehensive, systematic, context-driven, and self-directed",
+   #voc/lstr
+    "Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE) is a free of charge approach to evaluations of information security risk that is comprehensive, systematic, context-driven, and self-directed@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/risk-management-standards",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "OCTAVE",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "OCTAVE@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def OCTAVE-ALLEGRO
   "OCTAVE Allegro is designed to allow broad assessment of an organisation’s operational risk environment, with the goal of producing robust results without the need for extensive knowledge of risk assessment"
@@ -2763,15 +2857,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "OCTAVE Allegro is designed to allow broad assessment of an organisation’s operational risk environment, with the goal of producing robust results without the need for extensive knowledge of risk assessment",
+   #voc/lstr
+    "OCTAVE Allegro is designed to allow broad assessment of an organisation’s operational risk environment, with the goal of producing robust results without the need for extensive knowledge of risk assessment@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/RiskManagementMethodology
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "OCTAVE ALLEGRO",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "OCTAVE ALLEGRO@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def OCTAVE-FORTE
   "The OCTAVE FORTE process model was developed to support organisations in evaluating their security risks. It applies Enterprise Risk Management (ERM) principles to bridge the gap between executives and practitioners acting as decision makers"
@@ -2779,15 +2874,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The OCTAVE FORTE process model was developed to support organisations in evaluating their security risks. It applies Enterprise Risk Management (ERM) principles to bridge the gap between executives and practitioners acting as decision makers",
+   #voc/lstr
+    "The OCTAVE FORTE process model was developed to support organisations in evaluating their security risks. It applies Enterprise Risk Management (ERM) principles to bridge the gap between executives and practitioners acting as decision makers@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "OCTAVE FORTE",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "OCTAVE FORTE@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def OCTAVE-S
   "The OCTAVE-S is based on the OCTAVE approach and is a self-directed approach, meaning that people from an organisation assume responsibility for setting the organisation’s security strategy"
@@ -2795,28 +2891,29 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The OCTAVE-S is based on the OCTAVE approach and is a self-directed approach, meaning that people from an organisation assume responsibility for setting the organisation’s security strategy",
+   #voc/lstr
+    "The OCTAVE-S is based on the OCTAVE approach and is a self-directed approach, meaning that people from an organisation assume responsibility for setting the organisation’s security strategy@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type [:dpvo-risk/RiskManagementMethodology
               :owl/NamedIndividual
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "OCTAVE-S",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "OCTAVE-S@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def OrganisationDisruption
   ""
   {:db/ident            :dpvo-risk/OrganisationDisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Organisation Disruption",
+   :rdfs/label          #voc/lstr "Organisation Disruption@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/OrganisationDisruption],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PIA
   "Analyses how incidents and events could affect a person's privacy and identifies and quantifies the capabilities that would be needed to manage it."
@@ -2824,15 +2921,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Analyses how incidents and events could affect a person's privacy and identifies and quantifies the capabilities that would be needed to manage it.",
+   #voc/lstr
+    "Analyses how incidents and events could affect a person's privacy and identifies and quantifies the capabilities that would be needed to manage it.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Privacy Impact Analysis (PIA)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Privacy Impact Analysis (PIA)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ParetoCharts
   "The Pareto principle (the 80–20 rule) states that, for many events, roughly 80 % of the effects come from 20 % of the causes."
@@ -2840,42 +2938,43 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "The Pareto principle (the 80–20 rule) states that, for many events, roughly 80 % of the effects come from 20 % of the causes.",
+   #voc/lstr
+    "The Pareto principle (the 80–20 rule) states that, for many events, roughly 80 % of the effects come from 20 % of the causes.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Pareto Charts",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Pareto Charts@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def PersonalSafetyEndangerment
   ""
   {:db/ident            :dpvo-risk/PersonalSafetyEndangerment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Personal Safety Endangerment",
+   :rdfs/label          #voc/lstr "Personal Safety Endangerment@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/PersonalSafetyEndangerment],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PersonnelAbsence
   ""
   {:db/ident :dpvo-risk/PersonnelAbsence,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Personnel Absence",
+   :rdfs/label #voc/lstr "Personnel Absence@en",
    :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/PersonnelAbsence],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhishingScam
   "A type of social engineering attack involving deceptive messages intended to reveal sensitive information"
@@ -2883,106 +2982,107 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A type of social engineering attack involving deceptive messages intended to reveal sensitive information",
+   #voc/lstr
+    "A type of social engineering attack involving deceptive messages intended to reveal sensitive information@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-ransomware-attacks",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Phishing Scam",
+   :rdfs/label #voc/lstr "Phishing Scam@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/PhishingScam],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhysicalAssault
   ""
   {:db/ident            :dpvo-risk/PhysicalAssault,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Physical Assault",
+   :rdfs/label          #voc/lstr "Physical Assault@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/PhysicalAssault],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PhysicalSpying
   ""
   {:db/ident            :dpvo-risk/PhysicalSpying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Physical Spying",
+   :rdfs/label          #voc/lstr "Physical Spying@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/PhysicalSpying],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PhysicalStalking
   ""
   {:db/ident            :dpvo-risk/PhysicalStalking,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Physical Stalking",
+   :rdfs/label          #voc/lstr "Physical Stalking@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/PhysicalStalking],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PreventExercisingOfRights
   ""
   {:db/ident            :dpvo-risk/PreventExercisingOfRights,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Prevent Exercising of Rights",
+   :rdfs/label          #voc/lstr "Prevent Exercising of Rights@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/PreventExercisingOfRights],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PrivacyImpact
   ""
   {:db/ident :dpvo-risk/PrivacyImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Privacy impact",
+   :rdfs/label #voc/lstr "Privacy impact@en",
    :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/PrivacyImpact],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def PsychologicalHarm
   ""
   {:db/ident :dpvo-risk/PsychologicalHarm,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Psychological Harm",
+   :rdfs/label #voc/lstr "Psychological Harm@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/PsychologicalHarm],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def PublicOrderBreach
   ""
   {:db/ident            :dpvo-risk/PublicOrderBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Public Order Breach",
+   :rdfs/label          #voc/lstr "Public Order Breach@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/PublicOrderBreach],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def QualitativeRiskAssessmentTechnique
   "A risk assessment technique that uses qualitative methods"
@@ -2990,15 +3090,15 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A risk assessment technique that uses qualitative methods",
+   #voc/lstr "A risk assessment technique that uses qualitative methods@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Qualitative Risk Assessment Technique",
+   :rdfs/label #voc/lstr "Qualitative Risk Assessment Technique@en",
    :rdfs/subClassOf [:dpvo-risk/RiskAssessmentTechnique
                      :dpvo-risk/QualitativeRiskAssessmentTechnique
                      :dpvo/RiskManagementProcedure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def QuantitativeRiskAssessmentTechnique
   "A risk assessment technique that uses quantitative methods"
@@ -3006,15 +3106,15 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A risk assessment technique that uses quantitative methods",
+   #voc/lstr "A risk assessment technique that uses quantitative methods@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Quantitative Risk Assessment Technique",
+   :rdfs/label #voc/lstr "Quantitative Risk Assessment Technique@en",
    :rdfs/subClassOf [:dpvo-risk/RiskAssessmentTechnique
                      :dpvo-risk/QuantitativeRiskAssessmentTechnique
                      :dpvo/RiskManagementProcedure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S1L1
   "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low"
@@ -3022,7 +3122,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3030,8 +3131,8 @@
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.11M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM3x3 S:1 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM3x3 S:1 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S1L2
   "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Low"
@@ -3039,7 +3140,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3047,8 +3149,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
    :rdf/value 0.22M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM3x3 S:1 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM3x3 S:1 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S1L3
   "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: Moderate"
@@ -3056,7 +3158,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3064,8 +3167,8 @@
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.33M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM3x3 S:1 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM3x3 S:1 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S2L1
   "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Low"
@@ -3073,7 +3176,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3081,8 +3185,8 @@
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.22M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM3x3 S:2 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM3x3 S:2 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S2L2
   "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: Moderate"
@@ -3090,7 +3194,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3098,8 +3203,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
    :rdf/value 0.44M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM3x3 S:2 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM3x3 S:2 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S2L3
   "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High"
@@ -3107,7 +3212,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3115,8 +3221,8 @@
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.67M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM3x3 S:2 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM3x3 S:2 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S3L1
   "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate"
@@ -3124,7 +3230,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3132,8 +3239,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
    :rdf/value 0.33M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM3x3 S:3 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM3x3 S:3 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S3L2
   "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High"
@@ -3141,7 +3248,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3149,8 +3257,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
    :rdf/value 0.67M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM3x3 S:3 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM3x3 S:3 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM3x3S3L3
   "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: High"
@@ -3158,7 +3266,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: High",
+   #voc/lstr
+    "Node in a 3x3 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3166,8 +3275,8 @@
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 1,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM3x3 S:3 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM3x3 S:3 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S1L1
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryLow; and Risk Level: VeryLow"
@@ -3175,7 +3284,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryLow; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryLow; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3183,8 +3293,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.04M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM5x5 S:1 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:1 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S1L2
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: Low; and Risk Level: VeryLow"
@@ -3192,7 +3302,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: Low; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: Low; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3200,8 +3311,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.08M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM5x5 S:1 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:1 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S1L3
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: Moderate; and Risk Level: VeryLow"
@@ -3209,7 +3320,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: Moderate; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: Moderate; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3217,8 +3329,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.12M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM5x5 S:1 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:1 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S1L4
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: High; and Risk Level: Low"
@@ -3226,7 +3338,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: High; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: High; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3234,8 +3347,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.16M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM5x5 S:1 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM5x5 S:1 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S1L5
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryHigh; and Risk Level: Low"
@@ -3243,7 +3356,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryHigh; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryHigh; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3251,8 +3365,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.2M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM5x5 S:1 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM5x5 S:1 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S2L1
   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: VeryLow; and Risk Level: VeryLow"
@@ -3260,7 +3374,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: VeryLow; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: VeryLow; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3268,8 +3383,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.08M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM5x5 S:2 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:2 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S2L2
   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low"
@@ -3277,7 +3392,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3285,8 +3401,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.16M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM5x5 S:2 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM5x5 S:2 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S2L3
   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Moderate"
@@ -3294,7 +3410,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3302,8 +3419,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.24M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM5x5 S:2 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:2 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S2L4
   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: Moderate"
@@ -3311,7 +3428,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3319,8 +3437,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.32M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM5x5 S:2 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:2 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S2L5
   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: VeryHigh; and Risk Level: High"
@@ -3328,7 +3446,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: VeryHigh; and Risk Level: High",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Low; Likelihood: VeryHigh; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3336,8 +3455,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.4M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM5x5 S:2 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM5x5 S:2 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S3L1
   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryLow; and Risk Level: VeryLow"
@@ -3345,7 +3464,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryLow; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryLow; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3353,8 +3473,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.12M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM5x5 S:3 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:3 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S3L2
   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Moderate"
@@ -3362,7 +3482,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3370,8 +3491,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.24M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM5x5 S:3 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:3 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S3L3
   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: Moderate"
@@ -3379,7 +3500,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3387,8 +3509,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.36M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM5x5 S:3 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:3 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S3L4
   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High"
@@ -3396,7 +3518,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3404,8 +3527,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.48M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM5x5 S:3 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM5x5 S:3 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S3L5
   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryHigh; and Risk Level: VeryHigh"
@@ -3413,7 +3536,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryHigh; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryHigh; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3421,8 +3545,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.6M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM5x5 S:3 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:3 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S4L1
   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: VeryLow; and Risk Level: Low"
@@ -3430,7 +3554,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: VeryLow; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: VeryLow; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3438,8 +3563,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.16M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM5x5 S:4 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM5x5 S:4 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S4L2
   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate"
@@ -3447,7 +3572,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3455,8 +3581,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.32M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM5x5 S:4 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:4 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S4L3
   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High"
@@ -3464,7 +3590,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3472,8 +3599,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.48M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM5x5 S:4 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM5x5 S:4 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S4L4
   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: VeryHigh"
@@ -3481,7 +3608,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3489,8 +3617,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.64M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM5x5 S:4 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:4 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S4L5
   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: VeryHigh; and Risk Level: VeryHigh"
@@ -3498,7 +3626,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: VeryHigh; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: High; Likelihood: VeryHigh; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -3506,8 +3635,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.8M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM5x5 S:4 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:4 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S5L1
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryLow; and Risk Level: Low"
@@ -3515,7 +3644,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryLow; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryLow; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -3523,8 +3653,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.2M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM5x5 S:5 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM5x5 S:5 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S5L2
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Low; and Risk Level: High"
@@ -3532,7 +3662,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Low; and Risk Level: High",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Low; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -3540,8 +3671,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 0.4M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM5x5 S:5 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM5x5 S:5 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S5L3
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Moderate; and Risk Level: High"
@@ -3549,7 +3680,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Moderate; and Risk Level: High",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Moderate; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -3557,8 +3689,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.6M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM5x5 S:5 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM5x5 S:5 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S5L4
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: High; and Risk Level: VeryHigh"
@@ -3566,7 +3698,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: High; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: High; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -3574,8 +3707,8 @@
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.8M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM5x5 S:5 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:5 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM5x5S5L5
   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryHigh; and Risk Level: VeryHigh"
@@ -3583,7 +3716,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryHigh; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 5x5 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryHigh; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -3591,8 +3725,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
    :rdf/value 1,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM5x5 S:5 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:5 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S1L1
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow"
@@ -3600,7 +3734,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
@@ -3608,8 +3743,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.02M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk (RM7x7 S:1 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:1 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S1L2
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: VeryLow; and Risk Level: ExtremelyLow"
@@ -3617,7 +3752,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: VeryLow; and Risk Level: ExtremelyLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: VeryLow; and Risk Level: ExtremelyLow@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
@@ -3625,8 +3761,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.04M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk (RM7x7 S:1 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:1 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S1L3
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: Low; and Risk Level: ExtremelyLow"
@@ -3634,7 +3770,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: Low; and Risk Level: ExtremelyLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: Low; and Risk Level: ExtremelyLow@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
@@ -3642,8 +3779,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.06M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk (RM7x7 S:1 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:1 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S1L4
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: Moderate; and Risk Level: VeryLow"
@@ -3651,7 +3788,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: Moderate; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: Moderate; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
@@ -3659,8 +3797,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.08M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM7x7 S:1 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:1 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S1L5
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: High; and Risk Level: VeryLow"
@@ -3668,7 +3806,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: High; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: High; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
@@ -3676,8 +3815,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.1M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM7x7 S:1 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:1 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S1L6
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: VeryHigh; and Risk Level: VeryLow"
@@ -3685,7 +3824,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: VeryHigh; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: VeryHigh; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
@@ -3693,8 +3833,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.12M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM7x7 S:1 L:6)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:1 L:6)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S1L7
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: ExtremelyHigh; and Risk Level: Low"
@@ -3702,7 +3842,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: ExtremelyHigh; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyLow; Likelihood: ExtremelyHigh; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
@@ -3710,8 +3851,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.14M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM7x7 S:1 L:7)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM7x7 S:1 L:7)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S2L1
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow"
@@ -3719,7 +3860,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyLowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3727,8 +3869,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.04M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk (RM7x7 S:2 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:2 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S2L2
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryLow; and Risk Level: ExtremelyLow"
@@ -3736,7 +3878,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryLow; and Risk Level: ExtremelyLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryLow; and Risk Level: ExtremelyLow@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyLowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3744,8 +3887,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.08M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk (RM7x7 S:2 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:2 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S2L3
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: Low; and Risk Level: VeryLow"
@@ -3753,7 +3896,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: Low; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: Low; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3761,8 +3905,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.12M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM7x7 S:2 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:2 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S2L4
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: Moderate; and Risk Level: Low"
@@ -3770,7 +3914,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: Moderate; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: Moderate; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3778,8 +3923,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.16M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM7x7 S:2 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM7x7 S:2 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S2L5
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: High; and Risk Level: Low"
@@ -3787,7 +3932,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: High; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: High; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3795,8 +3941,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.2M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM7x7 S:2 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM7x7 S:2 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S2L6
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryHigh; and Risk Level: Moderate"
@@ -3804,7 +3950,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryHigh; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: VeryHigh; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3812,8 +3959,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.24M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM7x7 S:2 L:6)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:2 L:6)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S2L7
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: ExtremelyHigh; and Risk Level: Moderate"
@@ -3821,7 +3968,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: ExtremelyHigh; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryLow; Likelihood: ExtremelyHigh; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
@@ -3829,8 +3977,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.29M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM7x7 S:2 L:7)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:2 L:7)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S3L1
   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow"
@@ -3838,7 +3986,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyLowRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3846,8 +3995,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.06M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk (RM7x7 S:3 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:3 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S3L2
   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: VeryLow; and Risk Level: VeryLow"
@@ -3855,7 +4004,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: VeryLow; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: VeryLow; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3863,8 +4013,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.12M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM7x7 S:3 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:3 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S3L3
   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low"
@@ -3872,7 +4022,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: Low; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3880,8 +4031,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.18M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM7x7 S:3 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM7x7 S:3 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S3L4
   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Moderate"
@@ -3889,7 +4040,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: Moderate; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3897,8 +4049,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.24M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM7x7 S:3 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:3 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S3L5
   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: High"
@@ -3906,7 +4058,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: High",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: High; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3914,8 +4067,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.31M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM7x7 S:3 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM7x7 S:3 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S3L6
   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: VeryHigh; and Risk Level: High"
@@ -3923,7 +4076,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: VeryHigh; and Risk Level: High",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: VeryHigh; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3931,8 +4085,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.37M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM7x7 S:3 L:6)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM7x7 S:3 L:6)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S3L7
   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: ExtremelyHigh; and Risk Level: VeryHigh"
@@ -3940,7 +4094,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: ExtremelyHigh; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Low; Likelihood: ExtremelyHigh; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
@@ -3948,8 +4103,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.43M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM7x7 S:3 L:7)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:3 L:7)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S4L1
   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow"
@@ -3957,7 +4112,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: ExtremelyLow; and Risk Level: ExtremelyLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyLowRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3965,8 +4121,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.08M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely Low Risk (RM7x7 S:4 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:4 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S4L2
   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryLow; and Risk Level: Low"
@@ -3974,7 +4130,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryLow; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryLow; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3982,8 +4139,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.16M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM7x7 S:4 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM7x7 S:4 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S4L3
   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Moderate"
@@ -3991,7 +4148,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: Low; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -3999,8 +4157,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.24M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM7x7 S:4 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:4 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S4L4
   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: High"
@@ -4008,7 +4166,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: High",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: Moderate; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -4016,8 +4175,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.33M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM7x7 S:4 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM7x7 S:4 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S4L5
   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High"
@@ -4025,7 +4184,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: High; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -4033,8 +4193,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.41M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM7x7 S:4 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM7x7 S:4 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S4L6
   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryHigh; and Risk Level: VeryHigh"
@@ -4042,7 +4202,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryHigh; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: VeryHigh; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -4050,8 +4211,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.49M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM7x7 S:4 L:6)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:4 L:6)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S4L7
   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: ExtremelyHigh; and Risk Level: VeryHigh"
@@ -4059,7 +4220,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: ExtremelyHigh; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: Moderate; Likelihood: ExtremelyHigh; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
@@ -4067,8 +4229,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.57M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM7x7 S:4 L:7)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:4 L:7)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S5L1
   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: ExtremelyLow; and Risk Level: VeryLow"
@@ -4076,7 +4238,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: ExtremelyLow; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: ExtremelyLow; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -4084,8 +4247,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.1M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM7x7 S:5 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:5 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S5L2
   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: VeryLow; and Risk Level: Low"
@@ -4093,7 +4256,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: VeryLow; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: VeryLow; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -4101,8 +4265,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.2M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM7x7 S:5 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM7x7 S:5 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S5L3
   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate"
@@ -4110,7 +4274,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: Low; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -4118,8 +4283,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.31M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM7x7 S:5 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:5 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S5L4
   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High"
@@ -4127,7 +4292,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: Moderate; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -4135,8 +4301,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.41M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM7x7 S:5 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM7x7 S:5 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S5L5
   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: VeryHigh"
@@ -4144,7 +4310,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: High; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -4152,8 +4319,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.51M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM7x7 S:5 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:5 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S5L6
   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh"
@@ -4161,7 +4328,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyHighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -4169,8 +4337,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.61M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk (RM7x7 S:5 L:6)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:5 L:6)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S5L7
   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh"
@@ -4178,7 +4346,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: High; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyHighRisk,
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
@@ -4186,8 +4355,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.71M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk (RM7x7 S:5 L:7)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:5 L:7)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S6L1
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: ExtremelyLow; and Risk Level: VeryLow"
@@ -4195,7 +4364,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: ExtremelyLow; and Risk Level: VeryLow",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: ExtremelyLow; and Risk Level: VeryLow@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryLowRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -4203,8 +4373,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.12M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk (RM7x7 S:6 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:6 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S6L2
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryLow; and Risk Level: Moderate"
@@ -4212,7 +4382,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryLow; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryLow; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -4220,8 +4391,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.24M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM7x7 S:6 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:6 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S6L3
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Low; and Risk Level: High"
@@ -4229,7 +4400,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Low; and Risk Level: High",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Low; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -4237,8 +4409,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.37M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM7x7 S:6 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM7x7 S:6 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S6L4
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Moderate; and Risk Level: VeryHigh"
@@ -4246,7 +4418,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Moderate; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: Moderate; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -4254,8 +4427,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.49M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM7x7 S:6 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:6 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S6L5
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: High; and Risk Level: VeryHigh"
@@ -4263,7 +4436,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: High; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: High; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -4271,8 +4445,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.61M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM7x7 S:6 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:6 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S6L6
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh"
@@ -4280,7 +4454,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyHighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -4288,8 +4463,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.73M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk (RM7x7 S:6 L:6)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:6 L:6)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S6L7
   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh"
@@ -4297,7 +4472,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: VeryHigh; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyHighRisk,
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
@@ -4305,8 +4481,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.86M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk (RM7x7 S:6 L:7)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:6 L:7)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S7L1
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: ExtremelyLow; and Risk Level: Low"
@@ -4314,7 +4490,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: ExtremelyLow; and Risk Level: Low",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: ExtremelyLow; and Risk Level: Low@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/LowRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
@@ -4322,8 +4499,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.14M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Low Risk (RM7x7 S:7 L:1)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Low Risk (RM7x7 S:7 L:1)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S7L2
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: VeryLow; and Risk Level: Moderate"
@@ -4331,7 +4508,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: VeryLow; and Risk Level: Moderate",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: VeryLow; and Risk Level: Moderate@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryLowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ModerateRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
@@ -4339,8 +4517,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.29M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Moderate Risk (RM7x7 S:7 L:2)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:7 L:2)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S7L3
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: Low; and Risk Level: High"
@@ -4348,7 +4526,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: Low; and Risk Level: High",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: Low; and Risk Level: High@en",
    :dpvo/hasLikelihood :dpvo-risk/LowLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/HighRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
@@ -4356,8 +4535,8 @@
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
    :rdf/value 0.43M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "High Risk (RM7x7 S:7 L:3)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "High Risk (RM7x7 S:7 L:3)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S7L4
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: Moderate; and Risk Level: VeryHigh"
@@ -4365,7 +4544,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: Moderate; and Risk Level: VeryHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: Moderate; and Risk Level: VeryHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/ModerateLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/VeryHighRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
@@ -4373,8 +4553,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.57M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk (RM7x7 S:7 L:4)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:7 L:4)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S7L5
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: High; and Risk Level: ExtremelyHigh"
@@ -4382,7 +4562,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: High; and Risk Level: ExtremelyHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: High; and Risk Level: ExtremelyHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/HighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyHighRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
@@ -4390,8 +4571,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.71M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk (RM7x7 S:7 L:5)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:7 L:5)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S7L6
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh"
@@ -4399,7 +4580,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: VeryHigh; and Risk Level: ExtremelyHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/VeryHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyHighRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
@@ -4407,8 +4589,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 0.86M,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk (RM7x7 S:7 L:6)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:7 L:6)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RM7x7S7L7
   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh"
@@ -4416,7 +4598,8 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh",
+   #voc/lstr
+    "Node in a 7x7 Risk Matrix with Risk Severity: ExtremelyHigh; Likelihood: ExtremelyHigh; and Risk Level: ExtremelyHigh@en",
    :dpvo/hasLikelihood :dpvo-risk/ExtremelyHighLikelihood,
    :dpvo/hasRiskLevel :dpvo-risk/ExtremelyHighRisk,
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
@@ -4424,8 +4607,8 @@
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
    :rdf/value 1,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Extremely High Risk (RM7x7 S:7 L:7)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:7 L:7)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RansomwareAttack
   "Ransomware is a type of attack where threat actors take control of a target’s assets and demand a ransom in exchange for the return of the asset’s availability and confidentiality"
@@ -4433,40 +4616,42 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Ransomware is a type of attack where threat actors take control of a target’s assets and demand a ransom in exchange for the return of the asset’s availability and confidentiality",
+   #voc/lstr
+    "Ransomware is a type of attack where threat actors take control of a target’s assets and demand a ransom in exchange for the return of the asset’s availability and confidentiality@en",
    :dcterms/source
    ["https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-ransomware-attacks"
     "https://www.iso.org/standard/75281.html"],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "RansomwareAttack",
+   :rdfs/label #voc/lstr "RansomwareAttack@en",
    :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/RansomwareAttack],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ReduceLikelihood
   "Risk Control that reduces the likelihood of an event"
-  {:db/ident            :dpvo-risk/ReduceLikelihood,
-   :dcterms/created     #inst "2022-08-22T00:00:00.000-04:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that reduces the likelihood of an event",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Reduce Likelihood",
-   :rdfs/subClassOf     [:dpvo/RiskMitigationMeasure
-                         :dpvo-risk/ReduceLikelihood],
-   :vs/term_status      "accepted"})
+  {:db/ident :dpvo-risk/ReduceLikelihood,
+   :dcterms/created #inst "2022-08-22T00:00:00.000-04:00",
+   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/description
+   #voc/lstr "Risk Control that reduces the likelihood of an event@en",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
+   :rdfs/label #voc/lstr "Reduce Likelihood@en",
+   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ReduceLikelihood],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ReduceSeverity
   "Risk Control that reduces the severity of an event"
-  {:db/ident            :dpvo-risk/ReduceSeverity,
-   :dcterms/created     #inst "2022-08-23T00:00:00.000-04:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that reduces the severity of an event",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Reduce Severity",
-   :rdfs/subClassOf     [:dpvo/RiskMitigationMeasure :dpvo-risk/ReduceSeverity],
-   :vs/term_status      "accepted"})
+  {:db/ident :dpvo-risk/ReduceSeverity,
+   :dcterms/created #inst "2022-08-23T00:00:00.000-04:00",
+   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/description
+   #voc/lstr "Risk Control that reduces the severity of an event@en",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
+   :rdfs/label #voc/lstr "Reduce Severity@en",
+   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ReduceSeverity],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ReliabilityCentredMaintenance
   "A risk based assessment used to identify the appropriate maintenance tasks for a system and its components."
@@ -4474,7 +4659,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A risk based assessment used to identify the appropriate maintenance tasks for a system and its components.",
+   #voc/lstr
+    "A risk based assessment used to identify the appropriate maintenance tasks for a system and its components.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
@@ -4482,21 +4668,21 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Reliability Centred Maintenance",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Reliability Centred Maintenance@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RemoteSpying
   ""
   {:db/ident            :dpvo-risk/RemoteSpying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Remote Spying",
+   :rdfs/label          #voc/lstr "Remote Spying@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/RemoteSpying],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def RemoveConsequence
   "Risk Control that removes Consequence i.e. prevents it from materialising"
@@ -4504,14 +4690,15 @@
    :dcterms/created #inst "2022-08-27T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Risk Control that removes Consequence i.e. prevents it from materialising",
+   #voc/lstr
+    "Risk Control that removes Consequence i.e. prevents it from materialising@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Remove Consequence",
+   :rdfs/label #voc/lstr "Remove Consequence@en",
    :rdfs/subClassOf [:dpvo-risk/ControlConsequence
                      :dpvo-risk/RemoveConsequence
                      :dpvo/RiskMitigationMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RemoveImpact
   "Risk Control that removes Impact i.e. prevents it from materialising"
@@ -4519,82 +4706,84 @@
    :dcterms/created #inst "2022-08-28T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Risk Control that removes Impact i.e. prevents it from materialising",
+   #voc/lstr
+    "Risk Control that removes Impact i.e. prevents it from materialising@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Remove Impact",
+   :rdfs/label #voc/lstr "Remove Impact@en",
    :rdfs/subClassOf [:dpvo-risk/ControlConsequence
                      :dpvo-risk/RemoveImpact
                      :dpvo/RiskMitigationMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RemoveSource
   "Risk Control that removes the risk source"
   {:db/ident            :dpvo-risk/RemoveSource,
    :dcterms/created     #inst "2022-08-20T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Risk Control that removes the risk source",
+   :dcterms/description #voc/lstr
+                         "Risk Control that removes the risk source@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Remove Source",
+   :rdfs/label          #voc/lstr "Remove Source@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlRiskSource
                          :dpvo-risk/RemoveSource
                          :dpvo/RiskMitigationMeasure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ReplacementCosts
   ""
   {:db/ident            :dpvo-risk/ReplacementCosts,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Replacement Costs",
+   :rdfs/label          #voc/lstr "Replacement Costs@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ReplacementCosts],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ReputationTrustImpact
   ""
   {:db/ident :dpvo-risk/ReputationTrustImpact,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Reputation and trust impact",
+   :rdfs/label #voc/lstr "Reputation and trust impact@en",
    :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/ReputationTrustImpact],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RetrievalDeletedData
   ""
   {:db/ident            :dpvo-risk/RetrievalDeletedData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Retrieval of Deleted Data",
+   :rdfs/label          #voc/lstr "Retrieval of Deleted Data@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/RetrievalDeletedData],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def RetrievalDiscardedEquipment
   ""
   {:db/ident            :dpvo-risk/RetrievalDiscardedEquipment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Retrieval of Discarded Equipment",
+   :rdfs/label          #voc/lstr "Retrieval of Discarded Equipment@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/RetrievalDiscardedEquipment],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def RiskAssessmentTechnique
   "A technique or method used to analyse and identify risk levels, sources, likelihoods, severities, and other necessary information required to conduct risk management procedures"
@@ -4602,14 +4791,15 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A technique or method used to analyse and identify risk levels, sources, likelihoods, severities, and other necessary information required to conduct risk management procedures",
+   #voc/lstr
+    "A technique or method used to analyse and identify risk levels, sources, likelihoods, severities, and other necessary information required to conduct risk management procedures@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Assessment Technique",
+   :rdfs/label #voc/lstr "Risk Assessment Technique@en",
    :rdfs/subClassOf [:dpvo/RiskManagementProcedure
                      :dpvo-risk/RiskAssessmentTechnique],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskIndices
   "Rates the significance of risks based on ratings applied to factors which are believed to influence the magnitude of the risk."
@@ -4617,15 +4807,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Rates the significance of risks based on ratings applied to factors which are believed to influence the magnitude of the risk.",
+   #voc/lstr
+    "Rates the significance of risks based on ratings applied to factors which are believed to influence the magnitude of the risk.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Indices",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Risk Indices@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskManagementMethodology
   "A risk management framework or methodology addresses the main functional components related to identification, assessment, treatment, and monitoring regarding risks"
@@ -4633,15 +4824,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A risk management framework or methodology addresses the main functional components related to identification, assessment, treatment, and monitoring regarding risks",
+   #voc/lstr
+    "A risk management framework or methodology addresses the main functional components related to identification, assessment, treatment, and monitoring regarding risks@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/compendium-of-risk-management-frameworks",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Management Methodology",
+   :rdfs/label #voc/lstr "Risk Management Methodology@en",
    :rdfs/subClassOf [:dpvo/RiskManagementProcedure
                      :dpvo-risk/RiskManagementMethodology],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix
   "Compares individual risks by selecting a consequence/ likelihood pair and displaying them on a matrix with consequence on one axis and likelihood on the other."
@@ -4649,7 +4841,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Compares individual risks by selecting a consequence/ likelihood pair and displaying them on a matrix with consequence on one axis and likelihood on the other.",
+   #voc/lstr
+    "Compares individual risks by selecting a consequence/ likelihood pair and displaying them on a matrix with consequence on one axis and likelihood on the other.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
@@ -4657,9 +4850,9 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Matrix",
+   :rdfs/label #voc/lstr "Risk Matrix@en",
    :rdfs/subClassOf :dpvo-risk/RiskMatrix,
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix3x3
   "A Risk Matrix with 3 Likelihood, 3 Severity, and 3 Risk Level types"
@@ -4667,12 +4860,13 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A Risk Matrix with 3 Likelihood, 3 Severity, and 3 Risk Level types",
+   #voc/lstr
+    "A Risk Matrix with 3 Likelihood, 3 Severity, and 3 Risk Level types@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Matrix 3x3",
+   :rdfs/label #voc/lstr "Risk Matrix 3x3@en",
    :rdfs/subClassOf [:dpvo-risk/RiskMatrix :dpvo-risk/RiskMatrix3x3],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix5x5
   "A Risk Matrix with 5 Likelihood, 5 Severity, and 5 Risk Level types"
@@ -4680,12 +4874,13 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A Risk Matrix with 5 Likelihood, 5 Severity, and 5 Risk Level types",
+   #voc/lstr
+    "A Risk Matrix with 5 Likelihood, 5 Severity, and 5 Risk Level types@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Matrix 5x5",
+   :rdfs/label #voc/lstr "Risk Matrix 5x5@en",
    :rdfs/subClassOf [:dpvo-risk/RiskMatrix :dpvo-risk/RiskMatrix5x5],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix7x7
   "A Risk Matrix with 7 Likelihood, 7 Severity, and 7 Risk Level types"
@@ -4693,12 +4888,13 @@
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A Risk Matrix with 7 Likelihood, 7 Severity, and 7 Risk Level types",
+   #voc/lstr
+    "A Risk Matrix with 7 Likelihood, 7 Severity, and 7 Risk Level types@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Matrix 7x7",
+   :rdfs/label #voc/lstr "Risk Matrix 7x7@en",
    :rdfs/subClassOf [:dpvo-risk/RiskMatrix :dpvo-risk/RiskMatrix7x7],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskRegisters
   "A means of recording information about risks and tracking actions."
@@ -4706,15 +4902,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A means of recording information about risks and tracking actions.",
+   #voc/lstr
+    "A means of recording information about risks and tracking actions.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Risk Registers",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Risk Registers@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SCurves
   "A means of displaying the relationship between consequences and their likelihood plotted as a cumulative distribution function (S-curve)."
@@ -4722,15 +4919,16 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A means of displaying the relationship between consequences and their likelihood plotted as a cumulative distribution function (S-curve).",
+   #voc/lstr
+    "A means of displaying the relationship between consequences and their likelihood plotted as a cumulative distribution function (S-curve).@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "S-curves",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "S-curves@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SFAIRP
   "So far as is Resonably Practiceable (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk"
@@ -4738,7 +4936,8 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "So far as is Resonably Practiceable (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk",
+   #voc/lstr
+    "So far as is Resonably Practiceable (ALARP) - A criteria for deciding significance of risk and means of evaluating tolerability of risk@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
@@ -4746,8 +4945,8 @@
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "SFAIRP",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "SFAIRP@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SWIFT
   "A simpler form of HAZOP with prompts of \"what if\" to identify deviations from the expected."
@@ -4755,42 +4954,43 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A simpler form of HAZOP with prompts of \"what if\" to identify deviations from the expected.",
+   #voc/lstr
+    "A simpler form of HAZOP with prompts of \"what if\" to identify deviations from the expected.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Structured \"What If?\" (SWIFT)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Structured \"What If?\" (SWIFT)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Sabotage
   ""
   {:db/ident :dpvo-risk/Sabotage,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Sabotage",
+   :rdfs/label #voc/lstr "Sabotage@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Sabotage],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Scam
   ""
   {:db/ident            :dpvo-risk/Scam,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Scam",
+   :rdfs/label          #voc/lstr "Scam@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Scam],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ScenarioAnalysis
   "Identifies possible future scenarios through imagination, extrapolation from the present or modelling. Risk is then considered for each of these scenarios."
@@ -4798,55 +4998,56 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Identifies possible future scenarios through imagination, extrapolation from the present or modelling. Risk is then considered for each of these scenarios.",
+   #voc/lstr
+    "Identifies possible future scenarios through imagination, extrapolation from the present or modelling. Risk is then considered for each of these scenarios.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Scenario Analysis",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Scenario Analysis@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SecurityBreach
   ""
   {:db/ident            :dpvo-risk/SecurityBreach,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Security Breach",
+   :rdfs/label          #voc/lstr "Security Breach@en",
    :rdfs/subClassOf     [:dpvo/Consequence :dpvo-risk/SecurityBreach],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ServiceInterruption
   ""
   {:db/ident            :dpvo-risk/ServiceInterruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Service Interruption",
+   :rdfs/label          #voc/lstr "Service Interruption@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ServiceInterruption],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def SexualViolence
   ""
   {:db/ident :dpvo-risk/SexualViolence,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Sexual Violence",
+   :rdfs/label #voc/lstr "Sexual Violence@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/SexualViolence],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ShareRisk
   "Risk Mitigation Measure that shares Risk e.g. amongst stakeholders"
@@ -4854,77 +5055,78 @@
    :dcterms/created #inst "2022-08-29T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Risk Mitigation Measure that shares Risk e.g. amongst stakeholders",
+   #voc/lstr
+    "Risk Mitigation Measure that shares Risk e.g. amongst stakeholders@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Share Risk",
+   :rdfs/label #voc/lstr "Share Risk@en",
    :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ShareRisk],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SocialDisadvantage
   ""
   {:db/ident            :dpvo-risk/SocialDisadvantage,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Social Disadvantage",
+   :rdfs/label          #voc/lstr "Social Disadvantage@en",
    :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/SocialDisadvantage],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Spam
   ""
   {:db/ident :dpvo-risk/Spam,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Spam",
+   :rdfs/label #voc/lstr "Spam@en",
    :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Spam],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Spoofing
   ""
   {:db/ident            :dpvo-risk/Spoofing,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Spoofing",
+   :rdfs/label          #voc/lstr "Spoofing@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Spoofing],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Spying
   ""
   {:db/ident            :dpvo-risk/Spying,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Spying",
+   :rdfs/label          #voc/lstr "Spying@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/Spying],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Stalking
   ""
   {:db/ident            :dpvo-risk/Stalking,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Stalking",
+   :rdfs/label          #voc/lstr "Stalking@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/Stalking],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Surveys
   "Paper- or computer-based questionnaires to elicit views."
@@ -4932,56 +5134,56 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Paper- or computer-based questionnaires to elicit views.",
+   #voc/lstr "Paper- or computer-based questionnaires to elicit views.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Surveys",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Surveys@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SystemFailure
   ""
   {:db/ident :dpvo-risk/SystemFailure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-ransomware-attacks",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "System Failure",
+   :rdfs/label #voc/lstr "System Failure@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/SystemFailure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SystemIntrusion
   ""
   {:db/ident :dpvo-risk/SystemIntrusion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "System Intrusion",
+   :rdfs/label #voc/lstr "System Intrusion@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/SystemIntrusion],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SystemMalfunction
   ""
   {:db/ident            :dpvo-risk/SystemMalfunction,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "System Malfunction",
+   :rdfs/label          #voc/lstr "System Malfunction@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/SystemMalfunction],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Taxonomies
   "A taxonomy based on experience or on concepts and models that can be used to help identify risks or controls."
@@ -4989,81 +5191,82 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A taxonomy based on experience or on concepts and models that can be used to help identify risks or controls.",
+   #voc/lstr
+    "A taxonomy based on experience or on concepts and models that can be used to help identify risks or controls.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcedure],
+              :dpvo/RiskManagementProcedure
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Taxonomies",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Taxonomies@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Terrorism
   ""
   {:db/ident            :dpvo-risk/Terrorism,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Terrorism",
+   :rdfs/label          #voc/lstr "Terrorism@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Terrorism],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Theft
   ""
   {:db/ident            :dpvo-risk/Theft,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Theft",
+   :rdfs/label          #voc/lstr "Theft@en",
    :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/Theft],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def TheftEquipment
   ""
   {:db/ident            :dpvo-risk/TheftEquipment,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Theft of Equipment",
+   :rdfs/label          #voc/lstr "Theft of Equipment@en",
    :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/TheftEquipment],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def TheftMedia
   ""
   {:db/ident            :dpvo-risk/TheftMedia,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Theft of Media",
+   :rdfs/label          #voc/lstr "Theft of Media@en",
    :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/TheftMedia],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ThirdPartyOperationDisruption
   ""
   {:db/ident            :dpvo-risk/ThirdPartyOperationDisruption,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Third Party Operation Disruption",
+   :rdfs/label          #voc/lstr "Third Party Operation Disruption@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/ThirdPartyOperationDisruption],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Toxicological
   "A series of steps taken to obtain a measure for the risk to humans or ecological systems due to exposure to chemicals."
@@ -5071,249 +5274,250 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "A series of steps taken to obtain a measure for the risk to humans or ecological systems due to exposure to chemicals.",
+   #voc/lstr
+    "A series of steps taken to obtain a measure for the risk to humans or ecological systems due to exposure to chemicals.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Toxicological Risk Assessment",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Toxicological Risk Assessment@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedAccesstoPremises
   ""
   {:db/ident            :dpvo-risk/UnauthorisedAccesstoPremises,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unauthorised Access to Premises",
+   :rdfs/label          #voc/lstr "Unauthorised Access to Premises@en",
    :rdfs/subClassOf     [:dpvo/Detriment
                          :dpvo-risk/UnauthorisedAccesstoPremises],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedCodeAccess
   ""
   {:db/ident :dpvo-risk/UnauthorisedCodeAccess,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unauthorised Code Access",
+   :rdfs/label #voc/lstr "Unauthorised Code Access@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnauthorisedCodeAccess],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedCodeDisclosure
   ""
   {:db/ident :dpvo-risk/UnauthorisedCodeDisclosure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unauthorised Code Disclosure",
+   :rdfs/label #voc/lstr "Unauthorised Code Disclosure@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnauthorisedCodeDisclosure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedCodeModification
   ""
   {:db/ident :dpvo-risk/UnauthorisedCodeModification,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unauthorised Code Modification",
+   :rdfs/label #voc/lstr "Unauthorised Code Modification@en",
    :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/UnauthorisedCodeModification],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedDataAccess
   ""
   {:db/ident :dpvo-risk/UnauthorisedDataAccess,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unauthorised Data Access",
+   :rdfs/label #voc/lstr "Unauthorised Data Access@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnauthorisedDataAccess],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedDataDisclosure
   ""
   {:db/ident            :dpvo-risk/UnauthorisedDataDisclosure,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unauthorised Data Disclosure",
+   :rdfs/label          #voc/lstr "Unauthorised Data Disclosure@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnauthorisedDataDisclosure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedDataModification
   ""
   {:db/ident :dpvo-risk/UnauthorisedDataModification,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unauthorised Data Modification",
+   :rdfs/label #voc/lstr "Unauthorised Data Modification@en",
    :rdfs/subClassOf [:dpvo/NonMaterialDamage
                      :dpvo-risk/UnauthorisedDataModification],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedImpersonation
   ""
   {:db/ident            :dpvo-risk/UnauthorisedImpersonation,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unauthorised Impersonation",
+   :rdfs/label          #voc/lstr "Unauthorised Impersonation@en",
    :rdfs/subClassOf     [:dpvo/NonMaterialDamage
                          :dpvo-risk/UnauthorisedImpersonation],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedInformationDisclosure
   ""
   {:db/ident :dpvo-risk/UnauthorisedInformationDisclosure,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unauthorised Information Disclosure",
+   :rdfs/label #voc/lstr "Unauthorised Information Disclosure@en",
    :rdfs/subClassOf [:dpvo/Detriment
                      :dpvo-risk/UnauthorisedInformationDisclosure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedReIdentification
   ""
   {:db/ident            :dpvo-risk/UnauthorisedReIdentification,
    :dcterms/created     #inst "2022-08-19T00:00:00.000-04:00",
    :dcterms/creator     "Georg P Krog",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unauthorised Re-Identification",
+   :rdfs/label          #voc/lstr "Unauthorised Re-Identification@en",
    :rdfs/subClassOf     [:dpvo/Consequence
                          :dpvo-risk/UnauthorisedReIdentification],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedResourceUse
   ""
   {:db/ident            :dpvo-risk/UnauthorisedResourceUse,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unauthorised Resource Use",
+   :rdfs/label          #voc/lstr "Unauthorised Resource Use@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnauthorisedResourceUse],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedSystemAccess
   ""
   {:db/ident            :dpvo-risk/UnauthorisedSystemAccess,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unauthorised System Access",
+   :rdfs/label          #voc/lstr "Unauthorised System Access@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnauthorisedSystemAccess],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedSystemModification
   ""
   {:db/ident :dpvo-risk/UnauthorisedSystemModification,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unauthorised System Modification",
+   :rdfs/label #voc/lstr "Unauthorised System Modification@en",
    :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/UnauthorisedSystemModification],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnknownVulnerabilityExploited
   ""
   {:db/ident :dpvo-risk/UnknownVulnerabilityExploited,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unknown Vulnerability Exploited",
+   :rdfs/label #voc/lstr "Unknown Vulnerability Exploited@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnknownVulnerabilityExploited],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnwantedCodeDeletion
   ""
   {:db/ident :dpvo-risk/UnwantedCodeDeletion,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/methodology-for-a-sectoral-cybersecurity-assessment",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Unwanted Code Deletion",
+   :rdfs/label #voc/lstr "Unwanted Code Deletion@en",
    :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/UnwantedCodeDeletion],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnwantedDataDeletion
   ""
   {:db/ident            :dpvo-risk/UnwantedDataDeletion,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unwanted Data Deletion",
+   :rdfs/label          #voc/lstr "Unwanted Data Deletion@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/UnwantedDataDeletion],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnwantedDisclosureData
   ""
   {:db/ident            :dpvo-risk/UnwantedDisclosureData,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Unwanted Disclosure of Data",
+   :rdfs/label          #voc/lstr "Unwanted Disclosure of Data@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnwantedDisclosureData],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VaR
   "Financial measure of risk that uses an assumed probability distribution of losses in a stable market condition to calculate the value of a loss that might occur with a specified probability within a defined time span."
@@ -5321,273 +5525,283 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Financial measure of risk that uses an assumed probability distribution of losses in a stable market condition to calculate the value of a loss that might occur with a specified probability within a defined time span.",
+   #voc/lstr
+    "Financial measure of risk that uses an assumed probability distribution of losses in a stable market condition to calculate the value of a loss that might occur with a specified probability within a defined time span.@en",
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/RiskAssessmentTechnique
               :dpvo/RiskManagementProcedure],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Value At Risk (VaR)",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Value At Risk (VaR)@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def Vandalism
   ""
   {:db/ident :dpvo-risk/Vandalism,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/threat-taxonomy/view",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Vandalism",
+   :rdfs/label #voc/lstr "Vandalism@en",
    :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/Vandalism],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def VeryHighLikelihood
   "Level where Likelihood is Very High"
   {:db/ident :dpvo-risk/VeryHighLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Likelihood is Very High",
+   :dcterms/description #voc/lstr "Level where Likelihood is Very High@en",
    :rdf/type [:dpvo-risk/|7LikelihoodLevels|
               :dpvo-risk/|5LikelihoodLevels|
               :owl/NamedIndividual
               :dpvo/Likelihood],
    :rdf/value 0.9M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Likelihood",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Likelihood@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def VeryHighRisk
   "Level where Risk is Very High"
   {:db/ident :dpvo-risk/VeryHighRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Risk is Very High",
+   :dcterms/description #voc/lstr "Level where Risk is Very High@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/|7RiskLevels|
               :dpvo/RiskLevel
               :dpvo-risk/|5RiskLevels|],
    :rdf/value 0.9M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def VeryHighSeverity
   "Level where Severity is Very High"
   {:db/ident :dpvo-risk/VeryHighSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Severity is Very High",
+   :dcterms/description #voc/lstr "Level where Severity is Very High@en",
    :rdf/type [:dpvo-risk/|7SeverityLevels|
               :dpvo/Severity
               :dpvo-risk/|5SeverityLevels|
               :owl/NamedIndividual],
    :rdf/value 0.9M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very High Severity",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very High Severity@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def VeryLowLikelihood
   "Level where Likelihood is Very Low"
   {:db/ident :dpvo-risk/VeryLowLikelihood,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Likelihood is Very Low",
+   :dcterms/description #voc/lstr "Level where Likelihood is Very Low@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/|7LikelihoodLevels|
               :dpvo-risk/|5LikelihoodLevels|
               :dpvo/Likelihood],
    :rdf/value 0.1M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Likelihood",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Likelihood@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def VeryLowRisk
   "Level where Risk is Very Low"
   {:db/ident :dpvo-risk/VeryLowRisk,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Risk is Very Low",
+   :dcterms/description #voc/lstr "Level where Risk is Very Low@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/|7RiskLevels|
               :dpvo/RiskLevel
               :dpvo-risk/|5RiskLevels|],
    :rdf/value 0.1M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def VeryLowSeverity
   "Level where Severity is Very Low"
   {:db/ident :dpvo-risk/VeryLowSeverity,
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "Level where Severity is Very Low",
+   :dcterms/description #voc/lstr "Level where Severity is Very Low@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo/Severity
               :dpvo-risk/|5SeverityLevels|
               :dpvo-risk/|7SeverityLevels|],
    :rdf/value 0.1M,
    :rdfs/comment
-   "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1",
+   #voc/lstr
+    "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Very Low Severity",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "Very Low Severity@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ViolationCodeConduct
   ""
   {:db/ident            :dpvo-risk/ViolationCodeConduct,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Violation of Code of Conduct",
+   :rdfs/label          #voc/lstr "Violation of Code of Conduct@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/ViolationCodeConduct],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationContractualObligations
   ""
   {:db/ident            :dpvo-risk/ViolationContractualObligations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Violation of Contractual Obligations",
+   :rdfs/label          #voc/lstr "Violation of Contractual Obligations@en",
    :rdfs/subClassOf     [:dpvo/Damage
                          :dpvo-risk/ViolationContractualObligations],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationEthicalCode
   ""
   {:db/ident            :dpvo-risk/ViolationEthicalCode,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Violation of Ethical Code",
+   :rdfs/label          #voc/lstr "Violation of Ethical Code@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/ViolationEthicalCode],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationOfRights
   ""
   {:db/ident            :dpvo-risk/ViolationOfRights,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Violation of Rights",
+   :rdfs/label          #voc/lstr "Violation of Rights@en",
    :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/ViolationOfRights],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationRegulatoryObligations
   ""
   {:db/ident            :dpvo-risk/ViolationRegulatoryObligations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Violation of Regulatory Obligations",
+   :rdfs/label          #voc/lstr "Violation of Regulatory Obligations@en",
    :rdfs/subClassOf     [:dpvo/Damage
                          :dpvo-risk/ViolationRegulatoryObligations],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationStatutoryObligations
   ""
   {:db/ident            :dpvo-risk/ViolationStatutoryObligations,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Violation of Statutory Obligations",
+   :rdfs/label          #voc/lstr "Violation of Statutory Obligations@en",
    :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/ViolationStatutoryObligations],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VulnerabilityCreated
   ""
   {:db/ident            :dpvo-risk/VulnerabilityCreated,
    :dcterms/created     #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source      "https://www.iso.org/standard/75281.html",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "Vulnerability Created",
+   :rdfs/label          #voc/lstr "Vulnerability Created@en",
    :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/VulnerabilityCreated],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VulnerabilityExploited
   ""
   {:db/ident :dpvo-risk/VulnerabilityExploited,
    :dcterms/created #inst "2022-08-17T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
-   :dcterms/description "",
+   :dcterms/description #voc/lstr "@en",
    :dcterms/source
    "https://www.enisa.europa.eu/publications/reference-incident-classification-taxonomy/",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "Vulnerability Exploited",
+   :rdfs/label #voc/lstr "Vulnerability Exploited@en",
    :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/VulnerabilityExploited],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def |3LikelihoodLevels|
   "Scale with 3 Likelihood Levels from High to Low"
   {:db/ident            :dpvo-risk/|3LikelihoodLevels|,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Scale with 3 Likelihood Levels from High to Low",
+   :dcterms/description #voc/lstr
+                         "Scale with 3 Likelihood Levels from High to Low@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "3 Likelihood Levels",
+   :rdfs/label          #voc/lstr "3 Likelihood Levels@en",
    :rdfs/subClassOf     [:dpvo/Likelihood :dpvo-risk/|3LikelihoodLevels|],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def |3RiskLevels|
   "Scale with 3 Risk Levels from High to Low"
   {:db/ident            :dpvo-risk/|3RiskLevels|,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Scale with 3 Risk Levels from High to Low",
+   :dcterms/description #voc/lstr
+                         "Scale with 3 Risk Levels from High to Low@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "3 Risk Levels",
+   :rdfs/label          #voc/lstr "3 Risk Levels@en",
    :rdfs/subClassOf     [:dpvo/RiskLevel :dpvo-risk/|3RiskLevels|],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def |3SeverityLevels|
   "Scale with 3 Severity Levels from High to Low"
   {:db/ident            :dpvo-risk/|3SeverityLevels|,
    :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Scale with 3 Severity Levels from High to Low",
+   :dcterms/description #voc/lstr
+                         "Scale with 3 Severity Levels from High to Low@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "3 Severity Levels",
+   :rdfs/label          #voc/lstr "3 Severity Levels@en",
    :rdfs/subClassOf     [:dpvo/Severity :dpvo-risk/|3SeverityLevels|],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def |5LikelihoodLevels|
   "Scale with 5 Likelihood Levels from Very High to Very Low"
@@ -5595,24 +5809,25 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Scale with 5 Likelihood Levels from Very High to Very Low",
+   #voc/lstr "Scale with 5 Likelihood Levels from Very High to Very Low@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "5 Likelihood Levels",
+   :rdfs/label #voc/lstr "5 Likelihood Levels@en",
    :rdfs/subClassOf [:dpvo/Likelihood :dpvo-risk/|5LikelihoodLevels|],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def |5RiskLevels|
   "Scale with 5 Risk Levels from Very High to Very Low"
-  {:db/ident            :dpvo-risk/|5RiskLevels|,
-   :dcterms/created     #inst "2022-08-18T00:00:00.000-04:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Scale with 5 Risk Levels from Very High to Very Low",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label          "5 Risk Levels",
-   :rdfs/subClassOf     [:dpvo/RiskLevel :dpvo-risk/|5RiskLevels|],
-   :vs/term_status      "accepted"})
+  {:db/ident :dpvo-risk/|5RiskLevels|,
+   :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
+   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/description
+   #voc/lstr "Scale with 5 Risk Levels from Very High to Very Low@en",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
+   :rdfs/label #voc/lstr "5 Risk Levels@en",
+   :rdfs/subClassOf [:dpvo/RiskLevel :dpvo-risk/|5RiskLevels|],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def |5SeverityLevels|
   "Scale with 5 Severity Levels from Very High to Very Low"
@@ -5620,12 +5835,12 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Scale with 5 Severity Levels from Very High to Very Low",
+   #voc/lstr "Scale with 5 Severity Levels from Very High to Very Low@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "5 Severity Levels",
+   :rdfs/label #voc/lstr "5 Severity Levels@en",
    :rdfs/subClassOf [:dpvo/Severity :dpvo-risk/|5SeverityLevels|],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def |7LikelihoodLevels|
   "Scale with 7 Likelihood Levels from Extremely High to Extremely Low"
@@ -5633,12 +5848,13 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Scale with 7 Likelihood Levels from Extremely High to Extremely Low",
+   #voc/lstr
+    "Scale with 7 Likelihood Levels from Extremely High to Extremely Low@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "7 Likelihood Levels",
+   :rdfs/label #voc/lstr "7 Likelihood Levels@en",
    :rdfs/subClassOf [:dpvo/Likelihood :dpvo-risk/|7LikelihoodLevels|],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def |7RiskLevels|
   "Scale with 7 Risk Levels from Extremely High to Extremely Low"
@@ -5646,12 +5862,12 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Scale with 7 Risk Levels from Extremely High to Extremely Low",
+   #voc/lstr "Scale with 7 Risk Levels from Extremely High to Extremely Low@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "7 Risk Levels",
+   :rdfs/label #voc/lstr "7 Risk Levels@en",
    :rdfs/subClassOf [:dpvo/RiskLevel :dpvo-risk/|7RiskLevels|],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def |7SeverityLevels|
   "Scale with 7 Severity Levels from Extremely High to Extremely Low"
@@ -5659,12 +5875,13 @@
    :dcterms/created #inst "2022-08-18T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Scale with 7 Severity Levels from Extremely High to Extremely Low",
+   #voc/lstr
+    "Scale with 7 Severity Levels from Extremely High to Extremely Low@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
-   :rdfs/label "7 Severity Levels",
+   :rdfs/label #voc/lstr "7 Severity Levels@en",
    :rdfs/subClassOf [:dpvo/Severity :dpvo-risk/|7SeverityLevels|],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ^{:private true} Consequence
   {:db/ident        :dpvo/Consequence,

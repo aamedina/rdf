@@ -4,7 +4,7 @@
    "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_type.ttl",
    :dcterms/modified #inst "2012-06-14T00:00:00.000-04:00",
    :dcterms/publisher "http://purl.org/dc/aboutdcmi#DCMI",
-   :dcterms/title "DCMI Type Vocabulary",
+   :dcterms/title #voc/lstr "DCMI Type Vocabulary@en",
    :rdf/ns-prefix-map {"dcam"     "http://purl.org/dc/dcam/",
                        "dcmitype" "http://purl.org/dc/dcmitype/",
                        "dcterms"  "http://purl.org/dc/terms/",
@@ -21,12 +21,13 @@
   {:db/ident :dcmitype/Collection,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "A collection is described as a group; its parts may also be separately described.",
+   #voc/lstr
+    "A collection is described as a group; its parts may also be separately described.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "An aggregation of resources.",
+   :rdfs/comment #voc/lstr "An aggregation of resources.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Collection",
+   :rdfs/label #voc/lstr "Collection@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Collection]})
 
 (def Dataset
@@ -34,12 +35,13 @@
   {:db/ident :dcmitype/Dataset,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include lists, tables, and databases.  A dataset may be useful for direct machine processing.",
+   #voc/lstr
+    "Examples include lists, tables, and databases.  A dataset may be useful for direct machine processing.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "Data encoded in a defined structure.",
+   :rdfs/comment #voc/lstr "Data encoded in a defined structure.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Dataset",
+   :rdfs/label #voc/lstr "Dataset@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Dataset]})
 
 (def Event
@@ -47,12 +49,13 @@
   {:db/ident :dcmitype/Event,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Metadata for an event provides descriptive information that is the basis for discovery of the purpose, location, duration, and responsible agents associated with an event. Examples include an exhibition, webcast, conference, workshop, open day, performance, battle, trial, wedding, tea party, conflagration.",
+   #voc/lstr
+    "Metadata for an event provides descriptive information that is the basis for discovery of the purpose, location, duration, and responsible agents associated with an event. Examples include an exhibition, webcast, conference, workshop, open day, performance, battle, trial, wedding, tea party, conflagration.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "A non-persistent, time-based occurrence.",
+   :rdfs/comment #voc/lstr "A non-persistent, time-based occurrence.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Event",
+   :rdfs/label #voc/lstr "Event@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Event]})
 
 (def Image
@@ -60,12 +63,13 @@
   {:db/ident :dcmitype/Image,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include images and photographs of physical objects, paintings, prints, drawings, other images and graphics, animations and moving pictures, film, diagrams, maps, musical notation.  Note that Image may include both electronic and physical representations.",
+   #voc/lstr
+    "Examples include images and photographs of physical objects, paintings, prints, drawings, other images and graphics, animations and moving pictures, film, diagrams, maps, musical notation.  Note that Image may include both electronic and physical representations.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "A visual representation other than text.",
+   :rdfs/comment #voc/lstr "A visual representation other than text.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Image",
+   :rdfs/label #voc/lstr "Image@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image]})
 
 (def InteractiveResource
@@ -73,13 +77,15 @@
   {:db/ident :dcmitype/InteractiveResource,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include forms on Web pages, applets, multimedia learning objects, chat services, or virtual reality environments.",
+   #voc/lstr
+    "Examples include forms on Web pages, applets, multimedia learning objects, chat services, or virtual reality environments.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A resource requiring interaction from the user to be understood, executed, or experienced.",
+   #voc/lstr
+    "A resource requiring interaction from the user to be understood, executed, or experienced.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Interactive Resource",
+   :rdfs/label #voc/lstr "Interactive Resource@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/InteractiveResource]})
 
 (def MovingImage
@@ -87,13 +93,15 @@
   {:db/ident :dcmitype/MovingImage,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include animations, movies, television programs, videos, zoetropes, or visual output from a simulation.  Instances of the type Moving Image must also be describable as instances of the broader type Image.",
+   #voc/lstr
+    "Examples include animations, movies, television programs, videos, zoetropes, or visual output from a simulation.  Instances of the type Moving Image must also be describable as instances of the broader type Image.@en",
    :dcterms/issued #inst "2003-11-18T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A series of visual representations imparting an impression of motion when shown in succession.",
+   #voc/lstr
+    "A series of visual representations imparting an impression of motion when shown in succession.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Moving Image",
+   :rdfs/label #voc/lstr "Moving Image@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image :dcmitype/MovingImage]})
 
 (def PhysicalObject
@@ -101,12 +109,14 @@
   {:db/ident :dcmitype/PhysicalObject,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Note that digital representations of, or surrogates for, these objects should use Image, Text or one of the other types.",
+   #voc/lstr
+    "Note that digital representations of, or surrogates for, these objects should use Image, Text or one of the other types.@en",
    :dcterms/issued #inst "2002-07-13T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "An inanimate, three-dimensional object or substance.",
+   :rdfs/comment #voc/lstr
+                  "An inanimate, three-dimensional object or substance.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Physical Object",
+   :rdfs/label #voc/lstr "Physical Object@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/PhysicalObject]})
 
 (def Service
@@ -114,12 +124,13 @@
   {:db/ident :dcmitype/Service,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include a photocopying service, a banking service, an authentication service, interlibrary loans, a Z39.50 or Web server.",
+   #voc/lstr
+    "Examples include a photocopying service, a banking service, an authentication service, interlibrary loans, a Z39.50 or Web server.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "A system that provides one or more functions.",
+   :rdfs/comment #voc/lstr "A system that provides one or more functions.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Service",
+   :rdfs/label #voc/lstr "Service@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Service]})
 
 (def Software
@@ -127,12 +138,13 @@
   {:db/ident :dcmitype/Software,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include a C source file, MS-Windows .exe executable, or Perl script.",
+   #voc/lstr
+    "Examples include a C source file, MS-Windows .exe executable, or Perl script.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "A computer program in source or compiled form.",
+   :rdfs/comment #voc/lstr "A computer program in source or compiled form.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Software",
+   :rdfs/label #voc/lstr "Software@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Software]})
 
 (def Sound
@@ -140,12 +152,13 @@
   {:db/ident :dcmitype/Sound,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include a music playback file format, an audio compact disc, and recorded speech or sounds.",
+   #voc/lstr
+    "Examples include a music playback file format, an audio compact disc, and recorded speech or sounds.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "A resource primarily intended to be heard.",
+   :rdfs/comment #voc/lstr "A resource primarily intended to be heard.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Sound",
+   :rdfs/label #voc/lstr "Sound@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Sound]})
 
 (def StillImage
@@ -153,12 +166,13 @@
   {:db/ident :dcmitype/StillImage,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include paintings, drawings, graphic designs, plans and maps. Recommended best practice is to assign the type Text to images of textual materials. Instances of the type Still Image must also be describable as instances of the broader type Image.",
+   #voc/lstr
+    "Examples include paintings, drawings, graphic designs, plans and maps. Recommended best practice is to assign the type Text to images of textual materials. Instances of the type Still Image must also be describable as instances of the broader type Image.@en",
    :dcterms/issued #inst "2003-11-18T00:00:00.000-05:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "A static visual representation.",
+   :rdfs/comment #voc/lstr "A static visual representation.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Still Image",
+   :rdfs/label #voc/lstr "Still Image@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image :dcmitype/StillImage]})
 
 (def Text
@@ -166,10 +180,12 @@
   {:db/ident :dcmitype/Text,
    :dcam/memberOf :dcterms/DCMIType,
    :dcterms/description
-   "Examples include books, letters, dissertations, poems, newspapers, articles, archives of mailing lists. Note that facsimiles or images of texts are still of the genre Text.",
+   #voc/lstr
+    "Examples include books, letters, dissertations, poems, newspapers, articles, archives of mailing lists. Note that facsimiles or images of texts are still of the genre Text.@en",
    :dcterms/issued #inst "2000-07-11T00:00:00.000-04:00",
    :rdf/type :rdfs/Class,
-   :rdfs/comment "A resource consisting primarily of words for reading.",
+   :rdfs/comment #voc/lstr
+                  "A resource consisting primarily of words for reading.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
-   :rdfs/label "Text",
+   :rdfs/label #voc/lstr "Text@en",
    :rdfs/subClassOf [:rdfs/Resource :dcmitype/Text]})

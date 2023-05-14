@@ -68,8 +68,8 @@
    :rdfs/label       "AsymmetricProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
                       :owl/AsymmetricProperty
-                      :rdfs/Resource
-                      :rdf/Property]})
+                      :rdf/Property
+                      :rdfs/Resource]})
 
 (def Axiom
   "The class of annotated axioms for which the RDF serialization consists of an annotated subject, predicate and object."
@@ -145,8 +145,8 @@
    :rdfs/label       "InverseFunctionalProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
                       :owl/InverseFunctionalProperty
-                      :rdfs/Resource
-                      :rdf/Property]})
+                      :rdf/Property
+                      :rdfs/Resource]})
 
 (def IrreflexiveProperty
   "The class of irreflexive properties."
@@ -157,8 +157,8 @@
    :rdfs/label       "IrreflexiveProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
                       :owl/IrreflexiveProperty
-                      :rdfs/Resource
-                      :rdf/Property]})
+                      :rdf/Property
+                      :rdfs/Resource]})
 
 (def NamedIndividual
   "The class of named individuals."
@@ -181,7 +181,7 @@
 (def Nothing
   "This is the empty class."
   {:db/ident         :owl/Nothing,
-   :rdf/type         [:owl/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:owl/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "This is the empty class.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "Nothing",
@@ -223,8 +223,8 @@
    :rdfs/label       "ReflexiveProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
                       :owl/ReflexiveProperty
-                      :rdfs/Resource
-                      :rdf/Property]})
+                      :rdf/Property
+                      :rdfs/Resource]})
 
 (def Restriction
   "The class of property restrictions."
@@ -244,13 +244,13 @@
    :rdfs/label       "SymmetricProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
                       :owl/SymmetricProperty
-                      :rdfs/Resource
-                      :rdf/Property]})
+                      :rdf/Property
+                      :rdfs/Resource]})
 
 (def Thing
   "The class of OWL individuals."
   {:db/ident         :owl/Thing,
-   :rdf/type         [:owl/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:owl/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "The class of OWL individuals.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "Thing",
@@ -265,8 +265,8 @@
    :rdfs/label       "TransitiveProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
                       :owl/TransitiveProperty
-                      :rdfs/Resource
-                      :rdf/Property]})
+                      :rdf/Property
+                      :rdfs/Resource]})
 
 (def allValuesFrom
   "The property that determines the class that a universal property restriction refers to."
@@ -354,7 +354,7 @@
 (def bottomObjectProperty
   "The object property that does not relate any two individuals."
   {:db/ident :owl/bottomObjectProperty,
-   :rdf/type [:owl/ObjectProperty :rdf/Property :rdfs/Resource],
+   :rdf/type [:owl/ObjectProperty :rdfs/Resource :rdf/Property],
    :rdfs/comment
    "The object property that does not relate any two individuals.",
    :rdfs/domain :owl/Thing,
@@ -401,7 +401,7 @@
 (def deprecated
   "The annotation property that indicates that a given entity has been deprecated."
   {:db/ident :owl/deprecated,
-   :rdf/type [:owl/AnnotationProperty :rdfs/Resource :rdf/Property],
+   :rdf/type [:owl/AnnotationProperty :rdf/Property :rdfs/Resource],
    :rdfs/comment
    "The annotation property that indicates that a given entity has been deprecated.",
    :rdfs/domain :rdfs/Resource,
@@ -818,7 +818,7 @@
 (def topObjectProperty
   "The object property that relates every two individuals."
   {:db/ident         :owl/topObjectProperty,
-   :rdf/type         [:owl/ObjectProperty :rdf/Property :rdfs/Resource],
+   :rdf/type         [:owl/ObjectProperty :rdfs/Resource :rdf/Property],
    :rdfs/comment     "The object property that relates every two individuals.",
    :rdfs/domain      :owl/Thing,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
@@ -850,7 +850,7 @@
 (def versionInfo
   "The annotation property that provides version information for an ontology or another OWL construct."
   {:db/ident :owl/versionInfo,
-   :rdf/type [:owl/AnnotationProperty :rdfs/Resource :rdf/Property],
+   :rdf/type [:owl/AnnotationProperty :rdf/Property :rdfs/Resource],
    :rdfs/comment
    "The annotation property that provides version information for an ontology or another OWL construct.",
    :rdfs/domain :rdfs/Resource,

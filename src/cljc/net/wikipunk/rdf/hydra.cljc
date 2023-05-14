@@ -29,7 +29,7 @@
 (def ApiDocumentation
   "The Hydra API documentation class"
   {:db/ident         :hydra/ApiDocumentation,
-   :rdf/type         [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "The Hydra API documentation class",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "ApiDocumentation",
@@ -39,7 +39,7 @@
 (def BaseUriSource
   "Provides a base abstract for base Uri source for Iri template resolution."
   {:db/ident :hydra/BaseUriSource,
-   :rdf/type [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment
    "Provides a base abstract for base Uri source for Iri template resolution.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -70,7 +70,7 @@
 (def Collection
   "A collection holding references to a number of related resources."
   {:db/ident :hydra/Collection,
-   :rdf/type [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment
    "A collection holding references to a number of related resources.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -81,7 +81,7 @@
 (def ErrorClass
   "A runtime error, used to report information beyond the returned status code."
   {:db/ident :hydra/Error,
-   :rdf/type [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment
    "A runtime error, used to report information beyond the returned status code.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -113,7 +113,7 @@
 (def IriTemplate
   "The class of IRI templates."
   {:db/ident         :hydra/IriTemplate,
-   :rdf/type         [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "The class of IRI templates.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "IRI Template",
@@ -122,7 +122,7 @@
 (def IriTemplateMapping
   "A mapping from an IRI template variable to a property."
   {:db/ident         :hydra/IriTemplateMapping,
-   :rdf/type         [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "A mapping from an IRI template variable to a property.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "IriTemplateMapping",
@@ -131,7 +131,7 @@
 (def Link
   "The class of properties representing links."
   {:db/ident         :hydra/Link,
-   :rdf/type         [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "The class of properties representing links.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "Link",
@@ -151,7 +151,7 @@
 (def Operation
   "An operation."
   {:db/ident         :hydra/Operation,
-   :rdf/type         [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "An operation.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "Operation",
@@ -160,7 +160,7 @@
 (def PartialCollectionView
   "A PartialCollectionView describes a partial view of a Collection. Multiple PartialCollectionViews can be connected with the the next/previous properties to allow a client to retrieve all members of the collection."
   {:db/ident :hydra/PartialCollectionView,
-   :rdf/type [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment
    "A PartialCollectionView describes a partial view of a Collection. Multiple PartialCollectionViews can be connected with the the next/previous properties to allow a client to retrieve all members of the collection.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -171,7 +171,7 @@
 (def Resource
   "The class of dereferenceable resources by means a client can attempt to dereference; however, the received responses should still be verified."
   {:db/ident :hydra/Resource,
-   :rdf/type [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment
    "The class of dereferenceable resources by means a client can attempt to dereference; however, the received responses should still be verified.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -203,7 +203,7 @@
 (def Status
   "Additional information about a status code that might be returned."
   {:db/ident :hydra/Status,
-   :rdf/type [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment
    "Additional information about a status code that might be returned.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -214,7 +214,7 @@
 (def SupportedProperty
   "A property known to be supported by a Hydra class."
   {:db/ident         :hydra/SupportedProperty,
-   :rdf/type         [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "A property known to be supported by a Hydra class.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "Supported Property",
@@ -223,7 +223,7 @@
 (def TemplatedLink
   "A templated link."
   {:db/ident         :hydra/TemplatedLink,
-   :rdf/type         [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type         [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment     "A templated link.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "Templated Link",
@@ -233,7 +233,7 @@
 (def VariableRepresentation
   "A representation specifies how to serialize variable values into strings."
   {:db/ident :hydra/VariableRepresentation,
-   :rdf/type [:hydra/Class :rdfs/Class :rdfs/Resource],
+   :rdf/type [:hydra/Class :rdfs/Resource :rdfs/Class],
    :rdfs/comment
    "A representation specifies how to serialize variable values into strings.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -243,7 +243,7 @@
 (def apiDocumentation
   "A link to the API documentation"
   {:db/ident         :hydra/apiDocumentation,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "A link to the API documentation",
    :rdfs/domain      :hydra/Resource,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -267,7 +267,7 @@
 (def collection
   "Collections somehow related to this resource."
   {:db/ident         :hydra/collection,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "Collections somehow related to this resource.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "collection",
@@ -295,7 +295,7 @@
 (def entrypoint
   "A link to main entry point of the Web API"
   {:db/ident         :hydra/entrypoint,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "A link to main entry point of the Web API",
    :rdfs/domain      :hydra/ApiDocumentation,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -306,7 +306,7 @@
 (def expects
   "The information expected by the Web API."
   {:db/ident             :hydra/expects,
-   :rdf/type             [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type             [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment         "The information expected by the Web API.",
    :rdfs/domain          :hydra/Operation,
    :rdfs/isDefinedBy     "http://www.w3.org/ns/hydra/core",
@@ -343,7 +343,7 @@
 (def first
   "The first resource of an interlinked set of resources."
   {:db/ident         :hydra/first,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "The first resource of an interlinked set of resources.",
    :rdfs/domain      :hydra/Resource,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -378,7 +378,7 @@
 (def last
   "The last resource of an interlinked set of resources."
   {:db/ident         :hydra/last,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "The last resource of an interlinked set of resources.",
    :rdfs/domain      :hydra/Resource,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -423,7 +423,7 @@
 (def member
   "A member of the collection"
   {:db/ident         :hydra/member,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "A member of the collection",
    :rdfs/domain      :hydra/Collection,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -456,7 +456,7 @@
 (def next
   "The resource following the current instance in an interlinked set of resources."
   {:db/ident :hydra/next,
-   :rdf/type [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment
    "The resource following the current instance in an interlinked set of resources.",
    :rdfs/domain :hydra/Resource,
@@ -487,7 +487,7 @@
 (def operation
   "An operation supported by the Hydra resource"
   {:db/ident         :hydra/operation,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "An operation supported by the Hydra resource",
    :rdfs/domain      :hydra/Resource,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -521,7 +521,7 @@
 (def possibleStatus
   "A status that might be returned by the Web API (other statuses should be expected and properly handled as well)"
   {:db/ident :hydra/possibleStatus,
-   :rdf/type [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment
    "A status that might be returned by the Web API (other statuses should be expected and properly handled as well)",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -545,7 +545,7 @@
 (def previous
   "The resource preceding the current instance in an interlinked set of resources."
   {:db/ident :hydra/previous,
-   :rdf/type [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment
    "The resource preceding the current instance in an interlinked set of resources.",
    :rdfs/domain :hydra/Resource,
@@ -605,7 +605,7 @@
 (def returns
   "The information returned by the Web API on success"
   {:db/ident             :hydra/returns,
-   :rdf/type             [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type             [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment         "The information returned by the Web API on success",
    :rdfs/domain          :hydra/Operation,
    :rdfs/isDefinedBy     "http://www.w3.org/ns/hydra/core",
@@ -631,7 +631,7 @@
 (def search
   "A IRI template that can be used to query a collection."
   {:db/ident         :hydra/search,
-   :rdf/type         [:hydra/TemplatedLink :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/TemplatedLink :rdf/Property :hydra/Resource],
    :rdfs/comment     "A IRI template that can be used to query a collection.",
    :rdfs/domain      :hydra/Resource,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -663,7 +663,7 @@
 (def supportedClass
   "A class known to be supported by the Web API"
   {:db/ident         :hydra/supportedClass,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "A class known to be supported by the Web API",
    :rdfs/domain      :hydra/ApiDocumentation,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -674,7 +674,7 @@
 (def supportedOperation
   "An operation supported by instances of the specific Hydra class, or the target of the Hydra link, or IRI template."
   {:db/ident :hydra/supportedOperation,
-   :rdf/type [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment
    "An operation supported by instances of the specific Hydra class, or the target of the Hydra link, or IRI template.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -690,7 +690,7 @@
 (def supportedProperty
   "The properties known to be supported by a Hydra class"
   {:db/ident         :hydra/supportedProperty,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "The properties known to be supported by a Hydra class",
    :rdfs/domain      :rdfs/Class,
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
@@ -770,7 +770,7 @@
 (def view
   "A specific view of a resource."
   {:db/ident         :hydra/view,
-   :rdf/type         [:hydra/Link :hydra/Resource :rdf/Property],
+   :rdf/type         [:hydra/Link :rdf/Property :hydra/Resource],
    :rdfs/comment     "A specific view of a resource.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/hydra/core",
    :rdfs/label       "view",

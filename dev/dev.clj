@@ -27,9 +27,12 @@
    [clojure.set :as set]
    [clojure.string :as str]
    [clojure.tools.namespace.repl :refer [refresh refresh-all clear]]
+   [clojure.tools.logging :as log]
+   [clojure.walk :as walk]
    [com.stuartsierra.component :as com]
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
    [com.walmartlabs.schematic :as sc]
+   [ont-app.vocabulary.lstr :as lstr]
    [net.wikipunk.boot :as boot]
    [net.wikipunk.ext :as ext]
    [net.wikipunk.rdf :as rdf :refer [doc]]
@@ -41,6 +44,7 @@
 
 (set-init
   (fn [_]
+    (set! *print-namespace-maps* false)
     (if-let [r (io/resource "system.edn")]
       (-> (slurp r)
           (edn/read-string)

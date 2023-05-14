@@ -25,7 +25,7 @@
    :rdfs/label "Aspect Dimension",
    :rdfs/subClassOf [:vaem/Dimension :vaem/Aspect :owl/Thing]})
 
-#_(def CatalogEntry
+(def CatalogEntry
   "VAEM Governed Object class is a placeholder for concepts that are fully defined by the voag:GovernedObject concept hierarchy for building a catalog of ontologies and graphs"
   {:db/ident :vaem/CatalogEntry,
    :dcterms/description
@@ -38,11 +38,11 @@
    "A \"vaem:CollectionGraph\" is a graph that aggregates other graphs using \"owl:imports\" statements",
    :rdf/type [:vaem/GraphRole
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/filePrefix,
+               :owl/onProperty     :vaem/description,
                :rdf/type           :owl/Restriction}
               :owl/Thing
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/description,
+               :owl/onProperty     :vaem/filePrefix,
                :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -56,11 +56,11 @@
    "A \"vaem:ConstraintsGraph\" is a graph that holds SPIN constraints",
    :rdf/type [:vaem/GraphRole
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/filePrefix,
+               :owl/onProperty     :vaem/description,
                :rdf/type           :owl/Restriction}
               :owl/Thing
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/description,
+               :owl/onProperty     :vaem/filePrefix,
                :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -72,11 +72,11 @@
   {:db/ident         :vaem/ControllersGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -90,11 +90,11 @@
    "A \"vaem:CurationGraph\" is a graph to hold metadata that is needed to describe, govern and provision another graph. A curation graph will likely use VOAG and VAEM for this purpose. The property \"vaem:curationGraph\" is used to link to the graph (or graphs) being curated",
    :rdf/type [:vaem/GraphRole
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/filePrefix,
+               :owl/onProperty     :vaem/description,
                :rdf/type           :owl/Restriction}
               :owl/Thing
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/description,
+               :owl/onProperty     :vaem/filePrefix,
                :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -106,11 +106,11 @@
   {:db/ident         :vaem/DataGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -144,11 +144,11 @@
   {:db/ident         :vaem/DocumentationGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -171,11 +171,11 @@
   {:db/ident         :vaem/FunctionsGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -191,55 +191,27 @@
    :dcterms/modified #inst "2014-07-26T00:00:00.000-04:00",
    :dcterms/title "VAEM Version 2.0 Metadata",
    :rdf/type [:vaem/GraphMetaData
+              {:owl/allValuesFrom :vaem/Domain,
+               :owl/onProperty    :vaem/hasDomain,
+               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/hasSteward,
+               :owl/onProperty     :vaem/latestPublishedVersion,
                :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/turtleFileURL,
-               :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :vaem/Party,
+               :owl/onProperty    :vaem/hasSteward,
+               :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :vaem/Party,
                :owl/onProperty    :vaem/hasOwner,
                :rdf/type          :owl/Restriction}
               {:owl/allValuesFrom :xsd/string,
                :owl/onProperty    :vaem/description,
                :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :vaem/GraphRole,
-               :owl/onProperty    :vaem/hasGraphRole,
-               :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/namespacePrefix,
-               :rdf/type           :owl/Restriction}
-              :owl/Thing
               {:owl/maxCardinality 1,
                :owl/onProperty     :vaem/revision,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/hasLicenseType,
+               :owl/onProperty     :vaem/hasSteward,
                :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :vaem/Domain,
-               :owl/onProperty    :vaem/hasDomain,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :vaem/Viewpoint,
-               :owl/onProperty    :vaem/hasViewpoint,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :vaem/Aspect,
-               :owl/onProperty    :vaem/hasAspect,
-               :rdf/type          :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/namespace,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/previousPublishedVersion,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/latestPublishedVersion,
-               :rdf/type           :owl/Restriction}
-              {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/rdfxmlFileURL,
-               :rdf/type           :owl/Restriction}
-              {:owl/cardinality 1,
-               :owl/onProperty  :vaem/name,
-               :rdf/type        :owl/Restriction}
               {:owl/maxCardinality 1,
                :owl/onProperty     :vaem/hasIdentifier,
                :rdf/type           :owl/Restriction}
@@ -247,22 +219,50 @@
                :owl/onProperty     :vaem/hasMetadata,
                :rdf/type           :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/owner,
+               :owl/onProperty     :vaem/namespace,
                :rdf/type           :owl/Restriction}
-              {:owl/allValuesFrom :vaem/Discipline,
-               :owl/onProperty    :vaem/hasDiscipline,
-               :rdf/type          :owl/Restriction}
-              {:owl/allValuesFrom :vaem/Party,
-               :owl/onProperty    :vaem/hasSteward,
-               :rdf/type          :owl/Restriction}
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/specificity,
+               :owl/onProperty     :vaem/hasLicenseType,
                :rdf/type           :owl/Restriction}
+              :owl/Thing
               {:owl/allValuesFrom :vaem/GraphMetaData,
                :owl/onProperty    :vaem/hasMetadata,
                :rdf/type          :owl/Restriction}
               {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/specificity,
+               :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :vaem/GraphRole,
+               :owl/onProperty    :vaem/hasGraphRole,
+               :rdf/type          :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/owner,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/previousPublishedVersion,
+               :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :vaem/Aspect,
+               :owl/onProperty    :vaem/hasAspect,
+               :rdf/type          :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/turtleFileURL,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/rdfxmlFileURL,
+               :rdf/type           :owl/Restriction}
+              {:owl/maxCardinality 1,
                :owl/onProperty     :vaem/intent,
+               :rdf/type           :owl/Restriction}
+              {:owl/allValuesFrom :vaem/Viewpoint,
+               :owl/onProperty    :vaem/hasViewpoint,
+               :rdf/type          :owl/Restriction}
+              {:owl/cardinality 1,
+               :owl/onProperty  :vaem/name,
+               :rdf/type        :owl/Restriction}
+              {:owl/allValuesFrom :vaem/Discipline,
+               :owl/onProperty    :vaem/hasDiscipline,
+               :rdf/type          :owl/Restriction}
+              {:owl/maxCardinality 1,
+               :owl/onProperty     :vaem/namespacePrefix,
                :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -309,78 +309,78 @@
                       "http://www.linkedmodel.org/2.0/schema/vaem"],
    :rdfs/label "Graph Metadata",
    :rdfs/seeAlso ["http://voag.linkedmodel.org/vocab/voag"],
-   :rdfs/subClassOf [{:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/hasMetadata,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/specificity,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/previousPublishedVersion,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [{:owl/cardinality 1,
+                      :owl/onProperty  :vaem/name,
+                      :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/namespacePrefix,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/owner,
+                      :owl/onProperty     :vaem/specificity,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Party,
-                      :owl/onProperty    :vaem/hasSteward,
+                     {:owl/allValuesFrom :vaem/GraphMetaData,
+                      :owl/onProperty    :vaem/hasMetadata,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/GraphRole,
+                      :owl/onProperty    :vaem/hasGraphRole,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/hasIdentifier,
                       :rdf/type           :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/hasLicenseType,
+                      :owl/onProperty     :vaem/owner,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/rdfxmlFileURL,
-                      :rdf/type           :owl/Restriction}
-                     :owl/Thing
-                     {:owl/allValuesFrom :xsd/string,
-                      :owl/onProperty    :vaem/description,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/latestPublishedVersion,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Party,
-                      :owl/onProperty    :vaem/hasOwner,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :vaem/name,
-                      :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Aspect,
-                      :owl/onProperty    :vaem/hasAspect,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/revision,
+                      :owl/onProperty     :vaem/previousPublishedVersion,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/GraphRole,
-                      :owl/onProperty    :vaem/hasGraphRole,
-                      :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/namespace,
                       :rdf/type           :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/intent,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Viewpoint,
-                      :owl/onProperty    :vaem/hasViewpoint,
-                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :vaem/Domain,
                       :owl/onProperty    :vaem/hasDomain,
                       :rdf/type          :owl/Restriction}
-                     {:owl/maxCardinality 1,
-                      :owl/onProperty     :vaem/hasSteward,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/GraphMetaData,
-                      :owl/onProperty    :vaem/hasMetadata,
+                     {:owl/allValuesFrom :xsd/string,
+                      :owl/onProperty    :vaem/description,
                       :rdf/type          :owl/Restriction}
+                     :owl/Thing
                      {:owl/allValuesFrom :vaem/Discipline,
                       :owl/onProperty    :vaem/hasDiscipline,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/rdfxmlFileURL,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/intent,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Party,
+                      :owl/onProperty    :vaem/hasOwner,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/hasMetadata,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
                       :owl/onProperty     :vaem/turtleFileURL,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/hasLicenseType,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Aspect,
+                      :owl/onProperty    :vaem/hasAspect,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Viewpoint,
+                      :owl/onProperty    :vaem/hasViewpoint,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/revision,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :vaem/Party,
+                      :owl/onProperty    :vaem/hasSteward,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/maxCardinality 1,
+                      :owl/onProperty     :vaem/hasSteward,
                       :rdf/type           :owl/Restriction}
                      :vaem/GraphMetaData]})
 
@@ -409,11 +409,11 @@
    "A \"vaem:LinkSetGraph\" is a graph that holds statements that specify links between resources",
    :rdf/type [:vaem/GraphRole
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/filePrefix,
+               :owl/onProperty     :vaem/description,
                :rdf/type           :owl/Restriction}
               :owl/Thing
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/description,
+               :owl/onProperty     :vaem/filePrefix,
                :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -427,11 +427,11 @@
    "A graph that specifies a transformation of a graph into another graph or graphs. Invariably this is a SPINMap graph using SPARQL Rules (SPIN) to express the transforms.",
    :rdf/type [:vaem/GraphRole
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/filePrefix,
+               :owl/onProperty     :vaem/description,
                :rdf/type           :owl/Restriction}
               :owl/Thing
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/description,
+               :owl/onProperty     :vaem/filePrefix,
                :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -464,11 +464,11 @@
   {:db/ident         :vaem/ProxyGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -480,11 +480,11 @@
   {:db/ident         :vaem/RulesGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -496,11 +496,11 @@
   {:db/ident         :vaem/SchemaGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -512,11 +512,11 @@
   {:db/ident         :vaem/ScriptGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -528,14 +528,14 @@
   {:db/ident         :vaem/TopQuadrant,
    :rdf/type         [:vaem/Party
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/id,
+                       :owl/onProperty     :vaem/url,
                        :rdf/type           :owl/Restriction}
                       {:owl/cardinality 1,
                        :owl/onProperty  :vaem/name,
                        :rdf/type        :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/url,
+                       :owl/onProperty     :vaem/id,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -548,11 +548,11 @@
   {:db/ident         :vaem/TransformsGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -564,11 +564,11 @@
   {:db/ident         :vaem/ViewGraph,
    :rdf/type         [:vaem/GraphRole
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/filePrefix,
+                       :owl/onProperty     :vaem/description,
                        :rdf/type           :owl/Restriction}
                       :owl/Thing
                       {:owl/maxCardinality 1,
-                       :owl/onProperty     :vaem/description,
+                       :owl/onProperty     :vaem/filePrefix,
                        :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -593,11 +593,11 @@
    "An RDF/OWL Graph that is a controlled set of instances.",
    :rdf/type [:vaem/GraphRole
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/filePrefix,
+               :owl/onProperty     :vaem/description,
                :rdf/type           :owl/Restriction}
               :owl/Thing
               {:owl/maxCardinality 1,
-               :owl/onProperty     :vaem/description,
+               :owl/onProperty     :vaem/filePrefix,
                :rdf/type           :owl/Restriction}],
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
@@ -752,7 +752,7 @@
    :rdf/type         :owl/ObjectProperty,
    :rdfs/isDefinedBy ["http://www.linkedmodel.org/2.0/schema/vaem"
                       "http://www.linkedmodel.org/schema/vaem"],
-   :rdfs/label       "has license type"})
+   :rdfs/label       #voc/lstr "has license type@en-us"})
 
 (def hasMetadata
   "The property \"hasMetadata\" is used to reference a metadata information structure."

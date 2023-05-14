@@ -2,12 +2,17 @@
   "http://usefulinc.com/ns/doap#"
   {:dc11/creator "Edd Wilder-James",
    :dc11/description
-   ["Slovník Description of a Project (DOAP, Popis projektu), popsaný použitím W3C RDF Schema a Web Ontology Language."
-    "Das Vokabular \"Description of a Project (DOAP)\", beschrieben durch W3C RDF Schema and the Web Ontology Language."
-    "Le vocabulaire Description Of A Project (DOAP, Description D'Un Projet),\n\t\tdécrit en utilisant RDF Schema du W3C et OWL."
-    "El vocabulario Description of a Project (DOAP, Descripción de un Proyecto), descrito usando RDF Schema de W3C\n\t\ty Web Ontology Language."
+   [#voc/lstr
+     "Slovník Description of a Project (DOAP, Popis projektu), popsaný použitím W3C RDF Schema a Web Ontology Language.@cs"
+    #voc/lstr
+     "Das Vokabular \"Description of a Project (DOAP)\", beschrieben durch W3C RDF Schema and the Web Ontology Language.@de"
+    #voc/lstr
+     "Le vocabulaire Description Of A Project (DOAP, Description D'Un Projet),\n\t\tdécrit en utilisant RDF Schema du W3C et OWL.@fr"
+    #voc/lstr
+     "El vocabulario Description of a Project (DOAP, Descripción de un Proyecto), descrito usando RDF Schema de W3C\n\t\ty Web Ontology Language.@es"
     "The Description of a Project (DOAP) vocabulary, described using W3C RDF Schema and the Web Ontology Language."
-    "Vocabulário de descrição de um Projeto (DOAP - Description of a Project), descrito no esquema (schema) W3C RDF e na Web Ontology Language."],
+    #voc/lstr
+     "Vocabulário de descrição de um Projeto (DOAP - Description of a Project), descrito no esquema (schema) W3C RDF e na Web Ontology Language.@pt"],
    :dc11/format "application/rdf+xml",
    :dc11/rights "Copyright © The DOAP Authors",
    :dc11/title "Description of a Project (DOAP) vocabulary",
@@ -30,740 +35,865 @@
   (:refer-clojure :exclude [name]))
 
 (def ArchRepository
-  "GNU Arch source code repository. Úložiště zdrojových kódů GNU Arch. Dépôt GNU Arch du code source. Repositorio GNU Arch del código fuente. Repositório GNU Arch do código fonte. GNU Arch Quellcode-Versionierungssystem."
+  "GNU Arch source code repository."
   {:db/ident         :doap/ArchRepository,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     ["GNU Arch source code repository."
-                      "Úložiště zdrojových kódů GNU Arch."
-                      "Dépôt GNU Arch du code source."
-                      "Repositorio GNU Arch del código fuente."
-                      "Repositório GNU Arch do código fonte."
-                      "GNU Arch Quellcode-Versionierungssystem."],
+   :rdfs/comment     [#voc/lstr "GNU Arch source code repository.@en"
+                      #voc/lstr "Úložiště zdrojových kódů GNU Arch.@cs"
+                      #voc/lstr "Dépôt GNU Arch du code source.@fr"
+                      #voc/lstr "Repositorio GNU Arch del código fuente.@es"
+                      #voc/lstr "Repositório GNU Arch do código fonte.@pt"
+                      #voc/lstr "GNU Arch Quellcode-Versionierungssystem.@de"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["Dépôt GNU Arch"
-                      "Repositório GNU Arch"
-                      "Repositorio GNU Arch"
-                      "Úložiště GNU Arch"
-                      "GNU Arch repository"
-                      "GNU Arch repository"],
+   :rdfs/label       [#voc/lstr "Dépôt GNU Arch@fr"
+                      #voc/lstr "Repositório GNU Arch@pt"
+                      #voc/lstr "Repositorio GNU Arch@es"
+                      #voc/lstr "Úložiště GNU Arch@cs"
+                      #voc/lstr "GNU Arch repository@de"
+                      #voc/lstr "GNU Arch repository@en"],
    :rdfs/subClassOf  [:doap/Repository :doap/ArchRepository :rdfs/Resource]})
 
 (def BKRepository
-  "Dépôt BitKeeper du code source. Repositório BitKeeper do código fonte. Úložiště zdrojových kódů BitKeeper. BitKeeper Quellcode-Versionierungssystem. Repositorio BitKeeper del código fuente. BitKeeper source code repository."
+  "BitKeeper source code repository."
   {:db/ident         :doap/BKRepository,
    :rdf/type         [:rdfs/Class :owl/Class],
-   :rdfs/comment     ["Dépôt BitKeeper du code source."
-                      "Repositório BitKeeper do código fonte."
-                      "Úložiště zdrojových kódů BitKeeper."
-                      "BitKeeper Quellcode-Versionierungssystem."
-                      "Repositorio BitKeeper del código fuente."
-                      "BitKeeper source code repository."],
+   :rdfs/comment     [#voc/lstr "Dépôt BitKeeper du code source.@fr"
+                      #voc/lstr "Repositório BitKeeper do código fonte.@pt"
+                      #voc/lstr "Úložiště zdrojových kódů BitKeeper.@cs"
+                      #voc/lstr "BitKeeper Quellcode-Versionierungssystem.@de"
+                      #voc/lstr "Repositorio BitKeeper del código fuente.@es"
+                      #voc/lstr "BitKeeper source code repository.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["BitKeeper Repository"
-                      "BitKeeper Repository"
-                      "Repositório Bitkeeper"
-                      "Dépôt BitKeeper"
-                      "Úložiště BitKeeper"
-                      "Repositorio BitKeeper"],
+   :rdfs/label       [#voc/lstr "BitKeeper Repository@de"
+                      #voc/lstr "BitKeeper Repository@en"
+                      #voc/lstr "Repositório Bitkeeper@pt"
+                      #voc/lstr "Dépôt BitKeeper@fr"
+                      #voc/lstr "Úložiště BitKeeper@cs"
+                      #voc/lstr "Repositorio BitKeeper@es"],
    :rdfs/subClassOf  [:doap/Repository :doap/BKRepository :rdfs/Resource]})
 
 (def BazaarBranch
-  "Código fonte da ramificação Bazaar. Bazaar source code branch."
+  "Bazaar source code branch."
   {:db/ident         :doap/BazaarBranch,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     ["Código fonte da ramificação Bazaar."
-                      "Bazaar source code branch."],
+   :rdfs/comment     [#voc/lstr "Código fonte da ramificação Bazaar.@pt"
+                      #voc/lstr "Bazaar source code branch.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["Ramificação Bazaar" "Bazaar Branch"],
+   :rdfs/label       [#voc/lstr "Ramificação Bazaar@pt"
+                      #voc/lstr "Bazaar Branch@en"],
    :rdfs/subClassOf  [:doap/Repository :doap/BazaarBranch :rdfs/Resource]})
 
 (def CVSRepository
-  "Dépôt CVS du code source. Úložiště zdrojových kódů CVS. Repositório CVS do código fonte. CVS Quellcode-Versionierungssystem. CVS source code repository. Repositorio CVS del código fuente."
+  "CVS source code repository."
   {:db/ident         :doap/CVSRepository,
    :rdf/type         [:rdfs/Class :owl/Class],
-   :rdfs/comment     ["Dépôt CVS du code source."
-                      "Úložiště zdrojových kódů CVS."
-                      "Repositório CVS do código fonte."
-                      "CVS Quellcode-Versionierungssystem."
-                      "CVS source code repository."
-                      "Repositorio CVS del código fuente."],
+   :rdfs/comment     [#voc/lstr "Dépôt CVS du code source.@fr"
+                      #voc/lstr "Úložiště zdrojových kódů CVS.@cs"
+                      #voc/lstr "Repositório CVS do código fonte.@pt"
+                      #voc/lstr "CVS Quellcode-Versionierungssystem.@de"
+                      #voc/lstr "CVS source code repository.@en"
+                      #voc/lstr "Repositorio CVS del código fuente.@es"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["CVS Repository"
-                      "CVS Repository"
-                      "Úložiště CVS"
-                      "Dépôt CVS"
-                      "Repositório CVS"
-                      "Repositorio CVS"],
+   :rdfs/label       [#voc/lstr "CVS Repository@de"
+                      #voc/lstr "CVS Repository@en"
+                      #voc/lstr "Úložiště CVS@cs"
+                      #voc/lstr "Dépôt CVS@fr"
+                      #voc/lstr "Repositório CVS@pt"
+                      #voc/lstr "Repositorio CVS@es"],
    :rdfs/subClassOf  [:doap/Repository :doap/CVSRepository :rdfs/Resource]})
 
 (def DarcsRepository
-  "Dépôt darcs du code source. Repositorio darcs del código fuente. Repositório darcs do código fonte. darcs source code repository."
+  "darcs source code repository."
   {:db/ident         :doap/DarcsRepository,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     ["Dépôt darcs du code source."
-                      "Repositorio darcs del código fuente."
-                      "Repositório darcs do código fonte."
-                      "darcs source code repository."],
+   :rdfs/comment     [#voc/lstr "Dépôt darcs du code source.@fr"
+                      #voc/lstr "Repositorio darcs del código fuente.@es"
+                      #voc/lstr "Repositório darcs do código fonte.@pt"
+                      #voc/lstr "darcs source code repository.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["darcs Repository"
-                      "Dépôt darcs"
-                      "Repositório darcs"
-                      "Repositorio darcs"],
+   :rdfs/label       [#voc/lstr "darcs Repository@en"
+                      #voc/lstr "Dépôt darcs@fr"
+                      #voc/lstr "Repositório darcs@pt"
+                      #voc/lstr "Repositorio darcs@es"],
    :rdfs/subClassOf  [:doap/Repository :doap/DarcsRepository :rdfs/Resource]})
 
 (def GitBranch
-  "Código fonte da ramificação Git. Git source code branch."
+  "Git source code branch."
   {:db/ident         :doap/GitBranch,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     ["Código fonte da ramificação Git."
-                      "Git source code branch."],
+   :rdfs/comment     [#voc/lstr "Código fonte da ramificação Git.@pt"
+                      #voc/lstr "Git source code branch.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["Ramificação Git" "Git Branch"],
+   :rdfs/label       [#voc/lstr "Ramificação Git@pt" #voc/lstr "Git Branch@en"],
    :rdfs/subClassOf  [:doap/Repository :doap/GitBranch :rdfs/Resource]})
 
 (def GitRepository
-  "Repositorio Git del código fuente. Dépôt Git du code source. Úložiště zdrojových kódů Git. Repositório Git do código fonte. Git source code repository. Git Quellcode-Versionierungssystem."
+  "Git source code repository."
   {:db/ident         :doap/GitRepository,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     ["Repositorio Git del código fuente."
-                      "Dépôt Git du code source."
-                      "Úložiště zdrojových kódů Git."
-                      "Repositório Git do código fonte."
-                      "Git source code repository."
-                      "Git Quellcode-Versionierungssystem."],
+   :rdfs/comment     [#voc/lstr "Repositorio Git del código fuente.@es"
+                      #voc/lstr "Dépôt Git du code source.@fr"
+                      #voc/lstr "Úložiště zdrojových kódů Git.@cs"
+                      #voc/lstr "Repositório Git do código fonte.@pt"
+                      #voc/lstr "Git source code repository.@en"
+                      #voc/lstr "Git Quellcode-Versionierungssystem.@de"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["Dépôt Git"
-                      "Git Repository"
-                      "Git Repository"
-                      "Úložiště Git"
-                      "Repositório Git"
-                      "Repositorio Git"],
+   :rdfs/label       [#voc/lstr "Dépôt Git@fr"
+                      #voc/lstr "Git Repository@de"
+                      #voc/lstr "Git Repository@en"
+                      #voc/lstr "Úložiště Git@cs"
+                      #voc/lstr "Repositório Git@pt"
+                      #voc/lstr "Repositorio Git@es"],
    :rdfs/subClassOf  [:doap/Repository :doap/GitRepository :rdfs/Resource]})
 
 (def HgRepository
-  "Repositório Mercurial do código fonte. Mercurial source code repository."
+  "Mercurial source code repository."
   {:db/ident         :doap/HgRepository,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     ["Repositório Mercurial do código fonte."
-                      "Mercurial source code repository."],
+   :rdfs/comment     [#voc/lstr "Repositório Mercurial do código fonte.@pt"
+                      #voc/lstr "Mercurial source code repository.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["Repositório Mercurial" "Mercurial Repository"],
+   :rdfs/label       [#voc/lstr "Repositório Mercurial@pt"
+                      #voc/lstr "Mercurial Repository@en"],
    :rdfs/subClassOf  [:doap/Repository :doap/HgRepository :rdfs/Resource]})
 
 (def Project
-  "Projeto. Projekt. Un proyecto. Ein Projekt. Un projet. A project."
-  {:db/ident :doap/Project,
-   :rdf/type :rdfs/Class,
-   :rdfs/comment ["Projeto."
-                  "Projekt."
-                  "Un proyecto."
-                  "Ein Projekt."
-                  "Un projet."
-                  "A project."],
+  "A project."
+  {:db/ident         :doap/Project,
+   :rdf/type         :rdfs/Class,
+   :rdfs/comment     [#voc/lstr "Projeto.@pt"
+                      #voc/lstr "Projekt.@cs"
+                      #voc/lstr "Un proyecto.@es"
+                      #voc/lstr "Ein Projekt.@de"
+                      #voc/lstr "Un projet.@fr"
+                      #voc/lstr "A project.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Proyecto" "Projeto" "Projet" "Project" "Projekt" "Projekt"],
-   :rdfs/subClassOf [:rdfs/Resource
-                     "http://xmlns.com/wordnet/1.6/Project"
-                     :foaf/Project
-                     :doap/Project]})
+   :rdfs/label       [#voc/lstr "Proyecto@es"
+                      #voc/lstr "Projeto@pt"
+                      #voc/lstr "Projet@fr"
+                      #voc/lstr "Project@en"
+                      #voc/lstr "Projekt@cs"
+                      #voc/lstr "Projekt@de"],
+   :rdfs/subClassOf  [:rdfs/Resource
+                      "http://xmlns.com/wordnet/1.6/Project"
+                      :foaf/Project
+                      :doap/Project]})
 
 (def Repository
-  "Repositório do código fonte. Source code repository. Dépôt du code source. Quellcode-Versionierungssystem. Úložiště zdrojových kódů. Repositorio del código fuente."
-  {:db/ident :doap/Repository,
-   :rdf/type :rdfs/Class,
-   :rdfs/comment ["Repositório do código fonte."
-                  "Source code repository."
-                  "Dépôt du code source."
-                  "Quellcode-Versionierungssystem."
-                  "Úložiště zdrojových kódů."
-                  "Repositorio del código fuente."],
+  "Source code repository."
+  {:db/ident         :doap/Repository,
+   :rdf/type         :rdfs/Class,
+   :rdfs/comment     [#voc/lstr "Repositório do código fonte.@pt"
+                      #voc/lstr "Source code repository.@en"
+                      #voc/lstr "Dépôt du code source.@fr"
+                      #voc/lstr "Quellcode-Versionierungssystem.@de"
+                      #voc/lstr "Úložiště zdrojových kódů.@cs"
+                      #voc/lstr "Repositorio del código fuente.@es"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label
-   ["Úložiště" "Repository" "Repository" "Repositório" "Dépôt" "Repositorio"],
-   :rdfs/subClassOf [:rdfs/Resource :doap/Repository]})
+   :rdfs/label       [#voc/lstr "Úložiště@cs"
+                      #voc/lstr "Repository@de"
+                      #voc/lstr "Repository@en"
+                      #voc/lstr "Repositório@pt"
+                      #voc/lstr "Dépôt@fr"
+                      #voc/lstr "Repositorio@es"],
+   :rdfs/subClassOf  [:rdfs/Resource :doap/Repository]})
 
 (def SVNRepository
-  "Subversion source code repository. Úložiště zdrojových kódů Subversion. Dépôt Subversion du code source. Repositório Subversion do código fonte. Subversion Quellcode-Versionierungssystem. Repositorio Subversion del código fuente."
+  "Subversion source code repository."
   {:db/ident         :doap/SVNRepository,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     ["Subversion source code repository."
-                      "Úložiště zdrojových kódů Subversion."
-                      "Dépôt Subversion du code source."
-                      "Repositório Subversion do código fonte."
-                      "Subversion Quellcode-Versionierungssystem."
-                      "Repositorio Subversion del código fuente."],
+   :rdfs/comment     [#voc/lstr "Subversion source code repository.@en"
+                      #voc/lstr "Úložiště zdrojových kódů Subversion.@cs"
+                      #voc/lstr "Dépôt Subversion du code source.@fr"
+                      #voc/lstr "Repositório Subversion do código fonte.@pt"
+                      #voc/lstr "Subversion Quellcode-Versionierungssystem.@de"
+                      #voc/lstr "Repositorio Subversion del código fuente.@es"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["Dépôt Subversion"
-                      "Subversion Repository"
-                      "Subversion Repository"
-                      "Úložiště Subversion"
-                      "Repositorio Subversion"
-                      "Repositório Subversion"],
+   :rdfs/label       [#voc/lstr "Dépôt Subversion@fr"
+                      #voc/lstr "Subversion Repository@de"
+                      #voc/lstr "Subversion Repository@en"
+                      #voc/lstr "Úložiště Subversion@cs"
+                      #voc/lstr "Repositorio Subversion@es"
+                      #voc/lstr "Repositório Subversion@pt"],
    :rdfs/subClassOf  [:doap/Repository :doap/SVNRepository :rdfs/Resource]})
 
 (def Specification
-  "A especificação de aspetos, técnicas ou outros do sistema. A specification of a system's aspects, technical or otherwise."
+  "A specification of a system's aspects, technical or otherwise."
   {:db/ident :doap/Specification,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   ["A especificação de aspetos, técnicas ou outros do sistema."
-    "A specification of a system's aspects, technical or otherwise."],
+   [#voc/lstr "A especificação de aspetos, técnicas ou outros do sistema.@pt"
+    #voc/lstr
+     "A specification of a system's aspects, technical or otherwise.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Especificação" "Specification"],
+   :rdfs/label [#voc/lstr "Especificação@pt" #voc/lstr "Specification@en"],
    :rdfs/subClassOf [:rdfs/Resource :doap/Specification]})
 
 (def Version
-  "Información sobre la versión de un release del proyecto. Informace o uvolněné verzi projektu. Version information of a project release. Versionsinformation eines Projekt Releases. Informação sobre a versão do projeto lançado. Détails sur une version d'une release d'un projet."
-  {:db/ident         :doap/Version,
-   :rdf/type         :rdfs/Class,
-   :rdfs/comment     ["Información sobre la versión de un release del proyecto."
-                      "Informace o uvolněné verzi projektu."
-                      "Version information of a project release."
-                      "Versionsinformation eines Projekt Releases."
-                      "Informação sobre a versão do projeto lançado."
-                      "Détails sur une version d'une release d'un projet."],
+  "Version information of a project release."
+  {:db/ident :doap/Version,
+   :rdf/type :rdfs/Class,
+   :rdfs/comment
+   [#voc/lstr "Información sobre la versión de un release del proyecto.@es"
+    #voc/lstr "Informace o uvolněné verzi projektu.@cs"
+    #voc/lstr "Version information of a project release.@en"
+    #voc/lstr "Versionsinformation eines Projekt Releases.@de"
+    #voc/lstr "Informação sobre a versão do projeto lançado.@pt"
+    #voc/lstr "Détails sur une version d'une release d'un projet.@fr"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label       ["Versão" "Version" "Version" "Version" "Verze" "Versión"],
-   :rdfs/subClassOf  [:rdfs/Resource :doap/Version]})
+   :rdfs/label [#voc/lstr "Versão@pt"
+                #voc/lstr "Version@de"
+                #voc/lstr "Version@fr"
+                #voc/lstr "Version@en"
+                #voc/lstr "Verze@cs"
+                #voc/lstr "Versión@es"],
+   :rdfs/subClassOf [:rdfs/Resource :doap/Version]})
 
 (def anon-root
-  "Repository für anonymen Zugriff Repositorio para acceso anónimo. Úložiště pro anonymní přístup. Dépôt pour accès anonyme. Repositório para acesso anónimo. Repository for anonymous access."
+  "Repository for anonymous access."
   {:db/ident           :doap/anon-root,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Repository für anonymen Zugriff"
-                        "Repositorio para acceso anónimo."
-                        "Úložiště pro anonymní přístup."
-                        "Dépôt pour accès anonyme."
-                        "Repositório para acesso anónimo."
-                        "Repository for anonymous access."],
+   :rdfs/comment       [#voc/lstr "Repository für anonymen Zugriff@de"
+                        #voc/lstr "Repositorio para acceso anónimo.@es"
+                        #voc/lstr "Úložiště pro anonymní přístup.@cs"
+                        #voc/lstr "Dépôt pour accès anonyme.@fr"
+                        #voc/lstr "Repositório para acesso anónimo.@pt"
+                        #voc/lstr "Repository for anonymous access.@en"],
    :rdfs/domain        :doap/Repository,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["raíz anónima"
-                        "raíz anónima"
-                        "anonymní kořen"
-                        "anonymous root"
-                        "racine anonyme"
-                        "Anonymes Root"],
+   :rdfs/label         [#voc/lstr "raíz anónima@pt"
+                        #voc/lstr "raíz anónima@es"
+                        #voc/lstr "anonymní kořen@cs"
+                        #voc/lstr "anonymous root@en"
+                        #voc/lstr "racine anonyme@fr"
+                        #voc/lstr "Anonymes Root@de"],
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf :doap/anon-root})
 
 (def audience
-  "Descrição do utilizador base alvo Description of target user base"
+  "Description of target user base"
   {:db/ident           :doap/audience,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Descrição do utilizador base alvo"
-                        "Description of target user base"],
+   :rdfs/comment       [#voc/lstr "Descrição do utilizador base alvo@pt"
+                        #voc/lstr "Description of target user base@en"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["audiência" "audience"],
+   :rdfs/label         [#voc/lstr "audiência@pt" #voc/lstr "audience@en"],
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf :doap/audience})
 
 (def blog
-  "URI de um blog relacionado com um projeto URI of a blog related to a project"
+  "URI of a blog related to a project"
   {:db/ident           :doap/blog,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["URI de um blog relacionado com um projeto"
-                        "URI of a blog related to a project"],
+   :rdfs/comment       [#voc/lstr "URI de um blog relacionado com um projeto@pt"
+                        #voc/lstr "URI of a blog related to a project@en"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["blog" "blog"],
+   :rdfs/label         [#voc/lstr "blog@pt" #voc/lstr "blog@en"],
    :rdfs/range         [:sioc.types/Weblog :rdfs/Resource],
    :rdfs/subPropertyOf :doap/blog})
 
 (def browse
-  "Interface web do repositório. Webové rozhraní pro prohlížení úložiště. Web browser interface to repository. Interface web au dépôt. Interface web del repositorio. Web-Browser Interface für das Repository."
-  {:db/ident :doap/browse,
-   :rdf/type :rdf/Property,
-   :rdfs/comment ["Interface web do repositório."
-                  "Webové rozhraní pro prohlížení úložiště."
-                  "Web browser interface to repository."
-                  "Interface web au dépôt."
-                  "Interface web del repositorio."
-                  "Web-Browser Interface für das Repository."],
-   :rdfs/domain :doap/Repository,
-   :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["browse" "navegar" "navegar" "visualiser" "prohlížeč" "browse"],
+  "Web browser interface to repository."
+  {:db/ident           :doap/browse,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       [#voc/lstr "Interface web do repositório.@pt"
+                        #voc/lstr "Webové rozhraní pro prohlížení úložiště.@cs"
+                        #voc/lstr "Web browser interface to repository.@en"
+                        #voc/lstr "Interface web au dépôt.@fr"
+                        #voc/lstr "Interface web del repositorio.@es"
+                        #voc/lstr
+                         "Web-Browser Interface für das Repository.@de"],
+   :rdfs/domain        :doap/Repository,
+   :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
+   :rdfs/label         [#voc/lstr "browse@en"
+                        #voc/lstr "navegar@pt"
+                        #voc/lstr "navegar@es"
+                        #voc/lstr "visualiser@fr"
+                        #voc/lstr "prohlížeč@cs"
+                        #voc/lstr "browse@de"],
    :rdfs/subPropertyOf :doap/browse})
 
 (def bug-database
-  "Bug tracker para um projeto. Suivi des bugs pour un projet. Bug tracker for a project. Fehlerdatenbank eines Projektes. Bug tracker para un proyecto. Správa chyb projektu."
+  "Bug tracker for a project."
   {:db/ident           :doap/bug-database,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Bug tracker para um projeto."
-                        "Suivi des bugs pour un projet."
-                        "Bug tracker for a project."
-                        "Fehlerdatenbank eines Projektes."
-                        "Bug tracker para un proyecto."
-                        "Správa chyb projektu."],
+   :rdfs/comment       [#voc/lstr "Bug tracker para um projeto.@pt"
+                        #voc/lstr "Suivi des bugs pour un projet.@fr"
+                        #voc/lstr "Bug tracker for a project.@en"
+                        #voc/lstr "Fehlerdatenbank eines Projektes.@de"
+                        #voc/lstr "Bug tracker para un proyecto.@es"
+                        #voc/lstr "Správa chyb projektu.@cs"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["databáze chyb"
-                        "suivi des bugs"
-                        "Fehlerdatenbank"
-                        "bug database"
-                        "base de datos de bugs"
-                        "base de dados de bugs"],
+   :rdfs/label         [#voc/lstr "databáze chyb@cs"
+                        #voc/lstr "suivi des bugs@fr"
+                        #voc/lstr "Fehlerdatenbank@de"
+                        #voc/lstr "bug database@en"
+                        #voc/lstr "base de datos de bugs@es"
+                        #voc/lstr "base de dados de bugs@pt"],
    :rdfs/subPropertyOf :doap/bug-database})
 
 (def category
-  "Kategorie projektu. Eine Kategorie eines Projektes. A category of project. Una categoría de proyecto. Uma categoría de projeto. Une catégorie de projet."
-  {:db/ident :doap/category,
-   :rdf/type :rdf/Property,
-   :rdfs/comment ["Kategorie projektu."
-                  "Eine Kategorie eines Projektes."
-                  "A category of project."
-                  "Una categoría de proyecto."
-                  "Uma categoría de projeto."
-                  "Une catégorie de projet."],
-   :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label
-   ["category" "categoría" "kategorie" "Kategorie" "catégorie" "categoria"],
+  "A category of project."
+  {:db/ident           :doap/category,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       [#voc/lstr "Kategorie projektu.@cs"
+                        #voc/lstr "Eine Kategorie eines Projektes.@de"
+                        #voc/lstr "A category of project.@en"
+                        #voc/lstr "Una categoría de proyecto.@es"
+                        #voc/lstr "Uma categoría de projeto.@pt"
+                        #voc/lstr "Une catégorie de projet.@fr"],
+   :rdfs/domain        :doap/Project,
+   :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
+   :rdfs/label         [#voc/lstr "category@en"
+                        #voc/lstr "categoría@es"
+                        #voc/lstr "kategorie@cs"
+                        #voc/lstr "Kategorie@de"
+                        #voc/lstr "catégorie@fr"
+                        #voc/lstr "categoria@pt"],
    :rdfs/subPropertyOf :doap/category})
 
 (def created
-  "Erstellungsdatum von Irgendwas, angegeben im YYYY-MM-DD Format, z.B. 2004-04-05. Datum, kdy bylo něco vytvořeno ve formátu RRRR-MM-DD, např. 2004-04-05 Fecha en la que algo fue creado, en formato AAAA-MM-DD. e.g. 2004-04-05 Date when something was created, in YYYY-MM-DD form. e.g. 2004-04-05 Date à laquelle a été créé quelque chose, au format AAAA-MM-JJ (par ex. 2004-04-05) Data em que algo foi criado, no formato AAAA-MM-DD. e.g. 2004-04-05"
+  "Date when something was created, in YYYY-MM-DD form. e.g. 2004-04-05"
   {:db/ident :doap/created,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Erstellungsdatum von Irgendwas, angegeben im YYYY-MM-DD Format, z.B. 2004-04-05."
-    "Datum, kdy bylo něco vytvořeno ve formátu RRRR-MM-DD, např. 2004-04-05"
-    "Fecha en la que algo fue creado, en formato AAAA-MM-DD. e.g. 2004-04-05"
-    "Date when something was created, in YYYY-MM-DD form. e.g. 2004-04-05"
-    "Date à laquelle a été créé quelque chose, au format AAAA-MM-JJ (par ex. 2004-04-05)"
-    "Data em que algo foi criado, no formato AAAA-MM-DD. e.g. 2004-04-05"],
+   [#voc/lstr
+     "Erstellungsdatum von Irgendwas, angegeben im YYYY-MM-DD Format, z.B. 2004-04-05.@de"
+    #voc/lstr
+     "Datum, kdy bylo něco vytvořeno ve formátu RRRR-MM-DD, např. 2004-04-05@cs"
+    #voc/lstr
+     "Fecha en la que algo fue creado, en formato AAAA-MM-DD. e.g. 2004-04-05@es"
+    #voc/lstr
+     "Date when something was created, in YYYY-MM-DD form. e.g. 2004-04-05@en"
+    #voc/lstr
+     "Date à laquelle a été créé quelque chose, au format AAAA-MM-JJ (par ex. 2004-04-05)@fr"
+    #voc/lstr
+     "Data em que algo foi criado, no formato AAAA-MM-DD. e.g. 2004-04-05@pt"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["created" "erstellt" "vytvořeno" "criado" "creado" "créé"],
+   :rdfs/label [#voc/lstr "created@en"
+                #voc/lstr "erstellt@de"
+                #voc/lstr "vytvořeno@cs"
+                #voc/lstr "criado@pt"
+                #voc/lstr "creado@es"
+                #voc/lstr "créé@fr"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/created})
 
 (def description
-  "Čistě textový, 2 až 4 věty dlouhý popis projektu. Texte descriptif d'un projet, long de 2 à 4 phrases. Descrição de um projeto em texto apenas, com 2 a 4 frases de comprimento. Descripción en texto plano de un proyecto, de 2 a 4 enunciados de longitud. Beschreibung eines Projekts als einfacher Text mit der Länge von 2 bis 4 Sätzen. Plain text description of a project, of 2-4 sentences in length."
+  "Plain text description of a project, of 2-4 sentences in length."
   {:db/ident :doap/description,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Čistě textový, 2 až 4 věty dlouhý popis projektu."
-    "Texte descriptif d'un projet, long de 2 à 4 phrases."
-    "Descrição de um projeto em texto apenas, com 2 a 4 frases de comprimento."
-    "Descripción en texto plano de un proyecto, de 2 a 4 enunciados de longitud."
-    "Beschreibung eines Projekts als einfacher Text mit der Länge von 2 bis 4 Sätzen."
-    "Plain text description of a project, of 2-4 sentences in length."],
+   [#voc/lstr "Čistě textový, 2 až 4 věty dlouhý popis projektu.@cs"
+    #voc/lstr "Texte descriptif d'un projet, long de 2 à 4 phrases.@fr"
+    #voc/lstr
+     "Descrição de um projeto em texto apenas, com 2 a 4 frases de comprimento.@pt"
+    #voc/lstr
+     "Descripción en texto plano de un proyecto, de 2 a 4 enunciados de longitud.@es"
+    #voc/lstr
+     "Beschreibung eines Projekts als einfacher Text mit der Länge von 2 bis 4 Sätzen.@de"
+    #voc/lstr
+     "Plain text description of a project, of 2-4 sentences in length.@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["descripción"
-                "popis"
-                "description"
-                "description"
-                "descrição"
-                "Beschreibung"],
+   :rdfs/label [#voc/lstr "descripción@es"
+                #voc/lstr "popis@cs"
+                #voc/lstr "description@en"
+                #voc/lstr "description@fr"
+                #voc/lstr "descrição@pt"
+                #voc/lstr "Beschreibung@de"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/description})
 
 (def developer
-  "Vývojář softwaru projektu. Programador de software para o projeto. Desarrollador de software para el proyecto. Développeur pour le projet. Developer of software for the project. Software-Entwickler für das Projekt."
+  "Developer of software for the project."
   {:db/ident           :doap/developer,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Vývojář softwaru projektu."
-                        "Programador de software para o projeto."
-                        "Desarrollador de software para el proyecto."
-                        "Développeur pour le projet."
-                        "Developer of software for the project."
-                        "Software-Entwickler für das Projekt."],
+   :rdfs/comment       [#voc/lstr "Vývojář softwaru projektu.@cs"
+                        #voc/lstr "Programador de software para o projeto.@pt"
+                        #voc/lstr
+                         "Desarrollador de software para el proyecto.@es"
+                        #voc/lstr "Développeur pour le projet.@fr"
+                        #voc/lstr "Developer of software for the project.@en"
+                        #voc/lstr "Software-Entwickler für das Projekt.@de"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["Entwickler"
-                        "vývojář"
-                        "développeur"
-                        "desarrollador"
-                        "programador"
-                        "developer"],
+   :rdfs/label         [#voc/lstr "Entwickler@de"
+                        #voc/lstr "vývojář@cs"
+                        #voc/lstr "développeur@fr"
+                        #voc/lstr "desarrollador@es"
+                        #voc/lstr "programador@pt"
+                        #voc/lstr "developer@en"],
    :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf :doap/developer})
 
 (def developer-forum
   "A forum or community for developers of this project."
-  {:db/ident           :doap/developer-forum,
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       "A forum or community for developers of this project.",
-   :rdfs/domain        :doap/Project,
-   :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         "developer forum",
-   :rdfs/range         :sioc/Container,
+  {:db/ident :doap/developer-forum,
+   :rdf/type :rdf/Property,
+   :rdfs/comment #voc/lstr
+                  "A forum or community for developers of this project.@en",
+   :rdfs/domain :doap/Project,
+   :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
+   :rdfs/label #voc/lstr "developer forum@en",
+   :rdfs/range :sioc/Container,
    :rdfs/subPropertyOf :doap/developer-forum})
 
 (def documentation
-  "Aide pour l’utilisation de ce projet. Documentation of the project."
+  "Documentation of the project."
   {:db/ident           :doap/documentation,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Aide pour l’utilisation de ce projet."
-                        "Documentation of the project."],
+   :rdfs/comment       [#voc/lstr "Aide pour l’utilisation de ce projet.@fr"
+                        #voc/lstr "Documentation of the project.@en"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["aide" "documentation"],
+   :rdfs/label         [#voc/lstr "aide@fr" #voc/lstr "documentation@en"],
    :rdfs/subPropertyOf :doap/documentation})
 
 (def documenter
-  "Contribuidor para a documentação do projeto. Proveedor de documentación para el proyecto. Collaborateur à la documentation du projet. Spoluautor dokumentace projektu. Mitarbeiter an der Dokumentation des Projektes. Contributor of documentation to the project."
+  "Contributor of documentation to the project."
   {:db/ident           :doap/documenter,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Contribuidor para a documentação do projeto."
-                        "Proveedor de documentación para el proyecto."
-                        "Collaborateur à la documentation du projet."
-                        "Spoluautor dokumentace projektu."
-                        "Mitarbeiter an der Dokumentation des Projektes."
-                        "Contributor of documentation to the project."],
+   :rdfs/comment       [#voc/lstr
+                         "Contribuidor para a documentação do projeto.@pt"
+                        #voc/lstr
+                         "Proveedor de documentación para el proyecto.@es"
+                        #voc/lstr
+                         "Collaborateur à la documentation du projet.@fr"
+                        #voc/lstr "Spoluautor dokumentace projektu.@cs"
+                        #voc/lstr
+                         "Mitarbeiter an der Dokumentation des Projektes.@de"
+                        #voc/lstr
+                         "Contributor of documentation to the project.@en"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["documenter"
-                        "dokumentarista"
-                        "Dokumentator"
-                        "escritor de ayuda"
-                        "rédacteur de l'aide"
-                        "documentador"],
+   :rdfs/label         [#voc/lstr "documenter@en"
+                        #voc/lstr "dokumentarista@cs"
+                        #voc/lstr "Dokumentator@de"
+                        #voc/lstr "escritor de ayuda@es"
+                        #voc/lstr "rédacteur de l'aide@fr"
+                        #voc/lstr "documentador@pt"],
    :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf :doap/documenter})
 
 (def download-mirror
-  "Mirror of software download web page. Spiegel der Seite von die Projekt-Software heruntergeladen werden kann. Zrcadlo stránky pro stažení softwaru. Mirror de la página web de descarga. Miroir de la page de téléchargement du programme. Mirror da página web para fazer download."
+  "Mirror of software download web page."
   {:db/ident :doap/download-mirror,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Mirror of software download web page."
-    "Spiegel der Seite von die Projekt-Software heruntergeladen werden kann."
-    "Zrcadlo stránky pro stažení softwaru."
-    "Mirror de la página web de descarga."
-    "Miroir de la page de téléchargement du programme."
-    "Mirror da página web para fazer download."],
+   [#voc/lstr "Mirror of software download web page.@en"
+    #voc/lstr
+     "Spiegel der Seite von die Projekt-Software heruntergeladen werden kann.@de"
+    #voc/lstr "Zrcadlo stránky pro stažení softwaru.@cs"
+    #voc/lstr "Mirror de la página web de descarga.@es"
+    #voc/lstr "Miroir de la page de téléchargement du programme.@fr"
+    #voc/lstr "Mirror da página web para fazer download.@pt"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["zrcadlo stránky pro stažení"
-                "miroir pour le téléchargement"
-                "download mirror"
-                "mirror para download"
-                "Spiegel der Seite zum Herunterladen"
-                "mirror de descarga"],
+   :rdfs/label [#voc/lstr "zrcadlo stránky pro stažení@cs"
+                #voc/lstr "miroir pour le téléchargement@fr"
+                #voc/lstr "download mirror@en"
+                #voc/lstr "mirror para download@pt"
+                #voc/lstr "Spiegel der Seite zum Herunterladen@de"
+                #voc/lstr "mirror de descarga@es"],
    :rdfs/subPropertyOf :doap/download-mirror})
 
 (def download-page
-  "Web-Seite von der die Projekt-Software heruntergeladen werden kann. Webová stránka, na které lze stáhnout projektový software. Web page from which the project software can be downloaded. Page web à partir de laquelle on peut télécharger le programme. Página web da qual o projeto de software pode ser descarregado. Página web de la cuál se puede bajar el software."
+  "Web page from which the project software can be downloaded."
   {:db/ident :doap/download-page,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Web-Seite von der die Projekt-Software heruntergeladen werden kann."
-    "Webová stránka, na které lze stáhnout projektový software."
-    "Web page from which the project software can be downloaded."
-    "Page web à partir de laquelle on peut télécharger le programme."
-    "Página web da qual o projeto de software pode ser descarregado."
-    "Página web de la cuál se puede bajar el software."],
+   [#voc/lstr
+     "Web-Seite von der die Projekt-Software heruntergeladen werden kann.@de"
+    #voc/lstr "Webová stránka, na které lze stáhnout projektový software.@cs"
+    #voc/lstr "Web page from which the project software can be downloaded.@en"
+    #voc/lstr
+     "Page web à partir de laquelle on peut télécharger le programme.@fr"
+    #voc/lstr
+     "Página web da qual o projeto de software pode ser descarregado.@pt"
+    #voc/lstr "Página web de la cuál se puede bajar el software.@es"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["stránka pro stažení"
-                "página para download"
-                "page de téléchargement"
-                "Seite zum Herunterladen"
-                "download page"
-                "página de descarga"],
+   :rdfs/label [#voc/lstr "stránka pro stažení@cs"
+                #voc/lstr "página para download@pt"
+                #voc/lstr "page de téléchargement@fr"
+                #voc/lstr "Seite zum Herunterladen@de"
+                #voc/lstr "download page@en"
+                #voc/lstr "página de descarga@es"],
    :rdfs/subPropertyOf :doap/download-page})
 
 (def file-release
-  "URI para download associado com a publicação. URI adresa stažení asociované s revizí. URI of download associated with this release."
+  "URI of download associated with this release."
   {:db/ident           :doap/file-release,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["URI para download associado com a publicação."
-                        "URI adresa stažení asociované s revizí."
-                        "URI of download associated with this release."],
+   :rdfs/comment       [#voc/lstr
+                         "URI para download associado com a publicação.@pt"
+                        #voc/lstr "URI adresa stažení asociované s revizí.@cs"
+                        #voc/lstr
+                         "URI of download associated with this release.@en"],
    :rdfs/domain        :doap/Version,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["publicação do ficheiro"
-                        "soubor revize"
-                        "file-release"],
+   :rdfs/label         [#voc/lstr "publicação do ficheiro@pt"
+                        #voc/lstr "soubor revize@cs"
+                        #voc/lstr "file-release@en"],
    :rdfs/subPropertyOf :doap/file-release})
 
 (def helper
-  "Ajudante ou colaborador do projeto. Spoluautor projektu. Projekt-Mitarbeiter. Collaborateur au projet. Project contributor. Colaborador del proyecto."
-  {:db/ident :doap/helper,
-   :rdf/type :rdf/Property,
-   :rdfs/comment ["Ajudante ou colaborador do projeto."
-                  "Spoluautor projektu."
-                  "Projekt-Mitarbeiter."
-                  "Collaborateur au projet."
-                  "Project contributor."
-                  "Colaborador del proyecto."],
-   :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label
-   ["helper" "collaborateur" "colaborador" "colaborador" "Helfer" "spoluautor"],
-   :rdfs/range :foaf/Person,
+  "Project contributor."
+  {:db/ident           :doap/helper,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       [#voc/lstr "Ajudante ou colaborador do projeto.@pt"
+                        #voc/lstr "Spoluautor projektu.@cs"
+                        #voc/lstr "Projekt-Mitarbeiter.@de"
+                        #voc/lstr "Collaborateur au projet.@fr"
+                        #voc/lstr "Project contributor.@en"
+                        #voc/lstr "Colaborador del proyecto.@es"],
+   :rdfs/domain        :doap/Project,
+   :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
+   :rdfs/label         [#voc/lstr "helper@en"
+                        #voc/lstr "collaborateur@fr"
+                        #voc/lstr "colaborador@pt"
+                        #voc/lstr "colaborador@es"
+                        #voc/lstr "Helfer@de"
+                        #voc/lstr "spoluautor@cs"],
+   :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf :doap/helper})
 
 (def homepage
-  "O URL da página de um projeto, asociada com exactamente um projeto. El URL de la página de un proyecto, asociada con exactamente un proyecto. URL of a project's homepage, associated with exactly one project. URL der Projekt-Homepage, verbunden mit genau einem Projekt. L'URL de la page web d'un projet, associée avec un unique projet. URL adresa domovské stránky projektu asociované s právě jedním projektem."
+  "URL of a project's homepage, associated with exactly one project."
   {:db/ident :doap/homepage,
    :rdf/type [:owl/InverseFunctionalProperty :rdf/Property],
    :rdfs/comment
-   ["O URL da página de um projeto,\n\t\tasociada com exactamente um projeto."
-    "El URL de la página de un proyecto,\n\t\tasociada con exactamente un proyecto."
-    "URL of a project's homepage,\n\t\tassociated with exactly one project."
-    "URL der Projekt-Homepage,\n\t\tverbunden mit genau einem Projekt."
-    "L'URL de la page web d'un projet,\n\t\tassociée avec un unique projet."
-    "URL adresa domovské stránky projektu asociované s právě jedním projektem."],
+   [#voc/lstr
+     "O URL da página de um projeto,\n\t\tasociada com exactamente um projeto.@pt"
+    #voc/lstr
+     "El URL de la página de un proyecto,\n\t\tasociada con exactamente un proyecto.@es"
+    #voc/lstr
+     "URL of a project's homepage,\n\t\tassociated with exactly one project.@en"
+    #voc/lstr
+     "URL der Projekt-Homepage,\n\t\tverbunden mit genau einem Projekt.@de"
+    #voc/lstr
+     "L'URL de la page web d'un projet,\n\t\tassociée avec un unique projet.@fr"
+    #voc/lstr
+     "URL adresa domovské stránky projektu asociované s právě jedním projektem.@cs"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["page web"
-                "Homepage"
-                "página web"
-                "página web"
-                "homepage"
-                "domovská stránka"],
+   :rdfs/label [#voc/lstr "page web@fr"
+                #voc/lstr "Homepage@de"
+                #voc/lstr "página web@pt"
+                #voc/lstr "página web@es"
+                #voc/lstr "homepage@en"
+                #voc/lstr "domovská stránka@cs"],
    :rdfs/subPropertyOf [:foaf/homepage :doap/homepage]})
 
 (def implements
-  "Uma especificação que um projeto implementa. Pode ser uma padrão, API ou um nível de conformidade definida legalmente. A specification that a project implements. Could be a standard, API or legally defined level of conformance."
+  "A specification that a project implements. Could be a standard, API or legally defined level of conformance."
   {:db/ident :doap/implements,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Uma especificação que um projeto implementa. Pode ser uma padrão, API ou um nível de conformidade definida legalmente."
-    "A specification that a project implements. Could be a standard, API or legally defined level of conformance."],
+   [#voc/lstr
+     "Uma especificação que um projeto implementa. Pode ser uma padrão, API ou um nível de conformidade definida legalmente.@pt"
+    #voc/lstr
+     "A specification that a project implements. Could be a standard, API or legally defined level of conformance.@en"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Especificações para implementação" "Implements specification"],
+   :rdfs/label [#voc/lstr "Especificações para implementação@pt"
+                #voc/lstr "Implements specification@en"],
    :rdfs/range :doap/Specification,
    :rdfs/subPropertyOf :doap/implements})
 
 (def language
-  "Código de idioma BCP47 do projeto para o qual foi traduzido BCP47 language code a project has been translated into"
+  "BCP47 language code a project has been translated into"
   {:db/ident :doap/language,
    :rdf/type :rdf/Property,
-   :rdfs/comment ["Código de idioma BCP47 do projeto para o qual foi traduzido"
-                  "BCP47 language code a project has been translated into"],
+   :rdfs/comment
+   [#voc/lstr "Código de idioma BCP47 do projeto para o qual foi traduzido@pt"
+    #voc/lstr "BCP47 language code a project has been translated into@en"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["idioma" "language"],
+   :rdfs/label [#voc/lstr "idioma@pt" #voc/lstr "language@en"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/language})
 
 (def license
-  "L'URI d'une description RDF de la licence sous laquelle le programme est distribué. El URI de una descripción RDF de la licencia bajo la cuál se distribuye el software. O URI de uma descrição RDF da licença do software sob a qual é distribuída. Ex.: referência SPDX URI adresa RDF popisu licence, pod kterou je software distribuován. Die URI einer RDF-Beschreibung einer Lizenz unter der die Software herausgegeben wird. z.B. eine SPDX Referenz The URI of an RDF description of the license the software is distributed under. E.g. a SPDX reference"
+  "The URI of an RDF description of the license the software is distributed under. E.g. a SPDX reference"
   {:db/ident :doap/license,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["L'URI d'une description RDF de la licence sous laquelle le programme est distribué."
-    "El URI de una descripción RDF de la licencia bajo la cuál se distribuye el software."
-    "O URI de uma descrição RDF da licença do software sob a qual é distribuída. Ex.: referência SPDX"
-    "URI adresa RDF popisu licence, pod kterou je software distribuován."
-    "Die URI einer RDF-Beschreibung einer Lizenz unter der die Software herausgegeben wird. z.B. eine SPDX Referenz"
-    "The URI of an RDF description of the license the software is distributed under. E.g. a SPDX reference"],
+   [#voc/lstr
+     "L'URI d'une description RDF de la licence sous laquelle le programme est distribué.@fr"
+    #voc/lstr
+     "El URI de una descripción RDF de la licencia bajo la cuál se distribuye el software.@es"
+    #voc/lstr
+     "O URI de uma descrição RDF da licença do software sob a qual é distribuída. Ex.: referência SPDX@pt"
+    #voc/lstr
+     "URI adresa RDF popisu licence, pod kterou je software distribuován.@cs"
+    #voc/lstr
+     "Die URI einer RDF-Beschreibung einer Lizenz unter der die Software herausgegeben wird. z.B. eine SPDX Referenz@de"
+    #voc/lstr
+     "The URI of an RDF description of the license the software is distributed under. E.g. a SPDX reference@en"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Lizenz" "licence" "licence" "license" "licencia" "licença"],
+   :rdfs/label [#voc/lstr "Lizenz@de"
+                #voc/lstr "licence@cs"
+                #voc/lstr "licence@fr"
+                #voc/lstr "license@en"
+                #voc/lstr "licencia@es"
+                #voc/lstr "licença@pt"],
    :rdfs/subPropertyOf :doap/license})
 
 (def location
-  "Lokation eines Repositorys. Location of a repository. lugar de un repositorio. Localização de um repositório. Emplacement d'un dépôt. Umístění úložiště."
+  "Location of a repository."
   {:db/ident           :doap/location,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Lokation eines Repositorys."
-                        "Location of a repository."
-                        "lugar de un repositorio."
-                        "Localização de um repositório."
-                        "Emplacement d'un dépôt."
-                        "Umístění úložiště."],
+   :rdfs/comment       [#voc/lstr "Lokation eines Repositorys.@de"
+                        #voc/lstr "Location of a repository.@en"
+                        #voc/lstr "lugar de un repositorio.@es"
+                        #voc/lstr "Localização de um repositório.@pt"
+                        #voc/lstr "Emplacement d'un dépôt.@fr"
+                        #voc/lstr "Umístění úložiště.@cs"],
    :rdfs/domain        :doap/Repository,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["repository location"
-                        "umístění úložiště"
-                        "localização do respositório"
-                        "lugar del respositorio"
-                        "emplacement du dépôt"
-                        "Repository Lokation"],
+   :rdfs/label         [#voc/lstr "repository location@en"
+                        #voc/lstr "umístění úložiště@cs"
+                        #voc/lstr "localização do respositório@pt"
+                        #voc/lstr "lugar del respositorio@es"
+                        #voc/lstr "emplacement du dépôt@fr"
+                        #voc/lstr "Repository Lokation@de"],
    :rdfs/subPropertyOf :doap/location})
 
 (def mailing-list
-  "Domovská stránka nebo e–mailová adresa e–mailové diskuse. Homepage der Mailing Liste oder E-Mail Adresse. Page web de la liste de diffusion, ou adresse de courriel. Página web da lista de distribuição de e-mail ou dos endereços. Mailing list home page or email address. Página web de la lista de correo o dirección de correo."
+  "Mailing list home page or email address."
   {:db/ident :doap/mailing-list,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Domovská stránka nebo e–mailová adresa e–mailové diskuse."
-    "Homepage der Mailing Liste oder E-Mail Adresse."
-    "Page web de la liste de diffusion, ou adresse de courriel."
-    "Página web da lista de distribuição de e-mail ou dos endereços."
-    "Mailing list home page or email address."
-    "Página web de la lista de correo o dirección de correo."],
+   [#voc/lstr "Domovská stránka nebo e–mailová adresa e–mailové diskuse.@cs"
+    #voc/lstr "Homepage der Mailing Liste oder E-Mail Adresse.@de"
+    #voc/lstr "Page web de la liste de diffusion, ou adresse de courriel.@fr"
+    #voc/lstr
+     "Página web da lista de distribuição de e-mail ou dos endereços.@pt"
+    #voc/lstr "Mailing list home page or email address.@en"
+    #voc/lstr "Página web de la lista de correo o dirección de correo.@es"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["lista de correo"
-                "lista de distribuição de e-mail"
-                "mailing list"
-                "liste de diffusion"
-                "Mailing Liste"
-                "e–mailová diskuse"],
+   :rdfs/label [#voc/lstr "lista de correo@es"
+                #voc/lstr "lista de distribuição de e-mail@pt"
+                #voc/lstr "mailing list@en"
+                #voc/lstr "liste de diffusion@fr"
+                #voc/lstr "Mailing Liste@de"
+                #voc/lstr "e–mailová diskuse@cs"],
    :rdfs/range :sioc.types/MailingList,
    :rdfs/subPropertyOf :doap/mailing-list})
 
 (def maintainer
-  "Správce projektu, vedoucí projektu. Développeur principal d'un projet, un meneur du projet. Hauptentwickler eines Projektes, der Projektleiter Desarrollador principal de un proyecto, un líder de proyecto. Programador principal de um projeto, um líder de projeto. Maintainer of a project, a project leader."
+  "Maintainer of a project, a project leader."
   {:db/ident :doap/maintainer,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Správce projektu, vedoucí projektu."
-    "Développeur principal d'un projet, un meneur du projet."
-    "Hauptentwickler eines Projektes, der Projektleiter"
-    "Desarrollador principal de un proyecto, un líder de proyecto."
-    "Programador principal de um projeto, um líder de projeto."
-    "Maintainer of a project, a project leader."],
+   [#voc/lstr "Správce projektu, vedoucí projektu.@cs"
+    #voc/lstr "Développeur principal d'un projet, un meneur du projet.@fr"
+    #voc/lstr "Hauptentwickler eines Projektes, der Projektleiter@de"
+    #voc/lstr "Desarrollador principal de un proyecto, un líder de proyecto.@es"
+    #voc/lstr "Programador principal de um projeto, um líder de projeto.@pt"
+    #voc/lstr "Maintainer of a project, a project leader.@en"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Projektverantwortlicher"
-                "développeur principal"
-                "správce"
-                "maintainer"
-                "desarrollador principal"
-                "programador principal"],
+   :rdfs/label [#voc/lstr "Projektverantwortlicher@de"
+                #voc/lstr "développeur principal@fr"
+                #voc/lstr "správce@cs"
+                #voc/lstr "maintainer@en"
+                #voc/lstr "desarrollador principal@es"
+                #voc/lstr "programador principal@pt"],
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :doap/maintainer})
 
 (def module
-  "Nom du module d'un dépôt Subversion, CVS, BitKeeper ou Arch. Modul-Name eines Subversion, CVS, BitKeeper oder Arch Repositorys. Jméno modulu v CVS, BitKeeper nebo Arch úložišti. Module name of a Subversion, CVS, BitKeeper or Arch repository. Nombre del módulo de un repositorio Subversion, CVS, BitKeeper o Arch. Nome do módulo de um repositório Subversion, CVS, BitKeeper ou Arch."
+  "Module name of a Subversion, CVS, BitKeeper or Arch repository."
   {:db/ident :doap/module,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Nom du module d'un dépôt Subversion, CVS, BitKeeper ou Arch."
-    "Modul-Name eines Subversion, CVS, BitKeeper oder Arch Repositorys."
-    "Jméno modulu v CVS, BitKeeper nebo Arch úložišti."
-    "Module name of a Subversion, CVS, BitKeeper or Arch repository."
-    "Nombre del módulo de un repositorio Subversion, CVS, BitKeeper o Arch."
-    "Nome do módulo de um repositório Subversion, CVS, BitKeeper ou Arch."],
+   [#voc/lstr "Nom du module d'un dépôt Subversion, CVS, BitKeeper ou Arch.@fr"
+    #voc/lstr
+     "Modul-Name eines Subversion, CVS, BitKeeper oder Arch Repositorys.@de"
+    #voc/lstr "Jméno modulu v CVS, BitKeeper nebo Arch úložišti.@cs"
+    #voc/lstr
+     "Module name of a Subversion, CVS, BitKeeper or Arch repository.@en"
+    #voc/lstr
+     "Nombre del módulo de un repositorio Subversion, CVS, BitKeeper o Arch.@es"
+    #voc/lstr
+     "Nome do módulo de um repositório Subversion, CVS, BitKeeper ou Arch.@pt"],
    :rdfs/domain
    {:owl/unionOf [:doap/CVSRepository :doap/ArchRepository :doap/BKRepository],
     :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["module" "module" "modul" "Modul" "módulo" "módulo"],
+   :rdfs/label [#voc/lstr "module@fr"
+                #voc/lstr "module@en"
+                #voc/lstr "modul@cs"
+                #voc/lstr "Modul@de"
+                #voc/lstr "módulo@pt"
+                #voc/lstr "módulo@es"],
    :rdfs/subPropertyOf :doap/module})
 
 (def name
-  "O nome de alguma coisa. A name of something. Der Name von Irgendwas El nombre de algo. Jméno něčeho. Le nom de quelque chose."
+  "A name of something."
   {:db/ident           :doap/name,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["O nome de alguma coisa."
-                        "A name of something."
-                        "Der Name von Irgendwas"
-                        "El nombre de algo."
-                        "Jméno něčeho."
-                        "Le nom de quelque chose."],
+   :rdfs/comment       [#voc/lstr "O nome de alguma coisa.@pt"
+                        #voc/lstr "A name of something.@en"
+                        #voc/lstr "Der Name von Irgendwas@de"
+                        #voc/lstr "El nombre de algo.@es"
+                        #voc/lstr "Jméno něčeho.@cs"
+                        #voc/lstr "Le nom de quelque chose.@fr"],
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["nombre" "nom" "nome" "Name" "name" "jméno"],
+   :rdfs/label         [#voc/lstr "nombre@es"
+                        #voc/lstr "nom@fr"
+                        #voc/lstr "nome@pt"
+                        #voc/lstr "Name@de"
+                        #voc/lstr "name@en"
+                        #voc/lstr "jméno@cs"],
    :rdfs/range         :rdfs/Literal,
    :rdfs/subPropertyOf [:rdfs/label :doap/name]})
 
 (def old-homepage
-  "URL adresa předešlé domovské stránky projektu asociované s právě jedním projektem. URL of a project's past homepage, associated with exactly one project. L'URL d'une ancienne page web d'un projet, associée avec un unique projet. O URL antigo da página de um projeto, associada com exactamente um projeto. URL der letzten Projekt-Homepage, verbunden mit genau einem Projekt. El URL de la antigua página de un proyecto, asociada con exactamente un proyecto."
+  "URL of a project's past homepage, associated with exactly one project."
   {:db/ident :doap/old-homepage,
    :rdf/type [:owl/InverseFunctionalProperty :rdf/Property],
    :rdfs/comment
-   ["URL adresa předešlé domovské stránky projektu asociované s právě jedním projektem."
-    "URL of a project's past homepage,\n\t\tassociated with exactly one project."
-    "L'URL d'une ancienne page web d'un\n\t\tprojet, associée avec un unique projet."
-    "O URL antigo da página de um projeto,\n\t\tassociada com exactamente um projeto."
-    "URL der letzten Projekt-Homepage,\n\t\tverbunden mit genau einem Projekt."
-    "El URL de la antigua página de un proyecto,\n\t\tasociada con exactamente un proyecto."],
+   [#voc/lstr
+     "URL adresa předešlé domovské stránky projektu asociované s právě jedním projektem.@cs"
+    #voc/lstr
+     "URL of a project's past homepage,\n\t\tassociated with exactly one project.@en"
+    #voc/lstr
+     "L'URL d'une ancienne page web d'un\n\t\tprojet, associée avec un unique projet.@fr"
+    #voc/lstr
+     "O URL antigo da página de um projeto,\n\t\tassociada com exactamente um projeto.@pt"
+    #voc/lstr
+     "URL der letzten Projekt-Homepage,\n\t\tverbunden mit genau einem Projekt.@de"
+    #voc/lstr
+     "El URL de la antigua página de un proyecto,\n\t\tasociada con exactamente un proyecto.@es"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["stará domovská stránka"
-                "ancienne page web"
-                "Alte Homepage"
-                "página web antiga"
-                "old homepage"
-                "página web antigua"],
+   :rdfs/label [#voc/lstr "stará domovská stránka@cs"
+                #voc/lstr "ancienne page web@fr"
+                #voc/lstr "Alte Homepage@de"
+                #voc/lstr "página web antiga@pt"
+                #voc/lstr "old homepage@en"
+                #voc/lstr "página web antigua@es"],
    :rdfs/subPropertyOf [:foaf/homepage :doap/old-homepage]})
 
 (def os
-  "Système d'exploitation auquel est limité le projet. Omettez cette propriété si le projet n'est pas limité à un système d'exploitation. Sistema operativo a que o projeto está limitado. Omita esta propriedade se o projeto não é condicionado pelo SO usado. Sistema opertivo al cuál está limitado el proyecto. Omita esta propiedad si el proyecto no es específico de un sistema opertaivo en particular. Betriebssystem auf dem das Projekt eingesetzt werden kann. Diese Eigenschaft kann ausgelassen werden, wenn das Projekt nicht BS-spezifisch ist. Operační systém, na jehož použití je projekt limitován. Vynechejte tuto vlastnost, pokud je projekt nezávislý na operačním systému. Operating system that a project is limited to. Omit this property if the project is not OS-specific."
+  "Sistema operativo a que o projeto está limitado. Omita esta propriedade se o projeto não é condicionado pelo SO usado."
   {:db/ident :doap/os,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Système d'exploitation auquel est limité le projet. Omettez cette propriété si le\n\t\tprojet n'est pas limité à un système d'exploitation."
-    "Sistema operativo a que o projeto está limitado. Omita esta propriedade se o projeto não é condicionado pelo SO usado."
-    "Sistema opertivo al cuál está limitado el proyecto.  Omita esta propiedad si el proyecto no es específico\n\t\tde un sistema opertaivo en particular."
-    "Betriebssystem auf dem das Projekt eingesetzt werden kann. Diese Eigenschaft kann ausgelassen werden, wenn das Projekt nicht BS-spezifisch ist."
-    "Operační systém, na jehož použití je projekt limitován. Vynechejte tuto vlastnost, pokud je projekt nezávislý na operačním systému."
-    "Operating system that a project is limited to.  Omit this property if the project is not OS-specific."],
+   [#voc/lstr
+     "Système d'exploitation auquel est limité le projet. Omettez cette propriété si le\n\t\tprojet n'est pas limité à un système d'exploitation.@fr"
+    #voc/lstr
+     "Sistema operativo a que o projeto está limitado. Omita esta propriedade se o projeto não é condicionado pelo SO usado.@en"
+    #voc/lstr
+     "Sistema opertivo al cuál está limitado el proyecto.  Omita esta propiedad si el proyecto no es específico\n\t\tde un sistema opertaivo en particular.@es"
+    #voc/lstr
+     "Betriebssystem auf dem das Projekt eingesetzt werden kann. Diese Eigenschaft kann ausgelassen werden, wenn das Projekt nicht BS-spezifisch ist.@de"
+    #voc/lstr
+     "Operační systém, na jehož použití je projekt limitován. Vynechejte tuto vlastnost, pokud je projekt nezávislý na operačním systému.@cs"
+    #voc/lstr
+     "Operating system that a project is limited to.  Omit this property if the project is not OS-specific.@en"],
    :rdfs/domain [:doap/Project :doap/Version],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["operační systém"
-                "système d'exploitation"
-                "Betriebssystem"
-                "sistema operativo"
-                "sistema operativo"
-                "operating system"],
+   :rdfs/label [#voc/lstr "operační systém@cs"
+                #voc/lstr "système d'exploitation@fr"
+                #voc/lstr "Betriebssystem@de"
+                #voc/lstr "sistema operativo@pt"
+                #voc/lstr "sistema operativo@es"
+                #voc/lstr "operating system@en"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/os})
 
 (def platform
-  "Indicador da plataforma do software (não específico a nenhum SO), ex.: Java, Firefox, ECMA CLR Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR"
+  "Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR"
   {:db/ident :doap/platform,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Indicador da plataforma do software (não específico a nenhum SO), ex.: Java, Firefox, ECMA CLR"
-    "Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR"],
+   [#voc/lstr
+     "Indicador da plataforma do software (não específico a nenhum SO), ex.: Java, Firefox, ECMA CLR@pt"
+    #voc/lstr
+     "Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR@en"],
    :rdfs/domain [:doap/Version :doap/Project],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["plataforma" "platform"],
+   :rdfs/label [#voc/lstr "plataforma@pt" #voc/lstr "platform@en"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/platform})
 
 (def programming-language
-  "Programming language a project is implemented in or intended for use with. Lenguaje de programación en el que un proyecto es implementado o con el cuál pretende usarse. Programmiersprache in der ein Projekt implementiert ist oder intendiert wird zu benutzen. Langage de programmation avec lequel un projet est implémenté, ou avec lequel il est prévu de l'utiliser. Programovací jazyk, ve kterém je projekt implementován nebo pro který je zamýšlen k použití. Linguagem de programação que o projeto usa ou é para ser utilizada."
+  "Programming language a project is implemented in or intended for use with."
   {:db/ident :doap/programming-language,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Programming language a project is implemented in or intended for use with."
-    "Lenguaje de programación en el que un proyecto es implementado o con el cuál pretende usarse."
-    "Programmiersprache in der ein Projekt implementiert ist oder intendiert wird zu benutzen."
-    "Langage de programmation avec lequel un projet est implémenté,\n\t\tou avec lequel il est prévu de l'utiliser."
-    "Programovací jazyk, ve kterém je projekt implementován nebo pro který je zamýšlen k použití."
-    "Linguagem de programação que o projeto usa ou é para ser utilizada."],
+   [#voc/lstr
+     "Programming language a project is implemented in or intended for use with.@en"
+    #voc/lstr
+     "Lenguaje de programación en el que un proyecto es implementado o con el cuál pretende usarse.@es"
+    #voc/lstr
+     "Programmiersprache in der ein Projekt implementiert ist oder intendiert wird zu benutzen.@de"
+    #voc/lstr
+     "Langage de programmation avec lequel un projet est implémenté,\n\t\tou avec lequel il est prévu de l'utiliser.@fr"
+    #voc/lstr
+     "Programovací jazyk, ve kterém je projekt implementován nebo pro který je zamýšlen k použití.@cs"
+    #voc/lstr
+     "Linguagem de programação que o projeto usa ou é para ser utilizada.@pt"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["programovací jazyk"
-                "langage de programmation"
-                "programming language"
-                "lenguaje de programación"
-                "Programmiersprache"
-                "linguagem de programação"],
+   :rdfs/label [#voc/lstr "programovací jazyk@cs"
+                #voc/lstr "langage de programmation@fr"
+                #voc/lstr "programming language@en"
+                #voc/lstr "lenguaje de programación@es"
+                #voc/lstr "Programmiersprache@de"
+                #voc/lstr "linguagem de programação@pt"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/programming-language})
 
 (def release
-  "Un release (versión) de un proyecto. Une release (révision) d'un projet. A project release. Relase (verze) projektu. A publicação de um projeto. Ein Release (Version) eines Projekts."
-  {:db/ident :doap/release,
-   :rdf/type :rdf/Property,
-   :rdfs/comment ["Un release (versión) de un proyecto."
-                  "Une release (révision) d'un projet."
-                  "A project release."
-                  "Relase (verze) projektu."
-                  "A publicação de um projeto."
-                  "Ein Release (Version) eines Projekts."],
-   :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Release" "release" "release" "release" "release" "publicação"],
-   :rdfs/range :doap/Version,
+  "A project release."
+  {:db/ident           :doap/release,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       [#voc/lstr "Un release (versión) de un proyecto.@es"
+                        #voc/lstr "Une release (révision) d'un projet.@fr"
+                        #voc/lstr "A project release.@en"
+                        #voc/lstr "Relase (verze) projektu.@cs"
+                        #voc/lstr "A publicação de um projeto.@pt"
+                        #voc/lstr "Ein Release (Version) eines Projekts.@de"],
+   :rdfs/domain        :doap/Project,
+   :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
+   :rdfs/label         [#voc/lstr "Release@de"
+                        #voc/lstr "release@cs"
+                        #voc/lstr "release@es"
+                        #voc/lstr "release@fr"
+                        #voc/lstr "release@en"
+                        #voc/lstr "publicação@pt"],
+   :rdfs/range         :doap/Version,
    :rdfs/subPropertyOf :doap/release})
 
 (def repository
-  "Repositorio del código fuente. Úložiště zdrojových kódů. Source code repository. Repositório do código fonte. Dépôt du code source. Quellcode-Versionierungssystem."
-  {:db/ident :doap/repository,
-   :owl/inverseOf :doap/repositoryOf,
-   :rdf/type :rdf/Property,
-   :rdfs/comment ["Repositorio del código fuente."
-                  "Úložiště zdrojových kódů."
-                  "Source code repository."
-                  "Repositório do código fonte."
-                  "Dépôt du code source."
-                  "Quellcode-Versionierungssystem."],
-   :rdfs/domain :doap/Project,
-   :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label
-   ["repository" "repositorio" "repositório" "dépôt" "Repository" "úložiště"],
-   :rdfs/range :doap/Repository,
+  "Source code repository."
+  {:db/ident           :doap/repository,
+   :owl/inverseOf      :doap/repositoryOf,
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       [#voc/lstr "Repositorio del código fuente.@es"
+                        #voc/lstr "Úložiště zdrojových kódů.@cs"
+                        #voc/lstr "Source code repository.@en"
+                        #voc/lstr "Repositório do código fonte.@pt"
+                        #voc/lstr "Dépôt du code source.@fr"
+                        #voc/lstr "Quellcode-Versionierungssystem.@de"],
+   :rdfs/domain        :doap/Project,
+   :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
+   :rdfs/label         [#voc/lstr "repository@en"
+                        #voc/lstr "repositorio@es"
+                        #voc/lstr "repositório@pt"
+                        #voc/lstr "dépôt@fr"
+                        #voc/lstr "Repository@de"
+                        #voc/lstr "úložiště@cs"],
+   :rdfs/range         :doap/Repository,
    :rdfs/subPropertyOf :doap/repository})
 
 (def repositoryOf
@@ -771,47 +901,58 @@
   {:db/ident           :doap/repositoryOf,
    :owl/inverseOf      :doap/repository,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "The project that uses a repository.",
+   :rdfs/comment       #voc/lstr "The project that uses a repository.@en",
    :rdfs/domain        :doap/Repository,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         "repository of",
+   :rdfs/label         #voc/lstr "repository of@en",
    :rdfs/range         :doap/Project,
    :rdfs/subPropertyOf :doap/repositoryOf})
 
 (def revision
-  "Revision identifier of a software release. Indentificador de la versión de un release de software. Identificador do lançamento da revisão do software. Identifikátor zpřístupněné revize softwaru. Versionsidentifikator eines Software-Releases. Identifiant de révision d'une release du programme."
+  "Revision identifier of a software release."
   {:db/ident :doap/revision,
    :rdf/type :rdf/Property,
-   :rdfs/comment ["Revision identifier of a software release."
-                  "Indentificador de la versión de un release de software."
-                  "Identificador do lançamento da revisão do software."
-                  "Identifikátor zpřístupněné revize softwaru."
-                  "Versionsidentifikator eines Software-Releases."
-                  "Identifiant de révision d'une release du programme."],
+   :rdfs/comment
+   [#voc/lstr "Revision identifier of a software release.@en"
+    #voc/lstr "Indentificador de la versión de un release de software.@es"
+    #voc/lstr "Identificador do lançamento da revisão do software.@pt"
+    #voc/lstr "Identifikátor zpřístupněné revize softwaru.@cs"
+    #voc/lstr "Versionsidentifikator eines Software-Releases.@de"
+    #voc/lstr "Identifiant de révision d'une release du programme.@fr"],
    :rdfs/domain :doap/Version,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Version" "revision" "revisão" "révision" "versión" "verze"],
+   :rdfs/label [#voc/lstr "Version@de"
+                #voc/lstr "revision@en"
+                #voc/lstr "revisão@pt"
+                #voc/lstr "révision@fr"
+                #voc/lstr "versión@es"
+                #voc/lstr "verze@cs"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/revision})
 
 (def screenshots
-  "Web page with screenshots of project. Página web con capturas de pantalla del proyecto. Page web avec des captures d'écran du projet. Página web com as capturas de ecrãn do projeto. Webová stránka projektu se snímky obrazovky. Web-Seite mit Screenshots eines Projektes."
+  "Web page with screenshots of project."
   {:db/ident           :doap/screenshots,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Web page with screenshots of project."
-                        "Página web con capturas de pantalla del proyecto."
-                        "Page web avec des captures d'écran du projet."
-                        "Página web com as capturas de ecrãn do projeto."
-                        "Webová stránka projektu se snímky obrazovky."
-                        "Web-Seite mit Screenshots eines Projektes."],
+   :rdfs/comment       [#voc/lstr "Web page with screenshots of project.@en"
+                        #voc/lstr
+                         "Página web con capturas de pantalla del proyecto.@es"
+                        #voc/lstr
+                         "Page web avec des captures d'écran du projet.@fr"
+                        #voc/lstr
+                         "Página web com as capturas de ecrãn do projeto.@pt"
+                        #voc/lstr
+                         "Webová stránka projektu se snímky obrazovky.@cs"
+                        #voc/lstr
+                         "Web-Seite mit Screenshots eines Projektes.@de"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["snímek obrazovky"
-                        "capturas de ecrãs"
-                        "Screenshots"
-                        "screenshots"
-                        "captures d'écran"
-                        "capturas de pantalla"],
+   :rdfs/label         [#voc/lstr "snímek obrazovky@cs"
+                        #voc/lstr "capturas de ecrãs@pt"
+                        #voc/lstr "Screenshots@de"
+                        #voc/lstr "screenshots@en"
+                        #voc/lstr "captures d'écran@fr"
+                        #voc/lstr "capturas de pantalla@es"],
    :rdfs/subPropertyOf :doap/screenshots})
 
 (def security-contact
@@ -819,10 +960,11 @@
   {:db/ident :doap/security-contact,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The Agent that should be contacted\n\tif security issues are found with the project.",
+   #voc/lstr
+    "The Agent that should be contacted\n\tif security issues are found with the project.@en",
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label "security contact",
+   :rdfs/label #voc/lstr "security contact@en",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf :doap/security-contact})
 
@@ -830,10 +972,10 @@
   "URL of the security policy of a project."
   {:db/ident           :doap/security-policy,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "URL of the security policy of a project.",
+   :rdfs/comment       #voc/lstr "URL of the security policy of a project.@en",
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         "security policy",
+   :rdfs/label         #voc/lstr "security policy@en",
    :rdfs/subPropertyOf [:foaf/page :doap/security-policy]})
 
 (def service-endpoint
@@ -841,31 +983,35 @@
   {:db/ident :doap/service-endpoint,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The URI of a web service endpoint where software as a service may be accessed",
+   #voc/lstr
+    "The URI of a web service endpoint where software as a service may be accessed@en",
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label "service endpoint",
+   :rdfs/label #voc/lstr "service endpoint@en",
    :rdfs/range :rdfs/Resource,
    :rdfs/subPropertyOf :doap/service-endpoint})
 
 (def shortdesc
-  "Descripción corta (8 o 9 palabras) en texto plano de un proyecto. Short (8 or 9 words) plain text description of a project. Kurzbeschreibung (8 oder 9 Wörter) eines Projekts als einfacher Text. Descrição curta (com 8 ou 9 palavras) de um projeto em texto apenas. Krátký (8 nebo 9 slov) čistě textový popis projektu. Texte descriptif concis (8 ou 9 mots) d'un projet."
+  "Short (8 or 9 words) plain text description of a project."
   {:db/ident :doap/shortdesc,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Descripción corta (8 o 9 palabras) en texto plano de un proyecto."
-    "Short (8 or 9 words) plain text description of a project."
-    "Kurzbeschreibung (8 oder 9 Wörter) eines Projekts als einfacher Text."
-    "Descrição curta (com 8 ou 9 palavras) de um projeto em texto apenas."
-    "Krátký (8 nebo 9 slov) čistě textový popis projektu."
-    "Texte descriptif concis (8 ou 9 mots) d'un projet."],
+   [#voc/lstr
+     "Descripción corta (8 o 9 palabras) en texto plano de un proyecto.@es"
+    #voc/lstr "Short (8 or 9 words) plain text description of a project.@en"
+    #voc/lstr
+     "Kurzbeschreibung (8 oder 9 Wörter) eines Projekts als einfacher Text.@de"
+    #voc/lstr
+     "Descrição curta (com 8 ou 9 palavras) de um projeto em texto apenas.@pt"
+    #voc/lstr "Krátký (8 nebo 9 slov) čistě textový popis projektu.@cs"
+    #voc/lstr "Texte descriptif concis (8 ou 9 mots) d'un projet.@fr"],
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Kurzbeschreibung"
-                "description courte"
-                "descrição curta"
-                "descripción corta"
-                "krátký popis"
-                "short description"],
+   :rdfs/label [#voc/lstr "Kurzbeschreibung@de"
+                #voc/lstr "description courte@fr"
+                #voc/lstr "descrição curta@pt"
+                #voc/lstr "descripción corta@es"
+                #voc/lstr "krátký popis@cs"
+                #voc/lstr "short description@en"],
    :rdfs/range :rdfs/Literal,
    :rdfs/subPropertyOf :doap/shortdesc})
 
@@ -873,48 +1019,58 @@
   "A forum or community that supports this project."
   {:db/ident           :doap/support-forum,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "A forum or community that supports this project.",
+   :rdfs/comment       #voc/lstr
+                        "A forum or community that supports this project.@en",
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         "supporting forum",
+   :rdfs/label         #voc/lstr "supporting forum@en",
    :rdfs/range         :sioc/Container,
    :rdfs/subPropertyOf :doap/support-forum})
 
 (def tester
-  "Tester nebo jiný spoluautor kontrolující kvalitu. Ein Tester oder anderer Mitarbeiter der Qualitätskontrolle. Un testeur ou un collaborateur au contrôle qualité. A tester or other quality control contributor. Um controlador ou outro contribuidor para o controlo de qualidade. Un tester u otro proveedor de control de calidad."
+  "A tester or other quality control contributor."
   {:db/ident :doap/tester,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["Tester nebo jiný spoluautor kontrolující kvalitu."
-    "Ein Tester oder anderer Mitarbeiter der Qualitätskontrolle."
-    "Un testeur ou un collaborateur au contrôle qualité."
-    "A tester or other quality control contributor."
-    "Um controlador ou outro contribuidor para o controlo de qualidade."
-    "Un tester u otro proveedor de control de calidad."],
+   [#voc/lstr "Tester nebo jiný spoluautor kontrolující kvalitu.@cs"
+    #voc/lstr "Ein Tester oder anderer Mitarbeiter der Qualitätskontrolle.@de"
+    #voc/lstr "Un testeur ou un collaborateur au contrôle qualité.@fr"
+    #voc/lstr "A tester or other quality control contributor.@en"
+    #voc/lstr
+     "Um controlador ou outro contribuidor para o controlo de qualidade.@pt"
+    #voc/lstr "Un tester u otro proveedor de control de calidad.@es"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["testeur" "Tester" "controlador" "tester" "tester" "tester"],
+   :rdfs/label [#voc/lstr "testeur@fr"
+                #voc/lstr "Tester@de"
+                #voc/lstr "controlador@pt"
+                #voc/lstr "tester@cs"
+                #voc/lstr "tester@es"
+                #voc/lstr "tester@en"],
    :rdfs/range :foaf/Person,
    :rdfs/subPropertyOf :doap/tester})
 
 (def translator
-  "Contribuidor das traduções para o projeto. Proveedor de traducciones al proyecto. Mitarbeiter an den Übersetzungen des Projektes. Contributor of translations to the project. Collaborateur à la traduction du projet. Spoluautor překladu projektu."
+  "Contributor of translations to the project."
   {:db/ident           :doap/translator,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       ["Contribuidor das traduções para o projeto."
-                        "Proveedor de traducciones al proyecto."
-                        "Mitarbeiter an den Übersetzungen des Projektes."
-                        "Contributor of translations to the project."
-                        "Collaborateur à la traduction du projet."
-                        "Spoluautor překladu projektu."],
+   :rdfs/comment       [#voc/lstr
+                         "Contribuidor das traduções para o projeto.@pt"
+                        #voc/lstr "Proveedor de traducciones al proyecto.@es"
+                        #voc/lstr
+                         "Mitarbeiter an den Übersetzungen des Projektes.@de"
+                        #voc/lstr
+                         "Contributor of translations to the project.@en"
+                        #voc/lstr "Collaborateur à la traduction du projet.@fr"
+                        #voc/lstr "Spoluautor překladu projektu.@cs"],
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         ["traductor"
-                        "translator"
-                        "tradutor"
-                        "Übersetzer"
-                        "traducteur"
-                        "překladatel"],
+   :rdfs/label         [#voc/lstr "traductor@es"
+                        #voc/lstr "translator@en"
+                        #voc/lstr "tradutor@pt"
+                        #voc/lstr "Übersetzer@de"
+                        #voc/lstr "traducteur@fr"
+                        #voc/lstr "překladatel@cs"],
    :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf :doap/translator})
 
@@ -922,27 +1078,33 @@
   "Vendor organization: commercial, free or otherwise"
   {:db/ident           :doap/vendor,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "Vendor organization: commercial, free or otherwise",
+   :rdfs/comment       #voc/lstr
+                        "Vendor organization: commercial, free or otherwise@en",
    :rdfs/domain        :doap/Project,
    :rdfs/isDefinedBy   "http://usefulinc.com/ns/doap#",
-   :rdfs/label         "vendor",
+   :rdfs/label         #voc/lstr "vendor@en",
    :rdfs/range         :foaf/Organization,
    :rdfs/subPropertyOf :doap/vendor})
 
 (def wiki
-  "L'URL du Wiki pour la discussion collaborative sur le projet. URL of Wiki for collaborative discussion of project. URL adresa wiki projektu pro společné diskuse. Wiki-URL für die kollaborative Dikussion eines Projektes. URL da Wiki para discussão em grupo do projeto. URL del Wiki para discusión colaborativa del proyecto."
+  "URL of Wiki for collaborative discussion of project."
   {:db/ident :doap/wiki,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   ["L'URL du Wiki pour la discussion collaborative sur le projet."
-    "URL of Wiki for collaborative discussion of project."
-    "URL adresa wiki projektu pro společné diskuse."
-    "Wiki-URL für die kollaborative Dikussion eines Projektes."
-    "URL da Wiki para discussão em grupo do projeto."
-    "URL del Wiki para discusión colaborativa del proyecto."],
+   [#voc/lstr "L'URL du Wiki pour la discussion collaborative sur le projet.@fr"
+    #voc/lstr "URL of Wiki for collaborative discussion of project.@en"
+    #voc/lstr "URL adresa wiki projektu pro společné diskuse.@cs"
+    #voc/lstr "Wiki-URL für die kollaborative Dikussion eines Projektes.@de"
+    #voc/lstr "URL da Wiki para discussão em grupo do projeto.@pt"
+    #voc/lstr "URL del Wiki para discusión colaborativa del proyecto.@es"],
    :rdfs/domain :doap/Project,
    :rdfs/isDefinedBy "http://usefulinc.com/ns/doap#",
-   :rdfs/label ["Wiki" "wiki" "wiki" "wiki" "wiki" "wiki"],
+   :rdfs/label [#voc/lstr "Wiki@de"
+                #voc/lstr "wiki@pt"
+                #voc/lstr "wiki@cs"
+                #voc/lstr "wiki@es"
+                #voc/lstr "wiki@fr"
+                #voc/lstr "wiki@en"],
    :rdfs/range :sioc.types/Wiki,
    :rdfs/subPropertyOf :doap/wiki})
 

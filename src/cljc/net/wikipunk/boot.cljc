@@ -69,7 +69,8 @@
 
 (def dqv
   "Data Quality Vocabulary"
-  {:rdfa/uri         "http://www.w3.org/ns/dqv#",
+  {:dcat/downloadURL "https://www.w3.org/ns/dqv.ttl"
+   :rdfa/uri         "http://www.w3.org/ns/dqv#",
    :rdfa/prefix      "dqv",
    :rdfs/isDefinedBy {:rdf/uri "https://www.w3.org/TR/vocab-dqv/"},
    :rdf/type         :rdfa/PrefixMapping})

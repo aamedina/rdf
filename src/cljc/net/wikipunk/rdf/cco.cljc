@@ -13,8 +13,9 @@
     "Zhisheng Huang"],
    :dc11/date #inst "2010-09-26T11:16:52.000-00:00",
    :dc11/description
-   "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins",
-   :dc11/title "Cognitive Characteristics Ontology",
+   #voc/lstr
+    "A vocabulary for describing cognitive pattern within contexts, their temporal dynamics and their origins@en",
+   :dc11/title #voc/lstr "Cognitive Characteristics Ontology@en",
    :dcat/downloadURL
    "http://purl.org/ontology/cco/cognitivecharacteristics.owl",
    :owl/imports ["http://purl.org/NET/scovo"
@@ -54,52 +55,55 @@
   {:db/ident :cco/CharacteristicDynamics,
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/comment
-   "An event concept for describing dynamics of characteristics, e.g. weight changes, periods of interest.",
+   #voc/lstr
+    "An event concept for describing dynamics of characteristics, e.g. weight changes, periods of interest.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "Characteristic Dynamics",
+   :rdfs/label #voc/lstr "Characteristic Dynamics@en",
    :rdfs/subClassOf [:rdfs/Resource :wo/Weight :cco/CharacteristicDynamics],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def CognitiveCharacteristic
   "A cognitive characteristic object, which also can have weightings and characteristic dynamics etc. for describing a cognitive pattern."
   {:db/ident :cco/CognitiveCharacteristic,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A cognitive characteristic object, which also can have weightings and characteristic dynamics etc. for describing a cognitive pattern.",
+   #voc/lstr
+    "A cognitive characteristic object, which also can have weightings and characteristic dynamics etc. for describing a cognitive pattern.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "Cognitive Characteristic",
+   :rdfs/label #voc/lstr "Cognitive Characteristic@en",
    :rdfs/subClassOf [:rdfs/Resource :scovo/Item :cco/CognitiveCharacteristic],
-   :vs/term_status "unstable"})
+   :vs/term_status #voc/lstr "unstable@en"})
 
 (def ExplicitMining
   "An explicitly mined cognitive pattern"
   {:db/ident         :cco/ExplicitMining,
-   :dc11/description "An explicitly mined cognitive pattern",
-   :dc11/title       "Explicit Mining",
+   :dc11/description #voc/lstr "An explicitly mined cognitive pattern@en",
+   :dc11/title       #voc/lstr "Explicit Mining@en",
    :rdf/type         :scovo/Dimension,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :vs/term_status   "testing"})
+   :vs/term_status   #voc/lstr "testing@en"})
 
 (def ImplicitMining
   "An implicitly mined cognitive pattern"
   {:db/ident         :cco/ImplicitMining,
-   :dc11/description "An implicitly mined cognitive pattern",
-   :dc11/title       "Implicit Mining",
+   :dc11/description #voc/lstr "An implicitly mined cognitive pattern@en",
+   :dc11/title       #voc/lstr "Implicit Mining@en",
    :rdf/type         :scovo/Dimension,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :vs/term_status   "testing"})
+   :vs/term_status   #voc/lstr "testing@en"})
 
 (def activity
   "An activity, which is related to a topic of a cognitive charateristic description, e.g. if the topic is football a related activity can be playing or watching."
   {:db/ident :cco/activity,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "An activity, which is related to a topic of a cognitive charateristic description, e.g. if the topic is football a related activity can be playing or watching.",
+   #voc/lstr
+    "An activity, which is related to a topic of a cognitive charateristic description, e.g. if the topic is football a related activity can be playing or watching.@en",
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has activity",
+   :rdfs/label #voc/lstr "has activity@en",
    :rdfs/subPropertyOf [:ao/activity :event/factor :cco/activity],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def agent
   "A link from a mined cognitive characteristic to the related person"
@@ -107,77 +111,83 @@
    :owl/inverseOf :cco/habit,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   "A link from a mined cognitive characteristic to the related person",
+   #voc/lstr
+    "A link from a mined cognitive characteristic to the related person@en",
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has agent",
+   :rdfs/label #voc/lstr "has agent@en",
    :rdfs/range :foaf/Agent,
    :rdfs/subPropertyOf :cco/agent,
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def appear_time
   "The time when the cognitive pattern appears in a certain kind of scenario."
   {:db/ident :cco/appear_time,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "The time when the cognitive pattern appears in a certain kind of scenario.",
+   #voc/lstr
+    "The time when the cognitive pattern appears in a certain kind of scenario.@en",
    :rdfs/domain {:owl/unionOf [:cco/CognitiveCharacteristic
                                :cco/CharacteristicDynamics],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has appear time",
+   :rdfs/label #voc/lstr "has appear time@en",
    :rdfs/subPropertyOf [:event/time :cco/appear_time],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def attention_duration
   "An interval of attention for a cognitive pattern."
   {:db/ident           :cco/attention_duration,
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment       "An interval of attention for a cognitive pattern.",
+   :rdfs/comment       #voc/lstr
+                        "An interval of attention for a cognitive pattern.@en",
    :rdfs/domain        :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy   "http://purl.org/ontology/cco/core#",
-   :rdfs/label         "has attention duration",
+   :rdfs/label         #voc/lstr "has attention duration@en",
    :rdfs/range         :time/Interval,
    :rdfs/subPropertyOf [:scovo/dimension :event/time :cco/attention_duration],
-   :vs/term_status     "testing"})
+   :vs/term_status     #voc/lstr "testing@en"})
 
 (def belief
   "An uncertain relation for competence representation. That means beliefs, persuasions or opinions, which can also be misconceptions."
   {:db/ident :cco/belief,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "An uncertain relation for competence representation. That means beliefs, persuasions or opinions, which can also be misconceptions.",
+   #voc/lstr
+    "An uncertain relation for competence representation. That means beliefs, persuasions or opinions, which can also be misconceptions.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has belief",
+   :rdfs/label #voc/lstr "has belief@en",
    :rdfs/subPropertyOf
    [:cco/competence :cco/belief :cco/cognitive_characteristic],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def characteristic
   "Relates to the applied cognitive characteristic (property), e.g. competence, belief, expertise, skill, interest or setting."
   {:db/ident :cco/characteristic,
    :rdf/type [:owl/FunctionalProperty :rdf/Property],
    :rdfs/comment
-   "Relates to the applied cognitive characteristic (property), e.g. competence, belief, expertise, skill, interest or setting.",
+   #voc/lstr
+    "Relates to the applied cognitive characteristic (property), e.g. competence, belief, expertise, skill, interest or setting.@en",
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has characteristic",
+   :rdfs/label #voc/lstr "has characteristic@en",
    :rdfs/range :rdf/Property,
    :rdfs/subPropertyOf :cco/characteristic,
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def characteristic_dynamics
   "To relate a cognitive characteristic to its temporal dynamics."
   {:db/ident :cco/characteristic_dynamics,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "To relate a cognitive characteristic to its temporal dynamics.",
+   #voc/lstr
+    "To relate a cognitive characteristic to its temporal dynamics.@en",
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has characteristic dynamics",
+   :rdfs/label #voc/lstr "has characteristic dynamics@en",
    :rdfs/range :cco/CharacteristicDynamics,
    :rdfs/subPropertyOf [:event/sub_event :cco/characteristic_dynamics],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def cognitive_characteristic
   "This is the super property to describe cognitive characteristics of the user of the cognitive pattern dimension, e.g. interests, skills, or expertise."
@@ -185,63 +195,68 @@
    :owl/propertyChainAxiom [:cco/habit :cco/topic],
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   "This is the super property to describe cognitive characteristics of the user of the cognitive pattern dimension, e.g. interests, skills, or expertise.",
+   #voc/lstr
+    "This is the super property to describe cognitive characteristics of the user of the cognitive pattern dimension, e.g. interests, skills, or expertise.@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has cognitive characteristic",
+   :rdfs/label #voc/lstr "has cognitive characteristic@en",
    :rdfs/range :owl/Thing,
    :rdfs/subPropertyOf :cco/cognitive_characteristic,
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def competence
   "The competence to (be able to) do or know something. That means abilities, skills, knowledge, expertise, beliefs etc."
   {:db/ident :cco/competence,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "The competence to (be able to) do or know something. That means abilities, skills, knowledge, expertise, beliefs etc.",
+   #voc/lstr
+    "The competence to (be able to) do or know something. That means abilities, skills, knowledge, expertise, beliefs etc.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has competence",
+   :rdfs/label #voc/lstr "has competence@en",
    :rdfs/subPropertyOf [:cco/cognitive_characteristic :cco/competence],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def evidence
   "A link between a context and evidence supporting the interpretation of habits in a context"
   {:db/ident :cco/evidence,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   "A link between a context and evidence supporting the interpretation of habits in a context",
+   #voc/lstr
+    "A link between a context and evidence supporting the interpretation of habits in a context@en",
    :rdfs/domain {:owl/unionOf [:cco/CognitiveCharacteristic
                                :cco/CharacteristicDynamics],
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has evidence",
+   :rdfs/label #voc/lstr "has evidence@en",
    :rdfs/subPropertyOf [:event/factor :cco/evidence],
-   :vs/term_status "unstable"})
+   :vs/term_status #voc/lstr "unstable@en"})
 
 (def expertise
   "The knowledge or expertise in a certain domain or specific topic, e.g. football, programming languages or music."
   {:db/ident :cco/expertise,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "The knowledge or expertise in a certain domain or specific topic, e.g. football, programming languages or music.",
+   #voc/lstr
+    "The knowledge or expertise in a certain domain or specific topic, e.g. football, programming languages or music.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has expertise",
+   :rdfs/label #voc/lstr "has expertise@en",
    :rdfs/subPropertyOf
    [:cco/competence :cco/expertise :cco/cognitive_characteristic],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def habit
   "A link between an agent and a cognitive characteristic description"
   {:db/ident :cco/habit,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "A link between an agent and a cognitive characteristic description",
+   #voc/lstr
+    "A link between an agent and a cognitive characteristic description@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has habit",
+   :rdfs/label #voc/lstr "has habit@en",
    :rdfs/range :cco/CognitiveCharacteristic,
    :rdfs/subPropertyOf :cco/habit,
-   :vs/term_status "unstable"})
+   :vs/term_status #voc/lstr "unstable@en"})
 
 (def interest
   "This property relates a certain area of interest or preference to an agent. That means this agent likes this topic somehow."
@@ -249,109 +264,117 @@
    :owl/equivalentProperty :foaf/topic_interest,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "This property relates a certain area of interest or preference to an agent. That means this agent likes this topic somehow.",
+   #voc/lstr
+    "This property relates a certain area of interest or preference to an agent. That means this agent likes this topic somehow.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has interest",
+   :rdfs/label #voc/lstr "has interest@en",
    :rdfs/subPropertyOf [:cco/cognitive_characteristic :cco/interest],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def longest_duration
   "The longest continuous interval of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 4 years."
   {:db/ident :cco/longest_duration,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "The longest continuous interval of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 4 years.",
+   #voc/lstr
+    "The longest continuous interval of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 4 years.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has longest duration",
+   :rdfs/label #voc/lstr "has longest duration@en",
    :rdfs/subPropertyOf
-   [:cco/attention_duration :cco/longest_duration :event/time :scovo/dimension],
-   :vs/term_status "testing"})
+   [:cco/attention_duration :cco/longest_duration :scovo/dimension :event/time],
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def not_interested_in
   "A link between an agent and a topic of no interest to them"
   {:db/ident :cco/not_interested_in,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment "A link between an agent and a topic of no interest to them",
+   :rdfs/comment
+   #voc/lstr "A link between an agent and a topic of no interest to them@en",
    :rdfs/domain :foaf/Agent,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "is not interested in",
+   :rdfs/label #voc/lstr "is not interested in@en",
    :rdfs/range :owl/Thing,
    :rdfs/subPropertyOf :cco/not_interested_in,
-   :vs/term_status "unstable"})
+   :vs/term_status #voc/lstr "unstable@en"})
 
 (def overall_weight
   "This weight reflects the overall interest in a topic and should be different from the actual weight of a cognitive characteristic."
   {:db/ident :cco/overall_weight,
    :rdf/type [:owl/ObjectProperty :owl/FunctionalProperty :rdf/Property],
    :rdfs/comment
-   "This weight reflects the overall interest in a topic and should be different from the actual weight of a cognitive characteristic.",
+   #voc/lstr
+    "This weight reflects the overall interest in a topic and should be different from the actual weight of a cognitive characteristic.@en",
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has overall weight",
+   :rdfs/label #voc/lstr "has overall weight@en",
    :rdfs/subPropertyOf [:scovo/dimension :wo/weight :cco/overall_weight],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def setting
   "A certain setting or preference. Often re. a specific environment, e.g. an application."
   {:db/ident :cco/setting,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "A certain setting or preference. Often re. a specific environment, e.g. an application.",
+   #voc/lstr
+    "A certain setting or preference. Often re. a specific environment, e.g. an application.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has setting",
+   :rdfs/label #voc/lstr "has setting@en",
    :rdfs/subPropertyOf [:cco/cognitive_characteristic :cco/setting],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def skill
   "The ability or skill to (be able to) do something, e.g. to walk, to play the piano or to work in a team."
   {:db/ident :cco/skill,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "The ability or skill to (be able to) do something, e.g. to walk, to play the piano or to work in a team.",
+   #voc/lstr
+    "The ability or skill to (be able to) do something, e.g. to walk, to play the piano or to work in a team.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has skill",
+   :rdfs/label #voc/lstr "has skill@en",
    :rdfs/subPropertyOf
    [:cco/competence :cco/skill :cco/cognitive_characteristic],
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def statistical_item
   "A link from a cognitive characteristic to statistics about itself"
   {:db/ident :cco/statistical_item,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   "A link from a cognitive characteristic to statistics about itself",
+   #voc/lstr
+    "A link from a cognitive characteristic to statistics about itself@en",
    :rdfs/domain :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has statistical item",
+   :rdfs/label #voc/lstr "has statistical item@en",
    :rdfs/range :scovo/Item,
    :rdfs/subPropertyOf :cco/statistical_item,
-   :vs/term_status "testing"})
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def topic
   "A topic of the cognitive characteristic."
   {:db/ident           :cco/topic,
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       "A topic of the cognitive characteristic.",
+   :rdfs/comment       #voc/lstr "A topic of the cognitive characteristic.@en",
    :rdfs/domain        :cco/CognitiveCharacteristic,
    :rdfs/isDefinedBy   "http://purl.org/ontology/cco/core#",
-   :rdfs/label         "has topic",
+   :rdfs/label         #voc/lstr "has topic@en",
    :rdfs/range         :owl/Thing,
    :rdfs/subPropertyOf [:dcterms/subject :cco/topic],
-   :vs/term_status     "unstable"})
+   :vs/term_status     #voc/lstr "unstable@en"})
 
 (def ultimative_duration
   "The overall duration of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 7 years."
   {:db/ident :cco/ultimative_duration,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
-   "The overall duration of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 7 years.",
+   #voc/lstr
+    "The overall duration of attention for a cognitive pattern, e.g. for an interest, if it appears in the following years: 1990, 1991, 1995, 1996, 1997, 1998, 2001, then the longest duration is 7 years.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/cco/core#",
-   :rdfs/label "has ultimative duration",
+   :rdfs/label #voc/lstr "has ultimative duration@en",
    :rdfs/subPropertyOf [:cco/attention_duration
                         :cco/ultimative_duration
-                        :event/time
-                        :scovo/dimension],
-   :vs/term_status "testing"})
+                        :scovo/dimension
+                        :event/time],
+   :vs/term_status #voc/lstr "testing@en"})
 
 (def ^{:private true} activity
   {:db/ident :ao/activity,

@@ -54,9 +54,9 @@
   "A review of an work"
   {:db/ident         :rev/Review,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     "A review of an work",
+   :rdfs/comment     #voc/lstr "A review of an work@en",
    :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
-   :rdfs/label       "Review",
+   :rdfs/label       #voc/lstr "Review@en",
    :rdfs/subClassOf  [:rdfs/Resource :rev/Review],
    :vs/moreinfo      "core term",
    :vs/term_status   "stable"})
@@ -104,10 +104,10 @@
   "Associates a work with a a review"
   {:db/ident           :rev/hasReview,
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       "Associates a work with a a review",
+   :rdfs/comment       #voc/lstr "Associates a work with a a review@en",
    :rdfs/domain        :rdfs/Resource,
    :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "has Review",
+   :rdfs/label         #voc/lstr "has Review@en",
    :rdfs/range         :rev/Review,
    :rdfs/subPropertyOf :rev/hasReview,
    :vs/moreinfo        "core term",
@@ -116,11 +116,11 @@
 (def maxRating
   "Maximum value for rating property"
   {:db/ident           :rev/maxRating,
-   :dc11/description   "Maximum value for rating property",
+   :dc11/description   #voc/lstr "Maximum value for rating property@en",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "A numeric value",
+   :rdfs/comment       #voc/lstr "A numeric value@en",
    :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "max Rating",
+   :rdfs/label         #voc/lstr "max Rating@en",
    :rdfs/subPropertyOf :rev/maxRating,
    :vs/moreinfo        "Introduced by request of Revyu.com",
    :vs/term_status     "stable"})
@@ -128,11 +128,11 @@
 (def minRating
   "Minimum value for rating property"
   {:db/ident           :rev/minRating,
-   :dc11/description   "Minimum value for rating property",
+   :dc11/description   #voc/lstr "Minimum value for rating property@en",
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "A numeric value",
+   :rdfs/comment       #voc/lstr "A numeric value@en",
    :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "min Rating",
+   :rdfs/label         #voc/lstr "min Rating@en",
    :rdfs/subPropertyOf :rev/minRating,
    :vs/moreinfo        "Introduced by request of Revyu.com",
    :vs/term_status     "stable"})
@@ -154,9 +154,9 @@
   "A numeric value"
   {:db/ident           :rev/rating,
    :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "A numeric value",
+   :rdfs/comment       #voc/lstr "A numeric value@en",
    :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "rating",
+   :rdfs/label         #voc/lstr "rating@en",
    :rdfs/subPropertyOf :rev/rating,
    :vs/moreinfo        "core term",
    :vs/term_status     "stable"})
@@ -165,10 +165,10 @@
   "The person that has written the review"
   {:db/ident           :rev/reviewer,
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       "The person that has written the review",
+   :rdfs/comment       #voc/lstr "The person that has written the review@en",
    :rdfs/domain        :rev/Review,
    :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "reviewer",
+   :rdfs/label         #voc/lstr "reviewer@en",
    :rdfs/range         :foaf/Person,
    :rdfs/subPropertyOf :rev/reviewer,
    :vs/moreinfo        "core term",
@@ -178,9 +178,9 @@
   "The text of the review"
   {:db/ident           :rev/text,
    :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The text of the review",
+   :rdfs/comment       #voc/lstr "The text of the review@en",
    :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "text",
+   :rdfs/label         #voc/lstr "text@en",
    :rdfs/subPropertyOf :rev/text,
    :vs/moreinfo        "core term",
    :vs/term_status     "stable"})

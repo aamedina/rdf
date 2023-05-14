@@ -28,8 +28,8 @@
    :rdf/type        :rdfs/Class,
    :rdfs/subClassOf [:rdfa/Error
                      :rdfa/DocumentError
-                     :rdfa/PGClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :rdfa/PGClass]})
 
 (def ErrorClass
   "is the class for all error conditions"
@@ -84,8 +84,8 @@
    :rdf/type        :rdfs/Class,
    :rdfs/subClassOf [:rdfa/Warning
                      :rdfa/PrefixRedefinition
-                     :rdfa/PGClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :rdfa/PGClass]})
 
 (def TermMapping
   "is the class for term mappings"
@@ -104,8 +104,8 @@
    :rdf/type        :rdfs/Class,
    :rdfs/subClassOf [:rdfa/Warning
                      :rdfa/UnresolvedCURIE
-                     :rdfa/PGClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :rdfa/PGClass]})
 
 (def UnresolvedTerm
   "warning; to be used when a Term fails to be resolved"
@@ -114,8 +114,8 @@
    :rdf/type        :rdfs/Class,
    :rdfs/subClassOf [:rdfa/Warning
                      :rdfa/UnresolvedTerm
-                     :rdfa/PGClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :rdfa/PGClass]})
 
 (def VocabReferenceError
   "warning; to be used when the value of a @vocab attribute cannot be dereferenced, hence the vocabulary expansion cannot be completed"
@@ -125,8 +125,8 @@
    :rdf/type        :rdfs/Class,
    :rdfs/subClassOf [:rdfa/Warning
                      :rdfa/VocabReferenceError
-                     :rdfa/PGClass
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :rdfa/PGClass]})
 
 (def Warning
   "is the class for all warnings"

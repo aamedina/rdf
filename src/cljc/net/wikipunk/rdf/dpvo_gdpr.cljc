@@ -1,7 +1,8 @@
 (ns net.wikipunk.rdf.dpvo-gdpr
   "The GDPR extension to Data Privacy Vocabulary provides terms (classes and properties) related to EU General Data Protection Regulation."
   {:dcterms/abstract
-   "The GDPR extension to Data Privacy Vocabulary provides terms (classes and properties) related to EU General Data Protection Regulation.",
+   #voc/lstr
+    "The GDPR extension to Data Privacy Vocabulary provides terms (classes and properties) related to EU General Data Protection Regulation.@en",
    :dcterms/contributor ["Bud Bruegger"
                          "Fajar J. Ekaputra"
                          "Axel Polleres"
@@ -24,11 +25,12 @@
    :dcterms/created #inst "2019-06-18T00:00:00.000-04:00",
    :dcterms/creator ["Axel Polleres" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "The GDPR extension to Data Privacy Vocabulary provides terms (classes and properties) related to EU General Data Protection Regulation.",
+   #voc/lstr
+    "The GDPR extension to Data Privacy Vocabulary provides terms (classes and properties) related to EU General Data Protection Regulation.@en",
    :dcterms/license "https://www.w3.org/Consortium/Legal/2015/doc-license",
    :dcterms/modified #inst "2022-12-05T00:00:00.000-05:00",
    :dcterms/source "https://www.w3.org/community/dpvcg/",
-   :dcterms/title "DPV-GDPR: GDPR Extension for DPV",
+   :dcterms/title #voc/lstr "DPV-GDPR: GDPR Extension for DPV@en",
    :owl/imports "https://w3id.org/dpv/dpv-owl",
    :owl/versionInfo "1",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
@@ -51,13 +53,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg Krog" "Beatriz Esteves"],
    :dcterms/description
-   "information to be provided where personal data is directly collected from data subject",
+   #voc/lstr
+    "information to be provided where personal data is directly collected from data subject@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_13/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "A13 Right to be Informed",
+   :rdfs/label #voc/lstr "A13 Right to be Informed@en",
    :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A13],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A14
   "information to be provided where personal data is collected from other sources"
@@ -65,13 +68,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg Krog" "Beatriz Esteves" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "information to be provided where personal data is collected from other sources",
+   #voc/lstr
+    "information to be provided where personal data is collected from other sources@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_14/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "A14 Right to be Informed",
+   :rdfs/label #voc/lstr "A14 Right to be Informed@en",
    :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A14],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A15
   "Right of access"
@@ -80,13 +84,13 @@
    :dcterms/creator     ["Harshvardhan J. Pandit"
                          "Beatriz Esteves"
                          "Georg Krog"],
-   :dcterms/description "Right of access",
+   :dcterms/description #voc/lstr "Right of access@en",
    :dcterms/source      "https://eur-lex.europa.eu/eli/reg/2016/679/art_15/oj",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "A15 Right of Access",
+   :rdfs/label          #voc/lstr "A15 Right of Access@en",
    :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A15],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A16
   "Right to rectification"
@@ -95,13 +99,13 @@
    :dcterms/creator     ["Beatriz Esteves"
                          "Georg Krog"
                          "Harshvardhan J. Pandit"],
-   :dcterms/description "Right to rectification",
+   :dcterms/description #voc/lstr "Right to rectification@en",
    :dcterms/source      "https://eur-lex.europa.eu/eli/reg/2016/679/art_16/oj",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "A16 Right to Rectification",
+   :rdfs/label          #voc/lstr "A16 Right to Rectification@en",
    :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A16],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A17
   "Right to erasure ('Right to be forgotten')"
@@ -110,13 +114,14 @@
    :dcterms/creator     ["Harshvardhan J. Pandit"
                          "Beatriz Esteves"
                          "Georg Krog"],
-   :dcterms/description "Right to erasure ('Right to be forgotten')",
+   :dcterms/description #voc/lstr
+                         "Right to erasure ('Right to be forgotten')@en",
    :dcterms/source      "https://eur-lex.europa.eu/eli/reg/2016/679/art_17/oj",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "A17 Right to Erasure",
+   :rdfs/label          #voc/lstr "A17 Right to Erasure@en",
    :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A17],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A18
   "Right to restriction of processing"
@@ -125,13 +130,13 @@
    :dcterms/creator     ["Beatriz Esteves"
                          "Harshvardhan J. Pandit"
                          "Georg Krog"],
-   :dcterms/description "Right to restriction of processing",
+   :dcterms/description #voc/lstr "Right to restriction of processing@en",
    :dcterms/source      "https://eur-lex.europa.eu/eli/reg/2016/679/art_18/oj",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "A18 Right to Restrict Processing",
+   :rdfs/label          #voc/lstr "A18 Right to Restrict Processing@en",
    :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A18],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A19
   "Right to be notified in case of rectification or erasure of personal data or restriction of processing"
@@ -139,13 +144,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Georg Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "Right to be notified in case of rectification or erasure of personal data or restriction of processing",
+   #voc/lstr
+    "Right to be notified in case of rectification or erasure of personal data or restriction of processing@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_19/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "A19 Right to Rectification",
+   :rdfs/label #voc/lstr "A19 Right to Rectification@en",
    :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A19],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A20
   "Right to data portability"
@@ -154,13 +160,13 @@
    :dcterms/creator     ["Georg Krog"
                          "Harshvardhan J. Pandit"
                          "Beatriz Esteves"],
-   :dcterms/description "Right to data portability",
+   :dcterms/description #voc/lstr "Right to data portability@en",
    :dcterms/source      "https://eur-lex.europa.eu/eli/reg/2016/679/art_20/oj",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "A20 Right to Data Portability",
+   :rdfs/label          #voc/lstr "A20 Right to Data Portability@en",
    :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A20],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A21
   "Right to object to processing of personal data"
@@ -169,13 +175,14 @@
    :dcterms/creator     ["Harshvardhan J. Pandit"
                          "Beatriz Esteves"
                          "Georg Krog"],
-   :dcterms/description "Right to object to processing of personal data",
+   :dcterms/description #voc/lstr
+                         "Right to object to processing of personal data@en",
    :dcterms/source      "https://eur-lex.europa.eu/eli/reg/2016/679/art_21/oj",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "A21 Right to object",
+   :rdfs/label          #voc/lstr "A21 Right to object@en",
    :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A21],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A22
   "Right not to be subject to a decision based solely on automated processing including profiling"
@@ -183,13 +190,14 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"],
    :dcterms/description
-   "Right not to be subject to a decision based solely on automated processing including profiling",
+   #voc/lstr
+    "Right not to be subject to a decision based solely on automated processing including profiling@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_22/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "A22 Right to object to automated decision making",
+   :rdfs/label #voc/lstr "A22 Right to object to automated decision making@en",
    :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A22],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A45-3
   "Personal data can flow freely from the EU to a third country with an Adequacy Decision without any further safeguard being necessary."
@@ -197,16 +205,18 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Personal data can flow freely from the EU to a third country with an Adequacy Decision without any further safeguard being necessary.",
+   #voc/lstr
+    "Personal data can flow freely from the EU to a third country with an Adequacy Decision without any further safeguard being necessary.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_45/par_3/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has Adequacy Decision.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has Adequacy Decision.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 45(3) adequacy decision",
+   :rdfs/label #voc/lstr "Art 45(3) adequacy decision@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A45-3],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-a
   "A legally binding and enforceable instrument between public authorities or bodies"
@@ -214,38 +224,41 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "A legally binding and enforceable instrument between public authorities or bodies",
+   #voc/lstr
+    "A legally binding and enforceable instrument between public authorities or bodies@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_a/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(2-a) legal instrument",
+   :rdfs/label #voc/lstr "Art 46(2-a) legal instrument@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-2-a],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-b
   "Binding corporate rules"
   {:db/ident :dpvo-gdpr/A46-2-b,
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
-   :dcterms/description "Binding corporate rules",
+   :dcterms/description #voc/lstr "Binding corporate rules@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_b/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(2-b) Binding Corporate Rules (BCR)",
+   :rdfs/label #voc/lstr "Art 46(2-b) Binding Corporate Rules (BCR)@en",
    :rdfs/subClassOf [:dpvo-gdpr/BindingCorporateRules
                      :dpvo/DataTransferLegalBasis
                      :dpvo-gdpr/A46-2-b
-                     :dpvo-gdpr/DataTransferTool
-                     :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo-gdpr/DataTransferTool],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-c
   "Standard data protection clauses adopted by the Commission"
@@ -253,23 +266,25 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Standard data protection clauses adopted by the Commission",
+   #voc/lstr "Standard data protection clauses adopted by the Commission@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_c/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(2-c) Standard Contractual Clauses (SCC) by EC",
+   :rdfs/label #voc/lstr
+                "Art 46(2-c) Standard Contractual Clauses (SCC) by EC@en",
    :rdfs/subClassOf [:dpvo-gdpr/SCCByCommission
                      :dpvo/DataTransferLegalBasis
                      :dpvo-gdpr/A46-2-c
-                     :dpvo-gdpr/DataTransferTool
-                     :dpvo/Contract
                      :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo-gdpr/DataTransferTool
+                     :dpvo/Contract],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-d
   "Standard data protection clauses adopted by a Supervisory Authority"
@@ -277,23 +292,26 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Standard data protection clauses adopted by a Supervisory Authority",
+   #voc/lstr
+    "Standard data protection clauses adopted by a Supervisory Authority@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_d/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(2-d) Standard Contractual Clauses (SCC) by DPA",
+   :rdfs/label #voc/lstr
+                "Art 46(2-d) Standard Contractual Clauses (SCC) by DPA@en",
    :rdfs/subClassOf [:dpvo-gdpr/SCCBySupervisoryAuthority
                      :dpvo/DataTransferLegalBasis
                      :dpvo-gdpr/A46-2-d
-                     :dpvo-gdpr/DataTransferTool
-                     :dpvo/Contract
                      :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo-gdpr/DataTransferTool
+                     :dpvo/Contract],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-e
   "An approved code of conduct pursuant to GDPR Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards individuals´ rights"
@@ -301,17 +319,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "An approved code of conduct pursuant to GDPR Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards individuals´ rights",
+   #voc/lstr
+    "An approved code of conduct pursuant to GDPR Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards individuals´ rights@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_e/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(2-e) code of conduct",
+   :rdfs/label #voc/lstr "Art 46(2-e) code of conduct@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-2-e],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-f
   "An approved certification mechanism pursuant to GDPR Article 42 together with binding and enforceable commitments of the controller or processor in the third country to appy the appropriate safeguards, including as regards individuals` rights"
@@ -319,17 +339,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "An approved certification mechanism pursuant to GDPR Article 42 together with binding and enforceable commitments of the controller or processor in the third country to appy the appropriate safeguards, including as regards individuals` rights",
+   #voc/lstr
+    "An approved certification mechanism pursuant to GDPR Article 42 together with binding and enforceable commitments of the controller or processor in the third country to appy the appropriate safeguards, including as regards individuals` rights@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_f/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(2-f) certification",
+   :rdfs/label #voc/lstr "Art 46(2-f) certification@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-2-f],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-3-a
   "Contractual clauses with controller, processor or recipient of the personal data in the third country or the international organisation."
@@ -337,17 +359,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Contractual clauses with controller, processor or recipient of the personal data in the third country or the international organisation.",
+   #voc/lstr
+    "Contractual clauses with controller, processor or recipient of the personal data in the third country or the international organisation.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_3/pnt_a/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards exist. Transfer does requires specific authorisation from a Supervisor Authority.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards exist. Transfer does requires specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(3-a) contractual clauses",
+   :rdfs/label #voc/lstr "Art 46(3-a) contractual clauses@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-3-a],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-3-b
   "Provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights"
@@ -355,17 +379,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights",
+   #voc/lstr
+    "Provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_3/pnt_b/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards exist. Transfer does requires specific authorisation from a Supervisor Authority.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards exist. Transfer does requires specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 46(3-b) administrative arrangements",
+   :rdfs/label #voc/lstr "Art 46(3-b) administrative arrangements@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-3-b],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-a
   "The data subject has explicitly consented to the proposed transfer, after having been informed of the possible risks of such transfers for the data subject due to the absence of an adequacy decision and appropriate safeguards."
@@ -373,19 +399,21 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The data subject has explicitly consented to the proposed transfer, after having been informed of the possible risks of such transfers for the data subject due to the absence of an adequacy decision and appropriate safeguards.",
+   #voc/lstr
+    "The data subject has explicitly consented to the proposed transfer, after having been informed of the possible risks of such transfers for the data subject due to the absence of an adequacy decision and appropriate safeguards.@en",
    :dcterms/modified #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_1/pnt_a/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(1-a) explicit consent",
+   :rdfs/label #voc/lstr "Art 49(1-a) explicit consent@en",
    :rdfs/subClassOf [:dpvo/ExplicitlyExpressedConsent
                      :dpvo/DataTransferLegalBasis
                      :dpvo-gdpr/A49-1-a],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A49-1-b
   "The transfer is necessary for the performance of a contract between the data subject and controller or the implementation of pre-contractual measures taken at the data subject´s request."
@@ -393,18 +421,20 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The transfer is necessary for the performance of a contract between the data subject and controller or the implementation of pre-contractual measures taken at the data subject´s request.",
+   #voc/lstr
+    "The transfer is necessary for the performance of a contract between the data subject and controller or the implementation of pre-contractual measures taken at the data subject´s request.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_1/pnt_b/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(1-b) performance of contract",
+   :rdfs/label #voc/lstr "Art 49(1-b) performance of contract@en",
    :rdfs/subClassOf
    [:dpvo/Contract :dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-b],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-c
   "The transfer is necessary for the conclusion or performance of a contract concluded in the interest of the data subject and controller and another natural or legal person."
@@ -412,18 +442,20 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The transfer is necessary for the conclusion or performance of a contract concluded in the interest of the data subject and controller and another natural or legal person.",
+   #voc/lstr
+    "The transfer is necessary for the conclusion or performance of a contract concluded in the interest of the data subject and controller and another natural or legal person.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_1/pnt_c/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(1-c) conclusion of contract",
+   :rdfs/label #voc/lstr "Art 49(1-c) conclusion of contract@en",
    :rdfs/subClassOf
    [:dpvo/Contract :dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-c],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-d
   "The transfer is necessary for important reasons of public interest."
@@ -431,18 +463,20 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The transfer is necessary for important reasons of public interest.",
+   #voc/lstr
+    "The transfer is necessary for important reasons of public interest.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_1/pnt_d/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(1-d) public interest",
+   :rdfs/label #voc/lstr "Art 49(1-d) public interest@en",
    :rdfs/subClassOf
    [:dpvo/DataTransferLegalBasis :dpvo/PublicInterest :dpvo-gdpr/A49-1-d],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-e
   "The transfer is necessary for the establishment, exercise or defence of legal claims."
@@ -450,17 +484,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The transfer is necessary for the establishment, exercise or defence of legal claims.",
+   #voc/lstr
+    "The transfer is necessary for the establishment, exercise or defence of legal claims.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_1/pnt_e/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(1-e) legal claims",
+   :rdfs/label #voc/lstr "Art 49(1-e) legal claims@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-e],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-f
   "The transfer is necessary in order to protect the vital interests of the data subject or of other persons, where the person is physically or legally incapable of giving consent."
@@ -468,19 +504,21 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The transfer is necessary in order to protect the vital interests of the data subject or of other persons, where the person is physically or legally incapable of giving consent.",
+   #voc/lstr
+    "The transfer is necessary in order to protect the vital interests of the data subject or of other persons, where the person is physically or legally incapable of giving consent.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_1/pnt_f/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(1-f) protect vital interests",
+   :rdfs/label #voc/lstr "Art 49(1-f) protect vital interests@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis
                      :dpvo/VitalInterestOfNatualPerson
                      :dpvo-gdpr/A49-1-f],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-g
   "The transfer is made from a register which according to Union or Member State law is intended to provide information to the public in general or by any person who can demonstrate a legitimate interest, but only to the extent that the conditions laid down by Union or Member State law for consultation are fulfilled in the particular case."
@@ -488,17 +526,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The transfer is made from a register which according to Union or Member State law is intended to provide information to the public in general or by any person who can demonstrate a legitimate interest, but only to the extent that the conditions laid down by Union or Member State law for consultation are fulfilled in the particular case.",
+   #voc/lstr
+    "The transfer is made from a register which according to Union or Member State law is intended to provide information to the public in general or by any person who can demonstrate a legitimate interest, but only to the extent that the conditions laid down by Union or Member State law for consultation are fulfilled in the particular case.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_1/pnt_g/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has not Adequacy Decision. Appropriate safeguards do not exist.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has not Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(1-g) public register",
+   :rdfs/label #voc/lstr "Art 49(1-g) public register@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-g],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-2
   "The transfer is not repetetive, concerns only a limited number of data subjects, is necessary for the purposes of compelling legitimate interests pursued by controller which are not overridden by the interests or rights and freedoms of the data subject, and controller has assessed all the circumstances surrounding the data transfer and have on the basis of that assessment provided suitable safeguards with regard to the protection of personal data."
@@ -506,17 +546,19 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "The transfer is not repetetive, concerns only a limited number of data subjects, is necessary for the purposes of compelling legitimate interests pursued by controller which are not overridden by the interests or rights and freedoms of the data subject, and controller has assessed all the circumstances surrounding the data transfer and have on the basis of that assessment provided suitable safeguards with regard to the protection of personal data.",
+   #voc/lstr
+    "The transfer is not repetetive, concerns only a limited number of data subjects, is necessary for the purposes of compelling legitimate interests pursued by controller which are not overridden by the interests or rights and freedoms of the data subject, and controller has assessed all the circumstances surrounding the data transfer and have on the basis of that assessment provided suitable safeguards with regard to the protection of personal data.@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_49/par_2/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist and no other options apply.",
+   #voc/lstr
+    "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist and no other options apply.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 49(2) legitimate interests",
+   :rdfs/label #voc/lstr "Art 49(2) legitimate interests@en",
    :rdfs/subClassOf
    [:dpvo/DataTransferLegalBasis :dpvo/LegitimateInterest :dpvo-gdpr/A49-2],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A6-1-a
   "Legal basis based on data subject's given consent to the processing of his or her personal data for one or more specific purposes"
@@ -524,17 +566,19 @@
    :dcterms/created #inst "2022-09-07T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Legal basis based on data subject's given consent to the processing of his or her personal data for one or more specific purposes",
+   #voc/lstr
+    "Legal basis based on data subject's given consent to the processing of his or her personal data for one or more specific purposes@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_a/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Consent can be explicit or non-explicit. To express these specifically, see the explicit and non-explicit variations provided for Art.6-1a.",
+   #voc/lstr
+    "Consent can be explicit or non-explicit. To express these specifically, see the explicit and non-explicit variations provided for Art.6-1a.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art.6(1-a) consent",
+   :rdfs/label #voc/lstr "Art.6(1-a) consent@en",
    :rdfs/subClassOf [:dpvo/ExpressedConsent :dpvo-gdpr/A6-1-a],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-a-explicit-consent
   "Legal basis based on data subject's given explicit consent to the processing of his or her personal data for one or more specific purposes"
@@ -543,19 +587,21 @@
    :dcterms/creator
    ["Rigo Wenning" "Eva Schlehahn" "Bud Bruegger" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "Legal basis based on data subject's given explicit consent to the processing of his or her personal data for one or more specific purposes",
+   #voc/lstr
+    "Legal basis based on data subject's given explicit consent to the processing of his or her personal data for one or more specific purposes@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_a/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Valid consent in this case would have requirements for being 'explicit' in addition to requirements defined by A4-11. This is also mentioned in the Article 29 Working Party document \"Guidelines on Consent under Regulation 2016/679 (wp259rev.01)\"",
+   #voc/lstr
+    "Valid consent in this case would have requirements for being 'explicit' in addition to requirements defined by A4-11. This is also mentioned in the Article 29 Working Party document \"Guidelines on Consent under Regulation 2016/679 (wp259rev.01)\"@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-a) explicit consent",
+   :rdfs/label #voc/lstr "Art 6(1-a) explicit consent@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1a
                      :dpvo/ExplicitlyExpressedConsent
                      :dpvo-gdpr/A6-1-a-explicit-consent],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-a-non-explicit-consent
   "Legal basis based on data subject's given non-explicit express consent to the processing of his or her personal data for one or more specific purposes"
@@ -564,19 +610,21 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "Eva Schlehahn" "Rigo Wenning" "Bud Bruegger"],
    :dcterms/description
-   "Legal basis based on data subject's given non-explicit express consent to the processing of his or her personal data for one or more specific purposes",
+   #voc/lstr
+    "Legal basis based on data subject's given non-explicit express consent to the processing of his or her personal data for one or more specific purposes@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_a/oj",
    :rdf/type :owl/Class,
    :rdfs/comment
-   "Definition of consent: A data subject's unambigious/clear affirmative action that signifies an agreement to process their personal data (Rigo Wenning) . What is referred to as 'non-explicit consent' here is also termed as 'regular' consent in the Article 29 Working Party document \"Guidelines on Consent under Regulation 2016/679 (wp259rev.01)\". This is the legal basis that requires consent but not at the level of being 'explicit'.",
+   #voc/lstr
+    "Definition of consent: A data subject's unambigious/clear affirmative action that signifies an agreement to process their personal data (Rigo Wenning) . What is referred to as 'non-explicit consent' here is also termed as 'regular' consent in the Article 29 Working Party document \"Guidelines on Consent under Regulation 2016/679 (wp259rev.01)\". This is the legal basis that requires consent but not at the level of being 'explicit'.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art.6(1-a) regular consent",
+   :rdfs/label #voc/lstr "Art.6(1-a) regular consent@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1a
                      :dpvo/ExpressedConsent
                      :dpvo-gdpr/A6-1-a-non-explicit-consent],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-b
   "Legal basis based on performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract"
@@ -584,15 +632,16 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "Legal basis based on performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract",
+   #voc/lstr
+    "Legal basis based on performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_b/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-b) contract",
+   :rdfs/label #voc/lstr "Art 6(1-b) contract@en",
    :rdfs/subClassOf [:dpvo/Contract :dpvo-gdpr/A6-1-b],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-b-contract-performance
   "Legal basis based on performance of a contract to which the data subject is party"
@@ -600,18 +649,19 @@
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Legal basis based on performance of a contract to which the data subject is party",
+   #voc/lstr
+    "Legal basis based on performance of a contract to which the data subject is party@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_b/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-b) contract performance",
+   :rdfs/label #voc/lstr "Art 6(1-b) contract performance@en",
    :rdfs/subClassOf [:dpvo/ContractPerformance
                      :dpvo-gdpr/A6-1-b
                      :dpvo-gdpr/A6-1-b-contract-performance
                      :dpvo/Contract],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-b-enter-into-contract
   "Legal basis based on taking steps at the request of the data subject prior to entering into a contract"
@@ -619,18 +669,19 @@
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Legal basis based on taking steps at the request of the data subject prior to entering into a contract",
+   #voc/lstr
+    "Legal basis based on taking steps at the request of the data subject prior to entering into a contract@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_b/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-b) enter into contract",
+   :rdfs/label #voc/lstr "Art 6(1-b) enter into contract@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1-b
                      :dpvo/EnterIntoContract
                      :dpvo-gdpr/A6-1-b-enter-into-contract
                      :dpvo/Contract],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-c
   "Legal basis based on compliance with a legal obligation to which the controller is subject"
@@ -638,15 +689,16 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Bud Bruegger" "Eva Schlehahn"],
    :dcterms/description
-   "Legal basis based on compliance with a legal obligation to which the controller is subject",
+   #voc/lstr
+    "Legal basis based on compliance with a legal obligation to which the controller is subject@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_c/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-c) legal obligation",
+   :rdfs/label #voc/lstr "Art 6(1-c) legal obligation@en",
    :rdfs/subClassOf [:dpvo/LegalObligation :dpvo-gdpr/A6-1-c],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-d
   "Legal basis based on protecting the vital interests of the data subject or of another natural person"
@@ -654,15 +706,16 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "Legal basis based on protecting the vital interests of the data subject or of another natural person",
+   #voc/lstr
+    "Legal basis based on protecting the vital interests of the data subject or of another natural person@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_d/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-d) protect vital interests",
+   :rdfs/label #voc/lstr "Art 6(1-d) protect vital interests@en",
    :rdfs/subClassOf [:dpvo/VitalInterest :dpvo-gdpr/A6-1-d],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-d-data-subject
   "Legal basis based on protecting the vital interests of the data subject"
@@ -670,18 +723,20 @@
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Legal basis based on protecting the vital interests of the data subject",
+   #voc/lstr
+    "Legal basis based on protecting the vital interests of the data subject@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_d/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-d) protect vital interests of data subject",
+   :rdfs/label #voc/lstr
+                "Art 6(1-d) protect vital interests of data subject@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1-d
                      :dpvo/VitalInterestOfDataSubject
                      :dpvo-gdpr/A6-1-d-data-subject
                      :dpvo/VitalInterest],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-d-natual-person
   "Legal basis based on protecting the vital interests of another natural person that is not the data subject"
@@ -689,18 +744,20 @@
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Legal basis based on protecting the vital interests of another natural person that is not the data subject",
+   #voc/lstr
+    "Legal basis based on protecting the vital interests of another natural person that is not the data subject@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_d/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-d) protect vital interests of natural person",
+   :rdfs/label #voc/lstr
+                "Art 6(1-d) protect vital interests of natural person@en",
    :rdfs/subClassOf [:dpvo/VitalInterestOfNaturalPerson
                      :dpvo-gdpr/A6-1-d
                      :dpvo-gdpr/A6-1-d-natual-person
                      :dpvo/VitalInterest],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-e
   "Legal basis based on performance of a task carried out in the public interest or in the exercise of official authority vested in the controller"
@@ -708,16 +765,17 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "Legal basis based on performance of a task carried out in the public interest or in the exercise of official authority vested in the controller",
+   #voc/lstr
+    "Legal basis based on performance of a task carried out in the public interest or in the exercise of official authority vested in the controller@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_e/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-e) public interest or official authority",
+   :rdfs/label #voc/lstr "Art 6(1-e) public interest or official authority@en",
    :rdfs/subClassOf
    [:dpvo/OfficialAuthorityOfController :dpvo/PublicInterest :dpvo-gdpr/A6-1-e],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-e-official-authority
   "Legal basis based on the exercise of official authority vested in the controller"
@@ -725,18 +783,19 @@
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Legal basis based on the exercise of official authority vested in the controller",
+   #voc/lstr
+    "Legal basis based on the exercise of official authority vested in the controller@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_e/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-e) official authority",
+   :rdfs/label #voc/lstr "Art 6(1-e) official authority@en",
    :rdfs/subClassOf [:dpvo/OfficialAuthorityOfController
                      :dpvo-gdpr/A6-1-e
                      :dpvo-gdpr/A6-1-e-official-authority
                      :dpvo/PublicInterest],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-e-public-interest
   "Legal basis based on performance of a task carried out in the public interest"
@@ -744,18 +803,19 @@
    :dcterms/created #inst "2022-08-24T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Legal basis based on performance of a task carried out in the public interest",
+   #voc/lstr
+    "Legal basis based on performance of a task carried out in the public interest@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_e/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-e) public interest",
+   :rdfs/label #voc/lstr "Art 6(1-e) public interest@en",
    :rdfs/subClassOf [:dpvo/PublicInterest
                      :dpvo-gdpr/A6-1-e
                      :dpvo-gdpr/A6-1-e-public-interest
                      :dpvo/OfficialAuthorityOfController],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-f
   "Legal basis based on the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child"
@@ -763,15 +823,16 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "Legal basis based on the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child",
+   #voc/lstr
+    "Legal basis based on the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_f/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-f) legitimate interest",
+   :rdfs/label #voc/lstr "Art 6(1-f) legitimate interest@en",
    :rdfs/subClassOf [:dpvo/LegitimateInterest :dpvo-gdpr/A6-1-f],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-f-controller
   "Legal basis based on the purposes of the legitimate interests pursued by the controller, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child"
@@ -779,18 +840,19 @@
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Legal basis based on the purposes of the legitimate interests pursued by the controller, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child",
+   #voc/lstr
+    "Legal basis based on the purposes of the legitimate interests pursued by the controller, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_f/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-f) legitimate interest of controller",
+   :rdfs/label #voc/lstr "Art 6(1-f) legitimate interest of controller@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1-f
                      :dpvo/LegitimateInterestOfController
                      :dpvo-gdpr/A6-1-f-controller
                      :dpvo/LegitimateInterest],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-f-third-party
   "Legal basis based on the purposes of the legitimate interests pursued by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child"
@@ -798,18 +860,19 @@
    :dcterms/created #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/creator "Georg P Krog",
    :dcterms/description
-   "Legal basis based on the purposes of the legitimate interests pursued by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child",
+   #voc/lstr
+    "Legal basis based on the purposes of the legitimate interests pursued by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child@en",
    :dcterms/modified #inst "2022-11-24T00:00:00.000-05:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_6/par_1/pnt_f/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 6(1-f) legitimate interest of third party",
+   :rdfs/label #voc/lstr "Art 6(1-f) legitimate interest of third party@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1-f
                      :dpvo/LegitimateInterestOfThirdParty
                      :dpvo-gdpr/A6-1-f-third-party
                      :dpvo/LegitimateInterest],
-   :vs/term_status "changed"})
+   :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1a
   {:db/ident        :dpvo-gdpr/A6-1a,
@@ -821,13 +884,13 @@
   {:db/ident :dpvo-gdpr/A7-3,
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg Krog" "Beatriz Esteves" "Harshvardhan J. Pandit"],
-   :dcterms/description "Right to withdraw consent at any time",
+   :dcterms/description #voc/lstr "Right to withdraw consent at any time@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_7/par_3/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "A7-3 Right to Withdraw Consent",
+   :rdfs/label #voc/lstr "A7-3 Right to Withdraw Consent@en",
    :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A7-3],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A77
   "Right to lodge a complaint with a supervisory authority"
@@ -835,28 +898,29 @@
    :dcterms/created #inst "2020-11-04T00:00:00.000-05:00",
    :dcterms/creator ["Georg Krog" "Harshvardhan J. Pandit" "Beatriz Esteves"],
    :dcterms/description
-   "Right to lodge a complaint with a supervisory authority",
+   #voc/lstr "Right to lodge a complaint with a supervisory authority@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_77/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "A77 Right to Complaint",
+   :rdfs/label #voc/lstr "A77 Right to Complaint@en",
    :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A77],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-a
   "explicit consent with special categories of data"
   {:db/ident :dpvo-gdpr/A9-2-a,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
-   :dcterms/description "explicit consent with special categories of data",
+   :dcterms/description #voc/lstr
+                         "explicit consent with special categories of data@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_a/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-a) explicit consent",
+   :rdfs/label #voc/lstr "Art 9(2-a) explicit consent@en",
    :rdfs/subClassOf [:dpvo/ExplicitlyExpressedConsent :dpvo-gdpr/A9-2-a],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-b
   "employment and social security and social protection law"
@@ -864,29 +928,30 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
    :dcterms/description
-   "employment and social security and social protection law",
+   #voc/lstr "employment and social security and social protection law@en",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_b/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-b) employment, social security, social protection law",
+   :rdfs/label
+   #voc/lstr "Art 9(2-b) employment, social security, social protection law@en",
    :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-b],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-c
   "protection of the vital interests"
   {:db/ident :dpvo-gdpr/A9-2-c,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
-   :dcterms/description "protection of the vital interests",
+   :dcterms/description #voc/lstr "protection of the vital interests@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_c/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-c) protect vital interest",
+   :rdfs/label #voc/lstr "Art 9(2-c) protect vital interest@en",
    :rdfs/subClassOf [:dpvo/VitalInterest :dpvo-gdpr/A9-2-c],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-d
   "legitimate activities with appropriate safeguards by a foundation, association or any other not-for-profit body with a political, philosophical, religious or trade union aim and on condition that the processing relates solely to the members or to former members of the body or to persons who have regular contact with it in connection with its purposes and that the personal data are not disclosed outside that body without the consent of the data subjects;"
@@ -894,29 +959,31 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
    :dcterms/description
-   "legitimate activities with appropriate safeguards by a foundation, association or any other not-for-profit body with a political, philosophical, religious or trade union aim and on condition that the processing relates solely to the members or to former members of the body or to persons who have regular contact with it in connection with its purposes and that the personal data are not disclosed outside that body without the consent of the data subjects;",
+   #voc/lstr
+    "legitimate activities with appropriate safeguards by a foundation, association or any other not-for-profit body with a political, philosophical, religious or trade union aim and on condition that the processing relates solely to the members or to former members of the body or to persons who have regular contact with it in connection with its purposes and that the personal data are not disclosed outside that body without the consent of the data subjects;@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_d/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-d) legitimate activities",
+   :rdfs/label #voc/lstr "Art 9(2-d) legitimate activities@en",
    :rdfs/subClassOf [:dpvo/LegitimateInterest :dpvo-gdpr/A9-2-d],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-e
   "data manifestly made public by the data subject"
   {:db/ident :dpvo-gdpr/A9-2-e,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
-   :dcterms/description "data manifestly made public by the data subject",
+   :dcterms/description #voc/lstr
+                         "data manifestly made public by the data subject@en",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_e/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-e) data made public",
+   :rdfs/label #voc/lstr "Art 9(2-e) data made public@en",
    :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-e],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-f
   "establishment, exercise or defence of legal claims / courts acting in their judicial capacity"
@@ -924,14 +991,15 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
    :dcterms/description
-   "establishment, exercise or defence of legal claims / courts acting in their judicial capacity",
+   #voc/lstr
+    "establishment, exercise or defence of legal claims / courts acting in their judicial capacity@en",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_f/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-f) judicial process",
+   :rdfs/label #voc/lstr "Art 9(2-f) judicial process@en",
    :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-f],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-g
   "substantial public interest, on the basis of Union or Member State law"
@@ -939,15 +1007,16 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
    :dcterms/description
-   "substantial public interest, on the basis of Union or Member State law",
+   #voc/lstr
+    "substantial public interest, on the basis of Union or Member State law@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_g/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-g) public interest",
+   :rdfs/label #voc/lstr "Art 9(2-g) public interest@en",
    :rdfs/subClassOf [:dpvo/PublicInterest :dpvo-gdpr/A9-2-g],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-h
   "preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional and subject to the conditions and safeguards referred to in paragraph 3"
@@ -955,29 +1024,30 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
    :dcterms/description
-   "preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional and subject to the conditions and safeguards referred to in paragraph 3",
+   #voc/lstr
+    "preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional and subject to the conditions and safeguards referred to in paragraph 3@en",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_h/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-h) health & medicine",
+   :rdfs/label #voc/lstr "Art 9(2-h) health & medicine@en",
    :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-h],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-i
   "public interest in public health"
   {:db/ident :dpvo-gdpr/A9-2-i,
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
-   :dcterms/description "public interest in public health",
+   :dcterms/description #voc/lstr "public interest in public health@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_i/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Art 9(2-i) public interest in public health",
+   :rdfs/label #voc/lstr "Art 9(2-i) public interest in public health@en",
    :rdfs/subClassOf [:dpvo/PublicInterest :dpvo-gdpr/A9-2-i],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-j
   "public interest, scientific or historical research purposes or statistical purposes based on Union or Member State law"
@@ -985,16 +1055,18 @@
    :dcterms/created #inst "2019-04-05T00:00:00.000-04:00",
    :dcterms/creator ["Bud Bruegger" "Eva Schlehahn"],
    :dcterms/description
-   "public interest, scientific or historical research purposes or statistical purposes based on Union or Member State law",
+   #voc/lstr
+    "public interest, scientific or historical research purposes or statistical purposes based on Union or Member State law@en",
    :dcterms/modified #inst "2021-09-08T00:00:00.000-04:00",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_9/par_2/pnt_j/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label
-   "Art 9(2-j) public interest, scientific research, statistical purpose",
+   #voc/lstr
+    "Art 9(2-j) public interest, scientific research, statistical purpose@en",
    :rdfs/subClassOf [:dpvo/PublicInterest :dpvo-gdpr/A9-2-j],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def AdHocContractualClauses
   "Contractual Clauses not drafted by the EU Commission, e.g. by the Controller"
@@ -1002,17 +1074,18 @@
    :dcterms/created #inst "2021-09-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Contractual Clauses not drafted by the EU Commission, e.g. by the Controller",
+   #voc/lstr
+    "Contractual Clauses not drafted by the EU Commission, e.g. by the Controller@en",
    :dcterms/source
    "https://edpb.europa.eu/system/files/2021-06/edpb_recommendations_202001vo.2.0_supplementarymeasurestransferstools_en.pdf",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "AdHoc Contractual Clauses",
+   :rdfs/label #voc/lstr "AdHoc Contractual Clauses@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo/Contract
                      :dpvo-gdpr/AdHocContractualClauses
                      :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def BindingCorporateRules
   "Binding corporate rules (BCR) are data protection policies adhered to by companies established in the EU for transfers of personal data outside the EU within a group of undertakings or enterprises."
@@ -1021,15 +1094,16 @@
    :dcterms/creator
    ["Paul Ryan" "Georg P Krog" "Harshvardhan J. Pandit" "David Hickey"],
    :dcterms/description
-   "Binding corporate rules (BCR) are data protection policies adhered to by companies established in the EU for transfers of personal data outside the EU within a group of undertakings or enterprises.",
+   #voc/lstr
+    "Binding corporate rules (BCR) are data protection policies adhered to by companies established in the EU for transfers of personal data outside the EU within a group of undertakings or enterprises.@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/reg/2016/679/art_4/par_20/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Binding Corporate Rules (BCR)",
+   :rdfs/label #voc/lstr "Binding Corporate Rules (BCR)@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/BindingCorporateRules
                      :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CertificationMechanismsForDataTransfers
   "Certification and its binding or specified mechanisms intended to provide sufficient safeguards for data transfers"
@@ -1037,16 +1111,17 @@
    :dcterms/created #inst "2021-09-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Certification and its binding or specified mechanisms intended to provide sufficient safeguards for data transfers",
+   #voc/lstr
+    "Certification and its binding or specified mechanisms intended to provide sufficient safeguards for data transfers@en",
    :dcterms/source
    "https://edpb.europa.eu/system/files/2021-06/edpb_recommendations_202001vo.2.0_supplementarymeasurestransferstools_en.pdf",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Certification Mechanisms for Data Transfers",
+   :rdfs/label #voc/lstr "Certification Mechanisms for Data Transfers@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/CertificationMechanismsForDataTransfers
                      :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def CodesOfConductForDataTransfers
   "Codes of Conduct that outline sufficient safeguards for carrying out data transfers"
@@ -1054,16 +1129,17 @@
    :dcterms/created #inst "2021-09-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Codes of Conduct that outline sufficient safeguards for carrying out data transfers",
+   #voc/lstr
+    "Codes of Conduct that outline sufficient safeguards for carrying out data transfers@en",
    :dcterms/source
    "https://edpb.europa.eu/system/files/2021-06/edpb_recommendations_202001vo.2.0_supplementarymeasurestransferstools_en.pdf",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Codes of Conduct for Data Transfers",
+   :rdfs/label #voc/lstr "Codes of Conduct for Data Transfers@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/CodesOfConductForDataTransfers
                      :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIAConformant
   "Expressing the specified process is conformant with a DPIA"
@@ -1071,87 +1147,89 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   "Expressing the specified process is conformant with a DPIA",
+   #voc/lstr "Expressing the specified process is conformant with a DPIA@en",
    :rdf/type
    [:dpvo-gdpr/DPIAConformity :owl/NamedIndividual :dpvo/ConformanceStatus],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Conformant",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "DPIA Conformant@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIAConformity
   "Conformity of a process with a DPIA"
   {:db/ident            :dpvo-gdpr/DPIAConformity,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     ["Georg P Krog" "Harshvardhan J. Pandit"],
-   :dcterms/description "Conformity of a process with a DPIA",
+   :dcterms/description #voc/lstr "Conformity of a process with a DPIA@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Conformity",
+   :rdfs/label          #voc/lstr "DPIA Conformity@en",
    :rdfs/subClassOf     [:dpvo/ConformanceStatus :dpvo-gdpr/DPIAConformity],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAIndicatesHighRisk
   "DPIA identifying high risk levels"
   {:db/ident            :dpvo-gdpr/DPIAIndicatesHighRisk,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "DPIA identifying high risk levels",
+   :dcterms/description #voc/lstr "DPIA identifying high risk levels@en",
    :rdf/type            [:owl/NamedIndividual
                          :dpvo-gdpr/DPIARiskStatus
                          :dpvo/AuditStatus],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Indicates High Risk",
-   :vs/term_status      "accepted"})
+   :rdfs/label          #voc/lstr "DPIA Indicates High Risk@en",
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAIndicatesLowRisk
   "DPIA identifying low risk levels"
   {:db/ident            :dpvo-gdpr/DPIAIndicatesLowRisk,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "DPIA identifying low risk levels",
+   :dcterms/description #voc/lstr "DPIA identifying low risk levels@en",
    :rdf/type            [:dpvo-gdpr/DPIARiskStatus
                          :owl/NamedIndividual
                          :dpvo/AuditStatus],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Indicates Low Risk",
-   :vs/term_status      "accepted"})
+   :rdfs/label          #voc/lstr "DPIA Indicates Low Risk@en",
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAIndicatesNoRisk
   "DPIA identifying no risk is present"
   {:db/ident            :dpvo-gdpr/DPIAIndicatesNoRisk,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "DPIA identifying no risk is present",
+   :dcterms/description #voc/lstr "DPIA identifying no risk is present@en",
    :rdf/type            [:owl/NamedIndividual
                          :dpvo-gdpr/DPIARiskStatus
                          :dpvo/AuditStatus],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Indicates No Risk",
-   :vs/term_status      "accepted"})
+   :rdfs/label          #voc/lstr "DPIA Indicates No Risk@en",
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIANecessityAssessment
   "Process that determines whether a DPIA is necessary"
-  {:db/ident            :dpvo-gdpr/DPIANecessityAssessment,
-   :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Process that determines whether a DPIA is necessary",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Necessity Assessment",
-   :rdfs/subClassOf     [:dpvo/DPIA :dpvo-gdpr/DPIANecessityAssessment],
-   :vs/term_status      "accepted"})
+  {:db/ident :dpvo-gdpr/DPIANecessityAssessment,
+   :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
+   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/description
+   #voc/lstr "Process that determines whether a DPIA is necessary@en",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
+   :rdfs/label #voc/lstr "DPIA Necessity Assessment@en",
+   :rdfs/subClassOf [:dpvo/DPIA :dpvo-gdpr/DPIANecessityAssessment],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIANecessityStatus
   "Status reflecting whether a DPIA is necessary"
   {:db/ident            :dpvo-gdpr/DPIANecessityStatus,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Status reflecting whether a DPIA is necessary",
+   :dcterms/description #voc/lstr
+                         "Status reflecting whether a DPIA is necessary@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Necessity Status",
+   :rdfs/label          #voc/lstr "DPIA Necessity Status@en",
    :rdfs/subClassOf     [:dpvo/AuditStatus :dpvo-gdpr/DPIANecessityStatus],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIANonConformant
   "Expressing the specified process is not conformant with a DPIA"
@@ -1159,37 +1237,39 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   "Expressing the specified process is not conformant with a DPIA",
+   #voc/lstr
+    "Expressing the specified process is not conformant with a DPIA@en",
    :rdf/type
    [:dpvo-gdpr/DPIAConformity :owl/NamedIndividual :dpvo/ConformanceStatus],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Non-Conformant",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "DPIA Non-Conformant@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIANotRequired
   "Condition where a DPIA is not required"
   {:db/ident            :dpvo-gdpr/DPIANotRequired,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Condition where a DPIA is not required",
+   :dcterms/description #voc/lstr "Condition where a DPIA is not required@en",
    :rdf/type            [:dpvo-gdpr/DPIANecessityStatus
                          :owl/NamedIndividual
                          :dpvo/AuditStatus],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Not Required",
-   :vs/term_status      "accepted"})
+   :rdfs/label          #voc/lstr "DPIA Not Required@en",
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAOutcome
   "Process representing determining outcome of a DPIA"
-  {:db/ident            :dpvo-gdpr/DPIAOutcome,
-   :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Process representing determining outcome of a DPIA",
-   :rdf/type            :owl/Class,
-   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Outcome",
-   :rdfs/subClassOf     [:dpvo/DPIA :dpvo-gdpr/DPIAOutcome],
-   :vs/term_status      "accepted"})
+  {:db/ident :dpvo-gdpr/DPIAOutcome,
+   :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
+   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/description
+   #voc/lstr "Process representing determining outcome of a DPIA@en",
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
+   :rdfs/label #voc/lstr "DPIA Outcome@en",
+   :rdfs/subClassOf [:dpvo/DPIA :dpvo-gdpr/DPIAOutcome],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIAOutcomeDPAConsultation
   "DPIA outcome status indicating a DPA consultation is required"
@@ -1197,12 +1277,12 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "DPIA outcome status indicating a DPA consultation is required",
+   #voc/lstr "DPIA outcome status indicating a DPA consultation is required@en",
    :rdf/type
    [:dpvo-gdpr/DPIAOutcomeStatus :owl/NamedIndividual :dpvo/AuditStatus],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Outcome DPA Consultation",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "DPIA Outcome DPA Consultation@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIAOutcomeHighResidualRisk
   "DPIA outcome status indicating high residual risk which are not acceptable for continuation"
@@ -1210,12 +1290,13 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "DPIA outcome status indicating high residual risk which are not acceptable for continuation",
+   #voc/lstr
+    "DPIA outcome status indicating high residual risk which are not acceptable for continuation@en",
    :rdf/type
    [:owl/NamedIndividual :dpvo-gdpr/DPIAOutcomeStatus :dpvo/AuditStatus],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Outcome High Residual Risk",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "DPIA Outcome High Residual Risk@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIAOutcomeRisksMitigated
   "DPIA outcome status indicating (all) risks have been mitigated"
@@ -1223,49 +1304,51 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "DPIA outcome status indicating (all) risks have been mitigated",
+   #voc/lstr
+    "DPIA outcome status indicating (all) risks have been mitigated@en",
    :rdf/type
    [:owl/NamedIndividual :dpvo-gdpr/DPIAOutcomeStatus :dpvo/AuditStatus],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Outcome Risks Mitigated",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "DPIA Outcome Risks Mitigated@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIAOutcomeStatus
   "Status reflecting the outcomes of a DPIA"
   {:db/ident            :dpvo-gdpr/DPIAOutcomeStatus,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Status reflecting the outcomes of a DPIA",
+   :dcterms/description #voc/lstr "Status reflecting the outcomes of a DPIA@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Outcome Status",
+   :rdfs/label          #voc/lstr "DPIA Outcome Status@en",
    :rdfs/subClassOf     [:dpvo/AuditStatus :dpvo-gdpr/DPIAOutcomeStatus],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAProcedure
   "Process representing carrying out a DPIA"
   {:db/ident            :dpvo-gdpr/DPIAProcedure,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Process representing carrying out a DPIA",
+   :dcterms/description #voc/lstr "Process representing carrying out a DPIA@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Procedure",
+   :rdfs/label          #voc/lstr "DPIA Procedure@en",
    :rdfs/subClassOf     [:dpvo/DPIA :dpvo-gdpr/DPIAProcedure],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAProcessingRecommendation
   "Recommendation from the DPIA regarding processing"
   {:db/ident            :dpvo-gdpr/DPIAProcessingRecommendation,
    :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator     ["Harshvardhan J. Pandit" "Georg P Krog"],
-   :dcterms/description "Recommendation from the DPIA regarding processing",
+   :dcterms/description #voc/lstr
+                         "Recommendation from the DPIA regarding processing@en",
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Processing Recommendation",
+   :rdfs/label          #voc/lstr "DPIA Processing Recommendation@en",
    :rdfs/subClassOf     [:dpvo/AuditStatus
                          :dpvo-gdpr/DPIAProcessingRecommendation],
-   :vs/term_status      "accepted"})
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIARecommendsProcessingContinue
   "Recommendation from a DPIA that the processing may continue"
@@ -1273,13 +1356,13 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   "Recommendation from a DPIA that the processing may continue",
+   #voc/lstr "Recommendation from a DPIA that the processing may continue@en",
    :rdf/type [:owl/NamedIndividual
               :dpvo-gdpr/DPIAProcessingRecommendation
               :dpvo/AuditStatus],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Recommends Processing Continue",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "DPIA Recommends Processing Continue@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIARecommendsProcessingNotContinue
   "Recommendation from a DPIA that the processing should not continue"
@@ -1287,26 +1370,27 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   "Recommendation from a DPIA that the processing should not continue",
+   #voc/lstr
+    "Recommendation from a DPIA that the processing should not continue@en",
    :rdf/type [:dpvo-gdpr/DPIAProcessingRecommendation
               :owl/NamedIndividual
               :dpvo/AuditStatus],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Recommends Processing Not Continue",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "DPIA Recommends Processing Not Continue@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIARequired
   "Condition where a DPIA is required"
   {:db/ident            :dpvo-gdpr/DPIARequired,
    :dcterms/created     #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "Condition where a DPIA is required",
+   :dcterms/description #voc/lstr "Condition where a DPIA is required@en",
    :rdf/type            [:dpvo-gdpr/DPIANecessityStatus
                          :owl/NamedIndividual
                          :dpvo/AuditStatus],
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "DPIA Required",
-   :vs/term_status      "accepted"})
+   :rdfs/label          #voc/lstr "DPIA Required@en",
+   :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIARiskStatus
   "Status reflecting the status of risk associated with a DPIA"
@@ -1314,12 +1398,12 @@
    :dcterms/created #inst "2022-06-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Status reflecting the status of risk associated with a DPIA",
+   #voc/lstr "Status reflecting the status of risk associated with a DPIA@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "DPIA Risk Status",
+   :rdfs/label #voc/lstr "DPIA Risk Status@en",
    :rdfs/subClassOf [:dpvo/AuditStatus :dpvo-gdpr/DPIARiskStatus],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DataTransferTool
   "A legal instrument or tool intended to assist or justify data transfers"
@@ -1327,16 +1411,17 @@
    :dcterms/created #inst "2021-09-22T00:00:00.000-04:00",
    :dcterms/creator ["David Hickey" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "A legal instrument or tool intended to assist or justify data transfers",
+   #voc/lstr
+    "A legal instrument or tool intended to assist or justify data transfers@en",
    :dcterms/source
    ["https://edpb.europa.eu/sites/default/files/consultation/edpb_recommendations_202001_supplementarymeasurestransferstools_en.pdf"
     "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/pnt_c/oj"],
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Data Transfer Tool",
+   :rdfs/label #voc/lstr "Data Transfer Tool@en",
    :rdfs/subClassOf [:dpvo/TechnicalOrganisationalMeasure
                      :dpvo-gdpr/DataTransferTool],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def DirectDataCollectionNotice
   "A Notice provided in fulfilment of GDPR's Art.13 regarding information to be provided where personal data are collected from the data subject"
@@ -1344,13 +1429,14 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Georg Krog" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "A Notice provided in fulfilment of GDPR's Art.13 regarding information to be provided where personal data are collected from the data subject",
+   #voc/lstr
+    "A Notice provided in fulfilment of GDPR's Art.13 regarding information to be provided where personal data are collected from the data subject@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Direct Data Collection Notice",
+   :rdfs/label #voc/lstr "Direct Data Collection Notice@en",
    :rdfs/subClassOf [:dpvo/RightFulfilmentNotice
                      :dpvo-gdpr/DirectDataCollectionNotice],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def GDPRComplianceUnknown
   "State where lawfulness or compliance with GDPR is unknown"
@@ -1358,22 +1444,23 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "State where lawfulness or compliance with GDPR is unknown",
+   #voc/lstr "State where lawfulness or compliance with GDPR is unknown@en",
    :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "GDPR Compliance Unknown",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "GDPR Compliance Unknown@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def GDPRCompliant
   "State of being lawful or legally compliant for GDPR"
-  {:db/ident            :dpvo-gdpr/GDPRCompliant,
-   :dcterms/created     #inst "2022-10-22T00:00:00.000-04:00",
-   :dcterms/creator     "Harshvardhan J. Pandit",
-   :dcterms/description "State of being lawful or legally compliant for GDPR",
-   :rdf/type            [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
-   :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label          "GDPR Compliant",
-   :vs/term_status      "accepted"})
+  {:db/ident :dpvo-gdpr/GDPRCompliant,
+   :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
+   :dcterms/creator "Harshvardhan J. Pandit",
+   :dcterms/description
+   #voc/lstr "State of being lawful or legally compliant for GDPR@en",
+   :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
+   :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
+   :rdfs/label #voc/lstr "GDPR Compliant@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def GDPRLawfulness
   "Status or state associated with being lawful or legally compliant regarding GDPR"
@@ -1381,12 +1468,13 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "Status or state associated with being lawful or legally compliant regarding GDPR",
+   #voc/lstr
+    "Status or state associated with being lawful or legally compliant regarding GDPR@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "GDPR Lawfulness",
+   :rdfs/label #voc/lstr "GDPR Lawfulness@en",
    :rdfs/subClassOf [:dpvo/Lawfulness :dpvo-gdpr/GDPRLawfulness],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def GDPRNonCompliant
   "State of being unlawful or legally non-compliant for GDPR"
@@ -1394,11 +1482,11 @@
    :dcterms/created #inst "2022-10-22T00:00:00.000-04:00",
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
-   "State of being unlawful or legally non-compliant for GDPR",
+   #voc/lstr "State of being unlawful or legally non-compliant for GDPR@en",
    :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "GDPR Non-compliant",
-   :vs/term_status "accepted"})
+   :rdfs/label #voc/lstr "GDPR Non-compliant@en",
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def IndirectDataCollectionNotice
   "A Notice provided in fulfilment of GDPR's Art.14 regarding information to be provided where personal data are not collected from the data subject"
@@ -1406,13 +1494,14 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "Georg Krog" "Beatriz Esteves"],
    :dcterms/description
-   "A Notice provided in fulfilment of GDPR's Art.14 regarding information to be provided where personal data are not collected from the data subject",
+   #voc/lstr
+    "A Notice provided in fulfilment of GDPR's Art.14 regarding information to be provided where personal data are not collected from the data subject@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Indirect Data Collection Notice",
+   :rdfs/label #voc/lstr "Indirect Data Collection Notice@en",
    :rdfs/subClassOf [:dpvo/RightFulfilmentNotice
                      :dpvo-gdpr/IndirectDataCollectionNotice],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def RightsRecipientsNotice
   "A Notice provided in fulfilment of GDPR's Art.19 regarding Recipients to whom a rights exercise has been communicated, such as regarding rectification (A.16) or erasure of personal data (A.17) or restriction of processing (A.18)"
@@ -1420,13 +1509,14 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator ["Beatriz Esteves" "Harshvardhan J. Pandit" "Georg Krog"],
    :dcterms/description
-   "A Notice provided in fulfilment of GDPR's Art.19 regarding Recipients to whom a rights exercise has been communicated, such as regarding rectification (A.16) or erasure of personal data (A.17) or restriction of processing (A.18)",
+   #voc/lstr
+    "A Notice provided in fulfilment of GDPR's Art.19 regarding Recipients to whom a rights exercise has been communicated, such as regarding rectification (A.16) or erasure of personal data (A.17) or restriction of processing (A.18)@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Rights Recipients Notice",
+   :rdfs/label #voc/lstr "Rights Recipients Notice@en",
    :rdfs/subClassOf [:dpvo/RightFulfilmentNotice
                      :dpvo-gdpr/RightsRecipientsNotice],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SARNotice
   "A Notice provided in fulfilment of GDPR's Art.15 regarding information to be provided for Right of Access or Subject Access Request (SAR)"
@@ -1434,12 +1524,13 @@
    :dcterms/created #inst "2022-11-09T00:00:00.000-05:00",
    :dcterms/creator ["Georg Krog" "Beatriz Esteves" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "A Notice provided in fulfilment of GDPR's Art.15 regarding information to be provided for Right of Access or Subject Access Request (SAR)",
+   #voc/lstr
+    "A Notice provided in fulfilment of GDPR's Art.15 regarding information to be provided for Right of Access or Subject Access Request (SAR)@en",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "SAR Notice",
+   :rdfs/label #voc/lstr "SAR Notice@en",
    :rdfs/subClassOf [:dpvo/RightFulfilmentNotice :dpvo-gdpr/SARNotice],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SCCByCommission
   "Standard contractual clauses adopted by the Commission in accordance with the examination procedure referred to in GDPR Article 93(2)"
@@ -1448,18 +1539,19 @@
    :dcterms/creator
    ["Harshvardhan J. Pandit" "David Hickey" "Georg P Krog" "Paul Ryan"],
    :dcterms/description
-   "Standard contractual clauses adopted by the Commission in accordance with the examination procedure referred to in GDPR Article 93(2)",
+   #voc/lstr
+    "Standard contractual clauses adopted by the Commission in accordance with the examination procedure referred to in GDPR Article 93(2)@en",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_c/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "SCCs adopted by Commission",
+   :rdfs/label #voc/lstr "SCCs adopted by Commission@en",
    :rdfs/subClassOf [:dpvo-gdpr/StandardContractualClauses
                      :dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/SCCByCommission
-                     :dpvo/Contract
-                     :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Contract],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SCCBySupervisoryAuthority
   "Standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in GDPR Article 93(2)"
@@ -1468,18 +1560,19 @@
    :dcterms/creator
    ["David Hickey" "Paul Ryan" "Harshvardhan J. Pandit" "Georg P Krog"],
    :dcterms/description
-   "Standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in GDPR Article 93(2)",
+   #voc/lstr
+    "Standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in GDPR Article 93(2)@en",
    :dcterms/source
    "https://eur-lex.europa.eu/eli/reg/2016/679/art_46/par_2/pnt_d/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "SCCs adopted by Supervisory Authority",
+   :rdfs/label #voc/lstr "SCCs adopted by Supervisory Authority@en",
    :rdfs/subClassOf [:dpvo-gdpr/StandardContractualClauses
                      :dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/SCCBySupervisoryAuthority
-                     :dpvo/Contract
-                     :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Contract],
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def StandardContractualClauses
   "Standard Contractual Clauses (SCCs) are pre-approved clauses by the EU for ensuring appropriate data protection safeguards intended for data transfers from the EU to third countries"
@@ -1488,16 +1581,17 @@
    :dcterms/creator
    ["David Hickey" "Georg P Krog" "Paul Ryan" "Harshvardhan J. Pandit"],
    :dcterms/description
-   "Standard Contractual Clauses (SCCs) are pre-approved clauses by the EU for ensuring appropriate data protection safeguards intended for data transfers from the EU to third countries",
+   #voc/lstr
+    "Standard Contractual Clauses (SCCs) are pre-approved clauses by the EU for ensuring appropriate data protection safeguards intended for data transfers from the EU to third countries@en",
    :dcterms/source "https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Standard Contractual Clauses (SCC)",
+   :rdfs/label #voc/lstr "Standard Contractual Clauses (SCC)@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo/Contract
                      :dpvo-gdpr/StandardContractualClauses
                      :dpvo/TechnicalOrganisationalMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def SupplementaryMeasure
   "Supplementary measures are intended to additionally provide safeguards or guarentees to bring the resulting protection in line with EU requirements"
@@ -1505,24 +1599,26 @@
    :dcterms/created #inst "2021-09-22T00:00:00.000-04:00",
    :dcterms/creator ["Harshvardhan J. Pandit" "David Hickey" "Georg P Krog"],
    :dcterms/description
-   "Supplementary measures are intended to additionally provide safeguards or guarentees to bring the resulting protection in line with EU requirements",
+   #voc/lstr
+    "Supplementary measures are intended to additionally provide safeguards or guarentees to bring the resulting protection in line with EU requirements@en",
    :dcterms/source
    "https://edpb.europa.eu/system/files/2021-06/edpb_recommendations_202001vo.2.0_supplementarymeasurestransferstools_en.pdf",
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
-   :rdfs/label "Supplementary Measure",
+   :rdfs/label #voc/lstr "Supplementary Measure@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo/TechnicalOrganisationalMeasure
                      :dpvo-gdpr/SupplementaryMeasure],
-   :vs/term_status "accepted"})
+   :vs/term_status #voc/lstr "accepted@en"})
 
 (def ^{:private true} Resource
   "dcat:Resource"
   {:db/ident :dcat/Resource,
    :rdf/type :owl/Class,
-   :rdfs/label "dcat:Resource",
+   :rdfs/label #voc/lstr "dcat:Resource@en",
    :skos/scopeNote
-   "A dataset or catalogue or any other resource provided in fulfilment of a Right Exercise, such as for GDPR's Art.15 regarding Right of Access or Art.20 regarding Right to Data Portability. The associated properties from DCAT and DCMI DCT vocabularies provide convenient means to express metadata such as URL for accessing the data, its temporal validity and acecss restrictions, and specific datasets present along with their schemas."})
+   #voc/lstr
+    "A dataset or catalogue or any other resource provided in fulfilment of a Right Exercise, such as for GDPR's Art.15 regarding Right of Access or Art.20 regarding Right to Data Portability. The associated properties from DCAT and DCMI DCT vocabularies provide convenient means to express metadata such as URL for accessing the data, its temporal validity and acecss restrictions, and specific datasets present along with their schemas.@en"})
 
 (def ^{:private true} AuditStatus
   {:db/ident        :dpvo/AuditStatus,

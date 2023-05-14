@@ -149,12 +149,13 @@ https://github.com/aamedina/vocab
 * [net.wikipunk/punk.qudt](https://github.com/aamedina/punk.qudt)
 * [net.wikipunk/punk](https://github.com/aamedina/punk)
 * [net.wikipunk/abulafia](https://github.com/aamedina/abulafia)
-* [net.wikipunk/OBO](https://github.com/aamedina/OBO)
 * [net.wikipunk/loc](https://github.com/aamedina/loc)
 * [net.wikipunk/omg](https://github.com/aamedina/omg)
 * [net.wikipunk/fibo](https://github.com/aamedina/fibo)
 * [net.wikipunk/auto](https://github.com/aamedina/auto)
 * [net.wikipunk/lv2](https://github.com/aamedina/lv2)
+* [net.wikipunk/framebase](https://github.com/aamedina/framebase)
+* [net.wikipunk/ssvc](https://github.com/aamedina/ssvc)
 
 ### credits
 https://github.com/arachne-framework/aristotle

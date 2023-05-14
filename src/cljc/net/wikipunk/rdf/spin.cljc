@@ -25,7 +25,7 @@
    :rdfs/comment "A SPIN template that wraps an ASK query.",
    :rdfs/label "Ask template",
    :rdfs/subClassOf
-   [:spin/Template :spin/AskTemplate :rdfs/Class :rdfs/Resource :spin/Module],
+   [:spin/Template :spin/AskTemplate :rdfs/Resource :spin/Module :rdfs/Class],
    :spin/command {:rdf/type      [:spl/Attribute :sp/Command :sp/Query],
                   :rdfs/comment  "The ASK query wrapped by this template.",
                   :spl/maxCount  1,
@@ -49,11 +49,11 @@
   "Suggested abstract base class for all AskTemplates."
   {:db/ident :spin/AskTemplates,
    :rdf/type
-   [:spin/AskTemplate :spin/Module :rdfs/Class :spin/Template :rdfs/Resource],
+   [:spin/AskTemplate :spin/Module :rdfs/Class :rdfs/Resource :spin/Template],
    :rdfs/comment "Suggested abstract base class for all AskTemplates.",
    :rdfs/label "Ask templates",
    :rdfs/subClassOf
-   [:spin/Templates :spin/AskTemplates :spin/Modules :rdfs/Resource],
+   [:spin/Templates :spin/AskTemplates :rdfs/Resource :spin/Modules],
    :spin/abstract true,
    :spin/systemProperty true})
 
@@ -91,9 +91,9 @@
    :rdfs/label      "Construct template",
    :rdfs/subClassOf [:spin/Template
                      :spin/ConstructTemplate
-                     :rdfs/Class
                      :rdfs/Resource
-                     :spin/Module],
+                     :spin/Module
+                     :rdfs/Class],
    :spin/command    {:rdf/type [:spl/Attribute :sp/Command :sp/Query],
                      :rdfs/comment
                      "The CONSTRUCT query wrapped by this template.",
@@ -122,12 +122,12 @@
    :rdf/type [:spin/ConstructTemplate
               :spin/Module
               :spin/Template
-              :rdfs/Resource
-              :rdfs/Class],
+              :rdfs/Class
+              :rdfs/Resource],
    :rdfs/comment "Suggested abstract base class for all ConstructTemplates.",
    :rdfs/label "Construct templates",
    :rdfs/subClassOf
-   [:spin/Templates :spin/ConstructTemplates :spin/Modules :rdfs/Resource],
+   [:spin/Templates :spin/ConstructTemplates :rdfs/Resource :spin/Modules],
    :spin/abstract true,
    :spin/systemProperty true})
 
@@ -154,7 +154,7 @@
    :rdfs/comment
    "Metaclass for functions that can be used in SPARQL expressions (e.g. FILTER or BIND). The function themselves are classes that are instances of this metaclass. Function calls are instances of the function classes, with property values for the arguments.",
    :rdfs/label "Function",
-   :rdfs/subClassOf [:spin/Module :spin/Function :rdfs/Class :rdfs/Resource],
+   :rdfs/subClassOf [:spin/Module :spin/Function :rdfs/Resource :rdfs/Class],
    :spin/command {:rdf/type      [:spl/Attribute :sp/Command :sp/Query],
                   :rdfs/comment  "the body of the function",
                   :spl/maxCount  1,
@@ -174,7 +174,7 @@
 (def Functions
   "An abstract base class for all defined functions. This class mainly serves as a shared root so that the various instances of the Function metaclass are grouped together."
   {:db/ident :spin/Functions,
-   :rdf/type [:spin/Function :spin/Module :rdfs/Resource :rdfs/Class],
+   :rdf/type [:spin/Function :spin/Module :rdfs/Class :rdfs/Resource],
    :rdfs/comment
    "An abstract base class for all defined functions. This class mainly serves as a shared root so that the various instances of the Function metaclass are grouped together.",
    :rdfs/label "Functions",
@@ -204,15 +204,15 @@
   {:db/ident :spin/MagicProperties,
    :rdf/type [:spin/MagicProperty
               :spin/Module
-              :rdfs/Resource
               :rdf/Property
               :rdfs/Class
+              :rdfs/Resource
               :spin/Function],
    :rdfs/comment
    "An abstract superclass that can be used to group all spin:MagicProperty instances under a single parent class.",
    :rdfs/label "Magic properties",
    :rdfs/subClassOf
-   [:spin/Functions :spin/MagicProperties :spin/Modules :rdfs/Resource],
+   [:spin/Functions :spin/MagicProperties :rdfs/Resource :spin/Modules],
    :rdfs/subPropertyOf [:spin/systemProperty :spin/MagicProperties],
    :spin/abstract true,
    :spin/systemProperty true})
@@ -225,9 +225,9 @@
    :rdfs/subClassOf [:spin/Function
                      :rdf/Property
                      :spin/MagicProperty
-                     :rdfs/Class
                      :rdfs/Resource
-                     :spin/Module]})
+                     :spin/Module
+                     :rdfs/Class]})
 
 (def Module
   "An abstract building block of a SPARQL system. A Module can take Arguments as input and applies them on an input RDF Graph. The Arguments should be declared as spin:constraints."
@@ -282,9 +282,9 @@
    :rdfs/subClassOf [:spin/TableDataProvider
                      :spin/Template
                      :spin/SelectTemplate
-                     :rdfs/Class
                      :rdfs/Resource
-                     :spin/Module],
+                     :spin/Module
+                     :rdfs/Class],
    :spin/command    {:rdf/type [:spl/Attribute :sp/Command :sp/Query],
                      :rdfs/comment "The SELECT query wrapped by this template.",
                      :spl/maxCount 1,
@@ -309,14 +309,14 @@
   {:db/ident :spin/SelectTemplates,
    :rdf/type [:spin/SelectTemplate
               :spin/Module
+              :spin/TableDataProvider
               :rdfs/Resource
-              :spin/Template
               :rdfs/Class
-              :spin/TableDataProvider],
+              :spin/Template],
    :rdfs/comment "Suggested abstract base class for all SelectTemplates.",
    :rdfs/label "Select templates",
    :rdfs/subClassOf
-   [:spin/Templates :spin/SelectTemplates :spin/Modules :rdfs/Resource],
+   [:spin/Templates :spin/SelectTemplates :rdfs/Resource :spin/Modules],
    :spin/abstract true,
    :spin/systemProperty true})
 
@@ -336,7 +336,7 @@
    :rdfs/comment
    "The metaclass of SPIN templates. Templates are classes that are instances of this class. A template represents a reusable SPARQL query or update request that can be parameterized with arguments. Templates can be instantiated in places where normally a SPARQL query or update request is used, in particular as spin:rules and spin:constraints.",
    :rdfs/label "Template",
-   :rdfs/subClassOf [:spin/Module :spin/Template :rdfs/Class :rdfs/Resource],
+   :rdfs/subClassOf [:spin/Module :spin/Template :rdfs/Resource :rdfs/Class],
    :spin/command {:rdf/type      [:spl/Attribute :sp/Command :sp/Query],
                   :rdfs/comment  "the body of the Template",
                   :spl/maxCount  1,
@@ -358,8 +358,8 @@
   {:db/ident            :spin/Templates,
    :rdf/type            [:spin/Template
                          :spin/Module
-                         :rdfs/Class
-                         :rdfs/Resource],
+                         :rdfs/Resource
+                         :rdfs/Class],
    :rdfs/comment        "Suggested abstract base class for all Templates.",
    :rdfs/label          "Templates",
    :rdfs/subClassOf     [:spin/Modules :spin/Templates :rdfs/Resource],
@@ -374,9 +374,9 @@
    :rdfs/label      "Update template",
    :rdfs/subClassOf [:spin/Template
                      :spin/UpdateTemplate
-                     :rdfs/Class
                      :rdfs/Resource
-                     :spin/Module],
+                     :spin/Module
+                     :rdfs/Class],
    :spin/command    {:rdf/type [:spl/Attribute :sp/Command :sp/Query],
                      :rdfs/comment
                      "The UPDATE command wrapped by this template.",
@@ -404,13 +404,13 @@
   {:db/ident :spin/UpdateTemplates,
    :rdf/type [:spin/UpdateTemplate
               :spin/Module
-              :spin/Template
+              :rdfs/Class
               :rdfs/Resource
-              :rdfs/Class],
+              :spin/Template],
    :rdfs/comment "Suggested abstract base class for all UpdateTemplates.",
    :rdfs/label "Update templates",
    :rdfs/subClassOf
-   [:spin/Templates :spin/UpdateTemplates :spin/Modules :rdfs/Resource],
+   [:spin/Templates :spin/UpdateTemplates :rdfs/Resource :spin/Modules],
    :spin/abstract true,
    :spin/systemProperty true})
 
@@ -470,11 +470,11 @@
 (def ask
   "Executes a given ASK query and returns its boolean result. The first argument must point to an sp:Ask or a SPIN template call that has an ASK query as its body. All subsequent argument can come in pairs, with the first one being a variable name and the second its binding. Example: BIND (spin:ask(?query, \"this\", owl:Thing) AS ?result) . will execute the sp:Ask behind ?query with the variable ?this pre-bound to owl:Thing."
   {:db/ident :spin/ask,
-   :rdf/type [:spin/Function :rdfs/Resource :spin/Module :rdfs/Class],
+   :rdf/type [:spin/Function :rdfs/Class :spin/Module :rdfs/Resource],
    :rdfs/comment
    "Executes a given ASK query and returns its boolean result. The first argument must point to an sp:Ask or a SPIN template call that has an ASK query as its body. All subsequent argument can come in pairs, with the first one being a variable name and the second its binding.\n\nExample:\n\n    BIND (spin:ask(?query, \"this\", owl:Thing) AS ?result) .\n\nwill execute the sp:Ask behind ?query with the variable ?this pre-bound to owl:Thing.",
    :rdfs/label "ask",
-   :rdfs/subClassOf [:spin/Functions :spin/ask :spin/Modules :rdfs/Resource]})
+   :rdfs/subClassOf [:spin/Functions :spin/ask :rdfs/Resource :spin/Modules]})
 
 (def body
   "The body of a Function or Template. This points to a Query instance. For Functions, this is limited to either ASK or SELECT type queries. If the body is the ASK function then the return value is xsd:boolean. Otherwise, the SELECT query must have a single return variable. The first binding of this SELECT query will be returned as result of the function call."
@@ -575,18 +575,18 @@
   "Evaluates a given sp:Construct or SPIN template call (first argument on the left hand side) and binds the resulting triples to the variables on the right hand side. Example: (?query \"this\" owl:Thing) spin:construct (?s ?p ?o) will execute the sp:Construct ?query using the binding of owl:Thing to ?this. The resulting triples will be bound to ?s, ?p and ?o. If any of ?s ?p ?o are bound, it will only return the matching triples."
   {:db/ident :spin/construct,
    :rdf/type [:spin/MagicProperty
-              :rdfs/Resource
+              :spin/Module
               :rdf/Property
               :rdfs/Class
-              :spin/Function
-              :spin/Module],
+              :rdfs/Resource
+              :spin/Function],
    :rdfs/comment
    "Evaluates a given sp:Construct or SPIN template call (first argument on the left hand side) and binds the resulting triples to the variables on the right hand side.\n\nExample:\n\n    (?query \"this\" owl:Thing) spin:construct (?s ?p ?o)\n\nwill execute the sp:Construct ?query using the binding of owl:Thing to ?this. The resulting triples will be bound to ?s, ?p and ?o. If any of ?s ?p ?o are bound, it will only return the matching triples.",
    :rdfs/label "construct",
    :rdfs/subClassOf [:spin/MagicProperties
                      :spin/construct
-                     :spin/Modules
                      :rdfs/Resource
+                     :spin/Modules
                      :spin/Functions]})
 
 (def constructViolations
@@ -594,17 +594,17 @@
   {:db/ident :spin/constructViolations,
    :rdf/type [:spin/MagicProperty
               :rdfs/Class
-              :rdfs/Resource
+              :spin/Module
               :rdf/Property
-              :spin/Function
-              :spin/Module],
+              :rdfs/Resource
+              :spin/Function],
    :rdfs/comment
    "Takes an instance (?arg1) and a class definition (?arg2) and returns all constraint violations for that instance as triples. This magic property basically runs its own constraint checker for defining meta-constraints, and can also be used to classify instances.\n\nExample:\n\n    CONSTRUCT {\n        ?s ?p ?o .\n    }\n    WHERE {\n        (my:Person my:OldPerson) spin:constructViolations (?s ?p ?o) .\n    }",
    :rdfs/label "construct violations",
    :rdfs/subClassOf [:spin/MagicProperties
                      :spin/constructViolations
-                     :spin/Modules
                      :rdfs/Resource
+                     :spin/Modules
                      :spin/Functions],
    :spin/command [{:rdf/type      [:spl/Argument :sp/Command :sp/Query],
                    :rdfs/comment  "The instance to check.",
@@ -647,21 +647,21 @@
 (def eval
   "Evaluates a given SPIN expression or SELECT or ASK query, and returns its result. The first argument must be the expression in SPIN RDF syntax. All other arguments must come in pairs: first a property name, and then a value. These name/value pairs will be pre-bound variables for the execution of the expression."
   {:db/ident :spin/eval,
-   :rdf/type [:spin/Function :rdfs/Resource :spin/Module :rdfs/Class],
+   :rdf/type [:spin/Function :rdfs/Class :spin/Module :rdfs/Resource],
    :rdfs/comment
    "Evaluates a given SPIN expression or SELECT or ASK query, and returns its result. The first argument must be the expression in SPIN RDF syntax. All other arguments must come in pairs: first a property name, and then a value. These name/value pairs will be pre-bound variables for the execution of the expression.",
    :rdfs/label "eval",
-   :rdfs/subClassOf [:spin/Functions :spin/eval :spin/Modules :rdfs/Resource]})
+   :rdfs/subClassOf [:spin/Functions :spin/eval :rdfs/Resource :spin/Modules]})
 
 (def evalInGraph
   "Evaluates a given SPIN expression or SELECT or ASK query, and returns its result. The first argument must be the expression in SPIN RDF syntax. This RDF representation of this expression is expected to be in the currently active query graph. The second argument is the URI of a graph that the actual query shall be evaluated against. All other arguments must come in pairs: first a property name, and then a value. These name/value pairs will be pre-bound variables for the execution of the expression."
   {:db/ident :spin/evalInGraph,
-   :rdf/type [:spin/Function :rdfs/Resource :spin/Module :rdfs/Class],
+   :rdf/type [:spin/Function :rdfs/Class :spin/Module :rdfs/Resource],
    :rdfs/comment
    "Evaluates a given SPIN expression or SELECT or ASK query, and returns its result. The first argument must be the expression in SPIN RDF syntax. This RDF representation of this expression is expected to be in the currently active query graph. The second argument is the URI of a graph that the actual query shall be evaluated against. All other arguments must come in pairs: first a property name, and then a value. These name/value pairs will be pre-bound variables for the execution of the expression.",
    :rdfs/label "eval in graph",
    :rdfs/subClassOf
-   [:spin/Functions :spin/evalInGraph :spin/Modules :rdfs/Resource]})
+   [:spin/Functions :spin/evalInGraph :rdfs/Resource :spin/Modules]})
 
 (def fix
   "Can be used to link a ConstraintViolation with one or more UPDATE Templates that would help fix the violation."
@@ -775,18 +775,18 @@
   "Executes a given SELECT or ASK query (or a corresponding SPIN template call) and binds its result rows to the variables specified on the right hand side. May also pre-bind variables for the query execution, using name-value pairs on the left hand side. Example: (?query \"this\" owl:Thing) spin:select (?a ?b) will execute the sp:Select or sp:Ask that ?query points to and pre-bind ?this with the value of owl:Thing for the execution of the query. The first result variable of the query's result set will be bound to ?a, the second to ?b etc. If the nodes on the right are bound (or constants) then it will match with the values from the result set. Note that the first argument on the left hand side can be an instance of a SPIN template (but not the template itself). If you need to execute a template, retrieve its spin:body first."
   {:db/ident :spin/select,
    :rdf/type [:spin/MagicProperty
-              :rdfs/Resource
+              :spin/Module
               :rdf/Property
               :rdfs/Class
-              :spin/Function
-              :spin/Module],
+              :rdfs/Resource
+              :spin/Function],
    :rdfs/comment
    "Executes a given SELECT or ASK query (or a corresponding SPIN template call) and binds its result rows to the variables specified on the right hand side. May also pre-bind variables for the query execution, using name-value pairs on the left hand side.\n\nExample:\n\n    (?query \"this\" owl:Thing) spin:select (?a ?b)\n\nwill execute the sp:Select or sp:Ask that ?query points to and pre-bind ?this with the value of owl:Thing for the execution of the query. The first result variable of the query's result set will be bound to ?a, the second to ?b etc. If the nodes on the right are bound (or constants) then it will match with the values from the result set.\n\nNote that the first argument on the left hand side can be an instance of a SPIN template (but not the template itself). If you need to execute a template, retrieve its spin:body first.",
    :rdfs/label "select",
    :rdfs/subClassOf [:spin/MagicProperties
                      :spin/select
-                     :spin/Modules
                      :rdfs/Resource
+                     :spin/Modules
                      :spin/Functions]})
 
 (def symbol
@@ -831,12 +831,12 @@
 (def violatesConstraints
   "Checks whether a given instance (?arg1) violates any of the constraints defined for a given class (?arg2)."
   {:db/ident :spin/violatesConstraints,
-   :rdf/type [:spin/Function :rdfs/Resource :spin/Module :rdfs/Class],
+   :rdf/type [:spin/Function :rdfs/Class :spin/Module :rdfs/Resource],
    :rdfs/comment
    "Checks whether a given instance (?arg1) violates any of the constraints defined for a given class (?arg2).",
    :rdfs/label "violates constraints",
    :rdfs/subClassOf
-   [:spin/Functions :spin/violatesConstraints :spin/Modules :rdfs/Resource],
+   [:spin/Functions :spin/violatesConstraints :rdfs/Resource :spin/Modules],
    :spin/returnType :xsd/boolean,
    :spin/systemProperty :xsd/boolean})
 

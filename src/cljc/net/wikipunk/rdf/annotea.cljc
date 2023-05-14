@@ -59,7 +59,8 @@
   {:db/ident :annotea/leadsTo,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic",
+   #voc/lstr
+    "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic@en",
    :rdfs/subPropertyOf :annotea/leadsTo})
 
 (def recalls

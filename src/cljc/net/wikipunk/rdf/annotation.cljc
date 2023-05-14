@@ -19,7 +19,7 @@
    :rdf/type         :rdfs/Class,
    :rdfs/comment     "The target type of a annotation resource.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label       "Annotation",
+   :rdfs/label       #voc/lstr "Annotation@en",
    :rdfs/subClassOf  [:rdfs/Resource :annotation/Annotation]})
 
 (def annotates
@@ -29,7 +29,7 @@
    :rdfs/comment
    "Relates an Annotation to the resource to which the Annotation applies.  The inverse relation is 'hasAnnotation'",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label "annotates",
+   :rdfs/label #voc/lstr "annotates@en",
    :rdfs/subPropertyOf :annotation/annotates})
 
 (def author
@@ -39,7 +39,7 @@
    :rdfs/comment
    "The name of the person or organization most responsible for creating the Annotation.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label "author",
+   :rdfs/label #voc/lstr "author@en",
    :rdfs/subPropertyOf [:dc11/creator :annotation/author]})
 
 (def body
@@ -49,7 +49,7 @@
    :rdfs/comment
    "Relates the resource representing the 'content' of an Annotation to the Annotation resource",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label "body",
+   :rdfs/label #voc/lstr "body@en",
    :rdfs/subPropertyOf [:annotation/related :annotation/body]})
 
 (def context
@@ -59,7 +59,7 @@
    :rdfs/comment
    "The context within the resource named in 'annotates' to which the Annotation most directly applies.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label "context",
+   :rdfs/label #voc/lstr "context@en",
    :rdfs/subPropertyOf :annotation/context})
 
 (def created
@@ -69,7 +69,7 @@
    :rdfs/comment
    "The date and time on which the Annotation was created.  yyyy-mm-ddThh:mm:ssZ format recommended.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label "created",
+   :rdfs/label #voc/lstr "created@en",
    :rdfs/subPropertyOf [:dc11/date :annotation/created]})
 
 (def modified
@@ -80,7 +80,7 @@
    ["Annotations currently use http://purl.org/dc/elements/1.1/date directly"
     "The date and time on which the Annotation was modified.  yyyy-mm-ddThh:mm:ssZ format recommended."],
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label "modified",
+   :rdfs/label #voc/lstr "modified@en",
    :rdfs/subPropertyOf [:dc11/date :annotation/modified]})
 
 (def related
@@ -90,5 +90,5 @@
    :rdfs/comment
    "A relationship between an annotation and additional resources that is less specific than 'body'.  The 'related' property is expected to be\n subclassed by more specific relationships.",
    :rdfs/isDefinedBy "http://www.w3.org/2000/10/annotation-ns#",
-   :rdfs/label "related",
+   :rdfs/label #voc/lstr "related@en",
    :rdfs/subPropertyOf :annotation/related})

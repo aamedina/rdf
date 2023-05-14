@@ -14,54 +14,59 @@
 
 (def Attribution
   "credit be given to copyright holder and/or author"
-  {:db/ident     :cc/Attribution,
-   :rdf/type     [:cc/Requirement :rdfs/Resource],
-   :rdfs/comment "credit be given to\n\t\t    copyright holder and/or author",
-   :rdfs/label   "Attribution"})
+  {:db/ident :cc/Attribution,
+   :rdf/type [:cc/Requirement :rdfs/Resource],
+   :rdfs/comment
+   #voc/lstr "credit be given to\n\t\t    copyright holder and/or author@en-US",
+   :rdfs/label #voc/lstr "Attribution@en-US"})
 
 (def CommercialUse
   "exercising rights for commercial purposes"
   {:db/ident     :cc/CommercialUse,
    :rdf/type     [:cc/Prohibition :rdfs/Resource],
-   :rdfs/comment "exercising rights for\n\t\t    commercial purposes",
-   :rdfs/label   "Commercial Use"})
+   :rdfs/comment #voc/lstr
+                  "exercising rights for\n\t\t    commercial purposes@en-US",
+   :rdfs/label   #voc/lstr "Commercial Use@en-US"})
 
 (def Copyleft
   "derivative and combined works must be licensed under specified terms, similar to those on the original work"
   {:db/ident :cc/Copyleft,
    :rdf/type [:cc/Requirement :rdfs/Resource],
    :rdfs/comment
-   "derivative and\n\t\t    combined works must be licensed under specified\n\t\t    terms, similar to those on the original\n\t\t    work",
-   :rdfs/label "Copyleft"})
+   #voc/lstr
+    "derivative and\n\t\t    combined works must be licensed under specified\n\t\t    terms, similar to those on the original\n\t\t    work@en-US",
+   :rdfs/label #voc/lstr "Copyleft@en-US"})
 
 (def DerivativeWorks
   "distribution of derivative works"
   {:db/ident     :cc/DerivativeWorks,
    :rdf/type     [:cc/Permission :rdfs/Resource],
-   :rdfs/comment "distribution of\n\t\t    derivative works",
-   :rdfs/label   "Derivative Works"})
+   :rdfs/comment #voc/lstr "distribution of\n\t\t    derivative works@en-US",
+   :rdfs/label   #voc/lstr "Derivative Works@en-US"})
 
 (def Distribution
   "distribution, public display, and publicly performance"
   {:db/ident :cc/Distribution,
    :rdf/type [:cc/Permission :rdfs/Resource],
    :rdfs/comment
-   "distribution, public\n\t\t    display, and publicly performance",
-   :rdfs/label "Distribution"})
+   #voc/lstr
+    "distribution, public\n\t\t    display, and publicly performance@en-US",
+   :rdfs/label #voc/lstr "Distribution@en-US"})
 
 (def HighIncomeNationUse
   "use in a non-developing country"
   {:db/ident     :cc/HighIncomeNationUse,
    :rdf/type     [:cc/Prohibition :rdfs/Resource],
-   :rdfs/comment "use in a\n\t\t    non-developing country",
-   :rdfs/label   "High Income Nation Use"})
+   :rdfs/comment #voc/lstr "use in a\n\t\t    non-developing country@en-US",
+   :rdfs/label   #voc/lstr "High Income Nation Use@en-US"})
 
 (def Jurisdiction
   "the legal jurisdiction of a license"
   {:db/ident        :cc/Jurisdiction,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    "the legal jurisdiction\n\t\t    of a license",
-   :rdfs/label      "Jurisdiction",
+   :rdfs/comment    #voc/lstr
+                     "the legal jurisdiction\n\t\t    of a license@en-US",
+   :rdfs/label      #voc/lstr "Jurisdiction@en-US",
    :rdfs/subClassOf [:rdfs/Resource :cc/Jurisdiction]})
 
 (def LesserCopyleft
@@ -69,54 +74,61 @@
   {:db/ident :cc/LesserCopyleft,
    :rdf/type [:cc/Requirement :rdfs/Resource],
    :rdfs/comment
-   "derivative works must\n\t\t    be licensed under specified terms, with at least\n\t\t    the same conditions as the original work;\n\t\t    combinations with the work may be licensed under\n\t\t    different terms",
-   :rdfs/label "Lesser Copyleft"})
+   #voc/lstr
+    "derivative works must\n\t\t    be licensed under specified terms, with at least\n\t\t    the same conditions as the original work;\n\t\t    combinations with the work may be licensed under\n\t\t    different terms@en-US",
+   :rdfs/label #voc/lstr "Lesser Copyleft@en-US"})
 
 (def License
   "a set of requests/permissions to users of a Work, e.g. a copyright license, the public domain, information for distributors"
   {:db/ident :cc/License,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "a set of\n\t\t    requests/permissions to users of a Work, e.g. a\n\t\t    copyright license, the public domain, information\n\t\t    for distributors",
-   :rdfs/label "License",
+   #voc/lstr
+    "a set of\n\t\t    requests/permissions to users of a Work, e.g. a\n\t\t    copyright license, the public domain, information\n\t\t    for distributors@en-US",
+   :rdfs/label #voc/lstr "License@en-US",
    :rdfs/subClassOf [:rdfs/Resource :dcterms/LicenseDocument :cc/License]})
 
 (def Notice
   "copyright and license notices be kept intact"
   {:db/ident     :cc/Notice,
    :rdf/type     [:cc/Requirement :rdfs/Resource],
-   :rdfs/comment "copyright and license\n\t\t    notices be kept intact",
-   :rdfs/label   "Notice"})
+   :rdfs/comment #voc/lstr
+                  "copyright and license\n\t\t    notices be kept intact@en-US",
+   :rdfs/label   #voc/lstr "Notice@en-US"})
 
 (def Permission
   "an action that may or may not be allowed or desired"
   {:db/ident :cc/Permission,
    :rdf/type :rdfs/Class,
-   :rdfs/comment "an action that may or\n\t\t    may not be allowed or desired",
-   :rdfs/label "Permission",
+   :rdfs/comment
+   #voc/lstr
+    "an action that may or\n\t\t    may not be allowed or desired@en-US",
+   :rdfs/label #voc/lstr "Permission@en-US",
    :rdfs/subClassOf [:rdfs/Resource :cc/Permission]})
 
 (def Prohibition
   "something you may be asked not to do"
   {:db/ident        :cc/Prohibition,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    "something you may be\n\t\t    asked not to do",
-   :rdfs/label      "Prohibition",
+   :rdfs/comment    #voc/lstr
+                     "something you may be\n\t\t    asked not to do@en-US",
+   :rdfs/label      #voc/lstr "Prohibition@en-US",
    :rdfs/subClassOf [:rdfs/Resource :cc/Prohibition]})
 
 (def Reproduction
   "making multiple copies"
   {:db/ident     :cc/Reproduction,
    :rdf/type     [:cc/Permission :rdfs/Resource],
-   :rdfs/comment "making multiple\n\t\t    copies",
-   :rdfs/label   "Reproduction"})
+   :rdfs/comment #voc/lstr "making multiple\n\t\t    copies@en-US",
+   :rdfs/label   #voc/lstr "Reproduction@en-US"})
 
 (def Requirement
   "an action that may or may not be requested of you"
   {:db/ident :cc/Requirement,
    :rdf/type :rdfs/Class,
-   :rdfs/comment "an action that may or\n\t\t    may not be requested of you",
-   :rdfs/label "Requirement",
+   :rdfs/comment
+   #voc/lstr "an action that may or\n\t\t    may not be requested of you@en-US",
+   :rdfs/label #voc/lstr "Requirement@en-US",
    :rdfs/subClassOf [:rdfs/Resource :cc/Requirement]})
 
 (def ShareAlike
@@ -124,31 +136,34 @@
   {:db/ident :cc/ShareAlike,
    :rdf/type [:cc/Requirement :rdfs/Resource],
    :rdfs/comment
-   "derivative works be\n\t\t    licensed under the same terms or compatible terms\n\t\t    as the original work",
-   :rdfs/label "Share Alike"})
+   #voc/lstr
+    "derivative works be\n\t\t    licensed under the same terms or compatible terms\n\t\t    as the original work@en-US",
+   :rdfs/label #voc/lstr "Share Alike@en-US"})
 
 (def Sharing
   "permits commercial derivatives, but only non-commercial distribution"
   {:db/ident :cc/Sharing,
    :rdf/type [:cc/Permission :rdfs/Resource],
    :rdfs/comment
-   "permits commercial\n\t\t    derivatives, but only non-commercial\n\t\t    distribution",
-   :rdfs/label "Sharing"})
+   #voc/lstr
+    "permits commercial\n\t\t    derivatives, but only non-commercial\n\t\t    distribution@en-US",
+   :rdfs/label #voc/lstr "Sharing@en-US"})
 
 (def SourceCode
   "source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license."
   {:db/ident :cc/SourceCode,
    :rdf/type [:cc/Requirement :rdfs/Resource],
    :rdfs/comment
-   "source code (the\n\t\t    preferred form for making modifications) must be\n\t\t    provided when exercising some rights granted by\n\t\t    the license.",
-   :rdfs/label "Source Code"})
+   #voc/lstr
+    "source code (the\n\t\t    preferred form for making modifications) must be\n\t\t    provided when exercising some rights granted by\n\t\t    the license.@en-US",
+   :rdfs/label #voc/lstr "Source Code@en-US"})
 
 (def Work
   "a potentially copyrightable work"
   {:db/ident        :cc/Work,
    :rdf/type        :rdfs/Class,
-   :rdfs/comment    "a potentially\n\t\t    copyrightable work",
-   :rdfs/label      "Work",
+   :rdfs/comment    #voc/lstr "a potentially\n\t\t    copyrightable work@en-US",
+   :rdfs/label      #voc/lstr "Work@en-US",
    :rdfs/subClassOf [:rdfs/Resource :cc/Work]})
 
 (def attributionName
@@ -170,7 +185,7 @@
   {:db/ident           :cc/deprecatedOn,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/License,
-   :rdfs/label         "deprecated\n\t\t  on",
+   :rdfs/label         #voc/lstr "deprecated\n\t\t  on@en-US",
    :rdfs/range         "http://www.w3.org/2001/XMLSchema-datatypes#date",
    :rdfs/subPropertyOf :cc/deprecatedOn})
 
@@ -179,7 +194,7 @@
   {:db/ident           :cc/jurisdiction,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/License,
-   :rdfs/label         "jurisdiction",
+   :rdfs/label         #voc/lstr "jurisdiction@en-US",
    :rdfs/range         :cc/Jurisdiction,
    :rdfs/subPropertyOf :cc/jurisdiction})
 
@@ -196,7 +211,7 @@
    :owl/sameAs         :xhv/license,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/Work,
-   :rdfs/label         "has\n\t\t  license",
+   :rdfs/label         #voc/lstr "has\n\t\t  license@en-US",
    :rdfs/range         :cc/License,
    :rdfs/subPropertyOf [:dcterms/license :cc/license]})
 
@@ -212,7 +227,7 @@
   {:db/ident           :cc/permits,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/License,
-   :rdfs/label         "permits",
+   :rdfs/label         #voc/lstr "permits@en-US",
    :rdfs/range         :cc/Permission,
    :rdfs/subPropertyOf :cc/permits})
 
@@ -221,7 +236,7 @@
   {:db/ident           :cc/prohibits,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/License,
-   :rdfs/label         "prohibits",
+   :rdfs/label         #voc/lstr "prohibits@en-US",
    :rdfs/range         :cc/Prohibition,
    :rdfs/subPropertyOf :cc/prohibits})
 
@@ -230,7 +245,7 @@
   {:db/ident           :cc/requires,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/License,
-   :rdfs/label         "requires",
+   :rdfs/label         #voc/lstr "requires@en-US",
    :rdfs/range         :cc/Requirement,
    :rdfs/subPropertyOf :cc/requires})
 

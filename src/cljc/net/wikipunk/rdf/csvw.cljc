@@ -2,8 +2,9 @@
   "http://www.w3.org/ns/csvw#"
   {:dc11/date #inst "2017-06-06T00:00:00.000-04:00",
    :dc11/description
-   "This document describes the RDFS vocabulary description used in the Metadata Vocabulary for Tabular Data [[tabular-metadata]] along with the default JSON-LD Context.",
-   :dc11/title "CSVW Namespace Vocabulary Terms",
+   #voc/lstr
+    "This document describes the RDFS vocabulary description used in the Metadata Vocabulary for Tabular Data [[tabular-metadata]] along with the default JSON-LD Context.@en",
+   :dc11/title #voc/lstr "CSVW Namespace Vocabulary Terms@en",
    :owl/imports "http://www.w3.org/ns/prov",
    :owl/versionInfo
    "https://github.com/w3c/csvw/commit/fcc9db20ba4de10e41e964eee1b5d01defa4c664",
@@ -60,9 +61,10 @@
   {:db/ident :csvw/Cell,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A Cell represents a cell at the intersection of a Row and a Column within a Table.",
+   #voc/lstr
+    "A Cell represents a cell at the intersection of a Row and a Column within a Table.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Cell",
+   :rdfs/label #voc/lstr "Cell@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/Cell]})
 
 (def Column
@@ -70,18 +72,19 @@
   {:db/ident :csvw/Column,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A Column represents a vertical arrangement of Cells within a Table.",
+   #voc/lstr
+    "A Column represents a vertical arrangement of Cells within a Table.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Column Description",
+   :rdfs/label #voc/lstr "Column Description@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/Column]})
 
 (def Datatype
   "Describes facets of a datatype."
   {:db/ident         :csvw/Datatype,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     "Describes facets of a datatype.",
+   :rdfs/comment     #voc/lstr "Describes facets of a datatype.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label       "Datatype",
+   :rdfs/label       #voc/lstr "Datatype@en",
    :rdfs/subClassOf  [:rdfs/Resource :csvw/Datatype]})
 
 (def Dialect
@@ -89,18 +92,19 @@
   {:db/ident :csvw/Dialect,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A Dialect Description provides hints to parsers about how to parse a linked file.",
+   #voc/lstr
+    "A Dialect Description provides hints to parsers about how to parse a linked file.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Dialect Description",
+   :rdfs/label #voc/lstr "Dialect Description@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/Dialect]})
 
 (def Direction
   "The class of table/text directions."
   {:db/ident         :csvw/Direction,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     "The class of table/text directions.",
+   :rdfs/comment     #voc/lstr "The class of table/text directions.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label       "Direction",
+   :rdfs/label       #voc/lstr "Direction@en",
    :rdfs/subClassOf  [:rdfs/Resource :csvw/Direction]})
 
 (def ForeignKey
@@ -108,18 +112,19 @@
   {:db/ident :csvw/ForeignKey,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "Describes relationships between Columns in one or more Tables.",
+   #voc/lstr
+    "Describes relationships between Columns in one or more Tables.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Foreign Key Definition",
+   :rdfs/label #voc/lstr "Foreign Key Definition@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/ForeignKey]})
 
 (def JSON
   "A literal containing JSON."
   {:db/ident         :csvw/JSON,
    :rdf/type         :rdfs/Datatype,
-   :rdfs/comment     "A literal containing JSON.",
+   :rdfs/comment     #voc/lstr "A literal containing JSON.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label       "JSON",
+   :rdfs/label       #voc/lstr "JSON@en",
    :rdfs/subClassOf  [:xsd/string :csvw/JSON]})
 
 (def NumericFormat
@@ -127,9 +132,10 @@
   {:db/ident :csvw/NumericFormat,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "If the datatype is a numeric type, the format property indicates the expected format for that number. Its value must be either a single string or an object with one or more properties.",
+   #voc/lstr
+    "If the datatype is a numeric type, the format property indicates the expected format for that number. Its value must be either a single string or an object with one or more properties.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Numeric Format",
+   :rdfs/label #voc/lstr "Numeric Format@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/NumericFormat]})
 
 (def Row
@@ -137,9 +143,10 @@
   {:db/ident :csvw/Row,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A Row represents a horizontal arrangement of cells within a Table.",
+   #voc/lstr
+    "A Row represents a horizontal arrangement of cells within a Table.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Row",
+   :rdfs/label #voc/lstr "Row@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/Row]})
 
 (def Schema
@@ -147,9 +154,10 @@
   {:db/ident :csvw/Schema,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A Schema is a definition of a tabular format that may be common to multiple tables.",
+   #voc/lstr
+    "A Schema is a definition of a tabular format that may be common to multiple tables.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Schema",
+   :rdfs/label #voc/lstr "Schema@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/Schema]})
 
 (def Table
@@ -157,9 +165,10 @@
   {:db/ident :csvw/Table,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "An annotated table is a table that is annotated with additional metadata.",
+   #voc/lstr
+    "An annotated table is a table that is annotated with additional metadata.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Annotated Table",
+   :rdfs/label #voc/lstr "Annotated Table@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/Table]})
 
 (def TableGroup
@@ -167,9 +176,10 @@
   {:db/ident :csvw/TableGroup,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A Group of Tables comprises a set of Annotated Tables and a set of annotations that relate to those Tables.",
+   #voc/lstr
+    "A Group of Tables comprises a set of Annotated Tables and a set of annotations that relate to those Tables.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Group of Tables",
+   :rdfs/label #voc/lstr "Group of Tables@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/TableGroup]})
 
 (def TableReference
@@ -177,9 +187,10 @@
   {:db/ident :csvw/TableReference,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "An object property that identifies a referenced table and a set of referenced columns within that table.",
+   #voc/lstr
+    "An object property that identifies a referenced table and a set of referenced columns within that table.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Table Reference",
+   :rdfs/label #voc/lstr "Table Reference@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/TableReference]})
 
 (def Transformation
@@ -187,9 +198,10 @@
   {:db/ident :csvw/Transformation,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   "A Transformation Definition is a definition of how tabular data can be transformed into another format.",
+   #voc/lstr
+    "A Transformation Definition is a definition of how tabular data can be transformed into another format.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Transformation Definition",
+   :rdfs/label #voc/lstr "Transformation Definition@en",
    :rdfs/subClassOf [:rdfs/Resource :csvw/Transformation]})
 
 (def aboutUrl
@@ -197,11 +209,12 @@
   {:db/ident :csvw/aboutUrl,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A URI template property that MAY be used to indicate what a cell contains information about.",
+   #voc/lstr
+    "A URI template property that MAY be used to indicate what a cell contains information about.@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "about URL",
+   :rdfs/label #voc/lstr "about URL@en",
    :rdfs/range :csvw/uriTemplate,
    :rdfs/subPropertyOf :csvw/aboutUrl})
 
@@ -210,19 +223,21 @@
   {:db/ident :csvw/auto,
    :rdf/type [:csvw/Direction :rdfs/Resource],
    :rdfs/comment
-   "Indicates whether the tables in the group should be displayed based on the first character in the table that has a specific direction.",
+   #voc/lstr
+    "Indicates whether the tables in the group should be displayed based on the first character in the table that has a specific direction.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "auto"})
+   :rdfs/label #voc/lstr "auto@en"})
 
 (def base
   "An atomic property that contains a single string: a term defined in the default context representing a built-in datatype URL, as listed above."
   {:db/ident :csvw/base,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that contains a single string: a term defined in the default context representing a built-in datatype URL, as listed above.",
+   #voc/lstr
+    "An atomic property that contains a single string: a term defined in the default context representing a built-in datatype URL, as listed above.@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "base",
+   :rdfs/label #voc/lstr "base@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/base})
 
@@ -231,10 +246,11 @@
   {:db/ident :csvw/column,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An array property of column descriptions as described in section 5.6 Columns.",
+   #voc/lstr
+    "An array property of column descriptions as described in section 5.6 Columns.@en",
    :rdfs/domain :csvw/Schema,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "column",
+   :rdfs/label #voc/lstr "column@en",
    :rdfs/range :csvw/Column,
    :rdfs/subPropertyOf :csvw/column})
 
@@ -243,10 +259,11 @@
   {:db/ident :csvw/columnReference,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A column reference property that holds either a single reference to a column description object within this schema, or an array of references. These form the referencing columns for the foreign key definition.",
+   #voc/lstr
+    "A column reference property that holds either a single reference to a column description object within this schema, or an array of references. These form the referencing columns for the foreign key definition.@en",
    :rdfs/domain {:owl/unionOf [:csvw/ForeignKey :csvw/TableReference]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "column reference",
+   :rdfs/label #voc/lstr "column reference@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/columnReference})
 
@@ -255,10 +272,11 @@
   {:db/ident :csvw/commentPrefix,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that sets the comment prefix flag to the single provided value, which MUST be a string.",
+   #voc/lstr
+    "An atomic property that sets the comment prefix flag to the single provided value, which MUST be a string.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "comment prefix",
+   :rdfs/label #voc/lstr "comment prefix@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/commentPrefix})
 
@@ -267,20 +285,21 @@
   {:db/ident :csvw/csvEncodedTabularData,
    :rdf/type :prov/Role,
    :rdfs/comment
-   "Describes the role of a CSV file in the tabular data mapping.",
+   #voc/lstr "Describes the role of a CSV file in the tabular data mapping.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "CSV Encoded Tabular Data"})
+   :rdfs/label #voc/lstr "CSV Encoded Tabular Data@en"})
 
 (def datatype
   "An object property that contains either a single string that is the main datatype of the values of the cell or a datatype description object. If the value of this property is a string, it MUST be one of the built-in datatypes defined in section 5.11.1 Built-in Datatypes or an absolute URL; if it is an object then it describes a more specialised datatype."
   {:db/ident :csvw/datatype,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An object property that contains either a single string that is the main datatype of the values of the cell or a datatype description object. If the value of this property is a string, it MUST be one of the built-in datatypes defined in section 5.11.1 Built-in Datatypes or an absolute URL; if it is an object then it describes a more specialised datatype.",
+   #voc/lstr
+    "An object property that contains either a single string that is the main datatype of the values of the cell or a datatype description object. If the value of this property is a string, it MUST be one of the built-in datatypes defined in section 5.11.1 Built-in Datatypes or an absolute URL; if it is an object then it describes a more specialised datatype.@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "datatype",
+   :rdfs/label #voc/lstr "datatype@en",
    :rdfs/range {:owl/unionOf [:csvw/Datatype :xsd/string]},
    :rdfs/subPropertyOf :csvw/datatype})
 
@@ -289,10 +308,11 @@
   {:db/ident :csvw/decimalChar,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A string whose value is used to represent a decimal point within the number.",
+   #voc/lstr
+    "A string whose value is used to represent a decimal point within the number.@en",
    :rdfs/domain :csvw/NumericFormat,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "decimal character",
+   :rdfs/label #voc/lstr "decimal character@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/decimalChar})
 
@@ -301,11 +321,12 @@
   {:db/ident :csvw/default,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property holding a single string that is used to create a default value for the cell in cases where the original string value is an empty string.",
+   #voc/lstr
+    "An atomic property holding a single string that is used to create a default value for the cell in cases where the original string value is an empty string.@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "default",
+   :rdfs/label #voc/lstr "default@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/default})
 
@@ -314,10 +335,11 @@
   {:db/ident :csvw/delimiter,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that sets the delimiter flag to the single provided value, which MUST be a string.",
+   #voc/lstr
+    "An atomic property that sets the delimiter flag to the single provided value, which MUST be a string.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "delimiter",
+   :rdfs/label #voc/lstr "delimiter@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/delimiter})
 
@@ -326,10 +348,11 @@
   {:db/ident :csvw/describes,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "From IANA describes: The relationship A 'describes' B asserts that resource A provides a description of resource B. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource.",
+   #voc/lstr
+    "From IANA describes: The relationship A 'describes' B asserts that resource A provides a description of resource B. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource.@en",
    :rdfs/domain :csvw/Row,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "describes",
+   :rdfs/label #voc/lstr "describes@en",
    :rdfs/subPropertyOf :csvw/describes})
 
 (def dialect
@@ -337,10 +360,11 @@
   {:db/ident :csvw/dialect,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An object property that provides a single dialect description. If provided, dialect provides hints to processors about how to parse the referenced files to create tabular data models for the tables in the group.",
+   #voc/lstr
+    "An object property that provides a single dialect description. If provided, dialect provides hints to processors about how to parse the referenced files to create tabular data models for the tables in the group.@en",
    :rdfs/domain {:owl/unionOf [:csvw/TableGroup :csvw/Table]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "dialect",
+   :rdfs/label #voc/lstr "dialect@en",
    :rdfs/range :csvw/Dialect,
    :rdfs/subPropertyOf :csvw/dialect})
 
@@ -349,10 +373,11 @@
   {:db/ident :csvw/doubleQuote,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A boolean atomic property that, if `true`, sets the escape character flag to `\"`.",
+   #voc/lstr
+    "A boolean atomic property that, if `true`, sets the escape character flag to `\"`.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "double quote",
+   :rdfs/label #voc/lstr "double quote@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/doubleQuote})
 
@@ -361,10 +386,11 @@
   {:db/ident :csvw/encoding,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that sets the encoding flag to the single provided string value, which MUST be a defined in [[encoding]]. The default is \"utf-8\".",
+   #voc/lstr
+    "An atomic property that sets the encoding flag to the single provided string value, which MUST be a defined in [[encoding]]. The default is \"utf-8\".@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "encoding",
+   :rdfs/label #voc/lstr "encoding@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/encoding})
 
@@ -373,10 +399,11 @@
   {:db/ident :csvw/foreignKey,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "For a Table: a list of foreign keys on the table.\n\nFor a Schema: an array property of foreign key definitions that define how the values from specified columns within this table link to rows within this table or other tables.",
+   #voc/lstr
+    "For a Table: a list of foreign keys on the table.\n\nFor a Schema: an array property of foreign key definitions that define how the values from specified columns within this table link to rows within this table or other tables.@en",
    :rdfs/domain {:owl/unionOf [:csvw/Table :csvw/Schema]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "foreign key",
+   :rdfs/label #voc/lstr "foreign key@en",
    :rdfs/range :csvw/ForeignKey,
    :rdfs/subPropertyOf :csvw/foreignKey})
 
@@ -385,10 +412,11 @@
   {:db/ident :csvw/format,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that contains either a single string or an object that defines the format of a value of this type, used when parsing a string value as described in Parsing Cells in [[tabular-data-model]].",
+   #voc/lstr
+    "An atomic property that contains either a single string or an object that defines the format of a value of this type, used when parsing a string value as described in Parsing Cells in [[tabular-data-model]].@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "format",
+   :rdfs/label #voc/lstr "format@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/format})
 
@@ -397,10 +425,11 @@
   {:db/ident :csvw/groupChar,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A string whose value is used to group digits within the number.",
+   #voc/lstr
+    "A string whose value is used to group digits within the number.@en",
    :rdfs/domain :csvw/NumericFormat,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "group character",
+   :rdfs/label #voc/lstr "group character@en",
    :rdfs/range {:owl/unionOf [:csvw/NumericFormat :xsd/string]},
    :rdfs/subPropertyOf :csvw/groupChar})
 
@@ -409,10 +438,11 @@
   {:db/ident :csvw/header,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A boolean atomic property that, if `true`, sets the header row count flag to `1`, and if `false` to `0`, unless headerRowCount is provided, in which case the value provided for the header property is ignored.",
+   #voc/lstr
+    "A boolean atomic property that, if `true`, sets the header row count flag to `1`, and if `false` to `0`, unless headerRowCount is provided, in which case the value provided for the header property is ignored.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "header",
+   :rdfs/label #voc/lstr "header@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/header})
 
@@ -421,10 +451,11 @@
   {:db/ident :csvw/headerRowCount,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An numeric atomic property that sets the header row count flag to the single provided value, which must be a non-negative integer.",
+   #voc/lstr
+    "An numeric atomic property that sets the header row count flag to the single provided value, which must be a non-negative integer.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "header row count",
+   :rdfs/label #voc/lstr "header row count@en",
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :csvw/headerRowCount})
 
@@ -433,20 +464,22 @@
   {:db/ident :csvw/inherit,
    :rdf/type [:csvw/Direction :rdfs/Resource],
    :rdfs/comment
-   "For `textDirection`, indicates that the direction is inherited from the `tableDirection` annotation of the `table`.",
+   #voc/lstr
+    "For `textDirection`, indicates that the direction is inherited from the `tableDirection` annotation of the `table`.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "inherit"})
+   :rdfs/label #voc/lstr "inherit@en"})
 
 (def lang
   "An atomic property giving a single string language code as defined by [[BCP47]]."
   {:db/ident :csvw/lang,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property giving a single string language code as defined by [[BCP47]].",
+   #voc/lstr
+    "An atomic property giving a single string language code as defined by [[BCP47]].@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "language",
+   :rdfs/label #voc/lstr "language@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/lang})
 
@@ -454,10 +487,11 @@
   "The exact length of the value of the cell."
   {:db/ident           :csvw/length,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "The exact length of the value of the cell.",
+   :rdfs/comment       #voc/lstr
+                        "The exact length of the value of the cell.@en",
    :rdfs/domain        :csvw/Datatype,
    :rdfs/isDefinedBy   "http://www.w3.org/ns/csvw#",
-   :rdfs/label         "length",
+   :rdfs/label         #voc/lstr "length@en",
    :rdfs/range         :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :csvw/length})
 
@@ -466,10 +500,11 @@
   {:db/ident :csvw/lineTerminators,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that sets the line terminators flag to either an array containing the single provided string value, or the provided array.",
+   #voc/lstr
+    "An atomic property that sets the line terminators flag to either an array containing the single provided string value, or the provided array.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "line terminators",
+   :rdfs/label #voc/lstr "line terminators@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/lineTerminators})
 
@@ -478,19 +513,21 @@
   {:db/ident :csvw/ltr,
    :rdf/type [:csvw/Direction :rdfs/Resource],
    :rdfs/comment
-   "Indicates whether the tables in the group should be displayed with the first column on the right.",
+   #voc/lstr
+    "Indicates whether the tables in the group should be displayed with the first column on the right.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "left to right"})
+   :rdfs/label #voc/lstr "left to right@en"})
 
 (def maxExclusive
   "An atomic property that contains a single number that is the maximum valid value (exclusive)."
   {:db/ident :csvw/maxExclusive,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that contains a single number that is the maximum valid value (exclusive).",
+   #voc/lstr
+    "An atomic property that contains a single number that is the maximum valid value (exclusive).@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "max exclusive",
+   :rdfs/label #voc/lstr "max exclusive@en",
    :rdfs/range :xsd/integer,
    :rdfs/subPropertyOf :csvw/maxExclusive})
 
@@ -499,10 +536,11 @@
   {:db/ident :csvw/maxInclusive,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that contains a single number that is the maximum valid value (inclusive).",
+   #voc/lstr
+    "An atomic property that contains a single number that is the maximum valid value (inclusive).@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "max inclusive",
+   :rdfs/label #voc/lstr "max inclusive@en",
    :rdfs/range :xsd/integer,
    :rdfs/subPropertyOf :csvw/maxInclusive})
 
@@ -511,10 +549,11 @@
   {:db/ident :csvw/maxLength,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A numeric atomic property that contains a single integer that is the maximum length of the value.",
+   #voc/lstr
+    "A numeric atomic property that contains a single integer that is the maximum length of the value.@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "max length",
+   :rdfs/label #voc/lstr "max length@en",
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :csvw/maxLength})
 
@@ -523,10 +562,11 @@
   {:db/ident :csvw/minExclusive,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that contains a single number that is the minimum valid value (exclusive).",
+   #voc/lstr
+    "An atomic property that contains a single number that is the minimum valid value (exclusive).@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "min exclusive",
+   :rdfs/label #voc/lstr "min exclusive@en",
    :rdfs/range :xsd/integer,
    :rdfs/subPropertyOf :csvw/minExclusive})
 
@@ -535,10 +575,11 @@
   {:db/ident :csvw/minInclusive,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that contains a single number that is the minimum valid value (inclusive).",
+   #voc/lstr
+    "An atomic property that contains a single number that is the minimum valid value (inclusive).@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "min inclusive",
+   :rdfs/label #voc/lstr "min inclusive@en",
    :rdfs/range :xsd/integer,
    :rdfs/subPropertyOf :csvw/minInclusive})
 
@@ -547,10 +588,11 @@
   {:db/ident :csvw/minLength,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that contains a single integer that is the minimum length of the value.",
+   #voc/lstr
+    "An atomic property that contains a single integer that is the minimum length of the value.@en",
    :rdfs/domain :csvw/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "min length",
+   :rdfs/label #voc/lstr "min length@en",
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :csvw/minLength})
 
@@ -559,10 +601,11 @@
   {:db/ident :csvw/name,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that gives a single canonical name for the column. The value of this property becomes the name annotation for the described column.",
+   #voc/lstr
+    "An atomic property that gives a single canonical name for the column. The value of this property becomes the name annotation for the described column.@en",
    :rdfs/domain :csvw/Column,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "name",
+   :rdfs/label #voc/lstr "name@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/name})
 
@@ -571,10 +614,11 @@
   {:db/ident :csvw/note,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An array property that provides an array of objects representing arbitrary annotations on the annotated tabular data model.",
+   #voc/lstr
+    "An array property that provides an array of objects representing arbitrary annotations on the annotated tabular data model.@en",
    :rdfs/domain {:owl/unionOf [:csvw/TableGroup :csvw/Table]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "note",
+   :rdfs/label #voc/lstr "note@en",
    :rdfs/subPropertyOf :csvw/note})
 
 (def null
@@ -582,11 +626,12 @@
   {:db/ident :csvw/null,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property giving the string or strings used for null values within the data. If the string value of the cell is equal to any one of these values, the cell value is `null`.",
+   #voc/lstr
+    "An atomic property giving the string or strings used for null values within the data. If the string value of the cell is equal to any one of these values, the cell value is `null`.@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "null",
+   :rdfs/label #voc/lstr "null@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/null})
 
@@ -595,11 +640,12 @@
   {:db/ident :csvw/ordered,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A boolean atomic property taking a single value which indicates whether a list that is the value of the cell is ordered (if `true`) or unordered (if `false`).",
+   #voc/lstr
+    "A boolean atomic property taking a single value which indicates whether a list that is the value of the cell is ordered (if `true`) or unordered (if `false`).@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "ordered",
+   :rdfs/label #voc/lstr "ordered@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/ordered})
 
@@ -608,10 +654,11 @@
   {:db/ident :csvw/pattern,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A regular expression string, in the syntax and interpreted as defined by [[ECMASCRIPT]].",
+   #voc/lstr
+    "A regular expression string, in the syntax and interpreted as defined by [[ECMASCRIPT]].@en",
    :rdfs/domain :csvw/NumericFormat,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "pattern",
+   :rdfs/label #voc/lstr "pattern@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/pattern})
 
@@ -620,10 +667,11 @@
   {:db/ident :csvw/primaryKey,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "For Schema: A column reference property that holds either a single reference to a column description object or an array of references.\n\nFor Row: a possibly empty list of cells whose values together provide a unique identifier for this row. This is similar to the name of a column.",
+   #voc/lstr
+    "For Schema: A column reference property that holds either a single reference to a column description object or an array of references.\n\nFor Row: a possibly empty list of cells whose values together provide a unique identifier for this row. This is similar to the name of a column.@en",
    :rdfs/domain {:owl/unionOf [:csvw/Schema :csvw/Row]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "primary key",
+   :rdfs/label #voc/lstr "primary key@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/primaryKey})
 
@@ -632,11 +680,12 @@
   {:db/ident :csvw/propertyUrl,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An URI template property that MAY be used to create a URI for a property if the table is mapped to another format. ",
+   #voc/lstr
+    "An URI template property that MAY be used to create a URI for a property if the table is mapped to another format. @en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "property URL",
+   :rdfs/label #voc/lstr "property URL@en",
    :rdfs/range :csvw/uriTemplate,
    :rdfs/subPropertyOf :csvw/propertyUrl})
 
@@ -645,10 +694,11 @@
   {:db/ident :csvw/quoteChar,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that sets the quote character flag to the single provided value, which must be a string or `null`.",
+   #voc/lstr
+    "An atomic property that sets the quote character flag to the single provided value, which must be a string or `null`.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "quote char",
+   :rdfs/label #voc/lstr "quote char@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/quoteChar})
 
@@ -657,10 +707,11 @@
   {:db/ident :csvw/reference,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An object property that identifies a **referenced table** and a set of **referenced columns** within that table.",
+   #voc/lstr
+    "An object property that identifies a **referenced table** and a set of **referenced columns** within that table.@en",
    :rdfs/domain :csvw/ForeignKey,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "reference",
+   :rdfs/label #voc/lstr "reference@en",
    :rdfs/range :csvw/TableReference,
    :rdfs/subPropertyOf :csvw/reference})
 
@@ -669,10 +720,11 @@
   {:db/ident :csvw/referencedRow,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A possibly empty list of pairs of a foreign key and a row in a table within the same group of tables.",
+   #voc/lstr
+    "A possibly empty list of pairs of a foreign key and a row in a table within the same group of tables.@en",
    :rdfs/domain :csvw/Row,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "referenced rows",
+   :rdfs/label #voc/lstr "referenced rows@en",
    :rdfs/subPropertyOf :csvw/referencedRow})
 
 (def required
@@ -680,11 +732,12 @@
   {:db/ident :csvw/required,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A boolean atomic property taking a single value which indicates whether the cell must have a non-null value. The default is `false`. ",
+   #voc/lstr
+    "A boolean atomic property taking a single value which indicates whether the cell must have a non-null value. The default is `false`. @en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "required",
+   :rdfs/label #voc/lstr "required@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/required})
 
@@ -693,10 +746,11 @@
   {:db/ident :csvw/resource,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A link property holding a URL that is the identifier for a specific table that is being referenced.",
+   #voc/lstr
+    "A link property holding a URL that is the identifier for a specific table that is being referenced.@en",
    :rdfs/domain :csvw/TableReference,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "resource",
+   :rdfs/label #voc/lstr "resource@en",
    :rdfs/range :xsd/anyURI,
    :rdfs/subPropertyOf :csvw/resource})
 
@@ -704,10 +758,10 @@
   "Relates a Table to each Row output."
   {:db/ident           :csvw/row,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "Relates a Table to each Row output.",
+   :rdfs/comment       #voc/lstr "Relates a Table to each Row output.@en",
    :rdfs/domain        :csvw/Table,
    :rdfs/isDefinedBy   "http://www.w3.org/ns/csvw#",
-   :rdfs/label         "row",
+   :rdfs/label         #voc/lstr "row@en",
    :rdfs/range         :csvw/Row,
    :rdfs/subPropertyOf [:rdfs/member :csvw/row]})
 
@@ -716,10 +770,11 @@
   {:db/ident :csvw/rowTitle,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A column reference property that holds either a single reference to a column description object or an array of references.",
+   #voc/lstr
+    "A column reference property that holds either a single reference to a column description object or an array of references.@en",
    :rdfs/domain :csvw/Schema,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "row titles",
+   :rdfs/label #voc/lstr "row titles@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/rowTitle})
 
@@ -728,9 +783,10 @@
   {:db/ident :csvw/rownum,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "The position of the row amongst the rows of the Annotated Tabl, starting from 1",
+   #voc/lstr
+    "The position of the row amongst the rows of the Annotated Tabl, starting from 1@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "row number",
+   :rdfs/label #voc/lstr "row number@en",
    :rdfs/range :xsd/integer,
    :rdfs/subPropertyOf :csvw/rownum})
 
@@ -739,19 +795,21 @@
   {:db/ident :csvw/rtl,
    :rdf/type [:csvw/Direction :rdfs/Resource],
    :rdfs/comment
-   "Indicates whether the tables in the group should be displayed with the first column on the left.",
+   #voc/lstr
+    "Indicates whether the tables in the group should be displayed with the first column on the left.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "right to left"})
+   :rdfs/label #voc/lstr "right to left@en"})
 
 (def schemaReference
   "A link property holding a URL that is the identifier for a schema that is being referenced."
   {:db/ident :csvw/schemaReference,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A link property holding a URL that is the identifier for a schema that is being referenced.",
+   #voc/lstr
+    "A link property holding a URL that is the identifier for a schema that is being referenced.@en",
    :rdfs/domain :csvw/TableReference,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "schema reference",
+   :rdfs/label #voc/lstr "schema reference@en",
    :rdfs/range :xsd/anyURI,
    :rdfs/subPropertyOf :csvw/schemaReference})
 
@@ -760,10 +818,11 @@
   {:db/ident :csvw/scriptFormat,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A link property giving the single URL for the format that is used by the script or template.",
+   #voc/lstr
+    "A link property giving the single URL for the format that is used by the script or template.@en",
    :rdfs/domain :csvw/Transformation,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "script format",
+   :rdfs/label #voc/lstr "script format@en",
    :rdfs/range :xsd/anyURI,
    :rdfs/subPropertyOf :csvw/scriptFormat})
 
@@ -772,11 +831,12 @@
   {:db/ident :csvw/separator,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that MUST have a single string value that is the character used to separate items in the string value of the cell.",
+   #voc/lstr
+    "An atomic property that MUST have a single string value that is the character used to separate items in the string value of the cell.@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "separator",
+   :rdfs/label #voc/lstr "separator@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/separator})
 
@@ -785,10 +845,11 @@
   {:db/ident :csvw/skipBlankRows,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An boolean atomic property that sets the `skip blank rows` flag to the single provided boolean value.",
+   #voc/lstr
+    "An boolean atomic property that sets the `skip blank rows` flag to the single provided boolean value.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "skip blank rows",
+   :rdfs/label #voc/lstr "skip blank rows@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/skipBlankRows})
 
@@ -797,10 +858,11 @@
   {:db/ident :csvw/skipColumns,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An numeric atomic property that sets the `skip columns` flag to the single provided numeric value, which MUST be a non-negative integer.",
+   #voc/lstr
+    "An numeric atomic property that sets the `skip columns` flag to the single provided numeric value, which MUST be a non-negative integer.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "skip columns",
+   :rdfs/label #voc/lstr "skip columns@en",
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :csvw/skipColumns})
 
@@ -809,10 +871,11 @@
   {:db/ident :csvw/skipInitialSpace,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A boolean atomic property that, if `true`, sets the trim flag to \"start\". If `false`, to `false`.",
+   #voc/lstr
+    "A boolean atomic property that, if `true`, sets the trim flag to \"start\". If `false`, to `false`.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "skip initial space",
+   :rdfs/label #voc/lstr "skip initial space@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/skipInitialSpace})
 
@@ -821,10 +884,11 @@
   {:db/ident :csvw/skipRows,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An numeric atomic property that sets the `skip rows` flag to the single provided numeric value, which MUST be a non-negative integer.",
+   #voc/lstr
+    "An numeric atomic property that sets the `skip rows` flag to the single provided numeric value, which MUST be a non-negative integer.@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "skip rows",
+   :rdfs/label #voc/lstr "skip rows@en",
    :rdfs/range :xsd/nonNegativeInteger,
    :rdfs/subPropertyOf :csvw/skipRows})
 
@@ -833,10 +897,11 @@
   {:db/ident :csvw/source,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A single string atomic property that provides, if specified, the format to which the tabular data should be transformed prior to the transformation using the script or template.",
+   #voc/lstr
+    "A single string atomic property that provides, if specified, the format to which the tabular data should be transformed prior to the transformation using the script or template.@en",
    :rdfs/domain :csvw/Transformation,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "source",
+   :rdfs/label #voc/lstr "source@en",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf :csvw/source})
 
@@ -845,10 +910,11 @@
   {:db/ident :csvw/suppressOutput,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A boolean atomic property. If `true`, suppresses any output that would be generated when converting a table or cells within a column.",
+   #voc/lstr
+    "A boolean atomic property. If `true`, suppresses any output that would be generated when converting a table or cells within a column.@en",
    :rdfs/domain {:owl/unionOf [:csvw/Table :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "suppress output",
+   :rdfs/label #voc/lstr "suppress output@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/suppressOutput})
 
@@ -856,10 +922,11 @@
   "Relates an Table group to annotated tables."
   {:db/ident           :csvw/table,
    :rdf/type           :rdf/Property,
-   :rdfs/comment       "Relates an Table group to annotated tables.",
+   :rdfs/comment       #voc/lstr
+                        "Relates an Table group to annotated tables.@en",
    :rdfs/domain        :csvw/TableGroup,
    :rdfs/isDefinedBy   "http://www.w3.org/ns/csvw#",
-   :rdfs/label         "table",
+   :rdfs/label         #voc/lstr "table@en",
    :rdfs/range         :csvw/Table,
    :rdfs/subPropertyOf [:rdfs/member :csvw/table]})
 
@@ -868,10 +935,11 @@
   {:db/ident :csvw/tableDirection,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "One of `rtl`, `ltr` or `auto`. Indicates whether the tables in the group should be displayed with the first column on the right, on the left, or based on the first character in the table that has a specific direction.",
+   #voc/lstr
+    "One of `rtl`, `ltr` or `auto`. Indicates whether the tables in the group should be displayed with the first column on the right, on the left, or based on the first character in the table that has a specific direction.@en",
    :rdfs/domain {:owl/unionOf [:csvw/TableGroup :csvw/Table]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "table direction",
+   :rdfs/label #voc/lstr "table direction@en",
    :rdfs/range :csvw/Direction,
    :rdfs/subPropertyOf :csvw/tableDirection})
 
@@ -880,10 +948,11 @@
   {:db/ident :csvw/tableSchema,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An object property that provides a single schema description as described in section 5.5 Schemas, used as the default for all the tables in the group",
+   #voc/lstr
+    "An object property that provides a single schema description as described in section 5.5 Schemas, used as the default for all the tables in the group@en",
    :rdfs/domain {:owl/unionOf [:csvw/TableGroup :csvw/Table]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "table schema",
+   :rdfs/label #voc/lstr "table schema@en",
    :rdfs/range :csvw/Schema,
    :rdfs/subPropertyOf :csvw/tableSchema})
 
@@ -892,19 +961,21 @@
   {:db/ident :csvw/tabularMetadata,
    :rdf/type :prov/Role,
    :rdfs/comment
-   "Describes the role of a Metadata file in the tabular data mapping.",
+   #voc/lstr
+    "Describes the role of a Metadata file in the tabular data mapping.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "Tabular Metadata"})
+   :rdfs/label #voc/lstr "Tabular Metadata@en"})
 
 (def targetFormat
   "A link property giving the single URL for the format that will be created through the transformation."
   {:db/ident :csvw/targetFormat,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A link property giving the single URL for the format that will be created through the transformation.",
+   #voc/lstr
+    "A link property giving the single URL for the format that will be created through the transformation.@en",
    :rdfs/domain :csvw/Transformation,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "target format",
+   :rdfs/label #voc/lstr "target format@en",
    :rdfs/range :xsd/anyURI,
    :rdfs/subPropertyOf :csvw/targetFormat})
 
@@ -913,11 +984,12 @@
   {:db/ident :csvw/textDirection,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that must have a single value that is one of `rtl` or `ltr` (the default).",
+   #voc/lstr
+    "An atomic property that must have a single value that is one of `rtl` or `ltr` (the default).@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "text direction",
+   :rdfs/label #voc/lstr "text direction@en",
    :rdfs/range :csvw/Direction,
    :rdfs/subPropertyOf :csvw/textDirection})
 
@@ -926,10 +998,11 @@
   {:db/ident :csvw/title,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "For a Transformation A natural language property that describes the format that will be generated from the transformation.\n\nFor a Column: A natural language property that provides possible alternative names for the column.",
+   #voc/lstr
+    "For a Transformation A natural language property that describes the format that will be generated from the transformation.\n\nFor a Column: A natural language property that provides possible alternative names for the column.@en",
    :rdfs/domain {:owl/unionOf [:csvw/Transformation :csvw/Column :csvw/Row]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "title",
+   :rdfs/label #voc/lstr "title@en",
    :rdfs/subPropertyOf :csvw/title})
 
 (def transformations
@@ -937,11 +1010,12 @@
   {:db/ident :csvw/transformations,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An array property of transformation definitions that provide mechanisms to transform the tabular data into other formats.",
+   #voc/lstr
+    "An array property of transformation definitions that provide mechanisms to transform the tabular data into other formats.@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "transformations",
+   :rdfs/label #voc/lstr "transformations@en",
    :rdfs/range :csvw/Transformation,
    :rdfs/subPropertyOf :csvw/transformations})
 
@@ -950,10 +1024,11 @@
   {:db/ident :csvw/trim,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An atomic property that, if the boolean `true`, sets the trim flag to `true` and if the boolean `false` to `false`. If the value provided is a string, sets the trim flag to the provided value, which must be one of \"true\", \"false\", \"start\" or \"end\".",
+   #voc/lstr
+    "An atomic property that, if the boolean `true`, sets the trim flag to `true` and if the boolean `false` to `false`. If the value provided is a string, sets the trim flag to the provided value, which must be one of \"true\", \"false\", \"start\" or \"end\".@en",
    :rdfs/domain :csvw/Dialect,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "trim",
+   :rdfs/label #voc/lstr "trim@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/trim})
 
@@ -961,9 +1036,9 @@
   ""
   {:db/ident         :csvw/uriTemplate,
    :rdf/type         :rdfs/Datatype,
-   :rdfs/comment     "",
+   :rdfs/comment     #voc/lstr "@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label       "uri template",
+   :rdfs/label       #voc/lstr "uri template@en",
    :rdfs/subClassOf  [:xsd/string :csvw/uriTemplate]})
 
 (def url
@@ -971,10 +1046,11 @@
   {:db/ident :csvw/url,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "For a Table: This link property gives the single URL of the CSV file that the table is held in, relative to the location of the metadata document.\n\nFor a Transformation: A link property giving the single URL of the file that the script or template is held in, relative to the location of the metadata document.",
+   #voc/lstr
+    "For a Table: This link property gives the single URL of the CSV file that the table is held in, relative to the location of the metadata document.\n\nFor a Transformation: A link property giving the single URL of the file that the script or template is held in, relative to the location of the metadata document.@en",
    :rdfs/domain {:owl/unionOf [:csvw/Table :csvw/Transformation]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "url",
+   :rdfs/label #voc/lstr "url@en",
    :rdfs/range :xsd/anyURI,
    :rdfs/subPropertyOf :csvw/url})
 
@@ -983,11 +1059,12 @@
   {:db/ident :csvw/valueUrl,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "An URI template property that is used to map the values of cells into URLs.",
+   #voc/lstr
+    "An URI template property that is used to map the values of cells into URLs.@en",
    :rdfs/domain
    {:owl/unionOf [:csvw/TableGroup :csvw/Table :csvw/Schema :csvw/Column]},
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "valueUrl",
+   :rdfs/label #voc/lstr "valueUrl@en",
    :rdfs/range :csvw/uriTemplate,
    :rdfs/subPropertyOf :csvw/valueUrl})
 
@@ -996,9 +1073,10 @@
   {:db/ident :csvw/virtual,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "A boolean atomic property taking a single value which indicates whether the column is a virtual column not present in the original source",
+   #voc/lstr
+    "A boolean atomic property taking a single value which indicates whether the column is a virtual column not present in the original source@en",
    :rdfs/domain :csvw/Column,
    :rdfs/isDefinedBy "http://www.w3.org/ns/csvw#",
-   :rdfs/label "virtual",
+   :rdfs/label #voc/lstr "virtual@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :csvw/virtual})

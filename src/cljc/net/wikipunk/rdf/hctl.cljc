@@ -24,7 +24,8 @@
   {:db/ident :hctl/AdditionalExpectedResponse,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Communication metadata describing the expected response message for additional responses.",
+   #voc/lstr
+    "Communication metadata describing the expected response message for additional responses.@en",
    :rdfs/label "AdditionalExpectedResponse",
    :rdfs/subClassOf [:rdfs/Resource :hctl/AdditionalExpectedResponse]})
 
@@ -33,7 +34,8 @@
   {:db/ident :hctl/ExpectedResponse,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Communication metadata describing the expected response message for the primary response.",
+   #voc/lstr
+    "Communication metadata describing the expected response message for the primary response.@en",
    :rdfs/label "ExpectedResponse",
    :rdfs/subClassOf [:rdfs/Resource :hctl/ExpectedResponse]})
 
@@ -42,7 +44,8 @@
   {:db/ident :hctl/Form,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A form can be viewed as a statement of \"To perform an <b><em>operation type</em></b> operation on <b><em>form context</b></em>, make a <b><em>request method</b></em> request to <b><em>submission target</b></em>\" where the optional <b><em>form fields</b></em> may further describe the required request. In Thing Descriptions, the <b><em>form context</b></em> is the surrounding Object, such as Properties, Actions, and Events or the Thing itself for meta-interactions.",
+   #voc/lstr
+    "A form can be viewed as a statement of \"To perform an <b><em>operation type</em></b> operation on <b><em>form context</b></em>, make a <b><em>request method</b></em> request to <b><em>submission target</b></em>\" where the optional <b><em>form fields</b></em> may further describe the required request. In Thing Descriptions, the <b><em>form context</b></em> is the surrounding Object, such as Properties, Actions, and Events or the Thing itself for meta-interactions.@en",
    :rdfs/label "Form",
    :rdfs/subClassOf [:rdfs/Resource :hctl/Form]})
 
@@ -51,7 +54,8 @@
   {:db/ident :hctl/Link,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A link can be viewed as a statement of the form \"<b><em>link context</em></b>  has a <b><em>relation type</em></b> resource at <b><em>link target</em></b>\", where the optional <b><em>target attributes</em></b>  may further describe the resource.",
+   #voc/lstr
+    "A link can be viewed as a statement of the form \"<b><em>link context</em></b>  has a <b><em>relation type</em></b> resource at <b><em>link target</em></b>\", where the optional <b><em>target attributes</em></b>  may further describe the resource.@en",
    :rdfs/label "Link",
    :rdfs/subClassOf [:rdfs/Resource :hctl/Link]})
 
@@ -60,7 +64,8 @@
   {:db/ident :hctl/additionalReturns,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "This optional term can be used if additional expected responses\n      are possible, e.g. for error reporting.  Each additional response needs to be \n      distinguished from others in some way (for example, by specifying\n      a protocol-specific response code), and may also have its own data schema.",
+   #voc/lstr
+    "This optional term can be used if additional expected responses\n      are possible, e.g. for error reporting.  Each additional response needs to be \n      distinguished from others in some way (for example, by specifying\n      a protocol-specific response code), and may also have its own data schema.@en",
    :rdfs/label "additionalReturns",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :hctl/AdditionalExpectedResponse})
@@ -70,7 +75,8 @@
   {:db/ident :hctl/forContentCoding,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "Content coding values indicate an encoding transformation that has been or can be applied to a representation. Content codings are primarily used to allow a representation to be compressed or otherwise usefully transformed without losing the identity of its underlying media type and without loss of information. Examples of content coding include \"gzip\", \"deflate\", etc. ",
+   #voc/lstr
+    "Content coding values indicate an encoding transformation that has been or can be applied to a representation. Content codings are primarily used to allow a representation to be compressed or otherwise usefully transformed without losing the identity of its underlying media type and without loss of information. Examples of content coding include \"gzip\", \"deflate\", etc. @en",
    :rdfs/label "forContentCoding",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :schema/Text})
@@ -80,7 +86,8 @@
   {:db/ident :hctl/forContentType,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "Assign a content type based on a media type [[IANA-MEDIA-TYPES]] (e.g., 'text/plain') and potential parameters (e.g., 'charset=utf-8') for the media type.",
+   #voc/lstr
+    "Assign a content type based on a media type [[IANA-MEDIA-TYPES]] (e.g., 'text/plain') and potential parameters (e.g., 'charset=utf-8') for the media type.@en",
    :rdfs/label "forContentType",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :schema/Text})
@@ -90,7 +97,8 @@
   {:db/ident :hctl/forSubProtocol,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "Indicates the exact mechanism by which an interaction will be accomplished for a given protocol when there are multiple options.\n     \nFor example, for HTTP and Events, it indicates which of several available mechanisms should be used for asynchronous notifications such as long polling, websub (also see https://www.w3.org/TR/websub/), or server sent events (also see https://www.w3.org/TR/eventsource/). Please note that there is no restriction on the sub-protocol selection and other mechanisms can also be announced by this subprotocol term.",
+   #voc/lstr
+    "Indicates the exact mechanism by which an interaction will be accomplished for a given protocol when there are multiple options.\n     \nFor example, for HTTP and Events, it indicates which of several available mechanisms should be used for asynchronous notifications such as long polling, websub (also see https://www.w3.org/TR/websub/), or server sent events (also see https://www.w3.org/TR/eventsource/). Please note that there is no restriction on the sub-protocol selection and other mechanisms can also be announced by this subprotocol term.@en",
    :rdfs/label "forSubProtocol",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :schema/Text})
@@ -100,7 +108,8 @@
   {:db/ident :hctl/hasAdditionalOutputSchema,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "This optional term can be used to define a data schema for\n                an additional response if it differs from the default\n                output data schema. \n                Rather than a <code>DataSchema</code> object, the\n                name of a previous definition given in a \n                <code>schemaDefinitions</code> map must be used.",
+   #voc/lstr
+    "This optional term can be used to define a data schema for\n                an additional response if it differs from the default\n                output data schema. \n                Rather than a <code>DataSchema</code> object, the\n                name of a previous definition given in a \n                <code>schemaDefinitions</code> map must be used.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/hypermedia#",
    :rdfs/label "hasAdditionalOutputSchema",
    :schema/domainIncludes :hctl/AdditionalExpectedResponse})
@@ -172,7 +181,8 @@
   {:db/ident :hctl/isSuccess,
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
-   "Signals if the additional response should not be considered an error.",
+   #voc/lstr
+    "Signals if the additional response should not be considered an error.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/hypermedia#",
    :rdfs/label "isSuccess",
    :schema/domainIncludes :hctl/AdditionalExpectedResponse,
@@ -183,7 +193,8 @@
   {:db/ident :hctl/returns,
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
-   "This optional term can be used if, e.g., the output communication metadata differ from input metadata (e.g., output contentType differ from the\n     input contentType). The response name contains metadata that is only valid for the reponse messages.",
+   #voc/lstr
+    "This optional term can be used if, e.g., the output communication metadata differ from input metadata (e.g., output contentType differ from the\n     input contentType). The response name contains metadata that is only valid for the reponse messages.@en",
    :rdfs/label "returns",
    :schema/domainIncludes :hctl/Form,
    :schema/rangeIncludes :hctl/ExpectedResponse})

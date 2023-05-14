@@ -1,10 +1,10 @@
 (ns net.wikipunk.rdf.qb
   "Vocabulary for multi-dimensional (e.g. statistical) data publishing"
-  {:dcterms/contributor [{:foaf/mbox "richard@cyganiak.de"}
-                         {:foaf/mbox "ian@epimorphics.com"}
+  {:dcterms/contributor [{:foaf/mbox "arofan.gregory@earthlink.net"}
+                         {:foaf/mbox "richard@cyganiak.de"}
                          {:foaf/mbox "dave@epimorphics.com"}
                          {:foaf/mbox "jeni@jenitennison.com"}
-                         {:foaf/mbox "arofan.gregory@earthlink.net"}],
+                         {:foaf/mbox "ian@epimorphics.com"}],
    :dcterms/created #inst "2010-07-12T00:00:00.000-04:00",
    :dcterms/license "http://www.opendatacommons.org/licenses/pddl/1.0/",
    :dcterms/modified [#inst "2010-11-27T00:00:00.000-05:00"
@@ -36,9 +36,10 @@
   {:db/ident :qb/Attachable,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Abstract superclass for everything that can have attributes and dimensions",
+   #voc/lstr
+    "Abstract superclass for everything that can have attributes and dimensions@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Attachable (abstract)",
+   :rdfs/label #voc/lstr "Attachable (abstract)@en",
    :rdfs/subClassOf [:rdfs/Resource :qb/Attachable]})
 
 (def AttributeProperty
@@ -47,32 +48,34 @@
    :owl/disjointWith :qb/MeasureProperty,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The class of components which represent attributes of observations in the cube, e.g. unit of measurement",
+   #voc/lstr
+    "The class of components which represent attributes of observations in the cube, e.g. unit of measurement@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Attribute property",
+   :rdfs/label #voc/lstr "Attribute property@en",
    :rdfs/subClassOf
-   [:qb/ComponentProperty :qb/AttributeProperty :rdf/Property :rdfs/Resource]})
+   [:qb/ComponentProperty :qb/AttributeProperty :rdfs/Resource :rdf/Property]})
 
 (def CodedProperty
   "Superclass of all coded ComponentProperties"
   {:db/ident         :qb/CodedProperty,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     "Superclass of all coded ComponentProperties",
+   :rdfs/comment     #voc/lstr "Superclass of all coded ComponentProperties@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label       "Coded property",
+   :rdfs/label       #voc/lstr "Coded property@en",
    :rdfs/subClassOf  [:qb/ComponentProperty
                       :qb/CodedProperty
-                      :rdf/Property
-                      :rdfs/Resource]})
+                      :rdfs/Resource
+                      :rdf/Property]})
 
 (def ComponentProperty
   "Abstract super-property of all properties representing dimensions, attributes or measures"
   {:db/ident :qb/ComponentProperty,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Abstract super-property of all properties representing dimensions, attributes or measures",
+   #voc/lstr
+    "Abstract super-property of all properties representing dimensions, attributes or measures@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Component property (abstract)",
+   :rdfs/label #voc/lstr "Component property (abstract)@en",
    :rdfs/subClassOf [:rdfs/Resource :rdf/Property :qb/ComponentProperty]})
 
 (def ComponentSet
@@ -80,9 +83,10 @@
   {:db/ident :qb/ComponentSet,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Abstract class of things which reference one or more ComponentProperties",
+   #voc/lstr
+    "Abstract class of things which reference one or more ComponentProperties@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Component set",
+   :rdfs/label #voc/lstr "Component set@en",
    :rdfs/subClassOf [:rdfs/Resource :qb/ComponentSet]})
 
 (def ComponentSpecification
@@ -90,9 +94,10 @@
   {:db/ident :qb/ComponentSpecification,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Used to define properties of a component (attribute, dimension etc) which are specific to its usage in a DSD.",
+   #voc/lstr
+    "Used to define properties of a component (attribute, dimension etc) which are specific to its usage in a DSD.@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Component specification",
+   :rdfs/label #voc/lstr "Component specification@en",
    :rdfs/subClassOf
    [:qb/ComponentSet :qb/ComponentSpecification :rdfs/Resource]})
 
@@ -102,18 +107,19 @@
    :owl/equivalentClass :scovo/Dataset,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Represents a collection of observations, possibly organized into various slices, conforming to some common dimensional structure.",
+   #voc/lstr
+    "Represents a collection of observations, possibly organized into various slices, conforming to some common dimensional structure.@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Data set",
+   :rdfs/label #voc/lstr "Data set@en",
    :rdfs/subClassOf [:rdfs/Resource :qb/Attachable :qb/DataSet]})
 
 (def DataStructureDefinition
   "Defines the structure of a DataSet or slice"
   {:db/ident         :qb/DataStructureDefinition,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     "Defines the structure of a DataSet or slice",
+   :rdfs/comment     #voc/lstr "Defines the structure of a DataSet or slice@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label       "Data structure definition",
+   :rdfs/label       #voc/lstr "Data structure definition@en",
    :rdfs/subClassOf  [:qb/ComponentSet
                       :qb/DataStructureDefinition
                       :rdfs/Resource]})
@@ -124,23 +130,25 @@
    :owl/disjointWith :qb/MeasureProperty,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The class of components which represent the dimensions of the cube",
+   #voc/lstr
+    "The class of components which represent the dimensions of the cube@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Dimension property",
+   :rdfs/label #voc/lstr "Dimension property@en",
    :rdfs/subClassOf [:qb/CodedProperty
                      :qb/ComponentProperty
                      :qb/DimensionProperty
-                     :rdf/Property
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :rdf/Property]})
 
 (def HierarchicalCodeList
   "Represents a generalized hierarchy of concepts which can be used for coding. The hierarchy is defined by one or more roots together with a property which relates concepts in the hierarchy to thier child concept . The same concepts may be members of multiple hierarchies provided that different qb:parentChildProperty values are used for each hierarchy."
   {:db/ident :qb/HierarchicalCodeList,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Represents a generalized hierarchy of concepts which can be used for coding. The hierarchy is defined by one or more roots together with a property which relates concepts in the hierarchy to thier child concept .  The same concepts may be members of multiple hierarchies provided that different qb:parentChildProperty values are used for each hierarchy.",
+   #voc/lstr
+    "Represents a generalized hierarchy of concepts which can be used for coding. The hierarchy is defined by one or more roots together with a property which relates concepts in the hierarchy to thier child concept .  The same concepts may be members of multiple hierarchies provided that different qb:parentChildProperty values are used for each hierarchy.@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Hierarchical Code List",
+   :rdfs/label #voc/lstr "Hierarchical Code List@en",
    :rdfs/subClassOf [:rdfs/Resource :qb/HierarchicalCodeList]})
 
 (def MeasureProperty
@@ -149,11 +157,12 @@
    :owl/disjointWith [:qb/DimensionProperty :qb/AttributeProperty],
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "The class of components which represent the measured value of the phenomenon being observed",
+   #voc/lstr
+    "The class of components which represent the measured value of the phenomenon being observed@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Measure property",
+   :rdfs/label #voc/lstr "Measure property@en",
    :rdfs/subClassOf
-   [:qb/ComponentProperty :qb/MeasureProperty :rdf/Property :rdfs/Resource]})
+   [:qb/ComponentProperty :qb/MeasureProperty :rdfs/Resource :rdf/Property]})
 
 (def Observation
   "A single observation in the cube, may have one or more associated measured values"
@@ -161,18 +170,20 @@
    :owl/equivalentClass :scovo/Item,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "A single observation in the cube, may have one or more associated measured values",
+   #voc/lstr
+    "A single observation in the cube, may have one or more associated measured values@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Observation",
+   :rdfs/label #voc/lstr "Observation@en",
    :rdfs/subClassOf [:rdfs/Resource :qb/Attachable :qb/Observation]})
 
 (def ObservationGroup
   "A, possibly arbitrary, group of observations."
   {:db/ident         :qb/ObservationGroup,
    :rdf/type         [:owl/Class :rdfs/Class],
-   :rdfs/comment     "A, possibly arbitrary, group of observations.",
+   :rdfs/comment     #voc/lstr
+                      "A, possibly arbitrary, group of observations.@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label       "Observation Group",
+   :rdfs/label       #voc/lstr "Observation Group@en",
    :rdfs/subClassOf  [:rdfs/Resource :qb/ObservationGroup]})
 
 (def Slice
@@ -180,9 +191,10 @@
   {:db/ident :qb/Slice,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Denotes a subset of a DataSet defined by fixing a subset of the dimensional values, component properties on the Slice",
+   #voc/lstr
+    "Denotes a subset of a DataSet defined by fixing a subset of the dimensional values, component properties on the Slice@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Slice",
+   :rdfs/label #voc/lstr "Slice@en",
    :rdfs/subClassOf
    [:qb/Attachable :qb/ObservationGroup :qb/Slice :rdfs/Resource]})
 
@@ -191,9 +203,10 @@
   {:db/ident :qb/SliceKey,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/comment
-   "Denotes a subset of the component properties of a DataSet which are fixed in the corresponding slices",
+   #voc/lstr
+    "Denotes a subset of the component properties of a DataSet which are fixed in the corresponding slices@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "Slice key",
+   :rdfs/label #voc/lstr "Slice key@en",
    :rdfs/subClassOf [:qb/ComponentSet :qb/SliceKey :rdfs/Resource]})
 
 (def attribute
@@ -201,23 +214,25 @@
   {:db/ident :qb/attribute,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "An alternative to qb:componentProperty which makes explicit that the component is a attribute",
+   #voc/lstr
+    "An alternative to qb:componentProperty which makes explicit that the component is a attribute@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "attribute",
+   :rdfs/label #voc/lstr "attribute@en",
    :rdfs/range :qb/AttributeProperty,
    :rdfs/subPropertyOf [:qb/componentProperty :qb/attribute]})
 
 (def codeList
   "gives the code list associated with a CodedProperty"
-  {:db/ident           :qb/codeList,
-   :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       "gives the code list associated with a CodedProperty",
-   :rdfs/domain        :qb/CodedProperty,
-   :rdfs/isDefinedBy   "http://purl.org/linked-data/cube",
-   :rdfs/label         "code list",
-   :rdfs/range         {:owl/unionOf [:skos/ConceptScheme
-                                      :skos/Collection
-                                      :qb/HierarchicalCodeList]},
+  {:db/ident :qb/codeList,
+   :rdf/type [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment #voc/lstr
+                  "gives the code list associated with a CodedProperty@en",
+   :rdfs/domain :qb/CodedProperty,
+   :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
+   :rdfs/label #voc/lstr "code list@en",
+   :rdfs/range {:owl/unionOf [:skos/ConceptScheme
+                              :skos/Collection
+                              :qb/HierarchicalCodeList]},
    :rdfs/subPropertyOf :qb/codeList})
 
 (def component
@@ -225,10 +240,11 @@
   {:db/ident :qb/component,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "indicates a component specification which is included in the structure of the dataset",
+   #voc/lstr
+    "indicates a component specification which is included in the structure of the dataset@en",
    :rdfs/domain :qb/DataStructureDefinition,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "component specification",
+   :rdfs/label #voc/lstr "component specification@en",
    :rdfs/range :qb/ComponentSpecification,
    :rdfs/subPropertyOf :qb/component})
 
@@ -237,10 +253,11 @@
   {:db/ident :qb/componentAttachment,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   "Indicates the level at which the component property should be attached, this might an qb:DataSet, qb:Slice or qb:Observation, or a qb:MeasureProperty.",
+   #voc/lstr
+    "Indicates the level at which the component property should be attached, this might an qb:DataSet, qb:Slice or qb:Observation, or a qb:MeasureProperty.@en",
    :rdfs/domain :qb/ComponentSpecification,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "component attachment",
+   :rdfs/label #voc/lstr "component attachment@en",
    :rdfs/range :rdfs/Class,
    :rdfs/subPropertyOf :qb/componentAttachment})
 
@@ -249,10 +266,11 @@
   {:db/ident :qb/componentProperty,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "indicates a ComponentProperty (i.e. attribute/dimension) expected on a DataSet, or a dimension fixed in a SliceKey",
+   #voc/lstr
+    "indicates a ComponentProperty (i.e. attribute/dimension) expected on a DataSet, or a dimension fixed in a SliceKey@en",
    :rdfs/domain :qb/ComponentSet,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "component",
+   :rdfs/label #voc/lstr "component@en",
    :rdfs/range :qb/ComponentProperty,
    :rdfs/subPropertyOf :qb/componentProperty})
 
@@ -261,10 +279,11 @@
   {:db/ident :qb/componentRequired,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "Indicates whether a component property is required (true) or optional (false) in the context of a DSD. Only applicable\n    to components correspond to an attribute. Defaults to false (optional).",
+   #voc/lstr
+    "Indicates whether a component property is required (true) or optional (false) in the context of a DSD. Only applicable\n    to components correspond to an attribute. Defaults to false (optional).@en",
    :rdfs/domain :qb/ComponentSpecification,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "component required",
+   :rdfs/label #voc/lstr "component required@en",
    :rdfs/range :xsd/boolean,
    :rdfs/subPropertyOf :qb/componentRequired})
 
@@ -273,10 +292,11 @@
   {:db/ident :qb/concept,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "gives the concept which is being measured or indicated by a ComponentProperty",
+   #voc/lstr
+    "gives the concept which is being measured or indicated by a ComponentProperty@en",
    :rdfs/domain :qb/ComponentProperty,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "concept",
+   :rdfs/label #voc/lstr "concept@en",
    :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :qb/concept})
 
@@ -285,10 +305,11 @@
   {:db/ident :qb/dataSet,
    :owl/equivalentProperty :scovo/dataset,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment "indicates the data set of which this observation is a part",
+   :rdfs/comment
+   #voc/lstr "indicates the data set of which this observation is a part@en",
    :rdfs/domain :qb/Observation,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "data set",
+   :rdfs/label #voc/lstr "data set@en",
    :rdfs/range :qb/DataSet,
    :rdfs/subPropertyOf :qb/dataSet})
 
@@ -297,9 +318,10 @@
   {:db/ident :qb/dimension,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "An alternative to qb:componentProperty which makes explicit that the component is a dimension",
+   #voc/lstr
+    "An alternative to qb:componentProperty which makes explicit that the component is a dimension@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "dimension",
+   :rdfs/label #voc/lstr "dimension@en",
    :rdfs/range :qb/DimensionProperty,
    :rdfs/subPropertyOf [:qb/componentProperty :qb/dimension]})
 
@@ -308,7 +330,8 @@
   {:db/ident :qb/hierarchyRoot,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "Specifies a root of the hierarchy. A hierarchy may have multiple roots but must have at least one.",
+   #voc/lstr
+    "Specifies a root of the hierarchy. A hierarchy may have multiple roots but must have at least one.@en",
    :rdfs/domain :qb/HierarchicalCodeList,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
    :rdfs/subPropertyOf :qb/hierarchyRoot})
@@ -318,9 +341,10 @@
   {:db/ident :qb/measure,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "An alternative to qb:componentProperty which makes explicit that the component is a measure",
+   #voc/lstr
+    "An alternative to qb:componentProperty which makes explicit that the component is a measure@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "measure",
+   :rdfs/label #voc/lstr "measure@en",
    :rdfs/range :qb/MeasureProperty,
    :rdfs/subPropertyOf [:qb/componentProperty :qb/measure]})
 
@@ -329,9 +353,10 @@
   {:db/ident :qb/measureDimension,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "An alternative to qb:componentProperty which makes explicit that the component is a measure dimension",
+   #voc/lstr
+    "An alternative to qb:componentProperty which makes explicit that the component is a measure dimension@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "measure dimension",
+   :rdfs/label #voc/lstr "measure dimension@en",
    :rdfs/range :qb/DimensionProperty,
    :rdfs/subPropertyOf [:qb/componentProperty :qb/measureDimension]})
 
@@ -344,9 +369,10 @@
               :rdfs/Resource
               :qb/ComponentProperty],
    :rdfs/comment
-   "Generic measure dimension, the value of this dimension indicates which measure (from the set of measures in the DSD) is being given by the obsValue (or other primary measure)",
+   #voc/lstr
+    "Generic measure dimension, the value of this dimension indicates which measure (from the set of measures in the DSD) is being given by the obsValue (or other primary measure)@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "measure type",
+   :rdfs/label #voc/lstr "measure type@en",
    :rdfs/range :qb/MeasureProperty,
    :rdfs/subPropertyOf :qb/measureType})
 
@@ -355,10 +381,11 @@
   {:db/ident :qb/observation,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "indicates a observation contained within this slice of the data set",
+   #voc/lstr
+    "indicates a observation contained within this slice of the data set@en",
    :rdfs/domain :qb/ObservationGroup,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "observation",
+   :rdfs/label #voc/lstr "observation@en",
    :rdfs/range :qb/Observation,
    :rdfs/subPropertyOf :qb/observation})
 
@@ -367,9 +394,10 @@
   {:db/ident :qb/observationGroup,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "Indicates a group of observations. The domain of this property is left open so that a group may be attached to different resources and need not be restricted to a single DataSet",
+   #voc/lstr
+    "Indicates a group of observations. The domain of this property is left open so that a group may be attached to different resources and need not be restricted to a single DataSet@en",
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "observation group",
+   :rdfs/label #voc/lstr "observation group@en",
    :rdfs/range :qb/ObservationGroup,
    :rdfs/subPropertyOf :qb/observationGroup})
 
@@ -378,10 +406,11 @@
   {:db/ident :qb/order,
    :rdf/type [:owl/DatatypeProperty :rdf/Property],
    :rdfs/comment
-   "indicates a priority order for the components of sets with this structure, used to guide presentations - lower order numbers come before higher numbers, un-numbered components come last",
+   #voc/lstr
+    "indicates a priority order for the components of sets with this structure, used to guide presentations - lower order numbers come before higher numbers, un-numbered components come last@en",
    :rdfs/domain :qb/ComponentSpecification,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "order",
+   :rdfs/label #voc/lstr "order@en",
    :rdfs/range :xsd/int,
    :rdfs/subPropertyOf :qb/order})
 
@@ -390,10 +419,11 @@
   {:db/ident :qb/parentChildProperty,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "Specifies a property which relates a parent concept in the hierarchy to a child concept.",
+   #voc/lstr
+    "Specifies a property which relates a parent concept in the hierarchy to a child concept.@en",
    :rdfs/domain :qb/HierarchicalCodeList,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "parent-child property",
+   :rdfs/label #voc/lstr "parent-child property@en",
    :rdfs/range :rdf/Property,
    :rdfs/subPropertyOf :qb/parentChildProperty})
 
@@ -402,10 +432,11 @@
   {:db/ident :qb/slice,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "Indicates a subset of a DataSet defined by fixing a subset of the dimensional values",
+   #voc/lstr
+    "Indicates a subset of a DataSet defined by fixing a subset of the dimensional values@en",
    :rdfs/domain :qb/DataSet,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "slice",
+   :rdfs/label #voc/lstr "slice@en",
    :rdfs/range :qb/Slice,
    :rdfs/subPropertyOf [:qb/observationGroup :qb/slice]})
 
@@ -414,10 +445,11 @@
   {:db/ident :qb/sliceKey,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
    :rdfs/comment
-   "indicates a slice key which is used for slices in this dataset",
+   #voc/lstr
+    "indicates a slice key which is used for slices in this dataset@en",
    :rdfs/domain :qb/DataStructureDefinition,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "slice key",
+   :rdfs/label #voc/lstr "slice key@en",
    :rdfs/range :qb/SliceKey,
    :rdfs/subPropertyOf :qb/sliceKey})
 
@@ -425,10 +457,11 @@
   "indicates the sub-key corresponding to this slice"
   {:db/ident           :qb/sliceStructure,
    :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       "indicates the sub-key corresponding to this slice",
+   :rdfs/comment       #voc/lstr
+                        "indicates the sub-key corresponding to this slice@en",
    :rdfs/domain        :qb/Slice,
    :rdfs/isDefinedBy   "http://purl.org/linked-data/cube",
-   :rdfs/label         "slice structure",
+   :rdfs/label         #voc/lstr "slice structure@en",
    :rdfs/range         :qb/SliceKey,
    :rdfs/subPropertyOf :qb/sliceStructure})
 
@@ -436,9 +469,10 @@
   "indicates the structure to which this data set conforms"
   {:db/ident :qb/structure,
    :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment "indicates the structure to which this data set conforms",
+   :rdfs/comment #voc/lstr
+                  "indicates the structure to which this data set conforms@en",
    :rdfs/domain :qb/DataSet,
    :rdfs/isDefinedBy "http://purl.org/linked-data/cube",
-   :rdfs/label "structure",
+   :rdfs/label #voc/lstr "structure@en",
    :rdfs/range :qb/DataStructureDefinition,
    :rdfs/subPropertyOf :qb/structure})
