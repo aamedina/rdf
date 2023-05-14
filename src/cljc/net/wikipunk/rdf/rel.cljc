@@ -64,8 +64,6 @@
 (def acquaintanceOf
   "A person having more than slight or superficial knowledge of this person but short of friendship."
   {:db/ident :rel/acquaintanceOf,
-   :owl/equivalentClass
-   "http://www.perceive.net/schemas/relationship/acquaintanceOf",
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/relationship/",
@@ -85,8 +83,6 @@
 (def ambivalentOf
   "A person towards whom this person has mixed feelings or emotions."
   {:db/ident :rel/ambivalentOf,
-   :owl/equivalentClass
-   "http://www.perceive.net/schemas/relationship/ambivalentOf",
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/relationship/",
@@ -130,8 +126,6 @@
 (def antagonistOf
   "A person who opposes and contends against this person."
   {:db/ident :rel/antagonistOf,
-   :owl/equivalentClass
-   "http://www.perceive.net/schemas/relationship/antagonistOf",
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/relationship/",
@@ -170,7 +164,6 @@
 (def childOf
   "A person who was given birth to or nurtured and raised by this person."
   {:db/ident :rel/childOf,
-   :owl/equivalentClass "http://www.perceive.net/schemas/relationship/childOf",
    :owl/inverseOf :rel/parentOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
@@ -306,7 +299,6 @@
 (def enemyOf
   "A person towards whom this person feels hatred, intends injury to, or opposes the interests of."
   {:db/ident :rel/enemyOf,
-   :owl/equivalentClass "http://www.perceive.net/schemas/relationship/enemyOf",
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/relationship/",
@@ -343,7 +335,6 @@
 (def friendOf
   "A person who shares mutual friendship with this person."
   {:db/ident :rel/friendOf,
-   :owl/equivalentClass "http://www.perceive.net/schemas/relationship/friendOf",
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/relationship/",
@@ -362,8 +353,6 @@
 (def grandchildOf
   "A person who is a child of any of this person's children."
   {:db/ident :rel/grandchildOf,
-   :owl/equivalentClass
-   "http://www.perceive.net/schemas/relationship/grandchildOf",
    :owl/inverseOf :rel/grandparentOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
@@ -604,7 +593,6 @@
 (def parentOf
   "A person who has given birth to or nurtured and raised this person."
   {:db/ident :rel/parentOf,
-   :owl/equivalentClass "http://www.perceive.net/schemas/relationship/parentOf",
    :owl/inverseOf :rel/childOf,
    :rdf/type :rdf/Property,
    :rdfs/domain :foaf/Person,
@@ -655,8 +643,6 @@
 (def siblingOf
   "A person having one or both parents in common with this person."
   {:db/ident :rel/siblingOf,
-   :owl/equivalentClass
-   "http://www.perceive.net/schemas/relationship/siblingOf",
    :rdf/type :owl/SymmetricProperty,
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/relationship/",
@@ -676,7 +662,6 @@
 (def spouseOf
   "A person who is married to this person"
   {:db/ident :rel/spouseOf,
-   :owl/equivalentClass "http://www.perceive.net/schemas/relationship/spouseOf",
    :rdf/type :owl/SymmetricProperty,
    :rdfs/isDefinedBy "http://purl.org/vocab/relationship/",
    :rdfs/label #voc/lstr "Spouse Of@en",
