@@ -579,7 +579,7 @@
    :rdfs/domain :disco/Study,
    :rdfs/isDefinedBy "http://rdf-vocabulary.ddialliance.org/discovery",
    :rdfs/label [#voc/lstr "Produkt@de" #voc/lstr "product@en"],
-   :rdfs/range :qb/LogicalDataSet,
+   :rdfs/range :disco/LogicalDataSet,
    :rdfs/subPropertyOf :disco/product})
 
 (def purpose

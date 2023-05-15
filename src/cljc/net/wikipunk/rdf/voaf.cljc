@@ -59,10 +59,10 @@
 (def Vocabulary
   "A vocabulary used in the linked data cloud. An instance of voaf:Vocabulary relies on or is used by at least another instance of voaf:Vocabulary"
   {:db/ident :voaf/Vocabulary,
-   :owl/unionOf [{:owl/minCardinality "1",
+   :owl/unionOf [{:owl/minCardinality 1,
                   :owl/onProperty     :voaf/reliesOn,
                   :rdf/type           :owl/Restriction}
-                 {:owl/minCardinality "1",
+                 {:owl/minCardinality 1,
                   :owl/onProperty     :voaf/usedBy,
                   :rdf/type           :owl/Restriction}],
    :rdf/type :owl/Class,
@@ -150,7 +150,7 @@
    :rdfs/label [#voc/lstr "étend@fr" #voc/lstr "extends@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/extends :dc11/references :void/vocabulary],
+   [:voaf/reliesOn :voaf/extends :void/vocabulary],
    :vs/term_status "stable"})
 
 (def generalizes
@@ -169,7 +169,7 @@
    :rdfs/label [#voc/lstr "généralise@fr" #voc/lstr "generalizes@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/generalizes :dc11/references :void/vocabulary],
+   [:voaf/reliesOn :voaf/generalizes  :void/vocabulary],
    :vs/term_status "stable"})
 
 (def hasDisjunctionsWith
@@ -189,7 +189,7 @@
                 #voc/lstr "has disjunctions with@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/hasDisjunctionsWith :dc11/references :void/vocabulary],
+   [:voaf/reliesOn :voaf/hasDisjunctionsWith  :void/vocabulary],
    :vs/term_status "testing"})
 
 (def hasEquivalencesWith
@@ -209,7 +209,7 @@
                 #voc/lstr "has equivalences with@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/hasEquivalencesWith :dc11/references :void/vocabulary],
+   [:voaf/reliesOn :voaf/hasEquivalencesWith  :void/vocabulary],
    :vs/term_status "testing"})
 
 (def inDataset
@@ -243,7 +243,7 @@
                 #voc/lstr "metadata vocabulary@en"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/metadataVoc :dc11/references :void/vocabulary],
+   [:voaf/reliesOn :voaf/metadataVoc  :void/vocabulary],
    :vs/term_status "stable"})
 
 (def occurrences
@@ -316,7 +316,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocommons/voaf",
    :rdfs/label [#voc/lstr "réutilise@fr" #voc/lstr "relies on@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:void/vocabulary :dc11/references :voaf/reliesOn],
+   :rdfs/subPropertyOf [:void/vocabulary  :voaf/reliesOn],
    :vs/term_status "stable"})
 
 (def reusedByDatasets
@@ -376,7 +376,7 @@
    :rdfs/label [#voc/lstr "specializes@en" #voc/lstr "spécialise@fr"],
    :rdfs/range :voaf/Vocabulary,
    :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/specializes :dc11/references :void/vocabulary],
+   [:voaf/reliesOn :voaf/specializes  :void/vocabulary],
    :vs/term_status "stable"})
 
 (def toDoList
@@ -391,7 +391,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocommons/voaf",
    :rdfs/label [#voc/lstr "liste des choses à faire@fr"
                 #voc/lstr "to-do list@en"],
-   :rdfs/range "http://www.w3.org/2002/12/cal/ical#Vtodo",
+   :rdfs/range :cal/Vtodo
    :vs/term_status "stable"})
 
 (def usageInDataset

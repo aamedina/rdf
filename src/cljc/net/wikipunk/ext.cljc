@@ -1,7 +1,7 @@
 (ns net.wikipunk.ext
   "Beyond the RDFa 1.1 / JSON-LD initial context."
   {:rdf/type :jsonld/Context}
-  (:refer-clojure :exclude [keys]))
+  (:refer-clojure :exclude [test keys]))
 
 (def acl
   {:rdfa/uri    "http://www.w3.org/ns/auth/acl#"
@@ -560,3 +560,25 @@
   {:rdf/type    :rdfa/PrefixMapping,
    :rdfa/prefix "fressian",
    :rdfa/uri    "https://wikipunk.net/fressian/"})
+
+(def mo
+  "Music Ontology"
+  {:rdfa/uri    "http://purl.org/ontology/mo/"
+   :rdfa/prefix "mo"
+   :rdf/type    :rdfa/PrefixMapping})
+
+(def test
+  {:rdfa/uri "http://www.w3.org/2006/03/test-description#"
+   :rdfa/prefix "test"
+   :rdf/type :rdfa/PrefixMapping
+   :rdf/ns-prefix-map
+   {"rdfs" "http://www.w3.org/2000/01/rdf-schema#",
+    "test" "http://www.w3.org/2006/03/test-description#",
+    "owl"  "http://www.w3.org/2002/07/owl#",
+    "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#"}})
+
+(def keys
+  {:dcat/downloadURL "https://motools.sourceforge.net/keys/keys.owl"
+   :rdfa/prefix      "keys"
+   :rdfa/uri         "http://purl.org/NET/c4dm/keys.owl#"
+   :rdf/type         :rdfa/PrefixMapping})

@@ -175,7 +175,6 @@
                       #voc/lstr "Projekt@cs"
                       #voc/lstr "Projekt@de"],
    :rdfs/subClassOf  [:rdfs/Resource
-                      "http://xmlns.com/wordnet/1.6/Project"
                       :foaf/Project
                       :doap/Project]})
 

@@ -151,7 +151,6 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
    :rdfs/label #voc/lstr "event@en",
    :rdfs/subClassOf [:frbr/Subject
-                     "http://www.isi.edu/~pan/damltime/time-entry.owl#Event"
                      :frbr/Event],
    :skos/changeNote [{:dc11/creator "Ian Davis",
                       :dc11/date "2005-08-09",
@@ -385,7 +384,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
    :rdfs/label #voc/lstr "work@en",
    :rdfs/subClassOf
-   [:frbr/Endeavour "http://xmlns.com/wordnet/1.6/Work~2" :frbr/Work],
+   [:frbr/Endeavour :frbr/Work],
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
      :dc11/date "2005-08-08",
@@ -1470,89 +1469,89 @@
                       :dc11/date    "2005-08-10",
                       :rdf/value    "Added domain and range of Expression"}})
 
-(def ^{:private true} Attribution
-  {:db/ident :cc/Attribution,
-   :rdf/type :cc/Requirement})
+;; (def ^{:private true} Attribution
+;;   {:db/ident :cc/Attribution,
+;;    :rdf/type :cc/Requirement})
 
-(def ^{:private true} DerivativeWorks
-  {:db/ident :cc/DerivativeWorks,
-   :rdf/type :cc/Permission})
+;; (def ^{:private true} DerivativeWorks
+;;   {:db/ident :cc/DerivativeWorks,
+;;    :rdf/type :cc/Permission})
 
-(def ^{:private true} Distribution
-  {:db/ident :cc/Distribution,
-   :rdf/type :cc/Permission})
+;; (def ^{:private true} Distribution
+;;   {:db/ident :cc/Distribution,
+;;    :rdf/type :cc/Permission})
 
-(def ^{:private true} License
-  {:db/ident :cc/License,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} License
+;;   {:db/ident :cc/License,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} Notice
-  {:db/ident :cc/Notice,
-   :rdf/type :cc/Requirement})
+;; (def ^{:private true} Notice
+;;   {:db/ident :cc/Notice,
+;;    :rdf/type :cc/Requirement})
 
-(def ^{:private true} Permission
-  {:db/ident :cc/Permission,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Permission
+;;   {:db/ident :cc/Permission,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} Reproduction
-  {:db/ident :cc/Reproduction,
-   :rdf/type :cc/Permission})
+;; (def ^{:private true} Reproduction
+;;   {:db/ident :cc/Reproduction,
+;;    :rdf/type :cc/Permission})
 
-(def ^{:private true} Requirement
-  {:db/ident :cc/Requirement,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Requirement
+;;   {:db/ident :cc/Requirement,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} license
-  {:db/ident :cc/license,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} license
+;;   {:db/ident :cc/license,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} permits
-  {:db/ident :cc/permits,
-   :rdf/type :owl/ObjectProperty})
+;; (def ^{:private true} permits
+;;   {:db/ident :cc/permits,
+;;    :rdf/type :owl/ObjectProperty})
 
-(def ^{:private true} requires
-  {:db/ident :cc/requires,
-   :rdf/type :owl/ObjectProperty})
+;; (def ^{:private true} requires
+;;   {:db/ident :cc/requires,
+;;    :rdf/type :owl/ObjectProperty})
 
-(def ^{:private true} Text
-  {:db/ident :dcmitype/Text,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Text
+;;   {:db/ident :dcmitype/Text,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} Group
-  {:db/ident        :foaf/Group,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:frbr/CorporateBody :foaf/Group :frbr/ResponsibleEntity]})
+;; (def ^{:private true} Group
+;;   {:db/ident        :foaf/Group,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf [:frbr/CorporateBody :foaf/Group :frbr/ResponsibleEntity]})
 
-(def ^{:private true} Organization
-  {:db/ident        :foaf/Organization,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:frbr/CorporateBody
-                     :foaf/Organization
-                     :frbr/ResponsibleEntity]})
+;; (def ^{:private true} Organization
+;;   {:db/ident        :foaf/Organization,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf [:frbr/CorporateBody
+;;                      :foaf/Organization
+;;                      :frbr/ResponsibleEntity]})
 
-(def ^{:private true} Person
-  {:db/ident        :foaf/Person,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:frbr/ResponsibleEntity :foaf/Person]})
+;; (def ^{:private true} Person
+;;   {:db/ident        :foaf/Person,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf [:frbr/ResponsibleEntity :foaf/Person]})
 
-(def ^{:private true} SpatialThing
-  {:db/ident        :geo/SpatialThing,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf :geo/SpatialThing})
+;; (def ^{:private true} SpatialThing
+;;   {:db/ident        :geo/SpatialThing,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf :geo/SpatialThing})
 
-(def ^{:private true} Concept
-  {:db/ident        :skos/Concept,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf :skos/Concept})
+;; (def ^{:private true} Concept
+;;   {:db/ident        :skos/Concept,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf :skos/Concept})
 
-(def ^{:private true} changes
-  {:db/ident :vann/changes,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} changes
+;;   {:db/ident :vann/changes,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} preferredNamespacePrefix
-  {:db/ident :vann/preferredNamespacePrefix,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} preferredNamespacePrefix
+;;   {:db/ident :vann/preferredNamespacePrefix,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} preferredNamespaceUri
-  {:db/ident :vann/preferredNamespaceUri,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} preferredNamespaceUri
+;;   {:db/ident :vann/preferredNamespaceUri,
+;;    :rdf/type :owl/AnnotationProperty})

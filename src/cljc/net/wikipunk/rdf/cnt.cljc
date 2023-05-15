@@ -148,7 +148,7 @@
                   "The XML content preceding the document type declaration.@en",
    :rdfs/domain :cnt/ContentAsXML,
    :rdfs/label #voc/lstr "XML leading misc@en",
-   :rdfs/range :rdfs/XMLLiteral,
+   :rdfs/range :rdf/XMLLiteral,
    :rdfs/subPropertyOf :cnt/leadingMisc})
 
 (def publicId
@@ -170,7 +170,7 @@
                   "The XML content following the document type declaration.@en",
    :rdfs/domain :cnt/ContentAsXML,
    :rdfs/label #voc/lstr "XML rest@en",
-   :rdfs/range :rdfs/XMLLiteral,
+   :rdfs/range :rdf/XMLLiteral,
    :rdfs/subPropertyOf :cnt/rest})
 
 (def standalone

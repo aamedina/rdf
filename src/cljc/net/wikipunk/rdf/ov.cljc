@@ -155,7 +155,7 @@
 (def Birth
   "Birth class"
   {:db/ident :ov/Birth,
-   :owl/disjointWith :ov/Death,
+   ;; :owl/disjointWith :ov/Death,
    :rdf/type :owl/Class,
    :rdfs/comment #voc/lstr "Birth class@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
@@ -343,7 +343,7 @@
    #voc/lstr "A construct representing a deleted entry in an Atom feed.@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Deleted Entry@en",
-   :rdfs/subClassOf ["http://bblfish.net/work/atom-owl/2006-06-06/#Entry"
+   :rdfs/subClassOf [
                      :ov/DeletedEntry],
    :vs/term_status "unstable",
    :vs/userdocs :ov/DeletedEntry.html,
@@ -513,7 +513,7 @@
   {:db/ident               :ov/House,
    :label/plural           #voc/lstr "Houses@en",
    :ov/markdownDescription #voc/lstr "This is just a test@en",
-   :owl/disjointWith       :ov/horse,
+   ;; :owl/disjointWith       :ov/horse,
    :owl/equivalentClass    :ov/domicile,
    :rdf/type               :owl/Class,
    :rdfs/comment           #voc/lstr "Structure in which someone lives@en",
@@ -536,8 +536,7 @@
     "The ITU defines a set of world-wide regions which uniquely describe locations for radio operation (in particular, amateur radio operation).  These regions are widely-used by amateur radio operators to report operation and radio contacts.  Each region has a unique abbreviation.@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "ITU Region for governance of radio operation@en",
-   :rdfs/subClassOf ["http://dublincore.org/documents/2006/04/10/dcmi-box/"
-                     :ov/ITUREgion],
+   :rdfs/subClassOf [:ov/ITUREgion],
    :skos/note
    ["http://open.vocab.org/changes/27c49fab3b31049d859c1b2c189c4319"
     "http://open.vocab.org/changes/f2e25317213ca568cf808022ba0b5faa"],
@@ -571,7 +570,7 @@
    :rdfs/comment     #voc/lstr "An irc chat bot@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label       #voc/lstr "IrcBot@en",
-   :rdfs/subClassOf  ["http://xmlns.com/foaf/spec/#term_Agent" :ov/IrcBot],
+   :rdfs/subClassOf  [:ov/IrcBot],
    :vs/term_status   "unstable",
    :vs/userdocs      :ov/IrcBot.html,
    "http://schemas.talis.com/2005/dir/schema#etag"
@@ -605,7 +604,7 @@
                   "A gorilla that kills or has the inclination to do so.@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Killer Gorilla@en",
-   :rdfs/subClassOf ["http://umbel.org/umbel/sc/Gorilla" :ov/KillerGorilla],
+   :rdfs/subClassOf [ :ov/KillerGorilla],
    :vs/term_status "unstable",
    :vs/userdocs :ov/KillerGorilla.html,
    "http://schemas.talis.com/2005/dir/schema#etag"
@@ -648,7 +647,7 @@
     "A manifest is a listing of files or URIs or resources of some sort encoded in some way@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Manifest@en",
-   :rdfs/subClassOf ["http://purl.org/net/opmv/ns#Artefact" :ov/Manifest],
+   :rdfs/subClassOf [ :ov/Manifest],
    :skos/note "http://open.vocab.org/changes/003d8e98950c6b9ecb5f5b2b3ccd9d17",
    :vs/term_status "unstable",
    :vs/userdocs "http://open.vocab.org/docs/Manifest"})
@@ -867,7 +866,7 @@
    :rdfs/label #voc/lstr "Living Killer Gorilla@en",
    :rdfs/subClassOf [:ov/KillerGorilla
                      :ov/StillAKillerGorilla
-                     "http://umbel.org/umbel/sc/Gorilla"],
+                     ],
    :vs/term_status "unstable",
    :vs/userdocs :ov/StillAKillerGorilla.html,
    "http://schemas.talis.com/2005/dir/schema#etag"
@@ -1043,7 +1042,7 @@
                       "A command issued to the code4lib IRC chat bot, zoia.@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label       #voc/lstr "ZoiaCommand@en",
-   :rdfs/subClassOf  ["http://rdfs.org/sioc/spec/#term_Post" :ov/ZoiaCommand],
+   :rdfs/subClassOf  [:ov/ZoiaCommand],
    :vs/term_status   "unstable",
    :vs/userdocs      :ov/ZoiaCommand.html,
    "http://schemas.talis.com/2005/dir/schema#etag"
@@ -1497,7 +1496,7 @@
                   "A category that the resource has been classified under@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "category@en",
-   :rdfs/range "http://www.w3.org/2008/05/skos#Concept",
+   :rdfs/range :skos/Concept,
    :rdfs/subPropertyOf :ov/category,
    :vs/term_status "unstable",
    :vs/userdocs :ov/category.html,
@@ -1696,10 +1695,10 @@
    :rdfs/comment
    #voc/lstr
     "associates a manifestation of a musical work with music artist who composed the work@en",
-   :rdfs/domain "http://purl.org/ontology/mo/MusicalManifestation",
+   :rdfs/domain :mo/MusicalManifestation,
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Composer@en",
-   :rdfs/range "http://purl.org/ontology/mo/MusicArtist",
+   :rdfs/range :mo/MusicArtist,
    :rdfs/subPropertyOf :ov/composer,
    :vs/term_status "unstable",
    :vs/userdocs :ov/composer.html,
@@ -2111,7 +2110,7 @@
    :rdfs/domain        :ov/Earworm,
    :rdfs/isDefinedBy   "http://open.vocab.org/terms",
    :rdfs/label         #voc/lstr "Earworm Song@en",
-   :rdfs/range         "http://purl.org/ontology/mo/MusicalWork",
+   :rdfs/range         :mo/MusicalWork,
    :rdfs/subPropertyOf :ov/earwormSong,
    :vs/term_status     "unstable",
    :vs/userdocs        :ov/earwormSong.html,
@@ -2201,7 +2200,7 @@
    "http://schemas.talis.com/2005/dir/schema#etag"
    "09a37218-ac62-494c-9b02-27aee3f6e129"})
 
-(def exampleInstance
+#_(def exampleInstance
   {:db/ident :ov/exampleInstance,
    :ov/markdownDescription
    #voc/lstr
@@ -2211,7 +2210,7 @@
    "http://schemas.talis.com/2005/dir/schema#etag"
    "96c48aa7-3e04-4cb0-b2e5-b360bef347f7"})
 
-(def exampleResource
+#_(def exampleResource
   "an example resource using a vocabulary term or terms"
   {:db/ident :ov/exampleResource,
    :label/plural #voc/lstr "Example Resources@en",
@@ -2430,7 +2429,6 @@
    :rdf/type :rdf/Property,
    :rdfs/comment
    #voc/lstr "The agent that defines the boundaries of a geographic area.@en",
-   :rdfs/domain "http://www.geonames.org/ontology#Feature",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Geographic Boundary Definer@en",
    :rdfs/range :foaf/Agent,
@@ -2544,10 +2542,10 @@
    :rdfs/comment
    #voc/lstr
     "Domain: any institution or individual who borrows money from loaner\nRange: any institution or individual who loans a borrower money@en",
-   :rdfs/domain :ov/Borrower,
+   ;; :rdfs/domain :ov/Borrower,
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Has lender@en",
-   :rdfs/range :ov/Loaner,
+   ;; :rdfs/range :ov/Loaner,
    :rdfs/subPropertyOf :ov/hasLender,
    :skos/note "http://open.vocab.org/changes/e13d3c73563e94e04fd36e02c6c76ad1",
    :vs/term_status "unstable",
@@ -2657,7 +2655,6 @@
    :rdfs/comment
    #voc/lstr
     "a resource (e.g. HTML content --> awol:Content) has a DOM range@en",
-   :rdfs/domain "http://bblfish.net/work/atom-owl/2006-06-06/#Content",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "has range@en",
    :rdfs/range :ov/DOMRange,
@@ -2697,13 +2694,13 @@
    :ov/markdownDescription #voc/lstr
                             "I bet I'm going to wish i could delete this@en",
    :owl/equivalentProperty :ov/housePaintColor,
-   :owl/inverseOf          :ov/colorsOfHouses,
+   ;; :owl/inverseOf          :ov/colorsOfHouses,
    :rdf/type               [:rdf/Property :owl/TransitiveProperty],
    :rdfs/comment           #voc/lstr "color of a house@en",
    :rdfs/domain            :ov/House,
    :rdfs/isDefinedBy       "http://open.vocab.org/terms",
    :rdfs/label             #voc/lstr "houseColor@en",
-   :rdfs/range             :ov/Colors,
+   ;; :rdfs/range             :ov/Colors,
    :rdfs/subPropertyOf     [:foaf/depiction :ov/houseColor],
    :vs/term_status         "unstable",
    :vs/userdocs            :ov/houseColor.html,
@@ -2929,7 +2926,7 @@
    :rdfs/comment
    #voc/lstr
     "The value of this property is something that has been classified under the resource@en",
-   :rdfs/domain "http://www.w3.org/2008/05/skos#Concept",
+   :rdfs/domain :skos/Concept,
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "is category of@en",
    :rdfs/subPropertyOf :ov/isCategoryOf,
@@ -3009,7 +3006,7 @@
    :rdf/type           :rdf/Property,
    :rdfs/comment       #voc/lstr
                         "A song which is the focus of a particular Earworm@en",
-   :rdfs/domain        "http://purl.org/ontology/mo/MusicalWork",
+   :rdfs/domain        :mo/MusicalWork,
    :rdfs/isDefinedBy   "http://open.vocab.org/terms",
    :rdfs/label         #voc/lstr "is Song of Earworm@en",
    :rdfs/range         :ov/Earworm,
@@ -3125,8 +3122,8 @@
   "A service providing access to bibliographic resources."
   {:db/ident :ov/libraryService,
    :label/plural #voc/lstr "Library Services@en",
-   :owl/inverseOf
-   "http://schemas.talis.com/2005/library/schema#isLibraryServiceOf",
+   ;; :owl/inverseOf
+   ;; "http://schemas.talis.com/2005/library/schema#isLibraryServiceOf",
    :rdf/type :rdf/Property,
    :rdfs/comment #voc/lstr
                   "A service providing access to bibliographic resources.@en",
@@ -3325,7 +3322,7 @@
    :rdfs/comment
    #voc/lstr
     "The desired visibility of a User's social network. Suggested options: \"Just Me\", \"My Network\", \"Everyone\".@en",
-   :rdfs/domain "http://schemas.talis.com/2005/user/schema#User",
+   ;; :rdfs/domain "http://schemas.talis.com/2005/user/schema#User",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Network Visibility@en",
    :rdfs/range :rdfs/Literal,
@@ -3702,7 +3699,7 @@
    :label/plural #voc/lstr "Reincarnations of an Individual@en",
    :rdf/type :rdf/Property,
    :rdfs/comment #voc/lstr "Defines reincarnation of someone@en",
-   :rdfs/domain "http://purl.org/vocab/relationship/",
+   ;; :rdfs/domain "http://purl.org/vocab/relationship/",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Reincarnation of an Individual@en",
    :rdfs/subPropertyOf :ov/reincarnationOf,
@@ -3737,7 +3734,7 @@
    :rdfs/comment
    #voc/lstr
     "The result of the test case obtained from the target specified. For example, the target could be a script that is executed.@en",
-   :rdfs/domain "http://www.w3.org/2006/03/test-description#TestCase",
+   :rdfs/domain :test/TestCase,
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "result from@en",
    :rdfs/subPropertyOf :ov/resultFrom,
@@ -3951,8 +3948,7 @@
    :rdfs/domain :foaf/Document,
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Source File@en",
-   :rdfs/range ["http://purl.org/ontology/mo/Track"
-                "http://purl.org/ontology/mo/Signal"],
+   :rdfs/range [:mo/Track :mo/Signal],
    :rdfs/subPropertyOf :ov/sourcefile,
    :vs/term_status "unstable",
    :vs/userdocs :ov/sourcefile.html,
@@ -4020,7 +4016,6 @@
    :rdfs/comment
    #voc/lstr
     "A human readable description of the status of an opmv:Process upon completion.@en",
-   :rdfs/domain "http://purl.org/net/opmv/ns#Process",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Status@en",
    :rdfs/subPropertyOf [:rdfs/comment :ov/status],
@@ -4172,11 +4167,9 @@
    :rdf/type :rdf/Property,
    :rdfs/comment #voc/lstr
                   "An Internet host used in the context of an opmv:Process.@en",
-   :rdfs/domain "http://purl.org/net/opmv/ns#Process",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Used Host@en",
-   :rdfs/range "http://river.styx.org/network#Host",
-   :rdfs/subPropertyOf ["http://purl.org/net/opmv/ns#used" :ov/usedHost],
+   :rdfs/subPropertyOf [:ov/usedHost],
    :skos/note "http://open.vocab.org/changes/6b1685ac439099f5c7d7f6fdef6e0581",
    :vs/term_status "unstable",
    :vs/userdocs "http://open.vocab.org/docs/usedHost"})
@@ -4191,7 +4184,7 @@
     "The subject (perhaps a foaf:Agent) made HTTP requests with a header described by this http:MessageHeader resource.@en",
    :rdfs/isDefinedBy "http://open.vocab.org/terms",
    :rdfs/label #voc/lstr "Used HTTP Header@en",
-   :rdfs/range "http://www.w3.org/2006/http#MessageHeader",
+   :rdfs/range :http/MessageHeader,
    :rdfs/subPropertyOf :ov/usedHttpHeader,
    :skos/note "http://open.vocab.org/changes/271795ffc97054ff5dfb4a1671a8f8b2",
    :vs/term_status "unstable",

@@ -1874,3 +1874,12 @@
    :rdfs/seeAlso ["http://www.w3.org/ns/prov#qualifiedStart"
                   "http://www.w3.org/ns/prov#Start"],
    :rdfs/subPropertyOf [:prov/wasInfluencedBy :prov/wasStartedBy]})
+
+(def generalizationOf
+  "prov:generalizationOf"
+  {:db/ident           :prov/generalizationOf,
+   :owl/inverseOf      :prov/specializationOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   "http://www.w3.org/ns/prov-o-inverses#",
+   :rdfs/label         #voc/lstr "prov:generalizationOf@en",
+   :rdfs/subPropertyOf :prov/generalizationOf})

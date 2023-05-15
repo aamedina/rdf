@@ -39,7 +39,9 @@
    [net.wikipunk.mop :as mop :refer [isa? descendants parents ancestors]]
    [taoensso.nippy :as nippy]
    [xtdb.api :as xt]
-   [zprint.core :as zprint])
+   [zprint.core :as zprint]
+   [datomic.client.api :as d]
+   [net.wikipunk.punk.db :as db])
   (:refer-clojure :exclude [isa? descendants parents ancestors]))
 
 (set-init

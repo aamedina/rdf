@@ -516,7 +516,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-f) protect vital interests@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis
-                     :dpvo/VitalInterestOfNatualPerson
+                     :dpvo/VitalInterestOfNaturalPerson
                      :dpvo-gdpr/A49-1-f],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -1445,7 +1445,7 @@
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
    #voc/lstr "State where lawfulness or compliance with GDPR is unknown@en",
-   :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
+   :rdf/type [:dpvo-gdpr/GDPRLawfulness :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "GDPR Compliance Unknown@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1457,7 +1457,7 @@
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
    #voc/lstr "State of being lawful or legally compliant for GDPR@en",
-   :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
+   :rdf/type [:dpvo-gdpr/GDPRLawfulness :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "GDPR Compliant@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1483,7 +1483,7 @@
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description
    #voc/lstr "State of being unlawful or legally non-compliant for GDPR@en",
-   :rdf/type [:dpvo-gdpr/GDPRLawulness :owl/NamedIndividual],
+   :rdf/type [:dpvo-gdpr/GDPRLawfulness :owl/NamedIndividual],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "GDPR Non-compliant@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1611,131 +1611,4 @@
                      :dpvo-gdpr/SupplementaryMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
-(def ^{:private true} Resource
-  "dcat:Resource"
-  {:db/ident :dcat/Resource,
-   :rdf/type :owl/Class,
-   :rdfs/label #voc/lstr "dcat:Resource@en",
-   :skos/scopeNote
-   #voc/lstr
-    "A dataset or catalogue or any other resource provided in fulfilment of a Right Exercise, such as for GDPR's Art.15 regarding Right of Access or Art.20 regarding Right to Data Portability. The associated properties from DCAT and DCMI DCT vocabularies provide convenient means to express metadata such as URL for accessing the data, its temporal validity and acecss restrictions, and specific datasets present along with their schemas.@en"})
 
-(def ^{:private true} AuditStatus
-  {:db/ident        :dpvo/AuditStatus,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/AuditStatus})
-
-(def ^{:private true} ConformanceStatus
-  {:db/ident        :dpvo/ConformanceStatus,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/ConformanceStatus})
-
-(def ^{:private true} Contract
-  {:db/ident        :dpvo/Contract,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/Contract})
-
-(def ^{:private true} ContractPerformance
-  {:db/ident        :dpvo/ContractPerformance,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/ContractPerformance})
-
-(def ^{:private true} DPIA
-  {:db/ident        :dpvo/DPIA,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/DPIA})
-
-(def ^{:private true} DataSubjectRight
-  {:db/ident        :dpvo/DataSubjectRight,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/DataSubjectRight})
-
-(def ^{:private true} DataTransferLegalBasis
-  {:db/ident        :dpvo/DataTransferLegalBasis,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/DataTransferLegalBasis})
-
-(def ^{:private true} EnterIntoContract
-  {:db/ident        :dpvo/EnterIntoContract,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/EnterIntoContract})
-
-(def ^{:private true} ExplicitlyExpressedConsent
-  {:db/ident        :dpvo/ExplicitlyExpressedConsent,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/ExplicitlyExpressedConsent})
-
-(def ^{:private true} ExpressedConsent
-  {:db/ident        :dpvo/ExpressedConsent,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/ExpressedConsent})
-
-(def ^{:private true} Lawfulness
-  {:db/ident        :dpvo/Lawfulness,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/Lawfulness})
-
-(def ^{:private true} LegalBasis
-  {:db/ident        :dpvo/LegalBasis,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/LegalBasis})
-
-(def ^{:private true} LegalObligation
-  {:db/ident        :dpvo/LegalObligation,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/LegalObligation})
-
-(def ^{:private true} LegitimateInterest
-  {:db/ident        :dpvo/LegitimateInterest,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/LegitimateInterest})
-
-(def ^{:private true} LegitimateInterestOfController
-  {:db/ident        :dpvo/LegitimateInterestOfController,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/LegitimateInterestOfController})
-
-(def ^{:private true} LegitimateInterestOfThirdParty
-  {:db/ident        :dpvo/LegitimateInterestOfThirdParty,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/LegitimateInterestOfThirdParty})
-
-(def ^{:private true} OfficialAuthorityOfController
-  {:db/ident        :dpvo/OfficialAuthorityOfController,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/OfficialAuthorityOfController})
-
-(def ^{:private true} PublicInterest
-  {:db/ident        :dpvo/PublicInterest,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/PublicInterest})
-
-(def ^{:private true} RightFulfilmentNotice
-  {:db/ident        :dpvo/RightFulfilmentNotice,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/RightFulfilmentNotice})
-
-(def ^{:private true} TechnicalOrganisationalMeasure
-  {:db/ident        :dpvo/TechnicalOrganisationalMeasure,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/TechnicalOrganisationalMeasure})
-
-(def ^{:private true} VitalInterest
-  {:db/ident        :dpvo/VitalInterest,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/VitalInterest})
-
-(def ^{:private true} VitalInterestOfDataSubject
-  {:db/ident        :dpvo/VitalInterestOfDataSubject,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/VitalInterestOfDataSubject})
-
-(def ^{:private true} VitalInterestOfNatualPerson
-  {:db/ident        :dpvo/VitalInterestOfNatualPerson,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/VitalInterestOfNatualPerson})
-
-(def ^{:private true} VitalInterestOfNaturalPerson
-  {:db/ident        :dpvo/VitalInterestOfNaturalPerson,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/VitalInterestOfNaturalPerson})

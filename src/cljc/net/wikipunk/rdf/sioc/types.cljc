@@ -140,7 +140,7 @@
     "Category is used on the object of sioc:topic to indicate that this resource is a category on a site.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/types#",
    :rdfs/label #voc/lstr "Category@en",
-   :rdfs/subClassOf ["http://www.w3.org/2008/05/skos#Concept"
+   :rdfs/subClassOf [:skos/Concept
                      :sioc.types/Category]})
 
 (def ChatChannel
@@ -437,22 +437,22 @@
    :rdfs/label       #voc/lstr "Wish List@en",
    :rdfs/subClassOf  [:sioc/Container :sioc.types/WishList]})
 
-(def ^{:private true} Container
-  {:db/ident        :sioc/Container,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :sioc/Container})
+;; (def ^{:private true} Container
+;;   {:db/ident        :sioc/Container,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :sioc/Container})
 
-(def ^{:private true} Forum
-  {:db/ident        :sioc/Forum,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :sioc/Forum})
+;; (def ^{:private true} Forum
+;;   {:db/ident        :sioc/Forum,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :sioc/Forum})
 
-(def ^{:private true} Item
-  {:db/ident        :sioc/Item,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :sioc/Item})
+;; (def ^{:private true} Item
+;;   {:db/ident        :sioc/Item,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :sioc/Item})
 
-(def ^{:private true} Post
-  {:db/ident        :sioc/Post,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :sioc/Post})
+;; (def ^{:private true} Post
+;;   {:db/ident        :sioc/Post,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :sioc/Post})

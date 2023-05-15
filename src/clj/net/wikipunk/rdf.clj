@@ -624,7 +624,8 @@
       (re-find #"^ns\d*$" (namespace k))
       nil
 
-      (= (last (name k)) \/)
+      (or (= (last (name k)) \/)
+          (str/ends-with? (name k) "#"))
       nil
 
       (str/starts-with? (name k) "#")

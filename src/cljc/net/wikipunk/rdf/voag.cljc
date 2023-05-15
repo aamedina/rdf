@@ -1447,13 +1447,13 @@
                      {:owl/cardinality 1,
                       :owl/onProperty  :vaem/namespace,
                       :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Domain,
+                     #_{:owl/allValuesFrom :vaem/Domain,
                       :owl/onProperty    :vaem/domainScope,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Aspect,
+                     #_{:owl/allValuesFrom :vaem/Aspect,
                       :owl/onProperty    :vaem/aspectScope,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Viewpoint,
+                     #_{:owl/allValuesFrom :vaem/Viewpoint,
                       :owl/onProperty    :vaem/viewpointScope,
                       :rdf/type          :owl/Restriction}
                      {:owl/maxCardinality 1,
@@ -1469,7 +1469,7 @@
                      {:owl/allValuesFrom :voag/ProductLogo,
                       :owl/onProperty    :voag/hasLogo,
                       :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :vaem/Discipline,
+                     #_{:owl/allValuesFrom :vaem/Discipline,
                       :owl/onProperty    :vaem/disciplineScope,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :voag/LicenseModel,
@@ -1616,7 +1616,7 @@
                      {:owl/maxCardinality 1,
                       :owl/onProperty     :voag/id,
                       :rdf/type           :owl/Restriction}
-                     {:owl/allValuesFrom :voag/BoardDispositionStatus,
+                     #_{:owl/allValuesFrom :voag/BoardDispositionStatus,
                       :owl/onProperty    :voag/dispositionStatus,
                       :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
@@ -1983,7 +1983,7 @@
                       {:owl/allValuesFrom :voag/GovernedObject,
                        :owl/onProperty    :voag/supercededBy,
                        :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
+                      #_{:owl/cardinality 1,
                        :owl/onProperty  :vaem/timestamp,
                        :rdf/type        :owl/Restriction}
                       {:owl/maxCardinality 1,
@@ -2394,7 +2394,7 @@
                      {:owl/allValuesFrom :voag/GovernedObject,
                       :owl/onProperty    :voag/supercedes,
                       :rdf/type          :owl/Restriction}
-                     {:owl/cardinality 1,
+                     #_{:owl/cardinality 1,
                       :owl/onProperty  :vaem/timestamp,
                       :rdf/type        :owl/Restriction}
                      {:owl/maxCardinality 1,
@@ -2662,7 +2662,7 @@
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/downloads,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Aspect,
+                         #_{:owl/allValuesFrom :vaem/Aspect,
                           :owl/onProperty    :vaem/aspectScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
@@ -2714,20 +2714,20 @@
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :vaem/description,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Discipline,
+                         #_{:owl/allValuesFrom :vaem/Discipline,
                           :owl/onProperty    :vaem/disciplineScope,
                           :rdf/type          :owl/Restriction}
                          :prov/Entity
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/urlOfRDFfile,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Domain,
+                         #_{:owl/allValuesFrom :vaem/Domain,
                           :owl/onProperty    :vaem/domainScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/hasLogo,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Viewpoint,
+                         #_{:owl/allValuesFrom :vaem/Viewpoint,
                           :owl/onProperty    :vaem/viewpointScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/allValuesFrom :voag/Provenance,
@@ -3269,7 +3269,7 @@
                       {:owl/allValuesFrom :vaem/Domain,
                        :owl/onProperty    :vaem/domainScope,
                        :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :vaem/Aspect,
+                      #_{:owl/allValuesFrom :vaem/Aspect,
                        :owl/onProperty    :vaem/aspectScope,
                        :rdf/type          :owl/Restriction}
                       {:owl/cardinality 1,
@@ -3354,7 +3354,7 @@
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/downloads,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Aspect,
+                         #_{:owl/allValuesFrom :vaem/Aspect,
                           :owl/onProperty    :vaem/aspectScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
@@ -3406,20 +3406,20 @@
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :vaem/description,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Discipline,
+                         #_{:owl/allValuesFrom :vaem/Discipline,
                           :owl/onProperty    :vaem/disciplineScope,
                           :rdf/type          :owl/Restriction}
                          :prov/Entity
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/urlOfRDFfile,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Domain,
+                         #_{:owl/allValuesFrom :vaem/Domain,
                           :owl/onProperty    :vaem/domainScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/maxCardinality 1,
                           :owl/onProperty     :voag/hasLogo,
                           :rdf/type           :owl/Restriction}
-                         {:owl/allValuesFrom :vaem/Viewpoint,
+                         #_{:owl/allValuesFrom :vaem/Viewpoint,
                           :owl/onProperty    :vaem/viewpointScope,
                           :rdf/type          :owl/Restriction}
                          {:owl/allValuesFrom :voag/Provenance,
