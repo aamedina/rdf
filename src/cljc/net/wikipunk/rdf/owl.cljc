@@ -869,3 +869,15 @@
    :rdfs/label "withRestrictions",
    :rdfs/range :rdf/List,
    :rdfs/subPropertyOf :owl/withRestrictions})
+
+(def rational
+  "owl:rational"
+  {:db/ident        :owl/rational
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
+
+(def real
+  "owl:real"
+  {:db/ident        :owl/real
+   :rdf/type        :rdfs/Datatype
+   :rdfs/subClassOf :rdfs/Literal})
