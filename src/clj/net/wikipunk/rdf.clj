@@ -994,6 +994,10 @@
 
 (def ^:dynamic *recurse* 2)
 
+(def ^:dynamic *private*
+  "bind to true if you want private vars to be emitted"
+  nil)
+
 (defn unroll-forms
   "Walks the parsed RDF model and replaces references to blank nodes
   with their data. Also unrolls lists."
@@ -1077,7 +1081,7 @@
                                              (namespace (:db/ident form)))))
                         (pmap #(assoc % :private true)))]
     (with-meta (into (vec (sort-by :db/ident publics))
-                     (sort-by :db/ident privates))
+                     (when *private* (sort-by :db/ident privates)))
       (merge md the-ont))))
 
 (defn rdf-doc
