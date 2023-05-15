@@ -789,7 +789,7 @@
                        :rdf/type           :owl/Restriction}
                       :voag/CreativeCommonsWork]})
 
-(def DTYPE-CatalogEntry
+#_(def DTYPE-CatalogEntry
   {:db/ident         :voag/DTYPE-CatalogEntry,
    :rdf/type         [:voag/SchemaGraph
                       {:owl/cardinality 1,

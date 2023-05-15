@@ -1686,302 +1686,302 @@
    :rdfs/subPropertyOf [:bibo/locator :bibo/volume],
    :vs/term_status     "stable"})
 
-(def ^{:private true} ma
-  "masters degree in arts"
-  {:db/ident       :degrees/ma,
-   :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
-   :rdfs/comment   #voc/lstr "masters degree in arts@en",
-   :rdfs/label     #voc/lstr "M.A.@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} ma
+;;   "masters degree in arts"
+;;   {:db/ident       :degrees/ma,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "masters degree in arts@en",
+;;    :rdfs/label     #voc/lstr "M.A.@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} ms
-  "masters degree in science"
-  {:db/ident       :degrees/ms,
-   :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
-   :rdfs/comment   #voc/lstr "masters degree in science@en",
-   :rdfs/label     #voc/lstr "M.S.@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} ms
+;;   "masters degree in science"
+;;   {:db/ident       :degrees/ms,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "masters degree in science@en",
+;;    :rdfs/label     #voc/lstr "M.S.@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} phd
-  "PhD degree"
-  {:db/ident       :degrees/phd,
-   :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
-   :rdfs/comment   #voc/lstr "PhD degree@en",
-   :rdfs/label     #voc/lstr "PhD degree@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} phd
+;;   "PhD degree"
+;;   {:db/ident       :degrees/phd,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "PhD degree@en",
+;;    :rdfs/label     #voc/lstr "PhD degree@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} Event
-  {:db/ident :event/Event,
-   :rdf/type :owl/Class,
-   :rdfs/subClassOf :event/Event,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to describe bibliographic related events such as conferences, hearing, etc.@en"})
+;; (def ^{:private true} Event
+;;   {:db/ident :event/Event,
+;;    :rdf/type :owl/Class,
+;;    :rdfs/subClassOf :event/Event,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to describe bibliographic related events such as conferences, hearing, etc.@en"})
 
-(def ^{:private true} agent
-  {:db/ident :event/agent,
-   :rdf/type :owl/ObjectProperty,
-   :skos/changeNote
-   #voc/lstr
-    "Used to link an agent (a person) to an event (a conference, an hearing, etc.)@en"})
+;; (def ^{:private true} agent
+;;   {:db/ident :event/agent,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :skos/changeNote
+;;    #voc/lstr
+;;     "Used to link an agent (a person) to an event (a conference, an hearing, etc.)@en"})
 
-(def ^{:private true} place
-  {:db/ident :event/place,
-   :rdf/type :owl/ObjectProperty,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to relate an event such as a conference to the geographical place where it happens, for example Paris.@en"})
+;; (def ^{:private true} place
+;;   {:db/ident :event/place,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to relate an event such as a conference to the geographical place where it happens, for example Paris.@en"})
 
-(def ^{:private true} produced_in
-  {:db/ident :event/produced_in,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/subPropertyOf :event/produced_in})
+;; (def ^{:private true} produced_in
+;;   {:db/ident :event/produced_in,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :rdfs/subPropertyOf :event/produced_in})
 
-(def ^{:private true} product
-  {:db/ident :event/product,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/subPropertyOf :event/product,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to link an event such as a conference to an outcome (a product) of that event, for example, an article, a proceeding, etc.@en"})
+;; (def ^{:private true} product
+;;   {:db/ident :event/product,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :rdfs/subPropertyOf :event/product,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to link an event such as a conference to an outcome (a product) of that event, for example, an article, a proceeding, etc.@en"})
 
-(def ^{:private true} sub_event
-  {:db/ident :event/sub_event,
-   :rdf/type :owl/ObjectProperty,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to link big events with smaller events such as workshops that happen in the context of a conference.@en"})
+;; (def ^{:private true} sub_event
+;;   {:db/ident :event/sub_event,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to link big events with smaller events such as workshops that happen in the context of a conference.@en"})
 
-(def ^{:private true} time
-  {:db/ident :event/time,
-   :rdf/type :owl/ObjectProperty,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to describe the timing of an event. For example, when a conference starts and stops.@en"})
+;; (def ^{:private true} time
+;;   {:db/ident :event/time,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to describe the timing of an event. For example, when a conference starts and stops.@en"})
 
-(def ^{:private true} Agent
-  {:db/ident :foaf/Agent,
-   :rdf/type :owl/Class,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to describe any \"agent\" related to bibliographic items. Such agents can be persons, organizations or groups of any kind.@en"})
+;; (def ^{:private true} Agent
+;;   {:db/ident :foaf/Agent,
+;;    :rdf/type :owl/Class,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to describe any \"agent\" related to bibliographic items. Such agents can be persons, organizations or groups of any kind.@en"})
 
-(def ^{:private true} Document
-  {:db/ident :foaf/Document,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Document
+;;   {:db/ident :foaf/Document,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} Image
-  {:db/ident :foaf/Image,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Image
+;;   {:db/ident :foaf/Image,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} Organization
-  {:db/ident :foaf/Organization,
-   :rdf/type :owl/Class,
-   :skos/scopeNote
-   #voc/lstr
-    "Ued to describe an organization related to bibliographic items such as a publishing company, etc.@en"})
+;; (def ^{:private true} Organization
+;;   {:db/ident :foaf/Organization,
+;;    :rdf/type :owl/Class,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Ued to describe an organization related to bibliographic items such as a publishing company, etc.@en"})
 
-(def ^{:private true} Person
-  {:db/ident :foaf/Person,
-   :rdf/type :owl/Class,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to describe a Person related to a bibliographic ite such as an author, an editor, etc.@en"})
+;; (def ^{:private true} Person
+;;   {:db/ident :foaf/Person,
+;;    :rdf/type :owl/Class,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to describe a Person related to a bibliographic ite such as an author, an editor, etc.@en"})
 
-(def ^{:private true} based_near
-  {:db/ident :foaf/based_near,
-   :rdf/type :owl/ObjectProperty,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to link an agent, related to bibliographic things, to a place where it is based near: can be a city, a monument, a building, etc.@en"})
+;; (def ^{:private true} based_near
+;;   {:db/ident :foaf/based_near,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to link an agent, related to bibliographic things, to a place where it is based near: can be a city, a monument, a building, etc.@en"})
 
-(def ^{:private true} depiction
-  {:db/ident       :foaf/depiction,
-   :rdf/type       :owl/ObjectProperty,
-   :skos/scopeNote #voc/lstr
-                    "Used to link an agent with an image that depict it.@en"})
+;; (def ^{:private true} depiction
+;;   {:db/ident       :foaf/depiction,
+;;    :rdf/type       :owl/ObjectProperty,
+;;    :skos/scopeNote #voc/lstr
+;;                     "Used to link an agent with an image that depict it.@en"})
 
-(def ^{:private true} family_name
-  {:db/ident :foaf/family_name,
-   :rdf/type :owl/DatatypeProperty,
-   :skos/scopeNote
-   #voc/lstr
-    "This is the property we choose to use to describe the family name of a person related to a bibliographic resource.@en"})
+;; (def ^{:private true} family_name
+;;   {:db/ident :foaf/family_name,
+;;    :rdf/type :owl/DatatypeProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "This is the property we choose to use to describe the family name of a person related to a bibliographic resource.@en"})
 
-(def ^{:private true} givenname
-  {:db/ident :foaf/givenname,
-   :rdf/type :owl/DatatypeProperty,
-   :skos/scopeNote
-   #voc/lstr
-    "This is the property we choose to describe the given name of a Person related to a bibliographic resource. This is the first name of a person.@en"})
+;; (def ^{:private true} givenname
+;;   {:db/ident :foaf/givenname,
+;;    :rdf/type :owl/DatatypeProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "This is the property we choose to describe the given name of a Person related to a bibliographic resource. This is the first name of a person.@en"})
 
-(def ^{:private true} homepage
-  {:db/ident :foaf/homepage,
-   :rdf/type :owl/ObjectProperty,
-   :skos/scopeNote
-   #voc/lstr
-    "Used to link an agent to its homepage (which is a web page accessible using a URL).@en"})
+;; (def ^{:private true} homepage
+;;   {:db/ident :foaf/homepage,
+;;    :rdf/type :owl/ObjectProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr
+;;     "Used to link an agent to its homepage (which is a web page accessible using a URL).@en"})
 
-(def ^{:private true} name
-  {:db/ident :foaf/name,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} name
+;;   {:db/ident :foaf/name,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} doi
-  {:db/ident :prism/doi,
-   :owl/equivalentProperty :bibo/doi,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} doi
+;;   {:db/ident :prism/doi,
+;;    :owl/equivalentProperty :bibo/doi,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} eIssn
-  {:db/ident :prism/eIssn,
-   :owl/equivalentProperty :bibo/eissn,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} eIssn
+;;   {:db/ident :prism/eIssn,
+;;    :owl/equivalentProperty :bibo/eissn,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} edition
-  {:db/ident :prism/edition,
-   :owl/equivalentProperty :bibo/edition,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} edition
+;;   {:db/ident :prism/edition,
+;;    :owl/equivalentProperty :bibo/edition,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} endingPage
-  {:db/ident :prism/endingPage,
-   :owl/equivalentProperty :bibo/pageEnd,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} endingPage
+;;   {:db/ident :prism/endingPage,
+;;    :owl/equivalentProperty :bibo/pageEnd,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} isbn
-  {:db/ident :prism/isbn,
-   :owl/equivalentProperty :bibo/isbn,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} isbn
+;;   {:db/ident :prism/isbn,
+;;    :owl/equivalentProperty :bibo/isbn,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} issn
-  {:db/ident :prism/issn,
-   :owl/equivalentProperty :bibo/issn,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} issn
+;;   {:db/ident :prism/issn,
+;;    :owl/equivalentProperty :bibo/issn,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} issue
-  {:db/ident :prism/issue,
-   :owl/equivalentProperty :bibo/issue,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} issue
+;;   {:db/ident :prism/issue,
+;;    :owl/equivalentProperty :bibo/issue,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} number
-  {:db/ident :prism/number,
-   :owl/equivalentProperty :bibo/locator,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} number
+;;   {:db/ident :prism/number,
+;;    :owl/equivalentProperty :bibo/locator,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} startingPage
-  {:db/ident :prism/startingPage,
-   :owl/equivalentProperty :bibo/pageStart,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} startingPage
+;;   {:db/ident :prism/startingPage,
+;;    :owl/equivalentProperty :bibo/pageStart,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} volume
-  {:db/ident :prism/volume,
-   :owl/equivalentProperty :bibo/volume,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} volume
+;;   {:db/ident :prism/volume,
+;;    :owl/equivalentProperty :bibo/volume,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} localityName
-  {:db/ident :schema/localityName,
-   :rdf/type :owl/DatatypeProperty,
-   :skos/scopeNote
-   #voc/lstr "Used to name the locality of a publisher, an author, etc.@en"})
+;; (def ^{:private true} localityName
+;;   {:db/ident :schema/localityName,
+;;    :rdf/type :owl/DatatypeProperty,
+;;    :skos/scopeNote
+;;    #voc/lstr "Used to name the locality of a publisher, an author, etc.@en"})
 
-(def ^{:private true} changeNote
-  {:db/ident :skos/changeNote,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} changeNote
+;;   {:db/ident :skos/changeNote,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} editorialNote
-  {:db/ident :skos/editorialNote,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} editorialNote
+;;   {:db/ident :skos/editorialNote,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} example
-  {:db/ident :skos/example,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} example
+;;   {:db/ident :skos/example,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} historyNote
-  {:db/ident :skos/historyNote,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} historyNote
+;;   {:db/ident :skos/historyNote,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} note
-  {:db/ident :skos/note,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} note
+;;   {:db/ident :skos/note,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} scopeNote
-  {:db/ident :skos/scopeNote,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} scopeNote
+;;   {:db/ident :skos/scopeNote,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} accepted
-  "Accepted for publication after peer reviewing."
-  {:db/ident       :status/accepted,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr
-                    "Accepted for publication after peer reviewing.@en",
-   :rdfs/label     #voc/lstr "accepted@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} accepted
+;;   "Accepted for publication after peer reviewing."
+;;   {:db/ident       :status/accepted,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr
+;;                     "Accepted for publication after peer reviewing.@en",
+;;    :rdfs/label     #voc/lstr "accepted@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} draft
-  "Document drafted"
-  {:db/ident       :status/draft,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr "Document drafted@en",
-   :rdfs/label     #voc/lstr "draft@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} draft
+;;   "Document drafted"
+;;   {:db/ident       :status/draft,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "Document drafted@en",
+;;    :rdfs/label     #voc/lstr "draft@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} forthcoming
-  "Document to be published"
-  {:db/ident       :status/forthcoming,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr "Document to be published@en",
-   :rdfs/label     #voc/lstr "forthcoming@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} forthcoming
+;;   "Document to be published"
+;;   {:db/ident       :status/forthcoming,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "Document to be published@en",
+;;    :rdfs/label     #voc/lstr "forthcoming@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} legal
-  "Legal document"
-  {:db/ident       :status/legal,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr "Legal document@en",
-   :rdfs/label     #voc/lstr "legal@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} legal
+;;   "Legal document"
+;;   {:db/ident       :status/legal,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "Legal document@en",
+;;    :rdfs/label     #voc/lstr "legal@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} nonPeerReviewed
-  "A document that is not peer reviewed"
-  {:db/ident       :status/nonPeerReviewed,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr "A document that is not peer reviewed@en",
-   :rdfs/label     #voc/lstr "non peer reviewed@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} nonPeerReviewed
+;;   "A document that is not peer reviewed"
+;;   {:db/ident       :status/nonPeerReviewed,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "A document that is not peer reviewed@en",
+;;    :rdfs/label     #voc/lstr "non peer reviewed@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} peerReviewed
-  "The process by which articles are chosen to be included in a refereed journal. An editorial board consisting of experts in the same field as the author review the article and decide if it is authoritative enough for publication."
-  {:db/ident :status/peerReviewed,
-   :rdf/type [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment
-   #voc/lstr
-    "The process by which articles are chosen to be included in a refereed journal. An editorial board consisting of experts in the same field as the author review the article and decide if it is authoritative enough for publication.@en",
-   :rdfs/label #voc/lstr "peer reviewed@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} peerReviewed
+;;   "The process by which articles are chosen to be included in a refereed journal. An editorial board consisting of experts in the same field as the author review the article and decide if it is authoritative enough for publication."
+;;   {:db/ident :status/peerReviewed,
+;;    :rdf/type [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment
+;;    #voc/lstr
+;;     "The process by which articles are chosen to be included in a refereed journal. An editorial board consisting of experts in the same field as the author review the article and decide if it is authoritative enough for publication.@en",
+;;    :rdfs/label #voc/lstr "peer reviewed@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} published
-  "Published document"
-  {:db/ident       :status/published,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr "Published document@en",
-   :rdfs/label     #voc/lstr "published@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} published
+;;   "Published document"
+;;   {:db/ident       :status/published,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "Published document@en",
+;;    :rdfs/label     #voc/lstr "published@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} rejected
-  "Rejected for publication after peer reviewing."
-  {:db/ident       :status/rejected,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr
-                    "Rejected for publication after peer reviewing.@en",
-   :rdfs/label     #voc/lstr "rejected@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} rejected
+;;   "Rejected for publication after peer reviewing."
+;;   {:db/ident       :status/rejected,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr
+;;                     "Rejected for publication after peer reviewing.@en",
+;;    :rdfs/label     #voc/lstr "rejected@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} unpublished
-  "Unpublished document"
-  {:db/ident       :status/unpublished,
-   :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-   :rdfs/comment   #voc/lstr "Unpublished document@en",
-   :rdfs/label     #voc/lstr "unpublished@en",
-   :vs/term_status "stable"})
+;; (def ^{:private true} unpublished
+;;   "Unpublished document"
+;;   {:db/ident       :status/unpublished,
+;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
+;;    :rdfs/comment   #voc/lstr "Unpublished document@en",
+;;    :rdfs/label     #voc/lstr "unpublished@en",
+;;    :vs/term_status "stable"})
 
-(def ^{:private true} term_status
-  {:db/ident :vs/term_status,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} term_status
+;;   {:db/ident :vs/term_status,
+;;    :rdf/type :owl/AnnotationProperty})

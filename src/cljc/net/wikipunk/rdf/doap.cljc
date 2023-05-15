@@ -1108,17 +1108,17 @@
    :rdfs/range :sioc.types/Wiki,
    :rdfs/subPropertyOf :doap/wiki})
 
-(def ^{:private true} Project
-  {:db/ident        :foaf/Project,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :foaf/Project})
+;; (def ^{:private true} Project
+;;   {:db/ident        :foaf/Project,
+;;    :rdf/type        :rdfs/Class,
+;;    :rdfs/subClassOf :foaf/Project})
 
-(def ^{:private true} homepage
-  {:db/ident :foaf/homepage,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :foaf/homepage})
+;; (def ^{:private true} homepage
+;;   {:db/ident :foaf/homepage,
+;;    :rdf/type :rdf/Property,
+;;    :rdfs/subPropertyOf :foaf/homepage})
 
-(def ^{:private true} page
-  {:db/ident :foaf/page,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :foaf/page})
+;; (def ^{:private true} page
+;;   {:db/ident :foaf/page,
+;;    :rdf/type :rdf/Property,
+;;    :rdfs/subPropertyOf :foaf/page})
