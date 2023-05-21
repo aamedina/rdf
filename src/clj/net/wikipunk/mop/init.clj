@@ -274,20 +274,20 @@
     :owl/keys [intersectionOf unionOf]
     :as class}]
   (or (not-empty (:mop/class-direct-slots class))
-      (not-empty (concat (and ident (get-in rdf/*indexes* [:slots/by-domain ident]))
-                         (some->> (filter map? (concat intersectionOf
-                                                       unionOf
-                                                       (when-not (keyword? subClassOf)
-                                                         subClassOf)))
-                                  (mapcat mop/class-direct-slots)
-                                  (map rdf/direct-slot-definition)
-                                  (group-by :db/ident)
-                                  (vals)
-                                  (reduce (fn [slots maps]
-                                            (conj slots (update (reduce merge maps)
-                                                                :rdfs/domain (fnil conj #{})
-                                                                ident)))
-                                          []))))))
+      (not-empty (into [] (concat (and ident (get-in rdf/*indexes* [:slots/by-domain ident]))
+                                  (some->> (filter map? (concat intersectionOf
+                                                                unionOf
+                                                                (when-not (keyword? subClassOf)
+                                                                  subClassOf)))
+                                           (mapcat mop/class-direct-slots)
+                                           (map rdf/direct-slot-definition)
+                                           (group-by :db/ident)
+                                           (vals)
+                                           (reduce (fn [slots maps]
+                                                     (conj slots (update (reduce merge maps)
+                                                                         :rdfs/domain (fnil conj #{})
+                                                                         ident)))
+                                                   [])))))))
 
 (defmethod mop/class-default-initargs :rdfs/Class
   [class]
