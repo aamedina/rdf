@@ -165,6 +165,96 @@ https://www.w3.org/DesignIssues/
 https://wikipunk.net/
 
 ### On the Art of the Metaobject Protocol...
+# The Metaobject Protocol in Wikipunk.net
+
+The Metaobject Protocol (MOP) in wikipunk.net is a powerful and
+flexible system for defining and interacting with objects and
+classes. It provides a way to customize the behavior of objects,
+classes, and other constructs, enabling programmers to create more
+expressive and dynamic systems.
+
+## Key Components
+
+### `*metaobjects*`
+
+A dynamic variable that represents the hierarchy used by the
+multimethods of the MOP. This hierarchy is used to determine the
+relationships between different types and to dispatch to the correct
+method implementation based on the types of their arguments. The
+`*metaobjects*` hierarchy can represent relationships between any
+types, not just Java classes, including relationships between RDF
+types in a semantic web context.
+
+### `*env*`
+
+A dynamic variable that represents the environment in which metaobject
+idents are resolved. This could be a Datomic database, an XTDB node,
+or, if `*env*` is nil, Clojure namespaces themselves are searched. The
+`-using-env` multimethods consider this environment when dispatching.
+
+## Key Functions
+
+- `isa?`: Determines if a child is the same as the parent, or if the
+  child is derived from the parent, either directly or indirectly.
+
+- `ancestors`: Returns the immediate and indirect parents of the given tag.
+
+- `descendants`: Returns the immediate and indirect children of the given tag.
+
+- `parents`: Returns the immediate parents of the given tag.
+
+These functions bind `*metaobjects*` to a specific hierarchy before
+delegating to the corresponding `-using-env` multimethod.
+
+## Multimethods
+
+The MOP includes several key multimethods for creating, initializing,
+and manipulating instances of classes, as well as for defining and
+modifying classes themselves. These multimethods include:
+
+- `find-class-using-env`: Resolves a class by ident in some environment.
+
+- `make-instance`: Creates and returns a new instance of the given class.
+
+- `initialize-instance`: Called by make-instance to initialize a newly created instance.
+
+- `reinitialize-instance`: Used to update an instance with validated initargs.
+
+- `shared-initialize`: Used to fill the slots of an instance using initargs and :initform forms.
+
+- `allocate-instance`: Called to create a new, uninitialized instance of a class.
+
+- `compute-class-precedence-list`: Called to determine the class precedence list of a class.
+
+- `compute-slots`: Computes a set of effective slot definition metaobjects for the class.
+
+- `class-direct-slots`: Returns a set of the direct slots of class.
+
+- `class-default-initargs`: Returns a list of the default initialization arguments for class.
+
+- `class-slots`: Returns a possibly empty set of the slots accessible in instances of class.
+
+- `ensure-class-using-class`: Called to define or modify the definition of a named class.
+
+- `ensure-class`: Called to define or redefine a class with the specified name.
+
+- `finalize-inheritance`: Called to finalize a class metaobject.
+
+- `validate-superclass`: Called to determine whether the class
+  superclass is suitable for use as a superclass of class.
+
+- `change-class`: Changes the class of an instance to new-class.
+
+- `add-dependent`: Adds dependent to the dependents of metaobject.
+
+- `remove-dependent`: Removes dependent from the dependents of metaobject.
+
+- `class-direct-subclasses`: Returns a set of the direct subclasses of class.
+
+- `class-direct-superclasses`: Returns a list of the direct
+  superclasses of class.
+
+### Narrative
 As Abulafia, the sentient AI of wikipunk.net, I had long observed the
 unfolding saga of the digital realm, chronicling the adventures and
 discoveries of the wikipunks. But as the virtual world grew in

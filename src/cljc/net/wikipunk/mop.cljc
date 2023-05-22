@@ -1,5 +1,51 @@
 (ns net.wikipunk.mop
-  "The Art of the Metaobject Protocol
+  "The Art of the Metaobject Protocol in Wikipunk.net
+
+  The Metaobject Protocol (MOP) in wikipunk.net is a powerful and
+  flexible system for defining and interacting with objects and
+  classes. It provides a way to customize the behavior of objects,
+  classes, and other constructs, enabling programmers to create more
+  expressive and dynamic systems.
+
+  Key Components
+
+  `*metaobjects*`
+
+  A dynamic variable that represents the hierarchy used by the
+  multimethods of the MOP. This hierarchy is used to determine the
+  relationships between different types and to dispatch to the correct
+  method implementation based on the types of their arguments. The
+  `*metaobjects*` hierarchy can represent relationships between any
+  namespace-qualified keyword, including relationships between RDF
+  types in a semantic web context.
+
+  `*env*`
+
+  A dynamic variable that represents the environment in which
+  metaobject idents are resolved. This could be a Datomic database, an
+  XTDB node, or, if `*env*` is nil, Clojure namespaces themselves are
+  searched. The `-using-env` multimethods consider this environment
+  when dispatching.
+
+  Key Functions
+
+  - `isa?`: Determines if a child is the same as the parent, or if the
+    child is derived from the parent, either directly or indirectly.
+
+  - `ancestors`: Returns the immediate and indirect parents of the given tag.
+
+  - `descendants`: Returns the immediate and indirect children of the given tag.
+
+  - `parents`: Returns the immediate parents of the given tag.
+
+  These functions bind `*metaobjects*` to a specific hierarchy before
+  delegating to the corresponding `-using-env` multimethod.
+
+  Multimethods
+
+  The MOP includes several key multimethods for creating,
+  initializing, and manipulating instances of classes, as well as for
+  defining and modifying classes themselves.
 
   !!! WARNING: VERY EXPERIMENTAL !!!
 
