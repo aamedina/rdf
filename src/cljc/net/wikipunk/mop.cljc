@@ -74,6 +74,14 @@
        (find-class class error? env)
        class))))
 
+(defmulti make-hierarchy-using-env
+  "Creates a metaobject hierarchy for use with derive, isa?
+  etc. using the given environment."
+  {:arglists '([env])}
+  (fn [env]
+    [(type-of env)])
+  :hierarchy #'*metaobjects*)
+
 (defmulti isa-using-env?
   "Returns true if the child is the same as the parent, or if the child is derived from the parent, 
   either directly or indirectly. This can be through a Java type inheritance relationship or a 
