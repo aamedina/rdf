@@ -8,49 +8,46 @@
   (:refer-clojure :exclude [isa? ancestors parents descendants]))
 
 (def ^:dynamic *metaobjects*
+  "A dynamic variable that represents the hierarchy used by the
+  multimethods of the Metaobject Protocol (MOP).
+  
+  These multimethods use the hierarchy to determine the relationships
+  between different types and to dispatch to the correct method
+  implementation based on the types of their arguments.  
+  
+  The `*metaobjects*` hierarchy can represent relationships between
+  any types, not just Java classes. This includes relationships
+  between RDF types in a semantic web context, which is particularly
+  relevant for wikipunk.net.
+  
+  In summary, `*metaobjects*` is a central part of the MOP's flexible
+  and extensible type system, enabling powerful polymorphism based on
+  both Java type inheritance and user-defined relationships.
+
+  The `*metaobjects*` hierarchy is also used by the `isa?`,
+  `ancestors`, `descendants`, and `parents` functions when determining
+  type relationships. These functions bind `*metaobjects*` to a
+  specific hierarchy before delegating to the corresponding
+  `-using-env` multimethod."
   (make-hierarchy))
 
 (def ^:dynamic *env*
-  "An environment to resolve metaobject idents. Could be nil (search
-  namespaces) or a compatible datalog database."
+  "The `*env*` dynamic variable represents the environment in which
+  metaobject idents are resolved. This could be a Datomic database, an
+  XTDB node, or, if `*env*` is nil, Clojure namespaces themselves are
+  searched. The `-using-env` multimethods consider this environment
+  when dispatching. For example, if `*env*` is a Datomic database, the
+  multimethods will dispatch based on the RDF types of entities in the
+  database."
   nil)
 
-(defn isa?
-  "Returns true if (= child parent), or child is directly or indirectly derived from
-  parent, either via a Java type inheritance relationship or a
-  relationship established via `derive`. h must be a hierarchy obtained
-  from `make-hierarchy`, if not supplied defaults to `*metaobjects*`."
-  ([child parent] (isa? *metaobjects* child parent))
-  ([h child parent] (clojure.core/isa? h child parent)))
-
-(defn ancestors
-  "Returns the immediate and indirect parents of tag, either via a Java type
-  inheritance relationship or a relationship established via `derive`. h
-  must be a hierarchy obtained from `make-hierarchy`, if not supplied
-  defaults to `*metaobjects*`."
-  ([tag] (ancestors *metaobjects* tag))
-  ([h tag] (clojure.core/ancestors h tag)))
-
-(defn descendants
-  "Returns the immediate and indirect children of tag, through a
-  relationship established via `derive`. h must be a hierarchy obtained
-  from `make-hierarchy`, if not supplied defaults to `*metaobjects*`. 
-  Note: does not work on Java type inheritance relationships."
-  ([tag] (descendants *metaobjects* tag))
-  ([h tag] (clojure.core/descendants h tag)))
-
-(defn parents
-  "Returns the immediate parents of tag, either via a Java type
-  inheritance relationship or a relationship established via `derive`. h
-  must be a hierarchy obtained from `make-hierarchy`, if not supplied
-  defaults to `*metaobjects*`."
-  ([tag] (parents *metaobjects* tag))
-  ([h tag] (clojure.core/parents h tag)))
-
-(declare find-class)
+(declare find-class isa?)
 
 (defmulti type-of
-  "Dispatch function for the multimethods of the metaobject protocol."
+  "Returns the type of the given object. If the object is a persistent map with a :rdf/type entry, 
+  it returns the value of :rdf/type. If :rdf/type is a collection, it returns the first type that 
+  satisfies the isa? relation, sorted in ascending order. If there is no :rdf/type entry, it returns 
+  the Clojure type of the object."
   {:arglists '([obj & args])}
   (fn [obj & args]
     (type obj)))
@@ -76,6 +73,105 @@
      (if (qualified-keyword? class)
        (find-class class error? env)
        class))))
+
+(defmulti isa-using-env?
+  "Returns true if the child is the same as the parent, or if the child is derived from the parent, 
+  either directly or indirectly. This can be through a Java type inheritance relationship or a 
+  relationship established via `derive`. "
+  {:arglists '([child parent env])}
+  (fn [child parent env]
+    [(type-of child) (type-of parent) (type-of env)])
+  :hierarchy #'*metaobjects*)
+
+(defmethod isa-using-env? :default
+  [child parent env]
+  (clojure.core/isa? *metaobjects* child parent))
+
+(defn isa?
+  "Returns true if the child is the same as the parent, or if the child is derived from the parent, 
+  either directly or indirectly. This can be through a Java type inheritance relationship or a 
+  relationship established via `derive`. 
+
+  The hierarchy h must be obtained from `make-hierarchy`. If not supplied, it defaults to `*metaobjects*`. 
+
+  The function also considers the current environment *env* for resolving metaobject idents."
+  ([child parent]
+   (isa-using-env? child parent *env*))
+  ([h child parent]
+   (binding [*metaobjects* h]
+     (isa-using-env? child parent *env*))))
+
+(defmulti ancestors-using-env
+  "Returns the immediate and indirect parents of the given tag. This can be through a Java type
+  inheritance relationship or a relationship established via `derive`. The function also considers 
+  the current environment *env* for resolving metaobject idents."
+  {:arglists '([tag env])}
+  (fn [tag env]
+    [(type-of tag) (type-of env)])
+  :hierarchy #'*metaobjects*)
+
+(defmethod ancestors-using-env :default
+  [tag env]
+  (clojure.core/ancestors *metaobjects* tag))
+
+(defn ancestors
+  "Returns the immediate and indirect parents of the given tag. This can be through a Java type
+  inheritance relationship or a relationship established via `derive`. The hierarchy h must be obtained 
+  from `make-hierarchy`. If not supplied, it defaults to `*metaobjects*`."
+  ([tag]
+   (ancestors-using-env tag *env*))
+  ([h tag]
+   (binding [*metaobjects* h]
+     (ancestors-using-env tag *env*))))
+
+(defmulti descendants-using-env
+  "Returns the immediate and indirect children of the given tag. This is through a
+  relationship established via `derive`. The function also considers the current environment 
+  *env* for resolving metaobject idents. 
+
+  Note: This function does not work on Java type inheritance relationships."
+  {:arglists '([tag env])}
+  (fn [tag env]
+    [(type-of tag) (type-of env)])
+  :hierarchy #'*metaobjects*)
+
+(defmethod descendants-using-env :default
+  [tag env]
+  (clojure.core/descendants *metaobjects* tag))
+
+(defn descendants
+  "Returns the immediate and indirect children of the given tag. This is through a
+  relationship established via `derive`. The hierarchy h must be obtained from `make-hierarchy`, 
+  if not supplied defaults to `*metaobjects*`. Note: This function does not work on Java type 
+  inheritance relationships."
+  ([tag]
+   (descendants-using-env tag *env*))
+  ([h tag]
+   (binding [*metaobjects* h]
+     (descendants-using-env tag *env*))))
+
+(defmulti parents-using-env
+  "Returns the immediate parents of the given tag using the bound
+  `*metaobjects*` hierarchy. The function also considers the current
+  environment *env* for resolving metaobject idents."
+  {:arglists '([tag env])}
+  (fn [tag env]
+    [(type-of tag) (type-of env)])
+  :hierarchy #'*metaobjects*)
+
+(defmethod parents-using-env :default
+  [tag env]
+  (clojure.core/parents *metaobjects* tag))
+
+(defn parents
+  "Returns the immediate parents of the given tag. This can be through a Java type
+  inheritance relationship or a relationship established via `derive`. The hierarchy h must be obtained 
+  from `make-hierarchy`. If not supplied, it defaults to `*metaobjects*`."
+  ([tag]
+   (parents-using-env tag *env*))
+  ([h tag]
+   (binding [*metaobjects* h]
+     (parents-using-env tag *env*))))
 
 (defmulti add-dependent
   "This multimethod adds dependent to the dependents of
