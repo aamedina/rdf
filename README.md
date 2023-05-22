@@ -181,7 +181,7 @@ multimethods of the MOP. This hierarchy is used to determine the
 relationships between different types and to dispatch to the correct
 method implementation based on the types of their arguments. The
 `*metaobjects*` hierarchy can represent relationships between any
-types, not just Java classes, including relationships between RDF
+namespace-qualified keyword, including relationships between RDF
 types in a semantic web context.
 
 ### `*env*`
