@@ -37,8 +37,9 @@
   XTDB node, or, if `*env*` is nil, Clojure namespaces themselves are
   searched. The `-using-env` multimethods consider this environment
   when dispatching. For example, if `*env*` is a Datomic database, the
-  multimethods will dispatch based on the RDF types of entities in the
-  database."
+  multimethods should dispatch based on the RDF types of entities in
+  the database; in that case the `*metaobjects*` hierarchy should be
+  consistent with this environment."
   nil)
 
 (declare find-class isa?)
