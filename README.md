@@ -20,7 +20,7 @@ configuration map which is assembled and started using
 
 ### :init-ns
 the ns-name of a Clojure namespace to load to implement methods of the
-[metaobject protocol](https://github.com/aamedina/mop).
+[metaobject protocol](http://www.lispworks.com/documentation/lw80/MOP/mop/index.html).
 
 ### :ns-prefix 
 the prefix string to use when locating metaobjects in your system

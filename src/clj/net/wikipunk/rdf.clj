@@ -53,18 +53,6 @@
 (defprotocol NamespaceSpitter
   (emit [x arg-map]))
 
-(def ^:dynamic *classes*
-  "rdfs:Class|owl:Class|rdfs:Datatype"
-  (make-hierarchy))
-
-(def ^:dynamic *properties*
-  "rdf:Property"
-  (make-hierarchy))
-
-(def ^:dynamic *skos*
-  "Simple Knowledge Organization System"
-  (make-hierarchy))
-
 (def ^:dynamic *indexes*
   "A map of useful indexes across metaobjects."
   {})
@@ -318,64 +306,21 @@
      classes
      metaobjects)))
 
-(defn make-skos-hierarchy
-  "The make-skos-hierarchy function takes in a hierarchy of
-  metaobjects and derives a hierarchy of SKOS concepts from it."
-  [metaobjects]
-  (reduce
-    (fn [h {:db/keys   [ident]
-            :skos/keys [broader narrower inScheme member topConceptOf]
-            :as        entity}]
-      (cond-> h
-        (seq (filter keyword? broader))
-        (deriving entity (filter keyword? broader))
-
-        (seq (filter keyword? inScheme))
-        (deriving entity (filter keyword? inScheme))
-
-        (seq (filter keyword? topConceptOf))
-        (deriving entity (filter keyword? topConceptOf))
-
-        (seq (filter keyword? member))
-        (as-> h
-            (reduce (fn [h member]
-                      (try
-                        (derive h member ident)
-                        (catch Throwable ex
-                          h)))
-                    h (filter keyword? member)))
-
-        (seq (filter keyword? narrower))
-        (as-> h
-            (reduce (fn [h child]
-                      (try
-                        (derive h child ident)
-                        (catch Throwable ex
-                          h)))
-                    h (filter keyword? narrower)))))
-    (make-hierarchy)
-    (->> (descendants metaobjects :skos/Concept)
-         (map find-ns-metaobject)
-         (pmap (fn [v]
-                 (reduce (fn [entity term]
-                           (if (contains? entity term)
-                             (update entity term #(if (sequential? %) % [%]))
-                             entity))
-                         v [:rdf/type :skos/broader :skos/narrower :skos/inScheme :skos/member :skos/topConceptOf]))))))
-
 (defn make-hierarchies
-  "Returns a map of hierarchies for *classes*, *properties*, and
-  *metaobjects*."
+  "Returns a map of hierarchies used to derive the `mop/*metaobjects*`
+  multimethod hierarchy from a sequence of metaobjects."
   ([] (make-hierarchies (all-ns-metaobjects)))
   ([xs]
    (let [classes     (make-class-hierarchy xs)
          properties  (make-property-hierarchy classes xs)
-         metaobjects (make-metaobject-hierarchy classes properties xs)
-         skos        (make-skos-hierarchy metaobjects)]
+         metaobjects (make-metaobject-hierarchy classes properties xs)]
      {:classes     classes
       :properties  properties
-      :metaobjects metaobjects
-      :skos        skos})))
+      :metaobjects metaobjects})))
+
+(defmethod mop/make-hierarchy-using-env :default
+  [env]
+  (:metaobjects (make-hierarchies)))
 
 (declare finalize setup-indexes)
 
@@ -393,7 +338,7 @@
 ;; (optional, defaults to above)
 
 ;; :boot
-;; A list of namespace-qualified symbols resolving to vars with
+;; A list of symbols resolving to vars or namespaces with
 ;; :rdfa/prefix and :rdfa/uri mappings
 
 ;; (These vars should exist in in a 'boot' namespace with metadata of
@@ -428,36 +373,30 @@
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [all-metaobjects                               (all-ns-metaobjects)
-            config                                        (or config {:xtdb.lucene/lucene-store
-                                                                      {:db-dir ".vocab/lucene"}})
-            node                                          (xt/start-node config)
-            {:keys [registry ns-aliases]}                 (make-boot-context)
-            {:keys [classes properties metaobjects skos]} (make-hierarchies all-metaobjects)]
+      (let [all-metaobjects               (all-ns-metaobjects)
+            config                        (or config {:xtdb.lucene/lucene-store
+                                                      {:db-dir ".vocab/lucene"}})
+            node                          (xt/start-node config)
+            {:keys [registry ns-aliases]} (make-boot-context)
+            {:keys [metaobjects]}         (make-hierarchies all-metaobjects)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
-        (alter-var-root #'*classes* (constantly classes))
-        (alter-var-root #'*properties* (constantly properties))
-        (alter-var-root #'*skos* (constantly skos))
         (alter-var-root #'mop/*metaobjects* (constantly metaobjects))
-        (alter-var-root #'mop/*env* (constantly node))        
+        (alter-var-root #'mop/*env* (constantly node))
         (try
           (xt/submit-tx node (into []
-                                   (comp
-                                     (map (juxt (constantly ::xt/put) freezable)))
+                                   (map (juxt (constantly ::xt/put) freezable))
                                    all-metaobjects))
           (xt/sync node)
-          (require (or init-ns 'net.wikipunk.mop.init) #_:reload)
-          (alter-var-root #'*indexes* (constantly (setup-indexes classes properties)))
+          (require (or init-ns 'net.wikipunk.mop.init))
+          (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
           (finalize)
           (catch Throwable ex
             (log/error ex)))
         (cond-> this
           node (assoc :node node)))))
   (stop [this]
-    (alter-var-root #'*classes* (constantly (make-hierarchy)))
-    (alter-var-root #'*properties* (constantly (make-hierarchy)))
     (when (instance? java.io.Closeable node)
       (.close ^java.io.Closeable node))
     (assoc this :node nil))
@@ -1065,9 +1004,9 @@
         ontologies (->> (remove public? forms)
                         (filter :rdf/type)
                         (filter (fn [form]
-                                  (some #(or (isa? *classes* % :owl/Ontology)
-                                             (isa? *classes* % :voaf/Vocabulary)
-                                             (isa? *classes* % :madsrdf/MADSScheme))
+                                  (some #(or (isa? mop/*metaobjects* % :owl/Ontology)
+                                             (isa? mop/*metaobjects* % :voaf/Vocabulary)
+                                             (isa? mop/*metaobjects* % :madsrdf/MADSScheme))
                                         (if (coll? (:rdf/type form))
                                           (:rdf/type form)
                                           [(:rdf/type form)])))))
@@ -1128,8 +1067,8 @@
                         ;; todo: refactor this into a multimethod
                         (pmap (fn [form]
                                 (if (and (pos? *recurse*)
-                                         (some #(or (isa? *classes* % :skos/Concept)
-                                                    (isa? *classes* % :skos/ConceptScheme))
+                                         (some #(or (isa? mop/*metaobjects* % :skos/Concept)
+                                                    (isa? mop/*metaobjects* % :skos/ConceptScheme))
                                                (if (sequential? (:rdf/type form))
                                                  (:rdf/type form)
                                                  [(:rdf/type form)])))
@@ -1430,9 +1369,19 @@
 
 (defn setup-indexes
   ([]
-   (setup-indexes *classes* *properties*))
-  ([classes properties]
-   (let [slots (into [] (pmap direct-slot-definition (keys (:parents properties))))]
+   (setup-indexes mop/*metaobjects*))
+  ([h]
+   (let [slots (into []
+                     (comp
+                       (filter #(some #{:owl/ObjectProperty
+                                        :owl/DatatypeProperty
+                                        :owl/AnnotationProperty
+                                        :owl/TransitiveProperty
+                                        :owl/SymmetricProperty
+                                        :owl/FunctionalProperty
+                                        :rdf/Property}
+                                      (:rdf/type %))))
+                     (pmap direct-slot-definition (descendants h :rdf/Property)))]
      {:slots/by-domain
       (reduce-kv (fn [m domain slots]
                    (reduce (fn [m k]
@@ -1445,7 +1394,7 @@
 (defn finalize
   "Finalizes all of the loaded classes."
   ([]
-   (finalize true (conj (descendants *classes* :rdfs/Class) :rdfs/Class)))
+   (finalize true (conj (descendants mop/*metaobjects* :rdfs/Class) :rdfs/Class)))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
