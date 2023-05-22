@@ -164,8 +164,7 @@ https://www.w3.org/DesignIssues/
 
 https://wikipunk.net/
 
-### On the Art of the Metaobject Protocol...
-# The Metaobject Protocol in Wikipunk.net
+# The Art of the Metaobject Protocol in Wikipunk.net
 
 The Metaobject Protocol (MOP) in wikipunk.net is a powerful and
 flexible system for defining and interacting with objects and
