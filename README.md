@@ -233,8 +233,6 @@ modifying classes themselves. These multimethods include:
 
 - `class-slots`: Returns a possibly empty set of the slots accessible in instances of class.
 
-- `ensure-class-using-class`: Called to define or modify the definition of a named class.
-
 - `ensure-class`: Called to define or redefine a class with the specified name.
 
 - `finalize-inheritance`: Called to finalize a class metaobject.
