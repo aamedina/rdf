@@ -659,3 +659,259 @@ to reduce the attack surface of your system. By strictly controlling
 what resources can be accessed over the network, you can make it more
 difficult for an attacker to compromise your system.
 
+### :d3fend/M1036 - Account Use Policies
+
+Account Use Policies is a mitigation technique in the D3FEND framework. This technique involves the establishment of policies that govern how accounts are used within a system. It is associated with three defensive techniques:
+
+- **:d3fend/AccountLocking:** This technique involves temporarily disabling user accounts on a system or domain. It's a part of the :d3fend/CredentialEviction class, which is a subclass of :d3fend/Technique and :d3fend/DefensiveTechnique. It is associated with :d3fend/UserAccount and counters the same.
+
+- **:d3fend/AuthenticationCacheInvalidation:** This technique involves removing tokens or credentials from an authentication cache to prevent further user associated account accesses. It's a part of the :d3fend/CredentialEviction class, which is a subclass of :d3fend/Technique and :d3fend/DefensiveTechnique. It is associated with :d3fend/Authentication and counters the same.
+
+- **:d3fend/AuthenticationEventThresholding:** This technique involves collecting authentication events, creating a baseline user profile, and determining whether authentication events are consistent with the baseline profile. It's a part of the :d3fend/UserBehaviorAnalysis class, which is a subclass of :d3fend/Technique and :d3fend/DefensiveTechnique. It is associated with :d3fend/Authentication and detects the same.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/AccountLocking:** Implement account locking policies on your Datomic servers. This could involve setting up rules that temporarily disable user accounts after a certain number of failed login attempts. This can help to prevent an attacker from gaining access to your servers through brute force attacks.
+
+- **:d3fend/AuthenticationCacheInvalidation:** Implement authentication cache invalidation on your Datomic servers. This could involve setting up rules that automatically remove tokens or credentials from the authentication cache after a certain period of time or under certain conditions. This can help to prevent an attacker from gaining access to your servers using stolen or leaked credentials.
+
+- **:d3fend/AuthenticationEventThresholding:** Implement authentication event thresholding on your Datomic servers. This could involve setting up systems that collect authentication events, create a baseline user profile, and alert administrators when authentication events deviate from the baseline profile. This can help to detect and respond to suspicious activity on your servers.
+
+### :d3fend/M1037 - Filter Network Traffic
+
+Filter Network Traffic is a mitigation technique in the D3FEND framework. This technique involves filtering network traffic to prevent network hosts from accessing non-essential system network resources. It is associated with the defensive technique :d3fend/NetworkIsolation, which is part of the :d3fend/Isolate defensive tactic.
+
+- **:d3fend/NetworkIsolation:** This technique prevents network hosts from accessing non-essential system network resources. It's a part of the :d3fend/Isolate defensive tactic, which creates logical or physical barriers in a system to reduce opportunities for adversaries to create further accesses.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/NetworkIsolation:** Implement network isolation on your Datomic servers. This could involve setting up network rules that prevent unauthorized network hosts from accessing your servers. This can help to prevent an attacker from accessing your servers over the network.
+
+- **Filter Network Traffic:** Implement network traffic filtering on
+  your Datomic servers. This could involve setting up firewall rules
+  that filter out unwanted traffic, based on factors such as IP
+  address, port number, protocol, or other characteristics. This can
+  help to prevent an attacker from sending malicious traffic to your
+  servers or receiving sensitive data from your servers.
+
+## :d3fend/M1038 - Executable Allowlisting
+
+Executable Allowlisting is a mitigation technique in the D3FEND framework. This technique involves allowing only specific executables to run on a system. It is associated with several defensive techniques:
+
+- **:d3fend/ExecutableAllowlisting:** This technique involves using a digital signature to authenticate a file before opening. It is associated with the digital artifacts :d3fend/ExecutableFile and :d3fend/CreateProcess. It counters and blocks the execution of the :d3fend/ExecutableFile. It also restricts the :d3fend/CreateProcess.
+
+- **:d3fend/DriverLoadIntegrityChecking:** This technique involves ensuring the integrity of drivers loaded during the initialization of the operating system. It is associated with the digital artifact :d3fend/HardwareDriver. It counters and authenticates the :d3fend/HardwareDriver.
+
+- **:d3fend/ProcessSegmentExecutionPrevention:** This technique involves preventing execution of any address in a memory region other than the code segment. It is associated with the digital artifact :d3fend/ProcessSegment. It counters and neutralizes the :d3fend/ProcessSegment.
+
+- **:d3fend/ExecutableDenylisting:** This technique involves blocking the execution of files on a host in accordance with defined application policy rules. It is associated with the digital artifacts :d3fend/ExecutableFile and :d3fend/CreateProcess. It counters and blocks the execution of the :d3fend/ExecutableFile. It also restricts the :d3fend/CreateProcess.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/ExecutableAllowlisting:** Ensure that only authenticated executables are allowed to run in the environment where Datomic is running. This could involve using digital signatures to authenticate executables before they are allowed to run.
+
+- **:d3fend/DriverLoadIntegrityChecking:** If Datomic is running on a system where drivers are used, ensure that the integrity of these drivers is checked when they are loaded. This could involve using a secure operating system that performs these checks.
+
+- **:d3fend/ProcessSegmentExecutionPrevention:** Ensure that the Datomic processes are running in a secure environment where the execution of unauthorized code segments is prevented. This could involve running Datomic in a hardened container or virtual machine.
+
+- **:d3fend/ExecutableDenylisting:** Implement a policy that blocks the execution of certain files in the environment where Datomic is running. This could involve setting up a denylist of files that are not allowed to be executed.
+
+## :d3fend/M1039 - Environment Variable Permissions
+
+Environment Variable Permissions is a mitigation technique in the D3FEND framework. This technique involves setting permissions on environment variables to prevent unauthorized modification. It is associated with two defensive techniques:
+
+- **:d3fend/SystemFileAnalysis:** This technique involves monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering. It is associated with the digital artifact :d3fend/OperatingSystemFile.
+
+- **:d3fend/ApplicationConfigurationHardening:** This technique involves modifying an application's configuration to reduce its attack surface. It is associated with the digital artifact :d3fend/ApplicationConfiguration.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/SystemFileAnalysis:** Implement system file analysis on your Datomic servers. This could involve setting up monitoring tools that alert you to any changes in important system files. This can help to detect and respond to unauthorized modifications.
+
+- **:d3fend/ApplicationConfigurationHardening:** Harden the configuration of your Datomic application. This could involve setting strict permissions on configuration files, limiting the use of potentially dangerous features, and regularly reviewing and updating the configuration to ensure it remains secure.
+
+## :d3fend/M1040 - Behavior Prevention on Endpoint
+
+The metaobject :d3fend/M1040 represents a mitigation technique in the D3FEND framework, specifically "Behavior Prevention on Endpoint". This mitigation technique is associated with several defensive techniques:
+
+- **:d3fend/JobFunctionAccessPatternAnalysis:** This technique involves detecting anomalies in user access patterns by comparing user access activity to behavioral profiles that categorize users by role such as job title, function, department. It is associated with the digital artifact :d3fend/Authorization, which represents the function of specifying access rights to resources related to information security and computer security in general and to access control in particular.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/JobFunctionAccessPatternAnalysis:** Implement a system that monitors user access patterns in the Datomic database. This could involve creating behavioral profiles for each user based on their role and then using these profiles to detect any anomalous access patterns. For example, if a user suddenly starts accessing data that is not typically required for their role, this could be flagged as a potential security threat. This technique is particularly useful in a linked data platform where access to different types of data may be required by different roles.
+
+The technique is associated with the :d3fend/Authorization class,
+indicating that it involves specifying access rights to
+resources. This could involve setting up access control rules in
+Datomic to specify which users are authorized to access which
+resources. The technique counters threats associated with
+:d3fend/NetworkResourceAccess, such as unauthorized access to network
+resources.
+
+## :d3fend/M1041 - Encrypt Sensitive Information
+
+The metaobject :d3fend/M1041 represents a mitigation technique in the D3FEND framework, specifically "Encrypt Sensitive Information". This mitigation technique is associated with several defensive techniques:
+
+- **:d3fend/DiskEncryption:** This technique involves encrypting a hard disk partition to prevent cleartext access to a file system. It is associated with the digital artifact :d3fend/Storage, which represents the function of storing data for use by a computer or digital system.
+
+- **:d3fend/MessageEncryption:** This technique involves encrypting a message body using a cryptographic key. It is associated with the digital artifact :d3fend/UserToUserMessage, which represents the function of transmitting information from one user to another.
+
+- **:d3fend/FileEncryption:** This technique involves encrypting a file using a cryptographic key. It is associated with the digital artifact :d3fend/File, which represents a collection of data that a computer can read and write.
+
+- **:d3fend/EncryptedTunnels:** This technique involves encrypted encapsulation of routable network traffic. It is associated with the digital artifact :d3fend/IntranetNetwork, which represents a private network that is contained within an enterprise.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/DiskEncryption:** Ensure that the storage devices used by the Datomic database are encrypted. This can prevent an attacker from accessing the data if they gain physical access to the storage device.
+
+- **:d3fend/MessageEncryption:** If Datomic is used to store messages that are sent between users, ensure that these messages are encrypted. This can prevent an attacker from reading the messages if they are intercepted during transmission.
+
+- **:d3fend/FileEncryption:** If Datomic is used to store files, ensure that these files are encrypted. This can prevent an attacker from reading the files if they gain access to the storage device.
+
+- **:d3fend/EncryptedTunnels:** If Datomic is used in a networked environment, ensure that the network traffic is encrypted. This can prevent an attacker from intercepting the network traffic and gaining access to the data.
+
+## :d3fend/M1042 - Disable or Remove Feature or Program
+
+The metaobject :d3fend/M1042 represents a mitigation technique in the D3FEND framework, specifically "Disable or Remove Feature or Program". This mitigation technique is associated with several defensive techniques:
+
+- **:d3fend/ApplicationConfigurationHardening:** This technique involves modifying an application's configuration to reduce its attack surface. It is associated with the digital artifact :d3fend/ApplicationConfiguration, which represents the function of configuring an application.
+
+- **:d3fend/MandatoryAccessControl:** This technique involves controlling access to local computer system resources with kernel-level capabilities. It is associated with the digital artifact :d3fend/Process, which represents the function of a process in a computer system, and :d3fend/CreateProcess, which represents the function of creating a process.
+
+- **:d3fend/ExecutableDenylisting:** This technique involves blocking the execution of files on a host in accordance with defined application policy rules. It is associated with the digital artifact :d3fend/ExecutableFile, which represents a file that can be directly executed by a computer system, and :d3fend/CreateProcess, which represents the function of creating a process.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/ApplicationConfigurationHardening:** Ensure that the Datomic application's configuration is hardened to reduce its attack surface. This could involve disabling unnecessary features or services, limiting the permissions of the application, or configuring the application to use secure settings.
+
+- **:d3fend/MandatoryAccessControl:** Implement mandatory access control mechanisms in the operating system hosting the Datomic database. This could involve using a secure operating system that supports mandatory access control, or configuring the operating system to restrict the permissions of the Datomic processes.
+
+- **:d3fend/ExecutableDenylisting:** Implement executable denylisting mechanisms to prevent the execution of unauthorized files on the host running the Datomic database. This could involve using security software that supports executable denylisting, or configuring the operating system to block the execution of unauthorized files.
+
+## :d3fend/M1043 - Credential Access Protection
+
+The metaobject :d3fend/M1043 represents a mitigation technique in the D3FEND framework, specifically "Credential Access Protection". This mitigation technique is associated with the defensive technique:
+
+- **:d3fend/Hardware-basedProcessIsolation:** This technique involves preventing one process from writing to the memory space of another process through hardware-based address manager implementations. It is associated with the digital artifacts :d3fend/Process and :d3fend/CreateProcess, which represent the function of a process in a computer system and the function of creating a process, respectively.
+
+In the context of defending a linked data platform using Datomic, this technique can be applied as follows:
+
+- **:d3fend/Hardware-basedProcessIsolation:** Implement hardware-based process isolation mechanisms in the operating system hosting the Datomic database. This could involve using a secure operating system that supports hardware-based process isolation, or configuring the operating system to restrict the permissions of the Datomic processes. This can prevent one process from writing to the memory space of another process, which can be particularly useful in preventing credential theft attacks where an attacker tries to access the memory space of a process to steal credentials.
+
+## :d3fend/M1044 - Restrict Library Loading
+
+The metaobject :d3fend/M1044 represents a mitigation technique in the D3FEND framework, specifically "Restrict Library Loading". This mitigation technique is associated with the defensive technique:
+
+- **:d3fend/SystemCallFiltering:** This technique involves configuring a kernel to use an allow or deny list to filter kernel API calls. It is associated with the digital artifact :d3fend/SystemCall, which represents the function of a system call in a computer system.
+
+In the context of defending a linked data platform using Datomic, this technique can be applied as follows:
+
+- **:d3fend/SystemCallFiltering:** Implement system call filtering mechanisms in the operating system hosting the Datomic database. This could involve using a secure operating system that supports system call filtering, or configuring the operating system to restrict the system calls that can be made by the Datomic processes. This can prevent an attacker from loading malicious libraries into the Datomic processes by blocking the system calls used to load libraries.
+
+The technique is associated with the :d3fend/SystemCall class, indicating that it involves controlling system calls. This could involve setting up system call filtering rules in the operating system to specify which system calls are allowed and which are blocked. The technique counters threats associated with :d3fend/SystemCall, such as attacks that exploit system calls to compromise the system.
+
+## :d3fend/M1045 - Code Signing
+
+The metaobject :d3fend/M1045 represents a mitigation technique in the D3FEND framework, specifically "Code Signing". This mitigation technique is associated with several defensive techniques:
+
+- **:d3fend/DriverLoadIntegrityChecking:** This technique involves ensuring the integrity of drivers loaded during the initialization of the operating system. It is associated with the digital artifact :d3fend/HardwareDriver, which represents a hardware driver in a computer system.
+
+- **:d3fend/ServiceBinaryVerification:** This technique involves analyzing changes in service binary files by comparing them to a source of truth. It is associated with the digital artifact :d3fend/ServiceApplication, which represents a service application in a computer system.
+
+- **:d3fend/ExecutableAllowlisting:** This technique involves using a digital signature to authenticate a file before opening it. It is associated with the digital artifact :d3fend/ExecutableFile, which represents an executable file in a computer system, and :d3fend/CreateProcess, which represents the creation of a process in a computer system.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/DriverLoadIntegrityChecking:** Ensure that the integrity of drivers loaded during the initialization of the operating system hosting the Datomic database is verified. This could involve using a secure operating system that supports driver load integrity checking, or configuring the operating system to verify the integrity of drivers when they are loaded.
+
+- **:d3fend/ServiceBinaryVerification:** Regularly verify the integrity of the binary files of the services used by the Datomic database. This could involve using a tool that can compare the current state of these files to a known good state, and alert you if any changes are detected.
+
+- **:d3fend/ExecutableAllowlisting:** Implement an allowlist of executable files that are allowed to run on the system hosting the Datomic database. This could involve configuring the operating system or a security tool to block the execution of any executable file that is not on the allowlist. This can prevent an attacker from running malicious executable files on the system.
+
+## :d3fend/M1046 - Boot Integrity
+
+The metaobject :d3fend/M1046 represents a mitigation technique in the D3FEND framework, specifically "Boot Integrity". This mitigation technique is associated with several defensive techniques:
+
+- **:d3fend/BootloaderAuthentication:** This technique involves cryptographically authenticating the bootloader software before system boot. It is associated with the digital artifact :d3fend/BootLoader, which represents a bootloader in a computer system.
+
+- **:d3fend/TPMBootIntegrity:** This technique involves assuring the integrity of a platform by demonstrating that the boot process starts from a trusted combination of hardware and software and continues until the operating system has fully booted and applications are running. Sometimes called Static Root of Trust Measurement (STRM).
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- **:d3fend/BootloaderAuthentication:** Implement bootloader authentication mechanisms in the operating system hosting the Datomic database. This could involve using a secure operating system that supports bootloader authentication, or configuring the operating system to authenticate the bootloader before system boot. This can prevent an attacker from modifying the bootloader to launch attacks at boot time.
+
+- **:d3fend/TPMBootIntegrity:** Implement TPM boot integrity mechanisms in the operating system hosting the Datomic database. This could involve using a secure operating system that supports TPM boot integrity, or configuring the operating system to demonstrate that the boot process starts from a trusted combination of hardware and software and continues until the operating system has fully booted and applications are running. This can prevent an attacker from modifying the boot process to launch attacks at boot time.
+
+## :d3fend/M1047 - Audit
+
+The metaobject :d3fend/M1047 represents a mitigation technique in the D3FEND framework, specifically "Audit". This mitigation technique is associated with several defensive techniques:
+
+- :d3fend/SystemFileAnalysis
+- :d3fend/LocalAccountMonitoring
+- :d3fend/DomainAccountMonitoring
+
+### :d3fend/SystemFileAnalysis
+
+System File Analysis (:d3fend/SystemFileAnalysis) is a defensive technique that involves monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering. It is associated with the digital artifact :d3fend/OperatingSystemFile, which represents an operating system file that is part of, or used to store information about, the operating system itself.
+
+In the context of defending a linked data platform using Datomic, System File Analysis can be applied by monitoring the files related to the Datomic system for any unexpected changes. This could involve setting up file integrity monitoring tools to alert you if any of the Datomic system files are modified.
+
+### :d3fend/LocalAccountMonitoring
+
+Local Account Monitoring (:d3fend/LocalAccountMonitoring) is a defensive technique that involves analyzing local user accounts to detect unauthorized activity. It is associated with the digital artifact :d3fend/LocalUserAccount, which represents a user account on a given host.
+
+In the context of defending a linked data platform using Datomic, Local Account Monitoring can be applied by monitoring the local user accounts that have access to the Datomic system. This could involve setting up user behavior analytics tools to detect any unusual activity associated with these accounts.
+
+### :d3fend/DomainAccountMonitoring
+
+Domain Account Monitoring (:d3fend/DomainAccountMonitoring) is a defensive technique that involves monitoring the existence of or changes to Domain User Accounts. It is associated with the digital artifact :d3fend/DomainUserAccount, which represents a domain user account in Microsoft Windows that defines a user's access to a logical group of network objects.
+
+In the context of defending a linked data platform using Datomic, Domain Account Monitoring can be applied if the Datomic system is part of a Windows domain. This could involve setting up account monitoring tools to detect any changes to the domain user accounts that have access to the Datomic system.
+
+## :d3fend/M1048 - Hardware-based Process Isolation
+
+The metaobject :d3fend/M1048 represents a mitigation technique in the D3FEND framework, specifically "Hardware-based Process Isolation". This mitigation technique is associated with several defensive techniques:
+
+- :d3fend/Hardware-basedProcessIsolation: This technique involves isolating processes at the hardware level. This can be useful in preventing a compromised process from affecting other processes running on the same system.
+
+- :d3fend/MandatoryAccessControl: This technique involves enforcing mandatory access controls on system resources. This can prevent an attacker from accessing sensitive resources if they manage to compromise a process.
+
+- :d3fend/SystemCallFiltering: This technique involves filtering system calls to prevent a process from performing certain actions. This can be useful in limiting the damage that a compromised process can do.
+
+- :d3fend/DynamicAnalysis: This technique involves executing or opening a file in a synthetic "sandbox" environment to determine if the file is a malicious program or if the file exploits another program such as a document reader.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- :d3fend/Hardware-basedProcessIsolation: Ensure that the Datomic processes are running on a system that supports hardware-based process isolation. This could involve running Datomic on a system with hardware features that support process isolation, such as Intel's VT-x or AMD's AMD-V.
+
+- :d3fend/MandatoryAccessControl: Enforce mandatory access controls on the Datomic database and any other sensitive resources. This could involve configuring Datomic's access controls to strictly limit who can access the data and what they can do with it.
+
+- :d3fend/SystemCallFiltering: If Datomic is running on a system where system call filtering is supported, configure the system to filter system calls made by the Datomic processes. This could involve using a security feature like seccomp on Linux to limit the system calls that the Datomic processes can make.
+
+- :d3fend/DynamicAnalysis: Regularly analyze the files that Datomic interacts with in a sandbox environment to detect potential malicious activity. This could involve using a dynamic analysis tool to analyze files before they are opened by Datomic.
+
+## :d3fend/M1049 - Antivirus/Antimalware
+
+The metaobject :d3fend/M1049 represents a mitigation technique in the D3FEND framework, specifically "Antivirus/Antimalware". This mitigation technique is associated with several defensive techniques:
+
+- :d3fend/FileHashing
+- :d3fend/FileContentRules
+- :d3fend/ProcessAnalysis
+
+### :d3fend/FileHashing
+
+File Hashing (:d3fend/FileHashing) is a defensive technique that involves employing file hash comparisons to detect known malware. It is associated with the digital artifact :d3fend/File, which represents a file in a file system.
+
+In the context of defending a linked data platform using Datomic, File Hashing can be applied by maintaining a database of known malicious file hashes and regularly comparing the hashes of the files in the Datomic system against this database. This could involve setting up a file integrity monitoring tool that supports hash checking.
+
+### :d3fend/FileContentRules
+
+File Content Rules (:d3fend/FileContentRules) is a defensive technique that involves employing a pattern matching rule language to analyze files. It is associated with the digital artifact :d3fend/File, which represents a file in a file system.
+
+In the context of defending a linked data platform using Datomic, File Content Rules can be applied by setting up a system that analyzes the content of the files in the Datomic system using a set of predefined rules. This could involve using a tool that supports file content analysis, such as a security-focused intrusion detection system.
+
+### :d3fend/ProcessAnalysis
+
+Process Analysis (:d3fend/ProcessAnalysis) is a defensive technique that consists of observing a running application process and analyzing it to watch for certain behaviors or conditions which may indicate adversary activity. Analysis can occur inside of the process or through a third-party monitoring application. Examples include monitoring system and privileged calls, monitoring process initiation chains, and memory boundary allocations.
+
+In the context of defending a linked data platform using Datomic, Process Analysis can be applied by monitoring the Datomic processes for any unusual behavior. This could involve setting up a process monitoring tool that alerts you if the Datomic processes perform any suspicious actions.
