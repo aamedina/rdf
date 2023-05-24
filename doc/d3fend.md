@@ -548,38 +548,9 @@ your system.
 ### :d3fend/M1033 - Limit Software Installation
 
 Limit Software Installation is a mitigation technique in the D3FEND
-framework. This technique is associated with two defensive techniques:
-
-- :d3fend/ExecutableDenylisting: This technique involves blocking the
-  execution of files on a host in accordance with defined application
-  policy rules.
-
-- :d3fend/ExecutableAllowlisting: This technique involves using a
-  digital signature to authenticate a file before opening.
-
-In the context of defending a linked data platform using Datomic,
-these techniques can be applied as follows:
-
-- **:d3fend/ExecutableDenylisting:** Implement a denylist of
-  executables on your Datomic servers. This could involve setting up
-  rules that prevent the execution of certain files, such as those
-  known to be associated with malicious activity. This can help to
-  prevent an attacker from running malicious code on your servers.
-
-- **:d3fend/ExecutableAllowlisting:** Conversely, you could implement
-  an allowlist of executables. This would involve only allowing the
-  execution of files that have been authenticated with a digital
-  signature. This can help to ensure that only trusted code is run on
-  your servers.
-
-Remember, the goal of limiting software installation is to reduce the
-attack surface of your system. By strictly controlling what software
-can be installed and run on your servers, you can make it more
-difficult for an attacker to compromise your system.
-
-### :d3fend/M1033 - Limit Software Installation
-
-Limit Software Installation is a mitigation technique in the D3FEND framework. This technique involves limiting the ability of users to install software on a system. It is associated with two defensive techniques:
+framework. This technique involves limiting the ability of users to
+install software on a system. It is associated with two defensive
+techniques:
 
 - :d3fend/ExecutableDenylisting: This technique involves blocking the
   execution of files on a host in accordance with defined application
