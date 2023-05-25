@@ -118,38 +118,6 @@ The `:as/Object` class has a number of subclasses, which include:
 - `:as/Question`
 - `:as/OrderedCollectionPage`
 
-The `:as/Activity` class also has a number of subclasses, which include:
-
-- `:as/IntransitiveActivity`
-- `:as/Block`
-- `:as/Arrive`
-- `:as/Like`
-- `:as/Dislike`
-- `:as/Listen`
-- `:as/Undo`
-- `:as/Join`
-- `:as/Leave`
-- `:as/Question`
-- `:as/TentativeAccept`
-- `:as/View`
-- `:as/TentativeReject`
-- `:as/Remove`
-- `:as/Create`
-- `:as/Move`
-- `:as/Announce`
-- `:as/Follow`
-- `:as/Offer`
-- `:as/Travel`
-- `:as/Ignore`
-- `:as/Update`
-- `:as/Invite`
-- `:as/Add`
-- `:as/Flag`
-- `:as/Read`
-- `:as/Reject`
-- `:as/Accept`
-- `:as/Delete`
-
 These subclasses represent more specific types of objects and
 activities. For example, `:as/Article` is a subclass of `:as/Object`
 and represents an article, while `:as/View` is a subclass of
