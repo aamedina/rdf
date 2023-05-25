@@ -65,7 +65,62 @@ that can be applied to counteract or prevent cyber attacks. The
 specific details of each mitigation strategy would be defined by the
 properties of the corresponding class.
 
-### Vulnerability Scanning
+## :d3fend/M1013 - Application Developer Guidance
+
+The metaobject :d3fend/M1013 represents a mitigation technique in the D3FEND framework, specifically "Application Developer Guidance". The definition of :d3fend/M1013 is "A future release of D3FEND will define a taxonomy of Source Code Hardening Techniques."
+
+In the context of defending a linked data platform using Datomic, the concept of Application Developer Guidance is crucial. It suggests that future updates to the D3FEND framework will provide a taxonomy of techniques for hardening source code, which could be applied to the development and maintenance of applications that interact with Datomic.
+
+Here are some general strategies for source code hardening that can be applied:
+
+- **Input Validation**: Ensure that your applications validate input before processing it. This can help to prevent a wide range of attacks, such as SQL injection and cross-site scripting (XSS).
+
+- **Least Privilege**: Design your applications to operate with the least privilege necessary. This can limit the potential damage if an attacker is able to exploit a vulnerability in the application.
+
+- **Error Handling**: Implement robust error handling in your applications. This can prevent attackers from gaining information about the application's internals through error messages.
+
+- **Code Reviews**: Regularly review your code for security vulnerabilities. This can help to catch potential issues before they become serious vulnerabilities.
+
+- **Use of Secure Libraries and Frameworks**: Use libraries and
+  frameworks that are designed with security in mind. These can
+  provide secure implementations of common functionality, reducing the
+  chance of introducing vulnerabilities.
+
+## :d3fend/M1015 - Active Directory Configuration
+
+The metaobject :d3fend/M1015 represents a mitigation technique in the D3FEND framework, specifically "Active Directory Configuration". This mitigation technique is associated with several defensive techniques:
+
+### :d3fend/AuthenticationCacheInvalidation
+
+Authentication Cache Invalidation (:d3fend/AuthenticationCacheInvalidation) is a defensive technique that involves removing tokens or credentials from an authentication cache to prevent further user associated account accesses. It is associated with the digital artifact :d3fend/Credential, which represents a physical/tangible object, a piece of knowledge, or a facet of a person's physical being that enables an individual access to a given physical facility or computer-based information system.
+
+In the context of defending a linked data platform using Datomic, Authentication Cache Invalidation can be applied as follows:
+
+- Regularly invalidate the authentication cache of your Datomic system. This can prevent an attacker from using stolen credentials to gain unauthorized access.
+- Implement a system that automatically invalidates the authentication cache after a certain period of time or after certain events, such as a user logging out.
+- Monitor the authentication cache for signs of suspicious activity, such as multiple failed login attempts. This can help you detect and respond to potential attacks.
+
+### :d3fend/UserAccountPermissions
+
+User Account Permissions (:d3fend/UserAccountPermissions) is a defensive technique that involves managing the permissions of user accounts to limit their access to resources. It is associated with the digital artifact :d3fend/UserAccount, which allows a user to authenticate to a system and potentially to receive authorization to access resources provided by or connected to that system.
+
+In the context of defending a linked data platform using Datomic, User Account Permissions can be applied as follows:
+
+- Regularly review and update the permissions of user accounts in your Datomic system. This can help ensure that users only have access to the resources they need, reducing the potential damage if an account is compromised.
+- Implement a system for managing user account permissions. This could involve using roles or groups to manage permissions for multiple users at once.
+- Monitor user account activity for signs of suspicious behavior, such as attempts to access resources they do not have permission for. This can help you detect and respond to potential attacks.
+
+### :d3fend/DomainTrustPolicy
+
+Domain Trust Policy (:d3fend/DomainTrustPolicy) is a defensive technique that involves managing the trust relationships between domains in a network. It is not directly associated with a digital artifact in the D3FEND framework.
+
+In the context of defending a linked data platform using Datomic, Domain Trust Policy can be applied as follows:
+
+- Regularly review and update the trust relationships between the domains in your network. This can help prevent an attacker from exploiting these relationships to gain unauthorized access.
+- Implement a system for managing domain trust relationships. This could involve using a centralized management system or a distributed trust model.
+- Monitor domain trust relationships for signs of suspicious activity, such as unauthorized changes. This can help you detect and respond to potential attacks.
+
+## Vulnerability Scanning
 
 The `:d3fend/M1016` - Vulnerability Scanning mitigation in the D3FEND
 ontology represents the concept of scanning and inventorying domains
@@ -89,7 +144,7 @@ For example, if you have a mitigation with the ident `:mit1`, you could add the 
 This fact states that the mitigation `:mit1` involves scanning and
 inventorying domains for vulnerabilities.
 
-### User Training
+## User Training
 
 The `:d3fend/M1017` - User Training mitigation in the D3FEND ontology
 represents the concept of training users to improve security. The
@@ -327,6 +382,40 @@ these techniques can be applied as follows:
   could involve configuring Datomic's access controls to strictly
   limit who can access the data and what they can do with it.
 
+## :d3fend/M1026 - Domain Account Monitoring
+
+The metaobject :d3fend/M1026 represents a mitigation technique in the D3FEND framework, specifically "Domain Account Monitoring". This mitigation technique is associated with several defensive techniques:
+
+- :d3fend/DomainAccountMonitoring: This technique involves monitoring domain user accounts to detect unauthorized activity. This can be useful in identifying potential security breaches or misuse of domain user accounts.
+
+- :d3fend/DomainUserAccount: A domain user account in Microsoft Windows (2000) defines that user's access to a logical group of network objects (computers, users, devices) that share the same Active Directory databases; that is, a user's access to a domain. 
+
+- :d3fend/LocalAccountMonitoring: This technique involves analyzing local user accounts to detect unauthorized activity.
+
+- :d3fend/LocalUserAccount: A user account on a given host is a local user account for that specific host.
+
+- :d3fend/StrongPasswordPolicy: This technique involves modifying system configuration to increase password strength.
+
+- :d3fend/UserAccount: A user account allows a user to authenticate to a system and potentially to receive authorization to access resources provided by or connected to that system; however, authentication does not imply authorization. To log into an account, a user is typically required to authenticate oneself with a password or other credentials for the purposes of accounting, security, logging, and resource management.
+
+- :d3fend/Password: A password, sometimes called a passcode, is a memorized secret, typically a string of characters, usually used to confirm the identity of a user.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- :d3fend/DomainAccountMonitoring: Ensure that the Datomic processes are running in a secure environment where the execution of unauthorized code segments is prevented. This could involve running Datomic in a hardened container or virtual machine.
+
+- :d3fend/DomainUserAccount: If Datomic is running on a system where drivers are used, ensure that the integrity of these drivers is checked when they are loaded. This could involve using a secure operating system that performs these checks.
+
+- :d3fend/LocalAccountMonitoring: If Datomic is running on a physical server, ensure that the bootloader is authenticated at startup. This could involve using a secure boot process that checks the integrity of the bootloader.
+
+- :d3fend/LocalUserAccount: Enforce mandatory access controls on the Datomic database and any other sensitive resources. This could involve configuring Datomic's access controls to strictly limit who can access the data and what they can do with it.
+
+- :d3fend/StrongPasswordPolicy: Implement a strong password policy for all Datomic users. This could involve enforcing password complexity requirements, regular password changes, and the use of multi-factor authentication.
+
+- :d3fend/UserAccount: Monitor user account activity in Datomic. This could involve logging all user actions, regularly reviewing these logs, and setting up alerts for suspicious activity.
+
+- :d3fend/Password: Securely store Datomic user passwords. This could involve hashing passwords, regularly updating password hashes, and never storing passwords in plain text.
+
 ### Password Policies
 
 The metaobject `:d3fend/M1027` represents a mitigation technique in
@@ -471,6 +560,26 @@ Broadcast Domain Isolation can be applied as follows:
   parts of your network into separate broadcast domains. This can
   provide an additional layer of isolation and security for your
   Datomic servers.
+
+## :d3fend/M1030 - "Inbound Traffic Filtering"
+
+The metaobject :d3fend/M1030 represents a mitigation technique in the D3FEND framework, specifically "Inbound Traffic Filtering". This mitigation technique is associated with several defensive techniques:
+
+- :d3fend/EncryptedTunnels: This technique involves creating encrypted tunnels for network traffic. This can help to protect the data being transmitted from interception or tampering.
+
+- :d3fend/InboundTrafficFiltering: This technique involves filtering inbound network traffic. This can help to block malicious traffic from entering the network.
+
+- :d3fend/InboundSessionVolumeAnalysis: This technique involves analyzing the volume of inbound network sessions or connection attempts. This can help to detect potential attacks, such as a denial-of-service attack.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- :d3fend/EncryptedTunnels: Ensure that all network traffic to and from the Datomic database is encrypted. This could involve using a secure network protocol such as TLS.
+
+- :d3fend/InboundTrafficFiltering: Implement network firewalls or other security measures to filter inbound traffic to the Datomic database. This could involve blocking traffic from known malicious IP addresses or only allowing traffic from trusted sources.
+
+- :d3fend/InboundSessionVolumeAnalysis: Monitor the volume of network sessions or connection attempts to the Datomic database. If there is a sudden increase in volume, this could indicate a potential attack. In such a case, additional defensive measures may need to be taken.
+
+These techniques can be implemented using various tools and technologies. For example, network firewalls can be used to filter inbound traffic, and network monitoring tools can be used to analyze inbound session volume. The specific tools and technologies used will depend on the specific requirements and constraints of the environment in which Datomic is being used.
 
 ### :d3fend/M1031 - Network Intrusion Prevention
 
@@ -915,3 +1024,195 @@ In the context of defending a linked data platform using Datomic, File Content R
 Process Analysis (:d3fend/ProcessAnalysis) is a defensive technique that consists of observing a running application process and analyzing it to watch for certain behaviors or conditions which may indicate adversary activity. Analysis can occur inside of the process or through a third-party monitoring application. Examples include monitoring system and privileged calls, monitoring process initiation chains, and memory boundary allocations.
 
 In the context of defending a linked data platform using Datomic, Process Analysis can be applied by monitoring the Datomic processes for any unusual behavior. This could involve setting up a process monitoring tool that alerts you if the Datomic processes perform any suspicious actions.
+
+## :d3fend/M1050 - Shadow Stack Comparisons
+
+The metaobject :d3fend/M1050 represents a mitigation technique in the D3FEND framework, specifically "Shadow Stack Comparisons". This mitigation technique is associated with the defensive technique :d3fend/ShadowStackComparisons. 
+
+The definition of :d3fend/ShadowStackComparisons is "Compares the return address on the stack with a return address kept in a separate shadow stack. If the addresses do not match, the program will terminate or other mitigation actions will be taken."
+
+In the context of defending a linked data platform using Datomic, this technique can be applied as follows:
+
+- Ensure that the Datomic processes are running in a secure environment where the integrity of the stack can be maintained. This could involve running Datomic in a hardened container or virtual machine.
+- Implement shadow stack comparisons in the code that interacts with Datomic. This could involve using a programming language or framework that supports this kind of security feature.
+- Monitor the system for unexpected terminations of the Datomic processes, as this could indicate a successful stack-based attack.
+
+### :d3fend/ApplicationHardening
+
+The metaobject :d3fend/ApplicationHardening represents a defensive technique in the D3FEND framework. The definition of :d3fend/ApplicationHardening is "Application Hardening makes an executable application more resilient to a class of exploits which either introduce new code or execute unwanted existing code. These techniques may be applied at compile-time or on an application binary."
+
+In the context of defending a linked data platform using Datomic, this technique can be applied as follows:
+
+- Ensure that the Datomic processes are running in a secure environment where the execution of unauthorized code segments is prevented. This could involve running Datomic in a hardened container or virtual machine.
+- Implement application hardening techniques in the code that interacts with Datomic. This could involve using a programming language or framework that supports these kinds of security features.
+- Monitor the system for unexpected behavior of the Datomic processes, as this could indicate a successful attack that has bypassed the application hardening.
+
+### :d3fend/InboundTrafficFiltering
+
+The metaobject :d3fend/InboundTrafficFiltering represents a defensive technique in the D3FEND framework. The definition of :d3fend/InboundTrafficFiltering is "Restricting network traffic originating from untrusted networks destined towards a private host or enclave."
+
+In the context of defending a linked data platform using Datomic, this technique can be applied as follows:
+
+- Configure the network firewall to restrict inbound traffic to the Datomic server. This could involve blocking all traffic that is not from trusted IP addresses.
+- Monitor the network traffic to the Datomic server for signs of malicious activity. This could involve using a network monitoring tool that can detect and alert on suspicious traffic patterns.
+
+### :d3fend/ExceptionHandlerPointerValidation
+
+The metaobject :d3fend/ExceptionHandlerPointerValidation represents a defensive technique in the D3FEND framework. The definition of :d3fend/ExceptionHandlerPointerValidation is "Validates that a referenced exception handler pointer is a valid exception handler."
+
+In the context of defending a linked data platform using Datomic, this technique can be applied as follows:
+
+- Implement exception handler pointer validation in the code that interacts with Datomic. This could involve using a programming language or framework that supports this kind of security feature.
+- Monitor the system for unexpected exceptions in the Datomic
+  processes, as this could indicate a successful attack that has
+  exploited a vulnerability in an exception handler.
+
+## :d3fend/M1051 - Update Software
+
+The metaobject :d3fend/M1051 represents a mitigation technique in the D3Fend framework, specifically "Update Software". This mitigation technique is associated with the defensive technique :d3fend/SoftwareUpdate.
+
+### :d3fend/SoftwareUpdate
+
+Software Update (:d3fend/SoftwareUpdate) is a defensive technique that involves replacing old software on a computer system component. It is associated with the digital artifact :d3fend/Software, which represents a piece of software, and :d3fend/ExecutableFile, which represents an executable file in a file system.
+
+In the context of defending a linked data platform using Datomic, Software Update can be applied as follows:
+
+- Regularly update the Datomic software to the latest version. This ensures that you have the latest security patches and reduces the risk of vulnerabilities being exploited.
+- Implement a system that automatically checks for updates to the Datomic software and applies them. This reduces the risk of missing an important update.
+- Monitor the Datomic system for signs of outdated software. This could involve setting up a monitoring tool that alerts you if the Datomic software is not up-to-date.
+
+### :d3fend/Software
+
+Software (:d3fend/Software) is a digital artifact that represents a piece of software. In the context of Datomic, this could represent the Datomic software itself.
+
+### :d3fend/ExecutableFile
+
+Executable File (:d3fend/ExecutableFile) is a digital artifact that represents an executable file in a file system. In the context of Datomic, this could represent the executable files that make up the Datomic software.
+
+### :d3fend/Subroutine
+
+Subroutine (:d3fend/Subroutine) is a digital artifact that represents
+a subroutine, also known as a procedure, a function, a routine, a
+method, or a subprogram. In the context of Datomic, this could
+represent the subroutines that make up the Datomic software.
+
+## :d3fend/M1052 - User Account Control
+
+The metaobject :d3fend/M1052 represents a mitigation technique in the D3FEND framework, specifically "User Account Control". This mitigation technique is associated with the defensive technique :d3fend/MandatoryAccessControl.
+
+### :d3fend/MandatoryAccessControl
+
+Mandatory Access Control (MAC) is a defensive technique that controls access to local computer system resources with kernel-level capabilities. It restricts the creation of processes and is associated with the following digital artifacts:
+
+- :d3fend/Process: A process is an instance of a computer program that is being executed. It contains the program code and its current activity. Depending on the operating system (OS), a process may be made up of multiple threads of execution that execute instructions concurrently.
+
+- :d3fend/CreateProcess: A process spawn refers to a function that loads and executes a new child process. The current process may wait for the child to terminate or may continue to execute asynchronously. Creating a new subprocess requires enough memory in which both the child process and the current program can execute.
+
+- :d3fend/UserAccount: A user account allows a user to authenticate to a system and potentially to receive authorization to access resources provided by or connected to that system; however, authentication does not imply authorization. To log into an account, a user is typically required to authenticate oneself with a password or other credentials for the purposes of accounting, security, logging, and resource management.
+
+- :d3fend/ExecutableBinary: An executable binary contains machine code instructions for a physical CPU. D3FEND also considers byte code for a virtual machine to be binary code. This is in contrast to executable scripts written in a scripting language.
+
+- :d3fend/Thread: A thread in computing is the smallest sequence of programmed instructions that can be managed independently by a scheduler.
+
+In the context of defending a linked data platform using Datomic, these techniques can be applied as follows:
+
+- :d3fend/Process: Ensure that the Datomic processes are running in a secure environment where the execution of unauthorized code segments is prevented. This could involve running Datomic in a hardened container or virtual machine.
+
+- :d3fend/CreateProcess: Control the creation of new processes in the system where Datomic is running. This could involve configuring the operating system to restrict the creation of new processes, especially by unauthorized users or programs.
+
+- :d3fend/UserAccount: Implement strong user account controls in the Datomic system. This could involve enforcing strong password policies, limiting the privileges of user accounts, and regularly reviewing account activity.
+
+- :d3fend/ExecutableBinary: Ensure that only authorized executable binaries are allowed to run in the system where Datomic is running. This could involve using security software to monitor and control the execution of binaries.
+
+- :d3fend/Thread: Monitor and control the creation and execution of
+  threads in the system where Datomic is running. This could involve
+  using security software that has capabilities for thread-level
+  monitoring and control.
+
+## :d3fend/M1053 - Data Backup
+
+The metaobject :d3fend/M1053 represents a mitigation technique in the D3Fend framework, specifically "Data Backup". The definition of :d3fend/M1053 is "Comprehensive IT disaster recovery plans are outside the current scope of D3FEND."
+
+In the context of defending a linked data platform using Datomic, the concept of data backup is crucial. Regularly backing up your Datomic databases ensures that you can recover your data in the event of a data loss incident. 
+
+Here are some strategies you can employ:
+
+- **Regular Backups**: Schedule regular backups of your Datomic databases. The frequency of backups will depend on your specific needs and the amount of data you can afford to lose in the event of a disaster.
+
+- **Offsite Storage**: Store your backups in a location separate from your primary data center. This ensures that your backups are safe even if a disaster affects your primary location.
+
+- **Backup Validation**: Regularly test your backups to ensure that they can be successfully restored. This can help you catch any issues with the backup process before a real disaster strikes.
+
+- **Versioning**: Keep multiple versions of your backups. This allows you to restore from a specific point in time and can be useful if a problem is not immediately detected.
+
+- **Encryption**: Encrypt your backups to protect them from unauthorized access. This is especially important if your backups are stored offsite or in the cloud.
+
+Remember, while data backup is a crucial part of any disaster recovery
+plan, it's also important to have strategies in place for quickly
+restoring your systems and getting back to normal operations after a
+disaster.
+
+## :d3fend/M1054 - Software Configuration
+
+The metaobject :d3fend/M1054 represents a mitigation technique in the D3FEND framework, specifically "Software Configuration". This mitigation technique is associated with the defensive techniques :d3fend/CertificatePinning and :d3fend/ApplicationConfigurationHardening.
+
+### :d3fend/CertificatePinning
+
+Certificate Pinning (:d3fend/CertificatePinning) is a defensive technique that involves persisting either a server's X509 certificate or their public key and comparing that to server's presented identity to allow for greater client confidence in the remote server's identity for SSL connections. It is associated with the digital artifact :d3fend/PublicKey, which represents a public key that can be disseminated widely as part of an asymmetric cryptography framework and be used to encrypt messages to send to the public key's owner or to authenticate signed messages from that sender.
+
+In the context of defending a linked data platform using Datomic, Certificate Pinning can be applied as follows:
+
+- Implement certificate pinning for the SSL connections between the Datomic clients and the Datomic transactor. This can prevent man-in-the-middle attacks by ensuring that the clients only trust the specific certificate or public key of the Datomic transactor.
+
+### :d3fend/ApplicationConfigurationHardening
+
+Application Configuration Hardening (:d3fend/ApplicationConfigurationHardening) is a defensive technique that involves modifying an application's configuration to reduce its attack surface. It is associated with the digital artifact :d3fend/ApplicationConfiguration, which represents information used to configure the parameters and initial settings for an application.
+
+In the context of defending a linked data platform using Datomic, Application Configuration Hardening can be applied as follows:
+
+- Harden the configuration of the Datomic software. This could involve disabling unnecessary features, limiting the privileges of the Datomic processes, and configuring the Datomic software to use secure communication protocols.
+- Regularly review and update the Datomic configuration as part of
+  your security maintenance procedures. This can help to ensure that
+  the Datomic configuration remains secure as new threats emerge and
+  as the Datomic software is updated.
+
+## :d3fend/M1055 - Do Not Mitigate
+
+The metaobject :d3fend/M1055 represents a mitigation technique in the D3FEND framework, specifically "Do Not Mitigate". The definition of :d3fend/M1055 is not explicitly provided in the D3FEND framework, but the label "Do Not Mitigate" suggests that this mitigation technique involves choosing not to implement a specific mitigation for a particular threat or vulnerability.
+
+In the context of defending a linked data platform using Datomic, the decision to not mitigate a particular threat or vulnerability should be based on a thorough risk assessment. Factors to consider in this risk assessment could include:
+
+- The potential impact of the threat or vulnerability on the Datomic system and the data it manages.
+- The cost and feasibility of implementing the mitigation.
+- The potential side effects or downsides of the mitigation.
+- The existence of other mitigations or security controls that may already address the threat or vulnerability.
+
+It's important to note that choosing to not mitigate a particular
+threat or vulnerability is a decision that should be made carefully
+and with full understanding of the potential consequences. Regular
+security reviews and risk assessments are crucial in making informed
+decisions about which threats and vulnerabilities to mitigate.
+
+## :d3fend/M1056 - Pre-compromise
+
+The metaobject :d3fend/M1056 represents a mitigation technique in the D3FEND framework, specifically "Pre-compromise". This mitigation technique is associated with the defensive techniques :d3fend/DecoyEnvironment and :d3fend/DecoyObject.
+
+### :d3fend/DecoyEnvironment
+
+Decoy Environment (:d3fend/DecoyEnvironment) is a defensive technique that comprises hosts and networks for the purposes of deceiving an attacker. It is associated with the digital artifact :d3fend/DecoyArtifact, which represents an imitation digital artifact in any sense of a digital artifact, object, or phenomenon that is intended to deceive a cyber attacker's surveillance devices or mislead their evaluation. Examples include fake files, accounts, hosts (honeypots), and network segments (honeynets). It is also associated with the defensive tactic :d3fend/Deceive, which is used to advertise, entice, and allow potential attackers access to an observed or controlled environment.
+
+In the context of defending a linked data platform using Datomic, Decoy Environment can be applied as follows:
+
+- Set up decoy hosts and networks that mimic your real Datomic environment. These decoys can distract attackers and waste their resources, reducing the risk to your real environment.
+- Monitor the decoy environment for signs of attack. This can provide valuable intelligence about the tactics, techniques, and procedures used by attackers, which can inform your defensive strategies.
+- Regularly update and modify the decoy environment to keep it believable and attractive to attackers. This could involve mimicking changes in your real environment, such as software updates or changes in user activity.
+
+### :d3fend/DecoyObject
+
+Decoy Object (:d3fend/DecoyObject) is a digital artifact that represents an imitation digital artifact intended to deceive a cyber attacker's surveillance devices or mislead their evaluation. Examples include fake files, accounts, hosts (honeypots), and network segments (honeynets).
+
+In the context of defending a linked data platform using Datomic, Decoy Object can be applied as follows:
+
+- Create decoy Datomic databases that mimic your real databases. These decoys can distract attackers and waste their resources, reducing the risk to your real databases.
+- Monitor the decoy databases for signs of unauthorized access or activity. This can provide valuable intelligence about the tactics, techniques, and procedures used by attackers, which can inform your defensive strategies.
+- Regularly update and modify the decoy databases to keep them believable and attractive to attackers. This could involve mimicking changes in your real databases, such as adding or modifying data.
