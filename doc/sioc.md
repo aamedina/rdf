@@ -89,9 +89,8 @@ The properties associated with this class include:
 
 In a real-world application using Datomic to store everything with RDF
 in the context of a Linked Data Platform for wikipunk.net, these
-classes and properties can be used to model the structure
-
-and relationships of online communities. For example, instances of the
+classes and properties can be used to model the structure and
+relationships of online communities. For example, instances of the
 `:sioc/UserAccount` class can be created for each user in the
 community, with properties such as `:sioc/first_name` and
 `:sioc/email` storing the user's personal information. The
