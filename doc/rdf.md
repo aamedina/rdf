@@ -363,5 +363,5 @@ to RDF datatypes. For example, a Datomic attribute with a value type
 of `:db.type/long` could be used to represent an RDF datatype of
 `xsd:integer`. These attributes can then be used to represent RDF
 properties with typed literal values. For example, you could create a
-Datomic attribute to represent the `:ex:age` property, with a value
+Datomic attribute to represent the `:ex/age` property, with a value
 type of `:db.type/long` to represent the age as an integer.
