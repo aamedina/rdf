@@ -160,3 +160,20 @@ In the context of a Linked Data Platform using Datomic, a
 `:skos/Collection` could represent a group of `:skos/Concept`
 instances that are meaningfully related. The `:skos/member` property
 could be used to link the collection to its member concepts.
+
+## :skos/OrderedCollection
+The `:skos/OrderedCollection` class represents an ordered collection
+of concepts, where both the grouping and the ordering are
+meaningful. It is a subclass of `:skos/Collection`.
+
+The properties associated with this class include:
+
+- `:skos/memberList`
+
+In the context of a Linked Data Platform using Datomic, a
+`:skos/OrderedCollection` could represent a sequence of
+`:skos/Concept` instances that are meaningfully related and
+ordered. The `:skos/memberList` property could be used to link the
+ordered collection to its member concepts in a specific order. This
+could be useful in scenarios where the order of concepts is
+significant, such as a step-by-step guide or a chronological timeline.
