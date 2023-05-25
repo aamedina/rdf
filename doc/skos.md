@@ -140,11 +140,6 @@ instances that it has a semantic relationship with. The `:foaf/focus`
 property could be used to link the concept to the thing that the
 concept is about.
 
-The Simple Knowledge Organization System (SKOS) provides a standard,
-interoperable way to represent and link concepts, making it easier to
-share and reuse these concepts across different applications and
-platforms.
-
 ## :skos/Collection
 
 The `:skos/Collection` class represents a meaningful collection of
