@@ -27,14 +27,15 @@
    :rdfs/subClassOf [:as/Activity :as/Accept :as/Object]})
 
 (def Activity
-  "An Object representing some form of Action that has been taken"
+  "An Activity is a subtype of Object that describes some form of action that may happen, is currently happening, or has already happened. The Activity type itself serves as an abstract base type for all types of activities. It is important to note that the Activity type itself does not carry any specific semantics about the kind of action being taken."
   {:db/ident :as/Activity,
+   :db/doc  "An Activity is a subtype of Object that describes some form of action that may happen, is currently happening, or has already happened. The Activity type itself serves as an abstract base type for all types of activities. It is important to note that the Activity type itself does not carry any specific semantics about the kind of action being taken.",
    :rdf/type :owl/Class,
    :rdfs/comment
    #voc/lstr
     "An Object representing some form of Action that has been taken@en",
    :rdfs/label #voc/lstr "Activity@en",
-   :rdfs/subClassOf [:as/Object :as/Activity]})
+   :rdfs/subClassOf [:as/Object]})
 
 (def Add
   "To Add an Object or Link to Something"
@@ -109,7 +110,7 @@
    :rdfs/comment #voc/lstr
                   "An ordered or unordered collection of Objects or Links@en",
    :rdfs/label #voc/lstr "Collection@en",
-   :rdfs/subClassOf [:as/Object :as/Collection]})
+   :rdfs/subClassOf [:as/Object]})
 
 (def CollectionPage
   "A subset of items from a Collection"
@@ -203,10 +204,10 @@
    :rdfs/subClassOf [:as/Document :as/Image :as/Object]})
 
 (def IntransitiveActivity
-  "An Activity that has no direct object"
+  "An :as/Activity that has no direct object"
   {:db/ident        :as/IntransitiveActivity,
    :rdf/type        :owl/Class,
-   :rdfs/comment    #voc/lstr "An Activity that has no direct object@en",
+   :rdfs/comment    #voc/lstr "An :as/Activity that has no direct object@en",
    :rdfs/label      #voc/lstr "IntransitiveActivity@en",
    :rdfs/subClassOf [{:owl/maxCardinality 0,
                       :owl/onProperty     :as/object,
@@ -248,8 +249,9 @@
    :rdfs/subClassOf [:as/Activity :as/Like :as/Object]})
 
 (def Link
-  "Represents a qualified reference to another resource. Patterned after the RFC5988 Web Linking Model"
+  "A Link is an indirect, qualified reference to a resource identified by a URL. The fundamental model for links is established by [ RFC5988]. Many of the properties defined by the Activity Vocabulary allow values that are either instances of Object or Link. When a Link is used, it establishes a qualified relation connecting the subject (the containing object) to the resource identified by the href. Properties of the Link are properties of the reference as opposed to properties of the resource."
   {:db/ident :as/Link,
+   :db/doc "A Link is an indirect, qualified reference to a resource identified by a URL. The fundamental model for links is established by [ RFC5988]. Many of the properties defined by the Activity Vocabulary allow values that are either instances of Object or Link. When a Link is used, it establishes a qualified relation connecting the subject (the containing object) to the resource identified by the href. Properties of the Link are properties of the reference as opposed to properties of the resource.",
    :owl/disjointWith :as/Object,
    :rdf/type :owl/Class,
    :rdfs/comment
@@ -295,11 +297,12 @@
    :rdfs/subClassOf [:as/Object :as/Note]})
 
 (def ObjectClass
-  "Object"
-  {:db/ident        :as/Object,
-   :rdf/type        :owl/Class,
-   :rdfs/label      #voc/lstr "Object@en",
-   :rdfs/subClassOf :as/Object})
+  "Describes an object of any kind. The Object type serves as the base type for most of the other kinds of objects defined in the Activity Vocabulary, including other Core types such as :as/Activity, :as/IntransitiveActivity, :as/Collection and :as/OrderedCollection."
+  {:db/ident         :as/Object,
+   :db/doc           "Describes an object of any kind. The Object type serves as the base type for most of the other kinds of objects defined in the Activity Vocabulary, including other Core types such as :as/Activity, :as/IntransitiveActivity, :as/Collection and :as/OrderedCollection.@en",
+   :rdf/type         :owl/Class,
+   :rdfs/label       #voc/lstr "Object@en"
+   :owl/disjointWith :as/Link})
 
 (def Offer
   "To Offer something to someone or something"
@@ -310,7 +313,7 @@
    :rdfs/subClassOf [:as/Activity :as/Offer :as/Object]})
 
 (def OrderedCollection
-  "A variation of Collection in which items are strictly ordered"
+  "A variation of :as/Collection in which items are strictly ordered"
   {:db/ident :as/OrderedCollection,
    :rdf/type :owl/Class,
    :rdfs/comment
