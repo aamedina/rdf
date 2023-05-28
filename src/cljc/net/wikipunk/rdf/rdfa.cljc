@@ -155,6 +155,8 @@
 (def prefix
   "defines a prefix mapping for a URI; the value is supposed to be a NMTOKEN"
   {:db/ident           :rdfa/prefix,
+   :db/cardinality     :db.cardinality/one
+   :db/valueType       :db.type/string
    :dcterms/description
    "defines a prefix mapping for a URI; the value is supposed to be a NMTOKEN",
    :rdf/type           [:owl/DatatypeProperty :rdf/Property],
@@ -173,6 +175,9 @@
 (def uri
   "defines the URI for either a prefix or a term mapping; the value is supposed to be an absolute URI"
   {:db/ident           :rdfa/uri,
+   :db/cardinality     :db.cardinality/one
+   :db/valueType       :db.type/string
+   :db/unique          :db.unique/identity
    :dcterms/description
    "defines the URI for either a prefix or a term mapping; the value is supposed to be an absolute URI",
    :rdf/type           [:owl/DatatypeProperty :rdf/Property],
