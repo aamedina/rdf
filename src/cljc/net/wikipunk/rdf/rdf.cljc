@@ -22,7 +22,7 @@
    :rdfs/comment     "The class of containers of alternatives.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "Alt",
-   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Container :rdf/Alt]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Container]})
 
 (def Bag
   "The class of unordered containers."
@@ -31,7 +31,7 @@
    :rdfs/comment     "The class of unordered containers.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "Bag",
-   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Container :rdf/Bag]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Container]})
 
 (def CompoundLiteral
   "A class representing a compound literal."
@@ -42,7 +42,7 @@
    :rdfs/label "CompoundLiteral",
    :rdfs/seeAlso
    ["https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties"],
-   :rdfs/subClassOf [:rdfs/Resource :rdf/CompoundLiteral]})
+   :rdfs/subClassOf [:rdfs/Resource]})
 
 (def HTML
   "The datatype of RDF literals storing fragments of HTML content"
@@ -53,7 +53,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label "HTML",
    :rdfs/seeAlso ["http://www.w3.org/TR/rdf11-concepts/#section-html"],
-   :rdfs/subClassOf [:rdfs/Literal :rdf/HTML]})
+   :rdfs/subClassOf [:rdfs/Literal]})
 
 (def JSON
   "The datatype of RDF literals storing JSON content."
@@ -63,7 +63,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "JSON",
    :rdfs/seeAlso     ["https://www.w3.org/TR/json-ld11/#the-rdf-json-datatype"],
-   :rdfs/subClassOf  [:rdfs/Literal :rdf/JSON]})
+   :rdfs/subClassOf  [:rdfs/Literal]})
 
 (def List
   "The class of RDF Lists."
@@ -72,7 +72,7 @@
    :rdfs/comment     "The class of RDF Lists.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "List",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/List]})
+   :rdfs/subClassOf  [:rdfs/Resource]})
 
 (def PlainLiteral
   "The class of plain (i.e. untyped) literal values, as used in RIF and OWL 2"
@@ -83,7 +83,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label "PlainLiteral",
    :rdfs/seeAlso ["http://www.w3.org/TR/rdf-plain-literal/"],
-   :rdfs/subClassOf [:rdfs/Literal :rdf/PlainLiteral]})
+   :rdfs/subClassOf [:rdfs/Literal]})
 
 (def Property
   "The class of RDF properties."
@@ -92,7 +92,7 @@
    :rdfs/comment     "The class of RDF properties.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "Property",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property]})
+   :rdfs/subClassOf  [:rdfs/Resource]})
 
 (def Seq
   "The class of ordered containers."
@@ -101,7 +101,7 @@
    :rdfs/comment     "The class of ordered containers.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "Seq",
-   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Container :rdf/Seq]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Container]})
 
 (def Statement
   "The class of RDF statements."
@@ -110,7 +110,7 @@
    :rdfs/comment     "The class of RDF statements.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "Statement",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Statement]})
+   :rdfs/subClassOf  [:rdfs/Resource]})
 
 (def XMLLiteral
   "The datatype of XML literal values."
@@ -119,7 +119,7 @@
    :rdfs/comment     "The datatype of XML literal values.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label       "XMLLiteral",
-   :rdfs/subClassOf  [:rdfs/Literal :rdf/XMLLiteral]})
+   :rdfs/subClassOf  [:rdfs/Literal]})
 
 (def direction
   "The base direction component of a CompoundLiteral."
@@ -130,19 +130,19 @@
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label "direction",
    :rdfs/seeAlso
-   ["https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties"],
-   :rdfs/subPropertyOf :rdf/direction})
+   ["https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties"]})
 
 (def first
   "The first item in the subject RDF list."
   {:db/ident           :rdf/first,
+   :db/cardinality     :db.cardinality/one,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The first item in the subject RDF list.",
    :rdfs/domain        :rdf/List,
    :rdfs/isDefinedBy   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label         "first",
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf :rdf/first})
+   :rdfs/range         :rdfs/Resource})
 
 (def langString
   "The datatype of language-tagged string values"
@@ -152,19 +152,20 @@
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label "langString",
    :rdfs/seeAlso ["http://www.w3.org/TR/rdf11-concepts/#section-Graph-Literal"],
-   :rdfs/subClassOf [:rdfs/Literal :rdf/langString]})
+   :rdfs/subClassOf [:rdfs/Literal]})
 
 (def language
   "The language component of a CompoundLiteral."
   {:db/ident :rdf/language,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment "The language component of a CompoundLiteral.",
    :rdfs/domain :rdf/CompoundLiteral,
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label "language",
    :rdfs/seeAlso
-   ["https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties"],
-   :rdfs/subPropertyOf :rdf/language})
+   ["https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties"]})
 
 (def null
   "The empty list, with no items in it. If the rest of a list is nil then the list has no more items in it."
@@ -178,39 +179,44 @@
 (def object
   "The object of the subject RDF statement."
   {:db/ident           :rdf/object,
+   :db/cardinality     :db.cardinality/one,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The object of the subject RDF statement.",
    :rdfs/domain        :rdf/Statement,
    :rdfs/isDefinedBy   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label         "object",
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf :rdf/object})
+   :rdfs/range         :rdfs/Resource})
 
 (def predicate
   "The predicate of the subject RDF statement."
   {:db/ident           :rdf/predicate,
+   :db/cardinality     :db.cardinality/one,
+   :db/valueType       :db.type/ref,   
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The predicate of the subject RDF statement.",
    :rdfs/domain        :rdf/Statement,
    :rdfs/isDefinedBy   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label         "predicate",
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf :rdf/predicate})
+   :rdfs/range         :rdfs/Resource})
 
 (def rest
   "The rest of the subject RDF list after the first item."
   {:db/ident           :rdf/rest,
+   :db/cardinality     :db.cardinality/one,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The rest of the subject RDF list after the first item.",
    :rdfs/domain        :rdf/List,
    :rdfs/isDefinedBy   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label         "rest",
-   :rdfs/range         :rdf/List,
-   :rdfs/subPropertyOf :rdf/rest})
+   :rdfs/range         :rdf/List})
 
 (def subject
   "The subject of the subject RDF statement."
   {:db/ident           :rdf/subject,
+   :db/cardinality     :db.cardinality/one,
+   :db/valueType       :db.type/ref,   
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The subject of the subject RDF statement.",
    :rdfs/domain        :rdf/Statement,
@@ -222,21 +228,23 @@
 (def type
   "The subject is an instance of a class."
   {:db/ident           :rdf/type,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The subject is an instance of a class.",
    :rdfs/domain        :rdfs/Resource,
    :rdfs/isDefinedBy   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label         "type",
-   :rdfs/range         :rdfs/Class,
-   :rdfs/subPropertyOf :rdf/type})
+   :rdfs/range         :rdfs/Class})
 
 (def value
   "Idiomatic property used for structured values."
   {:db/ident           :rdf/value,
+   :db/cardinality     :db.cardinality/one,
+   :db/valueType       :db.type/string,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "Idiomatic property used for structured values.",
    :rdfs/domain        :rdfs/Resource,
    :rdfs/isDefinedBy   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label         "value",
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf :rdf/value})
+   :rdfs/range         :rdfs/Resource})
