@@ -64,3 +64,25 @@ the `:owl/inverseOf` property to define two properties that are
 inverses of each other, meaning that if one property links individual
 A to individual B, then the other property links individual B to
 individual A.
+
+## :owl/DatatypeProperty
+
+The `:owl/DatatypeProperty` class in RDF represents the class of data
+properties. These are properties that link individuals to data
+values. This is a subclass of `:rdf/Property`, meaning that all data
+properties are also RDF properties.
+
+The `:owl/DatatypeProperty` class does not have any direct slots
+(properties) associated with it. However, being a subclass of
+`:rdf/Property`, it inherits all the slots of `:rdf/Property`.
+
+In the context of a Linked Data Platform, data properties can be used
+to assign data values to individuals. For example, you could use a
+data property to assign a name to a person, a price to a product, or a
+date to an event. The value of a data property is always a literal,
+such as a string, number, or boolean.
+
+In contrast to object properties, which link individuals to
+individuals, data properties link individuals to data values. This
+allows you to represent information about individuals in a structured
+and queryable way.

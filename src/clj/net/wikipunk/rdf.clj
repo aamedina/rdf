@@ -273,7 +273,7 @@
              :rdf/keys  [type]
              :rdfs/keys [subClassOf equivalentClass
                          subPropertyOf equivalentProperty]
-             :skos/keys [broader narrower]
+             :skos/keys [broader narrower member]
              :as        entity}]
        (cond-> h
          (some #(isa? h % :owl/NamedIndividual) type)

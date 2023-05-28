@@ -582,3 +582,9 @@
    :rdfa/prefix      "keys"
    :rdfa/uri         "http://purl.org/NET/c4dm/keys.owl#"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def metalex
+  {:dcat/downloadURL "http://www.metalex.eu/metalex-cen.owl"
+   :rdfa/prefix      "metalex"
+   :rdfa/uri         "http://www.metalex.eu/metalex-cen.owl#"
+   :rdf/type         :rdfa/PrefixMapping})
