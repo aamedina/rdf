@@ -271,18 +271,19 @@
 (def allValuesFrom
   "The property that determines the class that a universal property restriction refers to."
   {:db/ident :owl/allValuesFrom,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the class that a universal property restriction refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "allValuesFrom",
-   :rdfs/range :rdfs/Class,
-   :rdfs/subPropertyOf :owl/allValuesFrom})
+   :rdfs/range :rdfs/Class})
 
 (def annotatedProperty
   "The property that determines the predicate of an annotated axiom or annotated annotation."
-  {:db/ident :owl/annotatedProperty,
+  {:db/ident :owl/annotatedProperty,   
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the predicate of an annotated axiom or annotated annotation.",
@@ -365,6 +366,8 @@
 (def cardinality
   "The property that determines the cardinality of an exact cardinality restriction."
   {:db/ident :owl/cardinality,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the cardinality of an exact cardinality restriction.",
@@ -377,18 +380,21 @@
 (def complementOf
   "The property that determines that a given class is the complement of another class."
   {:db/ident :owl/complementOf,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that a given class is the complement of another class.",
    :rdfs/domain :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "complementOf",
-   :rdfs/range :owl/Class,
-   :rdfs/subPropertyOf :owl/complementOf})
+   :rdfs/range :owl/Class})
 
 (def datatypeComplementOf
   "The property that determines that a given data range is the complement of another data range with respect to the data domain."
   {:db/ident :owl/datatypeComplementOf,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that a given data range is the complement of another data range with respect to the data domain.",
@@ -412,114 +418,125 @@
 (def differentFrom
   "The property that determines that two given individuals are different."
   {:db/ident :owl/differentFrom,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given individuals are different.",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "differentFrom",
-   :rdfs/range :owl/Thing,
-   :rdfs/subPropertyOf :owl/differentFrom})
+   :rdfs/range :owl/Thing})
 
 (def disjointUnionOf
   "The property that determines that a given class is equivalent to the disjoint union of a collection of other classes."
   {:db/ident :owl/disjointUnionOf,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that a given class is equivalent to the disjoint union of a collection of other classes.",
    :rdfs/domain :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "disjointUnionOf",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/disjointUnionOf})
+   :rdfs/range :rdf/List})
 
 (def disjointWith
   "The property that determines that two given classes are disjoint."
   {:db/ident :owl/disjointWith,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given classes are disjoint.",
    :rdfs/domain :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "disjointWith",
-   :rdfs/range :owl/Class,
-   :rdfs/subPropertyOf :owl/disjointWith})
+   :rdfs/range :owl/Class})
 
 (def distinctMembers
   "The property that determines the collection of pairwise different individuals in a owl:AllDifferent axiom."
   {:db/ident :owl/distinctMembers,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of pairwise different individuals in a owl:AllDifferent axiom.",
    :rdfs/domain :owl/AllDifferent,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "distinctMembers",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/distinctMembers})
+   :rdfs/range :rdf/List})
 
 (def equivalentClass
   "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions."
   {:db/ident :owl/equivalentClass,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions.",
    :rdfs/domain :rdfs/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "equivalentClass",
-   :rdfs/range :rdfs/Class,
-   :rdfs/subPropertyOf :owl/equivalentClass})
+   :rdfs/range :rdfs/Class})
 
 (def equivalentProperty
   "The property that determines that two given properties are equivalent."
   {:db/ident :owl/equivalentProperty,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given properties are equivalent.",
    :rdfs/domain :rdf/Property,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "equivalentProperty",
-   :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :owl/equivalentProperty})
+   :rdfs/range :rdf/Property})
 
 (def hasKey
   "The property that determines the collection of properties that jointly build a key."
   {:db/ident :owl/hasKey,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of properties that jointly build a key.",
    :rdfs/domain :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "hasKey",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/hasKey})
+   :rdfs/range :rdf/List})
 
 (def hasSelf
   "The property that determines the property that a self restriction refers to."
   {:db/ident :owl/hasSelf,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the property that a self restriction refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "hasSelf",
-   :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :owl/hasSelf})
+   :rdfs/range :rdfs/Resource})
 
 (def hasValue
   "The property that determines the individual that a has-value restriction refers to."
   {:db/ident :owl/hasValue,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the individual that a has-value restriction refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "hasValue",
-   :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :owl/hasValue})
+   :rdfs/range :rdfs/Resource})
 
 (def imports
   "The property that is used for importing other ontologies into a given ontology."
   {:db/ident :owl/imports,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type [:owl/OntologyProperty :rdf/Property :rdfs/Resource],
    :rdfs/comment
    "The property that is used for importing other ontologies into a given ontology.",
@@ -531,6 +548,8 @@
 (def incompatibleWith
   "The annotation property that indicates that a given ontology is incompatible with another ontology."
   {:db/ident :owl/incompatibleWith,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type
    [:owl/OntologyProperty :owl/AnnotationProperty :rdf/Property :rdfs/Resource],
    :rdfs/comment
@@ -543,158 +562,171 @@
 (def intersectionOf
   "The property that determines the collection of classes or data ranges that build an intersection."
   {:db/ident :owl/intersectionOf,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of classes or data ranges that build an intersection.",
    :rdfs/domain :rdfs/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "intersectionOf",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/intersectionOf})
+   :rdfs/range :rdf/List})
 
 (def inverseOf
   "The property that determines that two given properties are inverse."
   {:db/ident :owl/inverseOf,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given properties are inverse.",
    :rdfs/domain :owl/ObjectProperty,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "inverseOf",
-   :rdfs/range :owl/ObjectProperty,
-   :rdfs/subPropertyOf :owl/inverseOf})
+   :rdfs/range :owl/ObjectProperty})
 
 (def maxCardinality
   "The property that determines the cardinality of a maximum cardinality restriction."
   {:db/ident :owl/maxCardinality,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the cardinality of a maximum cardinality restriction.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "maxCardinality",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :owl/maxCardinality})
+   :rdfs/range :xsd/nonNegativeInteger})
 
 (def maxQualifiedCardinality
   "The property that determines the cardinality of a maximum qualified cardinality restriction."
   {:db/ident :owl/maxQualifiedCardinality,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the cardinality of a maximum qualified cardinality restriction.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "maxQualifiedCardinality",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :owl/maxQualifiedCardinality})
+   :rdfs/range :xsd/nonNegativeInteger})
 
 (def members
   "The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom."
   {:db/ident :owl/members,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom.",
-   :rdfs/domain :rdfs/Resource,
+   :rdfs/domain [:owl/AllDifferent :owl/AllDisjointClasses :owl/AllDisjointProperties],
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "members",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/members})
+   :rdfs/range :rdf/List})
 
 (def minCardinality
   "The property that determines the cardinality of a minimum cardinality restriction."
   {:db/ident :owl/minCardinality,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the cardinality of a minimum cardinality restriction.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "minCardinality",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :owl/minCardinality})
+   :rdfs/range :xsd/nonNegativeInteger})
 
 (def minQualifiedCardinality
   "The property that determines the cardinality of a minimum qualified cardinality restriction."
   {:db/ident :owl/minQualifiedCardinality,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the cardinality of a minimum qualified cardinality restriction.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "minQualifiedCardinality",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :owl/minQualifiedCardinality})
+   :rdfs/range :xsd/nonNegativeInteger})
 
 (def onClass
   "The property that determines the class that a qualified object cardinality restriction refers to."
   {:db/ident :owl/onClass,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the class that a qualified object cardinality restriction refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "onClass",
-   :rdfs/range :owl/Class,
-   :rdfs/subPropertyOf :owl/onClass})
+   :rdfs/range :owl/Class})
 
 (def onDataRange
   "The property that determines the data range that a qualified data cardinality restriction refers to."
   {:db/ident :owl/onDataRange,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the data range that a qualified data cardinality restriction refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "onDataRange",
-   :rdfs/range :rdfs/Datatype,
-   :rdfs/subPropertyOf :owl/onDataRange})
+   :rdfs/range :rdfs/Datatype})
 
 (def onDatatype
   "The property that determines the datatype that a datatype restriction refers to."
   {:db/ident :owl/onDatatype,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the datatype that a datatype restriction refers to.",
    :rdfs/domain :rdfs/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "onDatatype",
-   :rdfs/range :rdfs/Datatype,
-   :rdfs/subPropertyOf :owl/onDatatype})
+   :rdfs/range :rdfs/Datatype})
 
 (def onProperties
   "The property that determines the n-tuple of properties that a property restriction on an n-ary data range refers to."
   {:db/ident :owl/onProperties,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the n-tuple of properties that a property restriction on an n-ary data range refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "onProperties",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/onProperties})
+   :rdfs/range :rdf/List})
 
 (def onProperty
   "The property that determines the property that a property restriction refers to."
   {:db/ident :owl/onProperty,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the property that a property restriction refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "onProperty",
-   :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :owl/onProperty})
+   :rdfs/range :rdf/Property})
 
 (def oneOf
   "The property that determines the collection of individuals or data values that build an enumeration."
   {:db/ident :owl/oneOf,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of individuals or data values that build an enumeration.",
    :rdfs/domain :rdfs/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "oneOf",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/oneOf})
+   :rdfs/range :rdf/List})
 
 (def priorVersion
   "The annotation property that indicates the predecessor ontology of a given ontology."
@@ -711,62 +743,67 @@
 (def propertyChainAxiom
   "The property that determines the n-tuple of properties that build a sub property chain of a given property."
   {:db/ident :owl/propertyChainAxiom,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the n-tuple of properties that build a sub property chain of a given property.",
    :rdfs/domain :owl/ObjectProperty,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "propertyChainAxiom",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/propertyChainAxiom})
+   :rdfs/range :rdf/List})
 
 (def propertyDisjointWith
   "The property that determines that two given properties are disjoint."
   {:db/ident :owl/propertyDisjointWith,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given properties are disjoint.",
    :rdfs/domain :rdf/Property,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "propertyDisjointWith",
-   :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :owl/propertyDisjointWith})
+   :rdfs/range :rdf/Property})
 
 (def qualifiedCardinality
   "The property that determines the cardinality of an exact qualified cardinality restriction."
   {:db/ident :owl/qualifiedCardinality,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the cardinality of an exact qualified cardinality restriction.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "qualifiedCardinality",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :owl/qualifiedCardinality})
+   :rdfs/range :xsd/nonNegativeInteger})
 
 (def sameAs
   "The property that determines that two given individuals are equal."
   {:db/ident :owl/sameAs,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,   
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given individuals are equal.",
    :rdfs/domain :owl/Thing,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "sameAs",
-   :rdfs/range :owl/Thing,
-   :rdfs/subPropertyOf :owl/sameAs})
+   :rdfs/range :owl/Thing})
 
 (def someValuesFrom
   "The property that determines the class that an existential property restriction refers to."
   {:db/ident :owl/someValuesFrom,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the class that an existential property restriction refers to.",
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "someValuesFrom",
-   :rdfs/range :rdfs/Class,
-   :rdfs/subPropertyOf :owl/someValuesFrom})
+   :rdfs/range :rdfs/Class})
 
 (def sourceIndividual
   "The property that determines the subject of a negative property assertion."
@@ -828,18 +865,21 @@
 (def unionOf
   "The property that determines the collection of classes or data ranges that build a union."
   {:db/ident :owl/unionOf,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of classes or data ranges that build a union.",
    :rdfs/domain :rdfs/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "unionOf",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/unionOf})
+   :rdfs/range :rdf/List})
 
 (def versionIRI
   "The property that identifies the version IRI of an ontology."
   {:db/ident :owl/versionIRI,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type [:owl/OntologyProperty :rdf/Property :rdfs/Resource],
    :rdfs/comment "The property that identifies the version IRI of an ontology.",
    :rdfs/domain :owl/Ontology,
@@ -861,14 +901,16 @@
 (def withRestrictions
   "The property that determines the collection of facet-value pairs that define a datatype restriction."
   {:db/ident :owl/withRestrictions,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
+   :db/isComponent true,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of facet-value pairs that define a datatype restriction.",
    :rdfs/domain :rdfs/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "withRestrictions",
-   :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :owl/withRestrictions})
+   :rdfs/range :rdf/List})
 
 (def rational
   "owl:rational"

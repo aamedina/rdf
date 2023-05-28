@@ -79,30 +79,34 @@
 (def comment
   "A description of the subject resource."
   {:db/ident           :rdfs/comment,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/string,   
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "A description of the subject resource.",
    :rdfs/domain        :rdfs/Resource,
    :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/label         "comment",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/comment})
+   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"]})
 
 (def domain
   "A domain of the subject property."
   {:db/ident           :rdfs/domain,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/ref,   
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "A domain of the subject property.",
    :rdfs/domain        :rdf/Property,
    :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/label         "domain",
    :rdfs/range         :rdfs/Class,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/domain})
+   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"]})
 
 (def isDefinedBy
   "The defininition of the subject resource."
   {:db/ident           :rdfs/isDefinedBy,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/string,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The defininition of the subject resource.",
    :rdfs/domain        :rdfs/Resource,
@@ -110,76 +114,78 @@
    :rdfs/label         "isDefinedBy",
    :rdfs/range         :rdfs/Resource,
    :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf [:rdfs/seeAlso :rdfs/isDefinedBy]})
+   :rdfs/subPropertyOf [:rdfs/seeAlso]})
 
 (def label
   "A human-readable name for the subject."
   {:db/ident           :rdfs/label,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/string,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "A human-readable name for the subject.",
    :rdfs/domain        :rdfs/Resource,
    :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/label         "label",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/label})
+   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"]})
 
 (def member
   "A member of the subject resource."
   {:db/ident           :rdfs/member,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "A member of the subject resource.",
    :rdfs/domain        :rdfs/Resource,
    :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/label         "member",
    :rdfs/range         :rdfs/Resource,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/member})
+   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"]})
 
 (def range
   "A range of the subject property."
   {:db/ident           :rdfs/range,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "A range of the subject property.",
    :rdfs/domain        :rdf/Property,
    :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/label         "range",
-   :rdfs/range         :rdfs/Class,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/range})
+   :rdfs/range         :rdfs/Class})
 
 (def seeAlso
   "Further information about the subject resource."
   {:db/ident           :rdfs/seeAlso,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/string,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "Further information about the subject resource.",
    :rdfs/domain        :rdfs/Resource,
    :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/label         "seeAlso",
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/seeAlso})
+   :rdfs/range         :rdfs/Resource})
 
 (def subClassOf
   "The subject is a subclass of a class."
-  {:db/ident           :rdfs/subClassOf,
-   :rdf/type           [:rdf/Property :rdfs/Resource],
-   :rdfs/comment       "The subject is a subclass of a class.",
-   :rdfs/domain        :rdfs/Class,
-   :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
-   :rdfs/label         "subClassOf",
-   :rdfs/range         :rdfs/Class,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/subClassOf})
+  {:db/ident         :rdfs/subClassOf,
+   :db/cardinality   :db.cardinality/many,
+   :db/valueType     :db.type/ref,   
+   :rdf/type         [:rdf/Property :rdfs/Resource],
+   :rdfs/comment     "The subject is a subclass of a class.",
+   :rdfs/domain      :rdfs/Class,
+   :rdfs/isDefinedBy "http://www.w3.org/2000/01/rdf-schema#",
+   :rdfs/label       "subClassOf",
+   :rdfs/range       :rdfs/Class})
 
 (def subPropertyOf
   "The subject is a subproperty of a property."
   {:db/ident           :rdfs/subPropertyOf,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The subject is a subproperty of a property.",
    :rdfs/domain        :rdf/Property,
    :rdfs/isDefinedBy   "http://www.w3.org/2000/01/rdf-schema#",
    :rdfs/label         "subPropertyOf",
-   :rdfs/range         :rdf/Property,
-   :rdfs/seeAlso       ["http://www.w3.org/2000/01/rdf-schema#"],
-   :rdfs/subPropertyOf :rdfs/subPropertyOf})
+   :rdfs/range         :rdf/Property})
