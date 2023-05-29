@@ -133,6 +133,8 @@
 (def broader
   "Relates a concept to a concept that is more general in meaning."
   {:db/ident :skos/broader,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType   :db.type/ref
    :owl/inverseOf :skos/narrower,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment
@@ -345,13 +347,14 @@
 (def member
   "Relates a collection to one of its members."
   {:db/ident           :skos/member,
+   :db/cardinality     :db.cardinality/many,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :owl/ObjectProperty],
    :rdfs/domain        :skos/Collection,
    :rdfs/isDefinedBy   "http://www.w3.org/2004/02/skos/core",
    :rdfs/label         #voc/lstr "has member@en",
    :rdfs/range         {:owl/unionOf [:skos/Concept :skos/Collection],
                         :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :skos/member,
    :skos/definition    #voc/lstr
                         "Relates a collection to one of its members.@en",
    :skos/note          #voc/lstr
@@ -398,6 +401,8 @@
 (def narrower
   "Relates a concept to a concept that is more specific in meaning."
   {:db/ident :skos/narrower,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :owl/inverseOf :skos/broader,
    :rdf/type [:rdf/Property :owl/ObjectProperty],
    :rdfs/comment

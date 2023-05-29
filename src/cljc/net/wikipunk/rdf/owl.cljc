@@ -380,7 +380,7 @@
 (def complementOf
   "The property that determines that a given class is the complement of another class."
   {:db/ident :owl/complementOf,
-   :db/cardinality :db.cardinality/one,
+   :db/cardinality :db.cardinality/many,
    :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -418,7 +418,7 @@
 (def differentFrom
   "The property that determines that two given individuals are different."
   {:db/ident :owl/differentFrom,
-   :db/cardinality :db.cardinality/one,
+   :db/cardinality :db.cardinality/many,
    :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -444,7 +444,7 @@
 (def disjointWith
   "The property that determines that two given classes are disjoint."
   {:db/ident :owl/disjointWith,
-   :db/cardinality :db.cardinality/one,
+   :db/cardinality :db.cardinality/many,
    :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -575,7 +575,7 @@
 (def inverseOf
   "The property that determines that two given properties are inverse."
   {:db/ident :owl/inverseOf,
-   :db/cardinality :db.cardinality/one,
+   :db/cardinality :db.cardinality/many,
    :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -756,7 +756,7 @@
 (def propertyDisjointWith
   "The property that determines that two given properties are disjoint."
   {:db/ident :owl/propertyDisjointWith,
-   :db/cardinality :db.cardinality/one,
+   :db/cardinality :db.cardinality/many,
    :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
@@ -903,7 +903,7 @@
   {:db/ident :owl/withRestrictions,
    :db/cardinality :db.cardinality/many,
    :db/valueType :db.type/ref,
-   :db/isComponent true,
+   ;; :db/isComponent true,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines the collection of facet-value pairs that define a datatype restriction.",

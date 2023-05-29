@@ -157,8 +157,8 @@
 (def seeAlso
   "Further information about the subject resource."
   {:db/ident           :rdfs/seeAlso,
-   :db/cardinality     :db.cardinality/many,
-   :db/valueType       :db.type/string,
+   ;; :db/cardinality     :db.cardinality/many,
+   ;; :db/valueType       :db.type/string,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "Further information about the subject resource.",
    :rdfs/domain        :rdfs/Resource,

@@ -17952,6 +17952,8 @@
 (def domainIncludes
   "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."
   {:db/ident :schema/domainIncludes,
+   :db/cardinality :db.cardinality/many
+   :db/valueType :db.type/ref
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    #voc/lstr
@@ -28868,6 +28870,8 @@
 (def rangeIncludes
   "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."
   {:db/ident :schema/rangeIncludes,
+   :db/cardinality :db.cardinality/many
+   :db/valueType :db.type/ref
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
    #voc/lstr
