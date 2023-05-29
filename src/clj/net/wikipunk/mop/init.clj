@@ -97,7 +97,7 @@
                      :else (filter #((set slot-names) (:db/ident %)) all-slots))]
     (doseq [[initarg initform] initargs
             :when              initarg
-            :when              (not (some #(= % initarg) init-slots))]
+            :when              (not (some #(= % initarg) (map :db/ident init-slots)))]
       (mop/slot-missing class instance initarg))
     (alter-instance instance
                     (fn [obj]
@@ -107,7 +107,7 @@
                             (assoc obj (:db/ident effective-slot) v)
                             obj))
                         initargs
-                        init-slots)))
+                        init-slots)))    
     instance))
 
 (defmethod mop/allocate-instance :rdfs/Class
