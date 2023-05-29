@@ -470,8 +470,8 @@
 (def equivalentClass
   "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions."
   {:db/ident :owl/equivalentClass,
-   :db/cardinality :db.cardinality/one,
-   :db/valueType :db.type/ref,
+   ;; :db/cardinality :db.cardinality/one,
+   ;; :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions.",
@@ -483,8 +483,8 @@
 (def equivalentProperty
   "The property that determines that two given properties are equivalent."
   {:db/ident :owl/equivalentProperty,
-   :db/cardinality :db.cardinality/one,
-   :db/valueType :db.type/ref,
+   ;; :db/cardinality :db.cardinality/one,
+   ;; :db/valueType :db.type/ref,
    :rdf/type :rdf/Property,
    :rdfs/comment
    "The property that determines that two given properties are equivalent.",

@@ -1176,8 +1176,11 @@
                     :rdf/type    :owl/Class}})
 
 (def prev
-  "prev"
+  "In a paged Collection, identifies the previous page of items."
   {:db/ident    :as/prev,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType   :db.type/ref,
+   :db/doc         "In a paged Collection, identifies the previous page of items.",
    :rdf/type    [:owl/ObjectProperty :owl/FunctionalProperty],
    :rdfs/domain :as/CollectionPage,
    :rdfs/label  #voc/lstr "prev@en",
