@@ -1091,7 +1091,7 @@
    :rdfs/domain    {:owl/unionOf [:as/Object :as/Link],
                     :rdf/type    :owl/Class},
    :rdfs/label     #voc/lstr "name@en",
-   :rdfs/name      #voc/lstr
+   :rdfs/comment      #voc/lstr
    "The default, plain-text display name of the object or link.@en",
    :rdfs/range     {:owl/unionOf [:rdf/langString :xsd/string],
                     :rdf/type    :owl/Class}})
