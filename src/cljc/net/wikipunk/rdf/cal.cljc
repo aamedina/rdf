@@ -478,7 +478,7 @@
    ["\n\t    value type: TEXT"
     "This class of property provides a framework for defining non-standard properties."],
    :rdfs/range :xsd/string
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def action
   "value type: TEXT This property defines the action to be invoked when an alarm is triggered."
@@ -490,7 +490,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Valarm :cal/Valarm],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def altrep
   "To specify an alternate text representation for the property value."
@@ -515,7 +515,7 @@
                                :cal/Vjournal
                                :cal/Valarm],
                  :rdf/type    :owl/Class},
-   :spec/valueType "URI"})
+   :rdfs/label "URI"})
 
 (def attendee
   "value type: CAL-ADDRESS The property defines an \"Attendee\" within a calendar component."
@@ -531,9 +531,8 @@
                                :cal/Vfreebusy
                                :cal/Valarm],
                  :rdf/type    :owl/Class},
-   :rdfs/label "attendee",
    :rdfs/range :cal/Value_CAL-ADDRESS,
-   :spec/valueType "CAL-ADDRESS"})
+   :rdfs/label "CAL-ADDRESS"})
 
 (def byday
   "BYDAY"
@@ -595,7 +594,7 @@
    ["\n\t    value type: TEXT"
     "This property defines the calendar scale used for the calendar information specified in the iCalendar object."],
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def categories
   "value type: TEXT This property defines the categories for a calendar component."
@@ -609,7 +608,7 @@
     [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vevent :cal/Vtodo :cal/Vjournal],
     :rdf/type :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def class
   "value type: TEXT This property defines the access classification for a calendar component."
@@ -621,7 +620,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def cn
   "To specify the common name to be associated with the calendar user specified by the property."
@@ -642,7 +641,7 @@
     [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vtimezone :cal/Vfreebusy],
     :rdf/type :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def completed
   "value type: DATE-TIME This property defines the date and time that a to-do was actually completed."
@@ -653,7 +652,7 @@
     "This property defines the date and time that a to-do was actually completed."],
    :rdfs/domain :cal/Vtodo,
    :rdfs/range :cal/Value_DATE-TIME,
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def component
   {:db/ident :cal/component,
@@ -670,7 +669,7 @@
    {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vfreebusy],
     :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def count
   "COUNT"
@@ -688,7 +687,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal],
                  :rdf/type    :owl/Class},
    :rdfs/range :cal/Value_DATE-TIME,
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def cutype
   "To specify the type of calendar user specified by the property."
@@ -739,7 +738,7 @@
                                :cal/Valarm],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def dir
   "To specify reference to a directory entry associated with the calendar user specified by the property."
@@ -758,8 +757,7 @@
    :rdfs/domain
    {:owl/unionOf [:cal/Vevent :cal/Vfreebusy :cal/Vevent :cal/Vfreebusy],
     :rdf/type    :owl/Class},
-   :rdfs/label "end",
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def dtstamp
   "value type: DATE-TIME The property indicates the date/time that the instance of the iCalendar object was created."
@@ -772,7 +770,7 @@
    {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vfreebusy],
     :rdf/type    :owl/Class},
    :rdfs/range :cal/Value_DATE-TIME,
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def dtstart
   "default value type: DATE-TIME This property specifies when the calendar component begins."
@@ -791,8 +789,7 @@
                                :cal/Vtimezone
                                :cal/Vtimezone],
                  :rdf/type    :owl/Class},
-   :rdfs/label "start",
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def due
   "default value type: DATE-TIME This property defines the date and time that a to-do is expected to be completed."
@@ -802,7 +799,7 @@
    ["\n\t    default value type: DATE-TIME"
     "This property defines the date and time that a to-do is expected to be completed."],
    :rdfs/domain :cal/Vtodo,
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def duration
   "value type: DURATION The property specifies a positive duration of time."
@@ -820,7 +817,7 @@
                                   :cal/Valarm],
                     :rdf/type    :owl/Class},
    :rdfs/range     :cal/Value_DURATION,
-   :spec/valueType "DURATION"})
+   :rdfs/label "DURATION"})
 
 (def encoding
   "To specify an alternate inline encoding for the property value."
@@ -837,7 +834,7 @@
    ["\n\t    default value type: DATE-TIME"
     "This property defines the list of date/time exceptions for a recurring calendar component."],
    :rdfs/domain :cal/DomainOf_rrule,
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def exrule
   "value type: RECUR This property defines a rule or repeating pattern for an exception to a recurrence set."
@@ -849,7 +846,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal],
                  :rdf/type    :owl/Class},
    :rdfs/range :cal/Value_RECUR,
-   :spec/valueType "RECUR"})
+   :rdfs/label "RECUR"})
 
 (def fbtype
   "To specify the free or busy time type."
@@ -873,7 +870,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vfreebusy :cal/Vfreebusy],
                  :rdf/type    :owl/Class},
    :rdfs/range :cal/Value_PERIOD,
-   :spec/valueType "PERIOD"})
+   :rdfs/label "PERIOD"})
 
 (def freq
   "FREQ"
@@ -891,7 +888,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo],
                  :rdf/type    :owl/Class},
    :rdfs/range :cal/List_of_Float,
-   :spec/valueListType "FLOAT"})
+   :rdfs/label "FLOAT"})
 
 (def interval
   "INTERVAL"
@@ -917,7 +914,7 @@
    {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vtimezone],
     :rdf/type    :owl/Class},
    :rdfs/range :cal/Value_DATE-TIME,
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def location
   "value type: TEXT The property defines the intended venue for the activity defined by a calendar component."
@@ -928,9 +925,8 @@
     "The property defines the intended venue for the activity defined by a calendar component."],
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo],
                  :rdf/type    :owl/Class},
-   :rdfs/label "location",
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def member
   "To specify the group or list membership of the calendar user specified by the property."
@@ -947,7 +943,7 @@
    ["\n\t    value type: TEXT"
     "This property defines the iCalendar object method associated with the calendar object."],
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def organizer
   "value type: CAL-ADDRESS The property defines the organizer for a calendar component."
@@ -961,7 +957,7 @@
     [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vfreebusy :cal/Vfreebusy],
     :rdf/type :owl/Class},
    :rdfs/range :cal/Value_CAL-ADDRESS,
-   :spec/valueType "CAL-ADDRESS"})
+   :rdfs/label "CAL-ADDRESS"})
 
 (def partstat
   "To specify the participation status for the calendar user specified by the property."
@@ -979,7 +975,7 @@
     "This property is used by an assignee or delegatee of a to-do to convey the percent completion of a to-do to the Organizer."],
    :rdfs/domain :cal/Vtodo,
    :rdfs/range :xsd/integer,
-   :spec/valueType "INTEGER"})
+   :rdfs/label "INTEGER"})
 
 (def priority
   "value type: INTEGER The property defines the relative priority for a calendar component."
@@ -991,7 +987,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vevent :cal/Vtodo],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/integer,
-   :spec/valueType "INTEGER"})
+   :rdfs/label "INTEGER"})
 
 (def prodid
   "value type: TEXT This property specifies the identifier for the product that created the iCalendar object."
@@ -1001,7 +997,7 @@
    ["\n\t    value type: TEXT"
     "This property specifies the identifier for the product that created the iCalendar object."],
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def range
   "To specify the effective range of recurrence instances from the instance specified by the recurrence identifier specified by the property."
@@ -1020,7 +1016,7 @@
    :rdfs/domain
    {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vtimezone],
     :rdf/type    :owl/Class},
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def recurrenceId
   "default value type: DATE-TIME This property is used in conjunction with the \"UID\" and \"SEQUENCE\" property to identify a specific instance of a recurring \"VEVENT\", \"VTODO\" or \"VJOURNAL\" calendar component. The property value is the effective value of the \"DTSTART\" property of the recurrence instance."
@@ -1030,7 +1026,7 @@
    ["\n\t    default value type: DATE-TIME"
     "This property is used in conjunction with the \"UID\" and \"SEQUENCE\" property to identify a specific instance of a recurring \"VEVENT\", \"VTODO\" or \"VJOURNAL\" calendar component. The property value is the effective value of the \"DTSTART\" property of the recurrence instance."],
    :rdfs/domain :cal/DomainOf_rrule,
-   :spec/valueType "DATE-TIME"})
+   :rdfs/label "DATE-TIME"})
 
 (def related
   "To specify the relationship of the alarm trigger with respect to the start or end of the calendar component."
@@ -1049,7 +1045,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def reltype
   "To specify the type of hierarchical relationship associated with the calendar component specified by the property."
@@ -1067,7 +1063,7 @@
     "This property defines the number of time the alarm should be repeated, after the initial trigger."],
    :rdfs/domain :cal/Valarm,
    :rdfs/range :xsd/integer,
-   :spec/valueType "INTEGER"})
+   :rdfs/label "INTEGER"})
 
 (def requestStatus
   "value type: TEXT This property defines the status code returned for a scheduling request."
@@ -1080,7 +1076,7 @@
    {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vfreebusy],
     :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def resources
   "value type: TEXT This property defines the equipment or resources anticipated for an activity specified by a calendar entity.."
@@ -1092,7 +1088,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def role
   "To specify the participation role for the calendar user specified by the property."
@@ -1117,7 +1113,7 @@
                                :cal/Vtimezone],
                  :rdf/type    :owl/Class},
    :rdfs/range :cal/Value_RECUR,
-   :spec/valueType "RECUR"})
+   :rdfs/label "RECUR"})
 
 (def rsvp
   "To specify whether there is an expectation of a favor of a reply from the calendar user specified by the property value."
@@ -1143,7 +1139,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/integer,
-   :spec/valueType "integer"})
+   :rdfs/label "integer"})
 
 (def standard
   "STANDARD"
@@ -1163,7 +1159,7 @@
     [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vevent :cal/Vtodo :cal/Vjournal],
     :rdf/type :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def summary
   "value type: TEXT This property defines a short summary or subject for the calendar component."
@@ -1181,10 +1177,9 @@
                                :cal/Vjournal
                                :cal/Valarm],
                  :rdf/type    :owl/Class},
-   :rdfs/label "summary",
    :rdfs/range :xsd/string,
    :rdfs/subPropertyOf [:rdfs/label :cal/summary],
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def transp
   "value type: TEXT This property defines whether an event is transparent or not to busy time searches."
@@ -1195,7 +1190,7 @@
     "This property defines whether an event is transparent or not to busy time searches."],
    :rdfs/domain :cal/Vevent,
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def trigger
   "default value type: DURATION This property specifies when an alarm will trigger."
@@ -1214,7 +1209,7 @@
                                   :cal/Value_DATE
                                   :cal/Value_DATE],
                     :rdf/type    :owl/Class},
-   :spec/valueType "DURATION"})
+   :rdfs/label "DURATION"})
 
 (def tzid
   "To specify the identifier for the time zone definition for a time component in the property value. value type: TEXT This property specifies the text value that uniquely identifies the \"VTIMEZONE\" calendar component."
@@ -1226,7 +1221,7 @@
     "This property specifies the text value that uniquely identifies the \"VTIMEZONE\" calendar component."],
    :rdfs/domain :cal/Vtimezone,
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def tzname
   "value type: TEXT This property specifies the customary designation for a time zone description."
@@ -1237,7 +1232,7 @@
     "This property specifies the customary designation for a time zone description."],
    :rdfs/domain :cal/Vtimezone,
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def tzoffsetfrom
   "value type: UTC-OFFSET This property specifies the offset which is in use prior to this time zone observance."
@@ -1249,7 +1244,7 @@
    :rdfs/domain {:owl/unionOf [:cal/Vtimezone :cal/Vtimezone :cal/Vtimezone],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "UTC-OFFSET"})
+   :rdfs/label "UTC-OFFSET"})
 
 (def tzoffsetto
   "value type: UTC-OFFSET This property specifies the offset which is in use in this time zone observance."
@@ -1260,7 +1255,7 @@
     "This property specifies the offset which is in use in this time zone observance."],
    :rdfs/domain :cal/Vtimezone,
    :rdfs/range :xsd/string,
-   :spec/valueType "UTC-OFFSET"})
+   :rdfs/label "UTC-OFFSET"})
 
 (def tzurl
   "value type: URI The TZURL provides a means for a VTIMEZONE component to point to a network location that can be used to retrieve an up-to- date version of itself."
@@ -1271,7 +1266,7 @@
     "The TZURL provides a means for a VTIMEZONE component to point to a network location that can be used to retrieve an up-to- date version of itself."],
    :rdfs/domain {:owl/unionOf [:cal/Vtimezone :cal/Vtimezone :cal/Vtimezone],
                  :rdf/type    :owl/Class},
-   :spec/valueType "URI"})
+   :rdfs/label "URI"})
 
 (def uid
   "value type: TEXT This property defines the persistent, globally unique identifier for the calendar component."
@@ -1292,7 +1287,7 @@
                                :cal/Vjournal],
                  :rdf/type    :owl/Class},
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def until
   "UNTIL"
@@ -1310,8 +1305,7 @@
    :rdfs/domain
    {:owl/unionOf [:cal/Vevent :cal/Vtodo :cal/Vjournal :cal/Vfreebusy],
     :rdf/type    :owl/Class},
-   :rdfs/label "see also",
-   :spec/valueType "URI"})
+   :rdfs/label "URI"})
 
 (def version
   "value type: TEXT This property specifies the identifier corresponding to the highest version number or the minimum and maximum range of the iCalendar specification that is required in order to interpret the iCalendar object."
@@ -1321,7 +1315,7 @@
    ["\n\t    value type: TEXT"
     "This property specifies the identifier corresponding to the highest version number or the minimum and maximum range of the iCalendar specification that is required in order to interpret the iCalendar object."],
    :rdfs/range :xsd/string,
-   :spec/valueType "TEXT"})
+   :rdfs/label "TEXT"})
 
 (def wkst
   "WKST"
