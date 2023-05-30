@@ -292,6 +292,7 @@
           (not-empty (into []
                            (comp (map :db/ident)
                                  (distinct)
+                                 (remove #(isa? % :owl/DeprecatedProperty))
                                  (map #(first (get idx %))))
                            slots))))))
 
