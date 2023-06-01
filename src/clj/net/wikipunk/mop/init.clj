@@ -547,3 +547,264 @@
 (defmethod mop/compute-class-precedence-list :default
   [_]
   nil)
+
+(defmethod mop/add-dependent clojure.lang.Keyword
+  [metaobject dependent]
+  (some-> (mop/find-class metaobject)
+          (mop/add-dependent dependent)))
+
+(defmethod mop/add-direct-subclass [clojure.lang.Keyword clojure.lang.Keyword]
+  [superclass subclass]
+  (some-> (mop/find-class superclass)
+          (mop/add-direct-subclass (mop/find-class subclass))))
+
+(defmethod mop/allocate-instance clojure.lang.Keyword
+  [class & {:as initargs}]
+  (some-> (mop/find-class class)
+          (mop/allocate-instance initargs)))
+
+#_(defmethod mop/change-class clojure.lang.Keyword
+  [instance new-class & {:as initargs}]
+  (some-> (mop/find-class instance)
+          (mop/change-class new-class initargs)))
+
+(defmethod mop/class-default-initargs clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-default-initargs)))
+
+(defmethod mop/class-direct-default-initargs clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-direct-default-initargs)))
+
+(defmethod mop/class-direct-slots clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-direct-slots)))
+
+(defmethod mop/class-direct-subclasses clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-direct-subclasses)))
+
+(defmethod mop/class-direct-superclasses clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-direct-superclasses)))
+
+(defmethod mop/class-finalized? clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-finalized?)))
+
+(defmethod mop/class-name clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-name)))
+
+(defmethod mop/class-precedence-list clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-precedence-list)))
+
+(defmethod mop/class-prototype clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-prototype)))
+
+(defmethod mop/class-slots clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/class-slots)))
+
+(defmethod mop/compute-class-precedence-list clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/compute-class-precedence-list)))
+
+(defmethod mop/compute-default-initargs clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/compute-default-initargs)))
+
+(defmethod mop/compute-effective-slot-definition clojure.lang.Keyword
+  [class slot direct-slot-definitions]
+  (some-> (mop/find-class class)
+          (mop/compute-effective-slot-definition slot direct-slot-definitions)))
+
+(defmethod mop/compute-slots clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/compute-slots)))
+
+(defmethod mop/direct-slot-definition-class clojure.lang.Keyword
+  [class & {:as initargs}]
+  (some-> (mop/find-class class)
+          (mop/direct-slot-definition-class initargs)))
+
+(defmethod mop/effective-slot-definition-class clojure.lang.Keyword
+  [class & {:as initargs}]
+  (some-> (mop/find-class class)
+          (mop/effective-slot-definition-class initargs)))
+
+(defmethod mop/ensure-class-using-class clojure.lang.Keyword
+  [class class-name &
+   {:keys [direct-default-initargs direct-slots direct-superclasses name
+           metaclass],
+    :as initargs}]
+  (some-> (mop/find-class class)
+          (mop/ensure-class-using-class class-name initargs)))
+
+(defmethod mop/finalize-inheritance clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/finalize-inheritance)))
+
+(defmethod mop/initialize-instance clojure.lang.Keyword
+  [instance & {:as initargs}]
+  (some-> (mop/find-class instance)
+          (mop/initialize-instance initargs)))
+
+(defmethod mop/make-instance clojure.lang.Keyword
+  [class & {:as initargs}]
+  (some-> (mop/find-class class)
+          (mop/make-instance initargs)))
+
+(defmethod mop/make-instances-obsolete clojure.lang.Keyword
+  [class]
+  (some-> (mop/find-class class)
+          (mop/make-instances-obsolete)))
+
+(defmethod mop/map-dependents clojure.lang.Keyword
+  [f metaobject]
+  (some-> (mop/find-class f)
+          (mop/map-dependents metaobject)))
+
+(defmethod mop/reinitialize-instance clojure.lang.Keyword
+  [instance & {:as initargs}]
+  (some-> (mop/find-class instance)
+          (mop/reinitialize-instance initargs)))
+
+(defmethod mop/remove-dependent clojure.lang.Keyword
+  [metaobject dependent]
+  (some-> (mop/find-class metaobject)
+          (mop/remove-dependent dependent)))
+
+(defmethod mop/remove-direct-subclass [clojure.lang.Keyword clojure.lang.Keyword]
+  [superclass subclass]
+  (some-> (mop/find-class superclass)
+          (mop/remove-direct-subclass (mop/find-class subclass))))
+
+(defmethod mop/set-slot-value-using-class clojure.lang.Keyword
+  [class object slot new-value]
+  (some-> (mop/find-class class)
+          (mop/set-slot-value-using-class object slot new-value)))
+
+(defmethod mop/shared-initialize clojure.lang.Keyword
+  [instance slot-names & {:as initargs}]
+  (some-> (mop/find-class instance)
+          (mop/shared-initialize slot-names initargs)))
+
+(defmethod mop/slot-bound-using-class? clojure.lang.Keyword
+  [class object slot]
+  (some-> (mop/find-class class)
+          (mop/slot-bound-using-class? object slot)))
+
+(defmethod mop/slot-definition-allocation clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-allocation)))
+
+(defmethod mop/slot-definition-initargs clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-initargs)))
+
+(defmethod mop/slot-definition-initform clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-initform)))
+
+(defmethod mop/slot-definition-initfunction clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-initfunction)))
+
+(defmethod mop/slot-definition-location clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-location)))
+
+(defmethod mop/slot-definition-name clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-name)))
+
+(defmethod mop/slot-definition-readers clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-readers)))
+
+(defmethod mop/slot-definition-type clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-type)))
+
+(defmethod mop/slot-definition-writers clojure.lang.Keyword
+  [slot]
+  (some-> (mop/find-class slot)
+          (mop/slot-definition-writers)))
+
+(defmethod mop/slot-exists-using-class? clojure.lang.Keyword
+  [class object slot-def]
+  (some-> (mop/find-class class)
+          (mop/slot-exists-using-class? object slot-def)))
+
+(defmethod mop/slot-makunbound-using-class clojure.lang.Keyword
+  [class instance slot-def]
+  (some-> (mop/find-class class)
+          (mop/slot-makunbound-using-class instance slot-def)))
+
+(defmethod mop/slot-missing clojure.lang.Keyword
+  [class object slot-name & {:as info}]
+  (some-> (mop/find-class class)
+          (mop/slot-missing object slot-name info)))
+
+(defmethod mop/slot-unbound clojure.lang.Keyword
+  [class object slot-name]
+  (some-> (mop/find-class class)
+          (mop/slot-unbound object slot-name)))
+
+(defmethod mop/slot-value-using-class clojure.lang.Keyword
+  [class object slot]
+  (some-> (mop/find-class class)
+          (mop/slot-value-using-class object slot)))
+
+(defmethod mop/sniff clojure.lang.Keyword
+  [x]
+  (some-> (mop/find-class x)
+          (mop/sniff)))
+
+(defmethod mop/update-dependent clojure.lang.Keyword
+  [class object slot-def]
+  (some-> (mop/find-class class)
+          (mop/update-dependent object slot-def)))
+
+(defmethod mop/update-instance-for-different-class clojure.lang.Keyword
+  [previous current & {:as initargs}]
+  (some-> (mop/find-class previous)
+          (mop/update-instance-for-different-class current initargs)))
+
+(defmethod mop/update-instance-for-redefined-class clojure.lang.Keyword
+  [instance added-slots discarded-slots property-list & {:as initargs}]
+  (some-> (mop/find-class instance)
+          (mop/update-instance-for-redefined-class added-slots
+                                               discarded-slots
+                                               property-list
+                                               initargs)))
+
+(defmethod mop/validate-superclass clojure.lang.Keyword
+  [class superclass]
+  (some-> (mop/find-class class)
+          (mop/validate-superclass superclass)))
