@@ -65,7 +65,7 @@
    :rdfs/seeAlso     ["https://www.w3.org/TR/json-ld11/#the-rdf-json-datatype"],
    :rdfs/subClassOf  [:rdfs/Literal]})
 
-(def List
+(def |List|
   "The class of RDF Lists."
   {:db/ident         :rdf/List,
    :rdf/type         [:rdfs/Class :rdfs/Resource],

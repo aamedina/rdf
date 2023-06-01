@@ -80,6 +80,9 @@
     (= (name ident) "nil")
     'null
 
+    (re-find #"\." (name ident))
+    (symbol (str/replace (name ident) #"\." "_"))
+
     :else
     (-> (name ident)
         (symbol))))
@@ -1104,6 +1107,9 @@
 
                                             (= (name sym) "nil")
                                             'null
+
+                                            (re-find #"\." (name sym))
+                                            (symbol (str/replace (name sym) #"\." "_"))
 
                                             :else sym)
                                       sym       (if (:private v) (with-meta sym {:private true}) sym)
