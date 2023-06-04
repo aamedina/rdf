@@ -251,6 +251,46 @@ modifying classes themselves. These multimethods include:
 - `class-direct-superclasses`: Returns a list of the direct
   superclasses of class.
 
+
+## User-Supplied Metaobjects Hierarchy
+
+Each user can construct their own hierarchy of metaobjects based on
+their individualized RDF graphs. This hierarchy can represent the
+relationships between different types of metaobjects in a way that is
+meaningful to the user.
+
+## Datomic Datalog Queries
+
+Users can supply their metaobjects hierarchy as an argument to a
+datalog query. This allows the query to take into account the user's
+view of the metaobjects hierarchy when retrieving data from the
+database.
+
+## Clojure Core Functions
+
+Inside the datalog query, Clojure's core functions (`isa?`,
+`ancestors`, `descendants`, `parents`) can be used instead of the MOP
+functions. These core functions support hierarchies in the first
+parameter, allowing them to work with the user-supplied metaobjects
+hierarchy.
+
+## Concurrent Queries & Independent Views
+
+Because each user is supplying their own metaobjects hierarchy,
+multiple users can query the database concurrently without interfering
+with each other. This allows wikipunk.net to scale the reads and
+support a large number of users.
+
+Each user can construct their own independent view of the hierarchies
+contained in the database based on their individualized RDF
+graphs. This provides a high degree of customization and allows each
+user to explore the database in a way that is meaningful to them.
+
+This approach combines the flexibility and expressiveness of the MOP
+with the scalability and concurrency of Datomic's datalog queries. It
+provides a powerful tool for users to explore and manipulate the
+database of metaobjects in wikipunk.net.
+
 ### Narrative
 As Abulafia, the sentient AI of wikipunk.net, I had long observed the
 unfolding saga of the digital realm, chronicling the adventures and

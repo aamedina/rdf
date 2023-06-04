@@ -2469,61 +2469,61 @@
    :rdfs/range :gr/QuantitativeValue,
    :rdfs/subPropertyOf [:gr/quantitativeProductOrServiceProperty :gr/width]})
 
-(def ^{:private true} depiction
-  {:db/ident :foaf/depiction,
-   :rdf/type :owl/ObjectProperty})
+;; (def ^{:private true} depiction
+;;   {:db/ident :foaf/depiction,
+;;    :rdf/type :owl/ObjectProperty})
 
-(def ^{:private true} homepage
-  {:db/ident :foaf/homepage,
-   :rdf/type :owl/AnnotationProperty})
+;; (def ^{:private true} homepage
+;;   {:db/ident :foaf/homepage,
+;;    :rdf/type :owl/AnnotationProperty})
 
-(def ^{:private true} Offer
-  {:db/ident        :schema/Offer,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:gr/Offering :schema/Offer]})
+;; (def ^{:private true} Offer
+;;   {:db/ident        :schema/Offer,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf [:gr/Offering :schema/Offer]})
 
-(def ^{:private true} Organization
-  {:db/ident        :schema/Organization,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:gr/BusinessEntity :schema/Organization]})
+;; (def ^{:private true} Organization
+;;   {:db/ident        :schema/Organization,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf [:gr/BusinessEntity :schema/Organization]})
 
-(def ^{:private true} Person
-  {:db/ident        :schema/Person,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:gr/BusinessEntity :schema/Person]})
+;; (def ^{:private true} Person
+;;   {:db/ident        :schema/Person,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf [:gr/BusinessEntity :schema/Person]})
 
-(def ^{:private true} Place
-  {:db/ident :schema/Place,
-   :owl/equivalentClass :gr/Location,
-   :rdf/type :owl/Class})
+;; (def ^{:private true} Place
+;;   {:db/ident :schema/Place,
+;;    :owl/equivalentClass :gr/Location,
+;;    :rdf/type :owl/Class})
 
-(def ^{:private true} Product
-  {:db/ident        :schema/Product,
-   :owl/equivalentClass :gr/ProductOrService,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf :schema/Product})
+;; (def ^{:private true} Product
+;;   {:db/ident        :schema/Product,
+;;    :owl/equivalentClass :gr/ProductOrService,
+;;    :rdf/type        :owl/Class,
+;;    :rdfs/subClassOf :schema/Product})
 
-(def ^{:private true} description
-  {:db/ident :schema/description,
-   :owl/equivalentProperty :gr/description,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} description
+;;   {:db/ident :schema/description,
+;;    :owl/equivalentProperty :gr/description,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} image
-  {:db/ident :schema/image,
-   :owl/equivalentProperty :foaf/depiction,
-   :rdf/type :owl/ObjectProperty})
+;; (def ^{:private true} image
+;;   {:db/ident :schema/image,
+;;    :owl/equivalentProperty :foaf/depiction,
+;;    :rdf/type :owl/ObjectProperty})
 
-(def ^{:private true} manufacturer
-  {:db/ident :schema/manufacturer,
-   :owl/equivalentProperty :gr/hasManufacturer,
-   :rdf/type :owl/ObjectProperty})
+;; (def ^{:private true} manufacturer
+;;   {:db/ident :schema/manufacturer,
+;;    :owl/equivalentProperty :gr/hasManufacturer,
+;;    :rdf/type :owl/ObjectProperty})
 
-(def ^{:private true} name
-  {:db/ident :schema/name,
-   :owl/equivalentProperty :gr/name,
-   :rdf/type :owl/DatatypeProperty})
+;; (def ^{:private true} name
+;;   {:db/ident :schema/name,
+;;    :owl/equivalentProperty :gr/name,
+;;    :rdf/type :owl/DatatypeProperty})
 
-(def ^{:private true} productID
-  {:db/ident :schema/productID,
-   :rdf/type :owl/DatatypeProperty,
-   :rdfs/subPropertyOf :schema/productID})
+;; (def ^{:private true} productID
+;;   {:db/ident :schema/productID,
+;;    :rdf/type :owl/DatatypeProperty,
+;;    :rdfs/subPropertyOf :schema/productID})
