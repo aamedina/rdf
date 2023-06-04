@@ -1029,7 +1029,8 @@
 (defn rdf-doc
   "Returns docstring for v."
   [v]  
-  (let [docstring (or (some-> (:lv2/documentation v))
+  (let [docstring (or (some-> (:db/doc v))
+                      (:lv2/documentation v)
                       (:dcterms/abstract v)
                       (:dcterms/description v)
                       (:dc11/description v)
@@ -1043,7 +1044,7 @@
                       (:d3fend/kb-article v)
                       (:d3fend/control-name v)
                       (:rdfs/comment v)
-                      (:skos/prefLabel v)
+                      (:skos/prefLabel v)                      
                       (:rdfs/label v))
         docstring (if (vector? docstring)
                     (if (every? string? docstring)
