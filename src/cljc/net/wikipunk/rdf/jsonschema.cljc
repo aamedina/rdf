@@ -102,6 +102,8 @@
 (def allOf
   "Used to ensure that the data is valid against all of the specified schemas in the array."
   {:db/ident    :jsonschema/allOf,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/comment
    #voc/lstr
@@ -113,6 +115,8 @@
 (def anyOf
   "Used to ensure that the data is valid against any of the specified schemas in the array."
   {:db/ident    :jsonschema/anyOf,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/comment
    #voc/lstr
@@ -122,8 +126,10 @@
    :rdfs/range  :jsonschema/DataSchema})
 
 (def const
-  "Provides a constant value."
+  "Provides a constant value as an EDN encoded string."
   {:db/ident     :jsonschema/const,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment #voc/lstr "Provides a constant value.@en",
    :rdfs/label   "const",
@@ -132,6 +138,8 @@
 (def contentEncoding
   "Specifies the encoding used to store the contents, as specified in RFC 2054. The values that are accepted: \"7bit\", \"8bit\", \"binary\", \"quoted-printable\" and \"base64\"."
   {:db/ident    :jsonschema/contentEncoding,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -143,6 +151,8 @@
 (def contentMediaType
   "Specifies the MIME type (e.g., image/png, audio/mpeg) of the contents of a string value, as described in RFC 2046."
   {:db/ident    :jsonschema/contentMediaType,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -152,8 +162,10 @@
    :rdfs/domain :jsonschema/StringSchema})
 
 (def default
-  "Supply a default value. The value should validate against the data schema in which it resides."
+  "Supply a default value as an EDN encoded string. The value should validate against the data schema in which it resides."
   {:db/ident    :jsonschema/default,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -164,6 +176,8 @@
 (def enum
   "Restricted set of values provided as an array."
   {:db/ident     :jsonschema/enum,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/string,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment #voc/lstr "Restricted set of values provided as an array.@en",
    :rdfs/label   "enum",
@@ -172,6 +186,8 @@
 (def exclusiveMaximum
   "Specifies a maximum numeric value, representing an exclusive upper limit. Only applicable for associated number or integer types."
   {:db/ident     :jsonschema/exclusiveMaximum,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/double,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -184,6 +200,8 @@
 (def exclusiveMinimum
   "Specifies a minimum numeric value, representing an exclusive lower limit. Only applicable for associated number or integer types."
   {:db/ident     :jsonschema/exclusiveMinimum,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/double,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -196,6 +214,8 @@
 (def format
   "Allows validation based on a format pattern such as \"date-time\", \"email\", \"uri\", etc."
   {:db/ident    :jsonschema/format,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -207,6 +227,8 @@
 (def items
   "Used to define the characteristics of an array."
   {:db/ident     :jsonschema/items,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type     :owl/ObjectProperty,
    :rdfs/comment #voc/lstr
    "Used to define the characteristics of an array.@en",
@@ -217,6 +239,8 @@
 (def maxItems
   "Defines the maximum number of items that have to be in the array."
   {:db/ident    :jsonschema/maxItems,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -228,6 +252,8 @@
 (def maxLength
   "Specifies the maximum length of a string. Only applicable for associated string types."
   {:db/ident    :jsonschema/maxLength,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -239,6 +265,8 @@
 (def maximum
   "Specifies a maximum numeric value, representing an inclusive upper limit. Only applicable for associated number or integer types."
   {:db/ident     :jsonschema/maximum,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/double,
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -251,6 +279,8 @@
 (def minItems
   "Defines the minimum number of items that have to be in the array."
   {:db/ident    :jsonschema/minItems,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -262,6 +292,8 @@
 (def minLength
   "Specifies the minimum length of a string. Only applicable for associated string types."
   {:db/ident    :jsonschema/minLength,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/long
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -273,6 +305,8 @@
 (def minimum
   "Specifies a minimum numeric value, representing an inclusive lower limit. Only applicable for associated number or integer types."
   {:db/ident     :jsonschema/minimum,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/double
    :rdf/type     :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -285,6 +319,8 @@
 (def multipleOf
   "Specifies the multipleOf value number. The value must strictly greater than 0. Only applicable for associated number or integer types."
   {:db/ident    :jsonschema/multipleOf,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/double
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -296,6 +332,8 @@
 (def oneOf
   "Used to ensure that the data is valid against exactly one of the specified schemas in the array."
   {:db/ident    :jsonschema/oneOf,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type    :owl/ObjectProperty,
    :rdfs/comment
    #voc/lstr
@@ -307,6 +345,8 @@
 (def pattern
   "Provides a regular expression to express constraints of the string value. The regular expression must follow the ECMA 262 dialect."
   {:db/ident    :jsonschema/pattern,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -318,6 +358,8 @@
 (def properties
   "Data schema nested definitions"
   {:db/ident     :jsonschema/properties,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/ref,
    :rdf/type     :owl/ObjectProperty,
    :rdfs/comment #voc/lstr "Data schema nested definitions@en",
    :rdfs/label   "properties",
@@ -327,6 +369,8 @@
 (def propertyName
   "Used to store the indexing name in the parent object when this schema appears as a property of an object schema."
   {:db/ident    :jsonschema/propertyName,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/string,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -338,6 +382,8 @@
 (def readOnly
   "Boolean value that is a hint to indicate whether a property interaction / value is read only (=true) or not (=false)"
   {:db/ident    :jsonschema/readOnly,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/boolean,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -349,6 +395,8 @@
 (def required
   "Defines which members of the object type are mandatory, i.e. which members are mandatory in the payload that is to be sent (e.g. input of <code>invokeaction</code>, <code>writeproperty</code>) and what members will be definitely delivered in the payload that is being received (e.g. output of <code>invokeaction</code>, <code>readproperty</code>)"
   {:db/ident    :jsonschema/required,
+   :db/cardinality :db.cardinality/many,
+   :db/valueType :db.type/string,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -360,6 +408,8 @@
 (def writeOnly
   "Boolean value that is a hint to indicate whether a property interaction / value is write only (=true) or not (=false)"
   {:db/ident    :jsonschema/writeOnly,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/boolean,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
@@ -371,6 +421,8 @@
 (def uniqueItems
   "Boolean value that is a hint to indicate whether the array contains unique items (=true) or not (=false)"
   {:db/ident    :jsonschema/uniqueItems,
+   :db/cardinality :db.cardinality/one,
+   :db/valueType :db.type/boolean,
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr
