@@ -126,14 +126,15 @@
    :rdfs/range  :jsonschema/DataSchema})
 
 (def const
-  "Provides a constant value as an EDN encoded string."
-  {:db/ident     :jsonschema/const,
+  "Provides a constant value."
+  {:db/ident       :jsonschema/const,
    :db/cardinality :db.cardinality/one,
-   :db/valueType :db.type/string,
-   :rdf/type     :owl/DatatypeProperty,
-   :rdfs/comment #voc/lstr "Provides a constant value.@en",
-   :rdfs/label   "const",
-   :rdfs/domain  :jsonschema/DataSchema})
+   :db/valueType   :db.type/ref,
+   :db/isComponent true,
+   :rdf/type       :owl/DatatypeProperty,
+   :rdfs/comment   #voc/lstr "Provides a constant value.@en",
+   :rdfs/label     "const",
+   :rdfs/domain    :jsonschema/DataSchema})
 
 (def contentEncoding
   "Specifies the encoding used to store the contents, as specified in RFC 2054. The values that are accepted: \"7bit\", \"8bit\", \"binary\", \"quoted-printable\" and \"base64\"."
@@ -162,10 +163,11 @@
    :rdfs/domain :jsonschema/StringSchema})
 
 (def default
-  "Supply a default value as an EDN encoded string. The value should validate against the data schema in which it resides."
+  "Supply a default value. The value should validate against the data schema in which it resides."
   {:db/ident    :jsonschema/default,
    :db/cardinality :db.cardinality/one,
-   :db/valueType :db.type/string,
+   :db/valueType :db.type/ref,
+   :db/isComponent true
    :rdf/type    :owl/DatatypeProperty,
    :rdfs/comment
    #voc/lstr

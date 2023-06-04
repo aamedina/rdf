@@ -1467,7 +1467,6 @@
   {:db/ident       :as/url,
    :db/cardinality :db.cardinality/many,
    :db/valueType   :db.type/ref,
-   :db/isComponent true,
    :db/doc         "Identifies one or more links to representations of the object.",
    :rdf/type       :owl/ObjectProperty,
    :rdfs/comment
