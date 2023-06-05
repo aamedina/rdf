@@ -131,7 +131,7 @@
   relationship established via `derive`. "
   {:arglists '([child parent env])}
   (fn [child parent env]
-    [(type-of child) (type-of parent) (type-of env)])
+    [child parent (type-of env)])
   :hierarchy #'*metaobjects*)
 
 (defmethod isa-using-env? :default
@@ -158,7 +158,7 @@
   the current environment *env* for resolving metaobject idents."
   {:arglists '([tag env])}
   (fn [tag env]
-    [(type-of tag) (type-of env)])
+    [tag (type-of env)])
   :hierarchy #'*metaobjects*)
 
 (defmethod ancestors-using-env :default
@@ -183,7 +183,7 @@
   Note: This function does not work on Java type inheritance relationships."
   {:arglists '([tag env])}
   (fn [tag env]
-    [(type-of tag) (type-of env)])
+    [tag (type-of env)])
   :hierarchy #'*metaobjects*)
 
 (defmethod descendants-using-env :default
@@ -207,7 +207,7 @@
   environment *env* for resolving metaobject idents."
   {:arglists '([tag env])}
   (fn [tag env]
-    [(type-of tag) (type-of env)])
+    [tag (type-of env)])
   :hierarchy #'*metaobjects*)
 
 (defmethod parents-using-env :default
