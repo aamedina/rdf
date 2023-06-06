@@ -414,19 +414,22 @@
     :as        class}]
   (->> (filter keyword? (concat (take-while (complement (cond
                                                           (isa? ident :owl/NamedIndividual)
-                                                          #{:owl/NamedIndividual :owl/ObjectProperty :rdf/Propert}
+                                                          #{:owl/NamedIndividual :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
 
                                                           (isa? ident :owl/Class)
-                                                          #{:owl/Class :owl/ObjectProperty :rdf/Property}
+                                                          #{:owl/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}
 
                                                           (identical? ident :rdfs/Class)
+                                                          #{:rdfs/Resource}
+
+                                                          (identical? ident :rdfs/Resource)
                                                           #{}
 
                                                           :else
-                                                          #{:rdfs/Class :owl/ObjectProperty :rdf/Property}))
+                                                          #{:rdfs/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}))
                                             (or class-precedence-list
                                                 (mop/compute-class-precedence-list class)))
-                                subClassOf
+                                (remove #{:rdfs/Resource} subClassOf)
                                 equivalentClass))
        (mapcat mop/class-direct-slots)
        (remove (fn [{:db/keys [ident] :rdf/keys [type]}] (some #(isa? % :owl/AnnotationProperty) type)))
@@ -526,7 +529,8 @@
                                  :owl/Thing
                                  :owl/NamedIndividual
                                  :oboInOwl/ObsoleteClass
-                                 :oboInOwl/ObsoleteProperty))))
+                                 :oboInOwl/ObsoleteProperty
+                                 :rdfs/Resource))))
 
 (defmethod mop/class-direct-superclasses :rdfs/Class
   [{:rdfs/keys [subClassOf]}]
