@@ -889,21 +889,23 @@
   (box [m]
     ;; special case coerce these to doubles 
     (if (some #{:xsd/minExclusive :xsd/minInclusive
-                :xsd/maxExclusive :xsd/maxInclusive}
+                :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
+                :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
               (keys m))
-      (update m (some #{:xsd/minExclusive :xsd/minInclusive
-                        :xsd/maxExclusive :xsd/maxInclusive}
-                      (keys m))
-              (fn [x]
-                (if (string? x)
-                  (try
-                    (Long/parseLong x)
-                    (catch Throwable ex
-                      (try
-                        (Double/parseDouble x)
-                        (catch Throwable ex
-                          (double (read-string (str "0x" x)))))))
-                  (double x))))
+      (reduce #(update %1 %2 (fn [x]
+                               (if (string? x)
+                                 (try
+                                   (double (Long/parseLong x))
+                                   (catch Throwable ex
+                                     (try
+                                       (Double/parseDouble x)
+                                       (catch Throwable ex
+                                         (double (read-string (str "0x" x)))))))
+                                 (double x))))
+              m (filter #{:xsd/minExclusive :xsd/minInclusive
+                          :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
+                          :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
+                        (keys m)))
       m))
 
   Object
@@ -916,11 +918,15 @@
   [form f k]
   (f form k box))
 
-(defn box-values
-  "Walker to box values in the form."
+(defmulti box-values
+  "Boxes multi-value typed literals for Datomic :db.type/ref."
+  mop/type-of
+  :hierarchy #'mop/*metaobjects*)
+
+(defmethod box-values :default
   [form]
   (if (map? form)
-    (cond-> form
+    (cond-> (box form)
       (:owl/deprecated form)
       (update :owl/deprecated boolean)
       
@@ -931,7 +937,13 @@
       (box-value update :owl/oneOf)
 
       (seq (:owl/withRestrictions form))
-      (box-value update :owl/withRestrictions))
+      (box-value update :owl/withRestrictions)
+
+      (some? (:jsonschema/default form))
+      (box-value update :jsonschema/default)
+
+      (some? (:jsonschema/const form))
+      (box-value update :jsonschema/const))
     form))
 
 (def ^:dynamic *recurse* 2)

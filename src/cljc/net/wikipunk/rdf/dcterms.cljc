@@ -998,20 +998,22 @@
 
 (def description
   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
-  {:db/ident :dcterms/description,
-   :dc11/date #inst "2008-01-14T00:00:00.000-05:00",
+  {:db/ident           :dcterms/description,
+   :db/cardinality     :db.cardinality/many
+   :db/valueType       :db.type/string
+   :dc11/date          #inst "2008-01-14T00:00:00.000-05:00",
    :dc11/description
    #voc/lstr
-    "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.@en",
-   :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
+   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.@en",
+   :dcterms/date       #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
    #voc/lstr
-    "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.@en",
-   :dcterms/issued #inst "2008-01-14T00:00:00.000-05:00",
-   :rdf/type :rdf/Property,
-   :rdfs/comment #voc/lstr "An account of the resource.@en",
-   :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Description@en",
+   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.@en",
+   :dcterms/issued     #inst "2008-01-14T00:00:00.000-05:00",
+   :rdf/type           :rdf/Property,
+   :rdfs/comment       #voc/lstr "An account of the resource.@en",
+   :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
+   :rdfs/label         #voc/lstr "Description@en",
    :rdfs/subPropertyOf [:dc11/description :dcterms/description]})
 
 (def educationLevel
@@ -1642,6 +1644,8 @@
 (def title
   "A name given to the resource."
   {:db/ident           :dcterms/title,
+   :db/cardinality     :db.cardinality/many
+   :db/valueType       :db.type/string
    :dc11/date          #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/date       #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/issued     #inst "2008-01-14T00:00:00.000-05:00",
