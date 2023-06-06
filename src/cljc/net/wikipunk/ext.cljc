@@ -588,3 +588,14 @@
    :rdfa/prefix      "metalex"
    :rdfa/uri         "http://www.metalex.eu/metalex-cen.owl#"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def td
+  {:rdfa/prefix      "td"
+   :rdfa/uri         "https://www.w3.org/2019/wot/td#"
+   :rdf/type         :rdfa/PrefixMapping})
+
+(def wotsec
+  {:dcat/downloadURL "resources/security.ttl"
+   :rdfa/prefix      "wotsec"
+   :rdfa/uri         "https://www.w3.org/2019/wot/security#"
+   :rdf/type         :rdfa/PrefixMapping})
