@@ -222,8 +222,7 @@
    :rdfs/domain        :rdf/Statement,
    :rdfs/isDefinedBy   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    :rdfs/label         "subject",
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf :rdf/subject})
+   :rdfs/range         :rdfs/Resource})
 
 (def type
   "The subject is an instance of a class."

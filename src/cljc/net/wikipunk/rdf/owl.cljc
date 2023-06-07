@@ -20,7 +20,7 @@
    :rdfs/comment "The class of collections of pairwise different individuals.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "AllDifferent",
-   :rdfs/subClassOf [:rdfs/Resource :owl/AllDifferent]})
+   :rdfs/subClassOf [:rdfs/Resource]})
 
 (def AllDisjointClasses
   "The class of collections of pairwise disjoint classes."
@@ -29,7 +29,7 @@
    :rdfs/comment     "The class of collections of pairwise disjoint classes.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "AllDisjointClasses",
-   :rdfs/subClassOf  [:rdfs/Resource :owl/AllDisjointClasses]})
+   :rdfs/subClassOf  [:rdfs/Resource]})
 
 (def AllDisjointProperties
   "The class of collections of pairwise disjoint properties."
@@ -38,7 +38,7 @@
    :rdfs/comment "The class of collections of pairwise disjoint properties.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "AllDisjointProperties",
-   :rdfs/subClassOf [:rdfs/Resource :owl/AllDisjointProperties]})
+   :rdfs/subClassOf [:rdfs/Resource]})
 
 (def Annotation
   "The class of annotated annotations for which the RDF serialization consists of an annotated subject, predicate and object."
@@ -48,7 +48,7 @@
    "The class of annotated annotations for which the RDF serialization consists of an annotated subject, predicate and object.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "Annotation",
-   :rdfs/subClassOf [:rdfs/Resource :owl/Annotation]})
+   :rdfs/subClassOf [:rdfs/Resource]})
 
 (def AnnotationProperty
   "The class of annotation properties."
@@ -57,7 +57,7 @@
    :rdfs/comment     "The class of annotation properties.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "AnnotationProperty",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property :owl/AnnotationProperty]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property]})
 
 (def AsymmetricProperty
   "The class of asymmetric properties."
@@ -67,7 +67,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "AsymmetricProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
-                      :owl/AsymmetricProperty
                       :rdfs/Resource
                       :rdf/Property]})
 
@@ -79,7 +78,7 @@
    "The class of annotated axioms for which the RDF serialization consists of an annotated subject, predicate and object.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "Axiom",
-   :rdfs/subClassOf [:rdfs/Resource :owl/Axiom]})
+   :rdfs/subClassOf [:rdfs/Resource]})
 
 (def T
   "The class of OWL classes."
@@ -88,7 +87,7 @@
    :rdfs/comment     "The class of OWL classes.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "Class",
-   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Class :owl/Class]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Class]})
 
 (def DataRange
   "The class of OWL data ranges, which are special kinds of datatypes. Note: The use of the IRI owl:DataRange has been deprecated as of OWL 2. The IRI rdfs:Datatype SHOULD be used instead."
@@ -98,7 +97,7 @@
    "The class of OWL data ranges, which are special kinds of datatypes. Note: The use of the IRI owl:DataRange has been deprecated as of OWL 2. The IRI rdfs:Datatype SHOULD be used instead.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "DataRange",
-   :rdfs/subClassOf [:rdfs/Resource :rdfs/Datatype :owl/DataRange]})
+   :rdfs/subClassOf [:rdfs/Resource :rdfs/Datatype]})
 
 (def DatatypeProperty
   "The class of data properties."
@@ -107,7 +106,7 @@
    :rdfs/comment     "The class of data properties.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "DatatypeProperty",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property :owl/DatatypeProperty]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property]})
 
 (def DeprecatedClass
   "The class of deprecated classes."
@@ -116,7 +115,7 @@
    :rdfs/comment     "The class of deprecated classes.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "DeprecatedClass",
-   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Class :owl/DeprecatedClass]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Class]})
 
 (def DeprecatedProperty
   "The class of deprecated properties."
@@ -125,7 +124,7 @@
    :rdfs/comment     "The class of deprecated properties.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "DeprecatedProperty",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property :owl/DeprecatedProperty]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property]})
 
 (def FunctionalProperty
   "The class of functional properties."
@@ -134,7 +133,7 @@
    :rdfs/comment     "The class of functional properties.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "FunctionalProperty",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property :owl/FunctionalProperty]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property]})
 
 (def InverseFunctionalProperty
   "The class of inverse-functional properties."
@@ -144,7 +143,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "InverseFunctionalProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
-                      :owl/InverseFunctionalProperty
                       :rdfs/Resource
                       :rdf/Property]})
 
@@ -156,7 +154,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "IrreflexiveProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
-                      :owl/IrreflexiveProperty
                       :rdfs/Resource
                       :rdf/Property]})
 
@@ -167,7 +164,7 @@
    :rdfs/comment     "The class of named individuals.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "NamedIndividual",
-   :rdfs/subClassOf  [:rdfs/Resource :owl/Thing :owl/NamedIndividual]})
+   :rdfs/subClassOf  [:rdfs/Resource :owl/Thing]})
 
 (def NegativePropertyAssertion
   "The class of negative property assertions."
@@ -176,7 +173,7 @@
    :rdfs/comment     "The class of negative property assertions.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "NegativePropertyAssertion",
-   :rdfs/subClassOf  [:rdfs/Resource :owl/NegativePropertyAssertion]})
+   :rdfs/subClassOf  [:rdfs/Resource]})
 
 (def Nothing
   "This is the empty class."
@@ -185,7 +182,7 @@
    :rdfs/comment     "This is the empty class.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "Nothing",
-   :rdfs/subClassOf  [:owl/Thing :owl/Nothing]})
+   :rdfs/subClassOf  [:owl/Thing]})
 
 (def ObjectProperty
   "The class of object properties."
@@ -194,7 +191,7 @@
    :rdfs/comment     "The class of object properties.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "ObjectProperty",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property :owl/ObjectProperty]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property]})
 
 (def Ontology
   "The class of ontologies."
@@ -203,7 +200,7 @@
    :rdfs/comment     "The class of ontologies.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "Ontology",
-   :rdfs/subClassOf  [:rdfs/Resource :owl/Ontology]})
+   :rdfs/subClassOf  [:rdfs/Resource]})
 
 (def OntologyProperty
   "The class of ontology properties."
@@ -212,7 +209,7 @@
    :rdfs/comment     "The class of ontology properties.",
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "OntologyProperty",
-   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property :owl/OntologyProperty]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdf/Property]})
 
 (def ReflexiveProperty
   "The class of reflexive properties."
@@ -222,7 +219,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "ReflexiveProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
-                      :owl/ReflexiveProperty
                       :rdfs/Resource
                       :rdf/Property]})
 
@@ -243,7 +239,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "SymmetricProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
-                      :owl/SymmetricProperty
                       :rdfs/Resource
                       :rdf/Property]})
 
@@ -264,7 +259,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label       "TransitiveProperty",
    :rdfs/subClassOf  [:owl/ObjectProperty
-                      :owl/TransitiveProperty
                       :rdfs/Resource
                       :rdf/Property]})
 
@@ -374,8 +368,7 @@
    :rdfs/domain :owl/Restriction,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "cardinality",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :owl/cardinality})
+   :rdfs/range :xsd/nonNegativeInteger,})
 
 (def complementOf
   "The property that determines that a given class is the complement of another class."
@@ -401,8 +394,7 @@
    :rdfs/domain :rdfs/Datatype,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "datatypeComplementOf",
-   :rdfs/range :rdfs/Datatype,
-   :rdfs/subPropertyOf :owl/datatypeComplementOf})
+   :rdfs/range :rdfs/Datatype})
 
 (def deprecated
   "The annotation property that indicates that a given entity has been deprecated."
@@ -814,8 +806,7 @@
    :rdfs/domain :owl/NegativePropertyAssertion,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "sourceIndividual",
-   :rdfs/range :owl/Thing,
-   :rdfs/subPropertyOf :owl/sourceIndividual})
+   :rdfs/range :owl/Thing})
 
 (def targetIndividual
   "The property that determines the object of a negative object property assertion."
@@ -826,8 +817,7 @@
    :rdfs/domain :owl/NegativePropertyAssertion,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "targetIndividual",
-   :rdfs/range :owl/Thing,
-   :rdfs/subPropertyOf :owl/targetIndividual})
+   :rdfs/range :owl/Thing})
 
 (def targetValue
   "The property that determines the value of a negative data property assertion."
@@ -838,8 +828,7 @@
    :rdfs/domain :owl/NegativePropertyAssertion,
    :rdfs/isDefinedBy "http://www.w3.org/2002/07/owl#",
    :rdfs/label "targetValue",
-   :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :owl/targetValue})
+   :rdfs/range :rdfs/Literal})
 
 (def topDataProperty
   "The data property that relates every individual to every data value."
