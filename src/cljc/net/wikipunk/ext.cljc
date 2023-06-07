@@ -599,3 +599,8 @@
    :rdfa/prefix      "wotsec"
    :rdfa/uri         "https://www.w3.org/2019/wot/security#"
    :rdf/type         :rdfa/PrefixMapping})
+
+(def mop
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "https://wikipunk.net/mop/"
+   :rdfa/prefix "mop"})

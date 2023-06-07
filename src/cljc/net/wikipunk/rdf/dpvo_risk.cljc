@@ -60,8 +60,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "ALARA@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -78,8 +78,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "ALARP@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -112,7 +112,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Abusive Content Utilisation@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/AbusiveContentUtilisation],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AttackonPrivateLife
@@ -125,7 +125,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Attack on Private Life@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/AttackonPrivateLife],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def AuthorisationFailure
@@ -139,7 +139,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Authorisation Failure@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/AuthorisationFailure],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AvoidSource
@@ -152,7 +152,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Avoid Source@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlRiskSource
-                         :dpvo-risk/AvoidSource
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -184,8 +183,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Bayesian Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -201,8 +200,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Bayesian Networks@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -217,7 +216,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Blackmail@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Blackmail],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def BowTie
@@ -232,8 +231,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Bow Tie Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -248,8 +247,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Brainstorming@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -265,7 +264,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Brute Force Authorisations@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/BruteForceAuthorisations],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BusinessImpact
@@ -279,7 +278,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Business impact@en",
-   :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/BusinessImpact],
+   :rdfs/subClassOf :dpvo/Impact,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BusinessImpactAnalysis
@@ -294,8 +293,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Business Impact Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -310,8 +309,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Business Performance Impairment@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/BusinessPerformanceImpairment],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Businessdisruption
@@ -324,7 +322,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Business disruption@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/Businessdisruption],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CCRACII
@@ -389,8 +387,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Conditional Value at Risk (CVaR)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -406,8 +404,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Causal Mapping@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -423,8 +421,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cause-Consequence Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -439,7 +437,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Change Consequence@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlConsequence
-                         :dpvo-risk/ChangeConsequence
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -453,7 +450,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Change Impact@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlConsequence
-                         :dpvo-risk/ChangeImpact
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -468,8 +464,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Checklists@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -485,7 +481,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Child Violence@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/ChildViolence],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Cindynic
@@ -499,8 +495,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cindynic Approach@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -516,7 +512,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Citizens impact@en",
-   :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/CitizensImpact],
+   :rdfs/subClassOf :dpvo/Impact,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Classifications
@@ -530,8 +526,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Classifications@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -547,7 +543,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Coercion@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Coercion],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ComplianceImpact
@@ -561,7 +557,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Compliance impact@en",
-   :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/ComplianceImpact],
+   :rdfs/subClassOf :dpvo/Impact,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CompromiseAccount
@@ -575,7 +571,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Compromise Account@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/CompromiseAccount],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CompromiseAccountCredentials
@@ -589,7 +585,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Compromise Account Credentials@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/CompromiseAccountCredentials],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CompromiseAccountSecurity
@@ -603,8 +599,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Compromise Account Security@en",
-   :rdfs/subClassOf [:dpvo/NonMaterialDamage
-                     :dpvo-risk/CompromiseAccountSecurity],
+   :rdfs/subClassOf :dpvo/NonMaterialDamage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ConfidentialityBreach
@@ -617,7 +612,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Confidentiality Breach@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ConfidentialityBreach],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ConsequenceForDataSubject
@@ -629,8 +624,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Consequence for Data Subject@en",
-   :rdfs/subClassOf     [:dpvo/Consequence
-                         :dpvo-risk/ConsequenceForDataSubject],
+   :rdfs/subClassOf     :dpvo/Consequence,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ConsequenceOnDataSecurity
@@ -642,8 +636,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Consequence on Data Security@en",
-   :rdfs/subClassOf     [:dpvo/Consequence
-                         :dpvo-risk/ConsequenceOnDataSecurity],
+   :rdfs/subClassOf     :dpvo/Consequence,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ControlConsequence
@@ -657,7 +650,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Control Consequence@en",
-   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ControlConsequence],
+   :rdfs/subClassOf :dpvo/RiskMitigationMeasure,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ControlMonitors
@@ -673,7 +666,7 @@
     "Monitoring can be associated with characteristics such as assessing or detecting whether something is active, operational, performant, effective, has potential to materialise, is materialising, or has already materialised.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Control Monitors@en",
-   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ControlMonitors],
+   :rdfs/subClassOf :dpvo/RiskMitigationMeasure,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ControlRiskSource
@@ -686,7 +679,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Control Risk Source@en",
-   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ControlRiskSource],
+   :rdfs/subClassOf :dpvo/RiskMitigationMeasure,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CopyrightViolation
@@ -700,7 +693,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Copyright Violation@en",
-   :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/CopyrightViolation],
+   :rdfs/subClassOf :dpvo/NonMaterialDamage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CorruptionData
@@ -713,7 +706,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Corruption of Data@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/CorruptionData],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostAcquisition
@@ -726,7 +719,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Acquisition@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostAcquisition],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostBackup
@@ -739,7 +732,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Backup@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostBackup],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostBenefitAnalysis
@@ -753,8 +746,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cost/benefit Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -769,7 +762,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Configuration@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostConfiguration],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostInstallation
@@ -782,7 +775,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Installation@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostInstallation],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostJudicialPenalties
@@ -795,7 +788,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Judicial Penalties@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostJudicialPenalties],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostJudicialProceedings
@@ -808,7 +801,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Judicial Proceedings@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostJudicialProceedings],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostOperationInterruption
@@ -821,7 +814,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Operation Interruption@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostOperationInterruption],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CostSuspendedOperations
@@ -834,7 +827,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cost of Suspended Operations@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/CostSuspendedOperations],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CrossImpactAnalysis
@@ -848,8 +841,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cross Impact Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -867,7 +860,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Cryptojacking@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/Cryptojacking],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CyberSpying
@@ -880,7 +873,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cyber Spying@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/CyberSpying],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CyberStalking
@@ -893,7 +886,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Cyber Stalking@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/CyberStalking],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIA
@@ -907,8 +900,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Data Protection Impact Assessment (DPIA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -924,7 +917,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Damage by Third Party@en",
-   :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/DamageByThirdParty],
+   :rdfs/subClassOf :dpvo/Damage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DangertoCustomers
@@ -937,7 +930,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Danger to Customers@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/DangertoCustomers],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DangertoPersonnel
@@ -950,7 +943,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Danger to Personnel@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/DangertoPersonnel],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DataBreach
@@ -963,7 +956,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Data Breach@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/DataBreach],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DecisionTreeAnalysis
@@ -977,8 +970,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Decision Tree Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -994,8 +987,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Delphi Technique@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1010,7 +1003,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Denial of Service Attack (DoS)@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/DenialServiceAttack],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DetrimentToRecovery
@@ -1024,7 +1017,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Detriment to Recovery@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/DetrimentToRecovery],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Discrimination
@@ -1036,7 +1029,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Discrimination@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Discrimination],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DistributedDenialServiceAttack
@@ -1050,8 +1043,7 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr
                          "Distributed Denial of Service Attack (DDoS)@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/DistributedDenialServiceAttack],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EBIOS
@@ -1132,7 +1124,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Eavesdropping@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/Eavesdropping],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EconomicDisadvantage
@@ -1144,7 +1136,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Economic Disadvantage@en",
-   :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/EconomicDisadvantage],
+   :rdfs/subClassOf     :dpvo/Impact,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EnvironmentalSafetyEndangerment
@@ -1157,7 +1149,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Environmental Safety Endangerment@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/EnvironmentalSafetyEndangerment],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EquipmentFailure
@@ -1170,7 +1162,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Equipment Failure@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/EquipmentFailure],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EquipmentMalfunction
@@ -1183,7 +1175,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Equipment Malfunction@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/EquipmentMalfunction],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ErrornousSystemUse
@@ -1196,7 +1188,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Errornous System Use@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ErrornousSystemUse],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EventTreeAnalysis
@@ -1211,8 +1203,8 @@
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Event Tree Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1228,7 +1220,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extorsion@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Extorsion],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ExtremelyHighLikelihood
@@ -1239,7 +1231,7 @@
    :dcterms/description #voc/lstr "Level where Likelihood is Extremely High@en",
    :rdf/type
    [:owl/NamedIndividual :dpvo/Likelihood :dpvo-risk/|7LikelihoodLevels|],
-   :rdf/value 0.99M,
+   :rdf/value {:xsd/decimal 0.99M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1@en",
@@ -1254,7 +1246,7 @@
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description #voc/lstr "Level where Risk is Extremely High@en",
    :rdf/type [:dpvo-risk/|7RiskLevels| :owl/NamedIndividual :dpvo/RiskLevel],
-   :rdf/value 0.99M,
+   :rdf/value {:xsd/decimal 0.99M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1@en",
@@ -1269,7 +1261,7 @@
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description #voc/lstr "Level where Severity is Extremely High@en",
    :rdf/type [:dpvo-risk/|7SeverityLevels| :dpvo/Severity :owl/NamedIndividual],
-   :rdf/value 0.99M,
+   :rdf/value {:xsd/decimal 0.99M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.99 on a scale of 0 to 1@en",
@@ -1285,7 +1277,7 @@
    :dcterms/description #voc/lstr "Level where Likelihood is Extremely Low@en",
    :rdf/type
    [:dpvo-risk/|7LikelihoodLevels| :dpvo/Likelihood :owl/NamedIndividual],
-   :rdf/value 0.01M,
+   :rdf/value {:xsd/decimal 0.01M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1@en",
@@ -1300,7 +1292,7 @@
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description #voc/lstr "Level where Risk is Extremely Low@en",
    :rdf/type [:dpvo/RiskLevel :dpvo-risk/|7RiskLevels| :owl/NamedIndividual],
-   :rdf/value 0.01M,
+   :rdf/value {:xsd/decimal 0.01M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1@en",
@@ -1315,7 +1307,7 @@
    :dcterms/creator "Harshvardhan J. Pandit",
    :dcterms/description #voc/lstr "Level where Severity is Extremely Low@en",
    :rdf/type [:owl/NamedIndividual :dpvo-risk/|7SeverityLevels| :dpvo/Severity],
-   :rdf/value 0.01M,
+   :rdf/value {:xsd/decimal 0.01M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.01 on a scale of 0 to 1@en",
@@ -1369,8 +1361,8 @@
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Failure Modes And Effects Analysis (FMEA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1387,8 +1379,8 @@
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr
                 "Failure Modes And Effects And Criticality Analysis (FMECA)@en",
@@ -1405,8 +1397,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "F-N Diagrams@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1423,8 +1415,8 @@
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Fault Tree Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1439,7 +1431,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Financial Equipment Costs@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/FinancialEquipmentCosts],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialInvestigationCosts
@@ -1452,8 +1444,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Financial Investigation Costs@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/FinancialInvestigationCosts],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialLoss
@@ -1466,7 +1457,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Financial Loss@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/FinancialLoss],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialPersonnelCosts
@@ -1479,7 +1470,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Financial Personnel Costs@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/FinancialPersonnelCosts],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def FinancialRepairCosts
@@ -1492,7 +1483,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Financial Repair Costs@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/FinancialRepairCosts],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Fishbone
@@ -1506,8 +1497,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Ishikawa (Fishbone)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1522,7 +1513,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Fraud@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Fraud],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def GCSOS
@@ -1553,8 +1544,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Game Theory@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1569,7 +1560,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Government Crisis@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/GovernmentCrisis],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def HACCP
@@ -1583,8 +1574,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr
                 "Hazard Analysis And Critical Control Points (HACCP)@en",
@@ -1601,8 +1592,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Hazard And Operability Studies (HAZOP)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1635,9 +1626,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Halt Source@en",
-   :rdfs/subClassOf [:dpvo-risk/ControlRiskSource
-                     :dpvo-risk/HaltSource
-                     :dpvo/RiskMitigationMeasure],
+   :rdfs/subClassOf [:dpvo-risk/ControlRiskSource :dpvo/RiskMitigationMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HarmfulSpeech
@@ -1651,7 +1640,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Harmful Spech@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/HarmfulSpeech],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HealthLifeImpact
@@ -1665,7 +1654,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Health and life impact@en",
-   :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/HealthLifeImpact],
+   :rdfs/subClassOf :dpvo/Impact,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HighLikelihood
@@ -1679,7 +1668,7 @@
               :owl/NamedIndividual
               :dpvo/Likelihood
               :dpvo-risk/|7LikelihoodLevels|],
-   :rdf/value 0.75M,
+   :rdf/value {:xsd/decimal 0.75M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1@en",
@@ -1698,7 +1687,7 @@
               :dpvo-risk/|5RiskLevels|
               :dpvo-risk/|7RiskLevels|
               :dpvo-risk/|3RiskLevels|],
-   :rdf/value 0.75M,
+   :rdf/value {:xsd/decimal 0.75M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1@en",
@@ -1717,7 +1706,7 @@
               :dpvo-risk/|7SeverityLevels|
               :dpvo-risk/|3SeverityLevels|
               :owl/NamedIndividual],
-   :rdf/value 0.75M,
+   :rdf/value {:xsd/decimal 0.75M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.75 on a scale of 0 to 1@en",
@@ -1736,7 +1725,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Human Errors@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/HumanErrors],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HumanReliabilityAnalysis
@@ -1751,8 +1740,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Human Reliability Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1902,7 +1891,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Identity Dispute@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/IdentityDispute],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def IdentityFraud
@@ -1916,7 +1905,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Identity Fraud@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/IdentityFraud],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def IdentityTheft
@@ -1930,7 +1919,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Identity Theft@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/IdentityTheft],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def IllegalProcessingData
@@ -1943,7 +1932,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Illegal Processing of Data@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/IllegalProcessingData],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ImpactOnDataSubject
@@ -1955,7 +1944,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Impact on Data Subject@en",
-   :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/ImpactOnDataSubject],
+   :rdfs/subClassOf     :dpvo/Impact,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ImpacttoRights
@@ -1968,7 +1957,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Impact to Rights@en",
-   :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/ImpacttoRights],
+   :rdfs/subClassOf     :dpvo/Impact,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def IncreaseInternalCost
@@ -1981,7 +1970,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Increase Internal Cost@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/IncreaseInternalCost],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def IndustrialCrisis
@@ -1994,7 +1983,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Industrial Crisis@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/IndustrialCrisis],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def InfluenceDiagrams
@@ -2008,8 +1997,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Influence Diagrams@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2024,7 +2013,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Injury@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Injury],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def InterceptionCommunications
@@ -2037,7 +2026,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Interception of Communications@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/InterceptionCommunications],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def InternalOperationDisruption
@@ -2050,8 +2039,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Internal Operation Disruption@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/InternalOperationDisruption],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Interviews
@@ -2065,8 +2053,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Interviews@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2082,7 +2070,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Known Vulnerability Exploited@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/KnownVulnerabilityExploited],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def LOPA
@@ -2097,8 +2085,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Layer Protection Analysis (LOPA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2113,8 +2101,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Law Enforcement Adverse Effects@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/LawEnforcementAdverseEffects],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LimitationOfRights
@@ -2126,7 +2113,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Limitation of Rights@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/LimitationOfRights],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossAssets
@@ -2139,7 +2126,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Assets@en",
-   :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/LossAssets],
+   :rdfs/subClassOf     :dpvo/MaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCompetitiveAdvantage
@@ -2152,8 +2139,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Competitive Advantage@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage
-                         :dpvo-risk/LossCompetitiveAdvantage],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossControlOverData
@@ -2165,8 +2151,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Control over Data@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage
-                         :dpvo-risk/LossControlOverData],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCredibility
@@ -2179,7 +2164,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Credibility@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossCredibility],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCustomerConfidence
@@ -2192,7 +2177,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Customer Confidence@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossCustomerConfidence],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossCustomers
@@ -2205,7 +2190,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Customers@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/LossCustomers],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossData
@@ -2219,7 +2204,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Loss of Data@en",
-   :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/LossData],
+   :rdfs/subClassOf :dpvo/NonMaterialDamage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def LossFunds
@@ -2232,7 +2217,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Funds@en",
-   :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/LossFunds],
+   :rdfs/subClassOf     :dpvo/MaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossGoods
@@ -2245,7 +2230,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Goods@en",
-   :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/LossGoods],
+   :rdfs/subClassOf     :dpvo/MaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossGoodwill
@@ -2258,7 +2243,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Goodwill@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossGoodwill],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossNegotiatingCapacity
@@ -2271,7 +2256,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Negotiating Capacity@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossNegotiatingCapacity],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossOpportunity
@@ -2284,7 +2269,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Opportunity@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossOpportunity],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossProprietaryInformation
@@ -2297,8 +2282,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Proprietary Information@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage
-                         :dpvo-risk/LossProprietaryInformation],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossReputation
@@ -2311,7 +2295,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Reputation@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossReputation],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossResources
@@ -2325,7 +2309,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Loss of Resources@en",
-   :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/LossResources],
+   :rdfs/subClassOf :dpvo/NonMaterialDamage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def LossSuppliers
@@ -2338,7 +2322,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Suppliers@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/LossSuppliers],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossTechnologicalAdvantage
@@ -2351,8 +2335,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Technological Advantage@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage
-                         :dpvo-risk/LossTechnologicalAdvantage],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LossTrust
@@ -2365,7 +2348,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Loss of Trust@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/LossTrust],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def LowLikelihood
@@ -2379,7 +2362,7 @@
               :dpvo/Likelihood
               :dpvo-risk/|5LikelihoodLevels|
               :dpvo-risk/|3LikelihoodLevels|],
-   :rdf/value 0.25M,
+   :rdf/value {:xsd/decimal 0.25M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1@en",
@@ -2398,7 +2381,7 @@
               :dpvo/RiskLevel
               :owl/NamedIndividual
               :dpvo-risk/|7RiskLevels|],
-   :rdf/value 0.25M,
+   :rdf/value {:xsd/decimal 0.25M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1@en",
@@ -2417,7 +2400,7 @@
               :dpvo-risk/|7SeverityLevels|
               :dpvo/Severity
               :owl/NamedIndividual],
-   :rdf/value 0.25M,
+   :rdf/value {:xsd/decimal 0.25M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.25 on a scale of 0 to 1@en",
@@ -2453,8 +2436,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Multi-criteria Analysis (MCA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2506,7 +2489,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Malicious Code Attack@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/MaliciousCodeAttack],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MalwareAttack
@@ -2522,7 +2505,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Malware Attack@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/MalwareAttack],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MarkovAnalysis
@@ -2536,8 +2519,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Markov Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2555,7 +2538,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "MisinformationDisinformation@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/MisinformationDisinformation],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MisuseBreachedInformation
@@ -2568,7 +2551,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Misuse of Breached Information@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/MisuseBreachedInformation],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ModerateLikelihood
@@ -2582,7 +2565,7 @@
               :dpvo-risk/|3LikelihoodLevels|
               :dpvo-risk/|7LikelihoodLevels|
               :owl/NamedIndividual],
-   :rdf/value 0.5M,
+   :rdf/value {:xsd/decimal 0.5M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1@en",
@@ -2601,7 +2584,7 @@
               :dpvo/RiskLevel
               :owl/NamedIndividual
               :dpvo-risk/|5RiskLevels|],
-   :rdf/value 0.5M,
+   :rdf/value {:xsd/decimal 0.5M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1@en",
@@ -2620,7 +2603,7 @@
               :dpvo-risk/|3SeverityLevels|
               :dpvo-risk/|7SeverityLevels|
               :owl/NamedIndividual],
-   :rdf/value 0.5M,
+   :rdf/value {:xsd/decimal 0.5M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.5 on a scale of 0 to 1@en",
@@ -2639,7 +2622,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Monitor Consequence@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
-                         :dpvo-risk/MonitorConsequence
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2653,7 +2635,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Monitor Impact@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
-                         :dpvo-risk/MonitorImpact
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2667,7 +2648,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Monitor Risk@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
-                         :dpvo-risk/MonitorRisk
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2682,7 +2662,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Monitor Risk Control@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
-                         :dpvo-risk/MonitorRiskControl
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2696,7 +2675,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Monitor Risk Source@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
-                         :dpvo-risk/MonitorRiskSource
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2711,7 +2689,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Monitor Vulnerabilities@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlMonitors
-                         :dpvo-risk/MonitorVulnerabilities
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2726,8 +2703,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Monte Carlo Simulation@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2811,8 +2788,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Nominal Group Technique@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2912,7 +2889,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Organisation Disruption@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/OrganisationDisruption],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PIA
@@ -2926,8 +2903,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Privacy Impact Analysis (PIA)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2943,8 +2920,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Pareto Charts@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2959,7 +2936,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Personal Safety Endangerment@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/PersonalSafetyEndangerment],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PersonnelAbsence
@@ -2973,7 +2950,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Personnel Absence@en",
-   :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/PersonnelAbsence],
+   :rdfs/subClassOf :dpvo/NonMaterialDamage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhishingScam
@@ -2989,7 +2966,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Phishing Scam@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/PhishingScam],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhysicalAssault
@@ -3002,7 +2979,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Physical Assault@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/PhysicalAssault],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PhysicalSpying
@@ -3015,7 +2992,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Physical Spying@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/PhysicalSpying],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PhysicalStalking
@@ -3028,7 +3005,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Physical Stalking@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/PhysicalStalking],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PreventExercisingOfRights
@@ -3040,7 +3017,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Prevent Exercising of Rights@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/PreventExercisingOfRights],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PrivacyImpact
@@ -3054,7 +3031,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Privacy impact@en",
-   :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/PrivacyImpact],
+   :rdfs/subClassOf :dpvo/Impact,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PsychologicalHarm
@@ -3068,7 +3045,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Psychological Harm@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/PsychologicalHarm],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PublicOrderBreach
@@ -3081,7 +3058,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Public Order Breach@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/PublicOrderBreach],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def QualitativeRiskAssessmentTechnique
@@ -3096,7 +3073,6 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Qualitative Risk Assessment Technique@en",
    :rdfs/subClassOf [:dpvo-risk/RiskAssessmentTechnique
-                     :dpvo-risk/QualitativeRiskAssessmentTechnique
                      :dpvo/RiskManagementProcess],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -3112,7 +3088,6 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Quantitative Risk Assessment Technique@en",
    :rdfs/subClassOf [:dpvo-risk/RiskAssessmentTechnique
-                     :dpvo-risk/QuantitativeRiskAssessmentTechnique
                      :dpvo/RiskManagementProcess],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -3129,7 +3104,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.11M,
+   :rdf/value {:xsd/decimal 0.11M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM3x3 S:1 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3147,7 +3122,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.22M,
+   :rdf/value {:xsd/decimal 0.22M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM3x3 S:1 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3165,7 +3140,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.33M,
+   :rdf/value {:xsd/decimal 0.33M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM3x3 S:1 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3183,7 +3158,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.22M,
+   :rdf/value {:xsd/decimal 0.22M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM3x3 S:2 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3201,7 +3176,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.44M,
+   :rdf/value {:xsd/decimal 0.44M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM3x3 S:2 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3219,7 +3194,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.67M,
+   :rdf/value {:xsd/decimal 0.67M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM3x3 S:2 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3237,7 +3212,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.33M,
+   :rdf/value {:xsd/decimal 0.33M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM3x3 S:3 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3255,7 +3230,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix3x3 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.67M,
+   :rdf/value {:xsd/decimal 0.67M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM3x3 S:3 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3273,7 +3248,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix3x3 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 1,
+   :rdf/value {:xsd/long 1},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM3x3 S:3 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3291,7 +3266,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.04M,
+   :rdf/value {:xsd/decimal 0.04M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:1 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3309,7 +3284,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.08M,
+   :rdf/value {:xsd/decimal 0.08M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:1 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3327,7 +3302,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.12M,
+   :rdf/value {:xsd/decimal 0.12M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:1 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3345,7 +3320,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.16M,
+   :rdf/value {:xsd/decimal 0.16M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM5x5 S:1 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3363,7 +3338,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.2M,
+   :rdf/value {:xsd/decimal 0.2M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM5x5 S:1 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3381,7 +3356,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.08M,
+   :rdf/value {:xsd/decimal 0.08M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:2 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3399,7 +3374,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.16M,
+   :rdf/value {:xsd/decimal 0.16M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM5x5 S:2 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3417,7 +3392,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.24M,
+   :rdf/value {:xsd/decimal 0.24M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:2 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3435,7 +3410,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.32M,
+   :rdf/value {:xsd/decimal 0.32M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:2 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3453,7 +3428,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.4M,
+   :rdf/value {:xsd/decimal 0.4M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM5x5 S:2 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3471,7 +3446,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.12M,
+   :rdf/value {:xsd/decimal 0.12M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM5x5 S:3 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3489,7 +3464,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.24M,
+   :rdf/value {:xsd/decimal 0.24M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:3 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3507,7 +3482,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.36M,
+   :rdf/value {:xsd/decimal 0.36M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:3 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3525,7 +3500,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.48M,
+   :rdf/value {:xsd/decimal 0.48M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM5x5 S:3 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3543,7 +3518,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.6M,
+   :rdf/value {:xsd/decimal 0.6M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:3 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3561,7 +3536,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.16M,
+   :rdf/value {:xsd/decimal 0.16M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM5x5 S:4 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3579,7 +3554,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.32M,
+   :rdf/value {:xsd/decimal 0.32M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM5x5 S:4 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3597,7 +3572,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.48M,
+   :rdf/value {:xsd/decimal 0.48M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM5x5 S:4 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3615,7 +3590,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.64M,
+   :rdf/value {:xsd/decimal 0.64M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:4 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3633,7 +3608,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.8M,
+   :rdf/value {:xsd/decimal 0.8M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:4 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3651,7 +3626,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.2M,
+   :rdf/value {:xsd/decimal 0.2M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM5x5 S:5 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3669,7 +3644,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.4M,
+   :rdf/value {:xsd/decimal 0.4M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM5x5 S:5 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3687,7 +3662,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.6M,
+   :rdf/value {:xsd/decimal 0.6M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM5x5 S:5 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3705,7 +3680,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix5x5 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.8M,
+   :rdf/value {:xsd/decimal 0.8M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:5 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3723,7 +3698,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix5x5 :dpvo-risk/RiskMatrix],
-   :rdf/value 1,
+   :rdf/value {:xsd/long 1},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM5x5 S:5 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3741,7 +3716,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.02M,
+   :rdf/value {:xsd/decimal 0.02M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:1 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3759,7 +3734,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.04M,
+   :rdf/value {:xsd/decimal 0.04M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:1 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3777,7 +3752,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.06M,
+   :rdf/value {:xsd/decimal 0.06M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:1 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3795,7 +3770,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.08M,
+   :rdf/value {:xsd/decimal 0.08M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:1 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3813,7 +3788,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.1M,
+   :rdf/value {:xsd/decimal 0.1M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:1 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3831,7 +3806,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.12M,
+   :rdf/value {:xsd/decimal 0.12M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:1 L:6)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3849,7 +3824,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.14M,
+   :rdf/value {:xsd/decimal 0.14M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM7x7 S:1 L:7)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3867,7 +3842,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.04M,
+   :rdf/value {:xsd/decimal 0.04M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:2 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3885,7 +3860,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.08M,
+   :rdf/value {:xsd/decimal 0.08M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:2 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3903,7 +3878,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.12M,
+   :rdf/value {:xsd/decimal 0.12M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:2 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3921,7 +3896,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.16M,
+   :rdf/value {:xsd/decimal 0.16M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM7x7 S:2 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3939,7 +3914,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.2M,
+   :rdf/value {:xsd/decimal 0.2M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM7x7 S:2 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3957,7 +3932,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.24M,
+   :rdf/value {:xsd/decimal 0.24M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:2 L:6)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3975,7 +3950,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryLowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.29M,
+   :rdf/value {:xsd/decimal 0.29M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:2 L:7)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -3993,7 +3968,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.06M,
+   :rdf/value {:xsd/decimal 0.06M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:3 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4011,7 +3986,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.12M,
+   :rdf/value {:xsd/decimal 0.12M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:3 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4029,7 +4004,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.18M,
+   :rdf/value {:xsd/decimal 0.18M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM7x7 S:3 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4047,7 +4022,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.24M,
+   :rdf/value {:xsd/decimal 0.24M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:3 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4065,7 +4040,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.31M,
+   :rdf/value {:xsd/decimal 0.31M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM7x7 S:3 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4083,7 +4058,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.37M,
+   :rdf/value {:xsd/decimal 0.37M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM7x7 S:3 L:6)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4101,7 +4076,7 @@
    :dpvo/hasSeverity :dpvo-risk/LowSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.43M,
+   :rdf/value {:xsd/decimal 0.43M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:3 L:7)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4119,7 +4094,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.08M,
+   :rdf/value {:xsd/decimal 0.08M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely Low Risk (RM7x7 S:4 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4137,7 +4112,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.16M,
+   :rdf/value {:xsd/decimal 0.16M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM7x7 S:4 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4155,7 +4130,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.24M,
+   :rdf/value {:xsd/decimal 0.24M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:4 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4173,7 +4148,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.33M,
+   :rdf/value {:xsd/decimal 0.33M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM7x7 S:4 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4191,7 +4166,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.41M,
+   :rdf/value {:xsd/decimal 0.41M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM7x7 S:4 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4209,7 +4184,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.49M,
+   :rdf/value {:xsd/decimal 0.49M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:4 L:6)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4227,7 +4202,7 @@
    :dpvo/hasSeverity :dpvo-risk/ModerateSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.57M,
+   :rdf/value {:xsd/decimal 0.57M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:4 L:7)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4245,7 +4220,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.1M,
+   :rdf/value {:xsd/decimal 0.1M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:5 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4263,7 +4238,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.2M,
+   :rdf/value {:xsd/decimal 0.2M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM7x7 S:5 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4281,7 +4256,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.31M,
+   :rdf/value {:xsd/decimal 0.31M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:5 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4299,7 +4274,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.41M,
+   :rdf/value {:xsd/decimal 0.41M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM7x7 S:5 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4317,7 +4292,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.51M,
+   :rdf/value {:xsd/decimal 0.51M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:5 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4335,7 +4310,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.61M,
+   :rdf/value {:xsd/decimal 0.61M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:5 L:6)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4353,7 +4328,7 @@
    :dpvo/hasSeverity :dpvo-risk/HighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.71M,
+   :rdf/value {:xsd/decimal 0.71M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:5 L:7)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4371,7 +4346,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.12M,
+   :rdf/value {:xsd/decimal 0.12M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very Low Risk (RM7x7 S:6 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4389,7 +4364,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.24M,
+   :rdf/value {:xsd/decimal 0.24M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:6 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4407,7 +4382,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.37M,
+   :rdf/value {:xsd/decimal 0.37M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM7x7 S:6 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4425,7 +4400,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.49M,
+   :rdf/value {:xsd/decimal 0.49M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:6 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4443,7 +4418,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.61M,
+   :rdf/value {:xsd/decimal 0.61M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:6 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4461,7 +4436,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.73M,
+   :rdf/value {:xsd/decimal 0.73M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:6 L:6)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4479,7 +4454,7 @@
    :dpvo/hasSeverity :dpvo-risk/VeryHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.86M,
+   :rdf/value {:xsd/decimal 0.86M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:6 L:7)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4497,7 +4472,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.14M,
+   :rdf/value {:xsd/decimal 0.14M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Low Risk (RM7x7 S:7 L:1)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4515,7 +4490,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.29M,
+   :rdf/value {:xsd/decimal 0.29M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Moderate Risk (RM7x7 S:7 L:2)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4533,7 +4508,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
    :rdf/type
    [:dpvo-risk/RiskMatrix7x7 :owl/NamedIndividual :dpvo-risk/RiskMatrix],
-   :rdf/value 0.43M,
+   :rdf/value {:xsd/decimal 0.43M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "High Risk (RM7x7 S:7 L:3)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4551,7 +4526,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.57M,
+   :rdf/value {:xsd/decimal 0.57M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Very High Risk (RM7x7 S:7 L:4)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4569,7 +4544,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.71M,
+   :rdf/value {:xsd/decimal 0.71M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:7 L:5)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4587,7 +4562,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 0.86M,
+   :rdf/value {:xsd/decimal 0.86M},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:7 L:6)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4605,7 +4580,7 @@
    :dpvo/hasSeverity :dpvo-risk/ExtremelyHighSeverity,
    :rdf/type
    [:owl/NamedIndividual :dpvo-risk/RiskMatrix7x7 :dpvo-risk/RiskMatrix],
-   :rdf/value 1,
+   :rdf/value {:xsd/long 1},
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Extremely High Risk (RM7x7 S:7 L:7)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4624,7 +4599,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "RansomwareAttack@en",
-   :rdfs/subClassOf [:dpvo/NonMaterialDamage :dpvo-risk/RansomwareAttack],
+   :rdfs/subClassOf :dpvo/NonMaterialDamage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ReduceLikelihood
@@ -4637,7 +4612,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Reduce Likelihood@en",
-   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ReduceLikelihood],
+   :rdfs/subClassOf :dpvo/RiskMitigationMeasure,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ReduceSeverity
@@ -4650,7 +4625,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Reduce Severity@en",
-   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ReduceSeverity],
+   :rdfs/subClassOf :dpvo/RiskMitigationMeasure,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ReliabilityCentredMaintenance
@@ -4665,8 +4640,8 @@
    :rdf/type [:dpvo-risk/QualitativeRiskAssessmentTechnique
               :owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Reliability Centred Maintenance@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4681,7 +4656,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Remote Spying@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/RemoteSpying],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def RemoveConsequence
@@ -4695,9 +4670,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Remove Consequence@en",
-   :rdfs/subClassOf [:dpvo-risk/ControlConsequence
-                     :dpvo-risk/RemoveConsequence
-                     :dpvo/RiskMitigationMeasure],
+   :rdfs/subClassOf [:dpvo-risk/ControlConsequence :dpvo/RiskMitigationMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RemoveImpact
@@ -4711,9 +4684,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Remove Impact@en",
-   :rdfs/subClassOf [:dpvo-risk/ControlConsequence
-                     :dpvo-risk/RemoveImpact
-                     :dpvo/RiskMitigationMeasure],
+   :rdfs/subClassOf [:dpvo-risk/ControlConsequence :dpvo/RiskMitigationMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RemoveSource
@@ -4727,7 +4698,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Remove Source@en",
    :rdfs/subClassOf     [:dpvo-risk/ControlRiskSource
-                         :dpvo-risk/RemoveSource
                          :dpvo/RiskMitigationMeasure],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -4741,7 +4711,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Replacement Costs@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ReplacementCosts],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ReputationTrustImpact
@@ -4755,7 +4725,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Reputation and trust impact@en",
-   :rdfs/subClassOf [:dpvo/Impact :dpvo-risk/ReputationTrustImpact],
+   :rdfs/subClassOf :dpvo/Impact,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RetrievalDeletedData
@@ -4768,7 +4738,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Retrieval of Deleted Data@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/RetrievalDeletedData],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def RetrievalDiscardedEquipment
@@ -4781,8 +4751,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Retrieval of Discarded Equipment@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/RetrievalDiscardedEquipment],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def RiskAssessmentTechnique
@@ -4797,8 +4766,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Assessment Technique@en",
-   :rdfs/subClassOf [:dpvo/RiskManagementProcess
-                     :dpvo-risk/RiskAssessmentTechnique],
+   :rdfs/subClassOf :dpvo/RiskManagementProcess,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskIndices
@@ -4812,8 +4780,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Indices@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4831,8 +4799,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Management Methodology@en",
-   :rdfs/subClassOf [:dpvo/RiskManagementProcess
-                     :dpvo-risk/RiskManagementMethodology],
+   :rdfs/subClassOf :dpvo/RiskManagementProcess,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix
@@ -4847,11 +4814,10 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Matrix@en",
-   :rdfs/subClassOf :dpvo-risk/RiskMatrix,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix3x3
@@ -4865,7 +4831,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Matrix 3x3@en",
-   :rdfs/subClassOf [:dpvo-risk/RiskMatrix :dpvo-risk/RiskMatrix3x3],
+   :rdfs/subClassOf :dpvo-risk/RiskMatrix,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix5x5
@@ -4879,7 +4845,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Matrix 5x5@en",
-   :rdfs/subClassOf [:dpvo-risk/RiskMatrix :dpvo-risk/RiskMatrix5x5],
+   :rdfs/subClassOf :dpvo-risk/RiskMatrix,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskMatrix7x7
@@ -4893,7 +4859,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Matrix 7x7@en",
-   :rdfs/subClassOf [:dpvo-risk/RiskMatrix :dpvo-risk/RiskMatrix7x7],
+   :rdfs/subClassOf :dpvo-risk/RiskMatrix,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RiskRegisters
@@ -4907,8 +4873,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Risk Registers@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4924,8 +4890,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "S-curves@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4942,8 +4908,8 @@
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "SFAIRP@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4959,8 +4925,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Structured \"What If?\" (SWIFT)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -4976,7 +4942,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Sabotage@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Sabotage],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Scam
@@ -4989,7 +4955,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Scam@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Scam],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ScenarioAnalysis
@@ -5003,8 +4969,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Scenario Analysis@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5019,7 +4985,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Security Breach@en",
-   :rdfs/subClassOf     [:dpvo/Consequence :dpvo-risk/SecurityBreach],
+   :rdfs/subClassOf     :dpvo/Consequence,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ServiceInterruption
@@ -5032,7 +4998,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Service Interruption@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/ServiceInterruption],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def SexualViolence
@@ -5046,7 +5012,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Sexual Violence@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/SexualViolence],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ShareRisk
@@ -5060,7 +5026,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Share Risk@en",
-   :rdfs/subClassOf [:dpvo/RiskMitigationMeasure :dpvo-risk/ShareRisk],
+   :rdfs/subClassOf :dpvo/RiskMitigationMeasure,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SocialDisadvantage
@@ -5072,7 +5038,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Social Disadvantage@en",
-   :rdfs/subClassOf     [:dpvo/Impact :dpvo-risk/SocialDisadvantage],
+   :rdfs/subClassOf     :dpvo/Impact,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Spam
@@ -5086,7 +5052,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Spam@en",
-   :rdfs/subClassOf [:dpvo/Harm :dpvo-risk/Spam],
+   :rdfs/subClassOf :dpvo/Harm,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Spoofing
@@ -5099,7 +5065,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Spoofing@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Spoofing],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Spying
@@ -5112,7 +5078,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Spying@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/Spying],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Stalking
@@ -5125,7 +5091,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Stalking@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage :dpvo-risk/Stalking],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Surveys
@@ -5138,8 +5104,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Surveys@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5155,7 +5121,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "System Failure@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/SystemFailure],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SystemIntrusion
@@ -5169,7 +5135,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "System Intrusion@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/SystemIntrusion],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SystemMalfunction
@@ -5182,7 +5148,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "System Malfunction@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/SystemMalfunction],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Taxonomies
@@ -5196,8 +5162,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QualitativeRiskAssessmentTechnique
-              :dpvo-risk/RiskAssessmentTechnique
-              :dpvo/RiskManagementProcess],
+              :dpvo/RiskManagementProcess
+              :dpvo-risk/RiskAssessmentTechnique],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Taxonomies@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5212,7 +5178,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Terrorism@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/Terrorism],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Theft
@@ -5225,7 +5191,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Theft@en",
-   :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/Theft],
+   :rdfs/subClassOf     :dpvo/MaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def TheftEquipment
@@ -5238,7 +5204,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Theft of Equipment@en",
-   :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/TheftEquipment],
+   :rdfs/subClassOf     :dpvo/MaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def TheftMedia
@@ -5251,7 +5217,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Theft of Media@en",
-   :rdfs/subClassOf     [:dpvo/MaterialDamage :dpvo-risk/TheftMedia],
+   :rdfs/subClassOf     :dpvo/MaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ThirdPartyOperationDisruption
@@ -5264,8 +5230,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Third Party Operation Disruption@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/ThirdPartyOperationDisruption],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Toxicological
@@ -5279,8 +5244,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:dpvo-risk/QuantitativeRiskAssessmentTechnique
               :owl/NamedIndividual
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Toxicological Risk Assessment@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5295,8 +5260,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unauthorised Access to Premises@en",
-   :rdfs/subClassOf     [:dpvo/Detriment
-                         :dpvo-risk/UnauthorisedAccesstoPremises],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedCodeAccess
@@ -5310,7 +5274,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unauthorised Code Access@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnauthorisedCodeAccess],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedCodeDisclosure
@@ -5324,7 +5288,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unauthorised Code Disclosure@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnauthorisedCodeDisclosure],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedCodeModification
@@ -5338,7 +5302,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unauthorised Code Modification@en",
-   :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/UnauthorisedCodeModification],
+   :rdfs/subClassOf :dpvo/Damage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedDataAccess
@@ -5352,7 +5316,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unauthorised Data Access@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnauthorisedDataAccess],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedDataDisclosure
@@ -5365,7 +5329,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unauthorised Data Disclosure@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnauthorisedDataDisclosure],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedDataModification
@@ -5379,8 +5343,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unauthorised Data Modification@en",
-   :rdfs/subClassOf [:dpvo/NonMaterialDamage
-                     :dpvo-risk/UnauthorisedDataModification],
+   :rdfs/subClassOf :dpvo/NonMaterialDamage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedImpersonation
@@ -5393,8 +5356,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unauthorised Impersonation@en",
-   :rdfs/subClassOf     [:dpvo/NonMaterialDamage
-                         :dpvo-risk/UnauthorisedImpersonation],
+   :rdfs/subClassOf     :dpvo/NonMaterialDamage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedInformationDisclosure
@@ -5408,8 +5370,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unauthorised Information Disclosure@en",
-   :rdfs/subClassOf [:dpvo/Detriment
-                     :dpvo-risk/UnauthorisedInformationDisclosure],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnauthorisedReIdentification
@@ -5421,8 +5382,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unauthorised Re-Identification@en",
-   :rdfs/subClassOf     [:dpvo/Consequence
-                         :dpvo-risk/UnauthorisedReIdentification],
+   :rdfs/subClassOf     :dpvo/Consequence,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedResourceUse
@@ -5435,7 +5395,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unauthorised Resource Use@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnauthorisedResourceUse],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedSystemAccess
@@ -5448,7 +5408,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unauthorised System Access@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnauthorisedSystemAccess],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnauthorisedSystemModification
@@ -5462,7 +5422,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unauthorised System Modification@en",
-   :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/UnauthorisedSystemModification],
+   :rdfs/subClassOf :dpvo/Damage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnknownVulnerabilityExploited
@@ -5476,7 +5436,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unknown Vulnerability Exploited@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/UnknownVulnerabilityExploited],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnwantedCodeDeletion
@@ -5490,7 +5450,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Unwanted Code Deletion@en",
-   :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/UnwantedCodeDeletion],
+   :rdfs/subClassOf :dpvo/Damage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UnwantedDataDeletion
@@ -5503,7 +5463,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unwanted Data Deletion@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/UnwantedDataDeletion],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def UnwantedDisclosureData
@@ -5516,7 +5476,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Unwanted Disclosure of Data@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/UnwantedDisclosureData],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VaR
@@ -5530,8 +5490,8 @@
    :dcterms/source "https://www.iso.org/standard/72140.html",
    :rdf/type [:owl/NamedIndividual
               :dpvo-risk/QuantitativeRiskAssessmentTechnique
-              :dpvo/RiskManagementProcess
-              :dpvo-risk/RiskAssessmentTechnique],
+              :dpvo-risk/RiskAssessmentTechnique
+              :dpvo/RiskManagementProcess],
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Value At Risk (VaR)@en",
    :vs/term_status #voc/lstr "accepted@en"})
@@ -5547,7 +5507,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Vandalism@en",
-   :rdfs/subClassOf [:dpvo/Damage :dpvo-risk/Vandalism],
+   :rdfs/subClassOf :dpvo/Damage,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def VeryHighLikelihood
@@ -5560,7 +5520,7 @@
               :dpvo-risk/|5LikelihoodLevels|
               :owl/NamedIndividual
               :dpvo/Likelihood],
-   :rdf/value 0.9M,
+   :rdf/value {:xsd/decimal 0.9M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1@en",
@@ -5578,7 +5538,7 @@
               :dpvo-risk/|7RiskLevels|
               :dpvo/RiskLevel
               :dpvo-risk/|5RiskLevels|],
-   :rdf/value 0.9M,
+   :rdf/value {:xsd/decimal 0.9M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1@en",
@@ -5596,7 +5556,7 @@
               :dpvo/Severity
               :dpvo-risk/|5SeverityLevels|
               :owl/NamedIndividual],
-   :rdf/value 0.9M,
+   :rdf/value {:xsd/decimal 0.9M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.9 on a scale of 0 to 1@en",
@@ -5614,7 +5574,7 @@
               :dpvo-risk/|7LikelihoodLevels|
               :dpvo-risk/|5LikelihoodLevels|
               :dpvo/Likelihood],
-   :rdf/value 0.1M,
+   :rdf/value {:xsd/decimal 0.1M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1@en",
@@ -5632,7 +5592,7 @@
               :dpvo-risk/|7RiskLevels|
               :dpvo/RiskLevel
               :dpvo-risk/|5RiskLevels|],
-   :rdf/value 0.1M,
+   :rdf/value {:xsd/decimal 0.1M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1@en",
@@ -5650,7 +5610,7 @@
               :dpvo/Severity
               :dpvo-risk/|5SeverityLevels|
               :dpvo-risk/|7SeverityLevels|],
-   :rdf/value 0.1M,
+   :rdf/value {:xsd/decimal 0.1M},
    :rdfs/comment
    #voc/lstr
     "The suggested quantitative value for this concept is 0.1 on a scale of 0 to 1@en",
@@ -5668,7 +5628,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Violation of Code of Conduct@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/ViolationCodeConduct],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationContractualObligations
@@ -5681,8 +5641,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Violation of Contractual Obligations@en",
-   :rdfs/subClassOf     [:dpvo/Damage
-                         :dpvo-risk/ViolationContractualObligations],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationEthicalCode
@@ -5695,7 +5654,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Violation of Ethical Code@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/ViolationEthicalCode],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationOfRights
@@ -5707,7 +5666,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Violation of Rights@en",
-   :rdfs/subClassOf     [:dpvo/Harm :dpvo-risk/ViolationOfRights],
+   :rdfs/subClassOf     :dpvo/Harm,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationRegulatoryObligations
@@ -5720,8 +5679,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Violation of Regulatory Obligations@en",
-   :rdfs/subClassOf     [:dpvo/Damage
-                         :dpvo-risk/ViolationRegulatoryObligations],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def ViolationStatutoryObligations
@@ -5734,7 +5692,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Violation of Statutory Obligations@en",
-   :rdfs/subClassOf     [:dpvo/Damage :dpvo-risk/ViolationStatutoryObligations],
+   :rdfs/subClassOf     :dpvo/Damage,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VulnerabilityCreated
@@ -5747,7 +5705,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "Vulnerability Created@en",
-   :rdfs/subClassOf     [:dpvo/Detriment :dpvo-risk/VulnerabilityCreated],
+   :rdfs/subClassOf     :dpvo/Detriment,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VulnerabilityExploited
@@ -5761,7 +5719,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "Vulnerability Exploited@en",
-   :rdfs/subClassOf [:dpvo/Detriment :dpvo-risk/VulnerabilityExploited],
+   :rdfs/subClassOf :dpvo/Detriment,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def |3LikelihoodLevels|
@@ -5774,7 +5732,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "3 Likelihood Levels@en",
-   :rdfs/subClassOf     [:dpvo/Likelihood :dpvo-risk/|3LikelihoodLevels|],
+   :rdfs/subClassOf     :dpvo/Likelihood,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def |3RiskLevels|
@@ -5787,7 +5745,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "3 Risk Levels@en",
-   :rdfs/subClassOf     [:dpvo/RiskLevel :dpvo-risk/|3RiskLevels|],
+   :rdfs/subClassOf     :dpvo/RiskLevel,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def |3SeverityLevels|
@@ -5800,7 +5758,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label          #voc/lstr "3 Severity Levels@en",
-   :rdfs/subClassOf     [:dpvo/Severity :dpvo-risk/|3SeverityLevels|],
+   :rdfs/subClassOf     :dpvo/Severity,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def |5LikelihoodLevels|
@@ -5813,7 +5771,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "5 Likelihood Levels@en",
-   :rdfs/subClassOf [:dpvo/Likelihood :dpvo-risk/|5LikelihoodLevels|],
+   :rdfs/subClassOf :dpvo/Likelihood,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def |5RiskLevels|
@@ -5826,7 +5784,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "5 Risk Levels@en",
-   :rdfs/subClassOf [:dpvo/RiskLevel :dpvo-risk/|5RiskLevels|],
+   :rdfs/subClassOf :dpvo/RiskLevel,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def |5SeverityLevels|
@@ -5839,7 +5797,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "5 Severity Levels@en",
-   :rdfs/subClassOf [:dpvo/Severity :dpvo-risk/|5SeverityLevels|],
+   :rdfs/subClassOf :dpvo/Severity,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def |7LikelihoodLevels|
@@ -5853,7 +5811,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "7 Likelihood Levels@en",
-   :rdfs/subClassOf [:dpvo/Likelihood :dpvo-risk/|7LikelihoodLevels|],
+   :rdfs/subClassOf :dpvo/Likelihood,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def |7RiskLevels|
@@ -5866,7 +5824,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "7 Risk Levels@en",
-   :rdfs/subClassOf [:dpvo/RiskLevel :dpvo-risk/|7RiskLevels|],
+   :rdfs/subClassOf :dpvo/RiskLevel,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def |7SeverityLevels|
@@ -5880,5 +5838,5 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/risk#",
    :rdfs/label #voc/lstr "7 Severity Levels@en",
-   :rdfs/subClassOf [:dpvo/Severity :dpvo-risk/|7SeverityLevels|],
+   :rdfs/subClassOf :dpvo/Severity,
    :vs/term_status #voc/lstr "accepted@en"})

@@ -58,8 +58,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Accent@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Language :dpvo-pd/Accent :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Language :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AccountIdentifier
@@ -74,10 +73,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Account Identifier@en",
-   :rdfs/subClassOf [:dpvo-pd/FinancialAccount
-                     :dpvo-pd/AccountIdentifier
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/FinancialAccount :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Acquantaince
@@ -92,10 +89,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Acquantaince@en",
-   :rdfs/subClassOf [:dpvo-pd/SocialNetwork
-                     :dpvo-pd/Acquantaince
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Age
@@ -109,10 +103,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Age@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/Age
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AgeExact
@@ -127,11 +119,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Age Exact@en",
    :rdfs/subClassOf [:dpvo-pd/AgeRange
-                     :dpvo-pd/AgeExact
-                     :dpvo-pd/External
-                     :dpvo-pd/PhysicalCharacteristic
+                     :dpvo-pd/Age
                      :dpvo/PersonalData
-                     :dpvo-pd/Age],
+                     :dpvo-pd/External
+                     :dpvo-pd/PhysicalCharacteristic],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AgeRange
@@ -146,10 +137,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Age Range@en",
    :rdfs/subClassOf [:dpvo-pd/Age
-                     :dpvo-pd/AgeRange
+                     :dpvo/PersonalData
                      :dpvo-pd/External
-                     :dpvo-pd/PhysicalCharacteristic
-                     :dpvo/PersonalData],
+                     :dpvo-pd/PhysicalCharacteristic],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ApartmentOwned
@@ -165,9 +155,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Apartment Owned@en",
    :rdfs/subClassOf [:dpvo-pd/HouseOwned
-                     :dpvo-pd/ApartmentOwned
-                     :dpvo/PersonalData
                      :dpvo-pd/Ownership
+                     :dpvo/PersonalData
                      :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -184,10 +173,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Association@en",
-   :rdfs/subClassOf [:dpvo-pd/SocialNetwork
-                     :dpvo-pd/Association
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Attitude
@@ -201,8 +187,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Attitude@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Behavioral :dpvo-pd/Attitude :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Authenticating
@@ -218,8 +203,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Authenticating@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Internal :dpvo-pd/Authenticating :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AuthenticationHistory
@@ -234,10 +218,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Authentication History@en",
-   :rdfs/subClassOf [:dpvo-pd/Behavioral
-                     :dpvo-pd/AuthenticationHistory
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BankAccount
@@ -251,10 +232,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Bank Account@en",
-   :rdfs/subClassOf [:dpvo-pd/FinancialAccount
-                     :dpvo-pd/BankAccount
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/FinancialAccount :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Behavioral
@@ -269,7 +248,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Behavioral@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Activity"],
-   :rdfs/subClassOf [:dpvo-pd/External :dpvo-pd/Behavioral :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Biometric
@@ -286,9 +265,8 @@
    :rdfs/label #voc/lstr "Biometric@en",
    :rdfs/subClassOf [:dpvo-pd/Identifying
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/Biometric
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BirthDate
@@ -301,10 +279,9 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Birth Date@en",
    :rdfs/subClassOf     [:dpvo-pd/Age
-                         :dpvo-pd/BirthDate
+                         :dpvo/PersonalData
                          :dpvo-pd/External
-                         :dpvo-pd/PhysicalCharacteristic
-                         :dpvo/PersonalData],
+                         :dpvo-pd/PhysicalCharacteristic],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def BirthPlace
@@ -317,7 +294,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Birth Place@en",
    :rdfs/subClassOf     [:dpvo-pd/Location
-                         :dpvo-pd/BirthPlace
                          :dpvo/PersonalData
                          :dpvo-pd/Tracking],
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -334,10 +310,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Blood Type@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/BloodType
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BrowserFingerprint
@@ -353,10 +328,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Browser Fingerprint@en",
-   :rdfs/subClassOf [:dpvo-pd/DeviceBased
-                     :dpvo-pd/BrowserFingerprint
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BrowserHistory
@@ -370,10 +342,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Browser History@en",
    :rdfs/subClassOf [:dpvo-pd/BrowsingBehavior
-                     :dpvo-pd/BrowserHistory
-                     :dpvo-pd/Behavioral
+                     :dpvo/PersonalData
                      :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Behavioral],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BrowsingBehavior
@@ -388,10 +359,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Browsing Behavior@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#OnlineActivity"],
-   :rdfs/subClassOf [:dpvo-pd/Behavioral
-                     :dpvo-pd/BrowsingBehavior
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def BrowsingReferral
@@ -407,10 +375,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Browsing Referral@en",
    :rdfs/subClassOf [:dpvo-pd/BrowsingBehavior
-                     :dpvo-pd/BrowsingReferral
-                     :dpvo-pd/Behavioral
+                     :dpvo/PersonalData
                      :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Behavioral],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CallLog
@@ -425,8 +392,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Call Log@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Behavioral :dpvo-pd/CallLog :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CarOwned
@@ -441,8 +407,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Car Owned@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Ownership :dpvo-pd/CarOwned :dpvo/PersonalData :dpvo-pd/Financial],
+   :rdfs/subClassOf [:dpvo-pd/Ownership :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CharacterClass
@@ -457,8 +422,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Character@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/PublicLife :dpvo-pd/Character :dpvo-pd/Social :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Communication
@@ -473,7 +437,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Communication@en",
-   :rdfs/subClassOf [:dpvo-pd/Social :dpvo-pd/Communication :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CommunicationsMetadata
@@ -489,10 +453,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Communications Metadata@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Interactive"],
-   :rdfs/subClassOf [:dpvo-pd/PublicLife
-                     :dpvo-pd/CommunicationsMetadata
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Connection
@@ -508,10 +469,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Connection@en",
-   :rdfs/subClassOf [:dpvo-pd/SocialNetwork
-                     :dpvo-pd/Connection
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Contact
@@ -528,7 +486,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Contact@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Physical"],
-   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo-pd/Contact :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Country
@@ -543,8 +501,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Country@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Location :dpvo-pd/Country :dpvo/PersonalData :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/Location :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Credit
@@ -559,10 +516,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Credit@en",
-   :rdfs/subClassOf [:dpvo-pd/Transactional
-                     :dpvo-pd/Credit
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CreditCapacity
@@ -577,10 +532,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Credit Capacity@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
-                     :dpvo-pd/CreditCapacity
-                     :dpvo-pd/Transactional
                      :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+                     :dpvo-pd/Financial
+                     :dpvo-pd/Transactional],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CreditCardNumber
@@ -595,11 +549,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Credit Card Number@en",
    :rdfs/subClassOf [:dpvo-pd/PaymentCardNumber
-                     :dpvo-pd/CreditCardNumber
-                     :dpvo-pd/FinancialAccount
+                     :dpvo-pd/PaymentCard
                      :dpvo/PersonalData
                      :dpvo-pd/AccountIdentifier
-                     :dpvo-pd/PaymentCard
+                     :dpvo-pd/FinancialAccount
                      :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -615,10 +568,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Credit Record@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
-                     :dpvo-pd/CreditRecord
-                     :dpvo-pd/Transactional
                      :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+                     :dpvo-pd/Financial
+                     :dpvo-pd/Transactional],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CreditScore
@@ -633,11 +585,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Credit Score@en",
    :rdfs/subClassOf [:dpvo-pd/CreditWorthiness
-                     :dpvo-pd/CreditScore
-                     :dpvo-pd/Transactional
-                     :dpvo/PersonalData
                      :dpvo-pd/Credit
-                     :dpvo-pd/Financial],
+                     :dpvo/PersonalData
+                     :dpvo-pd/Financial
+                     :dpvo-pd/Transactional],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CreditStanding
@@ -652,10 +603,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Credit Standing@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
-                     :dpvo-pd/CreditStanding
-                     :dpvo-pd/Transactional
                      :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+                     :dpvo-pd/Financial
+                     :dpvo-pd/Transactional],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CreditWorthiness
@@ -670,10 +620,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Credit Worthiness@en",
    :rdfs/subClassOf [:dpvo-pd/Credit
-                     :dpvo-pd/CreditWorthiness
-                     :dpvo-pd/Transactional
                      :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+                     :dpvo-pd/Financial
+                     :dpvo-pd/Transactional],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Criminal
@@ -690,7 +639,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Criminal@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Judicial"],
-   :rdfs/subClassOf [:dpvo-pd/Social :dpvo-pd/Criminal :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CriminalCharge
@@ -704,10 +653,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Criminal Charge@en",
-   :rdfs/subClassOf [:dpvo-pd/Criminal
-                     :dpvo-pd/CriminalCharge
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Criminal :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CriminalConviction
@@ -721,10 +667,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Criminal Conviction@en",
-   :rdfs/subClassOf [:dpvo-pd/Criminal
-                     :dpvo-pd/CriminalConviction
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Criminal :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CriminalOffense
@@ -736,10 +679,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Criminal Offense@en",
-   :rdfs/subClassOf     [:dpvo-pd/Criminal
-                         :dpvo-pd/CriminalOffense
-                         :dpvo-pd/Social
-                         :dpvo/PersonalData],
+   :rdfs/subClassOf     [:dpvo-pd/Criminal :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def CriminalPardon
@@ -753,10 +693,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Criminal Pardon@en",
-   :rdfs/subClassOf [:dpvo-pd/Criminal
-                     :dpvo-pd/CriminalPardon
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Criminal :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def CurrentEmployment
@@ -769,10 +706,9 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Current Employment@en",
    :rdfs/subClassOf     [:dpvo-pd/EmploymentHistory
-                         :dpvo-pd/CurrentEmployment
-                         :dpvo-pd/Social
                          :dpvo-pd/Professional
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/Social],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DNACode
@@ -787,10 +723,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "DNA Code@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/DNACode
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Demeanor
@@ -804,8 +739,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Demeanor@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Behavioral :dpvo-pd/Demeanor :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Demographic
@@ -820,7 +754,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Demographic@en",
-   :rdfs/subClassOf [:dpvo-pd/External :dpvo-pd/Demographic :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DeviceApplications
@@ -837,10 +771,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Device Applications@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceSoftware
-                     :dpvo-pd/DeviceApplications
+                     :dpvo-pd/DeviceBased
                      :dpvo/PersonalData
-                     :dpvo-pd/Tracking
-                     :dpvo-pd/DeviceBased],
+                     :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DeviceBased
@@ -855,7 +788,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Device Based@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Computer"],
-   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo-pd/DeviceBased :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DeviceOperatingSystem
@@ -872,10 +805,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Device Operating System@en",
    :rdfs/subClassOf [:dpvo-pd/DeviceSoftware
-                     :dpvo-pd/DeviceOperatingSystem
+                     :dpvo-pd/DeviceBased
                      :dpvo/PersonalData
-                     :dpvo-pd/Tracking
-                     :dpvo-pd/DeviceBased],
+                     :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DeviceSoftware
@@ -890,10 +822,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Device Software@en",
-   :rdfs/subClassOf [:dpvo-pd/DeviceBased
-                     :dpvo-pd/DeviceSoftware
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Dialect
@@ -907,8 +836,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Dialect@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Language :dpvo-pd/Dialect :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Language :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DigitalFingerprint
@@ -922,8 +850,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Digital Fingerprint@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Tracking :dpvo-pd/DigitalFingerprint :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Disability
@@ -938,10 +865,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Disability@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/Disability
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DisciplinaryAction
@@ -956,10 +882,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Disciplinary Action@en",
-   :rdfs/subClassOf [:dpvo-pd/Professional
-                     :dpvo-pd/DisciplinaryAction
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Dislike
@@ -975,11 +898,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Dislike@en",
-   :rdfs/subClassOf [:dpvo-pd/Interest
-                     :dpvo-pd/Dislike
-                     :dpvo-pd/Preference
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Interest :dpvo-pd/Internal :dpvo/PersonalData :dpvo-pd/Preference],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Divorce
@@ -994,10 +914,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Divorce@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
-                     :dpvo-pd/Divorce
-                     :dpvo-pd/Social
+                     :dpvo/PersonalData
                      :dpvo-pd/Family
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DrugTestResult
@@ -1012,10 +931,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Drug Test Result@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/DrugTestResult
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Education
@@ -1028,9 +946,8 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Education@en",
    :rdfs/subClassOf     [:dpvo-pd/Professional
-                         :dpvo-pd/Education
-                         :dpvo-pd/Social
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/Social],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EducationExperience
@@ -1045,10 +962,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Education Experience@en",
    :rdfs/subClassOf [:dpvo-pd/Education
-                     :dpvo-pd/EducationExperience
-                     :dpvo-pd/Social
                      :dpvo-pd/Professional
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def EducationQualification
@@ -1062,10 +978,9 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Education Qualification@en",
    :rdfs/subClassOf     [:dpvo-pd/Education
-                         :dpvo-pd/EducationQualification
-                         :dpvo-pd/Social
                          :dpvo-pd/Professional
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/Social],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def EmailAddress
@@ -1079,10 +994,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Email Address@en",
-   :rdfs/subClassOf [:dpvo-pd/Contact
-                     :dpvo-pd/EmailAddress
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/Contact :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def EmailAddressPersonal
@@ -1096,10 +1008,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Email Address Personal@en",
    :rdfs/subClassOf [:dpvo-pd/EmailAddress
-                     :dpvo-pd/EmailAddressPersonal
-                     :dpvo-pd/Contact
                      :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+                     :dpvo-pd/Tracking
+                     :dpvo-pd/Contact],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def EmailAddressWork
@@ -1114,10 +1025,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Email Address Work@en",
    :rdfs/subClassOf [:dpvo-pd/EmailAddress
-                     :dpvo-pd/EmailAddressWork
-                     :dpvo-pd/Contact
                      :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+                     :dpvo-pd/Tracking
+                     :dpvo-pd/Contact],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def EmailContent
@@ -1132,10 +1042,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Email Content@en",
-   :rdfs/subClassOf [:dpvo-pd/Communication
-                     :dpvo-pd/EmailContent
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Communication :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def EmploymentHistory
@@ -1149,10 +1056,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Employment History@en",
-   :rdfs/subClassOf [:dpvo-pd/Professional
-                     :dpvo-pd/EmploymentHistory
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def EthnicOrigin
@@ -1168,7 +1072,6 @@
    :rdfs/label #voc/lstr "Ethnic Origin@en",
    :rdfs/subClassOf [:dpvo-pd/Ethnicity
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/EthnicOrigin
                      :dpvo-pd/External
                      :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
@@ -1185,7 +1088,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Ethnicity@en",
-   :rdfs/subClassOf [:dpvo-pd/External :dpvo-pd/Ethnicity :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def External
@@ -1201,7 +1104,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "External@en",
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/External],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FacialPrint
@@ -1215,11 +1118,10 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Facial Print@en",
    :rdfs/subClassOf     [:dpvo-pd/Biometric
-                         :dpvo-pd/FacialPrint
-                         :dpvo-pd/Identifying
                          :dpvo/SpecialCategoryPersonalData
+                         :dpvo/PersonalData
                          :dpvo-pd/External
-                         :dpvo/PersonalData],
+                         :dpvo-pd/Identifying],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Family
@@ -1234,7 +1136,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Family@en",
-   :rdfs/subClassOf [:dpvo-pd/Social :dpvo-pd/Family :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FamilyHealthHistory
@@ -1249,11 +1151,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Family Health History@en",
    :rdfs/subClassOf [:dpvo-pd/HealthHistory
-                     :dpvo-pd/FamilyHealthHistory
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
+                     :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
-                     :dpvo-pd/MedicalHealth],
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FamilyStructure
@@ -1268,10 +1169,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Family Structure@en",
-   :rdfs/subClassOf [:dpvo-pd/Family
-                     :dpvo-pd/FamilyStructure
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Family :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Favorite
@@ -1285,8 +1183,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Favorite@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Preference :dpvo-pd/Favorite :dpvo/PersonalData :dpvo-pd/Internal],
+   :rdfs/subClassOf [:dpvo-pd/Preference :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FavoriteColor
@@ -1300,11 +1197,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Favorite Color@en",
-   :rdfs/subClassOf [:dpvo-pd/Favorite
-                     :dpvo-pd/FavoriteColor
-                     :dpvo-pd/Preference
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Favorite :dpvo-pd/Internal :dpvo/PersonalData :dpvo-pd/Preference],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FavoriteFood
@@ -1318,11 +1212,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Favorite Food@en",
-   :rdfs/subClassOf [:dpvo-pd/Favorite
-                     :dpvo-pd/FavoriteFood
-                     :dpvo-pd/Preference
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Favorite :dpvo-pd/Internal :dpvo/PersonalData :dpvo-pd/Preference],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FavoriteMusic
@@ -1336,11 +1227,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Favorite Music@en",
-   :rdfs/subClassOf [:dpvo-pd/Favorite
-                     :dpvo-pd/FavoriteMusic
-                     :dpvo-pd/Preference
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Favorite :dpvo-pd/Internal :dpvo/PersonalData :dpvo-pd/Preference],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Fetish
@@ -1356,10 +1244,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Fetish@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
-                     :dpvo-pd/Fetish
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Financial
@@ -1376,7 +1263,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Financial@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Financial"],
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/Financial],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FinancialAccount
@@ -1390,8 +1277,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Financial Account@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Financial :dpvo-pd/FinancialAccount :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Financial :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def FinancialAccountNumber
@@ -1407,9 +1293,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Financial Account Number@en",
    :rdfs/subClassOf [:dpvo-pd/AccountIdentifier
-                     :dpvo-pd/FinancialAccountNumber
-                     :dpvo-pd/FinancialAccount
                      :dpvo/PersonalData
+                     :dpvo-pd/FinancialAccount
                      :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -1423,9 +1308,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Financial Status@en",
-   :rdfs/subClassOf     [:dpvo-pd/Financial
-                         :dpvo-pd/FinancialStatus
-                         :dpvo/PersonalData],
+   :rdfs/subClassOf     [:dpvo-pd/Financial :dpvo/PersonalData],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Fingerprint
@@ -1441,11 +1324,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Fingerprint@en",
    :rdfs/subClassOf [:dpvo-pd/Biometric
-                     :dpvo-pd/Fingerprint
-                     :dpvo-pd/Identifying
                      :dpvo/SpecialCategoryPersonalData
+                     :dpvo/PersonalData
                      :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Identifying],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Friend
@@ -1461,8 +1343,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Friend@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/SocialNetwork :dpvo-pd/Friend :dpvo-pd/Social :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def GPSCoordinate
@@ -1478,10 +1359,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "GPS Coordinate@en",
-   :rdfs/subClassOf [:dpvo-pd/Location
-                     :dpvo-pd/GPSCoordinate
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/Location :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Gender
@@ -1495,10 +1373,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Gender@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/Gender
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def GeneralReputation
@@ -1513,10 +1389,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "General Reputation@en",
-   :rdfs/subClassOf [:dpvo-pd/PublicLife
-                     :dpvo-pd/GeneralReputation
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Genetic
@@ -1531,11 +1404,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Genetic@en",
    :rdfs/subClassOf [:dpvo-pd/Health
-                     :dpvo-pd/Genetic
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
+                     :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
-                     :dpvo-pd/MedicalHealth],
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Geographic
@@ -1551,10 +1423,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Geographic@en",
-   :rdfs/subClassOf [:dpvo-pd/Demographic
-                     :dpvo-pd/Geographic
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Demographic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def GroupMembership
@@ -1570,10 +1439,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Group Membership@en",
-   :rdfs/subClassOf [:dpvo-pd/SocialNetwork
-                     :dpvo-pd/GroupMembership
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/SocialNetwork :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HairColor
@@ -1587,10 +1453,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Hair Color@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/HairColor
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Health
@@ -1606,10 +1470,9 @@
    :rdfs/label #voc/lstr "Health@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Health"],
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/Health
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HealthHistory
@@ -1624,10 +1487,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Health History@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/HealthHistory
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HealthRecord
@@ -1642,10 +1504,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Health Record@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/HealthRecord
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Height
@@ -1659,10 +1520,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Height@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/Height
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Historical
@@ -1678,7 +1537,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Historical@en",
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/Historical],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def HouseOwned
@@ -1693,10 +1552,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "House Owned@en",
-   :rdfs/subClassOf [:dpvo-pd/Ownership
-                     :dpvo-pd/HouseOwned
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf [:dpvo-pd/Ownership :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Household
@@ -1709,7 +1565,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Household@en",
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/Household],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def IPAddress
@@ -1725,10 +1581,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "IP Address@en",
-   :rdfs/subClassOf [:dpvo-pd/DeviceBased
-                     :dpvo-pd/IPAddress
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Identifier
@@ -1742,7 +1595,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Identifier@en",
-   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo-pd/Identifier :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Identifying
@@ -1758,7 +1611,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Identifying@en",
-   :rdfs/subClassOf [:dpvo-pd/External :dpvo-pd/Identifying :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Income
@@ -1774,10 +1627,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Income@en",
-   :rdfs/subClassOf [:dpvo-pd/Transactional
-                     :dpvo-pd/Income
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def IncomeBracket
@@ -1791,10 +1642,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Income Bracket@en",
-   :rdfs/subClassOf [:dpvo-pd/Demographic
-                     :dpvo-pd/IncomeBracket
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Demographic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def IndividualHealthHistory
@@ -1810,11 +1658,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Individual Health History@en",
    :rdfs/subClassOf [:dpvo-pd/HealthHistory
-                     :dpvo-pd/IndividualHealthHistory
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
+                     :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
-                     :dpvo-pd/MedicalHealth],
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Insurance
@@ -1826,9 +1673,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Insurance@en",
-   :rdfs/subClassOf     [:dpvo-pd/Financial
-                         :dpvo-pd/Insurance
-                         :dpvo/PersonalData],
+   :rdfs/subClassOf     [:dpvo-pd/Financial :dpvo/PersonalData],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Intention
@@ -1842,10 +1687,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Intention@en",
-   :rdfs/subClassOf [:dpvo-pd/Preference
-                     :dpvo-pd/Intention
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf [:dpvo-pd/Preference :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Interaction
@@ -1860,10 +1702,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Interaction@en",
-   :rdfs/subClassOf [:dpvo-pd/PublicLife
-                     :dpvo-pd/Interaction
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Interest
@@ -1877,8 +1716,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Interest@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Preference :dpvo-pd/Interest :dpvo/PersonalData :dpvo-pd/Internal],
+   :rdfs/subClassOf [:dpvo-pd/Preference :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Internal
@@ -1894,7 +1732,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Internal@en",
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/Internal],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Job
@@ -1908,8 +1746,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Job@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Professional :dpvo-pd/Job :dpvo-pd/Social :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def KnowledgeBelief
@@ -1923,8 +1760,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Knowledge and Beliefs@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Internal :dpvo-pd/KnowledgeBelief :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Language
@@ -1940,7 +1776,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Language@en",
-   :rdfs/subClassOf [:dpvo-pd/External :dpvo-pd/Language :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def LifeHistory
@@ -1956,8 +1792,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Life History@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Historical :dpvo-pd/LifeHistory :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Historical :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Like
@@ -1972,11 +1807,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Like@en",
-   :rdfs/subClassOf [:dpvo-pd/Interest
-                     :dpvo-pd/Like
-                     :dpvo-pd/Preference
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Interest :dpvo-pd/Internal :dpvo/PersonalData :dpvo-pd/Preference],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def LinkClicked
@@ -1992,10 +1824,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Link Clicked@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Navigation"],
-   :rdfs/subClassOf [:dpvo-pd/Behavioral
-                     :dpvo-pd/LinkClicked
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def LoanRecord
@@ -2011,10 +1840,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Loan Record@en",
-   :rdfs/subClassOf [:dpvo-pd/Transactional
-                     :dpvo-pd/LoanRecord
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Location
@@ -2029,7 +1856,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Location@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Location"],
-   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo-pd/Location :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MACAddress
@@ -2045,10 +1872,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "MAC Address@en",
-   :rdfs/subClassOf [:dpvo-pd/DeviceBased
-                     :dpvo-pd/MACAddress
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/DeviceBased :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MaritalStatus
@@ -2063,10 +1887,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Marital Status@en",
-   :rdfs/subClassOf [:dpvo-pd/PublicLife
-                     :dpvo-pd/MaritalStatus
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Marriage
@@ -2081,10 +1902,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Marriage@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
-                     :dpvo-pd/Marriage
-                     :dpvo-pd/Social
+                     :dpvo/PersonalData
                      :dpvo-pd/Family
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MedicalHealth
@@ -2099,10 +1919,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Medical Health@en",
-   :rdfs/subClassOf [:dpvo-pd/External
-                     :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/MedicalHealth
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/External :dpvo/SpecialCategoryPersonalData :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def MentalHealth
@@ -2117,11 +1935,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Mental Health@en",
    :rdfs/subClassOf [:dpvo-pd/Health
-                     :dpvo-pd/MentalHealth
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
+                     :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
-                     :dpvo-pd/MedicalHealth],
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Name
@@ -2137,8 +1954,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Name@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Identifying :dpvo-pd/Name :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Nationality
@@ -2150,9 +1966,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Nationality@en",
-   :rdfs/subClassOf     [:dpvo-pd/External
-                         :dpvo-pd/Nationality
-                         :dpvo/PersonalData],
+   :rdfs/subClassOf     [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def OfficialID
@@ -2169,10 +1983,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Official ID@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Government"],
-   :rdfs/subClassOf [:dpvo-pd/Identifying
-                     :dpvo-pd/OfficialID
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Offspring
@@ -2187,10 +1998,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Offspring@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
-                     :dpvo-pd/Offspring
-                     :dpvo-pd/Social
+                     :dpvo/PersonalData
                      :dpvo-pd/Family
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Opinion
@@ -2204,8 +2014,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Opinion@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Preference :dpvo-pd/Opinion :dpvo/PersonalData :dpvo-pd/Internal],
+   :rdfs/subClassOf [:dpvo-pd/Preference :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Ownership
@@ -2221,7 +2030,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Ownership@en",
-   :rdfs/subClassOf [:dpvo-pd/Financial :dpvo-pd/Ownership :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Financial :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PINCode
@@ -2237,10 +2046,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "PIN Code@en",
-   :rdfs/subClassOf [:dpvo-pd/Authenticating
-                     :dpvo-pd/PINCode
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Authenticating :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Parent
@@ -2255,10 +2062,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Parent@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
-                     :dpvo-pd/Parent
-                     :dpvo-pd/Social
+                     :dpvo/PersonalData
                      :dpvo-pd/Family
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Passport
@@ -2271,10 +2077,9 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Passport@en",
    :rdfs/subClassOf     [:dpvo-pd/OfficialID
-                         :dpvo-pd/Passport
-                         :dpvo-pd/Identifying
+                         :dpvo/PersonalData
                          :dpvo-pd/External
-                         :dpvo/PersonalData],
+                         :dpvo-pd/Identifying],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Password
@@ -2290,10 +2095,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Password@en",
-   :rdfs/subClassOf [:dpvo-pd/Authenticating
-                     :dpvo-pd/Password
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Authenticating :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PastEmployment
@@ -2306,10 +2109,9 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Past Employment@en",
    :rdfs/subClassOf     [:dpvo-pd/EmploymentHistory
-                         :dpvo-pd/PastEmployment
-                         :dpvo-pd/Social
                          :dpvo-pd/Professional
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/Social],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def PaymentCard
@@ -2324,10 +2126,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Payment Card@en",
-   :rdfs/subClassOf [:dpvo-pd/FinancialAccount
-                     :dpvo-pd/PaymentCard
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/FinancialAccount :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PaymentCardExpiry
@@ -2342,9 +2142,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Payment Card Expiry@en",
    :rdfs/subClassOf [:dpvo-pd/PaymentCard
-                     :dpvo-pd/PaymentCardExpiry
-                     :dpvo-pd/FinancialAccount
                      :dpvo/PersonalData
+                     :dpvo-pd/FinancialAccount
                      :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -2360,9 +2159,8 @@
    :rdfs/label          #voc/lstr "Payment Card Number@en",
    :rdfs/subClassOf     [:dpvo-pd/AccountIdentifier
                          :dpvo-pd/PaymentCard
-                         :dpvo-pd/PaymentCardNumber
-                         :dpvo-pd/FinancialAccount
                          :dpvo/PersonalData
+                         :dpvo-pd/FinancialAccount
                          :dpvo-pd/Financial],
    :vs/term_status      #voc/lstr "accepted@en"})
 
@@ -2379,10 +2177,9 @@
    :rdfs/label #voc/lstr "Performance at Work@en",
    :rdfs/subClassOf [:dpvo-pd/Professional
                      :dpvo-pd/Behavioral
-                     :dpvo-pd/PerformanceAtWork
-                     :dpvo-pd/Social
+                     :dpvo/PersonalData
                      :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PersonalDocuments
@@ -2396,8 +2193,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Personal Documents@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/External :dpvo-pd/PersonalDocuments :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PersonalPossession
@@ -2411,10 +2207,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Personal Possession@en",
-   :rdfs/subClassOf [:dpvo-pd/Ownership
-                     :dpvo-pd/PersonalPossession
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf [:dpvo-pd/Ownership :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Personality
@@ -2430,10 +2223,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Personality@en",
-   :rdfs/subClassOf [:dpvo-pd/Behavioral
-                     :dpvo-pd/Personality
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhilosophicalBelief
@@ -2449,9 +2239,8 @@
    :rdfs/label #voc/lstr "Philosophical Belief@en",
    :rdfs/subClassOf [:dpvo-pd/KnowledgeBelief
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/PhilosophicalBelief
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+                     :dpvo-pd/Internal
+                     :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhysicalAddress
@@ -2465,10 +2254,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Physical Address@en",
-   :rdfs/subClassOf [:dpvo-pd/Contact
-                     :dpvo-pd/PhysicalAddress
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/Contact :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhysicalCharacteristic
@@ -2484,8 +2270,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Physical Characteristic@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Demographic"],
-   :rdfs/subClassOf
-   [:dpvo-pd/External :dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhysicalHealth
@@ -2500,11 +2285,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Physical Health@en",
    :rdfs/subClassOf [:dpvo-pd/Health
-                     :dpvo-pd/PhysicalHealth
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
+                     :dpvo-pd/MedicalHealth
                      :dpvo/PersonalData
-                     :dpvo-pd/MedicalHealth],
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PhysicalTrait
@@ -2520,10 +2304,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Physical Trait@en",
-   :rdfs/subClassOf [:dpvo-pd/Demographic
-                     :dpvo-pd/PhysicalTrait
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Demographic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Picture
@@ -2539,8 +2320,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Picture@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Identifying :dpvo-pd/Picture :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Piercing
@@ -2554,10 +2334,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Piercing@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/Piercing
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PoliticalAffiliation
@@ -2575,9 +2353,8 @@
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Political"],
    :rdfs/subClassOf [:dpvo-pd/PublicLife
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/PoliticalAffiliation
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PoliticalOpinion
@@ -2593,9 +2370,8 @@
    :rdfs/label #voc/lstr "Political Opinion@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/PublicLife
-                     :dpvo-pd/PoliticalOpinion
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Preference
@@ -2611,7 +2387,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Preference@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Preference"],
-   :rdfs/subClassOf [:dpvo-pd/Internal :dpvo-pd/Preference :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Prescription
@@ -2627,10 +2403,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Prescription@en",
    :rdfs/subClassOf [:dpvo-pd/MedicalHealth
-                     :dpvo-pd/Prescription
-                     :dpvo-pd/External
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PrivacyPreference
@@ -2644,10 +2419,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Privacy Preference@en",
-   :rdfs/subClassOf [:dpvo-pd/Preference
-                     :dpvo-pd/PrivacyPreference
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf [:dpvo-pd/Preference :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Proclivitie
@@ -2663,10 +2435,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Proclivitie@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
-                     :dpvo-pd/Proclivitie
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Professional
@@ -2681,7 +2452,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Professional@en",
-   :rdfs/subClassOf [:dpvo-pd/Social :dpvo-pd/Professional :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ProfessionalCertification
@@ -2696,10 +2467,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Professional Certification@en",
-   :rdfs/subClassOf [:dpvo-pd/Professional
-                     :dpvo-pd/ProfessionalCertification
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ProfessionalEvaluation
@@ -2714,10 +2482,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Professional Evaluation@en",
-   :rdfs/subClassOf [:dpvo-pd/Professional
-                     :dpvo-pd/ProfessionalEvaluation
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ProfessionalInterview
@@ -2732,10 +2497,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Professional Interview@en",
-   :rdfs/subClassOf [:dpvo-pd/Professional
-                     :dpvo-pd/ProfessionalInterview
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Profile
@@ -2749,7 +2511,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Profile@en",
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/Profile],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PublicLife
@@ -2763,7 +2525,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Public Life@en",
-   :rdfs/subClassOf [:dpvo-pd/Social :dpvo-pd/PublicLife :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PubliclyAvailableSocialMedia
@@ -2777,10 +2539,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Publicly Available Social Media@en",
    :rdfs/subClassOf [:dpvo-pd/SocialMedia
-                     :dpvo-pd/PubliclyAvailableSocialMedia
-                     :dpvo-pd/Social
+                     :dpvo/PersonalData
                      :dpvo-pd/Communication
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Purchase
@@ -2797,10 +2558,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Purchase@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Purchase"],
-   :rdfs/subClassOf [:dpvo-pd/Transactional
-                     :dpvo-pd/Purchase
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def PurchasesAndSpendingHabit
@@ -2816,10 +2575,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Purchases and Spending Habit@en",
-   :rdfs/subClassOf [:dpvo-pd/Transactional
-                     :dpvo-pd/PurchasesAndSpendingHabit
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Race
@@ -2836,7 +2593,6 @@
    :rdfs/label #voc/lstr "Race@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/Ethnicity
-                     :dpvo-pd/Race
                      :dpvo-pd/External
                      :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
@@ -2853,10 +2609,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Reference@en",
-   :rdfs/subClassOf [:dpvo-pd/Professional
-                     :dpvo-pd/Reference
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Relationship
@@ -2871,8 +2624,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Relationship@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Family :dpvo-pd/Relationship :dpvo-pd/Social :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Family :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Reliability
@@ -2886,9 +2638,8 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Reliability@en",
    :rdfs/subClassOf     [:dpvo-pd/Behavioral
-                         :dpvo-pd/Reliability
-                         :dpvo-pd/External
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/External],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Religion
@@ -2906,9 +2657,8 @@
    :rdfs/label #voc/lstr "Religion@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/PublicLife
-                     :dpvo-pd/Religion
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ReligiousBelief
@@ -2925,9 +2675,8 @@
    :rdfs/label #voc/lstr "Religious Belief@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/KnowledgeBelief
-                     :dpvo-pd/ReligiousBelief
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+                     :dpvo-pd/Internal
+                     :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Retina
@@ -2943,11 +2692,10 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Retina@en",
    :rdfs/subClassOf [:dpvo-pd/Biometric
-                     :dpvo-pd/Retina
-                     :dpvo-pd/Identifying
                      :dpvo/SpecialCategoryPersonalData
+                     :dpvo/PersonalData
                      :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Identifying],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RoomNumber
@@ -2963,8 +2711,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Room Number@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Location :dpvo-pd/RoomNumber :dpvo/PersonalData :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/Location :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Salary
@@ -2978,8 +2725,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Salary@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Professional :dpvo-pd/Salary :dpvo-pd/Social :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Sale
@@ -2995,7 +2741,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Sale@en",
    :rdfs/subClassOf
-   [:dpvo-pd/Transactional :dpvo-pd/Sale :dpvo/PersonalData :dpvo-pd/Financial],
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def School
@@ -3011,8 +2757,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "School@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Professional :dpvo-pd/School :dpvo-pd/Social :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SecretText
@@ -3028,10 +2773,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Secret Text@en",
-   :rdfs/subClassOf [:dpvo-pd/Authenticating
-                     :dpvo-pd/SecretText
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/Authenticating :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def ServiceConsumptionBehavior
@@ -3046,10 +2789,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Service Consumption Behavior@en",
-   :rdfs/subClassOf [:dpvo-pd/Behavioral
-                     :dpvo-pd/ServiceConsumptionBehavior
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Behavioral :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Sexual
@@ -3064,10 +2804,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Sexual@en",
-   :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/External
-                     :dpvo-pd/Sexual
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo/SpecialCategoryPersonalData :dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SexualHistory
@@ -3082,10 +2820,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Sexual History@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
-                     :dpvo-pd/SexualHistory
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SexualPreference
@@ -3100,10 +2837,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Sexual Preference@en",
    :rdfs/subClassOf [:dpvo-pd/Sexual
-                     :dpvo-pd/SexualPreference
                      :dpvo/SpecialCategoryPersonalData
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo/PersonalData
+                     :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Sibling
@@ -3118,10 +2854,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Sibling@en",
    :rdfs/subClassOf [:dpvo-pd/FamilyStructure
-                     :dpvo-pd/Sibling
-                     :dpvo-pd/Social
+                     :dpvo/PersonalData
                      :dpvo-pd/Family
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SkinTone
@@ -3135,10 +2870,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Skin Tone@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/SkinTone
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Social
@@ -3154,7 +2887,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Social@en",
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/Social],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SocialMedia
@@ -3167,9 +2900,8 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Social Media@en",
    :rdfs/subClassOf     [:dpvo-pd/Communication
-                         :dpvo-pd/SocialMedia
-                         :dpvo-pd/Social
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/Social],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def SocialMediaCommunication
@@ -3186,10 +2918,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Social Media Communication@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#Social"],
-   :rdfs/subClassOf [:dpvo-pd/Communication
-                     :dpvo-pd/SocialMediaCommunication
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Communication :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SocialNetwork
@@ -3205,7 +2934,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Social Network@en",
-   :rdfs/subClassOf [:dpvo-pd/Social :dpvo-pd/SocialNetwork :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Social :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SocialStatus
@@ -3219,10 +2948,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Social Status@en",
-   :rdfs/subClassOf [:dpvo-pd/PublicLife
-                     :dpvo-pd/SocialStatus
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/PublicLife :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def TVViewingBehavior
@@ -3238,10 +2964,9 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "TV Viewing Behavior@en",
    :rdfs/subClassOf [:dpvo-pd/ServiceConsumptionBehavior
-                     :dpvo-pd/TVViewingBehavior
-                     :dpvo-pd/Behavioral
+                     :dpvo/PersonalData
                      :dpvo-pd/External
-                     :dpvo/PersonalData],
+                     :dpvo-pd/Behavioral],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Tattoo
@@ -3255,10 +2980,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Tattoo@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/Tattoo
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Tax
@@ -3274,7 +2997,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Tax@en",
    :rdfs/subClassOf
-   [:dpvo-pd/Transactional :dpvo-pd/Tax :dpvo/PersonalData :dpvo-pd/Financial],
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def TelephoneNumber
@@ -3288,10 +3011,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Telephone Number@en",
-   :rdfs/subClassOf [:dpvo-pd/Contact
-                     :dpvo-pd/TelephoneNumber
-                     :dpvo/PersonalData
-                     :dpvo-pd/Tracking],
+   :rdfs/subClassOf [:dpvo-pd/Contact :dpvo/PersonalData :dpvo-pd/Tracking],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Thought
@@ -3305,10 +3025,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Thought@en",
-   :rdfs/subClassOf [:dpvo-pd/KnowledgeBelief
-                     :dpvo-pd/Thought
-                     :dpvo/PersonalData
-                     :dpvo-pd/Internal],
+   :rdfs/subClassOf
+   [:dpvo-pd/KnowledgeBelief :dpvo-pd/Internal :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Tracking
@@ -3324,7 +3042,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Tracking@en",
-   :rdfs/subClassOf [:dpvo/PersonalData :dpvo-pd/Tracking],
+   :rdfs/subClassOf :dpvo/PersonalData,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def TradeUnionMembership
@@ -3339,10 +3057,9 @@
    :rdfs/label #voc/lstr "Trade Union Membership@en",
    :rdfs/subClassOf [:dpvo/SpecialCategoryPersonalData
                      :dpvo-pd/GroupMembership
-                     :dpvo-pd/TradeUnionMembership
-                     :dpvo-pd/Social
                      :dpvo/PersonalData
-                     :dpvo-pd/SocialNetwork],
+                     :dpvo-pd/SocialNetwork
+                     :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Transaction
@@ -3357,10 +3074,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Transaction@en",
-   :rdfs/subClassOf [:dpvo-pd/Transactional
-                     :dpvo-pd/Transaction
-                     :dpvo/PersonalData
-                     :dpvo-pd/Financial],
+   :rdfs/subClassOf
+   [:dpvo-pd/Transactional :dpvo/PersonalData :dpvo-pd/Financial],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Transactional
@@ -3375,8 +3090,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Transactional@en",
-   :rdfs/subClassOf
-   [:dpvo-pd/Financial :dpvo-pd/Transactional :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Financial :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def TravelHistory
@@ -3389,7 +3103,6 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Travel History@en",
    :rdfs/subClassOf     [:dpvo-pd/Location
-                         :dpvo-pd/TravelHistory
                          :dpvo/PersonalData
                          :dpvo-pd/Tracking],
    :vs/term_status      #voc/lstr "accepted@en"})
@@ -3406,8 +3119,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "UID@en",
    :rdfs/seeAlso ["https://specialprivacy.ercim.eu/vocabs/data#UniqueId"],
-   :rdfs/subClassOf
-   [:dpvo-pd/Identifying :dpvo-pd/UID :dpvo-pd/External :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def UserAgent
@@ -3421,7 +3133,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "User agent@en",
-   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo-pd/UserAgent :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Tracking :dpvo/PersonalData],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Username
@@ -3435,10 +3147,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Username@en",
-   :rdfs/subClassOf [:dpvo-pd/Identifying
-                     :dpvo-pd/Username
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Identifying :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def VehicalLicenseNumber
@@ -3451,11 +3160,10 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Vehicle License Number@en",
    :rdfs/subClassOf     [:dpvo-pd/VehicleLicense
-                         :dpvo-pd/VehicalLicenseNumber
-                         :dpvo-pd/Identifying
-                         :dpvo-pd/External
+                         :dpvo-pd/Vehicle
                          :dpvo/PersonalData
-                         :dpvo-pd/Vehicle],
+                         :dpvo-pd/External
+                         :dpvo-pd/Identifying],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VehicalLicenseRegistration
@@ -3469,11 +3177,10 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Vehicle License Registration@en",
    :rdfs/subClassOf     [:dpvo-pd/VehicleLicense
-                         :dpvo-pd/VehicalLicenseRegistration
-                         :dpvo-pd/Identifying
-                         :dpvo-pd/External
+                         :dpvo-pd/Vehicle
                          :dpvo/PersonalData
-                         :dpvo-pd/Vehicle],
+                         :dpvo-pd/External
+                         :dpvo-pd/Identifying],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def Vehicle
@@ -3485,7 +3192,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Vehicle@en",
-   :rdfs/subClassOf     [:dpvo-pd/External :dpvo-pd/Vehicle :dpvo/PersonalData],
+   :rdfs/subClassOf     [:dpvo-pd/External :dpvo/PersonalData],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VehicleLicense
@@ -3499,9 +3206,8 @@
    :rdfs/label          #voc/lstr "Vehicle License@en",
    :rdfs/subClassOf     [:dpvo-pd/Vehicle
                          :dpvo-pd/Identifying
-                         :dpvo-pd/VehicleLicense
-                         :dpvo-pd/External
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/External],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def VehicleUsage
@@ -3514,11 +3220,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Vehicle Usage@en",
-   :rdfs/subClassOf [:dpvo-pd/Behavioral
-                     :dpvo-pd/Vehicle
-                     :dpvo-pd/VehicleUsage
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/Behavioral :dpvo-pd/Vehicle :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def VoiceCommunicationRecording
@@ -3534,10 +3237,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Voice Communication Recording@en",
-   :rdfs/subClassOf [:dpvo-pd/Communication
-                     :dpvo-pd/VoiceCommunicationRecording
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Communication :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def VoiceMail
@@ -3551,10 +3251,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Voice Mail@en",
-   :rdfs/subClassOf [:dpvo-pd/Communication
-                     :dpvo-pd/VoiceMail
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Communication :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def Weight
@@ -3568,10 +3265,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Weight@en",
-   :rdfs/subClassOf [:dpvo-pd/PhysicalCharacteristic
-                     :dpvo-pd/Weight
-                     :dpvo-pd/External
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf
+   [:dpvo-pd/PhysicalCharacteristic :dpvo/PersonalData :dpvo-pd/External],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def WorkEnvironment
@@ -3584,9 +3279,8 @@
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label          #voc/lstr "Work Environment@en",
    :rdfs/subClassOf     [:dpvo-pd/Professional
-                         :dpvo-pd/WorkEnvironment
-                         :dpvo-pd/Social
-                         :dpvo/PersonalData],
+                         :dpvo/PersonalData
+                         :dpvo-pd/Social],
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def WorkHistory
@@ -3601,18 +3295,5 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-pd#",
    :rdfs/label #voc/lstr "Work History@en",
-   :rdfs/subClassOf [:dpvo-pd/Professional
-                     :dpvo-pd/WorkHistory
-                     :dpvo-pd/Social
-                     :dpvo/PersonalData],
+   :rdfs/subClassOf [:dpvo-pd/Professional :dpvo/PersonalData :dpvo-pd/Social],
    :vs/term_status #voc/lstr "accepted@en"})
-
-(def ^{:private true} PersonalData
-  {:db/ident        :dpvo/PersonalData,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/PersonalData})
-
-(def ^{:private true} SpecialCategoryPersonalData
-  {:db/ident        :dpvo/SpecialCategoryPersonalData,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo/SpecialCategoryPersonalData})

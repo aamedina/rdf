@@ -921,5 +921,7 @@
 (def real
   "owl:real"
   {:db/ident        :owl/real
+   :db/cardinality  :db.cardinality/one
+   :db/valueType    :db.type/bigdec
    :rdf/type        :rdfs/Datatype
    :rdfs/subClassOf :rdfs/Literal})

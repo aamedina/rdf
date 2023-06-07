@@ -149,15 +149,15 @@
     rdfs:subClassOf :SecurityScheme ;
     rdfs:comment "Pre-shared key authentication security configuration identified by the term <code>psk</code> (i.e., <code>\"scheme\": \"psk\"</code>).  This is meant to identify that a standard is used for pre-shared keys such as TLS-PSK [[rfc4279]], and that the ciphersuite used for keys will be established during protocol negotiation."@en .
 
-# :PoPSecurityScheme rdf:type rdfs:Class, owl:Class ;
-#     rdfs:label "PoPSecurityScheme" ;
-#     rdfs:subClassOf :SecurityScheme ;
-#     rdfs:comment "Proof-of-possession (PoP) token authentication security configuration identified by the term <code>pop</code> (i.e., <code>\"scheme\": \"pop\"</code>). Here <code>jwt</code> indicates conformance with !RFC7519, <code>jws</code> indicates conformance with !RFC7797, <code>cwt</code> indicates conformance with !RFC8392, and <code>jwe</code> indicates conformance with RFC7516, with values for <code>alg</code> interpreted consistently with those standards. <span class=\"rfc2119-assertion\" id=\"td-security-pop-format-extensions\">Other formats and algorithms for PoP tokens MAY be specified in vocabulary extensions.</span>" .
+:PoPSecurityScheme rdf:type rdfs:Class, owl:Class ;
+    rdfs:label "PoPSecurityScheme" ;
+    rdfs:subClassOf :SecurityScheme ;
+    rdfs:comment "Proof-of-possession (PoP) token authentication security configuration identified by the term <code>pop</code> (i.e., <code>\"scheme\": \"pop\"</code>). Here <code>jwt</code> indicates conformance with !RFC7519, <code>jws</code> indicates conformance with !RFC7797, <code>cwt</code> indicates conformance with !RFC8392, and <code>jwe</code> indicates conformance with RFC7516, with values for <code>alg</code> interpreted consistently with those standards. <span class=\"rfc2119-assertion\" id=\"td-security-pop-format-extensions\">Other formats and algorithms for PoP tokens MAY be specified in vocabulary extensions.</span>" .
 
-# :PublicSecurityScheme rdf:type rdfs:Class, owl:Class ;
-#     rdfs:label "PublicSecurityScheme" ;
-#     rdfs:subClassOf :SecurityScheme ;
-#     rdfs:comment "Raw public key asymmetric key security configuration identified by the term <code>public</code> (i.e., <code>\"scheme\": \"public\"</code>)." .
+:PublicSecurityScheme rdf:type rdfs:Class, owl:Class ;
+    rdfs:label "PublicSecurityScheme" ;
+    rdfs:subClassOf :SecurityScheme ;
+    rdfs:comment "Raw public key asymmetric key security configuration identified by the term <code>public</code> (i.e., <code>\"scheme\": \"public\"</code>)." .
 
 :SecurityScheme rdf:type rdfs:Class, owl:Class ;
     rdfs:label "SecurityScheme" ;

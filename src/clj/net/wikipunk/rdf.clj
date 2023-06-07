@@ -884,7 +884,11 @@
       {:xsd/double n}
       (int? n)
       {:xsd/long n}
-      :else {:owl/real n}))
+      (decimal? n)
+      {:xsd/decimal n}
+      (integer? n)
+      {:xsd/integer n}
+      :else {:owl/real (bigdec n)}))
 
   String
   (box [s]
@@ -943,6 +947,9 @@
       
       (some? (:owl/hasValue form))
       (box-value update :owl/hasValue)
+
+      (some? (:rdf/value form))
+      (box-value update :rdf/value)
 
       (seq (:owl/oneOf form))
       (box-value update :owl/oneOf)
@@ -1437,15 +1444,34 @@
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
 
+(def ^:dynamic *datafy-mop*
+  "When truthy datafy will preserve the metaobject protocol
+  inferences."
+  nil)
+
 (extend-protocol clojure.core.protocols/Datafiable
   clojure.lang.Named
   (datafy [ident]
     (cond
       (qualified-keyword? ident)
       (not-empty (reduce-kv (fn [m k v]
-                              (if (and (qualified-keyword? k)
-                                       (not= (namespace k) "mop"))
-                                (assoc m k v)
+                              (if (qualified-keyword? k)
+                                (if *datafy-mop*
+                                  (case k
+                                    (:mop/class-direct-slots                                     
+                                     :mop/class-slots)
+                                    (assoc m k (mapv :db/ident v))
+
+                                    (:mop/class-default-initargs
+                                     :mop/class-direct-default-initargs
+                                     :mop/class-precedence-list
+                                     :mop/class-prototype)
+                                    m
+
+                                    (assoc m k v))
+                                  (if (not= (namespace k) "mop")
+                                    (assoc m k v)
+                                    m))
                                 m))
                             {} (dissoc (mop/find-class ident) :xt/id)))
 

@@ -241,7 +241,8 @@
   "Idiomatic property used for structured values."
   {:db/ident           :rdf/value,
    :db/cardinality     :db.cardinality/one,
-   :db/valueType       :db.type/string,
+   :db/valueType       :db.type/ref,
+   :db/isComponent     true
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "Idiomatic property used for structured values.",
    :rdfs/domain        :rdfs/Resource,

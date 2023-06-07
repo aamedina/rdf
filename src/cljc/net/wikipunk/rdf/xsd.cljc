@@ -105,7 +105,9 @@
 
 (def decimal
   "A subset of the real numbers, which can be represented by decimal numerals."
-  {:db/ident :xsd/decimal,   
+  {:db/ident :xsd/decimal,
+   :db/cardinality  :db.cardinality/one
+   :db/valueType    :db.type/bigdec
    :owl/onDatatype :xsd/anySimpleType,
    :owl/withRestrictions
    [{:xsd/pattern
@@ -206,11 +208,13 @@
    :rdfs/label     "int"})
 
 (def integer
-  {:db/ident       :xsd/integer,
-   :owl/onDatatype :xsd/decimal,
+  {:db/ident             :xsd/integer,
+   :db/cardinality       :db.cardinality/one
+   :db/valueType         :db.type/bigint
+   :owl/onDatatype       :xsd/decimal,
    :owl/withRestrictions [{:xsd/pattern "[-+]?[0-9]+"} {:xsd/fractionDigits 0}],
-   :rdf/type       :rdfs/Datatype,
-   :rdfs/label     "integer"})
+   :rdf/type             :rdfs/Datatype,
+   :rdfs/label           "integer"})
 
 (def language
   {:db/ident       :xsd/language,

@@ -59,7 +59,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "A13 Right to be Informed@en",
-   :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A13],
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A14
@@ -74,7 +74,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "A14 Right to be Informed@en",
-   :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A14],
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A15
@@ -89,7 +89,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "A15 Right of Access@en",
-   :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A15],
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A16
@@ -104,7 +104,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "A16 Right to Rectification@en",
-   :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A16],
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A17
@@ -120,7 +120,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "A17 Right to Erasure@en",
-   :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A17],
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A18
@@ -135,7 +135,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "A18 Right to Restrict Processing@en",
-   :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A18],
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A19
@@ -150,7 +150,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "A19 Right to Rectification@en",
-   :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A19],
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A20
@@ -165,7 +165,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "A20 Right to Data Portability@en",
-   :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A20],
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A21
@@ -181,7 +181,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "A21 Right to object@en",
-   :rdfs/subClassOf     [:dpvo/DataSubjectRight :dpvo-gdpr/A21],
+   :rdfs/subClassOf     :dpvo/DataSubjectRight,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def A22
@@ -196,7 +196,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "A22 Right to object to automated decision making@en",
-   :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A22],
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A45-3
@@ -215,7 +215,7 @@
     "Transfer from EU to a third country. Third country has Adequacy Decision.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 45(3) adequacy decision@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A45-3],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-a
@@ -235,7 +235,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 46(2-a) legal instrument@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-2-a],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-b
@@ -255,9 +255,8 @@
    :rdfs/label #voc/lstr "Art 46(2-b) Binding Corporate Rules (BCR)@en",
    :rdfs/subClassOf [:dpvo-gdpr/BindingCorporateRules
                      :dpvo/DataTransferLegalBasis
-                     :dpvo-gdpr/A46-2-b
-                     :dpvo-gdpr/DataTransferTool
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo-gdpr/DataTransferTool],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-c
@@ -279,11 +278,10 @@
                 "Art 46(2-c) Standard Contractual Clauses (SCC) by EC@en",
    :rdfs/subClassOf [:dpvo-gdpr/SCCByCommission
                      :dpvo/DataTransferLegalBasis
-                     :dpvo-gdpr/A46-2-c
-                     :dpvo/Contract
+                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/Contract],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-d
@@ -306,11 +304,10 @@
                 "Art 46(2-d) Standard Contractual Clauses (SCC) by DPA@en",
    :rdfs/subClassOf [:dpvo-gdpr/SCCBySupervisoryAuthority
                      :dpvo/DataTransferLegalBasis
-                     :dpvo-gdpr/A46-2-d
-                     :dpvo/Contract
+                     :dpvo/TechnicalOrganisationalMeasure
                      :dpvo-gdpr/DataTransferTool
                      :dpvo-gdpr/StandardContractualClauses
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/Contract],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-e
@@ -330,7 +327,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 46(2-e) code of conduct@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-2-e],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-2-f
@@ -350,7 +347,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Third country has appropriate safeguards. Transfer does not require specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 46(2-f) certification@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-2-f],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-3-a
@@ -370,7 +367,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards exist. Transfer does requires specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 46(3-a) contractual clauses@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-3-a],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A46-3-b
@@ -390,7 +387,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards exist. Transfer does requires specific authorisation from a Supervisor Authority.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 46(3-b) administrative arrangements@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A46-3-b],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-a
@@ -411,8 +408,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-a) explicit consent@en",
    :rdfs/subClassOf [:dpvo/ExplicitlyExpressedConsent
-                     :dpvo/DataTransferLegalBasis
-                     :dpvo-gdpr/A49-1-a],
+                     :dpvo/DataTransferLegalBasis],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A49-1-b
@@ -432,8 +428,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-b) performance of contract@en",
-   :rdfs/subClassOf
-   [:dpvo/Contract :dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-b],
+   :rdfs/subClassOf [:dpvo/Contract :dpvo/DataTransferLegalBasis],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-c
@@ -453,8 +448,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-c) conclusion of contract@en",
-   :rdfs/subClassOf
-   [:dpvo/Contract :dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-c],
+   :rdfs/subClassOf [:dpvo/Contract :dpvo/DataTransferLegalBasis],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-d
@@ -474,8 +468,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-d) public interest@en",
-   :rdfs/subClassOf
-   [:dpvo/DataTransferLegalBasis :dpvo/PublicInterest :dpvo-gdpr/A49-1-d],
+   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo/PublicInterest],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-e
@@ -495,7 +488,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-e) legal claims@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-e],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-f
@@ -516,8 +509,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-f) protect vital interests@en",
    :rdfs/subClassOf [:dpvo/DataTransferLegalBasis
-                     :dpvo/VitalInterestOfNaturalPerson
-                     :dpvo-gdpr/A49-1-f],
+                     :dpvo/VitalInterestOfNaturalPerson],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-1-g
@@ -537,7 +529,7 @@
     "Transfer from EU to a third country. Third country has not Adequacy Decision. Appropriate safeguards do not exist.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(1-g) public register@en",
-   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo-gdpr/A49-1-g],
+   :rdfs/subClassOf :dpvo/DataTransferLegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A49-2
@@ -556,8 +548,7 @@
     "Transfer from EU to a third country. Third country has no Adequacy Decision. Appropriate safeguards do not exist and no other options apply.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 49(2) legitimate interests@en",
-   :rdfs/subClassOf
-   [:dpvo/DataTransferLegalBasis :dpvo/LegitimateInterest :dpvo-gdpr/A49-2],
+   :rdfs/subClassOf [:dpvo/DataTransferLegalBasis :dpvo/LegitimateInterest],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A6-1-a
@@ -577,7 +568,7 @@
     "Consent can be explicit or non-explicit. To express these specifically, see the explicit and non-explicit variations provided for Art.6-1a.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art.6(1-a) consent@en",
-   :rdfs/subClassOf [:dpvo/ExpressedConsent :dpvo-gdpr/A6-1-a],
+   :rdfs/subClassOf :dpvo/ExpressedConsent,
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-a-explicit-consent
@@ -598,9 +589,7 @@
     "Valid consent in this case would have requirements for being 'explicit' in addition to requirements defined by A4-11. This is also mentioned in the Article 29 Working Party document \"Guidelines on Consent under Regulation 2016/679 (wp259rev.01)\"@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-a) explicit consent@en",
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1a
-                     :dpvo/ExplicitlyExpressedConsent
-                     :dpvo-gdpr/A6-1-a-explicit-consent],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-a :dpvo/ExplicitlyExpressedConsent],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-a-non-explicit-consent
@@ -621,9 +610,7 @@
     "Definition of consent: A data subject's unambigious/clear affirmative action that signifies an agreement to process their personal data (Rigo Wenning) . What is referred to as 'non-explicit consent' here is also termed as 'regular' consent in the Article 29 Working Party document \"Guidelines on Consent under Regulation 2016/679 (wp259rev.01)\". This is the legal basis that requires consent but not at the level of being 'explicit'.@en",
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art.6(1-a) regular consent@en",
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1a
-                     :dpvo/ExpressedConsent
-                     :dpvo-gdpr/A6-1-a-non-explicit-consent],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-a :dpvo/ExpressedConsent],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-b
@@ -640,7 +627,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-b) contract@en",
-   :rdfs/subClassOf [:dpvo/Contract :dpvo-gdpr/A6-1-b],
+   :rdfs/subClassOf :dpvo/Contract,
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-b-contract-performance
@@ -657,10 +644,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-b) contract performance@en",
-   :rdfs/subClassOf [:dpvo/ContractPerformance
-                     :dpvo-gdpr/A6-1-b
-                     :dpvo-gdpr/A6-1-b-contract-performance
-                     :dpvo/Contract],
+   :rdfs/subClassOf
+   [:dpvo/ContractPerformance :dpvo-gdpr/A6-1-b :dpvo/Contract],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-b-enter-into-contract
@@ -677,10 +662,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-b) enter into contract@en",
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1-b
-                     :dpvo/EnterIntoContract
-                     :dpvo-gdpr/A6-1-b-enter-into-contract
-                     :dpvo/Contract],
+   :rdfs/subClassOf [:dpvo-gdpr/A6-1-b :dpvo/EnterIntoContract :dpvo/Contract],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-c
@@ -697,7 +679,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-c) legal obligation@en",
-   :rdfs/subClassOf [:dpvo/LegalObligation :dpvo-gdpr/A6-1-c],
+   :rdfs/subClassOf :dpvo/LegalObligation,
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-d
@@ -714,7 +696,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-d) protect vital interests@en",
-   :rdfs/subClassOf [:dpvo/VitalInterest :dpvo-gdpr/A6-1-d],
+   :rdfs/subClassOf :dpvo/VitalInterest,
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-d-data-subject
@@ -732,10 +714,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr
                 "Art 6(1-d) protect vital interests of data subject@en",
-   :rdfs/subClassOf [:dpvo-gdpr/A6-1-d
-                     :dpvo/VitalInterestOfDataSubject
-                     :dpvo-gdpr/A6-1-d-data-subject
-                     :dpvo/VitalInterest],
+   :rdfs/subClassOf
+   [:dpvo-gdpr/A6-1-d :dpvo/VitalInterestOfDataSubject :dpvo/VitalInterest],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-d-natual-person
@@ -753,10 +733,8 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr
                 "Art 6(1-d) protect vital interests of natural person@en",
-   :rdfs/subClassOf [:dpvo/VitalInterestOfNaturalPerson
-                     :dpvo-gdpr/A6-1-d
-                     :dpvo-gdpr/A6-1-d-natual-person
-                     :dpvo/VitalInterest],
+   :rdfs/subClassOf
+   [:dpvo/VitalInterestOfNaturalPerson :dpvo-gdpr/A6-1-d :dpvo/VitalInterest],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-e
@@ -773,8 +751,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-e) public interest or official authority@en",
-   :rdfs/subClassOf
-   [:dpvo/OfficialAuthorityOfController :dpvo/PublicInterest :dpvo-gdpr/A6-1-e],
+   :rdfs/subClassOf [:dpvo/OfficialAuthorityOfController :dpvo/PublicInterest],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-e-official-authority
@@ -791,10 +768,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-e) official authority@en",
-   :rdfs/subClassOf [:dpvo/OfficialAuthorityOfController
-                     :dpvo-gdpr/A6-1-e
-                     :dpvo-gdpr/A6-1-e-official-authority
-                     :dpvo/PublicInterest],
+   :rdfs/subClassOf
+   [:dpvo/OfficialAuthorityOfController :dpvo-gdpr/A6-1-e :dpvo/PublicInterest],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-e-public-interest
@@ -811,10 +786,8 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-e) public interest@en",
-   :rdfs/subClassOf [:dpvo/PublicInterest
-                     :dpvo-gdpr/A6-1-e
-                     :dpvo-gdpr/A6-1-e-public-interest
-                     :dpvo/OfficialAuthorityOfController],
+   :rdfs/subClassOf
+   [:dpvo/PublicInterest :dpvo-gdpr/A6-1-e :dpvo/OfficialAuthorityOfController],
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-f
@@ -831,7 +804,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 6(1-f) legitimate interest@en",
-   :rdfs/subClassOf [:dpvo/LegitimateInterest :dpvo-gdpr/A6-1-f],
+   :rdfs/subClassOf :dpvo/LegitimateInterest,
    :vs/term_status #voc/lstr "changed@en"})
 
 (def A6-1-f-controller
@@ -850,7 +823,6 @@
    :rdfs/label #voc/lstr "Art 6(1-f) legitimate interest of controller@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1-f
                      :dpvo/LegitimateInterestOfController
-                     :dpvo-gdpr/A6-1-f-controller
                      :dpvo/LegitimateInterest],
    :vs/term_status #voc/lstr "changed@en"})
 
@@ -870,14 +842,8 @@
    :rdfs/label #voc/lstr "Art 6(1-f) legitimate interest of third party@en",
    :rdfs/subClassOf [:dpvo-gdpr/A6-1-f
                      :dpvo/LegitimateInterestOfThirdParty
-                     :dpvo-gdpr/A6-1-f-third-party
                      :dpvo/LegitimateInterest],
    :vs/term_status #voc/lstr "changed@en"})
-
-(def A6-1a
-  {:db/ident        :dpvo-gdpr/A6-1a,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dpvo-gdpr/A6-1a})
 
 (def A7-3
   "Right to withdraw consent at any time"
@@ -889,7 +855,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "A7-3 Right to Withdraw Consent@en",
-   :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A7-3],
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A77
@@ -903,7 +869,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "A77 Right to Complaint@en",
-   :rdfs/subClassOf [:dpvo/DataSubjectRight :dpvo-gdpr/A77],
+   :rdfs/subClassOf :dpvo/DataSubjectRight,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-a
@@ -919,7 +885,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-a) explicit consent@en",
-   :rdfs/subClassOf [:dpvo/ExplicitlyExpressedConsent :dpvo-gdpr/A9-2-a],
+   :rdfs/subClassOf :dpvo/ExplicitlyExpressedConsent,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-b
@@ -935,7 +901,7 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label
    #voc/lstr "Art 9(2-b) employment, social security, social protection law@en",
-   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-b],
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-c
@@ -950,7 +916,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-c) protect vital interest@en",
-   :rdfs/subClassOf [:dpvo/VitalInterest :dpvo-gdpr/A9-2-c],
+   :rdfs/subClassOf :dpvo/VitalInterest,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-d
@@ -967,7 +933,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-d) legitimate activities@en",
-   :rdfs/subClassOf [:dpvo/LegitimateInterest :dpvo-gdpr/A9-2-d],
+   :rdfs/subClassOf :dpvo/LegitimateInterest,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-e
@@ -982,7 +948,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-e) data made public@en",
-   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-e],
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-f
@@ -998,7 +964,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-f) judicial process@en",
-   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-f],
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-g
@@ -1015,7 +981,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-g) public interest@en",
-   :rdfs/subClassOf [:dpvo/PublicInterest :dpvo-gdpr/A9-2-g],
+   :rdfs/subClassOf :dpvo/PublicInterest,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-h
@@ -1031,7 +997,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-h) health & medicine@en",
-   :rdfs/subClassOf [:dpvo/LegalBasis :dpvo-gdpr/A9-2-h],
+   :rdfs/subClassOf :dpvo/LegalBasis,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-i
@@ -1046,7 +1012,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Art 9(2-i) public interest in public health@en",
-   :rdfs/subClassOf [:dpvo/PublicInterest :dpvo-gdpr/A9-2-i],
+   :rdfs/subClassOf :dpvo/PublicInterest,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def A9-2-j
@@ -1065,7 +1031,7 @@
    :rdfs/label
    #voc/lstr
     "Art 9(2-j) public interest, scientific research, statistical purpose@en",
-   :rdfs/subClassOf [:dpvo/PublicInterest :dpvo-gdpr/A9-2-j],
+   :rdfs/subClassOf :dpvo/PublicInterest,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def AdHocContractualClauses
@@ -1083,7 +1049,6 @@
    :rdfs/label #voc/lstr "AdHoc Contractual Clauses@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo/Contract
-                     :dpvo-gdpr/AdHocContractualClauses
                      :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -1101,7 +1066,6 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Binding Corporate Rules (BCR)@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
-                     :dpvo-gdpr/BindingCorporateRules
                      :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -1119,7 +1083,6 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Certification Mechanisms for Data Transfers@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
-                     :dpvo-gdpr/CertificationMechanismsForDataTransfers
                      :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -1137,7 +1100,6 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Codes of Conduct for Data Transfers@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
-                     :dpvo-gdpr/CodesOfConductForDataTransfers
                      :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -1163,7 +1125,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "DPIA Conformity@en",
-   :rdfs/subClassOf     [:dpvo/ConformanceStatus :dpvo-gdpr/DPIAConformity],
+   :rdfs/subClassOf     :dpvo/ConformanceStatus,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAIndicatesHighRisk
@@ -1215,7 +1177,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "DPIA Necessity Assessment@en",
-   :rdfs/subClassOf [:dpvo/DPIA :dpvo-gdpr/DPIANecessityAssessment],
+   :rdfs/subClassOf :dpvo/DPIA,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIANecessityStatus
@@ -1228,7 +1190,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "DPIA Necessity Status@en",
-   :rdfs/subClassOf     [:dpvo/AuditStatus :dpvo-gdpr/DPIANecessityStatus],
+   :rdfs/subClassOf     :dpvo/AuditStatus,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIANonConformant
@@ -1268,7 +1230,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "DPIA Outcome@en",
-   :rdfs/subClassOf [:dpvo/DPIA :dpvo-gdpr/DPIAOutcome],
+   :rdfs/subClassOf :dpvo/DPIA,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DPIAOutcomeDPAConsultation
@@ -1321,7 +1283,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "DPIA Outcome Status@en",
-   :rdfs/subClassOf     [:dpvo/AuditStatus :dpvo-gdpr/DPIAOutcomeStatus],
+   :rdfs/subClassOf     :dpvo/AuditStatus,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAProcedure
@@ -1333,7 +1295,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "DPIA Procedure@en",
-   :rdfs/subClassOf     [:dpvo/DPIA :dpvo-gdpr/DPIAProcedure],
+   :rdfs/subClassOf     :dpvo/DPIA,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIAProcessingRecommendation
@@ -1346,8 +1308,7 @@
    :rdf/type            :owl/Class,
    :rdfs/isDefinedBy    "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label          #voc/lstr "DPIA Processing Recommendation@en",
-   :rdfs/subClassOf     [:dpvo/AuditStatus
-                         :dpvo-gdpr/DPIAProcessingRecommendation],
+   :rdfs/subClassOf     :dpvo/AuditStatus,
    :vs/term_status      #voc/lstr "accepted@en"})
 
 (def DPIARecommendsProcessingContinue
@@ -1402,7 +1363,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "DPIA Risk Status@en",
-   :rdfs/subClassOf [:dpvo/AuditStatus :dpvo-gdpr/DPIARiskStatus],
+   :rdfs/subClassOf :dpvo/AuditStatus,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DataTransferTool
@@ -1419,8 +1380,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Data Transfer Tool@en",
-   :rdfs/subClassOf [:dpvo/TechnicalOrganisationalMeasure
-                     :dpvo-gdpr/DataTransferTool],
+   :rdfs/subClassOf :dpvo/TechnicalOrganisationalMeasure,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def DirectDataCollectionNotice
@@ -1434,8 +1394,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Direct Data Collection Notice@en",
-   :rdfs/subClassOf [:dpvo/RightFulfilmentNotice
-                     :dpvo-gdpr/DirectDataCollectionNotice],
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def GDPRComplianceUnknown
@@ -1473,7 +1432,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "GDPR Lawfulness@en",
-   :rdfs/subClassOf [:dpvo/Lawfulness :dpvo-gdpr/GDPRLawfulness],
+   :rdfs/subClassOf :dpvo/Lawfulness,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def GDPRNonCompliant
@@ -1499,8 +1458,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Indirect Data Collection Notice@en",
-   :rdfs/subClassOf [:dpvo/RightFulfilmentNotice
-                     :dpvo-gdpr/IndirectDataCollectionNotice],
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def RightsRecipientsNotice
@@ -1514,8 +1472,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Rights Recipients Notice@en",
-   :rdfs/subClassOf [:dpvo/RightFulfilmentNotice
-                     :dpvo-gdpr/RightsRecipientsNotice],
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SARNotice
@@ -1529,7 +1486,7 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "SAR Notice@en",
-   :rdfs/subClassOf [:dpvo/RightFulfilmentNotice :dpvo-gdpr/SARNotice],
+   :rdfs/subClassOf :dpvo/RightFulfilmentNotice,
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SCCByCommission
@@ -1548,9 +1505,8 @@
    :rdfs/label #voc/lstr "SCCs adopted by Commission@en",
    :rdfs/subClassOf [:dpvo-gdpr/StandardContractualClauses
                      :dpvo-gdpr/DataTransferTool
-                     :dpvo-gdpr/SCCByCommission
-                     :dpvo/Contract
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Contract],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def SCCBySupervisoryAuthority
@@ -1569,9 +1525,8 @@
    :rdfs/label #voc/lstr "SCCs adopted by Supervisory Authority@en",
    :rdfs/subClassOf [:dpvo-gdpr/StandardContractualClauses
                      :dpvo-gdpr/DataTransferTool
-                     :dpvo-gdpr/SCCBySupervisoryAuthority
-                     :dpvo/Contract
-                     :dpvo/TechnicalOrganisationalMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure
+                     :dpvo/Contract],
    :vs/term_status #voc/lstr "accepted@en"})
 
 (def StandardContractualClauses
@@ -1589,7 +1544,6 @@
    :rdfs/label #voc/lstr "Standard Contractual Clauses (SCC)@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
                      :dpvo/Contract
-                     :dpvo-gdpr/StandardContractualClauses
                      :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
 
@@ -1607,8 +1561,5 @@
    :rdfs/isDefinedBy "https://w3id.org/dpv/dpv-owl/dpv-gdpr#",
    :rdfs/label #voc/lstr "Supplementary Measure@en",
    :rdfs/subClassOf [:dpvo-gdpr/DataTransferTool
-                     :dpvo/TechnicalOrganisationalMeasure
-                     :dpvo-gdpr/SupplementaryMeasure],
+                     :dpvo/TechnicalOrganisationalMeasure],
    :vs/term_status #voc/lstr "accepted@en"})
-
-

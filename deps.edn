@@ -59,7 +59,7 @@
    {com.datomic/dev-local
     {:mvn/version "1.0.243"}
     io.github.aamedina/punk.db
-    {:git/sha "d20669d7b2a087b8357b173db45c8382050943ac"}
+    {:git/sha "c9ff901d309f90e055cc2bcb66478f1baf9ffbb4"}
     com.walmartlabs/schematic
     {:mvn/version "1.3.0"}
     com.stuartsierra/component.repl
