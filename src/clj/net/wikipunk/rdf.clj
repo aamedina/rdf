@@ -658,11 +658,17 @@
 ;;  then transformed into a collection of maps representing RDF
 ;;  entities and their properties.
 
+(defn- self-ref?
+  [triples]
+  (some (fn [^Triple t] 
+          (= (.getSubject t) (.getObject t))) 
+        triples))
+
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [reasoner (ReasonerRegistry/getRDFSSimpleReasoner)
-        g (.bind reasoner g)
+  (let [reasoner      (ReasonerRegistry/getRDFSSimpleReasoner)
+        g             (.bind reasoner g)
         ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
                           (dissoc (cond-> (into {} (.getNsPrefixMap (.getPrefixMapping g)))
                                     (and (:rdfa/prefix md)
@@ -683,14 +689,19 @@
                     (->> (into [] g)
                          (group-by #(.getSubject ^Triple %))
                          (pmap (fn [[subject triples]]
-                                 (into {:db/ident (g/data subject)}
-                                       (map (fn [[pred triples]]
-                                              (let [k       (g/data pred)
-                                                    objects (mapv #(g/data (.getObject ^Triple %)) triples)]
-                                                [k (if (= 1 (count objects))
-                                                     (first objects)
-                                                     objects)])))
-                                       (group-by #(.getPredicate ^Triple %) triples)))))))))
+                                 (let [triples (if (self-ref? triples) 
+                                                 (remove (fn [^Triple t] 
+                                                           (= (.getSubject t) (.getObject t))) 
+                                                         triples) 
+                                                 triples)] ; Remove the self-reference triple if it exists.
+                                   (into {:db/ident (g/data subject)}
+                                         (map (fn [[pred triples]]
+                                                (let [k       (g/data pred)
+                                                      objects (mapv #(g/data (.getObject ^Triple %)) triples)]
+                                                  [k (if (= 1 (count objects))
+                                                       (first objects)
+                                                       objects)])))
+                                         (group-by #(.getPredicate ^Triple %) triples))))))))))
 
 (def ^:dynamic *graph*
   "Bound to the apache jena graph during parsing."
