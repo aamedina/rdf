@@ -245,7 +245,7 @@
 
 (def schema
   "The Schema.org vocabulary"
-  {:dcat/downloadURL "https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/15.0/schemaorg.owl"
+  {:dcat/downloadURL "https://schema.org/docs/schemaorg.owl"
    :rdfa/uri         "http://schema.org/",
    :rdfa/prefix      "schema",
    :rdfs/isDefinedBy {:rdf/uri "http://schema.org/docs/full.html"},
