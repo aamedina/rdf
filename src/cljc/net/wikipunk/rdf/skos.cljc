@@ -178,8 +178,6 @@
 (def changeNote
   "A note about a modification to a concept."
   {:db/ident           :skos/changeNote,
-   :db/cardinality :db.cardinality/many,
-   :db/valueType :db.type/string,
    :rdf/type           [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy   "http://www.w3.org/2004/02/skos/core",
    :rdfs/label         #voc/lstr "change note@en",
@@ -470,8 +468,6 @@
 (def note
   "A general note, for any purpose."
   {:db/ident         :skos/note,
-   :db/cardinality   :db.cardinality/many,
-   :db/valueType     :db.type/string,
    :rdf/type         [:rdf/Property :owl/AnnotationProperty],
    :rdfs/isDefinedBy "http://www.w3.org/2004/02/skos/core",
    :rdfs/label       #voc/lstr "note@en",
