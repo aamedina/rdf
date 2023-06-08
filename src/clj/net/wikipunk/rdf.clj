@@ -904,6 +904,7 @@
   (box [m]
     ;; special case coerce these to doubles 
     (if (some #{:xsd/minExclusive :xsd/minInclusive
+                :xsd/maxExclusive :xsd/maxInclusive
                 :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
                 :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
               (keys m))
@@ -918,6 +919,7 @@
                                          (double (read-string (str "0x" x)))))))
                                  (double x))))
               m (filter #{:xsd/minExclusive :xsd/minInclusive
+                          :xsd/maxExclusive :xsd/maxInclusive
                           :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
                           :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
                         (keys m)))
