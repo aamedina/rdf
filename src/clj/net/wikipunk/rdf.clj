@@ -1462,7 +1462,7 @@
                                   (case k
                                     (:mop/class-direct-slots                                     
                                      :mop/class-slots)
-                                    (assoc m k (mapv :db/ident v))
+                                    (assoc m k (mapv (some-fn :db/ident identity) v))
 
                                     (:mop/class-default-initargs
                                      :mop/class-direct-default-initargs
