@@ -27,7 +27,7 @@
    #voc/lstr
     "Communication metadata describing the expected response message for additional responses.@en",
    :rdfs/label "AdditionalExpectedResponse",
-   :rdfs/subClassOf [:rdfs/Resource :hctl/AdditionalExpectedResponse]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def ExpectedResponse
   "Communication metadata describing the expected response message for the primary response."
@@ -37,7 +37,7 @@
    #voc/lstr
     "Communication metadata describing the expected response message for the primary response.@en",
    :rdfs/label "ExpectedResponse",
-   :rdfs/subClassOf [:rdfs/Resource :hctl/ExpectedResponse]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Form
   "A form can be viewed as a statement of \"To perform an <b><em>operation type</em></b> operation on <b><em>form context</b></em>, make a <b><em>request method</b></em> request to <b><em>submission target</b></em>\" where the optional <b><em>form fields</b></em> may further describe the required request. In Thing Descriptions, the <b><em>form context</b></em> is the surrounding Object, such as Properties, Actions, and Events or the Thing itself for meta-interactions."
@@ -47,7 +47,7 @@
    #voc/lstr
     "A form can be viewed as a statement of \"To perform an <b><em>operation type</em></b> operation on <b><em>form context</b></em>, make a <b><em>request method</b></em> request to <b><em>submission target</b></em>\" where the optional <b><em>form fields</b></em> may further describe the required request. In Thing Descriptions, the <b><em>form context</b></em> is the surrounding Object, such as Properties, Actions, and Events or the Thing itself for meta-interactions.@en",
    :rdfs/label "Form",
-   :rdfs/subClassOf [:rdfs/Resource :hctl/Form]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Link
   "A link can be viewed as a statement of the form \"<b><em>link context</em></b> has a <b><em>relation type</em></b> resource at <b><em>link target</em></b>\", where the optional <b><em>target attributes</em></b> may further describe the resource."
@@ -57,7 +57,7 @@
    #voc/lstr
     "A link can be viewed as a statement of the form \"<b><em>link context</em></b>  has a <b><em>relation type</em></b> resource at <b><em>link target</em></b>\", where the optional <b><em>target attributes</em></b>  may further describe the resource.@en",
    :rdfs/label "Link",
-   :rdfs/subClassOf [:rdfs/Resource :hctl/Link]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def additionalReturns
   "This optional term can be used if additional expected responses are possible, e.g. for error reporting. Each additional response needs to be distinguished from others in some way (for example, by specifying a protocol-specific response code), and may also have its own data schema."

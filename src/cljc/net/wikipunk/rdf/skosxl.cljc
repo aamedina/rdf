@@ -28,10 +28,9 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2008/05/skos-xl",
    :rdfs/label       #voc/lstr "Label@en",
-   :rdfs/subClassOf  [{:owl/cardinality 1,
-                       :owl/onProperty  :skosxl/literalForm,
-                       :rdf/type        :owl/Restriction}
-                      :skosxl/Label],
+   :rdfs/subClassOf  {:owl/cardinality 1,
+                      :owl/onProperty  :skosxl/literalForm,
+                      :rdf/type        :owl/Restriction},
    :skos/definition  #voc/lstr "A special class of lexical entities.@en"})
 
 (def altLabel
@@ -45,7 +44,6 @@
    :rdfs/label #voc/lstr "alternative label@en",
    :rdfs/range :skosxl/Label,
    :rdfs/seeAlso ["http://www.w3.org/2004/02/skos/core#altLabel"],
-   :rdfs/subPropertyOf :skosxl/altLabel,
    :skos/definition
    #voc/lstr
     "The property skosxl:altLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:altLabel.@en"})
@@ -61,7 +59,6 @@
    :rdfs/label #voc/lstr "hidden label@en",
    :rdfs/range :skosxl/Label,
    :rdfs/seeAlso ["http://www.w3.org/2004/02/skos/core#hiddenLabel"],
-   :rdfs/subPropertyOf :skosxl/hiddenLabel,
    :skos/definition
    #voc/lstr
     "The property skosxl:hiddenLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:hiddenLabel.@en"})
@@ -74,7 +71,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/2008/05/skos-xl",
    :rdfs/label #voc/lstr "label relation@en",
    :rdfs/range :skosxl/Label,
-   :rdfs/subPropertyOf :skosxl/labelRelation,
    :skos/definition
    #voc/lstr
     "The property skosxl:labelRelation is used for representing binary ('direct') relations between instances of the class skosxl:Label.@en",
@@ -94,7 +90,6 @@
    :rdfs/domain :skosxl/Label,
    :rdfs/isDefinedBy "http://www.w3.org/2008/05/skos-xl",
    :rdfs/label #voc/lstr "literal form@en",
-   :rdfs/subPropertyOf :skosxl/literalForm,
    :skos/definition
    #voc/lstr
     "The property skosxl:literalForm is used to give the literal form of an skosxl:Label.@en"})
@@ -110,7 +105,6 @@
    :rdfs/label #voc/lstr "preferred label@en",
    :rdfs/range :skosxl/Label,
    :rdfs/seeAlso ["http://www.w3.org/2004/02/skos/core#prefLabel"],
-   :rdfs/subPropertyOf :skosxl/prefLabel,
    :skos/definition
    #voc/lstr
     "The property skosxl:prefLabel is used to associate an skosxl:Label with a skos:Concept. The property is analogous to skos:prefLabel.@en"})

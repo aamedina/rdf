@@ -39,8 +39,7 @@
    :rdfs/seeAlso
    ["https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology"],
    :vann/preferredNamespacePrefix "ssn",
-   :vann/preferredNamespaceUri "http://www.w3.org/ns/ssn/"}
-  (:refer-clojure :exclude [name]))
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/ssn/"})
 
 (def Deployment
   "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."
@@ -59,8 +58,7 @@
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :ssn/System,
                       :owl/onProperty    :ssn/deployedSystem,
-                      :rdf/type          :owl/Restriction}
-                     :ssn/Deployment],
+                      :rdf/type          :owl/Restriction}],
    :skos/definition
    #voc/lstr
     "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform.@en",
@@ -81,8 +79,7 @@
                       :rdf/type          :owl/Restriction}
                      {:owl/minCardinality 1,
                       :owl/onProperty     {:owl/inverseOf :ssn/hasInput},
-                      :rdf/type           :owl/Restriction}
-                     :ssn/Input],
+                      :rdf/type           :owl/Restriction}],
    :skos/definition
    #voc/lstr "Any information that is provided to a Procedure for its use.@en"})
 
@@ -99,8 +96,7 @@
                        :rdf/type          :owl/Restriction}
                       {:owl/minCardinality 1,
                        :owl/onProperty     {:owl/inverseOf :ssn/hasOutput},
-                       :rdf/type           :owl/Restriction}
-                      :ssn/Output],
+                       :rdf/type           :owl/Restriction}],
    :skos/definition  #voc/lstr
                       "Any information that is reported from a Procedure.@en"})
 
@@ -113,10 +109,9 @@
     "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ssn/",
    :rdfs/label #voc/lstr "Property@en",
-   :rdfs/subClassOf [{:owl/allValuesFrom :sosa/FeatureOfInterest,
-                      :owl/onProperty    :ssn/isPropertyOf,
-                      :rdf/type          :owl/Restriction}
-                     :ssn/Property],
+   :rdfs/subClassOf {:owl/allValuesFrom :sosa/FeatureOfInterest,
+                     :owl/onProperty    :ssn/isPropertyOf,
+                     :rdf/type          :owl/Restriction},
    :skos/definition
    #voc/lstr
     "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity.@en"})
@@ -138,8 +133,7 @@
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :sosa/Observation,
                       :owl/onProperty    {:owl/inverseOf :ssn/wasOriginatedBy},
-                      :rdf/type          :owl/Restriction}
-                     :ssn/Stimulus],
+                      :rdf/type          :owl/Restriction}],
    :skos/definition
    #voc/lstr
     "An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor.@en"})
@@ -153,22 +147,21 @@
     "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ssn/",
    :rdfs/label #voc/lstr "System@en",
-   :rdfs/subClassOf [{:owl/allValuesFrom :ssn/Deployment,
-                      :owl/onProperty    :ssn/hasDeployment,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/allValuesFrom :sosa/Procedure,
+   :rdfs/subClassOf [{:owl/allValuesFrom :sosa/Procedure,
                       :owl/onProperty    :ssn/implements,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :ssn/System,
                       :owl/onProperty    :ssn/hasSubSystem,
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :ssn/Deployment,
+                      :owl/onProperty    :ssn/hasDeployment,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :sosa/Platform,
                       :owl/onProperty    :sosa/isHostedBy,
                       :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom :ssn/System,
                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
-                      :rdf/type          :owl/Restriction}
-                     :ssn/System],
+                      :rdf/type          :owl/Restriction}],
    :skos/definition
    #voc/lstr
     "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems.@en"})
@@ -220,7 +213,6 @@
    #voc/lstr "A relation between some aspect of an entity and a Property.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ssn/",
    :rdfs/label #voc/lstr "for property@en",
-   :rdfs/subPropertyOf :ssn/forProperty,
    :skos/definition
    #voc/lstr "A relation between some aspect of an entity and a Property.@en",
    :skos/example
@@ -377,451 +369,3 @@
    :skos/definition
    #voc/lstr
     "Relation between an Observation and the Stimulus that originated it.@en"})
-
-(def ^{:private true} Agent
-  {:db/ident :foaf/Agent,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} name
-  {:db/ident :foaf/name,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} definition
-  {:db/ident :skos/definition,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} example
-  {:db/ident :skos/example,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} ActuatableProperty
-  {:db/ident         :sosa/ActuatableProperty,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :sosa/Actuation,
-                       :owl/onProperty    :sosa/isActedOnBy,
-                       :rdf/type          :owl/Restriction}
-                      :ssn/Property
-                      :sosa/ActuatableProperty
-                      {:owl/allValuesFrom :sosa/FeatureOfInterest,
-                       :owl/onProperty    :ssn/isPropertyOf,
-                       :rdf/type          :owl/Restriction}]})
-
-(def ^{:private true} Actuation
-  {:db/ident         :sosa/Actuation,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/actsOnProperty,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/resultTime,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Actuator,
-                       :owl/onProperty    :sosa/madeByActuator,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/hasFeatureOfInterest,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/ActuatableProperty,
-                       :owl/onProperty    :sosa/actsOnProperty,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Result,
-                       :owl/onProperty    :sosa/hasResult,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Procedure,
-                       :owl/onProperty    :sosa/usedProcedure,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/FeatureOfInterest,
-                       :owl/onProperty    :sosa/hasFeatureOfInterest,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/hasResult,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/madeByActuator,
-                       :rdf/type        :owl/Restriction}
-                      :sosa/Actuation]})
-
-(def ^{:private true} Actuator
-  {:db/ident         :sosa/Actuator,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :sosa/Actuation,
-                       :owl/onProperty    :sosa/madeActuation,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/ActuatableProperty,
-                       :owl/onProperty    :ssn/forProperty,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :ssn/implements,
-                       :rdf/type           :owl/Restriction}
-                      :ssn/System
-                      :sosa/Actuator
-                      {:owl/allValuesFrom :ssn/Deployment,
-                       :owl/onProperty    :ssn/hasDeployment,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Procedure,
-                       :owl/onProperty    :ssn/implements,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :ssn/hasSubSystem,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Platform,
-                       :owl/onProperty    :sosa/isHostedBy,
-                       :rdf/type          :owl/Restriction}]})
-
-(def ^{:private true} FeatureOfInterest
-  {:db/ident         :sosa/FeatureOfInterest,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :sosa/Sample,
-                       :owl/onProperty    :sosa/hasSample,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/Property,
-                       :owl/onProperty    :ssn/hasProperty,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :ssn/hasProperty,
-                       :rdf/type           :owl/Restriction}
-                      :sosa/FeatureOfInterest]})
-
-(def ^{:private true} ObservableProperty
-  {:db/ident         :sosa/ObservableProperty,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :ssn/Stimulus,
-                       :owl/onProperty    {:owl/inverseOf :ssn/isProxyFor},
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Observation,
-                       :owl/onProperty    {:owl/inverseOf
-                                           :sosa/observedProperty},
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Sensor,
-                       :owl/onProperty    :sosa/isObservedBy,
-                       :rdf/type          :owl/Restriction}
-                      :ssn/Property
-                      :sosa/ObservableProperty
-                      {:owl/allValuesFrom :sosa/FeatureOfInterest,
-                       :owl/onProperty    :ssn/isPropertyOf,
-                       :rdf/type          :owl/Restriction}]})
-
-(def ^{:private true} Observation
-  {:db/ident         :sosa/Observation,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/cardinality 1,
-                       :owl/onProperty  :sosa/madeBySensor,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :ssn/wasOriginatedBy,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Procedure,
-                       :owl/onProperty    :sosa/usedProcedure,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Result,
-                       :owl/onProperty    :sosa/hasResult,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/FeatureOfInterest,
-                       :owl/onProperty    :sosa/hasFeatureOfInterest,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/resultTime,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Sensor,
-                       :owl/onProperty    :sosa/madeBySensor,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/hasResult,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/ObservableProperty,
-                       :owl/onProperty    :sosa/observedProperty,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/phenomenonTime,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/hasFeatureOfInterest,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/observedProperty,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/Stimulus,
-                       :owl/onProperty    :ssn/wasOriginatedBy,
-                       :rdf/type          :owl/Restriction}
-                      :sosa/Observation]})
-
-(def ^{:private true} Platform
-  {:db/ident         :sosa/Platform,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :ssn/Deployment,
-                       :owl/onProperty    :ssn/inDeployment,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :sosa/hosts,
-                       :rdf/type          :owl/Restriction}
-                      :sosa/Platform]})
-
-(def ^{:private true} Procedure
-  {:db/ident         :sosa/Procedure,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :ssn/implementedBy,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/Output,
-                       :owl/onProperty    :ssn/hasOutput,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/Input,
-                       :owl/onProperty    :ssn/hasInput,
-                       :rdf/type          :owl/Restriction}
-                      :sosa/Procedure]})
-
-(def ^{:private true} Result
-  {:db/ident         :sosa/Result,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/isResultOf,
-                       :rdf/type           :owl/Restriction}
-                      :sosa/Result]})
-
-(def ^{:private true} Sample
-  {:db/ident         :sosa/Sample,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :sosa/Sampling,
-                       :owl/onProperty    :sosa/isResultOf,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/isSampleOf,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/FeatureOfInterest,
-                       :owl/onProperty    :sosa/isSampleOf,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/isResultOf,
-                       :rdf/type           :owl/Restriction}
-                      :sosa/Result
-                      :sosa/FeatureOfInterest
-                      :sosa/Sample
-                      {:owl/allValuesFrom :sosa/Sample,
-                       :owl/onProperty    :sosa/hasSample,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :ssn/hasProperty,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/isResultOf,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/Property,
-                       :owl/onProperty    :ssn/hasProperty,
-                       :rdf/type          :owl/Restriction}]})
-
-(def ^{:private true} Sampler
-  {:db/ident         :sosa/Sampler,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :sosa/Sampling,
-                       :owl/onProperty    :sosa/madeSampling,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :ssn/implements,
-                       :rdf/type           :owl/Restriction}
-                      :ssn/System
-                      :sosa/Sampler
-                      {:owl/allValuesFrom :ssn/Deployment,
-                       :owl/onProperty    :ssn/hasDeployment,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Procedure,
-                       :owl/onProperty    :ssn/implements,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :ssn/hasSubSystem,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Platform,
-                       :owl/onProperty    :sosa/isHostedBy,
-                       :rdf/type          :owl/Restriction}]})
-
-(def ^{:private true} Sampling
-  {:db/ident         :sosa/Sampling,
-   :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/minCardinality 1,
-                       :owl/onProperty     :sosa/hasResult,
-                       :rdf/type           :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/FeatureOfInterest,
-                       :owl/onProperty    :sosa/hasFeatureOfInterest,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/hasFeatureOfInterest,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Sample,
-                       :owl/onProperty    :sosa/hasResult,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/madeBySampler,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/cardinality 1,
-                       :owl/onProperty  :sosa/resultTime,
-                       :rdf/type        :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Sampler,
-                       :owl/onProperty    :sosa/madeBySampler,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Procedure,
-                       :owl/onProperty    :sosa/usedProcedure,
-                       :rdf/type          :owl/Restriction}
-                      :sosa/Sampling]})
-
-(def ^{:private true} Sensor
-  {:db/ident         :sosa/Sensor,
-   :rdf/type         :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subClassOf  [{:owl/allValuesFrom :ssn/Stimulus,
-                       :owl/onProperty    :ssn/detects,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Observation,
-                       :owl/onProperty    :sosa/madeObservation,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/ObservableProperty,
-                       :owl/onProperty    :sosa/observes,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/minCardinality 1,
-                       :owl/onProperty     :ssn/implements,
-                       :rdf/type           :owl/Restriction}
-                      :ssn/System
-                      :sosa/Sensor
-                      {:owl/allValuesFrom :ssn/Deployment,
-                       :owl/onProperty    :ssn/hasDeployment,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Procedure,
-                       :owl/onProperty    :ssn/implements,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    {:owl/inverseOf :ssn/hasSubSystem},
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :ssn/System,
-                       :owl/onProperty    :ssn/hasSubSystem,
-                       :rdf/type          :owl/Restriction}
-                      {:owl/allValuesFrom :sosa/Platform,
-                       :owl/onProperty    :sosa/isHostedBy,
-                       :rdf/type          :owl/Restriction}]})
-
-(def ^{:private true} actsOnProperty
-  {:db/ident         :sosa/actsOnProperty,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} hasFeatureOfInterest
-  {:db/ident         :sosa/hasFeatureOfInterest,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} hasResult
-  {:db/ident         :sosa/hasResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} hasSample
-  {:db/ident         :sosa/hasSample,
-   :rdf/type         :owl/InverseFunctionalProperty,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} hasSimpleResult
-  {:db/ident         :sosa/hasSimpleResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} hosts
-  {:db/ident         :sosa/hosts,
-   :owl/propertyChainAxiom [:ssn/inDeployment :ssn/deployedSystem],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} isActedOnBy
-  {:db/ident         :sosa/isActedOnBy,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} isFeatureOfInterestOf
-  {:db/ident         :sosa/isFeatureOfInterestOf,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} isHostedBy
-  {:db/ident         :sosa/isHostedBy,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} isObservedBy
-  {:db/ident         :sosa/isObservedBy,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} isResultOf
-  {:db/ident         :sosa/isResultOf,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} isSampleOf
-  {:db/ident         :sosa/isSampleOf,
-   :rdf/type         :owl/FunctionalProperty,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} madeActuation
-  {:db/ident         :sosa/madeActuation,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} madeByActuator
-  {:db/ident         :sosa/madeByActuator,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} madeBySampler
-  {:db/ident         :sosa/madeBySampler,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} madeBySensor
-  {:db/ident         :sosa/madeBySensor,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} madeObservation
-  {:db/ident         :sosa/madeObservation,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} madeSampling
-  {:db/ident         :sosa/madeSampling,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} observedProperty
-  {:db/ident         :sosa/observedProperty,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} observes
-  {:db/ident         :sosa/observes,
-   :rdf/type         :rdf/Property,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
-   :rdfs/subPropertyOf [:ssn/forProperty :sosa/observes]})
-
-(def ^{:private true} phenomenonTime
-  {:db/ident         :sosa/phenomenonTime,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} resultTime
-  {:db/ident         :sosa/resultTime,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} usedProcedure
-  {:db/ident         :sosa/usedProcedure,
-   :owl/propertyChainAxiom [[:sosa/madeBySampler :ssn/implements]
-                            [:sosa/madeByActuator :ssn/implements]
-                            [:sosa/madeBySensor :ssn/implements]],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/"})
-
-(def ^{:private true} preferredNamespacePrefix
-  {:db/ident :vann/preferredNamespacePrefix,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} preferredNamespaceUri
-  {:db/ident :vann/preferredNamespaceUri,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} Vocabulary
-  {:db/ident :voaf/Vocabulary,
-   :rdf/type :owl/Class})

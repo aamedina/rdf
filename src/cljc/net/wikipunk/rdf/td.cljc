@@ -41,8 +41,7 @@
     "An Interaction Affordance that allows to invoke a function of the Thing, which manipulates state (e.g., toggling a lamp on or off) or triggers a process on the Thing (e.g., dim a lamp over time).@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "ActionAffordance",
-   :rdfs/subClassOf
-   [:rdfs/Resource :td/InteractionAffordance :td/ActionAffordance]})
+   :rdfs/subClassOf [:rdfs/Resource :td/InteractionAffordance]})
 
 (def EventAffordance
   "An Interaction Affordance that describes an event source, which asynchronously pushes event data to Consumers (e.g., overheating alerts)."
@@ -53,8 +52,7 @@
     "An Interaction Affordance that describes an event source, which asynchronously pushes event data to Consumers (e.g., overheating alerts).@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "EventAffordance",
-   :rdfs/subClassOf
-   [:rdfs/Resource :td/InteractionAffordance :td/EventAffordance]})
+   :rdfs/subClassOf [:rdfs/Resource :td/InteractionAffordance]})
 
 (def InteractionAffordance
   "Metadata of a Thing that shows the possible choices to Consumers, thereby suggesting how Consumers may interact with the Thing. There are many types of potential affordances, but W3C WoT defines three types of Interaction Affordances: Properties, Actions, and Events."
@@ -65,7 +63,7 @@
     "Metadata of a Thing that shows the possible choices to Consumers, thereby suggesting how Consumers may interact with the Thing. There are many types of potential affordances, but W3C WoT defines three types of Interaction Affordances: Properties, Actions, and Events.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "InteractionAffordance",
-   :rdfs/subClassOf [:rdfs/Resource :td/InteractionAffordance]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def OperationType
   "Enumeration of well-known operation types necessary to implement the WoT interaction model"
@@ -76,7 +74,7 @@
     "Enumeration of well-known operation types necessary to implement the WoT interaction model@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "OperationType",
-   :rdfs/subClassOf [:rdfs/Resource :schema/Enumeration :td/OperationType]})
+   :rdfs/subClassOf [:rdfs/Resource :schema/Enumeration]})
 
 (def PropertyAffordance
   "An Interaction Affordance that exposes state of the Thing. This state can then be retrieved (read) and/or updated (write). Things can also choose to make Properties observable by pushing the new state after a change."
@@ -87,8 +85,7 @@
     "An Interaction Affordance that exposes state of the Thing. This state can then be retrieved (read) and/or updated (write). Things can also choose to make Properties observable by pushing the new state after a change.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "PropertyAffordance",
-   :rdfs/subClassOf
-   [:td/InteractionAffordance :td/PropertyAffordance :rdfs/Resource]})
+   :rdfs/subClassOf [:td/InteractionAffordance :rdfs/Resource]})
 
 (def Thing
   "An abstraction of a physical or a virtual entity whose metadata and interfaces are described by a WoT Thing Description, whereas a virtual entity is the composition of one or more Things."
@@ -99,7 +96,7 @@
     "An abstraction of a physical or a virtual entity whose metadata and interfaces are described by a WoT Thing Description, whereas a virtual entity is the composition of one or more Things.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label #voc/lstr "Thing@en",
-   :rdfs/subClassOf [:rdfs/Resource :td/Thing]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def baseURI
   "Define the base URI that is used for all relative URI references throughout a TD document. In TD instances, all relative URIs are resolved relative to the base URI using the algorithm defined in [RFC3986]. base does not affect the URIs used in @context and the IRIs used within Linked Data [LINKED-DATA] graphs that are relevant when semantic processing is applied to TD instances."
@@ -138,7 +135,7 @@
    "description of the TD element (Thing, interaction affordance, security scheme or data schema)",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "description",
-   :rdfs/subPropertyOf [:dcterms/description :td/description],
+   :rdfs/subPropertyOf :dcterms/description,
    :schema/domainIncludes [:wotsec/SecurityScheme
                            :td/InteractionAffordance
                            :td/Thing
@@ -153,7 +150,7 @@
    "description of the TD element (Thing, interaction affordance, security scheme or data schema) with language tag. By convention, a language tag must be added to the object of 'descriptionInLanguage' triples. Otherwise, use 'description'.",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "descriptionInLanguage",
-   :rdfs/subPropertyOf [:dcterms/description :td/descriptionInLanguage],
+   :rdfs/subPropertyOf :dcterms/description,
    :schema/domainIncludes [:td/InteractionAffordance
                            :jsonschema/DataSchema
                            :wotsec/SecurityScheme
@@ -178,7 +175,7 @@
                   "All Action-based interaction affordance of the Thing.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "hasActionAffordance",
-   :rdfs/subPropertyOf [:td/hasInteractionAffordance :td/hasActionAffordance],
+   :rdfs/subPropertyOf :td/hasInteractionAffordance,
    :schema/rangeIncludes :td/ActionAffordance})
 
 (def hasCancellationSchema
@@ -210,7 +207,7 @@
                   "All Event-based interaction affordance of the Thing.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "hasEventAffordance",
-   :rdfs/subPropertyOf [:td/hasInteractionAffordance :td/hasEventAffordance],
+   :rdfs/subPropertyOf :td/hasInteractionAffordance,
    :schema/rangeIncludes :td/EventAffordance})
 
 (def hasForm
@@ -237,13 +234,12 @@
 
 (def hasInteractionAffordance
   "Offers an affordance to interact with the Thing"
-  {:db/ident           :td/hasInteractionAffordance,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/comment       #voc/lstr
-                        "Offers an affordance to interact with the Thing@en",
-   :rdfs/isDefinedBy   "https://www.w3.org/2019/wot/td",
-   :rdfs/label         "hasInteractionAffordance",
-   :rdfs/subPropertyOf :td/hasInteractionAffordance,
+  {:db/ident             :td/hasInteractionAffordance,
+   :rdf/type             :owl/ObjectProperty,
+   :rdfs/comment         #voc/lstr
+                          "Offers an affordance to interact with the Thing@en",
+   :rdfs/isDefinedBy     "https://www.w3.org/2019/wot/td",
+   :rdfs/label           "hasInteractionAffordance",
    :schema/domainIncludes :td/Thing,
    :schema/rangeIncludes :td/InteractionAffordance})
 
@@ -298,7 +294,7 @@
                   "All Property-based interaction affordance of the Thing.@en",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "hasPropertyAffordance",
-   :rdfs/subPropertyOf [:td/hasInteractionAffordance :td/hasPropertyAffordance],
+   :rdfs/subPropertyOf :td/hasInteractionAffordance,
    :schema/rangeIncludes :td/PropertyAffordance})
 
 (def hasSecurityConfiguration
@@ -522,7 +518,7 @@
    "title of the TD element (Thing, interaction affordance or data schema)",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "title",
-   :rdfs/subPropertyOf [:dcterms/title :td/title],
+   :rdfs/subPropertyOf :dcterms/title,
    :schema/domainIncludes
    [:jsonschema/DataSchema :td/InteractionAffordance :td/Thing],
    :schema/rangeIncludes :schema/Text})
@@ -535,7 +531,7 @@
    "title of the TD element (Thing, interaction affordance or data schema) with language tag. By convention, a language tag must be added to the object of 'titleInLanguage' triples. Otherwise, use 'title'.",
    :rdfs/isDefinedBy "https://www.w3.org/2019/wot/td",
    :rdfs/label "titleInLanguage",
-   :rdfs/subPropertyOf [:dcterms/title :td/titleInLanguage],
+   :rdfs/subPropertyOf :dcterms/title,
    :schema/domainIncludes
    [:jsonschema/DataSchema :td/InteractionAffordance :td/Thing],
    :schema/rangeIncludes :schema/Text})

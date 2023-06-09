@@ -34,7 +34,7 @@
    :rdfs/comment     "A comment on a review",
    :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
    :rdfs/label       "Comment",
-   :rdfs/subClassOf  [:rdfs/Resource :rev/Comment],
+   :rdfs/subClassOf  :rdfs/Resource,
    :vs/moreinfo      "proposed by iterating.com",
    :vs/term_status   "deprecated"})
 
@@ -46,7 +46,7 @@
    "Feedback on the review. Expresses whether the review was useful or not",
    :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
    :rdfs/label "Feedback",
-   :rdfs/subClassOf [:rdfs/Resource :rev/Feedback],
+   :rdfs/subClassOf :rdfs/Resource,
    :vs/moreinfo "proposed by iterating.com",
    :vs/term_status ["deprecated" "testing"]})
 
@@ -57,133 +57,123 @@
    :rdfs/comment     #voc/lstr "A review of an work@en",
    :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
    :rdfs/label       #voc/lstr "Review@en",
-   :rdfs/subClassOf  [:rdfs/Resource :rev/Review],
+   :rdfs/subClassOf  :rdfs/Resource,
    :vs/moreinfo      "core term",
    :vs/term_status   "stable"})
 
 (def commenter
   "The commenter on the review"
-  {:db/ident           :rev/commenter,
-   :rdf/type           [:rdf/Property :owl/ObjectProperty],
-   :rdfs/comment       "The commenter on the review",
-   :rdfs/domain        [:rev/Feedback :rev/Comment],
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "commenter",
-   :rdfs/range         :foaf/Agent,
-   :rdfs/subPropertyOf :rev/commenter,
-   :vs/moreinfo        "proposed by iterating.com",
-   :vs/term_status     "deprecated"})
+  {:db/ident         :rev/commenter,
+   :rdf/type         [:rdf/Property :owl/ObjectProperty],
+   :rdfs/comment     "The commenter on the review",
+   :rdfs/domain      [:rev/Feedback :rev/Comment],
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       "commenter",
+   :rdfs/range       :foaf/Agent,
+   :vs/moreinfo      "proposed by iterating.com",
+   :vs/term_status   "deprecated"})
 
 (def hasComment
   "Used to associate a review with a comment on the review"
-  {:db/ident :rev/hasComment,
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment "Used to associate a review with a comment on the review",
-   :rdfs/domain :rev/Review,
+  {:db/ident         :rev/hasComment,
+   :rdf/type         [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment     "Used to associate a review with a comment on the review",
+   :rdfs/domain      :rev/Review,
    :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
-   :rdfs/label "hasComment",
-   :rdfs/range :rev/Comment,
-   :rdfs/subPropertyOf :rev/hasComment,
-   :vs/moreinfo "proposed by iterating.com",
-   :vs/term_status "deprecated"})
+   :rdfs/label       "hasComment",
+   :rdfs/range       :rev/Comment,
+   :vs/moreinfo      "proposed by iterating.com",
+   :vs/term_status   "deprecated"})
 
 (def hasFeedback
   "Associates a review with a feedback on the review"
-  {:db/ident           :rev/hasFeedback,
-   :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       "Associates a review with a feedback on the review",
-   :rdfs/domain        :rev/Review,
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "hasFeedback",
-   :rdfs/range         :rev/Feedback,
-   :rdfs/subPropertyOf :rev/hasFeedback,
-   :vs/moreinfo        "proposed by iterating.com",
-   :vs/term_status     "deprecated"})
+  {:db/ident         :rev/hasFeedback,
+   :rdf/type         [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment     "Associates a review with a feedback on the review",
+   :rdfs/domain      :rev/Review,
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       "hasFeedback",
+   :rdfs/range       :rev/Feedback,
+   :vs/moreinfo      "proposed by iterating.com",
+   :vs/term_status   "deprecated"})
 
 (def hasReview
   "Associates a work with a a review"
-  {:db/ident           :rev/hasReview,
-   :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       #voc/lstr "Associates a work with a a review@en",
-   :rdfs/domain        :rdfs/Resource,
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         #voc/lstr "has Review@en",
-   :rdfs/range         :rev/Review,
-   :rdfs/subPropertyOf :rev/hasReview,
-   :vs/moreinfo        "core term",
-   :vs/term_status     "stable"})
+  {:db/ident         :rev/hasReview,
+   :rdf/type         [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment     #voc/lstr "Associates a work with a a review@en",
+   :rdfs/domain      :rdfs/Resource,
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       #voc/lstr "has Review@en",
+   :rdfs/range       :rev/Review,
+   :vs/moreinfo      "core term",
+   :vs/term_status   "stable"})
 
 (def maxRating
   "Maximum value for rating property"
-  {:db/ident           :rev/maxRating,
-   :dc11/description   #voc/lstr "Maximum value for rating property@en",
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr "A numeric value@en",
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         #voc/lstr "max Rating@en",
-   :rdfs/subPropertyOf :rev/maxRating,
-   :vs/moreinfo        "Introduced by request of Revyu.com",
-   :vs/term_status     "stable"})
+  {:db/ident         :rev/maxRating,
+   :dc11/description #voc/lstr "Maximum value for rating property@en",
+   :rdf/type         :rdf/Property,
+   :rdfs/comment     #voc/lstr "A numeric value@en",
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       #voc/lstr "max Rating@en",
+   :vs/moreinfo      "Introduced by request of Revyu.com",
+   :vs/term_status   "stable"})
 
 (def minRating
   "Minimum value for rating property"
-  {:db/ident           :rev/minRating,
-   :dc11/description   #voc/lstr "Minimum value for rating property@en",
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr "A numeric value@en",
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         #voc/lstr "min Rating@en",
-   :rdfs/subPropertyOf :rev/minRating,
-   :vs/moreinfo        "Introduced by request of Revyu.com",
-   :vs/term_status     "stable"})
+  {:db/ident         :rev/minRating,
+   :dc11/description #voc/lstr "Minimum value for rating property@en",
+   :rdf/type         :rdf/Property,
+   :rdfs/comment     #voc/lstr "A numeric value@en",
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       #voc/lstr "min Rating@en",
+   :vs/moreinfo      "Introduced by request of Revyu.com",
+   :vs/term_status   "stable"})
 
 (def positiveVotes
   "Number of positive usefulness votes (integer)"
-  {:db/ident           :rev/positiveVotes,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "Number of positive usefulness votes (integer)",
-   :rdfs/domain        :rev/Review,
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "positiveVotes",
-   :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :rev/positiveVotes,
-   :vs/moreinfo        "proposed by iterating.com",
-   :vs/term_status     "deprecated"})
+  {:db/ident         :rev/positiveVotes,
+   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment     "Number of positive usefulness votes (integer)",
+   :rdfs/domain      :rev/Review,
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       "positiveVotes",
+   :rdfs/range       :rdfs/Literal,
+   :vs/moreinfo      "proposed by iterating.com",
+   :vs/term_status   "deprecated"})
 
 (def rating
   "A numeric value"
-  {:db/ident           :rev/rating,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       #voc/lstr "A numeric value@en",
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         #voc/lstr "rating@en",
-   :rdfs/subPropertyOf :rev/rating,
-   :vs/moreinfo        "core term",
-   :vs/term_status     "stable"})
+  {:db/ident         :rev/rating,
+   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment     #voc/lstr "A numeric value@en",
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       #voc/lstr "rating@en",
+   :vs/moreinfo      "core term",
+   :vs/term_status   "stable"})
 
 (def reviewer
   "The person that has written the review"
-  {:db/ident           :rev/reviewer,
-   :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       #voc/lstr "The person that has written the review@en",
-   :rdfs/domain        :rev/Review,
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         #voc/lstr "reviewer@en",
-   :rdfs/range         :foaf/Person,
-   :rdfs/subPropertyOf :rev/reviewer,
-   :vs/moreinfo        "core term",
-   :vs/term_status     "stable"})
+  {:db/ident         :rev/reviewer,
+   :rdf/type         [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment     #voc/lstr "The person that has written the review@en",
+   :rdfs/domain      :rev/Review,
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       #voc/lstr "reviewer@en",
+   :rdfs/range       :foaf/Person,
+   :vs/moreinfo      "core term",
+   :vs/term_status   "stable"})
 
 (def text
   "The text of the review"
-  {:db/ident           :rev/text,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       #voc/lstr "The text of the review@en",
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         #voc/lstr "text@en",
-   :rdfs/subPropertyOf :rev/text,
-   :vs/moreinfo        "core term",
-   :vs/term_status     "stable"})
+  {:db/ident         :rev/text,
+   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment     #voc/lstr "The text of the review@en",
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       #voc/lstr "text@en",
+   :vs/moreinfo      "core term",
+   :vs/term_status   "stable"})
 
 (def title
   "The title of the review"
@@ -194,46 +184,28 @@
    :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
    :rdfs/label         "title",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:dc11/title :rev/title],
+   :rdfs/subPropertyOf :dc11/title,
    :vs/moreinfo        "proposed by iterating.com",
    :vs/term_status     "deprecated"})
 
 (def totalVotes
   "Number of usefulness votes (integer)"
-  {:db/ident           :rev/totalVotes,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "Number of usefulness votes (integer)",
-   :rdfs/domain        :rev/Review,
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "totalVotes",
-   :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :rev/totalVotes,
-   :vs/moreinfo        "proposed by iterating.com",
-   :vs/term_status     "deprecated"})
+  {:db/ident         :rev/totalVotes,
+   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment     "Number of usefulness votes (integer)",
+   :rdfs/domain      :rev/Review,
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       "totalVotes",
+   :rdfs/range       :rdfs/Literal,
+   :vs/moreinfo      "proposed by iterating.com",
+   :vs/term_status   "deprecated"})
 
 (def type
   "The type of media of a work under review"
-  {:db/ident           :rev/type,
-   :rdf/type           [:owl/DatatypeProperty :rdf/Property],
-   :rdfs/comment       "The type of media of a work under review",
-   :rdfs/isDefinedBy   "http://purl.org/stuff/rev#",
-   :rdfs/label         "type",
-   :rdfs/subPropertyOf :rev/type,
-   :vs/moreinfo        "core term",
-   :vs/term_status     "deprecated"})
-
-(def ^{:private true} Agent
-  {:db/ident :foaf/Agent,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} Person
-  {:db/ident :foaf/Person,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} moreinfo
-  {:db/ident :vs/moreinfo,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} term_status
-  {:db/ident :vs/term_status,
-   :rdf/type :owl/AnnotationProperty})
+  {:db/ident         :rev/type,
+   :rdf/type         [:owl/DatatypeProperty :rdf/Property],
+   :rdfs/comment     "The type of media of a work under review",
+   :rdfs/isDefinedBy "http://purl.org/stuff/rev#",
+   :rdfs/label       "type",
+   :vs/moreinfo      "core term",
+   :vs/term_status   "deprecated"})

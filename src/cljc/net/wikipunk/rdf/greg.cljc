@@ -25,10 +25,9 @@
   {:db/ident        :greg/April,
    :rdf/type        :time/MonthOfYear,
    :rdfs/label      #voc/lstr "April@en",
-   :rdfs/subClassOf [{:owl/hasValue   :time/unitMonth,
-                      :owl/onProperty :time/unitType,
-                      :rdf/type       :owl/Restriction}
-                     :greg/April],
+   :rdfs/subClassOf {:owl/hasValue   :time/unitMonth,
+                     :owl/onProperty :time/unitType,
+                     :rdf/type       :owl/Restriction},
    :skos/prefLabel  [#voc/lstr "April@nl"
                      #voc/lstr "April@en"
                      #voc/lstr "April@de"

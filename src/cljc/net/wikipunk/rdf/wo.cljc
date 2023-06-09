@@ -29,8 +29,7 @@
    :rdfa/prefix "wo",
    :rdfa/uri "http://purl.org/ontology/wo/core#",
    :vann/preferredNamespacePrefix "wo",
-   :vann/preferredNamespaceUri "http://purl.org/ontology/wo/core#"}
-  (:refer-clojure :exclude [max min]))
+   :vann/preferredNamespaceUri "http://purl.org/ontology/wo/core#"})
 
 (def Scale
   "A concept for describing scales for weights."
@@ -40,7 +39,7 @@
                       "A concept for describing scales for weights.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
    :rdfs/label       #voc/lstr "Scale@en",
-   :rdfs/subClassOf  [:rdfs/Resource :scovo/Dimension :wo/Scale],
+   :rdfs/subClassOf  [:rdfs/Resource :scovo/Dimension],
    :vs/term_status   #voc/lstr "unstable@en"})
 
 (def Weight
@@ -54,7 +53,7 @@
                   "A weight class to enable timestamped (etc.) weights.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
    :rdfs/label #voc/lstr "Weight@en",
-   :rdfs/subClassOf [:rdfs/Resource :scovo/Item :wo/Weight],
+   :rdfs/subClassOf [:rdfs/Resource :scovo/Item],
    :vs/term_status #voc/lstr "testing@en"})
 
 (def max_weight
@@ -68,7 +67,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
    :rdfs/label         #voc/lstr "has max weight@en",
    :rdfs/range         :xsd/decimal,
-   :rdfs/subPropertyOf [:rev/maxRating :scovo/max :wo/max_weight],
+   :rdfs/subPropertyOf [:rev/maxRating :scovo/max],
    :vs/term_status     #voc/lstr "unstable@en"})
 
 (def min_weight
@@ -82,7 +81,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
    :rdfs/label         #voc/lstr "has min weight@en",
    :rdfs/range         :xsd/decimal,
-   :rdfs/subPropertyOf [:rev/minRating :scovo/min :wo/min_weight],
+   :rdfs/subPropertyOf [:rev/minRating :scovo/min],
    :vs/term_status     #voc/lstr "unstable@en"})
 
 (def scale
@@ -97,7 +96,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
    :rdfs/label         #voc/lstr "has scale@en",
    :rdfs/range         :wo/Scale,
-   :rdfs/subPropertyOf [:scovo/dimension :wo/scale],
+   :rdfs/subPropertyOf :scovo/dimension,
    :vs/term_status     #voc/lstr "unstable@en"})
 
 (def step_size
@@ -110,7 +109,6 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
    :rdfs/label #voc/lstr "has step size@en",
    :rdfs/range :xsd/decimal,
-   :rdfs/subPropertyOf :wo/step_size,
    :vs/term_status #voc/lstr "unstable@en"})
 
 (def weight
@@ -124,59 +122,18 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
    :rdfs/label #voc/lstr "has weight@en",
    :rdfs/range :wo/Weight,
-   :rdfs/subPropertyOf [:event/factor :wo/weight],
+   :rdfs/subPropertyOf :event/factor,
    :vs/term_status #voc/lstr "unstable@en"})
 
 (def weight_value
   "The specific value of a weight."
-  {:db/ident           :wo/weight_value,
-   :rdf/type           [:owl/FunctionalProperty
-                        :owl/DatatypeProperty
-                        :rdf/Property],
-   :rdfs/comment       #voc/lstr "The specific value of a weight.@en",
-   :rdfs/domain        :wo/Weight,
-   :rdfs/isDefinedBy   "http://purl.org/ontology/wo/core#",
-   :rdfs/label         #voc/lstr "has weight value@en",
-   :rdfs/range         :xsd/decimal,
-   :rdfs/subPropertyOf :wo/weight_value,
-   :vs/term_status     #voc/lstr "testing@en"})
-
-(def ^{:private true} factor
-  {:db/ident :event/factor,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :event/factor})
-
-(def ^{:private true} maxRating
-  {:db/ident :rev/maxRating,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :rev/maxRating})
-
-(def ^{:private true} minRating
-  {:db/ident :rev/minRating,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :rev/minRating})
-
-(def ^{:private true} Dimension
-  {:db/ident        :scovo/Dimension,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :scovo/Dimension})
-
-(def ^{:private true} Item
-  {:db/ident        :scovo/Item,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :scovo/Item})
-
-(def ^{:private true} dimension
-  {:db/ident :scovo/dimension,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :scovo/dimension})
-
-(def ^{:private true} max
-  {:db/ident :scovo/max,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :scovo/max})
-
-(def ^{:private true} min
-  {:db/ident :scovo/min,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :scovo/min})
+  {:db/ident         :wo/weight_value,
+   :rdf/type         [:owl/FunctionalProperty
+                      :owl/DatatypeProperty
+                      :rdf/Property],
+   :rdfs/comment     #voc/lstr "The specific value of a weight.@en",
+   :rdfs/domain      :wo/Weight,
+   :rdfs/isDefinedBy "http://purl.org/ontology/wo/core#",
+   :rdfs/label       #voc/lstr "has weight value@en",
+   :rdfs/range       :xsd/decimal,
+   :vs/term_status   #voc/lstr "testing@en"})

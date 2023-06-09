@@ -2,7 +2,6 @@
   "This file specifies the set of classes and properties used in the RDF/OWL version of POWDER documents."
   {:dcterms/issued "2009-09-01",
    :dcterms/modified ["2010-11-08" "2017-06-02"],
-   :owl/priorVersion "http://www.w3.org/2007/05/powder-s",
    :owl/versionInfo "2 June 2017",
    :rdf/ns-prefix-map {"dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -30,7 +29,7 @@
    :rdfs/comment     #voc/lstr "A POWDER document.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#structure",
    :rdfs/label       #voc/lstr "POWDER document@en",
-   :rdfs/subClassOf  [:rdfs/Resource :owl/Ontology :wdrs/Document]})
+   :rdfs/subClassOf  [:rdfs/Resource :owl/Ontology]})
 
 (def Processor
   "A software agent able to process POWDER documents."
@@ -40,7 +39,7 @@
                       "A software agent able to process POWDER documents.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#powderprocessor",
    :rdfs/label       #voc/lstr "POWDER processor@en",
-   :rdfs/subClassOf  [:rdfs/Resource :dcterms/Agent :wdrs/Processor]})
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/Agent]})
 
 (def authenticate
   "A pointer to a document that describes how Description Resources created by a FOAF Agent or a DC Terms Agent may be authenticated"
@@ -50,8 +49,7 @@
    #voc/lstr
     "A pointer to a document that describes how Description Resources created by a FOAF Agent or a DC Terms Agent may be authenticated@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#discover",
-   :rdfs/label #voc/lstr "authenticate@en",
-   :rdfs/subPropertyOf :wdrs/authenticate})
+   :rdfs/label #voc/lstr "authenticate@en"})
 
 (def certified
   "A property that takes a Boolean value to declare whether the author of the data certifies the described resource."
@@ -62,8 +60,7 @@
     "A property that takes a Boolean value to declare whether the author of the data certifies the described resource.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#certification",
    :rdfs/label #voc/lstr "certified@en",
-   :rdfs/range :xsd/boolean,
-   :rdfs/subPropertyOf :wdrs/certified})
+   :rdfs/range :xsd/boolean})
 
 (def certifiedby
   "A property that links a resource to a POWDER document that certifies it."
@@ -73,8 +70,7 @@
    #voc/lstr
     "A property that links a resource to a POWDER document that certifies it.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#certification",
-   :rdfs/label #voc/lstr "certified by@en",
-   :rdfs/subPropertyOf :wdrs/certifiedby})
+   :rdfs/label #voc/lstr "certified by@en"})
 
 (def data_error
   "A property denoting a description of the specific error found in a given POWDER document."
@@ -85,8 +81,7 @@
     "A property denoting a description of the specific error found in a given POWDER document.@en",
    :rdfs/domain :wdrs/Document,
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#ppErrorhandling",
-   :rdfs/label #voc/lstr "data error@en",
-   :rdfs/subPropertyOf :wdrs/data_error})
+   :rdfs/label #voc/lstr "data error@en"})
 
 (def describedby
   "An RDF property to exactly match the describedby relationship type introduced in http://www.w3.org/TR/powder-dr/#assoc-linking and formally defined in appendix D of the same document, i.e. the relationship A 'describedby' B asserts that resource B provides a description of resource A. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource."
@@ -96,8 +91,7 @@
    #voc/lstr
     "An RDF property to exactly match the describedby relationship type introduced in http://www.w3.org/TR/powder-dr/#assoc-linking and formally defined in appendix D of the same document, i.e. the relationship A 'describedby' B asserts that resource B provides a description of resource A. There are no constraints on the format or representation of either A or B, neither are there any further constraints on either resource.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#semlink",
-   :rdfs/label #voc/lstr "described by@en",
-   :rdfs/subPropertyOf :wdrs/describedby})
+   :rdfs/label #voc/lstr "described by@en"})
 
 (def error_code
   "A property denoting the code of any error encountered by the POWDER processor."
@@ -108,8 +102,7 @@
     "A property denoting the code of any error encountered by the POWDER processor.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#ppErrorhandling",
    :rdfs/label #voc/lstr "error code@en",
-   :rdfs/range :xsd/nonNegativeInteger,
-   :rdfs/subPropertyOf :wdrs/error_code})
+   :rdfs/range :xsd/nonNegativeInteger})
 
 (def hasIRI
   "This property is meant to be used in OWL2 instead of wdrs:matchesregex. It denotes the string data range corresponding to a set of IRIs."
@@ -121,8 +114,7 @@
    :rdfs/domain :rdfs/Resource,
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-formal/#oxRegexSemantics",
    :rdfs/label #voc/lstr "has IRI@en",
-   :rdfs/range :xsd/anyURI,
-   :rdfs/subPropertyOf :wdrs/hasIRI})
+   :rdfs/range :xsd/anyURI})
 
 (def issuedby
   "This property denotes the author of a POWDER document."
@@ -131,8 +123,7 @@
    :rdfs/comment #voc/lstr
                   "This property denotes the author of a POWDER document.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#line3",
-   :rdfs/label #voc/lstr "issued by@en",
-   :rdfs/subPropertyOf :wdrs/issuedby})
+   :rdfs/label #voc/lstr "issued by@en"})
 
 (def logo
   "Points to a graphic summary for the resources in a given class. Typically, it is a logo denoting conformance of a given (set of) resource(s) to a given set of criteria."
@@ -142,8 +133,7 @@
    #voc/lstr
     "Points to a graphic summary for the resources in a given class. Typically, it is a logo denoting conformance of a given (set of) resource(s) to a given set of criteria.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#line13",
-   :rdfs/label #voc/lstr "logo@en",
-   :rdfs/subPropertyOf :wdrs/logo})
+   :rdfs/label #voc/lstr "logo@en"})
 
 (def matchesregex
   "This is the key 'include' property for IRI set definitions in POWDER-S. It is necessary to take account of the POWDER Semantic Extension to process this fully. The value is a regular expression that is matched against an IRI."
@@ -156,8 +146,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-formal/#regexSemantics",
    :rdfs/label #voc/lstr "matches regular expression@en",
    :rdfs/range :xsd/string,
-   :rdfs/seeAlso ["http://www.w3.org/TR/xpath-functions/#regex-syntax"],
-   :rdfs/subPropertyOf :wdrs/matchesregex})
+   :rdfs/seeAlso ["http://www.w3.org/TR/xpath-functions/#regex-syntax"]})
 
 (def notknownto
   "Property used in results returned from a POWDER Processor that has no data about the candidate resource. The value is the IRI of the processor."
@@ -168,8 +157,7 @@
     "Property used in results returned from a POWDER Processor that has no data about the candidate resource. The value is the IRI of the processor.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#powderprocessor",
    :rdfs/label #voc/lstr "not known to@en",
-   :rdfs/range :wdrs/Processor,
-   :rdfs/subPropertyOf :wdrs/notknownto})
+   :rdfs/range :wdrs/Processor})
 
 (def notmatchesregex
   "This is the key 'exclude' property for IRI set definitions in POWDER-S. It is necessary to take account of the POWDER Semantic Extension to process this fully. The value is a regular expression that is matched against an IRI."
@@ -182,8 +170,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-formal/#regexSemantics",
    :rdfs/label #voc/lstr "matches regular expression@en",
    :rdfs/range :xsd/string,
-   :rdfs/seeAlso ["http://www.w3.org/TR/xpath-functions/#regex-syntax"],
-   :rdfs/subPropertyOf :wdrs/notmatchesregex})
+   :rdfs/seeAlso ["http://www.w3.org/TR/xpath-functions/#regex-syntax"]})
 
 (def proc_error
   "A property denoting a description of the specific software error."
@@ -194,8 +181,7 @@
     "A property denoting a description of the specific software error.@en",
    :rdfs/domain :wdrs/Processor,
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#ppErrorhandling",
-   :rdfs/label #voc/lstr "processing error@en",
-   :rdfs/subPropertyOf :wdrs/proc_error})
+   :rdfs/label #voc/lstr "processing error@en"})
 
 (def sha1sum
   "Links to a Base64-encoded binary SHA-1 hash of the described resource. May be used by POWDER Processors when assessing trustworthiness of a DR."
@@ -206,8 +192,7 @@
     "Links to a Base64-encoded binary SHA-1 hash of the described resource. May be used by POWDER Processors when assessing trustworthiness of a DR.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#certification",
    :rdfs/label #voc/lstr "SHA-1 sum@en",
-   :rdfs/range :xsd/base64Binary,
-   :rdfs/subPropertyOf :wdrs/sha1sum})
+   :rdfs/range :xsd/base64Binary})
 
 (def supportedby
   "A property that links a POWDER document to some other data source that supports the descriptions provided."
@@ -217,8 +202,7 @@
    #voc/lstr
     "A property that links a POWDER document to some other data source that supports the descriptions provided.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#supportedBy",
-   :rdfs/label #voc/lstr "supported by@en",
-   :rdfs/subPropertyOf :wdrs/supportedby})
+   :rdfs/label #voc/lstr "supported by@en"})
 
 (def tag
   "Property linking to a free-text tag which may include spaces."
@@ -228,8 +212,7 @@
    #voc/lstr "Property linking to a free-text tag which may include spaces.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#tags",
    :rdfs/label #voc/lstr "tag@en",
-   :rdfs/range :xsd/token,
-   :rdfs/subPropertyOf :wdrs/tag})
+   :rdfs/range :xsd/token})
 
 (def text
   "This property provides a summary of the descriptorset that it annotates, suitable for display to end users."
@@ -239,8 +222,7 @@
    #voc/lstr
     "This property provides a summary of the descriptorset that it annotates, suitable for display to end users.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#line13",
-   :rdfs/label #voc/lstr "text that may be displayed@en",
-   :rdfs/subPropertyOf :wdrs/text})
+   :rdfs/label #voc/lstr "text that may be displayed@en"})
 
 (def validfrom
   "Provides a timestamp that a POWDER Processor may use when assessing trustworthiness of a POWDER document. Informally, a POWDER Processor should normally ignore data in the document before the given date."
@@ -250,8 +232,7 @@
    #voc/lstr
     "Provides a timestamp that a POWDER Processor may use when assessing trustworthiness of a POWDER document. Informally, a POWDER Processor should normally ignore data in the document before the given date.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#certification",
-   :rdfs/label #voc/lstr "valid from@en",
-   :rdfs/subPropertyOf :wdrs/validfrom})
+   :rdfs/label #voc/lstr "valid from@en"})
 
 (def validuntil
   "Provides a timestamp that a POWDER Processor may use when assessing trustworthiness of a POWDER document. Informally, a POWDER Processor should normally ignore data in the document after the given date."
@@ -261,5 +242,4 @@
    #voc/lstr
     "Provides a timestamp that a POWDER Processor may use when assessing trustworthiness of a POWDER document. Informally, a POWDER Processor should normally ignore data in the document after the given date.@en",
    :rdfs/isDefinedBy "http://www.w3.org/TR/powder-dr/#certification",
-   :rdfs/label #voc/lstr "valid until@en",
-   :rdfs/subPropertyOf :wdrs/validuntil})
+   :rdfs/label #voc/lstr "valid until@en"})

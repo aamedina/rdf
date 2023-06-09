@@ -33,7 +33,7 @@
 (def BaseTableOrView
   {:db/ident        :rr/BaseTableOrView,
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:rr/LogicalTable :rr/BaseTableOrView :owl/Thing]})
+   :rdfs/subClassOf [:rr/LogicalTable :owl/Thing]})
 
 (def BlankNode
   "Denotes a blank node, used with termType"
@@ -46,7 +46,7 @@
   {:db/ident        :rr/GraphMap,
    :rdf/type        :owl/Class,
    :rdfs/comment    #voc/lstr "Represents a graph map.@en",
-   :rdfs/subClassOf [:rr/TermMap :rr/GraphMap]})
+   :rdfs/subClassOf :rr/TermMap})
 
 (def IRI
   "Denotes an IRI, used with termpType."
@@ -75,22 +75,21 @@
                       :owl/onDataRange :xsd/string,
                       :owl/onProperty  :rr/parent,
                       :rdf/type        :owl/Restriction}
-                     :owl/Thing
-                     :rr/Join]})
+                     :owl/Thing]})
 
 (def Literal
   "Denotes a Literal, used with termType."
   {:db/ident        :rr/Literal,
    :rdf/type        :owl/Class,
    :rdfs/comment    #voc/lstr "Denotes a Literal, used with termType.@en",
-   :rdfs/subClassOf [:owl/Thing :rr/Literal]})
+   :rdfs/subClassOf :owl/Thing})
 
 (def LogicalTable
   "Represents a logical table."
   {:db/ident        :rr/LogicalTable,
    :rdf/type        :owl/Class,
    :rdfs/comment    #voc/lstr "Represents a logical table.@en",
-   :rdfs/subClassOf [:owl/Thing :rr/LogicalTable]})
+   :rdfs/subClassOf :owl/Thing})
 
 (def ObjectMap
   "Represents an object map."
@@ -114,8 +113,7 @@
                       :owl/onProperty :rr/object,
                       :rdf/type       :owl/Restriction}
                      :rr/TermMap
-                     :owl/Thing
-                     :rr/ObjectMap]})
+                     :owl/Thing]})
 
 (def PredicateMap
   "Represents a predicate map."
@@ -127,8 +125,7 @@
                       :owl/qualifiedCardinality 1,
                       :rdf/type       :owl/Restriction}
                      :rr/TermMap
-                     :owl/Thing
-                     :rr/PredicateMap]})
+                     :owl/Thing]})
 
 (def PredicateObjectMap
   "Represents a predicate-object map."
@@ -143,20 +140,19 @@
                       :owl/onProperty :rr/objectMap,
                       :owl/qualifiedCardinality 1,
                       :rdf/type       :owl/Restriction}
-                     :owl/Thing
-                     :rr/PredicateObjectMap]})
+                     :owl/Thing]})
 
 (def R2RMLView
   {:db/ident        :rr/R2RMLView,
    :rdf/type        :owl/Class,
-   :rdfs/subClassOf [:rr/LogicalTable :rr/R2RMLView :owl/Thing]})
+   :rdfs/subClassOf [:rr/LogicalTable :owl/Thing]})
 
 (def RefObjectMap
   "Denotes a reference to an object map."
   {:db/ident        :rr/RefObjectMap,
    :rdf/type        :owl/Class,
    :rdfs/comment    #voc/lstr "Denotes a reference to an object map.@en",
-   :rdfs/subClassOf [:owl/Thing :rr/RefObjectMap]})
+   :rdfs/subClassOf :owl/Thing})
 
 (def SQL2008
   "Core SQL 2008"
@@ -174,8 +170,7 @@
                       :owl/onProperty :rr/class,
                       :rdf/type       :owl/Restriction}
                      :rr/TermMap
-                     :owl/Thing
-                     :rr/SubjectMap]})
+                     :owl/Thing]})
 
 (def TermMap
   "A function that generates an RDF term from a logical table row."
@@ -184,8 +179,7 @@
    :rdfs/comment
    #voc/lstr
     "A function that generates an RDF term from a logical table row.@en",
-   :rdfs/label #voc/lstr "Term Map@en",
-   :rdfs/subClassOf :rr/TermMap})
+   :rdfs/label #voc/lstr "Term Map@en"})
 
 (def TriplesMap
   "Represents a triples map."
@@ -200,8 +194,7 @@
                       :owl/onProperty :rr/logicalTable,
                       :owl/qualifiedCardinality 1,
                       :rdf/type       :owl/Restriction}
-                     :owl/Thing
-                     :rr/TriplesMap]})
+                     :owl/Thing]})
 
 (def child
   "Names a column in the child table of a join."

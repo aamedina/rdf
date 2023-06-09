@@ -31,7 +31,6 @@
    "more information about the status etc of a term, typically human oriented",
    :rdfs/isDefinedBy "http://www.w3.org/2003/06/sw-vocab-status/ns#",
    :rdfs/label "more info",
-   :rdfs/subPropertyOf :vs/moreinfo,
    :vs/term_status "unstable"})
 
 (def term_status
@@ -42,7 +41,6 @@
    "the status of a vocabulary term, expressed as a short symbolic string; known values include 'unstable','testing', 'stable' and 'archaic'",
    :rdfs/isDefinedBy "http://www.w3.org/2003/06/sw-vocab-status/ns#",
    :rdfs/label "term status",
-   :rdfs/subPropertyOf :vs/term_status,
    :vs/term_status "unstable"})
 
 (def userdocs
@@ -53,5 +51,4 @@
    "human-oriented documentation, examples etc for use of this term",
    :rdfs/isDefinedBy "http://www.w3.org/2003/06/sw-vocab-status/ns#",
    :rdfs/label "user docs",
-   :rdfs/subPropertyOf :vs/userdocs,
    :vs/term_status "unstable"})

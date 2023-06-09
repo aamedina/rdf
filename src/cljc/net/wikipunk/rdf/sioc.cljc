@@ -40,8 +40,7 @@
    :rdfs/comment     #voc/lstr
                       "An area in which content Items are contained.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
-   :rdfs/label       #voc/lstr "Container@en",
-   :rdfs/subClassOf  :sioc/Container})
+   :rdfs/label       #voc/lstr "Container@en"})
 
 (def Forum
   "A discussion area on which Posts or entries are made."
@@ -51,7 +50,7 @@
                   "A discussion area on which Posts or entries are made.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "Forum@en",
-   :rdfs/subClassOf [:sioc/Container :sioc/Forum]})
+   :rdfs/subClassOf :sioc/Container})
 
 (def Item
   "An Item is something which can be in a Container."
@@ -62,8 +61,7 @@
    :rdfs/comment #voc/lstr
                   "An Item is something which can be in a Container.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
-   :rdfs/label #voc/lstr "Item@en",
-   :rdfs/subClassOf :sioc/Item})
+   :rdfs/label #voc/lstr "Item@en"})
 
 (def Post
   "An article or message that can be posted to a Forum."
@@ -73,7 +71,7 @@
                       "An article or message that can be posted to a Forum.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label       #voc/lstr "Post@en",
-   :rdfs/subClassOf  [:foaf/Document :sioc/Item :sioc/Post]})
+   :rdfs/subClassOf  [:foaf/Document :sioc/Item]})
 
 (def Role
   "A Role is a function of a UserAccount within a scope of a particular Forum, Site, etc."
@@ -96,7 +94,7 @@
     "A Site can be the location of an online community or set of communities, with UserAccounts and Usergroups creating Items in a set of Containers. It can be thought of as a web-accessible data Space.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "Site@en",
-   :rdfs/subClassOf [:sioc/Space :sioc/Site]})
+   :rdfs/subClassOf :sioc/Space})
 
 (def Space
   "A Space is a place where data resides, e.g. on a website, desktop, fileshare, etc."
@@ -107,8 +105,7 @@
    #voc/lstr
     "A Space is a place where data resides, e.g. on a website, desktop, fileshare, etc.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
-   :rdfs/label #voc/lstr "Space@en",
-   :rdfs/subClassOf :sioc/Space})
+   :rdfs/label #voc/lstr "Space@en"})
 
 (def ThreadClass
   "A container for a series of threaded discussion Posts or Items."
@@ -119,7 +116,7 @@
     "A container for a series of threaded discussion Posts or Items.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "Thread@en",
-   :rdfs/subClassOf [:sioc/Container :sioc/Thread]})
+   :rdfs/subClassOf :sioc/Container})
 
 (def User
   "UserAccount is now preferred. This is a deprecated class for a User in an online community site."
@@ -135,7 +132,7 @@
     "UserAccount is now preferred. This is a deprecated class for a User in an online community site.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "User@en",
-   :rdfs/subClassOf [:foaf/OnlineAccount :sioc/User]})
+   :rdfs/subClassOf :foaf/OnlineAccount})
 
 (def UserAccount
   "A user account in an online community site."
@@ -146,7 +143,7 @@
    :rdfs/comment #voc/lstr "A user account in an online community site.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "User Account@en",
-   :rdfs/subClassOf [:foaf/OnlineAccount :sioc/UserAccount]})
+   :rdfs/subClassOf :foaf/OnlineAccount})
 
 (def Usergroup
   "A set of UserAccounts whose owners have a common purpose or interest. Can be used for access control purposes."
@@ -225,7 +222,7 @@
    :rdfs/domain :sioc/UserAccount,
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "avatar@en",
-   :rdfs/subPropertyOf [:foaf/depiction :sioc/avatar]})
+   :rdfs/subPropertyOf :foaf/depiction})
 
 (def container_of
   "An Item that this Container contains."
@@ -237,7 +234,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "container of@en",
    :rdfs/range         :sioc/Item,
-   :rdfs/subPropertyOf [:dcterms/hasPart :sioc/container_of]})
+   :rdfs/subPropertyOf :dcterms/hasPart})
 
 (def content
   "The content of the Item in plain text format."
@@ -329,8 +326,7 @@
    :rdfs/domain :sioc/Item,
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "earlier version@en",
-   :rdfs/range :sioc/Item,
-   :rdfs/subPropertyOf :sioc/earlier_version})
+   :rdfs/range :sioc/Item})
 
 (def email
   "An electronic mail address of the UserAccount."
@@ -453,7 +449,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "has container@en",
    :rdfs/range         :sioc/Container,
-   :rdfs/subPropertyOf [:dcterms/isPartOf :sioc/has_container]})
+   :rdfs/subPropertyOf :dcterms/isPartOf})
 
 (def has_creator
   "This is the UserAccount that made this resource."
@@ -507,7 +503,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "has host@en",
    :rdfs/range         :sioc/Site,
-   :rdfs/subPropertyOf [:sioc/has_space :sioc/has_host :dcterms/isPartOf]})
+   :rdfs/subPropertyOf [:sioc/has_space :dcterms/isPartOf]})
 
 (def has_member
   "A UserAccount that is a member of this Usergroup."
@@ -568,7 +564,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "has parent@en",
    :rdfs/range :sioc/Container,
-   :rdfs/subPropertyOf [:dcterms/isPartOf :sioc/has_parent]})
+   :rdfs/subPropertyOf :dcterms/isPartOf})
 
 (def has_part
   "An resource that is a part of this subject."
@@ -593,7 +589,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "has reply@en",
    :rdfs/range :sioc/Item,
-   :rdfs/subPropertyOf [:sioc/related_to :sioc/has_reply]})
+   :rdfs/subPropertyOf :sioc/related_to})
 
 (def has_scope
   "A resource that this Role applies to."
@@ -615,7 +611,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "has space@en",
    :rdfs/range         :sioc/Space,
-   :rdfs/subPropertyOf [:dcterms/isPartOf :sioc/has_space]})
+   :rdfs/subPropertyOf :dcterms/isPartOf})
 
 (def has_subscriber
   "A UserAccount that is subscribed to this Container."
@@ -652,7 +648,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "host of@en",
    :rdfs/range         :sioc/Container,
-   :rdfs/subPropertyOf [:sioc/space_of :sioc/host_of :dcterms/hasPart]})
+   :rdfs/subPropertyOf [:sioc/space_of :dcterms/hasPart]})
 
 (def id
   "An identifier of a SIOC concept instance. For example, a user ID. Must be unique for instances of each type of SIOC concept within the same site."
@@ -686,7 +682,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "last activity date@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :sioc/last_activity_date]})
+   :rdfs/subPropertyOf :dcterms/date})
 
 (def last_item_date
   "The date and time of the last Post (or Item) in a Forum (or a Container), in ISO 8601 format."
@@ -699,7 +695,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "last item date@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :sioc/last_item_date]})
+   :rdfs/subPropertyOf :dcterms/date})
 
 (def last_name
   "Last (real) name of this user. Synonyms include surname or family name."
@@ -725,7 +721,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "last reply date@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :sioc/last_reply_date]})
+   :rdfs/subPropertyOf :dcterms/date})
 
 (def later_version
   "Links to a later (newer) revision of this Item or Post."
@@ -737,8 +733,7 @@
    :rdfs/domain :sioc/Item,
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "later version@en",
-   :rdfs/range :sioc/Item,
-   :rdfs/subPropertyOf :sioc/later_version})
+   :rdfs/range :sioc/Item})
 
 (def latest_version
   "Links to the latest revision of this Item or Post."
@@ -779,7 +774,7 @@
     "Links extracted from hyperlinks within a SIOC concept, e.g. Post or Site.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "links to@en",
-   :rdfs/subPropertyOf [:dcterms/references :sioc/links_to]})
+   :rdfs/subPropertyOf :dcterms/references})
 
 (def member_of
   "A Usergroup that this UserAccount is a member of."
@@ -873,7 +868,7 @@
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "next version@en",
    :rdfs/range         :sioc/Item,
-   :rdfs/subPropertyOf [:sioc/later_version :sioc/next_version]})
+   :rdfs/subPropertyOf :sioc/later_version})
 
 (def note
   "A note associated with this resource, for example, if it has been edited by a UserAccount."
@@ -965,7 +960,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "parent of@en",
    :rdfs/range :sioc/Container,
-   :rdfs/subPropertyOf [:dcterms/hasPart :sioc/parent_of]})
+   :rdfs/subPropertyOf :dcterms/hasPart})
 
 (def part_of
   "A resource that the subject is a part of."
@@ -1001,7 +996,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "previous version@en",
    :rdfs/range :sioc/Item,
-   :rdfs/subPropertyOf [:sioc/earlier_version :sioc/previous_version]})
+   :rdfs/subPropertyOf :sioc/earlier_version})
 
 (def read_at
   "When this was read, in ISO 8601 format."
@@ -1033,8 +1028,7 @@
    #voc/lstr
     "Related resources for this resource, e.g. for Posts, perhaps determined implicitly from topics or references.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
-   :rdfs/label #voc/lstr "related to@en",
-   :rdfs/subPropertyOf :sioc/related_to})
+   :rdfs/label #voc/lstr "related to@en"})
 
 (def reply_of
   "Links to an Item or Post which this Item or Post is a reply to."
@@ -1048,7 +1042,7 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "reply of@en",
    :rdfs/range :sioc/Item,
-   :rdfs/subPropertyOf [:sioc/related_to :sioc/reply_of]})
+   :rdfs/subPropertyOf :sioc/related_to})
 
 (def respond_to
   "For the reply-to address set in email messages, IMs, etc. The property name was chosen to avoid confusion with has_reply/reply_of (the reply graph)."
@@ -1106,7 +1100,7 @@
    :rdfs/domain        :sioc/Space,
    :rdfs/isDefinedBy   "http://rdfs.org/sioc/ns#",
    :rdfs/label         #voc/lstr "space of@en",
-   :rdfs/subPropertyOf [:dcterms/hasPart :sioc/space_of]})
+   :rdfs/subPropertyOf :dcterms/hasPart})
 
 (def subject
   "Keyword(s) describing subject of the Post."
@@ -1156,7 +1150,7 @@
     "A topic of interest, linking to the appropriate URI, e.g. in the Open Directory Project or of a SKOS category.@en",
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label #voc/lstr "topic@en",
-   :rdfs/subPropertyOf [:dcterms/subject :sioc/topic]})
+   :rdfs/subPropertyOf :dcterms/subject})
 
 (def usergroup_of
   "A Space that the Usergroup has access to."
@@ -1168,26 +1162,3 @@
    :rdfs/isDefinedBy "http://rdfs.org/sioc/ns#",
    :rdfs/label       #voc/lstr "usergroup of@en",
    :rdfs/range       :sioc/Space})
-
-(def ^{:private true} Agent
-  {:db/ident :foaf/Agent,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} Document
-  {:db/ident        :foaf/Document,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf :foaf/Document})
-
-(def ^{:private true} OnlineAccount
-  {:db/ident        :foaf/OnlineAccount,
-   :rdf/type        :owl/Class,
-   :rdfs/subClassOf :foaf/OnlineAccount})
-
-(def ^{:private true} account
-  {:db/ident :foaf/account,
-   :rdf/type :owl/ObjectProperty})
-
-(def ^{:private true} depiction
-  {:db/ident :foaf/depiction,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/subPropertyOf :foaf/depiction})

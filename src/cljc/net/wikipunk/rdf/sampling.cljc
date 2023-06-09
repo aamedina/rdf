@@ -19,7 +19,7 @@
   {:db/ident :sampling/RelationshipNature,
    :rdf/type [:rdfs/Class :owl/Class],
    :rdfs/label #voc/lstr "Nature of relationship (between samples)@en",
-   :rdfs/subClassOf [:rdfs/Resource :skos/Concept :sampling/RelationshipNature],
+   :rdfs/subClassOf [:rdfs/Resource :skos/Concept],
    :skos/definition
    #voc/lstr
     "Members of this class indicate the nature of a relationship between two samples@en",
@@ -39,7 +39,7 @@
   {:db/ident :sampling/SampleRelationship,
    :rdf/type [:owl/Class :rdfs/Class],
    :rdfs/label #voc/lstr "Sample relationship@en",
-   :rdfs/subClassOf [:rdfs/Resource :sampling/SampleRelationship],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "Members of this class represent a relationship between a sample and another@en"})
@@ -75,8 +75,3 @@
    :schema/rangeIncludes :sosa/Sample,
    :skos/definition #voc/lstr
                      "Links a sample relationship to the related sample@en"})
-
-(def ^{:private true} Concept
-  {:db/ident        :skos/Concept,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :skos/Concept})

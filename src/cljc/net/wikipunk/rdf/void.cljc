@@ -3,6 +3,14 @@
   {:dcterms/created #inst "2010-01-26T00:00:00.000-05:00",
    :dcterms/creator
    [{:rdf/type           :schema/Person,
+     :schema/affiliation {:foaf/homepage "http://www.deri.ie/",
+                          :foaf/name
+                          "Digital Enterprise Research Institute, NUI Galway",
+                          :rdf/type :schema/Organization},
+     :schema/email       "mailto:richard.cyganiak@deri.org",
+     :schema/name        "Richard Cyganiak",
+     :schema/url         "http://richard.cyganiak.de/"}
+    {:rdf/type           :schema/Person,
      :schema/affiliation {:rdf/type :schema/Organization,
                           :schema/name
                           "Department of Zoology, University of Oxford",
@@ -23,18 +31,11 @@
                           :schema/url  "http://linkeddata.deri.ie/"},
      :schema/email       "mailto:michael.hausenblas@deri.org",
      :schema/name        "Michael Hausenblas",
-     :schema/url         "http://sw-app.org/about.html"}
-    {:rdf/type           :schema/Person,
-     :schema/affiliation {:foaf/homepage "http://www.deri.ie/",
-                          :foaf/name
-                          "Digital Enterprise Research Institute, NUI Galway",
-                          :rdf/type :schema/Organization},
-     :schema/email       "mailto:richard.cyganiak@deri.org",
-     :schema/name        "Richard Cyganiak",
-     :schema/url         "http://richard.cyganiak.de/"}],
+     :schema/url         "http://sw-app.org/about.html"}],
    :dcterms/description
    "The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets. This document provides a formal definition of the new RDF classes and properties introduced for VoID. It is a companion to the main specification document for VoID, <em><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></em>.",
    :dcterms/modified #inst "2011-03-06T00:00:00.000-05:00",
+   :dcterms/partOf "http://vocab.deri.ie",
    :dcterms/publisher
    {:rdfs/seeAlso ["http://www.deri.ie/" "http://www.insight-centre.org"],
     :schema/identifier
@@ -70,7 +71,7 @@
    :rdfs/comment
    "A set of RDF triples that are published, maintained or aggregated by a single provider.",
    :rdfs/label "dataset",
-   :rdfs/subClassOf [:rdfs/Resource :void/Dataset]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def DatasetDescription
   "A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets."
@@ -79,7 +80,7 @@
    :rdfs/comment
    "A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets.",
    :rdfs/label "dataset description",
-   :rdfs/subClassOf [:rdfs/Resource :foaf/Document :void/DatasetDescription]})
+   :rdfs/subClassOf [:rdfs/Resource :foaf/Document]})
 
 (def Linkset
   "A collection of RDF links between two void:Datasets."
@@ -87,7 +88,7 @@
    :rdf/type        [:owl/Class :rdfs/Class],
    :rdfs/comment    "A collection of RDF links between two void:Datasets.",
    :rdfs/label      "linkset",
-   :rdfs/subClassOf [:void/Dataset :void/Linkset :rdfs/Resource]})
+   :rdfs/subClassOf [:void/Dataset :rdfs/Resource]})
 
 (def TechnicalFeature
   "A technical feature of a void:Dataset, such as a supported RDF serialization format."
@@ -96,7 +97,7 @@
    :rdfs/comment
    "A technical feature of a void:Dataset, such as a supported RDF serialization format.",
    :rdfs/label "technical feature",
-   :rdfs/subClassOf [:rdfs/Resource :void/TechnicalFeature]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def class
   "The rdfs:Class that is the rdf:type of all entities in a class-based partition."
@@ -117,7 +118,7 @@
    :rdfs/domain :void/Dataset,
    :rdfs/label "class partition",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf [:void/subset :void/classPartition]})
+   :rdfs/subPropertyOf :void/subset})
 
 (def classes
   "The total number of distinct classes in a void:Dataset. In other words, the number of distinct resources occuring as objects of rdf:type triples in the dataset."
@@ -220,7 +221,7 @@
    :rdfs/domain :void/Linkset,
    :rdfs/label "Objects Target",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf [:void/target :void/objectsTarget]})
+   :rdfs/subPropertyOf :void/target})
 
 (def openSearchDescription
   "An OpenSearch description document for a free-text search service over a void:Dataset."
@@ -261,7 +262,7 @@
    :rdfs/domain :void/Dataset,
    :rdfs/label "property partition",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf [:void/subset :void/propertyPartition]})
+   :rdfs/subPropertyOf :void/subset})
 
 (def rootResource
   "A top concept or entry point for a void:Dataset that is structured in a tree-like fashion. All resources in a dataset can be reached by following links from its root resources in a small number of steps."
@@ -288,26 +289,24 @@
    :rdfs/domain :void/Linkset,
    :rdfs/label "Subjects Target",
    :rdfs/range :void/Dataset,
-   :rdfs/subPropertyOf [:void/target :void/subjectsTarget]})
+   :rdfs/subPropertyOf :void/target})
 
 (def subset
   "has subset"
-  {:db/ident           :void/subset,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/domain        :void/Dataset,
-   :rdfs/label         "has subset",
-   :rdfs/range         :void/Dataset,
-   :rdfs/subPropertyOf :void/subset})
+  {:db/ident    :void/subset,
+   :rdf/type    :owl/ObjectProperty,
+   :rdfs/domain :void/Dataset,
+   :rdfs/label  "has subset",
+   :rdfs/range  :void/Dataset})
 
 (def target
   "One of the two datasets linked by the Linkset."
-  {:db/ident           :void/target,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/comment       "One of the two datasets linked by the Linkset.",
-   :rdfs/domain        :void/Linkset,
-   :rdfs/label         "Target",
-   :rdfs/range         :void/Dataset,
-   :rdfs/subPropertyOf :void/target})
+  {:db/ident     :void/target,
+   :rdf/type     :owl/ObjectProperty,
+   :rdfs/comment "One of the two datasets linked by the Linkset.",
+   :rdfs/domain  :void/Linkset,
+   :rdfs/label   "Target",
+   :rdfs/range   :void/Dataset})
 
 (def triples
   "The total number of triples contained in a void:Dataset."
@@ -353,8 +352,3 @@
    :rdfs/comment "A vocabulary that is used in the dataset.",
    :rdfs/domain  :void/Dataset,
    :rdfs/label   "vocabulary"})
-
-(def ^{:private true} Document
-  {:db/ident        :foaf/Document,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :foaf/Document})

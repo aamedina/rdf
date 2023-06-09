@@ -200,23 +200,3 @@
    :rdfs/label "time",
    :rdfs/range :time/TemporalEntity,
    :vs/term_status "stable"})
-
-(def ^{:private true} Agent
-  {:db/ident :foaf/Agent,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} Person
-  {:db/ident :foaf/Person,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} maker
-  {:db/ident :foaf/maker,
-   :rdf/type :owl/ObjectProperty})
-
-(def ^{:private true} SpatialThing
-  {:db/ident :geo/SpatialThing,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} term_status
-  {:db/ident :vs/term_status,
-   :rdf/type :owl/AnnotationProperty})

@@ -16,8 +16,7 @@
                        "xsd"   "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "ogc",
-   :rdfa/uri "http://ogp.me/ns/class#"}
-  (:refer-clojure :exclude [type]))
+   :rdfa/uri "http://ogp.me/ns/class#"})
 
 (def boolean_str
   "A string representation of a true or false value. The lexical space contains: \"true\", \"false\", \"1\", and \"0\"."
@@ -28,7 +27,7 @@
     "A string representation of a true or false value.  The lexical space contains: \"true\", \"false\", \"1\", and \"0\".@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label #voc/lstr "boolean string@en-US",
-   :rdfs/subClassOf [:xsd/string :ogc/boolean_str]})
+   :rdfs/subClassOf :xsd/string})
 
 (def date_time_str
   "A string representation of a temporal value composed of a date (year, month, day) and an optional time component (hours, minutes). The lexical space is defined by ISO 8601."
@@ -39,7 +38,7 @@
     "A string representation of a temporal value composed of a date (year, month, day) and an optional time component (hours, minutes).  The lexical space is defined by ISO 8601.@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label #voc/lstr "date/time string@en-US",
-   :rdfs/subClassOf [:xsd/string :ogc/date_time_str]})
+   :rdfs/subClassOf :xsd/string})
 
 (def determiner_str
   "The lexical space: \"\", \"the\", \"a\", \"an\", and \"auto\"."
@@ -55,7 +54,7 @@
     "The lexical space: \"\", \"the\", \"a\", \"an\", and \"auto\".@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label #voc/lstr "determiner@en-US",
-   :rdfs/subClassOf [:xsd/string :ogc/determiner_str]})
+   :rdfs/subClassOf :xsd/string})
 
 (def float_str
   "A string representation of a 64-bit signed floating point number. Example lexical values include \"1.234\", \"-1.234\", \"1.2e3\", \"-1.2e3\", and \"7E-10\"."
@@ -66,7 +65,7 @@
     "A string representation of a 64-bit signed floating point number.  Example lexical values include \"1.234\", \"-1.234\", \"1.2e3\", \"-1.2e3\", and \"7E-10\".@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label #voc/lstr "float string@en-US",
-   :rdfs/subClassOf [:xsd/string :ogc/float_str]})
+   :rdfs/subClassOf :xsd/string})
 
 (def integer_str
   "A string representation of a 32-bit signed integer. Example lexical values include \"1234\" and \"-123\"."
@@ -77,7 +76,7 @@
     "A string representation of a 32-bit signed integer.  Example lexical values include \"1234\" and \"-123\".@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label #voc/lstr "integer string@en-US",
-   :rdfs/subClassOf [:xsd/string :ogc/integer_str]})
+   :rdfs/subClassOf :xsd/string})
 
 (def mime_type_str
   "Valid mime type strings (e.g., \"application/mp3\")."
@@ -87,7 +86,7 @@
                   "Valid mime type strings (e.g., \"application/mp3\").@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label #voc/lstr "mime type string@en-US",
-   :rdfs/subClassOf [:xsd/string :ogc/mime_type_str]})
+   :rdfs/subClassOf :xsd/string})
 
 (def string
   "A string of Unicode characters."
@@ -96,7 +95,7 @@
    :rdfs/comment     #voc/lstr "A string of Unicode characters.@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label       #voc/lstr "Unicode string@en-US",
-   :rdfs/subClassOf  [:xsd/string :ogc/string]})
+   :rdfs/subClassOf  :xsd/string})
 
 (def url
   "A string of Unicode characters forming a valid URL having the http or https scheme."
@@ -107,397 +106,4 @@
     "A string of Unicode characters forming a valid URL having the http or https scheme.@en-US",
    :rdfs/isDefinedBy "http://ogp.me/ns/class#",
    :rdfs/label #voc/lstr "URL@en-US",
-   :rdfs/subClassOf [:ogc/string :ogc/url :xsd/string]})
-
-;; (def ^{:private true} audio
-;;   "A relevant audio URL for your object."
-;;   {:db/ident           :og/audio,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "A relevant audio URL for your object.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "audio@en-US",
-;;    :rdfs/range         :ogc/url,
-;;    :rdfs/subPropertyOf :og/audio})
-
-;; (def ^{:private true} audio:album
-;;   "[DEPRECATED] An album to which some audio belongs."
-;;   {:db/ident :og/audio:album,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment #voc/lstr
-;;                   "[DEPRECATED] An album to which some audio belongs.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "audio album@en-US",
-;;    :rdfs/subPropertyOf :og/audio:album})
-
-;; (def ^{:private true} audio:artist
-;;   "[DEPRECATED] An artist of some audio."
-;;   {:db/ident           :og/audio:artist,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "[DEPRECATED] An artist of some audio.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "audio artist@en-US",
-;;    :rdfs/subPropertyOf :og/audio:artist})
-
-;; (def ^{:private true} audio:secure_url
-;;   "A relevant, secure audio URL for your object."
-;;   {:db/ident           :og/audio:secure_url,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr
-;;                         "A relevant, secure audio URL for your object.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "audio secure URL@en-US",
-;;    :rdfs/range         :ogc/url,
-;;    :rdfs/subPropertyOf :og/audio:secure_url})
-
-;; (def ^{:private true} audio:title
-;;   "[DEPRECATED] A title for some audio."
-;;   {:db/ident           :og/audio:title,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "[DEPRECATED] A title for some audio.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "audio title@en-US",
-;;    :rdfs/subPropertyOf :og/audio:title})
-
-;; (def ^{:private true} audio:type
-;;   "The mime type of an audio file e.g., \"application/mp3\""
-;;   {:db/ident :og/audio:type,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr "The mime type of an audio file e.g., \"application/mp3\"@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "audio type@en-US",
-;;    :rdfs/range :ogc/mime_type_str,
-;;    :rdfs/subPropertyOf :og/audio:type})
-
-;; (def ^{:private true} country-name
-;;   "[DEPRECATED] The country name of the resource e.g., \"USA\""
-;;   {:db/ident :og/country-name,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "[DEPRECATED] The country name of the resource e.g., \"USA\"@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "country name@en-US",
-;;    :rdfs/seeAlso ["http://www.w3.org/2006/vcard/ns#country-name"],
-;;    :rdfs/subPropertyOf :og/country-name})
-
-;; (def ^{:private true} description
-;;   "A one to two sentence description of your object."
-;;   {:db/ident :og/description,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment #voc/lstr
-;;                   "A one to two sentence description of your object.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "description@en-US",
-;;    :rdfs/range :ogc/string,
-;;    :rdfs/subPropertyOf [:rdfs/comment :og/description]})
-
-;; (def ^{:private true} determiner
-;;   "The word to precede the object's title in a sentence (e.g., \"the\" in \"the statue of liberty\"). Valid values are \"a\", \"an\", \"the\", \"\", and \"auto\"."
-;;   {:db/ident :og/determiner,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "The word to precede the object's title in a sentence (e.g., \"the\" in \"the statue of liberty\").  Valid values are \"a\", \"an\", \"the\", \"\", and \"auto\".@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "determiner@en-US",
-;;    :rdfs/range :ogc/determiner_str,
-;;    :rdfs/subPropertyOf :og/determiner})
-
-;; (def ^{:private true} email
-;;   "[DEPRECATED] Email of the contact for your object."
-;;   {:db/ident :og/email,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment #voc/lstr
-;;                   "[DEPRECATED] Email of the contact for your object.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "email@en-US",
-;;    :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/mbox"],
-;;    :rdfs/subPropertyOf :og/email})
-
-;; (def ^{:private true} fax_number
-;;   "[DEPRECATED] Fax number of the contact for your object."
-;;   {:db/ident :og/fax_number,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr "[DEPRECATED] Fax number of the contact for your object.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "fax number@en-US",
-;;    :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/phone"],
-;;    :rdfs/subPropertyOf :og/fax_number})
-
-;; (def ^{:private true} image
-;;   "An image URL which should represent your object within the graph."
-;;   {:db/ident :og/image,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "An image URL which should represent your object within the graph.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "image@en-US",
-;;    :rdfs/range :ogc/url,
-;;    :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/depiction"],
-;;    :rdfs/subPropertyOf :og/image})
-
-;; (def ^{:private true} image:height
-;;   "The height of an image."
-;;   {:db/ident           :og/image:height,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "The height of an image.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "image height@en-US",
-;;    :rdfs/range         :ogc/integer_str,
-;;    :rdfs/subPropertyOf :og/image:height})
-
-;; (def ^{:private true} image:secure_url
-;;   "A secure image URL which should represent your object within the graph."
-;;   {:db/ident :og/image:secure_url,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "A secure image URL which should represent your object within the graph.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "image secure url@en-US",
-;;    :rdfs/range :ogc/url,
-;;    :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/depiction"],
-;;    :rdfs/subPropertyOf :og/image:secure_url})
-
-;; (def ^{:private true} image:type
-;;   "The mime type of an image."
-;;   {:db/ident           :og/image:type,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "The mime type of an image.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "image type@en-US",
-;;    :rdfs/range         :ogc/mime_type_str,
-;;    :rdfs/subPropertyOf :og/image:type})
-
-;; (def ^{:private true} image:width
-;;   "The width of an image."
-;;   {:db/ident           :og/image:width,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "The width of an image.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "image width@en-US",
-;;    :rdfs/range         :ogc/integer_str,
-;;    :rdfs/subPropertyOf :og/image:width})
-
-;; (def ^{:private true} isbn
-;;   "[DEPRECATED] International Standard Book Number for you object."
-;;   {:db/ident :og/isbn,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "[DEPRECATED] International Standard Book Number for you object.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label [#voc/lstr "International Standard Book Number@en-US"
-;;                 #voc/lstr "isbn@en-US"],
-;;    :rdfs/seeAlso ["http://purl.org/ontology/bibo/isbn"],
-;;    :rdfs/subPropertyOf :og/isbn})
-
-;; (def ^{:private true} latitude
-;;   "[DEPRECATED] The latitude of the resource e.g., the latitude of a company."
-;;   {:db/ident :og/latitude,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "[DEPRECATED] The latitude of the resource e.g., the latitude of a company.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "latitude@en-US",
-;;    :rdfs/seeAlso ["http://www.w3.org/2003/01/geo/wgs84_pos#lat"],
-;;    :rdfs/subPropertyOf :og/latitude})
-
-;; (def ^{:private true} locale
-;;   "A Unix locale in which this markup is rendered."
-;;   {:db/ident           :og/locale,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr
-;;                         "A Unix locale in which this markup is rendered.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "locale@en-US",
-;;    :rdfs/range         :ogc/string,
-;;    :rdfs/subPropertyOf :og/locale})
-
-;; (def ^{:private true} locality
-;;   "[DEPRECATED] The locality of the resource e.g, \"Palo Alto\""
-;;   {:db/ident :og/locality,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "[DEPRECATED] The locality of the resource e.g, \"Palo Alto\"@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "locality@en-US",
-;;    :rdfs/seeAlso ["http://www.w3.org/2006/vcard/ns#locality"],
-;;    :rdfs/subPropertyOf :og/locality})
-
-;; (def ^{:private true} longitude
-;;   "[DEPRECATED] The longitude of the resource e.g., the longitude of a company."
-;;   {:db/ident :og/longitude,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "[DEPRECATED] The longitude of the resource e.g., the longitude of a company.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "longitude@en-US",
-;;    :rdfs/seeAlso ["http://www.w3.org/2003/01/geo/wgs84_pos#long"],
-;;    :rdfs/subPropertyOf :og/longitude})
-
-;; (def ^{:private true} phone_number
-;;   "[DEPRECATED] Phone number of the contact for your object."
-;;   {:db/ident :og/phone_number,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr "[DEPRECATED] Phone number of the contact for your object.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "phone number@en-US",
-;;    :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/phone"],
-;;    :rdfs/subPropertyOf :og/phone_number})
-
-;; (def ^{:private true} postal-code
-;;   "[DEPRECATED] The postal code of the resource e.g., \"94304\""
-;;   {:db/ident :og/postal-code,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "[DEPRECATED] The postal code of the resource e.g., \"94304\"@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "postal code@en-US",
-;;    :rdfs/seeAlso ["http://www.w3.org/2006/vcard/ns#postal-code"],
-;;    :rdfs/subPropertyOf :og/postal-code})
-
-;; (def ^{:private true} region
-;;   "[DEPRECATED] The region of the resource e.g., \"CA\""
-;;   {:db/ident :og/region,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment #voc/lstr
-;;                   "[DEPRECATED] The region of the resource e.g., \"CA\"@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "region@en-US",
-;;    :rdfs/seeAlso ["http://www.w3.org/2006/vcard/ns#region"],
-;;    :rdfs/subPropertyOf :og/region})
-
-;; (def ^{:private true} site_name
-;;   "If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., \"IMDb\"."
-;;   {:db/ident :og/site_name,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., \"IMDb\".@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "site name@en-US",
-;;    :rdfs/range :ogc/string,
-;;    :rdfs/subPropertyOf :og/site_name})
-
-;; (def ^{:private true} street-address
-;;   "[DEPRECATED] The street address of the resource e.g., \"1601 S California Ave\"."
-;;   {:db/ident :og/street-address,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "[DEPRECATED] The street address of the resource e.g., \"1601 S California Ave\".@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "street address@en-US",
-;;    :rdfs/seeAlso ["http://www.w3.org/2006/vcard/ns#street-address"],
-;;    :rdfs/subPropertyOf :og/street-address})
-
-;; (def ^{:private true} title
-;;   "The title of the object as it should appear within the graph, e.g., \"The Rock\"."
-;;   {:db/ident :og/title,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "The title of the object as it should appear within the graph, e.g.,  \"The Rock\".@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "title@en-US",
-;;    :rdfs/range :ogc/string,
-;;    :rdfs/subPropertyOf [:rdfs/label :og/title]})
-
-;; (def ^{:private true} type
-;;   "The type of your object, e.g., \"movie\". Depending on the type you specify, other properties may also be required."
-;;   {:db/ident :og/type,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "The type of your object, e.g., \"movie\".  Depending on the type you specify, other properties may also be required.@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "type@en-US",
-;;    :rdfs/range :ogc/string,
-;;    :rdfs/seeAlso ["http://www.w3.org/1999/02/22-rdf-syntax-ns#type"],
-;;    :rdfs/subPropertyOf :og/type})
-
-;; (def ^{:private true} upc
-;;   "[DEPRECATED] Universal Product Code for your object."
-;;   {:db/ident :og/upc,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment #voc/lstr
-;;                   "[DEPRECATED] Universal Product Code for your object.@en-US",
-;;    :rdfs/label [#voc/lstr "universal product code@en-US" #voc/lstr "upc@en-US"],
-;;    :rdfs/seeAlso ["http://purl.org/goodrelations/v1#hasEAN_UCC-13"],
-;;    :rdfs/subPropertyOf :og/upc})
-
-;; (def ^{:private true} url
-;;   "The canonical URL of your object that will be used as its permanent ID in the graph, e.g., \"http://www.imdb.com/title/tt0117500/\"."
-;;   {:db/ident :og/url,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "The canonical URL of your object that will be used as its permanent ID in the graph, e.g., \"http://www.imdb.com/title/tt0117500/\".@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "url@en-US",
-;;    :rdfs/range :ogc/url,
-;;    :rdfs/seeAlso ["http://xmlns.com/foaf/0.1/homepage"
-;;                   "http://purl.org/dc/elements/1.1/identifier"],
-;;    :rdfs/subPropertyOf :og/url})
-
-;; (def ^{:private true} video
-;;   "A relevant video URL for your object."
-;;   {:db/ident           :og/video,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "A relevant video URL for your object.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "video@en-US",
-;;    :rdfs/range         :ogc/url,
-;;    :rdfs/subPropertyOf :og/video})
-
-;; (def ^{:private true} video:height
-;;   "The height of a video."
-;;   {:db/ident           :og/video:height,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "The height of a video.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "video height@en-US",
-;;    :rdfs/range         :ogc/integer_str,
-;;    :rdfs/subPropertyOf :og/video:height})
-
-;; (def ^{:private true} video:secure_url
-;;   "A relevant, secure video URL for your object."
-;;   {:db/ident           :og/video:secure_url,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr
-;;                         "A relevant, secure video URL for your object.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "video secure URL@en-US",
-;;    :rdfs/range         :ogc/url,
-;;    :rdfs/subPropertyOf :og/video:secure_url})
-
-;; (def ^{:private true} video:type
-;;   "The mime type of a video e.g., \"application/x-shockwave-flash\""
-;;   {:db/ident :og/video:type,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "The mime type of a video e.g., \"application/x-shockwave-flash\"@en-US",
-;;    :rdfs/isDefinedBy "http://ogp.me/ns#",
-;;    :rdfs/label #voc/lstr "video type@en-US",
-;;    :rdfs/range :ogc/mime_type_str,
-;;    :rdfs/subPropertyOf :og/video:type})
-
-;; (def ^{:private true} video:width
-;;   "The width of a video."
-;;   {:db/ident           :og/video:width,
-;;    :rdf/type           :rdf/Property,
-;;    :rdfs/comment       #voc/lstr "The width of a video.@en-US",
-;;    :rdfs/isDefinedBy   "http://ogp.me/ns#",
-;;    :rdfs/label         #voc/lstr "video width@en-US",
-;;    :rdfs/range         :ogc/integer_str,
-;;    :rdfs/subPropertyOf :og/video:width})
+   :rdfs/subClassOf [:ogc/string :xsd/string]})

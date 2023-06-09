@@ -28,7 +28,7 @@
    :rdfs/comment #voc/lstr "An aggregation of resources.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Collection@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Collection]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Dataset
   "Examples include lists, tables, and databases. A dataset may be useful for direct machine processing."
@@ -42,7 +42,7 @@
    :rdfs/comment #voc/lstr "Data encoded in a defined structure.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Dataset@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Dataset]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Event
   "Metadata for an event provides descriptive information that is the basis for discovery of the purpose, location, duration, and responsible agents associated with an event. Examples include an exhibition, webcast, conference, workshop, open day, performance, battle, trial, wedding, tea party, conflagration."
@@ -56,7 +56,7 @@
    :rdfs/comment #voc/lstr "A non-persistent, time-based occurrence.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Event@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Event]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Image
   "Examples include images and photographs of physical objects, paintings, prints, drawings, other images and graphics, animations and moving pictures, film, diagrams, maps, musical notation. Note that Image may include both electronic and physical representations."
@@ -70,7 +70,7 @@
    :rdfs/comment #voc/lstr "A visual representation other than text.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Image@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def InteractiveResource
   "Examples include forms on Web pages, applets, multimedia learning objects, chat services, or virtual reality environments."
@@ -86,7 +86,7 @@
     "A resource requiring interaction from the user to be understood, executed, or experienced.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Interactive Resource@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/InteractiveResource]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def MovingImage
   "Examples include animations, movies, television programs, videos, zoetropes, or visual output from a simulation. Instances of the type Moving Image must also be describable as instances of the broader type Image."
@@ -102,7 +102,7 @@
     "A series of visual representations imparting an impression of motion when shown in succession.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Moving Image@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image :dcmitype/MovingImage]})
+   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image]})
 
 (def PhysicalObject
   "Note that digital representations of, or surrogates for, these objects should use Image, Text or one of the other types."
@@ -117,7 +117,7 @@
                   "An inanimate, three-dimensional object or substance.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Physical Object@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/PhysicalObject]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Service
   "Examples include a photocopying service, a banking service, an authentication service, interlibrary loans, a Z39.50 or Web server."
@@ -131,7 +131,7 @@
    :rdfs/comment #voc/lstr "A system that provides one or more functions.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Service@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Service]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Software
   "Examples include a C source file, MS-Windows .exe executable, or Perl script."
@@ -145,7 +145,7 @@
    :rdfs/comment #voc/lstr "A computer program in source or compiled form.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Software@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Software]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Sound
   "Examples include a music playback file format, an audio compact disc, and recorded speech or sounds."
@@ -159,7 +159,7 @@
    :rdfs/comment #voc/lstr "A resource primarily intended to be heard.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Sound@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Sound]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def StillImage
   "Examples include paintings, drawings, graphic designs, plans and maps. Recommended best practice is to assign the type Text to images of textual materials. Instances of the type Still Image must also be describable as instances of the broader type Image."
@@ -173,7 +173,7 @@
    :rdfs/comment #voc/lstr "A static visual representation.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Still Image@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image :dcmitype/StillImage]})
+   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Image]})
 
 (def Text
   "Examples include books, letters, dissertations, poems, newspapers, articles, archives of mailing lists. Note that facsimiles or images of texts are still of the genre Text."
@@ -188,4 +188,4 @@
                   "A resource consisting primarily of words for reading.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/dcmitype/",
    :rdfs/label #voc/lstr "Text@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcmitype/Text]})
+   :rdfs/subClassOf :rdfs/Resource})

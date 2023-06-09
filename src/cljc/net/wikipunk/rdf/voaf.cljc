@@ -1,19 +1,19 @@
 (ns net.wikipunk.rdf.voaf
   "http://purl.org/vocommons/voaf"
   {:cc/license "http://creativecommons.org/licenses/by/3.0/",
-   :dc11/contributor
+   :dcterms/contributor
    ["http://data.semanticweb.org/person/lise-rozat"
     "http://data.semanticweb.org/person/pierre-yves-vandenbussche"],
-   :dc11/creator "http://data.semanticweb.org/person/bernard-vatant",
-   :dc11/description
+   :dcterms/creator "http://data.semanticweb.org/person/bernard-vatant",
+   :dcterms/description
    [#voc/lstr
      "A vocabulary to describe linked data vocabularies and their relations.@en"
     #voc/lstr
      "Un vocabulaire de description des vocabulaires RDF et de leurs relations mutuelles@fr"],
-   :dc11/issued #inst "2011-03-11T00:00:00.000-05:00",
-   :dc11/modified #inst "2013-05-24T00:00:00.000-04:00",
-   :dc11/publisher :dbr/Open_Knowledge_Foundation,
-   :dc11/title [#voc/lstr "Vocabulary of a Friend@en"
+   :dcterms/issued #inst "2011-03-11T00:00:00.000-05:00",
+   :dcterms/modified #inst "2013-05-24T00:00:00.000-04:00",
+   :dcterms/publisher :dbr/Open_Knowledge_Foundation,
+   :dcterms/title [#voc/lstr "Vocabulary of a Friend@en"
                 #voc/lstr "Vocabulaire d'un ami@fr"],
    :dcat/downloadURL
    "https://lov.linkeddata.es/vocommons/voaf/v2.3/voaf_v2.3.rdf",
@@ -24,7 +24,7 @@
                       "http://purl.org/vocommons/voaf/v1.1"
                       "http://purl.org/vocommons/voaf/v2.3"],
    :rdf/ns-prefix-map {"cc" "http://creativecommons.org/ns#",
-                       "dc11" "http://purl.org/dc/terms/",
+                       "dcterms" "http://purl.org/dc/terms/",
                        "foaf" "http://xmlns.com/foaf/0.1/",
                        "frbr" "http://purl.org/vocab/frbr/core#",
                        "owl" "http://www.w3.org/2002/07/owl#",
@@ -73,7 +73,7 @@
      "Un vocabulaire utilisé ou utilisable dans le Web des données. Une instance de voaf:Vocabulary s'appuie at/ou est utilisée par au moins une autre instance of voaf:Vocabulary@fr"],
    :rdfs/isDefinedBy "http://purl.org/vocommons/voaf",
    :rdfs/label [#voc/lstr "Vocabulaire@fr" #voc/lstr "Vocabulary@en"],
-   :rdfs/subClassOf [:frbr/Work :void/Dataset :voaf/Vocabulary],
+   :rdfs/subClassOf [:frbr/Work :void/Dataset],
    :vs/term_status "stable"})
 
 (def VocabularySpace
@@ -93,7 +93,7 @@
 (def classNumber
   "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://www.w3.org/2002/07/owl#> PREFIX voaf:<http://purl.org/vocommons/voaf#> CONSTRUCT{ ?vocab voaf:classNumber ?nbClass } WHERE{ SELECT (COUNT(distinct ?class) AS ?nbClass) ?vocab WHERE{ {?class a rdfs:Class.} UNION{?class a owl:Class.} ?class a ?type. FILTER(?type!=owl:DeprecatedClass) ?class rdfs:isDefinedBy ?vocab. ?vocab a voaf:Vocabulary. }GROUP BY ?vocab }"
   {:db/ident :voaf/classNumber,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX owl:<http://www.w3.org/2002/07/owl#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\t\t\n\t\tCONSTRUCT{\n\t\t?vocab voaf:classNumber ?nbClass\n\t\t}\n\t\tWHERE{\n\t\t\tSELECT (COUNT(distinct ?class) AS ?nbClass) ?vocab\n\t\t\tWHERE{\n\t\t\t\t{?class a rdfs:Class.}\n\t\t\t\tUNION{?class a owl:Class.}\n\t\t\t\t?class a ?type.\n\t\t\t\tFILTER(?type!=owl:DeprecatedClass)\n\t\t\t\t?class rdfs:isDefinedBy ?vocab.\n\t\t\t\t?vocab a voaf:Vocabulary.\n\t\t\t}GROUP BY ?vocab\n\t\t}\n\t",
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -111,7 +111,7 @@
 (def dataset
   "Deprecated since v2.4"
   {:db/ident          :voaf/dataset,
-   :dc11/isReplacedBy :voaf/DatasetOccurrences,
+   :dcterms/isReplacedBy :voaf/DatasetOccurrences,
    :owl/inverseOf     :void/vocabulary,
    :rdf/type          :owl/ObjectProperty,
    :rdfs/comment      [#voc/lstr "Déprécié depuis la v2.4@fr"
@@ -125,7 +125,7 @@
 (def exampleDataset
   "Deprecated since v1.1"
   {:db/ident          :voaf/exampleDataset,
-   :dc11/isReplacedBy :voaf/dataset,
+   :dcterms/isReplacedBy :voaf/dataset,
    :rdf/type          :owl/ObjectProperty,
    :rdfs/comment      [#voc/lstr "Déprécié depuis la v1.1@fr"
                        #voc/lstr "Deprecated since v1.1@en"],
@@ -137,7 +137,7 @@
 (def extends
   "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://www.w3.org/2002/07/owl#> PREFIX voaf:<http://purl.org/vocommons/voaf#> CONSTRUCT{ ?vocab1 voaf:extends ?vocab2 } WHERE{ {?elem1 owl:inverseOf ?elem2. FILTER(!isBlank(?elem2))} UNION{?elem1 rdfs:domain ?elem2. FILTER(!isBlank(?elem2))} UNION{?elem1 rdfs:range ?elem2. FILTER(!isBlank(?elem2))} UNION{?elem2 rdfs:domain ?elem1. FILTER(!isBlank(?elem1))} UNION{?elem2 rdfs:range ?elem1. FILTER(!isBlank(?elem1))} ?elem1 rdfs:isDefinedBy ?vocab1. ?vocab1 a voaf:Vocabulary. ?elem2 rdfs:isDefinedBy ?vocab2. ?vocab2 a voaf:Vocabulary. FILTER(?vocab1!=?vocab2) }"
   {:db/ident :voaf/extends,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX owl:<http://www.w3.org/2002/07/owl#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\n\t\tCONSTRUCT{\n\t\t\t?vocab1 voaf:extends ?vocab2\n\t\t}\n\t\tWHERE{\n\t\t\t{?elem1 owl:inverseOf ?elem2. FILTER(!isBlank(?elem2))}\n\t\t\tUNION{?elem1 rdfs:domain ?elem2. FILTER(!isBlank(?elem2))}\n\t\t\tUNION{?elem1 rdfs:range ?elem2. FILTER(!isBlank(?elem2))}\n\t\t\tUNION{?elem2 rdfs:domain ?elem1. FILTER(!isBlank(?elem1))}\n\t\t\tUNION{?elem2 rdfs:range ?elem1. FILTER(!isBlank(?elem1))}\n\t\t\t?elem1 rdfs:isDefinedBy ?vocab1.\n\t\t\t?vocab1 a voaf:Vocabulary.\n\t\t\t?elem2 rdfs:isDefinedBy ?vocab2.\n\t\t\t?vocab2 a voaf:Vocabulary.\n\t\t\tFILTER(?vocab1!=?vocab2)\n\t\t}\n\t",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -149,14 +149,13 @@
    :rdfs/isDefinedBy "http://purl.org/vocommons/voaf",
    :rdfs/label [#voc/lstr "étend@fr" #voc/lstr "extends@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/extends :void/vocabulary],
+   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
    :vs/term_status "stable"})
 
 (def generalizes
   "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://www.w3.org/2002/07/owl#> PREFIX voaf:<http://purl.org/vocommons/voaf#> PREFIX skos:<http://www.w3.org/2004/02/skos/core#> CONSTRUCT{ ?vocab1 voaf:generalizes ?vocab2 } WHERE{ {?elem1 skos:narrowMatch ?elem2. FILTER(!isBlank(?elem2))} UNION{?elem2 rdfs:subPropertyOf ?elem1.} UNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:first ?elem2.} UNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:first ?elem2.} UNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:rest ?union3. ?union3 rdf:first ?elem2.} UNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:rest ?union3. ?union3 rdf:rest ?union4. ?union4 rdf:first ?elem2.} UNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:rest ?union3. ?union3 rdf:rest ?union4. ?union4 rdf:rest ?union5. ?union5 rdf:first ?elem2.} FILTER(!isBlank(?elem2)) ?elem1 rdfs:isDefinedBy ?vocab1. ?vocab1 a voaf:Vocabulary. ?elem2 rdfs:isDefinedBy ?vocab2. ?vocab2 a voaf:Vocabulary. FILTER(?vocab1!=?vocab2) }"
   {:db/ident :voaf/generalizes,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX owl:<http://www.w3.org/2002/07/owl#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\t\tPREFIX skos:<http://www.w3.org/2004/02/skos/core#>\n\t\t\n\t\tCONSTRUCT{\n\t\t\t?vocab1 voaf:generalizes ?vocab2\n\t\t}\n\t\tWHERE{\n\t\t\t{?elem1 skos:narrowMatch ?elem2. FILTER(!isBlank(?elem2))}\n\t\t\tUNION{?elem2 rdfs:subPropertyOf ?elem1.}\n\t\t\tUNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:first ?elem2.}\n\t\t\tUNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:first ?elem2.}\n\t\t\tUNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:rest ?union3. ?union3 rdf:first ?elem2.}\n\t\t\tUNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:rest ?union3. ?union3 rdf:rest ?union4. ?union4 rdf:first ?elem2.}\n\t\t\tUNION{?elem1 a owl:Class. ?elem1 owl:unionOf ?union. ?union rdf:rest ?union2. ?union2 rdf:rest ?union3. ?union3 rdf:rest ?union4. ?union4 rdf:rest ?union5. ?union5 rdf:first ?elem2.}\n\t\t\tFILTER(!isBlank(?elem2))\n\t\t\t?elem1 rdfs:isDefinedBy ?vocab1.\n\t\t\t?vocab1 a voaf:Vocabulary.\n\t\t\t?elem2 rdfs:isDefinedBy ?vocab2.\n\t\t\t?vocab2 a voaf:Vocabulary.\n\t\t\tFILTER(?vocab1!=?vocab2)\n\t\t}\n\t",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -168,14 +167,13 @@
    :rdfs/isDefinedBy "http://purl.org/vocommons/voaf",
    :rdfs/label [#voc/lstr "généralise@fr" #voc/lstr "generalizes@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/generalizes  :void/vocabulary],
+   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
    :vs/term_status "stable"})
 
 (def hasDisjunctionsWith
   "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://www.w3.org/2002/07/owl#> PREFIX voaf:<http://purl.org/vocommons/voaf#> CONSTRUCT{ ?vocab1 voaf:hasDisjunctionsWith ?vocab2 } WHERE{ ?elem1 owl:disjointWith ?elem2. FILTER(!isBlank(?elem2)) ?elem1 rdfs:isDefinedBy ?vocab1. ?vocab1 a voaf:Vocabulary. ?elem2 rdfs:isDefinedBy ?vocab2. ?vocab2 a voaf:Vocabulary. FILTER(?vocab1!=?vocab2) }"
   {:db/ident :voaf/hasDisjunctionsWith,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX owl:<http://www.w3.org/2002/07/owl#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\t\t\n\t\tCONSTRUCT{\n\t\t\t?vocab1 voaf:hasDisjunctionsWith ?vocab2\n\t\t}\n\t\tWHERE{\n\t\t\t?elem1 owl:disjointWith ?elem2. FILTER(!isBlank(?elem2))\n\t\t\t?elem1 rdfs:isDefinedBy ?vocab1.\n\t\t\t?vocab1 a voaf:Vocabulary.\n\t\t\t?elem2 rdfs:isDefinedBy ?vocab2.\n\t\t\t?vocab2 a voaf:Vocabulary.\n\t\t\tFILTER(?vocab1!=?vocab2)\n\t\t}\n\t",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -188,14 +186,13 @@
    :rdfs/label [#voc/lstr "a des disjonctions avec@fr"
                 #voc/lstr "has disjunctions with@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/hasDisjunctionsWith  :void/vocabulary],
+   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
    :vs/term_status "testing"})
 
 (def hasEquivalencesWith
   "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://www.w3.org/2002/07/owl#> PREFIX voaf:<http://purl.org/vocommons/voaf#> PREFIX skos:<http://www.w3.org/2004/02/skos/core#> CONSTRUCT{ ?vocab1 voaf:hasEquivalencesWith ?vocab2 } WHERE{ {?elem1 owl:equivalentProperty ?elem2.} UNION{?elem1 owl:sameAs ?elem2.} UNION{?elem1 owl:equivalentClass ?elem2.} UNION{?elem2 owl:equivalentProperty ?elem1.} UNION{?elem2 owl:equivalentClass ?elem1.} UNION{?elem1 skos:exactMatch ?elem2.} UNION{?elem2 skos:exactMatch ?elem1.} FILTER(!isBlank(?elem2)) ?elem1 rdfs:isDefinedBy ?vocab1. ?vocab1 a voaf:Vocabulary. ?elem2 rdfs:isDefinedBy ?vocab2. ?vocab2 a voaf:Vocabulary. FILTER(?vocab1!=?vocab2) }"
   {:db/ident :voaf/hasEquivalencesWith,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX owl:<http://www.w3.org/2002/07/owl#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\t\tPREFIX skos:<http://www.w3.org/2004/02/skos/core#>\n\t\t\n\t\tCONSTRUCT{\n\t\t\t?vocab1 voaf:hasEquivalencesWith ?vocab2\n\t\t}\n\t\tWHERE{\n\t\t\t{?elem1 owl:equivalentProperty ?elem2.}\n\t\t\tUNION{?elem1 owl:sameAs ?elem2.}\n\t\t\tUNION{?elem1 owl:equivalentClass ?elem2.}\n\t\t\tUNION{?elem2 owl:equivalentProperty ?elem1.}\n\t\t\tUNION{?elem2 owl:equivalentClass ?elem1.}\n\t\t\tUNION{?elem1 skos:exactMatch ?elem2.}\n\t\t\tUNION{?elem2 skos:exactMatch ?elem1.}\n\t\t\tFILTER(!isBlank(?elem2))\n\t\t\t?elem1 rdfs:isDefinedBy ?vocab1.\n\t\t\t?vocab1 a voaf:Vocabulary.\n\t\t\t?elem2 rdfs:isDefinedBy ?vocab2.\n\t\t\t?vocab2 a voaf:Vocabulary.\n\t\t\tFILTER(?vocab1!=?vocab2)\n\t\t}\n\t",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -208,8 +205,7 @@
    :rdfs/label [#voc/lstr "a des équivalences avec@fr"
                 #voc/lstr "has equivalences with@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/hasEquivalencesWith  :void/vocabulary],
+   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
    :vs/term_status "testing"})
 
 (def inDataset
@@ -229,7 +225,7 @@
 (def metadataVoc
   "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://www.w3.org/2002/07/owl#> PREFIX voaf:<http://purl.org/vocommons/voaf#> CONSTRUCT{ ?vocab1 voaf:metadataVoc ?vocab2 } WHERE{ ?elem1 ?elem2 ?o. ?elem1 rdfs:isDefinedBy ?vocab1. ?vocab1 a voaf:Vocabulary. ?elem2 rdfs:isDefinedBy ?vocab2. ?vocab2 a voaf:Vocabulary. FILTER(?vocab1!=?vocab2) }"
   {:db/ident :voaf/metadataVoc,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX owl:<http://www.w3.org/2002/07/owl#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\n\t\tCONSTRUCT{\n\t\t\t?vocab1 voaf:metadataVoc ?vocab2\n\t\t}\n\t\tWHERE{\n\t\t\t?elem1 ?elem2 ?o.\n\t\t\t?elem1 rdfs:isDefinedBy ?vocab1.\n\t\t\t?vocab1 a voaf:Vocabulary.\n\t\t\t?elem2 rdfs:isDefinedBy ?vocab2.\n\t\t\t?vocab2 a voaf:Vocabulary.\n\t\t\tFILTER(?vocab1!=?vocab2)\n\t\t}\n\t",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -242,8 +238,7 @@
    :rdfs/label [#voc/lstr "vocabulaire de métadonnées@fr"
                 #voc/lstr "metadata vocabulary@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/metadataVoc  :void/vocabulary],
+   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
    :vs/term_status "stable"})
 
 (def occurrences
@@ -288,7 +283,7 @@
 (def propertyNumber
   "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://www.w3.org/2002/07/owl#> PREFIX voaf:<http://purl.org/vocommons/voaf#> CONSTRUCT{ ?vocab voaf:propertyNumber ?nbProp } WHERE{ SELECT (COUNT(distinct ?prop) AS ?nbProp) ?vocab WHERE{ {?prop a rdf:Property.} UNION{?prop a owl:ObjectProperty.} UNION{?prop a owl:DatatypeProperty.} UNION{?prop a owl:AnnotationProperty.} UNION{?prop a owl:FunctionalProperty.} UNION{?prop a owl:OntologyProperty.} UNION{?prop a owl:AsymmetricProperty.} UNION{?prop a owl:InverseFunctionalProperty.} UNION{?prop a owl:IrreflexiveProperty.} UNION{?prop a owl:ReflexiveProperty.} UNION{?prop a owl:SymmetricProperty.} UNION{?prop a owl:TransitiveProperty.} ?prop a ?type. FILTER(?type!=owl:DeprecatedProperty) ?prop rdfs:isDefinedBy ?vocab. ?vocab a voaf:Vocabulary. }GROUP BY ?vocab }"
   {:db/ident :voaf/propertyNumber,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX owl:<http://www.w3.org/2002/07/owl#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\t\t\n\t\tCONSTRUCT{\n\t\t?vocab voaf:propertyNumber ?nbProp\n\t\t}\n\t\tWHERE{\n\t\t\tSELECT (COUNT(distinct ?prop) AS ?nbProp) ?vocab\n\t\t\tWHERE{\n\t\t\t\t{?prop a rdf:Property.}\n\t\t\t\tUNION{?prop a owl:ObjectProperty.}\n\t\t\t\tUNION{?prop a owl:DatatypeProperty.}\n\t\t\t\tUNION{?prop a owl:AnnotationProperty.}\n\t\t\t\tUNION{?prop a owl:FunctionalProperty.}\n\t\t\t\tUNION{?prop a owl:OntologyProperty.}\n\t\t\t\tUNION{?prop a owl:AsymmetricProperty.}\n\t\t\t\tUNION{?prop a owl:InverseFunctionalProperty.}\n\t\t\t\tUNION{?prop a owl:IrreflexiveProperty.}\n\t\t\t\tUNION{?prop a owl:ReflexiveProperty.}\n\t\t\t\tUNION{?prop a owl:SymmetricProperty.}\n\t\t\t\tUNION{?prop a owl:TransitiveProperty.}\n\t\t\t\t?prop a ?type.\n\t\t\t\tFILTER(?type!=owl:DeprecatedProperty)\n\t\t\t\t?prop rdfs:isDefinedBy ?vocab.\n\t\t\t\t?vocab a voaf:Vocabulary.\n\t\t\t}GROUP BY ?vocab\n\t\t}\n\t",
    :rdf/type :owl/DatatypeProperty,
    :rdfs/comment
@@ -316,7 +311,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocommons/voaf",
    :rdfs/label [#voc/lstr "réutilise@fr" #voc/lstr "relies on@en"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf [:void/vocabulary  :voaf/reliesOn],
+   :rdfs/subPropertyOf [:void/vocabulary :dcterms/references],
    :vs/term_status "stable"})
 
 (def reusedByDatasets
@@ -363,7 +358,7 @@
 (def specializes
   "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX voaf:<http://purl.org/vocommons/voaf#> PREFIX skos:<http://www.w3.org/2004/02/skos/core#> CONSTRUCT{ ?vocab1 voaf:specializes ?vocab2 } WHERE{ {?elem1 rdfs:subPropertyOf ?elem2. FILTER(!isBlank(?elem2))} UNION{?elem1 rdfs:subClassOf ?elem2. FILTER(!isBlank(?elem2))} UNION{?elem1 skos:broadMatch ?elem2. FILTER(!isBlank(?elem2))} ?elem1 rdfs:isDefinedBy ?vocab1. ?vocab1 a voaf:Vocabulary. ?elem2 rdfs:isDefinedBy ?vocab2. ?vocab2 a voaf:Vocabulary. FILTER(?vocab1!=?vocab2) }"
   {:db/ident :voaf/specializes,
-   :dc11/description
+   :dcterms/description
    "\n\t\tPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\t\tPREFIX voaf:<http://purl.org/vocommons/voaf#>\n\t\tPREFIX skos:<http://www.w3.org/2004/02/skos/core#>\n\t\t\n\t\tCONSTRUCT{\n\t\t\t?vocab1 voaf:specializes ?vocab2\n\t\t}\n\t\tWHERE{\n\t\t\t{?elem1 rdfs:subPropertyOf ?elem2. FILTER(!isBlank(?elem2))}\n\t\t\tUNION{?elem1 rdfs:subClassOf ?elem2. FILTER(!isBlank(?elem2))}\n\t\t\tUNION{?elem1 skos:broadMatch ?elem2. FILTER(!isBlank(?elem2))}\n\t\t\t?elem1 rdfs:isDefinedBy ?vocab1.\n\t\t\t?vocab1 a voaf:Vocabulary.\n\t\t\t?elem2 rdfs:isDefinedBy ?vocab2.\n\t\t\t?vocab2 a voaf:Vocabulary.\n\t\t\tFILTER(?vocab1!=?vocab2)\n\t\t}\n\t",
    :rdf/type :owl/ObjectProperty,
    :rdfs/comment
@@ -375,8 +370,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocommons/voaf",
    :rdfs/label [#voc/lstr "specializes@en" #voc/lstr "spécialise@fr"],
    :rdfs/range :voaf/Vocabulary,
-   :rdfs/subPropertyOf
-   [:voaf/reliesOn :voaf/specializes  :void/vocabulary],
+   :rdfs/subPropertyOf [:voaf/reliesOn :void/vocabulary :dcterms/references],
    :vs/term_status "stable"})
 
 (def toDoList
@@ -423,22 +417,3 @@
    :rdfs/label [#voc/lstr "used by@en" #voc/lstr "utilisé par@fr"],
    :rdfs/range :voaf/Vocabulary,
    :vs/term_status "stable"})
-
-(def ^{:private true} Open_Knowledge_Foundation
-  {:db/ident :dbr/Open_Knowledge_Foundation,
-   :rdf/type :foaf/Organization})
-
-(def ^{:private true} Work
-  {:db/ident        :frbr/Work,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :frbr/Work})
-
-(def ^{:private true} Dataset
-  {:db/ident        :void/Dataset,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :void/Dataset})
-
-(def ^{:private true} vocabulary
-  {:db/ident :void/vocabulary,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :void/vocabulary})

@@ -22,7 +22,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Acquaintance@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Acquaintance]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Address
   "To specify the components of the delivery address for the object"
@@ -77,7 +77,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Agent@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Agent]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def BBS
   "This class is deprecated"
@@ -87,7 +87,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "BBS@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/BBS]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Car
   "This class is deprecated"
@@ -97,7 +97,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Car@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Car]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Cell
   "Also called mobile telephone"
@@ -106,7 +106,7 @@
    :rdfs/comment     #voc/lstr "Also called mobile telephone@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Cell@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Cell]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Child
   "Child"
@@ -114,7 +114,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Child@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Child]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Colleague
   "Colleague"
@@ -122,7 +122,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Colleague@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Colleague]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Contact
   "Contact"
@@ -130,7 +130,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Contact@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Contact]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Coresident
   "Coresident"
@@ -138,7 +138,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Coresident@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Coresident]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Coworker
   "Coworker"
@@ -146,7 +146,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Coworker@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Coworker]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Crush
   "Crush"
@@ -154,7 +154,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Crush@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Crush]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Date
   "Date"
@@ -162,7 +162,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Date@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Date]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Dom
   "This class is deprecated"
@@ -172,7 +172,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Dom@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/Dom]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def Email
   "To specify the electronic mail address for communication with the object the vCard represents. Use the hasEmail object property."
@@ -191,7 +191,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Emergency@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Emergency]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Fax
   "Fax"
@@ -199,7 +199,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Fax@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Fax]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Female
   "Female"
@@ -207,7 +207,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Female@en",
-   :rdfs/subClassOf  [:vcard/Gender :vcard/Female]})
+   :rdfs/subClassOf  :vcard/Gender})
 
 (def Friend
   "Friend"
@@ -215,7 +215,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Friend@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Friend]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Gender
   "Used for gender codes. The URI of the gender code must be used as the value for Gender."
@@ -225,8 +225,7 @@
    #voc/lstr
     "Used for gender codes. The URI of the gender code must be used as the value for Gender.@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
-   :rdfs/label #voc/lstr "Gender@en",
-   :rdfs/subClassOf :vcard/Gender})
+   :rdfs/label #voc/lstr "Gender@en"})
 
 (def Group
   "Object representing a group of persons or entities. A group object will usually contain hasMember properties to specify the members of the group."
@@ -246,7 +245,7 @@
     "Object representing a group of persons or entities.  A group object will usually contain hasMember properties to specify the members of the group.@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label #voc/lstr "Group@en",
-   :rdfs/subClassOf [:vcard/Kind :vcard/Group]})
+   :rdfs/subClassOf :vcard/Kind})
 
 (def Home
   "This implies that the property is related to an individual's personal life"
@@ -257,7 +256,7 @@
     "This implies that the property is related to an individual's personal life@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label #voc/lstr "Home@en",
-   :rdfs/subClassOf [:vcard/Type :vcard/Home]})
+   :rdfs/subClassOf :vcard/Type})
 
 (def ISDN
   "This class is deprecated"
@@ -267,7 +266,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "ISDN@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/ISDN]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def Individual
   "An object representing a single person or entity"
@@ -278,7 +277,7 @@
                       "An object representing a single person or entity@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Individual@en",
-   :rdfs/subClassOf  [:vcard/Kind :vcard/Individual]})
+   :rdfs/subClassOf  :vcard/Kind})
 
 (def Internet
   "This class is deprecated"
@@ -288,7 +287,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Internet@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/Internet]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def Intl
   "This class is deprecated"
@@ -298,7 +297,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Intl@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/Intl]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def Kin
   "Kin"
@@ -306,7 +305,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Kin@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Kin]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Kind
   "The parent class for all objects"
@@ -319,8 +318,7 @@
    :rdf/type            :owl/Class,
    :rdfs/comment        #voc/lstr "The parent class for all objects@en",
    :rdfs/isDefinedBy    "http://www.w3.org/2006/vcard/ns",
-   :rdfs/label          #voc/lstr "Kind@en",
-   :rdfs/subClassOf     :vcard/Kind})
+   :rdfs/label          #voc/lstr "Kind@en"})
 
 (def Label
   "This class is deprecated"
@@ -330,7 +328,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Label@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/Label]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def Location
   "An object representing a named geographical place"
@@ -341,7 +339,7 @@
                       "An object representing a named geographical place@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Location@en",
-   :rdfs/subClassOf  [:vcard/Kind :vcard/Location]})
+   :rdfs/subClassOf  :vcard/Kind})
 
 (def Male
   "Male"
@@ -349,7 +347,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Male@en",
-   :rdfs/subClassOf  [:vcard/Gender :vcard/Male]})
+   :rdfs/subClassOf  :vcard/Gender})
 
 (def Me
   "Me"
@@ -357,7 +355,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Me@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Me]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Met
   "Met"
@@ -365,7 +363,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Met@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Met]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Modem
   "This class is deprecated"
@@ -375,7 +373,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Modem@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Modem]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Msg
   "This class is deprecated"
@@ -385,7 +383,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Msg@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Msg]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Muse
   "Muse"
@@ -393,7 +391,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Muse@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Muse]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Name
   "To specify the components of the name of the object"
@@ -448,7 +446,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Neighbor@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Neighbor]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def None
   "None"
@@ -456,7 +454,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "None@en",
-   :rdfs/subClassOf  [:vcard/Gender :vcard/None]})
+   :rdfs/subClassOf  :vcard/Gender})
 
 (def Organization
   "An object representing an organization. An organization is a single entity, and might represent a business or government, a department or division within a business or government, a club, an association, or the like."
@@ -467,7 +465,7 @@
     "An object representing an organization.  An organization is a single entity, and might represent a business or government, a department or division within a business or government, a club, an association, or the like.\n@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label #voc/lstr "Organization@en",
-   :rdfs/subClassOf [:vcard/Kind :vcard/Organization]})
+   :rdfs/subClassOf :vcard/Kind})
 
 (def Other
   "Other"
@@ -475,7 +473,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Other@en",
-   :rdfs/subClassOf  [:vcard/Gender :vcard/Other]})
+   :rdfs/subClassOf  :vcard/Gender})
 
 (def PCS
   "This class is deprecated"
@@ -485,7 +483,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "PCS@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/PCS]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Pager
   "Pager"
@@ -493,7 +491,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Pager@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Pager]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Parcel
   "This class is deprecated"
@@ -503,7 +501,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Parcel@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/Parcel]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def Parent
   "Parent"
@@ -511,7 +509,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Parent@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Parent]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Postal
   "This class is deprecated"
@@ -521,7 +519,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Postal@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/Postal]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def Pref
   "This class is deprecated"
@@ -531,7 +529,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Pref@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/Pref]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def RelatedType
   "Used for relation type codes. The URI of the relation type code must be used as the value for the Relation Type."
@@ -541,8 +539,7 @@
    #voc/lstr
     "Used for relation type codes. The URI of the relation type code must be used as the value for the Relation Type.@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
-   :rdfs/label #voc/lstr "Relation Type@en",
-   :rdfs/subClassOf :vcard/RelatedType})
+   :rdfs/label #voc/lstr "Relation Type@en"})
 
 (def Sibling
   "Sibling"
@@ -550,7 +547,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Sibling@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Sibling]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Spouse
   "Spouse"
@@ -558,7 +555,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Spouse@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Spouse]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Sweetheart
   "Sweetheart"
@@ -566,7 +563,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Sweetheart@en",
-   :rdfs/subClassOf  [:vcard/RelatedType :vcard/Sweetheart]})
+   :rdfs/subClassOf  :vcard/RelatedType})
 
 (def Tel
   "This class is deprecated. Use the hasTelephone object property."
@@ -587,8 +584,7 @@
    #voc/lstr
     "Used for telephone type codes. The URI of the telephone type code must be used as the value for the Telephone Type.@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
-   :rdfs/label #voc/lstr "Phone@en",
-   :rdfs/subClassOf :vcard/TelephoneType})
+   :rdfs/label #voc/lstr "Phone@en"})
 
 (def Text
   "Also called sms telephone"
@@ -597,7 +593,7 @@
    :rdfs/comment     #voc/lstr "Also called sms telephone@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Text@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Text]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def TextPhone
   "Text phone"
@@ -605,7 +601,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Text phone@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/TextPhone]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Type
   "Used for type codes. The URI of the type code must be used as the value for Type."
@@ -615,8 +611,7 @@
    #voc/lstr
     "Used for type codes. The URI of the type code must be used as the value for Type.@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
-   :rdfs/label #voc/lstr "Type@en",
-   :rdfs/subClassOf :vcard/Type})
+   :rdfs/label #voc/lstr "Type@en"})
 
 (def Unknown
   "Unknown"
@@ -624,7 +619,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Unknown@en",
-   :rdfs/subClassOf  [:vcard/Gender :vcard/Unknown]})
+   :rdfs/subClassOf  :vcard/Gender})
 
 (def VCard
   "The vCard class is equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)"
@@ -643,7 +638,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Video@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Video]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Voice
   "Voice"
@@ -651,7 +646,7 @@
    :rdf/type         :owl/Class,
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "Voice@en",
-   :rdfs/subClassOf  [:vcard/TelephoneType :vcard/Voice]})
+   :rdfs/subClassOf  :vcard/TelephoneType})
 
 (def Work
   "This implies that the property is related to an individual's work place"
@@ -662,7 +657,7 @@
     "This implies that the property is related to an individual's work place@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label #voc/lstr "Work@en",
-   :rdfs/subClassOf [:vcard/Type :vcard/Work]})
+   :rdfs/subClassOf :vcard/Type})
 
 (def X400
   "This class is deprecated"
@@ -672,7 +667,7 @@
    :rdfs/comment     #voc/lstr "This class is deprecated@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label       #voc/lstr "X400@en",
-   :rdfs/subClassOf  [:vcard/Type :vcard/X400]})
+   :rdfs/subClassOf  :vcard/Type})
 
 (def additional-name
   "The additional name associated with the object"
@@ -1353,8 +1348,7 @@
    #voc/lstr "To specify the organizational name associated with the object@en",
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label #voc/lstr "organization name@en",
-   :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf :vcard/organization-name})
+   :rdfs/range :xsd/string})
 
 (def organization-unit
   "To specify the organizational unit name associated with the object"
@@ -1366,7 +1360,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/2006/vcard/ns",
    :rdfs/label #voc/lstr "organizational unit name@en",
    :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf [:vcard/organization-name :vcard/organization-unit]})
+   :rdfs/subPropertyOf :vcard/organization-name})
 
 (def photo
   "This object property has been mapped"

@@ -25,18 +25,17 @@
    :rdfs/label #voc/lstr "Vocabulary Encoding Scheme@en",
    :rdfs/seeAlso
    ["https://www.dublincore.org/specifications/dublin-core/2007/06/04/abstract-model/"],
-   :rdfs/subClassOf [:rdfs/Resource :dcam/VocabularyEncodingScheme]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def domainIncludes
   "A suggested class for subjects of this property."
-  {:db/ident           :dcam/domainIncludes,
-   :dcterms/issued     #inst "2020-01-20T00:00:00.000-05:00",
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr
-                        "A suggested class for subjects of this property.@en",
-   :rdfs/isDefinedBy   "http://purl.org/dc/dcam/",
-   :rdfs/label         #voc/lstr "Domain Includes@en",
-   :rdfs/subPropertyOf :dcam/domainIncludes})
+  {:db/ident         :dcam/domainIncludes,
+   :dcterms/issued   #inst "2020-01-20T00:00:00.000-05:00",
+   :rdf/type         :rdf/Property,
+   :rdfs/comment     #voc/lstr
+                      "A suggested class for subjects of this property.@en",
+   :rdfs/isDefinedBy "http://purl.org/dc/dcam/",
+   :rdfs/label       #voc/lstr "Domain Includes@en"})
 
 (def memberOf
   "A relationship between a resource and a vocabulary encoding scheme which indicates that the resource is a member of a set."
@@ -50,16 +49,14 @@
    :rdfs/label #voc/lstr "Member Of@en",
    :rdfs/range :dcam/VocabularyEncodingScheme,
    :rdfs/seeAlso
-   ["https://www.dublincore.org/specifications/dublin-core/2007/06/04/abstract-model/"],
-   :rdfs/subPropertyOf :dcam/memberOf})
+   ["https://www.dublincore.org/specifications/dublin-core/2007/06/04/abstract-model/"]})
 
 (def rangeIncludes
   "A suggested class for values of this property."
-  {:db/ident           :dcam/rangeIncludes,
-   :dcterms/issued     #inst "2020-01-20T00:00:00.000-05:00",
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr
-                        "A suggested class for values of this property.@en",
-   :rdfs/isDefinedBy   "http://purl.org/dc/dcam/",
-   :rdfs/label         #voc/lstr "Range Includes@en",
-   :rdfs/subPropertyOf :dcam/rangeIncludes})
+  {:db/ident         :dcam/rangeIncludes,
+   :dcterms/issued   #inst "2020-01-20T00:00:00.000-05:00",
+   :rdf/type         :rdf/Property,
+   :rdfs/comment     #voc/lstr
+                      "A suggested class for values of this property.@en",
+   :rdfs/isDefinedBy "http://purl.org/dc/dcam/",
+   :rdfs/label       #voc/lstr "Range Includes@en"})

@@ -6,7 +6,6 @@
    #voc/lstr
     "This document describes a vocabulary for annotating descriptions of vocabularies with examples and usage notes.@en",
    :dc11/identifier "http://purl.org/vocab/vann/vann-vocab-20050401",
-   :dc11/isVersionOf "http://purl.org/vocab/vann/",
    :dc11/replaces :vann/vann-vocab-20040305,
    :dc11/rights "Copyright © 2005 Ian Davis",
    :dc11/title #voc/lstr
@@ -36,7 +35,7 @@
     "A reference to a resource that describes changes between this version of a vocabulary and the previous.@en",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
    :rdfs/label #voc/lstr "Changes@en",
-   :rdfs/subPropertyOf [:rdfs/seeAlso :vann/changes]})
+   :rdfs/subPropertyOf :rdfs/seeAlso})
 
 (def example
   "A reference to a resource that provides an example of how this resource can be used."
@@ -47,7 +46,7 @@
     "A reference to a resource that provides an example of how this resource can be used.@en",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
    :rdfs/label #voc/lstr "Example@en",
-   :rdfs/subPropertyOf [:rdfs/seeAlso :vann/example]})
+   :rdfs/subPropertyOf :rdfs/seeAlso})
 
 (def preferredNamespacePrefix
   "The preferred namespace prefix to use when using terms from this vocabulary in an XML document."
@@ -86,4 +85,4 @@
     "A reference to a resource that provides information on how this resource is to be used.@en",
    :rdfs/isDefinedBy "http://purl.org/vocab/vann/",
    :rdfs/label #voc/lstr "Usage Note@en",
-   :rdfs/subPropertyOf [:rdfs/seeAlso :vann/usageNote]})
+   :rdfs/subPropertyOf :rdfs/seeAlso})

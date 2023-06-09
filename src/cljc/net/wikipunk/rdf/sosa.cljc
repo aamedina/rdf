@@ -31,8 +31,7 @@
    :rdfs/isDefinedBy {:rdf/uri
                       "https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/"},
    :vann/preferredNamespacePrefix "sosa",
-   :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/"}
-  (:refer-clojure :exclude [name]))
+   :vann/preferredNamespaceUri "http://www.w3.org/ns/sosa/"})
 
 (def ActuatableProperty
   "An actuatable quality (property, characteristic) of a FeatureOfInterest."
@@ -43,7 +42,7 @@
     "An actuatable quality (property, characteristic) of a FeatureOfInterest.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Actuatable Property@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/ActuatableProperty],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "An actuatable quality (property, characteristic) of a FeatureOfInterest.@en",
@@ -60,7 +59,7 @@
     "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Actuation@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Actuation],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.@en",
@@ -77,7 +76,7 @@
     "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Actuator@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Actuator],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world.@en",
@@ -94,7 +93,7 @@
     "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Feature Of Interest@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/FeatureOfInterest],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.@en",
@@ -111,7 +110,7 @@
     "An observable quality (property, characteristic) of a FeatureOfInterest.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Observable Property@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/ObservableProperty],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "An observable quality (property, characteristic) of a FeatureOfInterest.@en",
@@ -128,7 +127,7 @@
     "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Observation@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Observation],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.@en",
@@ -145,7 +144,7 @@
     "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Platform@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Platform],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms.@en",
@@ -162,7 +161,7 @@
     "A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible results.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Procedure@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Procedure],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible results.@en",
@@ -182,7 +181,7 @@
     "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Result@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Result],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property.@en",
@@ -203,7 +202,7 @@
     #voc/lstr "Physical samples are sometimes known as 'specimens'.@en"],
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Sample@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Sample],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.@en",
@@ -225,7 +224,7 @@
     "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Sampler@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Sampler],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples.@en",
@@ -242,7 +241,7 @@
     "An act of Sampling carries out a sampling Procedure to create or transform one or more samples.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Sampling@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Sampling],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "An act of Sampling carries out a sampling Procedure to create or transform one or more samples.@en",
@@ -268,7 +267,7 @@
     "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.@en",
    :rdfs/isDefinedBy "http://www.w3.org/ns/sosa/",
    :rdfs/label #voc/lstr "Sensor@en",
-   :rdfs/subClassOf [:rdfs/Resource :sosa/Sensor],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.@en",
@@ -647,47 +646,3 @@
    :skos/definition
    #voc/lstr
     "A relation to link to a re-usable Procedure used in making an Observation, an Actuation, or a Sample, typically through a Sensor, Actuator or Sampler.@en"})
-
-(def ^{:private true} Agent
-  {:db/ident :foaf/Agent,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} name
-  {:db/ident :foaf/name,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} domainIncludes
-  {:db/ident :schema/domainIncludes,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} rangeIncludes
-  {:db/ident :schema/rangeIncludes,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} definition
-  {:db/ident :skos/definition,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} example
-  {:db/ident :skos/example,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} note
-  {:db/ident :skos/note,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} TemporalEntity
-  {:db/ident :time/TemporalEntity,
-   :rdf/type :owl/Class})
-
-(def ^{:private true} preferredNamespacePrefix
-  {:db/ident :vann/preferredNamespacePrefix,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} preferredNamespaceUri
-  {:db/ident :vann/preferredNamespaceUri,
-   :rdf/type :owl/AnnotationProperty})
-
-(def ^{:private true} Vocabulary
-  {:db/ident :voaf/Vocabulary,
-   :rdf/type :owl/Class})

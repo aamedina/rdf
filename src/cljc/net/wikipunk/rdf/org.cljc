@@ -1,24 +1,24 @@
 (ns net.wikipunk.rdf.org
   "Core organization ontology"
-  {:dcterms/contributor [{:foaf/homepage
+  {:dcterms/contributor [{:foaf/mbox "mpoveda@fi.upm.es",
+                          :foaf/name "María Poveda Villalón"}
+                         {:foaf/homepage
                           "http://www.asahi-net.or.jp/~ax2s-kmtn/",
                           :foaf/name "Shuji Kamitsuna"}
-                         {:foaf/mbox "antonio.maccioni@agid.gov.it",
-                          :foaf/name "Antonio Maccioni"}
                          {:foaf/mbox "ogiraldo@fi.upm.es",
                           :foaf/name "Olga Ximena Giraldo"}
                          {:foaf/mbox "giorgia.lodi@agid.gov.it",
                           :foaf/name "Giorgia Lodi"}
-                         {:foaf/mbox "emontiel@fi.upm.es",
-                          :foaf/name "Elena Montiel Ponsoda"}
-                         {:foaf/mbox "mpoveda@fi.upm.es",
-                          :foaf/name "María Poveda Villalón"}
-                         {:foaf/mbox "dave@epimorphics.com",
-                          :foaf/name "Dave Reynolds"}
+                         {:foaf/mbox "antonio.maccioni@agid.gov.it",
+                          :foaf/name "Antonio Maccioni"}
+                         {:foaf/mbox "lupe@fi.upm.es",
+                          :foaf/name "Guadalupe Aguado de Cea"}
                          {:foaf/mbox "dguardiola@quinode.fr",
                           :foaf/name "Dominique Guardiola"}
-                         {:foaf/mbox "lupe@fi.upm.es",
-                          :foaf/name "Guadalupe Aguado de Cea"}],
+                         {:foaf/mbox "emontiel@fi.upm.es",
+                          :foaf/name "Elena Montiel Ponsoda"}
+                         {:foaf/mbox "dave@epimorphics.com",
+                          :foaf/name "Dave Reynolds"}],
    :dcterms/created #inst "2010-05-28T00:00:00.000-04:00",
    :dcterms/license "http://www.opendatacommons.org/licenses/pddl/1.0/",
    :dcterms/modified [#inst "2010-06-09T00:00:00.000-04:00"
@@ -85,7 +85,7 @@
                 #voc/lstr "Evento di cambiamento@it"
                 #voc/lstr "Évènement@fr"
                 #voc/lstr "evento de cambio@es"],
-   :rdfs/subClassOf [:rdfs/Resource :prov/Activity :org/ChangeEvent]})
+   :rdfs/subClassOf [:rdfs/Resource :prov/Activity]})
 
 (def FormalOrganization
   "An Organization which is recognized in the world at large, in particular in legal jurisdictions, with associated rights and responsibilities. Examples include a Corporation, Charity, Government or Church. Note that this is a super class of `gr:BusinessEntity` and it is recommended to use the GoodRelations vocabulary to denote Business classifications such as DUNS or NAICS."
@@ -107,11 +107,8 @@
                 #voc/lstr "Organisation Formelle@fr"
                 #voc/lstr "Formal Organization@en"
                 #voc/lstr "Organizzazione formale@it"],
-   :rdfs/subClassOf [:org/Organization
-                     :foaf/Organization
-                     :org/FormalOrganization
-                     :foaf/Agent
-                     :rdfs/Resource]})
+   :rdfs/subClassOf
+   [:org/Organization :foaf/Organization :rdfs/Resource :foaf/Agent]})
 
 (def Head
   "A role corresponding to the `org:headOf` property"
@@ -153,7 +150,7 @@
                 #voc/lstr "Appartenenza@it"
                 #voc/lstr "Engagement@fr"
                 #voc/lstr "membresía@es"],
-   :rdfs/subClassOf [:rdfs/Resource :org/Membership]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Organization
   "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures. It is recommended that SKOS lexical labels should be used to label the Organization. In particular `skos:prefLabel` for the primary (possibly legally recognized name), `skos:altLabel` for alternative names (trading names, colloquial names) and `skos:notation` to denote a code from a code list. Alternative names: _Collective_ _Body_ _Org_ _Group_"
@@ -178,7 +175,7 @@
                 #voc/lstr "Organisation@fr"
                 #voc/lstr "Organization@en"
                 #voc/lstr "organización@es"],
-   :rdfs/subClassOf [:rdfs/Resource :foaf/Agent :org/Organization]})
+   :rdfs/subClassOf [:rdfs/Resource :foaf/Agent]})
 
 (def OrganizationalCollaboration
   "A collaboration between two or more Organizations such as a project. It meets the criteria for being an Organization in that it has an identity and defining purpose independent of its particular members but is neither a formally recognized legal entity nor a sub-unit within some larger organization. Might typically have a shorter lifetime than the Organizations within it, but not necessarily. All members are `org:Organization`s rather than individuals and those Organizations can play particular roles within the venture. Alternative names: _Project_ _Venture_ _Endeavour_ _Consortium_ _Endeavour_"
@@ -206,10 +203,7 @@
                 #voc/lstr "Collaborazione@it"
                 #voc/lstr "proyecto de cooperación empresarial@es"
                 #voc/lstr "Endeavour@en"],
-   :rdfs/subClassOf [:org/Organization
-                     :org/OrganizationalCollaboration
-                     :foaf/Agent
-                     :rdfs/Resource]})
+   :rdfs/subClassOf [:org/Organization :rdfs/Resource :foaf/Agent]})
 
 (def OrganizationalUnit
   "An Organization such as a University Support Unit which is part of some larger FormalOrganization and only has full recognition within the context of that FormalOrganization, it is not a Legal Entity in its own right. Units can be large and complex containing other Units and even FormalOrganizations. Alternative names: _OU_ _Unit_ _Department_"
@@ -231,8 +225,7 @@
                 #voc/lstr "unidad organizativa@es"
                 #voc/lstr "Unité opérationnelle@fr"
                 #voc/lstr "Unità Organizzativa@it"],
-   :rdfs/subClassOf
-   [:org/Organization :org/OrganizationalUnit :foaf/Agent :rdfs/Resource]})
+   :rdfs/subClassOf [:org/Organization :rdfs/Resource :foaf/Agent]})
 
 (def Post
   "A Post represents some position within an organization that exists independently of the person or persons filling it. Posts may be used to represent situations where a person is a member of an organization ex officio (for example the Secretary of State for Scotland is part of UK Cabinet by virtue of being Secretary of State for Scotland, not as an individual person). A post can be held by multiple people and hence can be treated as a organization in its own right."
@@ -254,7 +247,7 @@
                 #voc/lstr "puesto@es"
                 #voc/lstr "Poste@fr"
                 #voc/lstr "Post@en"],
-   :rdfs/subClassOf [:rdfs/Resource :org/Post]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Role
   "Denotes a role that a Person or other Agent can take in an organization. Instances of this class describe the abstract role; to denote a specific instance of a person playing that role in a specific organization use an instance of `org:Membership`. It is common for roles to be arranged in some taxonomic structure and we use SKOS to represent that. The normal SKOS lexical properties should be used when labelling the Role. Additional descriptive properties for the Role, such as a Salary band, may be added by extension vocabularies."
@@ -277,7 +270,7 @@
                 #voc/lstr "Role@en"
                 #voc/lstr "actividad@es"
                 #voc/lstr "Ruolo@it"],
-   :rdfs/subClassOf [:rdfs/Resource :skos/Concept :org/Role]})
+   :rdfs/subClassOf [:rdfs/Resource :skos/Concept]})
 
 (def Site
   "An office or other premise at which the organization is located. Many organizations are spread across multiple sites and many sites will host multiple locations. In most cases a Site will be a physical location. However, we don't exclude the possibility of non-physical sites such as a virtual office with an associated post box and phone reception service. Extensions may provide subclasses to denote particular types of site."
@@ -299,7 +292,7 @@
                 #voc/lstr "Site@fr"
                 #voc/lstr "Site@en"
                 #voc/lstr "sede@es"],
-   :rdfs/subClassOf [:rdfs/Resource :org/Site]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def basedAt
   "Indicates the site at which a person is based. We do not restrict the possibility that a person is based at multiple sites."
@@ -321,8 +314,7 @@
                 #voc/lstr "based At@en"
                 #voc/lstr "basata a@it"
                 #voc/lstr "trabaja en la sede@es"],
-   :rdfs/range :org/Site,
-   :rdfs/subPropertyOf :org/basedAt})
+   :rdfs/range :org/Site})
 
 (def changedBy
   "Indicates a change event which resulted in a change to this organization. Depending on the event the organization may or may not have continued to exist after the event. Inverse of `org:originalOrganization`."
@@ -346,8 +338,7 @@
                 #voc/lstr "es modificado por@es"
                 #voc/lstr "es modificada por@es"
                 #voc/lstr "modifiée par@fr"],
-   :rdfs/range :org/ChangeEvent,
-   :rdfs/subPropertyOf :org/changedBy})
+   :rdfs/range :org/ChangeEvent})
 
 (def classification
   "Indicates a classification for this Organization within some classification scheme. Extension vocabularies may wish to specialize this property to have a range corresponding to a specific `skos:ConceptScheme`. This property is under discussion and may be revised or removed - in many cases organizations are best categorized by defining a sub-class hierarchy in an extension vocabulary."
@@ -370,8 +361,7 @@
                 #voc/lstr "pertenece a la clasificación@es"
                 #voc/lstr "classification@fr"
                 #voc/lstr "classification@en"],
-   :rdfs/range :skos/Concept,
-   :rdfs/subPropertyOf :org/classification})
+   :rdfs/range :skos/Concept})
 
 (def hasMember
   "Indicates a person who is a member of the subject Organization. Inverse of `org:memberOf`, see that property for further clarification. Provided for compatibility with `foaf:member`."
@@ -396,8 +386,7 @@
                 #voc/lstr "ha membro@it"
                 #voc/lstr "has member@en"
                 #voc/lstr "possède un membre@fr"],
-   :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf :org/hasMember})
+   :rdfs/range :foaf/Agent})
 
 (def hasMembership
   "Indicates a membership relationship that the Agent plays. Inverse of `org:member`."
@@ -420,8 +409,7 @@
                 #voc/lstr "tiene membresía@es"
                 #voc/lstr "membership@en"
                 #voc/lstr "engagement@fr"],
-   :rdfs/range :org/Membership,
-   :rdfs/subPropertyOf :org/hasMembership})
+   :rdfs/range :org/Membership})
 
 (def hasPost
   "Indicates a Post which exists within the Organization."
@@ -439,8 +427,7 @@
                 #voc/lstr "post@en"
                 #voc/lstr "tiene puesto@es"
                 #voc/lstr "impiego@it"],
-   :rdfs/range :org/Post,
-   :rdfs/subPropertyOf :org/hasPost})
+   :rdfs/range :org/Post})
 
 (def hasPrimarySite
   "Indicates a primary site for the Organization, this is the default means by which an Organization can be contacted and is not necessarily the formal headquarters."
@@ -463,7 +450,7 @@
                 #voc/lstr "primary Site@en"
                 #voc/lstr "sede principale@it"],
    :rdfs/range :org/Site,
-   :rdfs/subPropertyOf [:org/hasSite :org/hasPrimarySite]})
+   :rdfs/subPropertyOf :org/hasSite})
 
 (def hasRegisteredSite
   "Indicates the legally registered site for the organization, in many legal jurisdictions there is a requirement that FormalOrganizations such as Companies or Charities have such a primary designed site."
@@ -487,8 +474,7 @@
                 #voc/lstr "registered Site@en"
                 #voc/lstr "siège social@fr"],
    :rdfs/range :org/Site,
-   :rdfs/subPropertyOf
-   [:org/hasPrimarySite :org/hasRegisteredSite :org/hasSite]})
+   :rdfs/subPropertyOf [:org/hasPrimarySite :org/hasSite]})
 
 (def hasSite
   "Indicates a site at which the Organization has some presence even if only indirect (e.g. virtual office or a professional service which is acting as the registered address for a company). Inverse of `org:siteOf`."
@@ -512,8 +498,7 @@
                 #voc/lstr "ha sede@it"
                 #voc/lstr "has site@en"
                 #voc/lstr "tiene sede en@es"],
-   :rdfs/range :org/Site,
-   :rdfs/subPropertyOf :org/hasSite})
+   :rdfs/range :org/Site})
 
 (def hasSubOrganization
   "Represents hierarchical containment of Organizations or Organizational Units; indicates an organization which is a sub-part or child of this organization. Inverse of `org:subOrganizationOf`."
@@ -536,8 +521,7 @@
                 #voc/lstr "tiene suborganización@es"
                 #voc/lstr "a une Sous-Organization@fr"
                 #voc/lstr "ha sotto-Organization@it"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/hasSubOrganization})
+   :rdfs/range :org/Organization})
 
 (def hasUnit
   "Indicates a unit which is part of this Organization, e.g. a Department within a larger FormalOrganization. Inverse of `org:unitOf`."
@@ -561,7 +545,7 @@
                 #voc/lstr "possède une Unité@fr"
                 #voc/lstr "has Unit@en"],
    :rdfs/range :org/OrganizationalUnit,
-   :rdfs/subPropertyOf [:org/hasSubOrganization :org/hasUnit]})
+   :rdfs/subPropertyOf :org/hasSubOrganization})
 
 (def headOf
   "Indicates that a person is the leader or formal head of the Organization. This will normally mean that they are the root of the `org:reportsTo` (acyclic) graph, though an organization may have more than one head."
@@ -584,44 +568,42 @@
                 #voc/lstr "head of@en"
                 #voc/lstr "es director ejecutivo de@es"],
    :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf [:org/memberOf :org/headOf]})
+   :rdfs/subPropertyOf :org/memberOf})
 
 (def heldBy
   "Indicates an Agent which holds a Post."
-  {:db/ident           :org/heldBy,
-   :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       [#voc/lstr "Indicates an Agent which holds a Post.@en"
-                        #voc/lstr "Indica un Agent che ricopre un Post.@it"
-                        #voc/lstr "Agente que ocupa un puesto.@es"
-                        #voc/lstr "Indicate un Agent qui occupe le Poste.@fr"
-                        #voc/lstr "ポストを保持するエージェントを示します。@ja"],
-   :rdfs/domain        :org/Post,
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/org",
-   :rdfs/label         [#voc/lstr "ocupado por@es"
-                        #voc/lstr "occupé par@fr"
-                        #voc/lstr "held by@en"
-                        #voc/lstr "ricoperto da@it"],
-   :rdfs/range         :foaf/Agent,
-   :rdfs/subPropertyOf :org/heldBy})
+  {:db/ident         :org/heldBy,
+   :rdf/type         [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment     [#voc/lstr "Indicates an Agent which holds a Post.@en"
+                      #voc/lstr "Indica un Agent che ricopre un Post.@it"
+                      #voc/lstr "Agente que ocupa un puesto.@es"
+                      #voc/lstr "Indicate un Agent qui occupe le Poste.@fr"
+                      #voc/lstr "ポストを保持するエージェントを示します。@ja"],
+   :rdfs/domain      :org/Post,
+   :rdfs/isDefinedBy "http://www.w3.org/ns/org",
+   :rdfs/label       [#voc/lstr "ocupado por@es"
+                      #voc/lstr "occupé par@fr"
+                      #voc/lstr "held by@en"
+                      #voc/lstr "ricoperto da@it"],
+   :rdfs/range       :foaf/Agent})
 
 (def holds
   "Indicates a Post held by some Agent."
-  {:db/ident           :org/holds,
-   :owl/inverseOf      :org/heldBy,
-   :rdf/type           [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment       [#voc/lstr "Puesto ocupado por algún agente.@es"
-                        #voc/lstr "Indica un Impiego ricoperto da un Agent.@it"
-                        #voc/lstr "あるエージェントによって保持されているポストを示します。@ja"
-                        #voc/lstr "Indicate un Poste occupé par un Agent.@fr"
-                        #voc/lstr "Indicates a Post held by some Agent.@en"],
-   :rdfs/domain        :foaf/Agent,
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/org",
-   :rdfs/label         [#voc/lstr "holds@en"
-                        #voc/lstr "ricopre@it"
-                        #voc/lstr "occupe@fr"
-                        #voc/lstr "ocupa@es"],
-   :rdfs/range         :org/Post,
-   :rdfs/subPropertyOf :org/holds})
+  {:db/ident         :org/holds,
+   :owl/inverseOf    :org/heldBy,
+   :rdf/type         [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment     [#voc/lstr "Puesto ocupado por algún agente.@es"
+                      #voc/lstr "Indica un Impiego ricoperto da un Agent.@it"
+                      #voc/lstr "あるエージェントによって保持されているポストを示します。@ja"
+                      #voc/lstr "Indicate un Poste occupé par un Agent.@fr"
+                      #voc/lstr "Indicates a Post held by some Agent.@en"],
+   :rdfs/domain      :foaf/Agent,
+   :rdfs/isDefinedBy "http://www.w3.org/ns/org",
+   :rdfs/label       [#voc/lstr "holds@en"
+                      #voc/lstr "ricopre@it"
+                      #voc/lstr "occupe@fr"
+                      #voc/lstr "ocupa@es"],
+   :rdfs/range       :org/Post})
 
 (def identifier
   "Gives an identifier, such as a company registration number, that can be used to used to uniquely identify the organization. Many different national and international identier schemes are available. The org ontology is neutral to which schemes are used. The particular identifier scheme should be indicated by the datatype of the identifier value. Using datatypes to distinguish the notation scheme used is consistent with recommended best practice for `skos:notation` of which this property is a specialization."
@@ -643,7 +625,7 @@
                 #voc/lstr "tiene identificador@es"
                 #voc/lstr "identifier@en"
                 #voc/lstr "identificatore@it"],
-   :rdfs/subPropertyOf [:skos/notation :org/identifier]})
+   :rdfs/subPropertyOf :skos/notation})
 
 (def linkedTo
   "Indicates an arbitrary relationship between two organizations. Specializations of this can be used to, for example, denote funding or supply chain relationships."
@@ -666,8 +648,7 @@
                 #voc/lstr "está relacionada con@es"
                 #voc/lstr "collegato a@it"
                 #voc/lstr "relié à@fr"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/linkedTo})
+   :rdfs/range :org/Organization})
 
 (def location
   "Gives a location description for a person within the organization, for example a _Mail Stop_ for internal posting purposes."
@@ -690,8 +671,7 @@
                 #voc/lstr "luogo@it"
                 #voc/lstr "localisation@fr"
                 #voc/lstr "location@en"],
-   :rdfs/range :xsd/string,
-   :rdfs/subPropertyOf :org/location})
+   :rdfs/range :xsd/string})
 
 (def member
   "Indicates the Person (or other Agent including Organization) involved in the Membership relationship. Inverse of `org:hasMembership`"
@@ -714,8 +694,7 @@
                 #voc/lstr "membre@fr"
                 #voc/lstr "membro@it"
                 #voc/lstr "es condición de miembro sobre agente@es"],
-   :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf :org/member})
+   :rdfs/range :foaf/Agent})
 
 (def memberDuring
   "Optional property to indicate the interval for which the membership is/was valid."
@@ -736,8 +715,7 @@
    :rdfs/label [#voc/lstr "member During@en"
                 #voc/lstr "durée d'engagement@fr"
                 #voc/lstr "membro durante@it"
-                #voc/lstr "es miembro durante@es"],
-   :rdfs/subPropertyOf :org/memberDuring})
+                #voc/lstr "es miembro durante@es"]})
 
 (def memberOf
   "Indicates that a person is a member of the Organization with no indication of the nature of that membership or the role played. Note that the choice of property name is not meant to limit the property to only formal membership arrangements, it is also indended to cover related concepts such as affilliation or other involvement in the organization. Extensions can specialize this relationship to indicate particular roles within the organization or more nuanced relationships to the organization. Has an optional inverse, `org:hasmember`."
@@ -761,8 +739,7 @@
                 #voc/lstr "es miembro de@es"
                 #voc/lstr "member of@en"
                 #voc/lstr "membro di@it"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/memberOf})
+   :rdfs/range :org/Organization})
 
 (def organization
   "Indicates Organization in which the Agent is a member."
@@ -781,8 +758,7 @@
                 #voc/lstr "organizzazione@it"
                 #voc/lstr "organisation@fr"
                 #voc/lstr "es condición de miembro sobre organización@es"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/organization})
+   :rdfs/range :org/Organization})
 
 (def originalOrganization
   "Indicates one or more organizations that existed before the change event. Depending on the event they may or may not have continued to exist after the event. Inverse of `org:changedBy`."
@@ -807,7 +783,7 @@
                 #voc/lstr "original organization@en"
                 #voc/lstr "organisation originelle@fr"],
    :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf [:prov/used :org/originalOrganization]})
+   :rdfs/subPropertyOf :prov/used})
 
 (def postIn
   "Indicates the Organization in which the Post exists."
@@ -826,8 +802,7 @@
                 #voc/lstr "post in@en"
                 #voc/lstr "es un puesto en@es"
                 #voc/lstr "impiego in@it"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/postIn})
+   :rdfs/range :org/Organization})
 
 (def purpose
   "Indicates the purpose of this Organization. There can be many purposes at different levels of abstraction but the nature of an organization is to have a reason for existence and this property is a means to document that reason. An Organization may have multiple purposes. It is recommended that the purpose be denoted by a controlled term or code list, ideally a `skos:Concept`. However, the range is left open to allow for other types of descriptive schemes. It is expected that specializations or application profiles of this vocabulary will constrain the range of the purpose. Alternative names: _remit_ _responsibility_ (esp. if applied to OrganizationalUnits such as Government Departments)."
@@ -849,8 +824,7 @@
    :rdfs/label [#voc/lstr "but@fr"
                 #voc/lstr "tiene objetivo@es"
                 #voc/lstr "purpose@en"
-                #voc/lstr "obiettivo@it"],
-   :rdfs/subPropertyOf :org/purpose})
+                #voc/lstr "obiettivo@it"]})
 
 (def remuneration
   "Indicates a salary or other reward associated with the role. Typically this will be denoted using an existing representation scheme such as `gr:PriceSpecification` but the range is left open to allow applications to specialize it (e.g. to remunerationInGBP)."
@@ -871,8 +845,7 @@
    :rdfs/label [#voc/lstr "rémuneration@fr"
                 #voc/lstr "remunerazione@it"
                 #voc/lstr "recibe remuneración@es"
-                #voc/lstr "remuneration@en"],
-   :rdfs/subPropertyOf :org/remuneration})
+                #voc/lstr "remuneration@en"]})
 
 (def reportsTo
   "Indicates a reporting relationship as might be depicted on an organizational chart. The precise semantics of the reporting relationship will vary by organization but is intended to encompass both direct supervisory relationships (e.g. carrying objective and salary setting authority) and more general reporting or accountability relationships (e.g. so called _dotted line_ reporting)."
@@ -897,8 +870,7 @@
                 #voc/lstr "reports to@en"
                 #voc/lstr "responde ante@es"],
    :rdfs/range {:owl/unionOf [:foaf/Agent :org/Post],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :org/reportsTo})
+                :rdf/type    :owl/Class}})
 
 (def resultedFrom
   "Indicates an event which resulted in this organization. Inverse of `org:resultingOrganization`."
@@ -922,7 +894,7 @@
                 #voc/lstr "issue de@fr"
                 #voc/lstr "risultato da@it"],
    :rdfs/range :org/ChangeEvent,
-   :rdfs/subPropertyOf [:prov/wasGeneratedBy :org/resultedFrom]})
+   :rdfs/subPropertyOf :prov/wasGeneratedBy})
 
 (def resultingOrganization
   "Indicates an organization which was created or changed as a result of the event. Inverse of `org:resultedFrom`."
@@ -945,8 +917,7 @@
                 #voc/lstr "resulta en@es"
                 #voc/lstr "risultato in@it"
                 #voc/lstr "a donné naissance à@fr"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/resultingOrganization})
+   :rdfs/range :org/Organization})
 
 (def role
   "Indicates the Role that the Agent plays in a Membership relationship with an Organization."
@@ -970,8 +941,7 @@
                 #voc/lstr "role@en"
                 #voc/lstr "desempeña la actividad de@es"
                 #voc/lstr "ruolo@it"],
-   :rdfs/range :org/Role,
-   :rdfs/subPropertyOf :org/role})
+   :rdfs/range :org/Role})
 
 (def roleProperty
   "This is a metalevel property which is used to annotate an `org:Role` instance with a sub-property of `org:memberOf` that can be used to directly indicate the role for easy of query. The intended semantics is a Membership relation involving the Role implies the existence of a direct property relationship through an inference rule of the form: `{ [] org:member ?p; org:organization ?o; org:role [org:roleProperty ?r] } -> {?p ?r ?o}`."
@@ -994,8 +964,7 @@
                 #voc/lstr "role (property)@en"
                 #voc/lstr "desempeña la actividad de (propiedad)@es"
                 #voc/lstr "ruolo (proprietà)@it"],
-   :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :org/roleProperty})
+   :rdfs/range :rdf/Property})
 
 (def siteAddress
   "Indicates an address for the site in a suitable encoding. Use of vCard (using the http://www.w3.org/TR/vcard-rdf/ vocabulary) is encouraged but the range is left open to allow other encodings to be used. The address may include email, telephone, and geo-location information and is not restricted to a physical address."
@@ -1017,8 +986,7 @@
    :rdfs/label [#voc/lstr "es la dirección de la sede@es"
                 #voc/lstr "site Address@en"
                 #voc/lstr "indirizzo della sede@it"
-                #voc/lstr "adresse du Site@fr"],
-   :rdfs/subPropertyOf :org/siteAddress})
+                #voc/lstr "adresse du Site@fr"]})
 
 (def siteOf
   "Indicates an Organization which has some presence at the given site. This is the inverse of `org:hasSite`."
@@ -1041,8 +1009,7 @@
                 #voc/lstr "es sede de@es"
                 #voc/lstr "site de@fr"
                 #voc/lstr "site Of@en"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/siteOf})
+   :rdfs/range :org/Organization})
 
 (def subOrganizationOf
   "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an Organization which contains this Organization. Inverse of `org:hasSubOrganization`."
@@ -1066,8 +1033,7 @@
                 #voc/lstr "es suborganización de@es"
                 #voc/lstr "subOrganization of@en"],
    :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf [:org/transitiveSubOrganizationOf
-                        :org/subOrganizationOf]})
+   :rdfs/subPropertyOf :org/transitiveSubOrganizationOf})
 
 (def transitiveSubOrganizationOf
   "The transitive closure of subOrganizationOf, giving a representation of all organizations that contain this one. Note that technically this is a super property of the transitive closure so it could contain additional assertions but such usage is discouraged."
@@ -1091,8 +1057,7 @@
                 #voc/lstr "es suborganización de (transitiva)@es"
                 #voc/lstr "sotto-Organization transitiva@it"
                 #voc/lstr "sous-Organization transitive de@fr"],
-   :rdfs/range :org/Organization,
-   :rdfs/subPropertyOf :org/transitiveSubOrganizationOf})
+   :rdfs/range :org/Organization})
 
 (def unitOf
   "Indicates an Organization of which this Unit is a part, e.g. a Department within a larger FormalOrganization. This is the inverse of `org:hasUnit`."
@@ -1116,54 +1081,5 @@
                 #voc/lstr "es unidad de@es"
                 #voc/lstr "unité de@fr"],
    :rdfs/range :org/FormalOrganization,
-   :rdfs/subPropertyOf
-   [:org/subOrganizationOf :org/unitOf :org/transitiveSubOrganizationOf]})
-
-;; (def ^{:private true} Agent
-;;   {:db/ident        :foaf/Agent,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :foaf/Agent})
-
-;; (def ^{:private true} Organization
-;;   {:db/ident        :foaf/Organization,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :foaf/Organization})
-
-;; (def ^{:private true} BusinessEntity
-;;   {:db/ident        :gr/BusinessEntity,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf [:org/FormalOrganization
-;;                      :gr/BusinessEntity
-;;                      :foaf/Agent
-;;                      :org/Organization
-;;                      :rdfs/Resource
-;;                      :foaf/Organization]})
-
-;; (def ^{:private true} Activity
-;;   {:db/ident        :prov/Activity,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :prov/Activity})
-
-;; (def ^{:private true} used
-;;   {:db/ident :prov/used,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/subPropertyOf :prov/used})
-
-;; (def ^{:private true} wasDerivedFrom
-;;   {:db/ident :prov/wasDerivedFrom,
-;;    :owl/propertyChainAxiom [:org/resultedFrom :org/originalOrganization]})
-
-;; (def ^{:private true} wasGeneratedBy
-;;   {:db/ident :prov/wasGeneratedBy,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/subPropertyOf :prov/wasGeneratedBy})
-
-;; (def ^{:private true} Concept
-;;   {:db/ident        :skos/Concept,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :skos/Concept})
-
-;; (def ^{:private true} notation
-;;   {:db/ident :skos/notation,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/subPropertyOf :skos/notation})
+   :rdfs/subPropertyOf [:org/subOrganizationOf
+                        :org/transitiveSubOrganizationOf]})

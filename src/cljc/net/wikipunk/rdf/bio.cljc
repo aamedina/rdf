@@ -31,50 +31,54 @@
    :rdfa/uri "http://purl.org/vocab/bio/0.1/",
    :skos/changeNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2004-03-05",
-     :rdf/value    "Added Creative Commons license"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    "2005-04-01",
-     :rdf/value    "Added examples"}
+     :dc11/date    "2009-05-19",
+     :rdf/value    {:xsd/string "Minor changes to improve publishing process"}}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2010-04-20",
-     :rdf/value    "Added change history"}
+     :rdf/value    {:xsd/string "Added change history"}}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2011-06-14",
-     :rdf/value    "Expanded description and added diagrams"}
+     :rdf/value    {:xsd/string "Expanded description and added diagrams"}}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2005-04-01",
+     :rdf/value    {:xsd/string "Added examples"}}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2010-05-20",
-     :rdf/value    "Batch of revisions based on community feedback"}
+     :rdf/value    {:xsd/string
+                    "Batch of revisions based on community feedback"}}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2009-05-19",
-     :rdf/value    "Minor changes to improve publishing process"}],
+     :dc11/date    "2004-03-05",
+     :rdf/value    {:xsd/string "Added Creative Commons license"}}],
    :skos/historyNote
    [{:dc11/creator "Ian Davis",
-     :dc11/date    "2011-06-14",
-     :rdf/value    "Added bio:Relationship class and properties"}
-    {:dc11/creator "Ian Davis",
      :dc11/date    "2010-06-05",
-     :rdf/value    "Added biography property"}
+     :rdf/value    {:xsd/string "Added biography property"}}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2011-06-14",
+     :rdf/value    {:xsd/string "Added bio:Relationship class and properties"}}
     {:dc11/creator "Ian Davis",
      :dc11/date "2010-06-06",
      :rdf/value
-     "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}
+     {:xsd/string
+      "Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child"}}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2011-06-10",
-     :rdf/value    "Added bio:Performance event"}
+     :rdf/value    {:xsd/string "Added bio:Performance event"}}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2011-06-10",
-     :rdf/value    "Added bio:Formation and bio:Disbanding events"}
+     :dc11/date    "2003-07-28",
+     :rdf/value    {:xsd/string "Added keywords property"}}
     {:dc11/creator "Alexandre Passant",
      :dc11/date "2011-06-14",
      :rdf/value
-     "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}
+     {:xsd/string
+      "Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF"}}
     {:dc11/creator "Ian Davis",
-     :dc11/date    "2003-07-28",
-     :rdf/value    "Added keywords property"}
+     :dc11/date    "2011-06-10",
+     :rdf/value    {:xsd/string
+                    "Added bio:Formation and bio:Disbanding events"}}
     {:dc11/creator "Ian Davis",
      :dc11/date    "2010-05-10",
-     :rdf/value    "Major expansion of properties and classes"}],
+     :rdf/value    {:xsd/string "Major expansion of properties and classes"}}],
    :vann/example "http://purl.org/vocab/bio/examples/1",
    :vann/preferredNamespacePrefix "bio",
    :vann/preferredNamespaceUri "http://purl.org/vocab/bio/0.1/",
@@ -96,14 +100,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Accession@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Accession
-                     :dcmitype/Event
+                     
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Adoption
@@ -117,14 +121,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Adoption@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Adoption
-                     :dcmitype/Event
+                     
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Annulment
@@ -138,14 +142,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Annulment@en",
    :rdfs/subClassOf [:bio/GroupEvent
-                     :bio/Annulment
-                     :dcmitype/Event
+                     
+                     :bio/Event
+                     
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
-                     :bio/Event
-                     :event/Event
-                     ],
+                     :dcmitype/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Assassination
@@ -158,16 +162,16 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Assassination@en",
    :rdfs/subClassOf [:bio/Murder
-                     :bio/Assassination
-                     :bio/IndividualEvent
-                     :dcmitype/Event
+                     
                      :bio/Death
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :bio/IndividualEvent
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Baptism
@@ -181,20 +185,20 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Baptism@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Baptism
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :skos/changeNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-05-20",
     :rdf/value
-    "Revised comment, replacing 'the Christian church' with 'a Christian church' "},
+    {:xsd/string
+     "Revised comment, replacing 'the Christian church' with 'a Christian church' "}},
    :vs/term_status "unstable"})
 
 (def BarMitzvah
@@ -207,15 +211,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "BarMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/BarMitzvah
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def BasMitzvah
@@ -229,15 +232,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "BasMitzvah@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/BasMitzvah
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Birth
@@ -248,18 +250,17 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Birth@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Birth
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
-                     :rdf/value    "Marked as testing"},
+                     :rdf/value    {:xsd/string "Marked as testing"}},
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -278,15 +279,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Burial@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Burial
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Coronation
@@ -300,15 +300,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Coronation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Coronation
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Cremation
@@ -322,15 +321,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Cremation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Cremation
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -346,18 +344,17 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Death@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Death
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
-                     :rdf/value    "Marked as a stable term"},
+                     :rdf/value    {:xsd/string "Marked as a stable term"}},
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -376,16 +373,15 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Demotion@en",
    :rdfs/subClassOf [:bio/PositionChange
-                     :bio/Demotion
-                     :dcmitype/Event
-                     :bio/IndividualEvent
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :bio/IndividualEvent
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Disbanding
@@ -398,15 +394,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Disbanding@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Disbanding
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Dismissal
@@ -420,15 +415,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Dismissal@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Dismissal
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Divorce
@@ -440,15 +434,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Divorce@en",
    :rdfs/subClassOf [:bio/GroupEvent
-                     :bio/Divorce
-                     :dcmitype/Event
+                     
+                     :bio/Event
                      
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
-                     :bio/Event
-                     :event/Event
-                     ],
+                     :dcmitype/Event
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -467,15 +460,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Emigration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Emigration
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -494,15 +486,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Employment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Employment
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Enrolment
@@ -516,15 +507,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Enrolment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Enrolment
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Event
@@ -539,20 +529,20 @@
    :rdfs/subClassOf [:event/Event
                      
                      :dcmitype/Event
-                     
-                     :bio/Event],
+                     ],
    :skos/changeNote [{:dc11/creator "Ian Davis",
                       :dc11/date    "2010-05-20",
-                      :rdf/value    "Marked as testing status"}
+                      :rdf/value    {:xsd/string "Marked as testing status"}}
                      {:dc11/creator "Ian Davis",
                       :dc11/date    "2010-05-04",
-                      :rdf/value    "Marked as a stable term"}],
-   :skos/historyNote [{:dc11/creator "Ian Davis",
-                       :dc11/date "2010-05-20",
-                       :rdf/value "Removed subclass of owl-time ProperInteval"}
-                      {:dc11/creator "Ian Davis",
-                       :dc11/date    "2010-05-04",
-                       :rdf/value    "Made equivalent to cyc:Event"}],
+                      :rdf/value    {:xsd/string "Marked as a stable term"}}],
+   :skos/historyNote
+   [{:dc11/creator "Ian Davis",
+     :dc11/date    "2010-05-20",
+     :rdf/value    {:xsd/string "Removed subclass of owl-time ProperInteval"}}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2010-05-04",
+     :rdf/value    {:xsd/string "Made equivalent to cyc:Event"}}],
    :vann/usageNote
    #voc/lstr
     "This class is intended to describe biographical events, i.e. events in the life of a person.@en",
@@ -569,16 +559,15 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Execution@en",
    :rdfs/subClassOf [:bio/Death
-                     :bio/Execution
-                     :bio/IndividualEvent
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :bio/IndividualEvent
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Formation
@@ -591,15 +580,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Formation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Formation
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Funeral
@@ -612,15 +600,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Funeral@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Funeral
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Graduation
@@ -634,15 +621,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Graduation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Graduation
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -664,11 +650,10 @@
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
                      :bio/Event
-                     :bio/GroupEvent
-                     :dcmitype/Event
                      
-                     :event/Event
-                     ],
+                     
+                     :dcmitype/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Imprisonment
@@ -681,15 +666,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Imprisonment@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Imprisonment
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Inauguration
@@ -703,15 +687,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Inauguration@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Inauguration
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def IndividualEvent
@@ -727,11 +710,10 @@
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
                      :bio/Event
-                     :bio/IndividualEvent
-                     :dcmitype/Event
                      
-                     :event/Event
-                     ],
+                     
+                     :dcmitype/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Interval
@@ -744,7 +726,7 @@
     "A extended interval of time related to a particular state of affairs, such as the lifespan of a person or a period of employment.@en",
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Interval@en",
-   :rdfs/subClassOf [:time/ProperInterval :bio/Interval],
+   :rdfs/subClassOf :time/ProperInterval,
    :vs/term_status "unstable"})
 
 (def Investiture
@@ -758,15 +740,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Investiture@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Investiture
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Marriage
@@ -781,21 +762,21 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Marriage@en",
    :rdfs/subClassOf [:bio/GroupEvent
-                     :bio/Marriage
-                     :dcmitype/Event
+                     
+                     :bio/Event
                      
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
-                     :bio/Event
-                     :event/Event
-                     ],
+                     :dcmitype/Event
+                     :event/Event],
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
-                     :rdf/value    "Marked as a stable term"},
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date "2010-05-04",
-                      :rdf/value "Made equivalent to cyc:WeddingEvent_Generic"},
+                     :rdf/value    {:xsd/string "Marked as a stable term"}},
+   :skos/historyNote
+   {:dc11/creator "Ian Davis",
+    :dc11/date    "2010-05-04",
+    :rdf/value    {:xsd/string "Made equivalent to cyc:WeddingEvent_Generic"}},
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -814,16 +795,15 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Murder@en",
    :rdfs/subClassOf [:bio/Death
-                     :bio/Murder
-                     :bio/IndividualEvent
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :bio/IndividualEvent
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def NameChange
@@ -835,15 +815,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label       #voc/lstr "Change of Name@en",
    :rdfs/subClassOf  [:bio/IndividualEvent
-                      :bio/NameChange
-                      :dcmitype/Event
                       
                       :bio/Event
+                      
+                      :dcmitype/Event
                       {:owl/cardinality 1,
                        :owl/onProperty  :bio/principal,
                        :rdf/type        :owl/Restriction}
-                      :event/Event
-                      ],
+                      :event/Event],
    :vs/term_status   "unstable"})
 
 (def Naturalization
@@ -857,15 +836,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Naturalization@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Naturalization
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vann/example
    {:rdf/type :ov/SchemaExample,
     :rdfs/comment
@@ -884,22 +862,21 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Ordination@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Ordination
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Performance
   "The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc."
   {:db/ident :bio/Performance,
    :dc11/issued "2011-06-12",
-   :owl/equivalentClass "http://purl.org/ontology/mo/Performance",
+   :owl/equivalentClass :mo/Performance,
    :rdf/type :owl/Class,
    :rdfs/comment
    #voc/lstr
@@ -907,15 +884,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Performance@en",
    :rdfs/subClassOf [:bio/GroupEvent
-                     :bio/Performance
-                     :dcmitype/Event
+                     
+                     :bio/Event
                      
                      {:owl/minCardinality 2,
                       :owl/onProperty     :bio/partner,
                       :rdf/type           :owl/Restriction}
-                     :bio/Event
-                     :event/Event
-                     ],
+                     :dcmitype/Event
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def PositionChange
@@ -929,15 +905,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Change of Position@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/PositionChange
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Promotion
@@ -951,16 +926,15 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Promotion@en",
    :rdfs/subClassOf [:bio/PositionChange
-                     :bio/Promotion
-                     :dcmitype/Event
-                     :bio/IndividualEvent
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :bio/IndividualEvent
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Redundancy
@@ -974,15 +948,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Redundancy@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Redundancy
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Relationship
@@ -1009,15 +982,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Resignation@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Resignation
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def Retirement
@@ -1031,15 +1003,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Retirement@en",
    :rdfs/subClassOf [:bio/IndividualEvent
-                     :bio/Retirement
-                     :dcmitype/Event
                      
                      :bio/Event
+                     
+                     :dcmitype/Event
                      {:owl/cardinality 1,
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
-                     :event/Event
-                     ],
+                     :event/Event],
    :vs/term_status "unstable"})
 
 (def agent
@@ -1056,7 +1027,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Agent@en",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/agent]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def biography
   "An extended description or account of someone's life."
@@ -1068,7 +1039,6 @@
    :rdfs/domain :foaf/Person,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Biography@en",
-   :rdfs/subPropertyOf :bio/biography,
    :vann/usageNote
    "<p>It is expected that the value of this property is either a literal formatted with HTML markup or a pointer to an HTML document.</p>",
    :vs/term_status "unstable"})
@@ -1085,10 +1055,11 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Birth Event@en",
    :rdfs/range :bio/Birth,
-   :rdfs/subPropertyOf [:bio/event :owl/differentFrom :bio/birth],
+   :rdfs/subPropertyOf [:bio/event :owl/differentFrom],
    :skos/historyNote {:dc11/creator "Alexandre Passant",
                       :dc11/date    "2011-07-12",
-                      :rdf/value    "Proposed addition of the property"}})
+                      :rdf/value    {:xsd/string
+                                     "Proposed addition of the property"}}})
 
 (def child
   "A biological child of a person."
@@ -1102,12 +1073,13 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Child@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/child],
+   :rdfs/subPropertyOf :owl/differentFrom,
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-06-06",
     :rdf/value
-    "Made equivalent to rel:parentOf on suggestion of Gautier Poupeau"},
+    {:xsd/string
+     "Made equivalent to rel:parentOf on suggestion of Gautier Poupeau"}},
    :vann/usageNote
    "Note that this is a strict definition of child that does not include adopted children, step-children or similar non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.",
    :vs/term_status "unstable"})
@@ -1124,7 +1096,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Concluding Event@en",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/concludingEvent]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def concurrentEvent
   "An event that occurs while this event is occurring. The events need not start or conclude at the same times."
@@ -1139,7 +1111,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Concurrent Event@en",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/concurrentEvent]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def date
   "The date at which an event occurred."
@@ -1150,13 +1122,13 @@
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Date@en",
-   :rdfs/subPropertyOf [:dc11/date :bio/date],
+   :rdfs/subPropertyOf :dc11/date,
    :skos/changeNote [{:dc11/creator "Ian Davis",
-                      :dc11/date    "2010-05-04",
-                      :rdf/value    "Marked as a stable term"}
-                     {:dc11/creator "Ian Davis",
                       :dc11/date    "2010-05-03",
-                      :rdf/value    "Added a plural label"}],
+                      :rdf/value    {:xsd/string "Added a plural label"}}
+                     {:dc11/creator "Ian Davis",
+                      :dc11/date    "2010-05-04",
+                      :rdf/value    {:xsd/string "Marked as a stable term"}}],
    :vann/usageNote
    "<p>The date should be formatted as specified in <a href=\"http://www.w3.org/TR/NOTE-datetime\">ISO8601</a>.\n    For example: 2003-03-15 corresponds to the 15th March 2003, and 2003-03-15T13:21-05:00 corresponds to 15th March 2003, 8:21 am, US Eastern Standard Time.</p>",
    :vs/term_status "stable"})
@@ -1173,10 +1145,11 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Death Event@en",
    :rdfs/range :bio/Death,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/event :bio/death],
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/event],
    :skos/historyNote {:dc11/creator "Alexandre Passant",
                       :dc11/date    "2011-07-12",
-                      :rdf/value    "Proposed addition of the property"}})
+                      :rdf/value    {:xsd/string
+                                     "Proposed addition of the property"}}})
 
 (def employer
   "An agent that is involved in an event as an employer."
@@ -1190,7 +1163,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Employer@en",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf [:bio/agent :bio/employer :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def event
   "An event associated with a person, group or organization."
@@ -1204,16 +1177,17 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Life Event@en",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/event],
+   :rdfs/subPropertyOf :owl/differentFrom,
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-03",
-                     :rdf/value    "Added a plural label"},
-   :skos/historyNote [{:dc11/creator "Ian Davis",
-                       :dc11/date    "2011-06-14",
-                       :rdf/value    "Changed domain to foaf:Agent"}
-                      {:dc11/creator "Ian Davis",
-                       :dc11/date "2010-05-03",
-                       :rdf/value "Made a subproperty of owl:differentFrom"}]})
+                     :rdf/value    {:xsd/string "Added a plural label"}},
+   :skos/historyNote
+   [{:dc11/creator "Ian Davis",
+     :dc11/date    "2010-05-03",
+     :rdf/value    {:xsd/string "Made a subproperty of owl:differentFrom"}}
+    {:dc11/creator "Ian Davis",
+     :dc11/date    "2011-06-14",
+     :rdf/value    {:xsd/string "Changed domain to foaf:Agent"}}]})
 
 (def eventInterval
   "The interval during which the event occurs. This interval represents the exact interval of occurence for an event, it starts at the moment the event commences and finishes when the event concludes. In other words both the event and the interval start at the same instant of time and extend for the same duration."
@@ -1227,7 +1201,6 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Event Interval@en",
    :rdfs/range :bio/Interval,
-   :rdfs/subPropertyOf :bio/eventInterval,
    :vs/term_status "unstable"})
 
 (def father
@@ -1241,12 +1214,13 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Father@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:rel/childOf :owl/differentFrom :bio/father],
+   :rdfs/subPropertyOf [:rel/childOf :owl/differentFrom],
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-06-06",
     :rdf/value
-    "Made subproperty of rel:childOf on suggestion of Gautier Poupeau"},
+    {:xsd/string
+     "Made subproperty of rel:childOf on suggestion of Gautier Poupeau"}},
    :vann/usageNote
    "Note that this is a strict definition of father that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.",
    :vs/term_status "unstable"})
@@ -1263,7 +1237,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Following Event@en",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/followingEvent]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def immediatelyFollowingEvent
   "An event that starts immediately after this event."
@@ -1277,9 +1251,7 @@
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
    :rdfs/label         #voc/lstr "Immediately Following Event@en",
    :rdfs/range         :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom
-                        :bio/followingEvent
-                        :bio/immediatelyFollowingEvent]})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/followingEvent]})
 
 (def immediatelyPrecedingEvent
   "An event that occurs and concludes immediately before this event."
@@ -1294,8 +1266,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Immediately Preceding Event@en",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf
-   [:owl/differentFrom :bio/precedingEvent :bio/immediatelyPrecedingEvent]})
+   :rdfs/subPropertyOf [:owl/differentFrom :bio/precedingEvent]})
 
 (def initiatingEvent
   "An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event."
@@ -1309,21 +1280,20 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Initiating Event@en",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/initiatingEvent]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def interval
   "The interval during which the relationship persists."
-  {:db/ident :bio/interval,
-   :dc11/issued "2010-06-05",
-   :rdf/type [:owl/ObjectProperty :rdf/Property],
-   :rdfs/comment #voc/lstr
-                  "The interval during which the relationship persists.@en",
-   :rdfs/domain :bio/Relationship,
+  {:db/ident         :bio/interval,
+   :dc11/issued      "2010-06-05",
+   :rdf/type         [:owl/ObjectProperty :rdf/Property],
+   :rdfs/comment     #voc/lstr
+                      "The interval during which the relationship persists.@en",
+   :rdfs/domain      :bio/Relationship,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label #voc/lstr "Relationship Interval@en",
-   :rdfs/range :bio/Interval,
-   :rdfs/subPropertyOf :bio/interval,
-   :vs/term_status "unstable"})
+   :rdfs/label       #voc/lstr "Relationship Interval@en",
+   :rdfs/range       :bio/Interval,
+   :vs/term_status   "unstable"})
 
 (def keywords
   "A comma delimited list of key words that describe a person."
@@ -1336,13 +1306,14 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Key Words@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dc11/subject :bio/keywords],
+   :rdfs/subPropertyOf :dc11/subject,
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
-                     :rdf/value    "Marked as a stable term"},
+                     :rdf/value    {:xsd/string "Marked as a stable term"}},
    :skos/historyNote {:dc11/creator "Ian Davis",
                       :dc11/date "2010-05-03",
-                      :rdf/value "Declared that this is a datatype property"},
+                      :rdf/value {:xsd/string
+                                  "Declared that this is a datatype property"}},
    :vs/term_status "stable"})
 
 (def mother
@@ -1357,12 +1328,13 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Mother@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:owl/differentFrom :rel/childOf :bio/mother],
+   :rdfs/subPropertyOf [:owl/differentFrom :rel/childOf],
    :skos/historyNote
    {:dc11/creator "Ian Davis",
     :dc11/date "2010-06-06",
     :rdf/value
-    "Made subproperty of rel:childOf on suggestion of Gautier Poupeau"},
+    {:xsd/string
+     "Made subproperty of rel:childOf on suggestion of Gautier Poupeau"}},
    :vann/usageNote
    "Note that this is a strict definition of mother that does not include non-biological relationships. The <a href=\"http://purl.org/vocab/relationship\">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.",
    :vs/term_status "unstable"})
@@ -1379,25 +1351,25 @@
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
    :rdfs/label         #voc/lstr "Officiator@en",
    :rdfs/range         :foaf/Person,
-   :rdfs/subPropertyOf [:bio/agent :bio/officiator :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def olb
   "A one-line biography of the person."
-  {:db/ident           :bio/olb,
-   :rdf/type           [:rdf/Property :owl/DatatypeProperty],
-   :rdfs/comment       #voc/lstr "A one-line biography of the person.@en",
-   :rdfs/domain        :foaf/Person,
-   :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label         #voc/lstr "One-line bio@en",
-   :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :bio/olb,
-   :skos/changeNote    {:dc11/creator "Ian Davis",
-                        :dc11/date    "2010-05-04",
-                        :rdf/value    "Marked as a stable term"},
-   :skos/historyNote   {:dc11/creator "Ian Davis",
-                        :dc11/date "2010-05-03",
-                        :rdf/value "Declared that this is a datatype property"},
-   :vs/term_status     "stable"})
+  {:db/ident         :bio/olb,
+   :rdf/type         [:rdf/Property :owl/DatatypeProperty],
+   :rdfs/comment     #voc/lstr "A one-line biography of the person.@en",
+   :rdfs/domain      :foaf/Person,
+   :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
+   :rdfs/label       #voc/lstr "One-line bio@en",
+   :rdfs/range       :rdfs/Literal,
+   :skos/changeNote  {:dc11/creator "Ian Davis",
+                      :dc11/date    "2010-05-04",
+                      :rdf/value    {:xsd/string "Marked as a stable term"}},
+   :skos/historyNote {:dc11/creator "Ian Davis",
+                      :dc11/date "2010-05-03",
+                      :rdf/value {:xsd/string
+                                  "Declared that this is a datatype property"}},
+   :vs/term_status   "stable"})
 
 (def organization
   "An organization that plays a role in an event."
@@ -1411,7 +1383,7 @@
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
    :rdfs/label         #voc/lstr "Organization@en",
    :rdfs/range         :foaf/Person,
-   :rdfs/subPropertyOf [:bio/agent :bio/organization :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def parent
   "A person that takes the parent role in an event."
@@ -1425,7 +1397,7 @@
    :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
    :rdfs/label         #voc/lstr "Parent@en",
    :rdfs/range         :foaf/Person,
-   :rdfs/subPropertyOf [:bio/agent :bio/parent :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def participant
   "A person, group or organization that participates in a relationship for some time."
@@ -1442,7 +1414,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Participant@en",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/participant]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def partner
   "A person that is involved in a event as a partner in a relationship."
@@ -1457,25 +1429,24 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Partner@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:bio/agent :bio/partner :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def place
   "The place at which an event occurred."
-  {:db/ident           :bio/place,
-   :label/plural       #voc/lstr "Places@en",
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr "The place at which an event occurred.@en",
-   :rdfs/domain        :bio/Event,
-   :rdfs/isDefinedBy   "http://purl.org/vocab/bio/0.1/",
-   :rdfs/label         #voc/lstr "Place@en",
-   :rdfs/subPropertyOf :bio/place,
-   :skos/changeNote    [{:dc11/creator "Ian Davis",
-                         :dc11/date    "2010-05-04",
-                         :rdf/value    "Marked as a stable term"}
-                        {:dc11/creator "Ian Davis",
-                         :dc11/date    "2010-05-03",
-                         :rdf/value    "Added a plural label"}],
-   :vs/term_status     "stable"})
+  {:db/ident         :bio/place,
+   :label/plural     #voc/lstr "Places@en",
+   :rdf/type         :rdf/Property,
+   :rdfs/comment     #voc/lstr "The place at which an event occurred.@en",
+   :rdfs/domain      :bio/Event,
+   :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
+   :rdfs/label       #voc/lstr "Place@en",
+   :skos/changeNote  [{:dc11/creator "Ian Davis",
+                       :dc11/date    "2010-05-04",
+                       :rdf/value    {:xsd/string "Marked as a stable term"}}
+                      {:dc11/creator "Ian Davis",
+                       :dc11/date    "2010-05-03",
+                       :rdf/value    {:xsd/string "Added a plural label"}}],
+   :vs/term_status   "stable"})
 
 (def position
   "The employment position or public office involved in an event."
@@ -1490,7 +1461,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Position@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:bio/agent :bio/position :owl/differentFrom],
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom],
    :vs/term_status "unstable"})
 
 (def precedingEvent
@@ -1506,7 +1477,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Preceding Event@en",
    :rdfs/range :bio/Event,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/precedingEvent]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def principal
   "A person that takes the primary and most important role in an event. For example the principal in a Birth event would be the child being born and the principal in a Burial event would be the deceased person."
@@ -1521,7 +1492,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Principal@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:bio/agent :bio/principal :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def relationship
   "A relationship that a person, group or organization participates in for some time."
@@ -1538,7 +1509,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Relationship@en",
    :rdfs/range :bio/Relationship,
-   :rdfs/subPropertyOf [:owl/differentFrom :bio/relationship]})
+   :rdfs/subPropertyOf :owl/differentFrom})
 
 (def spectator
   "A person that is present at and observes the occurrence of at least part of an event."
@@ -1553,7 +1524,7 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Spectator@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf [:bio/agent :bio/spectator :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def state
   "A country or independent territory that is involved in an event."
@@ -1567,7 +1538,7 @@
    :rdfs/domain :bio/Event,
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "State@en",
-   :rdfs/subPropertyOf [:bio/agent :bio/state :owl/differentFrom]})
+   :rdfs/subPropertyOf [:bio/agent :owl/differentFrom]})
 
 (def termgroup1
   "Properties of a person"
@@ -1676,36 +1647,4 @@
    :rdfs/isDefinedBy "http://purl.org/vocab/bio/0.1/",
    :rdfs/label #voc/lstr "Witness@en",
    :rdfs/range :foaf/Person,
-   :rdfs/subPropertyOf
-   [:bio/spectator :bio/witness :owl/differentFrom :bio/agent]})
-
-;; (def ^{:private true} Event
-;;   {:db/ident        :dcmitype/Event,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :dcmitype/Event})
-
-;; (def ^{:private true} Event
-;;   {:db/ident        :event/Event,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :event/Event})
-
-;; (def ^{:private true} Person
-;;   {:db/ident :foaf/Person,
-;;    :owl/equivalentClass {:owl/intersectionOf [{:owl/cardinality 1,
-;;                                                :owl/onProperty :bio/father,
-;;                                                :rdf/type :owl/Restriction}
-;;                                               {:owl/cardinality 1,
-;;                                                :owl/onProperty :bio/mother,
-;;                                                :rdf/type :owl/Restriction}],
-;;                          :rdf/type :owl/Class},
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} childOf
-;;   {:db/ident :rel/childOf,
-;;    :rdf/type :rdf/Property,
-;;    :rdfs/subPropertyOf :rel/childOf})
-
-;; (def ^{:private true} ProperInterval
-;;   {:db/ident        :time/ProperInterval,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :time/ProperInterval})
+   :rdfs/subPropertyOf [:bio/spectator :bio/agent :owl/differentFrom]})

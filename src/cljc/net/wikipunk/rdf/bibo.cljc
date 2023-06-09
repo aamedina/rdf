@@ -23,8 +23,7 @@
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "bibo",
-   :rdfa/uri "http://purl.org/ontology/bibo/"}
-  (:refer-clojure :exclude [agent time name]))
+   :rdfa/uri "http://purl.org/ontology/bibo/"})
 
 (def AcademicArticle
   "A scholarly academic article, typically published in a journal."
@@ -35,7 +34,7 @@
     "A scholarly academic article, typically published in a journal.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Academic Article@en",
-   :rdfs/subClassOf [:bibo/Article :bibo/AcademicArticle :bibo/Document],
+   :rdfs/subClassOf [:bibo/Article :bibo/Document],
    :vs/term_status "stable"})
 
 (def Article
@@ -47,7 +46,7 @@
     "A written composition in prose, usually nonfiction, on a specific topic, forming an independent part of a book or other publication, as a newspaper or magazine.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Article@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Article],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def AudioDocument
@@ -57,7 +56,7 @@
    :rdfs/comment     #voc/lstr "An audio document; aka record.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "audio document@en",
-   :rdfs/subClassOf  [:bibo/Document :bibo/AudioDocument],
+   :rdfs/subClassOf  :bibo/Document,
    :vs/term_status   "stable"})
 
 (def AudioVisualDocument
@@ -68,7 +67,7 @@
                       "An audio-visual document; film, video, and so forth.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "audio-visual document@en",
-   :rdfs/subClassOf  [:bibo/Document :bibo/AudioVisualDocument],
+   :rdfs/subClassOf  :bibo/Document,
    :vs/term_status   "stable"})
 
 (def Bill
@@ -79,8 +78,7 @@
    #voc/lstr "Draft legislation presented for discussion to a legal body.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Bill@en",
-   :rdfs/subClassOf
-   [:bibo/Legislation :bibo/Bill :bibo/LegalDocument :bibo/Document],
+   :rdfs/subClassOf [:bibo/Legislation :bibo/Document :bibo/LegalDocument],
    :vs/term_status "stable"})
 
 (def Book
@@ -92,7 +90,7 @@
     "A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Book@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Book],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def BookSection
@@ -103,7 +101,6 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Book Section@en",
    :rdfs/subClassOf  [:bibo/DocumentPart
-                      :bibo/BookSection
                       :bibo/Document
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :dcterms/isPartOf,
@@ -118,9 +115,8 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Brief@en",
    :rdfs/subClassOf  [:bibo/LegalCaseDocument
-                      :bibo/Brief
-                      :bibo/LegalDocument
-                      :bibo/Document],
+                      :bibo/Document
+                      :bibo/LegalDocument],
    :vs/term_status   "unstable"})
 
 (def Chapter
@@ -131,12 +127,11 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Chapter@en",
    :rdfs/subClassOf  [:bibo/BookSection
-                      :bibo/Chapter
-                      :bibo/DocumentPart
                       :bibo/Document
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :dcterms/isPartOf,
-                       :rdf/type           :owl/Restriction}],
+                       :rdf/type           :owl/Restriction}
+                      :bibo/DocumentPart],
    :vs/term_status   "unstable"})
 
 (def Code
@@ -153,11 +148,6 @@
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
                       :bibo/Periodical
-                      :bibo/Code
-                      {:owl/allValuesFrom :bibo/Issue,
-                       :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
@@ -165,7 +155,11 @@
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}],
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :bibo/Issue,
+                       :owl/onProperty    :dcterms/hasPart,
+                       :rdf/type          :owl/Restriction}
+                      :bibo/Collection],
    :vs/term_status   "stable"})
 
 (def CollectedDocument
@@ -182,8 +176,7 @@
                      {:owl/allValuesFrom :bibo/Document,
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
-                     :bibo/Document
-                     :bibo/CollectedDocument],
+                     :bibo/Document],
    :vs/term_status "stable"})
 
 (def Collection
@@ -193,12 +186,11 @@
    :rdfs/comment     #voc/lstr "A collection of Documents or Collections@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Collection@en",
-   :rdfs/subClassOf  [{:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
-                                                         :bibo/Document],
-                                           :rdf/type    :owl/Class},
-                       :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection],
+   :rdfs/subClassOf  {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
+                                                        :bibo/Document],
+                                          :rdf/type    :owl/Class},
+                      :owl/onProperty    :dcterms/hasPart,
+                      :rdf/type          :owl/Restriction},
    :vs/term_status   "stable"})
 
 (def Conference
@@ -208,7 +200,7 @@
    :rdfs/comment     #voc/lstr "A meeting for consultation or discussion.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Conference@en",
-   :rdfs/subClassOf  [:event/Event :bibo/Conference],
+   :rdfs/subClassOf  :event/Event,
    :vs/term_status   "stable"})
 
 (def CourtReporter
@@ -225,11 +217,6 @@
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
                       :bibo/Periodical
-                      :bibo/CourtReporter
-                      {:owl/allValuesFrom :bibo/Issue,
-                       :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
@@ -237,7 +224,11 @@
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}],
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :bibo/Issue,
+                       :owl/onProperty    :dcterms/hasPart,
+                       :rdf/type          :owl/Restriction}
+                      :bibo/Collection],
    :vs/term_status   "stable"})
 
 (def Document
@@ -250,7 +241,6 @@
     "A document (noun) is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Document@en",
-   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def DocumentPart
@@ -264,8 +254,7 @@
    :rdfs/subClassOf [{:owl/maxCardinality 1,
                       :owl/onProperty     :dcterms/isPartOf,
                       :rdf/type           :owl/Restriction}
-                     :bibo/Document
-                     :bibo/DocumentPart],
+                     :bibo/Document],
    :vs/term_status "unstable"})
 
 (def DocumentStatus
@@ -286,14 +275,13 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Edited Book@en",
    :rdfs/subClassOf  [:bibo/CollectedDocument
-                      :bibo/EditedBook
-                      {:owl/allValuesFrom :bibo/Document,
-                       :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
                       :bibo/Document
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
-                       :rdf/type           :owl/Restriction}],
+                       :rdf/type           :owl/Restriction}
+                      {:owl/allValuesFrom :bibo/Document,
+                       :owl/onProperty    :dcterms/hasPart,
+                       :rdf/type          :owl/Restriction}],
    :vs/term_status   "stable"})
 
 (def Email
@@ -305,8 +293,7 @@
     "A written communication addressed to a person or organization and transmitted electronically.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "EMail@en",
-   :rdfs/subClassOf
-   [:bibo/PersonalCommunicationDocument :bibo/Email :bibo/Document],
+   :rdfs/subClassOf [:bibo/PersonalCommunicationDocument :bibo/Document],
    :vs/term_status "stable"})
 
 (def Event
@@ -321,7 +308,6 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Excerpt@en",
    :rdfs/subClassOf  [:bibo/DocumentPart
-                      :bibo/Excerpt
                       :bibo/Document
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :dcterms/isPartOf,
@@ -335,7 +321,7 @@
    :rdfs/comment     #voc/lstr "aka movie.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Film@en",
-   :rdfs/subClassOf  [:bibo/AudioVisualDocument :bibo/Film :bibo/Document],
+   :rdfs/subClassOf  [:bibo/AudioVisualDocument :bibo/Document],
    :vs/term_status   "stable"})
 
 (def Hearing
@@ -347,7 +333,7 @@
     "An instance or a session in which testimony and arguments are presented, esp. before an official, as a judge in a lawsuit.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Hearing@en",
-   :rdfs/subClassOf [:event/Event :bibo/Hearing],
+   :rdfs/subClassOf :event/Event,
    :vs/term_status "stable"})
 
 (def Image
@@ -359,7 +345,7 @@
    #voc/lstr "A document that presents visual or diagrammatic information.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Image@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Image],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def Interview
@@ -370,7 +356,7 @@
                       "A formalized discussion between two or more people.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Interview@en",
-   :rdfs/subClassOf  [:event/Event :bibo/Interview],
+   :rdfs/subClassOf  :event/Event,
    :vs/term_status   "stable"})
 
 (def Issue
@@ -389,14 +375,13 @@
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
                      :bibo/CollectedDocument
-                     :bibo/Issue
-                     {:owl/allValuesFrom :bibo/Document,
-                      :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}
                      :bibo/Document
                      {:owl/minCardinality 1,
                       :owl/onProperty     :dcterms/hasPart,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom :bibo/Document,
+                      :owl/onProperty    :dcterms/hasPart,
+                      :rdf/type          :owl/Restriction}],
    :vs/term_status "stable"})
 
 (def Journal
@@ -413,11 +398,6 @@
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
                       :bibo/Periodical
-                      :bibo/Journal
-                      {:owl/allValuesFrom :bibo/Issue,
-                       :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}
-                      :bibo/Collection
                       {:owl/minCardinality 1,
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
@@ -425,7 +405,11 @@
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
                        :owl/onProperty    :dcterms/hasPart,
-                       :rdf/type          :owl/Restriction}],
+                       :rdf/type          :owl/Restriction}
+                      {:owl/allValuesFrom :bibo/Issue,
+                       :owl/onProperty    :dcterms/hasPart,
+                       :rdf/type          :owl/Restriction}
+                      :bibo/Collection],
    :vs/term_status   "stable"})
 
 (def LegalCaseDocument
@@ -435,9 +419,7 @@
    :rdfs/comment     #voc/lstr "A document accompanying a legal case.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Legal Case Document@en",
-   :rdfs/subClassOf  [:bibo/LegalDocument
-                      :bibo/LegalCaseDocument
-                      :bibo/Document],
+   :rdfs/subClassOf  [:bibo/LegalDocument :bibo/Document],
    :vs/term_status   "unstable"})
 
 (def LegalDecision
@@ -449,10 +431,8 @@
     "A document containing an authoritative determination (as a decree or judgment) made after consideration of facts or law.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Decision@en",
-   :rdfs/subClassOf [:bibo/LegalCaseDocument
-                     :bibo/LegalDecision
-                     :bibo/LegalDocument
-                     :bibo/Document],
+   :rdfs/subClassOf
+   [:bibo/LegalCaseDocument :bibo/Document :bibo/LegalDocument],
    :vs/term_status "unstable"})
 
 (def LegalDocument
@@ -464,7 +444,7 @@
     "A legal document; for example, a court decision, a brief, and so forth.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Legal Document@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/LegalDocument],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def Legislation
@@ -476,7 +456,7 @@
     "A legal document proposing or enacting a law or a group of laws.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Legislation@en",
-   :rdfs/subClassOf [:bibo/LegalDocument :bibo/Legislation :bibo/Document],
+   :rdfs/subClassOf [:bibo/LegalDocument :bibo/Document],
    :vs/term_status "unstable"})
 
 (def Letter
@@ -488,8 +468,7 @@
     "A written or printed communication addressed to a person or organization and usually transmitted by mail.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Letter@en",
-   :rdfs/subClassOf
-   [:bibo/PersonalCommunicationDocument :bibo/Letter :bibo/Document],
+   :rdfs/subClassOf [:bibo/PersonalCommunicationDocument :bibo/Document],
    :vs/term_status "stable"})
 
 (def Magazine
@@ -508,11 +487,6 @@
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
                      :bibo/Periodical
-                     :bibo/Magazine
-                     {:owl/allValuesFrom :bibo/Issue,
-                      :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}
-                     :bibo/Collection
                      {:owl/minCardinality 1,
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
@@ -520,7 +494,11 @@
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}],
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :bibo/Issue,
+                      :owl/onProperty    :dcterms/hasPart,
+                      :rdf/type          :owl/Restriction}
+                     :bibo/Collection],
    :vs/term_status "stable"})
 
 (def Manual
@@ -531,7 +509,7 @@
    #voc/lstr "A small reference book, especially one giving instructions.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Manual@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Manual],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "unstable"})
 
 (def Manuscript
@@ -543,7 +521,7 @@
     "An unpublished Document, which may also be submitted to a publisher for publication.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Manuscript@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Manuscript],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def Map
@@ -554,7 +532,7 @@
                       "A graphical depiction of geographic features.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Map@en",
-   :rdfs/subClassOf  [:bibo/Image :bibo/Map :bibo/Document],
+   :rdfs/subClassOf  [:bibo/Image :bibo/Document],
    :vs/term_status   "unstable"})
 
 (def MultiVolumeBook
@@ -569,7 +547,6 @@
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
                      :bibo/Collection
-                     :bibo/MultiVolumeBook
                      {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
@@ -593,11 +570,6 @@
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
                      :bibo/Periodical
-                     :bibo/Newspaper
-                     {:owl/allValuesFrom :bibo/Issue,
-                      :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}
-                     :bibo/Collection
                      {:owl/minCardinality 1,
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
@@ -605,7 +577,11 @@
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
                       :owl/onProperty    :dcterms/hasPart,
-                      :rdf/type          :owl/Restriction}],
+                      :rdf/type          :owl/Restriction}
+                     {:owl/allValuesFrom :bibo/Issue,
+                      :owl/onProperty    :dcterms/hasPart,
+                      :rdf/type          :owl/Restriction}
+                     :bibo/Collection],
    :vs/term_status "stable"})
 
 (def Note
@@ -615,7 +591,7 @@
    :rdfs/comment     #voc/lstr "Notes or annotations about a resource.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Note@en",
-   :rdfs/subClassOf  [:bibo/Document :bibo/Note],
+   :rdfs/subClassOf  :bibo/Document,
    :vs/term_status   "stable"})
 
 (def Patent
@@ -627,7 +603,7 @@
     "A document describing the exclusive right granted by a government to an inventor to manufacture, use, or sell an invention for a certain number of years.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Patent@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Patent],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def Performance
@@ -637,7 +613,7 @@
    :rdfs/comment     #voc/lstr "A public performance.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Performance@en",
-   :rdfs/subClassOf  [:event/Event :bibo/Performance],
+   :rdfs/subClassOf  :event/Event,
    :vs/term_status   "unstable"})
 
 (def Periodical
@@ -655,7 +631,6 @@
                       :owl/onProperty     :dcterms/hasPart,
                       :rdf/type           :owl/Restriction}
                      :bibo/Collection
-                     :bibo/Periodical
                      {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
@@ -672,7 +647,7 @@
     "A communication between an agent and one or more specific recipients.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Personal Communication@en",
-   :rdfs/subClassOf [:event/Event :bibo/PersonalCommunication],
+   :rdfs/subClassOf :event/Event,
    :vs/term_status "stable"})
 
 (def PersonalCommunicationDocument
@@ -683,7 +658,7 @@
                   "A personal communication manifested in some document.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Personal Communication Document@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/PersonalCommunicationDocument],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def Proceedings
@@ -695,7 +670,7 @@
     "A compilation of documents published from an event, such as a conference.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Proceedings@en",
-   :rdfs/subClassOf [:bibo/Book :bibo/Proceedings :bibo/Document],
+   :rdfs/subClassOf [:bibo/Book :bibo/Document],
    :vs/term_status "unstable"})
 
 (def Quote
@@ -706,12 +681,11 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Quote@en",
    :rdfs/subClassOf  [:bibo/Excerpt
-                      :bibo/Quote
-                      :bibo/DocumentPart
                       :bibo/Document
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :dcterms/isPartOf,
-                       :rdf/type           :owl/Restriction}],
+                       :rdf/type           :owl/Restriction}
+                      :bibo/DocumentPart],
    :vs/term_status   "stable"})
 
 (def ReferenceSource
@@ -723,7 +697,7 @@
     "A document that presents authoritative reference information, such as a dictionary or encylopedia .@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Reference Source@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/ReferenceSource],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "unstable"})
 
 (def Report
@@ -735,7 +709,7 @@
     "A document describing an account or statement describing in detail an event, situation, or the like, usually as the result of observation, inquiry, etc..@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Report@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Report],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def Series
@@ -750,7 +724,6 @@
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
                      :bibo/Collection
-                     :bibo/Series
                      {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                         :bibo/Document],
                                           :rdf/type    :owl/Class},
@@ -766,7 +739,6 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Slide@en",
    :rdfs/subClassOf  [:bibo/DocumentPart
-                      :bibo/Slide
                       :bibo/Document
                       {:owl/maxCardinality 1,
                        :owl/onProperty     :dcterms/isPartOf,
@@ -785,8 +757,7 @@
    :rdfs/subClassOf [{:owl/allValuesFrom :bibo/Slide,
                       :owl/onProperty    :dcterms/hasPart,
                       :rdf/type          :owl/Restriction}
-                     :bibo/Document
-                     :bibo/Slideshow],
+                     :bibo/Document],
    :vs/term_status "stable"})
 
 (def Specification
@@ -796,7 +767,7 @@
    :rdfs/comment     #voc/lstr "A document describing a specification.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Specification@en",
-   :rdfs/subClassOf  [:bibo/Document :bibo/Specification],
+   :rdfs/subClassOf  :bibo/Document,
    :vs/term_status   "testing"})
 
 (def Standard
@@ -808,7 +779,7 @@
     "A document describing a standard: a specification organized through a standards body.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Standard@en",
-   :rdfs/subClassOf [:bibo/Specification :bibo/Standard :bibo/Document],
+   :rdfs/subClassOf [:bibo/Specification :bibo/Document],
    :vs/term_status "stable"})
 
 (def Statute
@@ -818,10 +789,7 @@
    :rdfs/comment     #voc/lstr "A bill enacted into law.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label       #voc/lstr "Statute@en",
-   :rdfs/subClassOf  [:bibo/Legislation
-                      :bibo/Statute
-                      :bibo/LegalDocument
-                      :bibo/Document],
+   :rdfs/subClassOf  [:bibo/Legislation :bibo/Document :bibo/LegalDocument],
    :vs/term_status   "stable"})
 
 (def Thesis
@@ -833,7 +801,7 @@
     "A document created to summarize research findings associated with the completion of an academic degree.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Thesis@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Thesis],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "stable"})
 
 (def ThesisDegree
@@ -854,7 +822,7 @@
     "A web page is an online document available (at least initially) on the world wide web. A web page is written first and foremost to appear on the web, as distinct from other online resources such as books, manuscripts or audio documents which use the web primarily as a distribution mechanism alongside other more traditional methods such as print.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Webpage@en",
-   :rdfs/subClassOf [:bibo/Document :bibo/Webpage],
+   :rdfs/subClassOf :bibo/Document,
    :vs/term_status "unstable"})
 
 (def Website
@@ -871,7 +839,6 @@
                        :owl/onProperty     :dcterms/hasPart,
                        :rdf/type           :owl/Restriction}
                       :bibo/Collection
-                      :bibo/Website
                       {:owl/allValuesFrom {:owl/unionOf [:bibo/Collection
                                                          :bibo/Document],
                                            :rdf/type    :owl/Class},
@@ -888,7 +855,7 @@
     "A seminar, discussion group, or the like, that emphasizes zxchange of ideas and the demonstration and application of techniques, skills, etc.@en",
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "Workshop@en",
-   :rdfs/subClassOf [:event/Event :bibo/Workshop],
+   :rdfs/subClassOf :event/Event,
    :vs/term_status "stable"})
 
 (def abstract
@@ -910,9 +877,7 @@
    :rdfs/domain        :bibo/LegalDecision,
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/range         :bibo/LegalDecision,
-   :rdfs/subPropertyOf [:bibo/subsequentLegalDecision
-                        :bibo/affirmedBy
-                        :dcterms/isReferencedBy]})
+   :rdfs/subPropertyOf [:bibo/subsequentLegalDecision :dcterms/isReferencedBy]})
 
 (def annotates
   "Critical or explanatory note for a Document."
@@ -924,7 +889,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         #voc/lstr "annotates@en",
    :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf [:dcterms/relation :bibo/annotates],
+   :rdfs/subPropertyOf :dcterms/relation,
    :vs/term_status     "stable"})
 
 (def argued
@@ -946,7 +911,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/asin]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def authorList
   "An ordered list of authors. Normally, this list is seen as a priority list that order authors by importance."
@@ -960,7 +925,7 @@
    :rdfs/label #voc/lstr "list of authors@en",
    :rdfs/range {:owl/unionOf [:rdf/List :rdf/Seq],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:bibo/contributorList :bibo/authorList],
+   :rdfs/subPropertyOf :bibo/contributorList,
    :vs/term_status "stable"})
 
 (def bdarcus
@@ -979,7 +944,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         #voc/lstr "chapter@en",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/locator :bibo/chapter],
+   :rdfs/subPropertyOf :bibo/locator,
    :vs/term_status     "unstable"})
 
 (def citedBy
@@ -1007,7 +972,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "cites@en",
    :rdfs/range :bibo/Document,
-   :rdfs/subPropertyOf [:dcterms/references :bibo/cites],
+   :rdfs/subPropertyOf :dcterms/references,
    :vs/term_status "unstable"})
 
 (def coden
@@ -1016,7 +981,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/coden]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def content
   "This property is for a plain-text rendering of the content of a Document. While the plain-text content of an entire document could be described by this property."
@@ -1047,7 +1012,6 @@
    :rdfs/label #voc/lstr "list of contributors@en",
    :rdfs/range {:owl/unionOf [:rdf/List :rdf/Seq],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :bibo/contributorList,
    :vs/term_status "stable"})
 
 (def court
@@ -1086,7 +1050,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         "director",
    :rdfs/range         :foaf/Agent,
-   :rdfs/subPropertyOf [:dcterms/contributor :bibo/director],
+   :rdfs/subPropertyOf :dcterms/contributor,
    :vs/term_status     "stable"})
 
 (def distributor
@@ -1108,7 +1072,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/doi]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def eanucc13
   {:db/ident           :bibo/eanucc13,
@@ -1116,7 +1080,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/eanucc13]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def edition
   "The name defining a special edition of a document. Normally its a literal value composed of a version number and words."
@@ -1143,7 +1107,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label "editor",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf [:dcterms/contributor :bibo/editor],
+   :rdfs/subPropertyOf :dcterms/contributor,
    :vs/term_status "stable"})
 
 (def editorList
@@ -1158,7 +1122,7 @@
    :rdfs/label #voc/lstr "list of editors@en",
    :rdfs/range {:owl/unionOf [:rdf/List :rdf/Seq],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:bibo/contributorList :bibo/editorList],
+   :rdfs/subPropertyOf :bibo/contributorList,
    :vs/term_status "stable"})
 
 (def eissn
@@ -1166,7 +1130,7 @@
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/domain        :bibo/Collection,
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/eissn]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def fgiasson
   {:db/ident         :bibo/fgiasson,
@@ -1181,7 +1145,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/gtin14]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def handle
   {:db/ident           :bibo/handle,
@@ -1189,15 +1153,14 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/handle]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def identifier
-  {:db/ident           :bibo/identifier,
-   :rdf/type           :owl/DatatypeProperty,
-   :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
-                        :rdf/type    :owl/Class},
-   :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :bibo/identifier})
+  {:db/ident    :bibo/identifier,
+   :rdf/type    :owl/DatatypeProperty,
+   :rdfs/domain {:owl/unionOf [:bibo/Collection :bibo/Document],
+                 :rdf/type    :owl/Class},
+   :rdfs/range  :rdfs/Literal})
 
 (def interviewee
   "An agent that is interviewed by another agent."
@@ -1209,7 +1172,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         "interviewee",
    :rdfs/range         :foaf/Agent,
-   :rdfs/subPropertyOf [:dcterms/contributor :bibo/interviewee],
+   :rdfs/subPropertyOf :dcterms/contributor,
    :vs/term_status     "stable"})
 
 (def interviewer
@@ -1221,13 +1184,13 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         "interviewer",
    :rdfs/range         :foaf/Agent,
-   :rdfs/subPropertyOf [:dcterms/contributor :bibo/interviewer],
+   :rdfs/subPropertyOf :dcterms/contributor,
    :vs/term_status     "stable"})
 
 (def isbn
   {:db/ident :bibo/isbn,
    :rdf/type :owl/DatatypeProperty,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/isbn]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def isbn10
   {:db/ident           :bibo/isbn10,
@@ -1235,7 +1198,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/isbn :bibo/isbn10 :bibo/identifier]})
+   :rdfs/subPropertyOf [:bibo/isbn :bibo/identifier]})
 
 (def isbn13
   {:db/ident           :bibo/isbn13,
@@ -1243,14 +1206,14 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/isbn :bibo/isbn13 :bibo/identifier]})
+   :rdfs/subPropertyOf [:bibo/isbn :bibo/identifier]})
 
 (def issn
   {:db/ident           :bibo/issn,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/domain        :bibo/Collection,
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/issn]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def issue
   "An issue number"
@@ -1261,7 +1224,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         #voc/lstr "issue@en",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/locator :bibo/issue],
+   :rdfs/subPropertyOf :bibo/locator,
    :vs/term_status     "stable"})
 
 (def issuer
@@ -1275,7 +1238,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label "issuer",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf [:dcterms/publisher :bibo/issuer],
+   :rdfs/subPropertyOf :dcterms/publisher,
    :vs/term_status "unstable"})
 
 (def lccn
@@ -1284,7 +1247,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/lccn]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def locator
   "A description (often numeric) that locates an item within a containing document or collection."
@@ -1297,7 +1260,6 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "locator@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :bibo/locator,
    :vs/term_status "stable"})
 
 (def numPages
@@ -1343,7 +1305,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/oclcnum]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def organizer
   "The organizer of an event; includes conference organizers, but also government agencies or other bodies that are responsible for conducting hearings."
@@ -1381,7 +1343,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         #voc/lstr "page end@en",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/locator :bibo/pageEnd],
+   :rdfs/subPropertyOf :bibo/locator,
    :vs/term_status     "stable"})
 
 (def pageStart
@@ -1394,7 +1356,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "page start@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/locator :bibo/pageStart],
+   :rdfs/subPropertyOf :bibo/locator,
    :vs/term_status "stable"})
 
 (def pages
@@ -1408,7 +1370,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "pages@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/locator :bibo/pages],
+   :rdfs/subPropertyOf :bibo/locator,
    :vs/term_status "stable"})
 
 (def performer
@@ -1419,7 +1381,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         "performer",
    :rdfs/range         :foaf/Agent,
-   :rdfs/subPropertyOf [:dcterms/contributor :bibo/performer],
+   :rdfs/subPropertyOf :dcterms/contributor,
    :vs/term_status     "stable"})
 
 (def pmid
@@ -1428,7 +1390,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/pmid]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def prefixName
   "The prefix of a name"
@@ -1452,7 +1414,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "presented at@en",
    :rdfs/range :bibo/Event,
-   :rdfs/subPropertyOf [:event/produced_in :bibo/presentedAt],
+   :rdfs/subPropertyOf :event/produced_in,
    :vs/term_status "unstable"})
 
 (def presents
@@ -1467,7 +1429,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "presents@en",
    :rdfs/range :bibo/Document,
-   :rdfs/subPropertyOf [:event/product :bibo/presents],
+   :rdfs/subPropertyOf :event/product,
    :vs/term_status "unstable"})
 
 (def producer
@@ -1504,7 +1466,7 @@
    :rdfs/domain :bibo/Document,
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/range :bibo/Document,
-   :rdfs/subPropertyOf [:dcterms/isPartOf :bibo/reproducedIn],
+   :rdfs/subPropertyOf :dcterms/isPartOf,
    :vs/term_status "unstable"})
 
 (def reversedBy
@@ -1515,9 +1477,7 @@
    :rdfs/domain        :bibo/LegalDecision,
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/range         :bibo/LegalDecision,
-   :rdfs/subPropertyOf [:bibo/subsequentLegalDecision
-                        :bibo/reversedBy
-                        :dcterms/isReferencedBy]})
+   :rdfs/subPropertyOf [:bibo/subsequentLegalDecision :dcterms/isReferencedBy]})
 
 (def reviewOf
   "Relates a review document to a reviewed thing (resource, item, etc.)."
@@ -1530,7 +1490,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "review of@en",
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf [:dcterms/relation :bibo/reviewOf],
+   :rdfs/subPropertyOf :dcterms/relation,
    :vs/term_status "stable"})
 
 (def section
@@ -1542,7 +1502,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "section@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/locator :bibo/section],
+   :rdfs/subPropertyOf :bibo/locator,
    :skos/example
    #voc/lstr
     "Di Rado, Alicia. 1995. Trekking through college: Classes explore\nmodern society using the world of Star trek. Los Angeles Times, March\n15, sec. A, p. 3.@en",
@@ -1571,7 +1531,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/sici]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def status
   "The publication status of (typically academic) content."
@@ -1598,7 +1558,7 @@
    :rdfs/domain :bibo/LegalDecision,
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/range :bibo/LegalDecision,
-   :rdfs/subPropertyOf [:dcterms/isReferencedBy :bibo/subsequentLegalDecision]})
+   :rdfs/subPropertyOf :dcterms/isReferencedBy})
 
 (def suffixName
   "The suffix of a name"
@@ -1621,7 +1581,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         #voc/lstr "transcript of@en",
    :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf [:dcterms/relation :bibo/transcriptOf],
+   :rdfs/subPropertyOf :dcterms/relation,
    :vs/term_status     "unstable"})
 
 (def translationOf
@@ -1634,7 +1594,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label #voc/lstr "translation of@en",
    :rdfs/range :bibo/Document,
-   :rdfs/subPropertyOf [:dcterms/isVersionOf :bibo/translationOf],
+   :rdfs/subPropertyOf :dcterms/isVersionOf,
    :vs/term_status "stable"})
 
 (def translator
@@ -1649,7 +1609,7 @@
    :rdfs/isDefinedBy "http://purl.org/ontology/bibo/",
    :rdfs/label "translator",
    :rdfs/range :foaf/Agent,
-   :rdfs/subPropertyOf [:dcterms/contributor :bibo/translator],
+   :rdfs/subPropertyOf :dcterms/contributor,
    :vs/term_status "stable"})
 
 (def upc
@@ -1658,7 +1618,7 @@
    :rdfs/domain        {:owl/unionOf [:bibo/Collection :bibo/Document],
                         :rdf/type    :owl/Class},
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/upc]})
+   :rdfs/subPropertyOf :bibo/identifier})
 
 (def uri
   "Universal Resource Identifier of a document"
@@ -1671,7 +1631,7 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         #voc/lstr "uri@en",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/identifier :bibo/uri],
+   :rdfs/subPropertyOf :bibo/identifier,
    :vs/term_status     "stable"})
 
 (def volume
@@ -1683,305 +1643,5 @@
    :rdfs/isDefinedBy   "http://purl.org/ontology/bibo/",
    :rdfs/label         #voc/lstr "volume@en",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:bibo/locator :bibo/volume],
+   :rdfs/subPropertyOf :bibo/locator,
    :vs/term_status     "stable"})
-
-;; (def ^{:private true} ma
-;;   "masters degree in arts"
-;;   {:db/ident       :degrees/ma,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "masters degree in arts@en",
-;;    :rdfs/label     #voc/lstr "M.A.@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} ms
-;;   "masters degree in science"
-;;   {:db/ident       :degrees/ms,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "masters degree in science@en",
-;;    :rdfs/label     #voc/lstr "M.S.@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} phd
-;;   "PhD degree"
-;;   {:db/ident       :degrees/phd,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/ThesisDegree :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "PhD degree@en",
-;;    :rdfs/label     #voc/lstr "PhD degree@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} Event
-;;   {:db/ident :event/Event,
-;;    :rdf/type :owl/Class,
-;;    :rdfs/subClassOf :event/Event,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to describe bibliographic related events such as conferences, hearing, etc.@en"})
-
-;; (def ^{:private true} agent
-;;   {:db/ident :event/agent,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :skos/changeNote
-;;    #voc/lstr
-;;     "Used to link an agent (a person) to an event (a conference, an hearing, etc.)@en"})
-
-;; (def ^{:private true} place
-;;   {:db/ident :event/place,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to relate an event such as a conference to the geographical place where it happens, for example Paris.@en"})
-
-;; (def ^{:private true} produced_in
-;;   {:db/ident :event/produced_in,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :rdfs/subPropertyOf :event/produced_in})
-
-;; (def ^{:private true} product
-;;   {:db/ident :event/product,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :rdfs/subPropertyOf :event/product,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to link an event such as a conference to an outcome (a product) of that event, for example, an article, a proceeding, etc.@en"})
-
-;; (def ^{:private true} sub_event
-;;   {:db/ident :event/sub_event,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to link big events with smaller events such as workshops that happen in the context of a conference.@en"})
-
-;; (def ^{:private true} time
-;;   {:db/ident :event/time,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to describe the timing of an event. For example, when a conference starts and stops.@en"})
-
-;; (def ^{:private true} Agent
-;;   {:db/ident :foaf/Agent,
-;;    :rdf/type :owl/Class,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to describe any \"agent\" related to bibliographic items. Such agents can be persons, organizations or groups of any kind.@en"})
-
-;; (def ^{:private true} Document
-;;   {:db/ident :foaf/Document,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} Image
-;;   {:db/ident :foaf/Image,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} Organization
-;;   {:db/ident :foaf/Organization,
-;;    :rdf/type :owl/Class,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Ued to describe an organization related to bibliographic items such as a publishing company, etc.@en"})
-
-;; (def ^{:private true} Person
-;;   {:db/ident :foaf/Person,
-;;    :rdf/type :owl/Class,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to describe a Person related to a bibliographic ite such as an author, an editor, etc.@en"})
-
-;; (def ^{:private true} based_near
-;;   {:db/ident :foaf/based_near,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to link an agent, related to bibliographic things, to a place where it is based near: can be a city, a monument, a building, etc.@en"})
-
-;; (def ^{:private true} depiction
-;;   {:db/ident       :foaf/depiction,
-;;    :rdf/type       :owl/ObjectProperty,
-;;    :skos/scopeNote #voc/lstr
-;;                     "Used to link an agent with an image that depict it.@en"})
-
-;; (def ^{:private true} family_name
-;;   {:db/ident :foaf/family_name,
-;;    :rdf/type :owl/DatatypeProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "This is the property we choose to use to describe the family name of a person related to a bibliographic resource.@en"})
-
-;; (def ^{:private true} givenname
-;;   {:db/ident :foaf/givenname,
-;;    :rdf/type :owl/DatatypeProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "This is the property we choose to describe the given name of a Person related to a bibliographic resource. This is the first name of a person.@en"})
-
-;; (def ^{:private true} homepage
-;;   {:db/ident :foaf/homepage,
-;;    :rdf/type :owl/ObjectProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr
-;;     "Used to link an agent to its homepage (which is a web page accessible using a URL).@en"})
-
-;; (def ^{:private true} name
-;;   {:db/ident :foaf/name,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} doi
-;;   {:db/ident :prism/doi,
-;;    :owl/equivalentProperty :bibo/doi,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} eIssn
-;;   {:db/ident :prism/eIssn,
-;;    :owl/equivalentProperty :bibo/eissn,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} edition
-;;   {:db/ident :prism/edition,
-;;    :owl/equivalentProperty :bibo/edition,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} endingPage
-;;   {:db/ident :prism/endingPage,
-;;    :owl/equivalentProperty :bibo/pageEnd,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} isbn
-;;   {:db/ident :prism/isbn,
-;;    :owl/equivalentProperty :bibo/isbn,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} issn
-;;   {:db/ident :prism/issn,
-;;    :owl/equivalentProperty :bibo/issn,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} issue
-;;   {:db/ident :prism/issue,
-;;    :owl/equivalentProperty :bibo/issue,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} number
-;;   {:db/ident :prism/number,
-;;    :owl/equivalentProperty :bibo/locator,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} startingPage
-;;   {:db/ident :prism/startingPage,
-;;    :owl/equivalentProperty :bibo/pageStart,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} volume
-;;   {:db/ident :prism/volume,
-;;    :owl/equivalentProperty :bibo/volume,
-;;    :rdf/type :owl/DatatypeProperty})
-
-;; (def ^{:private true} localityName
-;;   {:db/ident :schema/localityName,
-;;    :rdf/type :owl/DatatypeProperty,
-;;    :skos/scopeNote
-;;    #voc/lstr "Used to name the locality of a publisher, an author, etc.@en"})
-
-;; (def ^{:private true} changeNote
-;;   {:db/ident :skos/changeNote,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} editorialNote
-;;   {:db/ident :skos/editorialNote,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} example
-;;   {:db/ident :skos/example,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} historyNote
-;;   {:db/ident :skos/historyNote,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} note
-;;   {:db/ident :skos/note,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} scopeNote
-;;   {:db/ident :skos/scopeNote,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} accepted
-;;   "Accepted for publication after peer reviewing."
-;;   {:db/ident       :status/accepted,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr
-;;                     "Accepted for publication after peer reviewing.@en",
-;;    :rdfs/label     #voc/lstr "accepted@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} draft
-;;   "Document drafted"
-;;   {:db/ident       :status/draft,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "Document drafted@en",
-;;    :rdfs/label     #voc/lstr "draft@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} forthcoming
-;;   "Document to be published"
-;;   {:db/ident       :status/forthcoming,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "Document to be published@en",
-;;    :rdfs/label     #voc/lstr "forthcoming@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} legal
-;;   "Legal document"
-;;   {:db/ident       :status/legal,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "Legal document@en",
-;;    :rdfs/label     #voc/lstr "legal@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} nonPeerReviewed
-;;   "A document that is not peer reviewed"
-;;   {:db/ident       :status/nonPeerReviewed,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "A document that is not peer reviewed@en",
-;;    :rdfs/label     #voc/lstr "non peer reviewed@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} peerReviewed
-;;   "The process by which articles are chosen to be included in a refereed journal. An editorial board consisting of experts in the same field as the author review the article and decide if it is authoritative enough for publication."
-;;   {:db/ident :status/peerReviewed,
-;;    :rdf/type [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment
-;;    #voc/lstr
-;;     "The process by which articles are chosen to be included in a refereed journal. An editorial board consisting of experts in the same field as the author review the article and decide if it is authoritative enough for publication.@en",
-;;    :rdfs/label #voc/lstr "peer reviewed@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} published
-;;   "Published document"
-;;   {:db/ident       :status/published,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "Published document@en",
-;;    :rdfs/label     #voc/lstr "published@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} rejected
-;;   "Rejected for publication after peer reviewing."
-;;   {:db/ident       :status/rejected,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr
-;;                     "Rejected for publication after peer reviewing.@en",
-;;    :rdfs/label     #voc/lstr "rejected@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} unpublished
-;;   "Unpublished document"
-;;   {:db/ident       :status/unpublished,
-;;    :rdf/type       [:owl/NamedIndividual :bibo/DocumentStatus :owl/Thing],
-;;    :rdfs/comment   #voc/lstr "Unpublished document@en",
-;;    :rdfs/label     #voc/lstr "unpublished@en",
-;;    :vs/term_status "stable"})
-
-;; (def ^{:private true} term_status
-;;   {:db/ident :vs/term_status,
-;;    :rdf/type :owl/AnnotationProperty})
