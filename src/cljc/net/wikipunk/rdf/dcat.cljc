@@ -1,18 +1,10 @@
 (ns net.wikipunk.rdf.dcat
   "DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation. DCAT is defined at http://www.w3.org/TR/vocab-dcat/. Any variance between that normative document and this schema is an error in this schema."
   {:dcterms/contributor
-   [{:foaf/homepage "http://www.asahi-net.or.jp/~ax2s-kmtn/",
-     :foaf/name     "Shuji Kamitsuna"}
-    {:foaf/name "Martin Alvarez-Espinar"}
-    {:foaf/homepage
-     ["https://w3id.org/people/ralbertoni/"
-      "http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni"],
-     :foaf/name "Riccardo Albertoni",
-     :rdfs/seeAlso ["https://orcid.org/0000-0001-5648-2713"]}
-    {:foaf/homepage "http://makxdekkers.com/",
-     :foaf/name     "Makx Dekkers",
-     :rdfs/seeAlso  ["http://makxdekkers.com/makxdekkers.rdf#me"]}
-    {:foaf/name "Richard Cyganiak"}
+   [{:foaf/homepage "https://jakub.klímek.com/",
+     :foaf/name     "Jakub Klímek",
+     :rdfs/seeAlso  ["https://jakub.klímek.com/#me"]}
+    {:foaf/name "Marios Meimaris"}
     {:foaf/name "Simon J D Cox",
      :foaf/workInfoHomepage "http://people.csiro.au/Simon-Cox",
      :rdf/type :foaf/Person,
@@ -21,35 +13,43 @@
      {:foaf/homepage "https://csiro.au",
       :foaf/name
       "Commonwealth Scientific and Industrial Research Organisation"}}
-    {:foaf/name "Marios Meimaris"}
-    {:foaf/homepage      "http://www.w3.org/People/all#phila",
-     :foaf/name          "Phil Archer",
-     :rdfs/seeAlso       ["http://philarcher.org/foaf.rdf#me"],
-     :schema/affiliation "http://www.w3.org/data#W3C"}
+    {:foaf/name "Richard Cyganiak"}
+    {:foaf/homepage      "https://agbeltran.github.io",
+     :foaf/name          "Alejandra Gonzalez-Beltran",
+     :rdfs/seeAlso       ["https://orcid.org/0000-0003-3499-8262"],
+     :schema/affiliation {:foaf/homepage "http://stfc.ac.uk",
+                          :foaf/name
+                          "Science and Technology Facilities Council, UK"}}
+    {:foaf/name "Martin Alvarez-Espinar"}
+    {:foaf/name "Boris Villazón-Terrazas"}
+    {:foaf/homepage
+     ["https://w3id.org/people/ralbertoni/"
+      "http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni"],
+     :foaf/name "Riccardo Albertoni",
+     :rdfs/seeAlso ["https://orcid.org/0000-0001-5648-2713"]}
+    {:foaf/name "Rufus Pollock",
+     :schema/affiliation {:foaf/homepage "http://okfn.org",
+                          :foaf/name     "Open Knowledge Foundation"}}
+    {:foaf/homepage "http://www.andrea-perego.name/foaf/#me",
+     :foaf/name     "Andrea Perego",
+     :rdfs/seeAlso  ["https://orcid.org/0000-0001-9300-2694"]}
+    {:foaf/homepage "http://makxdekkers.com/",
+     :foaf/name     "Makx Dekkers",
+     :rdfs/seeAlso  ["http://makxdekkers.com/makxdekkers.rdf#me"]}
     {:foaf/name    "Ghislain Auguste Atemezing",
      :rdfs/seeAlso ["http://www.eurecom.fr/~atemezin/gatemezing-foaf.rdf"]}
+    {:foaf/homepage "http://www.asahi-net.or.jp/~ax2s-kmtn/",
+     :foaf/name     "Shuji Kamitsuna"}
     {:foaf/name "Vassilios Peristeras",
      :schema/affiliation {:foaf/homepage "http://ec.europa.eu/dgs/informatics/",
                           :foaf/name     "European Commission, DG DIGIT"}}
     {:foaf/name "David Browning",
      :schema/affiliation {:foaf/homepage "http://www.refinitiv.com",
                           :foaf/name     "Refinitiv"}}
-    {:foaf/name "Boris Villazón-Terrazas"}
-    {:foaf/homepage "http://www.andrea-perego.name/foaf/#me",
-     :foaf/name     "Andrea Perego",
-     :rdfs/seeAlso  ["https://orcid.org/0000-0001-9300-2694"]}
-    {:foaf/homepage "https://jakub.klímek.com/",
-     :foaf/name     "Jakub Klímek",
-     :rdfs/seeAlso  ["https://jakub.klímek.com/#me"]}
-    {:foaf/name "Rufus Pollock",
-     :schema/affiliation {:foaf/homepage "http://okfn.org",
-                          :foaf/name     "Open Knowledge Foundation"}}
-    {:foaf/homepage      "https://agbeltran.github.io",
-     :foaf/name          "Alejandra Gonzalez-Beltran",
-     :rdfs/seeAlso       ["https://orcid.org/0000-0003-3499-8262"],
-     :schema/affiliation {:foaf/homepage "http://stfc.ac.uk",
-                          :foaf/name
-                          "Science and Technology Facilities Council, UK"}}],
+    {:foaf/homepage      "http://www.w3.org/People/all#phila",
+     :foaf/name          "Phil Archer",
+     :rdfs/seeAlso       ["http://philarcher.org/foaf.rdf#me"],
+     :schema/affiliation "http://www.w3.org/data#W3C"}],
    :dcterms/creator [{:foaf/name "John Erickson"}
                      {:foaf/name    "Fadi Maali",
                       :rdfs/seeAlso ["http://fadmaa.me/foaf.ttl"]}],
@@ -155,7 +155,7 @@
                 #voc/lstr "Catálogo@es"
                 #voc/lstr "Catalog@en"
                 #voc/lstr "Catalogue@fr"],
-   :rdfs/subClassOf [:rdfs/Resource :dcat/Dataset :dcat/Catalog :dcat/Resource],
+   :rdfs/subClassOf [:rdfs/Resource :dcat/Dataset :dcat/Resource],
    :skos/definition
    [#voc/lstr "データ・カタログは、データセットに関するキュレートされたメタデータの集合です。@ja"
     #voc/lstr "Řízená kolekce metadat o datových sadách a datových službách.@cs"
@@ -225,8 +225,7 @@
                       :rdf/type          :owl/Restriction}
                      {:owl/cardinality 1,
                       :owl/onProperty  :foaf/primaryTopic,
-                      :rdf/type        :owl/Restriction}
-                     :dcat/CatalogRecord],
+                      :rdf/type        :owl/Restriction}],
    :skos/definition
    [#voc/lstr
      "Un record in un catalogo di dati che descrive un singolo dataset o servizio di dati.@it"
@@ -283,7 +282,7 @@
                 #voc/lstr "Data service@en"
                 #voc/lstr "Servicio de datos@es"
                 #voc/lstr "Datatjeneste@da"],
-   :rdfs/subClassOf [:dcmitype/Service :dcat/Resource :dcat/DataService],
+   :rdfs/subClassOf [:dcmitype/Service :dcat/Resource],
    :skos/altLabel #voc/lstr "Dataservice@da",
    :skos/changeNote [#voc/lstr "New class added in DCAT 2.0.@en"
                      #voc/lstr "Nová třída přidaná ve verzi DCAT 2.0.@cs"
@@ -355,7 +354,7 @@
                 #voc/lstr "Jeu de données@fr"
                 #voc/lstr "Datová sada@cs"
                 #voc/lstr "Datasæt@da"],
-   :rdfs/subClassOf [:rdfs/Resource :dcat/Resource :dcat/Dataset],
+   :rdfs/subClassOf [:rdfs/Resource :dcat/Resource],
    :skos/altLabel #voc/lstr "Datasamling@da",
    :skos/changeNote
    [#voc/lstr
@@ -447,7 +446,7 @@
                 #voc/lstr "Distribution@fr"
                 #voc/lstr "Distribution@da"
                 #voc/lstr "Distribución@es"],
-   :rdfs/subClassOf [:rdfs/Resource :dcat/Distribution],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/altLabel [#voc/lstr "Datamanifestation@da"
                    #voc/lstr "Datarepræsentation@da"
                    #voc/lstr "Dataudstilling@da"
@@ -553,7 +552,6 @@
                 #voc/lstr "Risorsa catalogata@it"
                 #voc/lstr "Katalogiseret ressource@da"
                 #voc/lstr "Catalogued resource@en"],
-   :rdfs/subClassOf :dcat/Resource,
    :skos/changeNote [#voc/lstr "New class added in DCAT 2.0.@en"
                      #voc/lstr "Nuova classe aggiunta in DCAT 2.0.@it"
                      #voc/lstr "Ny klasse i DCAT 2.0.@da"
@@ -609,7 +607,7 @@
                 #voc/lstr "Role@en"
                 #voc/lstr "Role@cs"],
    :rdfs/seeAlso ["http://www.w3.org/ns/dcat#hadRole"],
-   :rdfs/subClassOf [:skos/Concept :dcat/Role],
+   :rdfs/subClassOf :skos/Concept,
    :skos/changeNote [#voc/lstr "Nuova classe aggiunta in DCAT 2.0.@it"
                      #voc/lstr "Nueva clase agregada en DCAT 2.0.@es"
                      #voc/lstr "Ny klasse tilføjet i DCAT 2.0.@en"
@@ -732,7 +730,6 @@
                 #voc/lstr "indirizzo di accesso@it"
                 #voc/lstr "adgangsadresse@da"],
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :dcat/accessURL,
    :skos/altLabel #voc/lstr "adgangsURL@da",
    :skos/definition
    [#voc/lstr
@@ -786,7 +783,6 @@
                 #voc/lstr "ohraničení oblasti@cs"
                 #voc/lstr "quadro di delimitazione@it"],
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dcat/bbox,
    :skos/changeNote [#voc/lstr "Ny egenskab tilføjet i DCAT 2.0.@da"
                      #voc/lstr "Nová vlastnost přidaná ve verzi DCAT 2.0.@cs"
                      #voc/lstr "Propiedad nueva agregada en DCAT 2.0.@es"
@@ -836,7 +832,6 @@
                 #voc/lstr "taille en octects@fr"
                 #voc/lstr "bytestørrelse@da"],
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dcat/byteSize,
    :skos/definition [#voc/lstr "Το μέγεθος μιας διανομής σε bytes.@el"
                      #voc/lstr
                       "Størrelsen af en distribution angivet i bytes.@da"
@@ -886,7 +881,7 @@
                 #voc/lstr "katalog@cs"
                 #voc/lstr "catalog@en"],
    :rdfs/range :dcat/Catalog,
-   :rdfs/subPropertyOf [:rdfs/member :dcterms/hasPart :dcat/catalog],
+   :rdfs/subPropertyOf [:rdfs/member :dcterms/hasPart],
    :skos/altLabel #voc/lstr "har delkatalog@da",
    :skos/changeNote [#voc/lstr "Nuova proprietà aggiunta in DCAT 2.0.@it"
                      #voc/lstr "New property added in DCAT 2.0.@en"
@@ -914,7 +909,6 @@
                 #voc/lstr "centroid@cs"
                 #voc/lstr "geometrisk tyngdepunkt@da"],
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dcat/centroid,
    :skos/altLabel #voc/lstr "centroide@da",
    :skos/changeNote [#voc/lstr "Ny egenskab tilføjet i DCAT 2.0.@da"
                      #voc/lstr "Nová vlastnost přidaná ve verzi DCAT 2.0.@cs"
@@ -962,7 +956,7 @@
                 #voc/lstr "formato di compressione@it"
                 #voc/lstr "formát komprese@cs"],
    :rdfs/range :dcterms/MediaType,
-   :rdfs/subPropertyOf [:dcterms/format :dcat/compressFormat],
+   :rdfs/subPropertyOf :dcterms/format,
    :skos/changeNote [#voc/lstr "Ny egenskab tilføjet i DCAT 2.0.@da"
                      #voc/lstr "Nueva propiedad agregada en DCAT 2.0.@es"
                      #voc/lstr "Nuova proprietà aggiunta in DCAT 2.0.@it"
@@ -1023,7 +1017,6 @@
                 #voc/lstr "Punto de contacto@es"
                 #voc/lstr "kontaktpunkt@da"],
    :rdfs/range :vcard/Kind,
-   :rdfs/subPropertyOf :dcat/contactPoint,
    :skos/definition
    [#voc/lstr
      "Relie un jeu de données à une information de contact utile en utilisant VCard.@fr"
@@ -1073,7 +1066,7 @@
                 #voc/lstr "データセット@ja"
                 #voc/lstr "datasæt@da"],
    :rdfs/range :dcat/Dataset,
-   :rdfs/subPropertyOf [:rdfs/member :dcterms/hasPart :dcat/dataset],
+   :rdfs/subPropertyOf [:rdfs/member :dcterms/hasPart],
    :skos/altLabel [#voc/lstr "har datasæt@da" #voc/lstr "datasamling@da"],
    :skos/definition
    [#voc/lstr
@@ -1118,7 +1111,7 @@
                 #voc/lstr "distribución@es"
                 #voc/lstr "distribuce@cs"],
    :rdfs/range :dcat/Distribution,
-   :rdfs/subPropertyOf [:dcterms/relation :dcat/distribution],
+   :rdfs/subPropertyOf :dcterms/relation,
    :skos/altLabel #voc/lstr "har distribution@da",
    :skos/definition
    [#voc/lstr
@@ -1170,7 +1163,6 @@
                 #voc/lstr "URL μεταφόρτωσης@el"
                 #voc/lstr "URL de téléchargement@fr"],
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :dcat/downloadURL,
    :skos/definition
    [#voc/lstr
      "Ceci est un lien direct à un fichier téléchargeable en un format donnée. Exple fichier CSV ou RDF. Le format est décrit par les propriétés de distribution dct:format et/ou dcat:mediaType.@fr"
@@ -1219,7 +1211,6 @@
                 #voc/lstr "end date@en"
                 #voc/lstr "fecha final@es"],
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dcat/endDate,
    :skos/altLabel #voc/lstr "sluttidspunkt@da",
    :skos/changeNote [#voc/lstr "New property added in DCAT 2.0.@en"
                      #voc/lstr "Nueva propiedad agregada en DCAT 2.0.@es"
@@ -1433,7 +1424,7 @@
                 #voc/lstr "parola chiave@it"
                 #voc/lstr "klíčové slovo@cs"],
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/subject :dcat/keyword],
+   :rdfs/subPropertyOf :dcterms/subject,
    :skos/definition
    [#voc/lstr "Klíčové slovo nebo značka popisující zdroj.@cs"
     #voc/lstr "データセットを記述しているキーワードまたはタグ。@ja"
@@ -1480,7 +1471,7 @@
                 #voc/lstr "pagina di destinazione@it"
                 #voc/lstr "ιστοσελίδα αρχικής πρόσβασης@el"],
    :rdfs/range :foaf/Document,
-   :rdfs/subPropertyOf [:foaf/page :dcat/landingPage],
+   :rdfs/subPropertyOf :foaf/page,
    :skos/definition
    [#voc/lstr
      "Una pagina web che può essere navigata per ottenere l'accesso al catalogo, ad un dataset, alle distribuzioni del dataset e/o ad informazioni addizionali.@it"
@@ -1547,7 +1538,7 @@
                 #voc/lstr "medietype@da"
                 #voc/lstr "tipo di media@it"],
    :rdfs/range :dcterms/MediaType,
-   :rdfs/subPropertyOf [:dcterms/format :dcat/mediaType],
+   :rdfs/subPropertyOf :dcterms/format,
    :skos/changeNote
    [#voc/lstr "Obor hodnot dcat:mediaType byl zúžen v této revizi DCAT.@cs"
     #voc/lstr
@@ -1606,7 +1597,7 @@
                 #voc/lstr "pakkeformat@da"
                 #voc/lstr "formato de empaquetado@es"],
    :rdfs/range :dcterms/MediaType,
-   :rdfs/subPropertyOf [:dcterms/format :dcat/packageFormat],
+   :rdfs/subPropertyOf :dcterms/format,
    :skos/changeNote [#voc/lstr "Ny egenskab tilføjet i DCAT 2.0.@da"
                      #voc/lstr "Nová vlastnost přidaná ve verzi DCAT 2.0.@cs"
                      #voc/lstr "New property added in DCAT 2.0.@en"
@@ -1720,7 +1711,6 @@
                 #voc/lstr "καταγραφή@el"
                 #voc/lstr "post@da"],
    :rdfs/range :dcat/CatalogRecord,
-   :rdfs/subPropertyOf :dcat/record,
    :skos/altLabel #voc/lstr "har post@da",
    :skos/definition
    [#voc/lstr "Propojuje katalog a jeho záznamy.@cs"
@@ -1793,7 +1783,7 @@
                 #voc/lstr "servizio@it"
                 #voc/lstr "služba@cs"],
    :rdfs/range :dcat/DataService,
-   :rdfs/subPropertyOf [:dcterms/hasPart :rdfs/member :dcat/service],
+   :rdfs/subPropertyOf [:dcterms/hasPart :rdfs/member],
    :skos/altLabel #voc/lstr "har datatjeneste@da",
    :skos/changeNote [#voc/lstr "Nueva propiedad añadida en DCAT 2.0.@es"
                      #voc/lstr "Nuova proprietà aggiunta in DCAT 2.0.@it"
@@ -1887,7 +1877,6 @@
                 #voc/lstr "start date@en"
                 #voc/lstr "startdato@da"],
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :dcat/startDate,
    :skos/altLabel #voc/lstr "starttidspunkt@da",
    :skos/changeNote [#voc/lstr "Nová vlastnost přidaná ve verzi DCAT 2.0.@cs"
                      #voc/lstr "New property added in DCAT 2.0.@en"
@@ -1998,7 +1987,7 @@
                 #voc/lstr "التصنيف@ar"
                 #voc/lstr "thème@fr"],
    :rdfs/range :skos/Concept,
-   :rdfs/subPropertyOf [:dcterms/subject :dcat/theme],
+   :rdfs/subPropertyOf :dcterms/subject,
    :skos/altLabel #voc/lstr "tema@da",
    :skos/definition
    [#voc/lstr "Hlavní téma zdroje. Zdroj může mít více témat.@cs"
@@ -2072,7 +2061,6 @@
                 #voc/lstr "taxonomie témat@cs"
                 #voc/lstr "taxonomía de temas@es"],
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :dcat/themeTaxonomy,
    :schema/rangeIncludes [:skos/ConceptScheme :owl/Ontology :skos/Collection],
    :skos/altLabel #voc/lstr "temataksonomi@da",
    :skos/definition
@@ -2104,32 +2092,3 @@
      "Se recomienda que la taxonomía se organice como un skos:ConceptScheme, skos:Collection, owl:Ontology o similar, los cuáles permiten que cada miembro se denote con una IRI y se publique como datos enlazados.@es"
     #voc/lstr
      "Si raccomanda che la tassonomia sia organizzata in uno skos:ConceptScheme, skos:Collection, owl:Ontology o simili, che permette ad ogni membro di essere indicato da un IRI e pubblicato come linked-data.@it"]})
-
-(def ^{:private true} Service
-  {:db/ident        :dcmitype/Service,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :dcmitype/Service})
-
-(def ^{:private true} homepage
-  "This axiom needed so that Protege loads DCAT2 without errors."
-  {:db/ident :foaf/homepage,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/comment
-   "This axiom needed so that Protege loads DCAT2 without errors."})
-
-(def ^{:private true} page
-  {:db/ident :foaf/page,
-   :rdf/type :rdf/Property,
-   :rdfs/subPropertyOf :foaf/page})
-
-(def ^{:private true} primaryTopic
-  "This axiom needed so that Protege loads DCAT2 without errors."
-  {:db/ident :foaf/primaryTopic,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/comment
-   "This axiom needed so that Protege loads DCAT2 without errors."})
-
-(def ^{:private true} Concept
-  {:db/ident        :skos/Concept,
-   :rdf/type        :rdfs/Class,
-   :rdfs/subClassOf :skos/Concept})

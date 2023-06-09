@@ -77,10 +77,9 @@
                   "http://purl.org/pav/authoredOn"],
    :rdfs/subPropertyOf [:pav/contributedBy
                         :dcterms/creator
-                        :pav/authoredBy
-                        :dcterms/contributor
+                        :prov/wasAttributedTo
                         :prov/wasInfluencedBy
-                        :prov/wasAttributedTo]})
+                        :dcterms/contributor]})
 
 (def authoredOn
   "The date this resource was authored. pav:authoredBy gives the authoring agent. Note that pav:authoredOn is different from pav:createdOn, although they are often the same. See pav:createdBy for a discussion. This property is normally used in a functional way, indicating the last time of authoring, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -94,7 +93,7 @@
    :rdfs/seeAlso ["http://purl.org/pav/createdOn"
                   "http://purl.org/pav/createdBy"
                   "http://purl.org/pav/authoredBy"],
-   :rdfs/subPropertyOf [:pav/contributedOn :pav/authoredOn]})
+   :rdfs/subPropertyOf :pav/contributedOn})
 
 (def contributedBy
   "The resource was contributed to by the given agent. Specifies an agent that provided any sort of help in conceiving the work that is expressed by the digital artifact. Contributions can take many forms, of which PAV define the subproperties pav:authoredBy and pav:curatedBy; however other specific roles could also be specified by pav:contributedBy or custom subproperties, such as illustrating, investigating or managing the underlying data source. Contributions can additionally be expressed in detail using prov:qualifiedAttribution and prov:hadRole. Note that pav:contributedBy identifies only agents that contributed to the work, knowledge or intellectual property, and not agents that made the digital artifact or representation (pav:createdBy), thus the considerations for software agents is similar to for pav:authoredBy and pav:curatedBy. pav:contributedBy is more specific than its superproperty dct:contributor - which might or might not be interpreted to also cover contributions to making the representation of the artifact. The date of contribution can be expressed using pav:contributedOn - note however in the case of multiple contributors that there is no relationship in PAV identifying which agent contributed when or what. If capturing such lineage is desired, it should be additionally expressed using PROV relationships like prov:qualifiedAttribution or prov:wasGeneratedBy."
@@ -108,10 +107,8 @@
    :rdfs/label #voc/lstr "Contributed by@en",
    :rdfs/seeAlso ["http://purl.org/pav/createdBy"
                   "http://purl.org/pav/contributedOn"],
-   :rdfs/subPropertyOf [:prov/wasAttributedTo
-                        :dcterms/contributor
-                        :pav/contributedBy
-                        :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf
+   [:prov/wasAttributedTo :dcterms/contributor :prov/wasInfluencedBy]})
 
 (def contributedOn
   "The date this resource was contributed to. pav:contributedBy provides the agent(s) that contributed. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -123,8 +120,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label #voc/lstr "Contributed on@en",
    :rdfs/range :xsd/dateTime,
-   :rdfs/seeAlso ["http://purl.org/pav/contributedBy"],
-   :rdfs/subPropertyOf :pav/contributedOn})
+   :rdfs/seeAlso ["http://purl.org/pav/contributedBy"]})
 
 (def createdAt
   "The geo-location of the agents when creating the resource (pav:createdBy). For instance a photographer takes a picture of the Eiffel Tower while standing in front of it."
@@ -153,9 +149,8 @@
                   "http://purl.org/pav/authoredBy"],
    :rdfs/subPropertyOf [:dcterms/creator
                         :prov/wasAttributedTo
-                        :pav/createdBy
-                        :dcterms/contributor
-                        :prov/wasInfluencedBy]})
+                        :prov/wasInfluencedBy
+                        :dcterms/contributor]})
 
 (def createdOn
   "The date of creation of the resource representation. The agents responsible can be indicated with pav:createdBy. This property is normally used in a functional way, indicating the time of creation, although PAV does not formally restrict this. pav:lastUpdateOn can be used to indicate minor updates that did not affect the creating date. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -180,8 +175,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label #voc/lstr "Created with@en",
    :rdfs/seeAlso ["http://purl.org/pav/createdBy"],
-   :rdfs/subPropertyOf
-   [:prov/wasAttributedTo :pav/createdWith :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf [:prov/wasAttributedTo :prov/wasInfluencedBy]})
 
 (def curatedBy
   "Specifies an agent specialist responsible for shaping the expression in an appropriate format. Often the primary agent responsible for ensuring the quality of the representation. The curator may be different from the author (pav:authoredBy) and creator of the digital resource (pav:createdBy). The curator may in some cases be a software agent, for instance text mining software which adds hyperlinks for recognized genome names. The date of curating can be expressed using pav:curatedOn - note however in the case of multiple curators that there is no relationship in PAV identifying which agent contributed when or what. If capturing such lineage is desired, it should be additionally expressed using PROV relationships like prov:qualifiedAttribution or prov:wasGeneratedBy."
@@ -196,10 +190,9 @@
    :rdfs/seeAlso ["http://purl.org/pav/curatedOn"
                   "http://purl.org/pav/createdBy"],
    :rdfs/subPropertyOf [:pav/contributedBy
-                        :pav/curatedBy
-                        :dcterms/contributor
+                        :prov/wasAttributedTo
                         :prov/wasInfluencedBy
-                        :prov/wasAttributedTo]})
+                        :dcterms/contributor]})
 
 (def curatedOn
   "The date this resource was curated. pav:curatedBy gives the agent(s) that performed the curation. This property is normally used in a functional way, indicating the last curation date, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -211,7 +204,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label #voc/lstr "Curated on@en",
    :rdfs/seeAlso ["http://purl.org/pav/curatedBy"],
-   :rdfs/subPropertyOf [:pav/contributedOn :pav/curatedOn]})
+   :rdfs/subPropertyOf :pav/contributedOn})
 
 (def curates
   "Provided for backwards compatibility. Use instead the inverse pav:curatedBy."
@@ -236,8 +229,7 @@
    :rdfs/label #voc/lstr "Derived from@en",
    :rdfs/seeAlso ["http://purl.org/pav/previousVersion"
                   "http://purl.org/pav/importedFrom"],
-   :rdfs/subPropertyOf
-   [:prov/wasDerivedFrom :pav/derivedFrom :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf [:prov/wasDerivedFrom :prov/wasInfluencedBy]})
 
 (def hasCurrentVersion
   "This resource has a more specific, versioned resource with equivalent content. This property is intended for relating a non-versioned or abstract resource to a single snapshot that can be used as a permalink to indicate the current version of the content. For instance, if today is 2013-12-25, then a News page can indicate a corresponding snapshot resource which will refer to the news as they were of 2013-12-25. <http://news.example.com/> pav:hasCurrentVersion <http://news.example.com/2013-12-25/> . \"Equivalent content\" is a loose definition, for instance the snapshot resource might include additional information to indicate it is a snapshot, and is not required to be immutable. Other versioned resources indicating the content at earlier times MAY be indicated with the superproperty pav:hasVersion, one of which MAY be related to the current version using pav:hasCurrentVersion: <http://news.example.com/2013-12-25/> pav:previousVersion <http://news.example.com/2013-12-24/> . <http://news.example.com/> pav:hasVersion <http://news.example.com/2013-12-23/> . Note that it might be confusing to also indicate pav:previousVersion from a resource that has hasCurrentVersion relations, as such a resource is intended to be a long-living \"unversioned\" resource. The PAV ontology does however not formally restrict this, to cater for more complex scenarios with multiple abstraction levels. Similarly, it would normally be incorrect to indicate a pav:hasCurrentVersion from an older version; instead the current version would be found by finding the non-versioned resource that the particular resource is a version of, and then its current version. This property is normally used in a functional way, although PAV does not formally restrict this."
@@ -248,10 +240,8 @@
     "This resource has a more specific, versioned resource with equivalent content.\n\nThis property is intended for relating a non-versioned or abstract resource to a single snapshot that can be used as a permalink to indicate the current version of the content.\n\nFor instance, if today is 2013-12-25, then a News page can indicate a corresponding snapshot resource which will refer to the news as they were of 2013-12-25.\n\n    <http://news.example.com/> pav:hasCurrentVersion <http://news.example.com/2013-12-25/> .\n\n\"Equivalent content\" is a loose definition, for instance the snapshot resource might include additional information to indicate it is a snapshot, and is not required to be immutable.\n\nOther versioned resources indicating the content at earlier times MAY be indicated with the superproperty pav:hasVersion, one of which MAY be related to the current version using pav:hasCurrentVersion:\n\n    <http://news.example.com/2013-12-25/> pav:previousVersion <http://news.example.com/2013-12-24/> .\n    <http://news.example.com/> pav:hasVersion <http://news.example.com/2013-12-23/> .\n\nNote that it might be confusing to also indicate pav:previousVersion from a resource that has hasCurrentVersion relations, as such a resource is intended to be a long-living \"unversioned\" resource. The PAV ontology does however not formally restrict this, to cater for more complex scenarios with multiple abstraction levels.\n\nSimilarly, it would normally be incorrect to indicate a pav:hasCurrentVersion from an older version; instead the current version would be found by finding the non-versioned resource that the particular resource is a version of, and then its current version.\n\nThis property is normally used in a functional way, although PAV does not formally restrict this.@en",
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label #voc/lstr "Has current version@en",
-   :rdfs/subPropertyOf [:pav/hasVersion
-                        :pav/hasCurrentVersion
-                        :dcterms/hasVersion
-                        :prov/generalizationOf]})
+   :rdfs/subPropertyOf
+   [:pav/hasVersion :dcterms/hasVersion :prov/generalizationOf]})
 
 (def hasEarlierVersion
   "This versioned resource has an earlier version. Any earlier version of this resource can be indicated with pav:hasEarlierVersion, e.g.: <http://example.com/v4> pav:hasEarlierVersion <http://example.com/v2> ; pav:hasEarlierVersion <http://example.com/v1> . The subproperty pav:previousVersion SHOULD be used if the earlier version is the direct ancestor of this version. <http://example.com/v4> pav:previousVersion <http://example.com/v3> . This property is transitive, so it should not be necessary to repeat the earlier versions of an earlier version. A chain of previous versions can be declared using the subproperty pav:previousVersion, implying that the previous previous version is also an earlier version. It might however still be useful to declare an earlier version explicitly, for instance because it is an earlier version of high relevance or because the complete chain of pav:previousVersion is not available. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. \"Weather Today\" vs. \"Weather Today on 2013-12-07\", see pav:hasVersion."
@@ -262,7 +252,7 @@
    "This versioned resource has an earlier version.\n\nAny earlier version of this resource can be indicated with pav:hasEarlierVersion, e.g.:\n\n<http://example.com/v4> pav:hasEarlierVersion <http://example.com/v2> ;\n    pav:hasEarlierVersion <http://example.com/v1> .\n\n\nThe subproperty pav:previousVersion SHOULD be used if the earlier version is the direct ancestor of this version.\n\n<http://example.com/v4> pav:previousVersion <http://example.com/v3> .\n\n\nThis property is transitive, so it should not be necessary to repeat the earlier versions of an earlier version. A chain of previous versions can be declared using the subproperty pav:previousVersion, implying that the previous previous version is also an earlier version. It might however still be useful to declare an earlier version explicitly, for instance because it is an earlier version of high relevance or because the complete chain of pav:previousVersion is not available.\n\n\nTo indicate that this version is a snapshot of a more general, non-versioned resource, e.g. \"Weather Today\" vs. \"Weather Today on 2013-12-07\", see pav:hasVersion.",
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label #voc/lstr "Has earlier version@en",
-   :rdfs/subPropertyOf [:prov/alternateOf :pav/hasEarlierVersion]})
+   :rdfs/subPropertyOf :prov/alternateOf})
 
 (def hasVersion
   "This resource has a more specific, versioned resource. This property is intended for relating a non-versioned or abstract resource to several versioned resources, e.g. snapshots. For instance, if there are two snapshots of the News page, made on 23rd and 24th of December, then: <http://news.example.com/> pav:hasVersion <http://news.example.com/2013-12-23/> ; pav:hasVersion <http://news.example.com/2013-12-24/> . If one of the versions has somewhat the equivalent content to this resource (e.g. can be used as a permalink for this resource), then it should instead be indicated with the subproperty pav:hasCurrentVersion: <http://news.example.com/> pav:hasCurrentVersion <http://news.example.com/2013-12-25/> . To order the versions, use pav:previousVersion: <http://news.example.com/2013-12-25/> pav:previousVersion <http://news.example.com/2013-12-24/> . <http://news.example.com/2013-12-24/> pav:previousVersion <http://news.example.com/2013-12-23/> . Note that it might be confusing to also indicate pav:previousVersion from a resource that has pav:hasVersion relations, as such a resource is intended to be a long-living \"unversioned\" resource. The PAV ontology does however not formally restrict this, to cater for more complex scenarios with multiple abstraction levels. pav:hasVersion is a subproperty of dcterms:hasVersion to more strongly define this hierarchical pattern. It is therefore also a subproperty of pav:generalizationOf (inverse of prov:specializationOf). To indicate the existence of other, non-hierarchical kind of editions and adaptations of this resource that are not versioned snapshots (e.g. Powerpoint slides has a video recording version), use instead dcterms:hasVersion or prov:alternateOf."
@@ -275,8 +265,7 @@
    :rdfs/label #voc/lstr "Has version@en",
    :rdfs/seeAlso ["http://purl.org/pav/previousVersion"
                   "http://purl.org/pav/hasCurrentVersion"],
-   :rdfs/subPropertyOf
-   [:prov/generalizationOf :dcterms/hasVersion :pav/hasVersion]})
+   :rdfs/subPropertyOf [:prov/generalizationOf :dcterms/hasVersion]})
 
 (def importedBy
   "An entity responsible for importing the data. The importer is usually a software entity which has done the transcription from the original source. Note that pav:importedBy may overlap with pav:createdWith. The source for the import should be given with pav:importedFrom. The time of the import should be given with pav:importedOn. See pav:importedFrom for a discussion of import vs. retrieve vs. derived."
@@ -289,8 +278,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label #voc/lstr "Imported by@en",
    :rdfs/seeAlso ["http://purl.org/pav/importedFrom"],
-   :rdfs/subPropertyOf
-   [:prov/wasAttributedTo :pav/importedBy :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf [:prov/wasAttributedTo :prov/wasInfluencedBy]})
 
 (def importedFrom
   "The original source of imported information. Import means that the content has been preserved, but transcribed somehow, for instance to fit a different representation model by converting formats. Examples of import are when the original was JSON and the current resource is RDF, or where the original was an document scan, and this resource is the plain text found through OCR. The imported resource does not have to be complete, but should be consistent with the knowledge conveyed by the original resource. If additional knowledge has been contributed, pav:derivedFrom would be more appropriate. If the resource has been copied verbatim from the original representation (e.g. downloaded), use pav:retrievedFrom. To indicate which agent(s) performed the import, use pav:importedBy. Use pav:importedOn to indicate when it happened."
@@ -306,8 +294,7 @@
                   "http://purl.org/pav/importedBy"
                   "http://purl.org/pav/derivedFrom"
                   "http://purl.org/pav/retrievedFrom"],
-   :rdfs/subPropertyOf
-   [:prov/wasDerivedFrom :pav/importedFrom :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf [:prov/wasDerivedFrom :prov/wasInfluencedBy]})
 
 (def importedOn
   "The date this resource was imported from a source (pav:importedFrom). Note that pav:importedOn may overlap with pav:createdOn, but in cases where they differ, the import time indicates the time of the retrieval and transcription of the original source, while the creation time indicates when the final resource was made, for instance after user approval. This property is normally used in a functional way, indicating the first import date, although PAV does not formally restrict this. If the resource is later reimported, this should instead be indicated with pav:lastRefreshedOn. The source of the import should be given with pav:importedFrom. The agent that performed the import should be given with pav:importedBy. See pav:importedFrom for a discussion about import vs. retrieval. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -368,7 +355,6 @@
                   "http://purl.org/pav/hasVersion"],
    :rdfs/subPropertyOf [:pav/hasEarlierVersion
                         :prov/wasRevisionOf
-                        :pav/previousVersion
                         :prov/wasInfluencedBy
                         :prov/wasDerivedFrom
                         :prov/alternateOf]})
@@ -394,8 +380,7 @@
    :rdfs/isDefinedBy "http://purl.org/pav/",
    :rdfs/label #voc/lstr "Retrieved by@en",
    :rdfs/seeAlso ["http://purl.org/pav/importedFrom"],
-   :rdfs/subPropertyOf
-   [:prov/wasAttributedTo :pav/retrievedBy :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf [:prov/wasAttributedTo :prov/wasInfluencedBy]})
 
 (def retrievedFrom
   "The URI where a resource has been retrieved from. The retrieving agent is usually a software entity, which has done the retrieval from the original source without performing any transcription. Retrieval indicates that this resource has the same representation as the original resource. If the resource has been somewhat transformed, use pav:importedFrom instead. The time of the retrieval should be indicated using pav:retrievedOn. The agent may be indicated with pav:retrievedBy."
@@ -408,8 +393,7 @@
    :rdfs/label #voc/lstr "Retrieved from@en",
    :rdfs/seeAlso ["http://purl.org/pav/retrievedOn"
                   "http://purl.org/pav/retrievedBy"],
-   :rdfs/subPropertyOf
-   [:prov/wasDerivedFrom :pav/retrievedFrom :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf [:prov/wasDerivedFrom :prov/wasInfluencedBy]})
 
 (def retrievedOn
   "The date the source for this resource was retrieved. The source that was retrieved should be indicated with pav:retrievedFrom. The agent that performed the retrieval may be specified with pav:retrievedBy. This property is normally used in a functional way, although PAV does not formally restrict this. The value is of type xsd:dateTime, for instance \"2013-03-26T14:49:00+01:00\"^^xsd:dateTime. The timezone information (Z for UTC, +01:00 for UTC+1, etc) SHOULD be included unless unknown. If the time (or parts of time) is unknown, use 00:00:00Z. If the day/month is unknown, use 01-01, for instance, if we only know September 1983, then use \"1983-09-01T00:00:00Z\"^^xsd:dateTime."
@@ -438,7 +422,7 @@
                   "http://purl.org/pav/retrievedFrom"
                   "http://purl.org/pav/importedFrom"
                   "http://purl.org/pav/sourceAccessedOn"],
-   :rdfs/subPropertyOf [:prov/wasInfluencedBy :pav/sourceAccessedAt]})
+   :rdfs/subPropertyOf :prov/wasInfluencedBy})
 
 (def sourceAccessedBy
   "The resource is related to a source which was accessed or consulted by the given agent. The source(s) should be specified using pav:sourceAccessedAt, and the time with pav:sourceAccessedOn. For instance, the given agent could be a curator (also pav:curatedBy) which consulted figures in a published paper to confirm that a dataset was correctly pav:importedFrom the paper's supplementary CSV file."
@@ -510,20 +494,18 @@
 
 (def ^{:private true} alternateOf
   "prov:alternateOf"
-  {:db/ident           :prov/alternateOf,
-   :rdf/type           [:owl/SymmetricProperty :owl/ObjectProperty],
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/prov-o#",
-   :rdfs/label         #voc/lstr "prov:alternateOf@en",
-   :rdfs/subPropertyOf :prov/alternateOf})
+  {:db/ident         :prov/alternateOf,
+   :rdf/type         [:owl/SymmetricProperty :owl/ObjectProperty],
+   :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
+   :rdfs/label       #voc/lstr "prov:alternateOf@en"})
 
 (def ^{:private true} generalizationOf
   "prov:generalizationOf"
-  {:db/ident           :prov/generalizationOf,
-   :owl/inverseOf      :prov/specializationOf,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/prov-o-inverses#",
-   :rdfs/label         #voc/lstr "prov:generalizationOf@en",
-   :rdfs/subPropertyOf :prov/generalizationOf})
+  {:db/ident         :prov/generalizationOf,
+   :owl/inverseOf    :prov/specializationOf,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o-inverses#",
+   :rdfs/label       #voc/lstr "prov:generalizationOf@en"})
 
 (def ^{:private true} specializationOf
   "prov:specializationOf"
@@ -538,7 +520,7 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/isDefinedBy   "http://www.w3.org/ns/prov-o#",
    :rdfs/label         #voc/lstr "prov:wasAttributedTo@en",
-   :rdfs/subPropertyOf [:prov/wasInfluencedBy :prov/wasAttributedTo]})
+   :rdfs/subPropertyOf :prov/wasInfluencedBy})
 
 (def ^{:private true} wasDerivedFrom
   "prov:wasDerivedFrom"
@@ -546,15 +528,14 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/isDefinedBy   "http://www.w3.org/ns/prov-o#",
    :rdfs/label         #voc/lstr "prov:wasDerivedFrom@en",
-   :rdfs/subPropertyOf [:prov/wasInfluencedBy :prov/wasDerivedFrom]})
+   :rdfs/subPropertyOf :prov/wasInfluencedBy})
 
 (def ^{:private true} wasInfluencedBy
   "prov:wasInfluencedBy"
-  {:db/ident           :prov/wasInfluencedBy,
-   :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/prov-o#",
-   :rdfs/label         #voc/lstr "prov:wasInfluencedBy@en",
-   :rdfs/subPropertyOf :prov/wasInfluencedBy})
+  {:db/ident         :prov/wasInfluencedBy,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/isDefinedBy "http://www.w3.org/ns/prov-o#",
+   :rdfs/label       #voc/lstr "prov:wasInfluencedBy@en"})
 
 (def ^{:private true} wasRevisionOf
   "prov:wasRevisionOf"
@@ -562,6 +543,4 @@
    :rdf/type           :owl/ObjectProperty,
    :rdfs/isDefinedBy   "http://www.w3.org/ns/prov-o#",
    :rdfs/label         #voc/lstr "prov:wasRevisionOf@en",
-   :rdfs/subPropertyOf [:prov/wasDerivedFrom
-                        :prov/wasRevisionOf
-                        :prov/wasInfluencedBy]})
+   :rdfs/subPropertyOf [:prov/wasDerivedFrom :prov/wasInfluencedBy]})

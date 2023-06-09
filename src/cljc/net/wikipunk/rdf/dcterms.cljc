@@ -33,7 +33,7 @@
                       "A resource that acts or has the power to act.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Agent@en",
-   :rdfs/subClassOf  [:rdfs/Resource :dcterms/Agent]})
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def AgentClass
   "A group of agents."
@@ -45,7 +45,7 @@
    :rdfs/comment     #voc/lstr "A group of agents.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Agent Class@en",
-   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Class :dcterms/AgentClass]})
+   :rdfs/subClassOf  [:rdfs/Resource :rdfs/Class]})
 
 (def BibliographicResource
   "A book, article, or other documentary resource."
@@ -58,7 +58,7 @@
                       "A book, article, or other documentary resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Bibliographic Resource@en",
-   :rdfs/subClassOf  [:rdfs/Resource :dcterms/BibliographicResource]})
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def Box
   "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."
@@ -115,7 +115,6 @@
    :rdfs/label       #voc/lstr "File Format@en",
    :rdfs/subClassOf  [:rdfs/Resource
                       :dcterms/MediaType
-                      :dcterms/FileFormat
                       :dcterms/MediaTypeOrExtent]})
 
 (def Frequency
@@ -128,7 +127,7 @@
    :rdfs/comment     #voc/lstr "A rate at which something recurs.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Frequency@en",
-   :rdfs/subClassOf  [:rdfs/Resource :dcterms/Frequency]})
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def IMT
   "The set of media types specified by the Internet Assigned Numbers Authority."
@@ -198,9 +197,7 @@
     "The extent or range of judicial, law enforcement, or other authority.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Jurisdiction@en",
-   :rdfs/subClassOf [:rdfs/Resource
-                     :dcterms/LocationPeriodOrJurisdiction
-                     :dcterms/Jurisdiction]})
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/LocationPeriodOrJurisdiction]})
 
 (def LCC
   "The set of conceptual resources specified by the Library of Congress Classification."
@@ -241,8 +238,7 @@
     "A legal document giving official permission to do something with a resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "License Document@en",
-   :rdfs/subClassOf
-   [:dcterms/RightsStatement :dcterms/LicenseDocument :rdfs/Resource]})
+   :rdfs/subClassOf [:dcterms/RightsStatement :rdfs/Resource]})
 
 (def LinguisticSystem
   "Written, spoken, sign, and computer languages are linguistic systems."
@@ -262,7 +258,7 @@
     "A system of signs, symbols, sounds, gestures, or rules used in communication.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Linguistic System@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/LinguisticSystem]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Location
   "A spatial region or named place."
@@ -274,9 +270,7 @@
    :rdfs/comment     #voc/lstr "A spatial region or named place.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Location@en",
-   :rdfs/subClassOf  [:rdfs/Resource
-                      :dcterms/LocationPeriodOrJurisdiction
-                      :dcterms/Location]})
+   :rdfs/subClassOf  [:rdfs/Resource :dcterms/LocationPeriodOrJurisdiction]})
 
 (def LocationPeriodOrJurisdiction
   "A location, period of time, or jurisdiction."
@@ -289,7 +283,7 @@
                       "A location, period of time, or jurisdiction.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Location, Period, or Jurisdiction@en",
-   :rdfs/subClassOf  [:rdfs/Resource :dcterms/LocationPeriodOrJurisdiction]})
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def MESH
   "The set of labeled concepts specified by the Medical Subject Headings."
@@ -315,9 +309,7 @@
    :rdfs/comment     #voc/lstr "A file format or physical medium.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Media Type@en",
-   :rdfs/subClassOf  [:dcterms/MediaTypeOrExtent
-                      :dcterms/MediaType
-                      :rdfs/Resource]})
+   :rdfs/subClassOf  [:dcterms/MediaTypeOrExtent :rdfs/Resource]})
 
 (def MediaTypeOrExtent
   "A media type or extent."
@@ -329,7 +321,7 @@
    :rdfs/comment     #voc/lstr "A media type or extent.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Media Type or Extent@en",
-   :rdfs/subClassOf  [:rdfs/Resource :dcterms/MediaTypeOrExtent]})
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def MethodOfAccrual
   "A method by which resources are added to a collection."
@@ -342,7 +334,7 @@
                   "A method by which resources are added to a collection.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Method of Accrual@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/MethodOfAccrual]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def MethodOfInstruction
   "A process that is used to engender knowledge, attitudes, and skills."
@@ -356,7 +348,7 @@
     "A process that is used to engender knowledge, attitudes, and skills.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Method of Instruction@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/MethodOfInstruction]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def NLM
   "The set of conceptual resources specified by the National Library of Medicine Classification."
@@ -399,9 +391,7 @@
     "An interval of time that is named or defined by its start and end dates.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Period of Time@en",
-   :rdfs/subClassOf [:rdfs/Resource
-                     :dcterms/LocationPeriodOrJurisdiction
-                     :dcterms/PeriodOfTime]})
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/LocationPeriodOrJurisdiction]})
 
 (def PhysicalMedium
   "Examples include paper, canvas, or DVD."
@@ -416,7 +406,6 @@
    :rdfs/isDefinedBy    "http://purl.org/dc/terms/",
    :rdfs/label          #voc/lstr "Physical Medium@en",
    :rdfs/subClassOf     [:dcterms/MediaType
-                         :dcterms/PhysicalMedium
                          :rdfs/Resource
                          :dcterms/MediaTypeOrExtent]})
 
@@ -430,7 +419,7 @@
    :rdfs/comment     #voc/lstr "A material thing.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label       #voc/lstr "Physical Resource@en",
-   :rdfs/subClassOf  [:rdfs/Resource :dcterms/PhysicalResource]})
+   :rdfs/subClassOf  :rdfs/Resource})
 
 (def Point
   "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."
@@ -459,7 +448,7 @@
     "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Policy@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/Policy]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def ProvenanceStatement
   "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."
@@ -473,7 +462,7 @@
     "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Provenance Statement@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/ProvenanceStatement]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def RFC1766
   "The set of tags, constructed according to RFC 1766, for the identification of languages."
@@ -549,7 +538,7 @@
     "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Rights Statement@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/RightsStatement]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def SizeOrDuration
   "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."
@@ -568,8 +557,7 @@
    #voc/lstr "A dimension or extent, or a time taken to play or execute.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Size or Duration@en",
-   :rdfs/subClassOf
-   [:rdfs/Resource :dcterms/MediaTypeOrExtent :dcterms/SizeOrDuration]})
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/MediaTypeOrExtent]})
 
 (def Standard
   "A reference point against which other things can be evaluated or compared."
@@ -583,7 +571,7 @@
     "A reference point against which other things can be evaluated or compared.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Standard@en",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/Standard]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def TGN
   "The set of places specified by the Getty Thesaurus of Geographic Names."
@@ -652,9 +640,7 @@
    :rdfs/comment       #voc/lstr "A summary of the resource.@en",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
    :rdfs/label         #voc/lstr "Abstract@en",
-   :rdfs/subPropertyOf [:dcterms/description
-                        :dc11/description
-                        :dcterms/abstract]})
+   :rdfs/subPropertyOf [:dcterms/description :dc11/description]})
 
 (def accessRights
   "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."
@@ -675,7 +661,7 @@
     "Information about who access the resource or an indication of its security status.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Access Rights@en",
-   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights :dcterms/accessRights]})
+   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights]})
 
 (def accrualMethod
   "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)]."
@@ -695,8 +681,7 @@
                   "The method by which items are added to a collection.@en",
    :rdfs/domain :dcmitype/Collection,
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Accrual Method@en",
-   :rdfs/subPropertyOf :dcterms/accrualMethod})
+   :rdfs/label #voc/lstr "Accrual Method@en"})
 
 (def accrualPeriodicity
   "Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)]."
@@ -716,8 +701,7 @@
    #voc/lstr "The frequency with which items are added to a collection.@en",
    :rdfs/domain :dcmitype/Collection,
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Accrual Periodicity@en",
-   :rdfs/subPropertyOf :dcterms/accrualPeriodicity})
+   :rdfs/label #voc/lstr "Accrual Periodicity@en"})
 
 (def accrualPolicy
   "Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)]."
@@ -737,8 +721,7 @@
    #voc/lstr "The policy governing the addition of items to a collection.@en",
    :rdfs/domain :dcmitype/Collection,
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Accrual Policy@en",
-   :rdfs/subPropertyOf :dcterms/accrualPolicy})
+   :rdfs/label #voc/lstr "Accrual Policy@en"})
 
 (def alternative
   "The distinction between titles and alternative titles is application-specific."
@@ -757,7 +740,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Alternative Title@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/title :dc11/title :dcterms/alternative]})
+   :rdfs/subPropertyOf [:dcterms/title :dc11/title]})
 
 (def audience
   "Recommended practice is to use this property with non-literal values from a vocabulary of audience types."
@@ -777,8 +760,7 @@
    #voc/lstr
     "A class of agents for whom the resource is intended or useful.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Audience@en",
-   :rdfs/subPropertyOf :dcterms/audience})
+   :rdfs/label #voc/lstr "Audience@en"})
 
 (def available
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -798,7 +780,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Available@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/available]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
 
 (def bibliographicCitation
   "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."
@@ -817,8 +799,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Bibliographic Citation@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf
-   [:dcterms/identifier :dc11/identifier :dcterms/bibliographicCitation]})
+   :rdfs/subPropertyOf [:dcterms/identifier :dc11/identifier]})
 
 (def conformsTo
   "An established standard to which the described resource conforms."
@@ -833,7 +814,7 @@
     "An established standard to which the described resource conforms.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Conforms To@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/conformsTo]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def contributor
   "The guidelines for using names of persons or organizations as creators apply to contributors."
@@ -854,7 +835,7 @@
     "An entity responsible for making contributions to the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Contributor@en",
-   :rdfs/subPropertyOf [:dc11/contributor :dcterms/contributor]})
+   :rdfs/subPropertyOf :dc11/contributor})
 
 (def coverage
   "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges. Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage."
@@ -876,7 +857,7 @@
     "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Coverage@en",
-   :rdfs/subPropertyOf [:dc11/coverage :dcterms/coverage]})
+   :rdfs/subPropertyOf :dc11/coverage})
 
 (def created
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -895,7 +876,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Created@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/created]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
 
 (def creator
   "Recommended practice is to identify the creator with a URI. If this is not possible or feasible, a literal value that identifies the creator may be provided."
@@ -915,8 +896,7 @@
    :rdfs/comment #voc/lstr "An entity responsible for making the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Creator@en",
-   :rdfs/subPropertyOf
-   [:dcterms/contributor :dc11/creator :dcterms/creator :dc11/contributor]})
+   :rdfs/subPropertyOf [:dcterms/contributor :dc11/creator :dc11/contributor]})
 
 (def date
   "Date may be used to express temporal information at any level of granularity. Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)]. If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character. Either the start or end date may be missing."
@@ -937,7 +917,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dc11/date :dcterms/date]})
+   :rdfs/subPropertyOf :dc11/date})
 
 (def dateAccepted
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty. Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."
@@ -956,7 +936,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Accepted@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/dateAccepted]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
 
 (def dateCopyrighted
   "Typically a year. Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -975,7 +955,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Copyrighted@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/dateCopyrighted]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
 
 (def dateSubmitted
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty. Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal)."
@@ -994,7 +974,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Submitted@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/dateSubmitted]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
 
 (def description
   "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
@@ -1014,7 +994,7 @@
    :rdfs/comment       #voc/lstr "An account of the resource.@en",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
    :rdfs/label         #voc/lstr "Description@en",
-   :rdfs/subPropertyOf [:dc11/description :dcterms/description]})
+   :rdfs/subPropertyOf :dc11/description})
 
 (def educationLevel
   "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."
@@ -1029,7 +1009,7 @@
     "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Audience Education Level@en",
-   :rdfs/subPropertyOf [:dcterms/audience :dcterms/educationLevel]})
+   :rdfs/subPropertyOf :dcterms/audience})
 
 (def extent
   "Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format."
@@ -1048,7 +1028,7 @@
    :rdfs/comment #voc/lstr "The size or duration of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Extent@en",
-   :rdfs/subPropertyOf [:dcterms/format :dc11/format :dcterms/extent]})
+   :rdfs/subPropertyOf [:dcterms/format :dc11/format]})
 
 (def format
   "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)]. Examples of dimensions include size and duration."
@@ -1069,7 +1049,7 @@
     "The file format, physical medium, or dimensions of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Format@en",
-   :rdfs/subPropertyOf [:dc11/format :dcterms/format]})
+   :rdfs/subPropertyOf :dc11/format})
 
 (def hasFormat
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of."
@@ -1089,7 +1069,7 @@
     "A related resource that is substantially the same as the pre-existing described resource, but in another format.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Has Format@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/hasFormat]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def hasPart
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."
@@ -1109,7 +1089,7 @@
     "A related resource that is included either physically or logically in the described resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Has Part@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/hasPart]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def hasVersion
   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of."
@@ -1129,7 +1109,7 @@
     "A related resource that is a version, edition, or adaptation of the described resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Has Version@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/hasVersion]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def identifier
   "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN). Persistent identifiers should be provided as HTTP URIs."
@@ -1150,7 +1130,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Identifier@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dc11/identifier :dcterms/identifier]})
+   :rdfs/subPropertyOf :dc11/identifier})
 
 (def instructionalMethod
   "Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured. Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."
@@ -1170,8 +1150,7 @@
    #voc/lstr
     "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Instructional Method@en",
-   :rdfs/subPropertyOf :dcterms/instructionalMethod})
+   :rdfs/label #voc/lstr "Instructional Method@en"})
 
 (def isFormatOf
   "This property is intended to be used with non-literal values. This property is an inverse property of Has Format."
@@ -1191,7 +1170,7 @@
     "A pre-existing related resource that is substantially the same as the described resource, but in another format.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Is Format Of@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/isFormatOf]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def isPartOf
   "This property is intended to be used with non-literal values. This property is an inverse property of Has Part."
@@ -1211,7 +1190,7 @@
     "A related resource in which the described resource is physically or logically included.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Is Part Of@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/isPartOf]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def isReferencedBy
   "This property is intended to be used with non-literal values. This property is an inverse property of References."
@@ -1231,8 +1210,7 @@
     "A related resource that references, cites, or otherwise points to the described resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Is Referenced By@en",
-   :rdfs/subPropertyOf
-   [:dcterms/relation :dc11/relation :dcterms/isReferencedBy]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def isReplacedBy
   "This property is intended to be used with non-literal values. This property is an inverse property of Replaces."
@@ -1252,8 +1230,7 @@
     "A related resource that supplants, displaces, or supersedes the described resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Is Replaced By@en",
-   :rdfs/subPropertyOf
-   [:dcterms/relation :dc11/relation :dcterms/isReplacedBy]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def isRequiredBy
   "This property is intended to be used with non-literal values. This property is an inverse property of Requires."
@@ -1273,8 +1250,7 @@
     "A related resource that requires the described resource to support its function, delivery, or coherence.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Is Required By@en",
-   :rdfs/subPropertyOf
-   [:dcterms/relation :dc11/relation :dcterms/isRequiredBy]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def isVersionOf
   "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version."
@@ -1294,7 +1270,7 @@
     "A related resource of which the described resource is a version, edition, or adaptation.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Is Version Of@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/isVersionOf]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def issued
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -1313,7 +1289,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Issued@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/issued]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
 
 (def language
   "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."
@@ -1332,7 +1308,7 @@
    :rdfs/comment #voc/lstr "A language of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Language@en",
-   :rdfs/subPropertyOf [:dc11/language :dcterms/language]})
+   :rdfs/subPropertyOf :dc11/language})
 
 (def license
   "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided."
@@ -1353,7 +1329,7 @@
     "A legal document giving official permission to do something with the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "License@en",
-   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights :dcterms/license]})
+   :rdfs/subPropertyOf [:dcterms/rights :dc11/rights]})
 
 (def mediator
   "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."
@@ -1372,7 +1348,7 @@
    :rdfs/comment #voc/lstr "An entity that mediates access to the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Mediator@en",
-   :rdfs/subPropertyOf [:dcterms/audience :dcterms/mediator]})
+   :rdfs/subPropertyOf :dcterms/audience})
 
 (def medium
   "The material or physical carrier of the resource."
@@ -1387,7 +1363,7 @@
                          "The material or physical carrier of the resource.@en",
    :rdfs/isDefinedBy    "http://purl.org/dc/terms/",
    :rdfs/label          #voc/lstr "Medium@en",
-   :rdfs/subPropertyOf  [:dcterms/format :dc11/format :dcterms/medium]})
+   :rdfs/subPropertyOf  [:dcterms/format :dc11/format]})
 
 (def modified
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -1406,7 +1382,7 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Modified@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/modified]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})
 
 (def provenance
   "The statement may include a description of any changes successive custodians made to the resource."
@@ -1426,8 +1402,7 @@
    #voc/lstr
     "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Provenance@en",
-   :rdfs/subPropertyOf :dcterms/provenance})
+   :rdfs/label #voc/lstr "Provenance@en"})
 
 (def publisher
   "An entity responsible for making the resource available."
@@ -1441,7 +1416,7 @@
                   "An entity responsible for making the resource available.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Publisher@en",
-   :rdfs/subPropertyOf [:dc11/publisher :dcterms/publisher]})
+   :rdfs/subPropertyOf :dc11/publisher})
 
 (def references
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By."
@@ -1461,7 +1436,7 @@
     "A related resource that is referenced, cited, or otherwise pointed to by the described resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "References@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/references]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def relation
   "Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided."
@@ -1479,7 +1454,7 @@
    :rdfs/comment #voc/lstr "A related resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Relation@en",
-   :rdfs/subPropertyOf [:dc11/relation :dcterms/relation]})
+   :rdfs/subPropertyOf :dc11/relation})
 
 (def replaces
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By."
@@ -1499,7 +1474,7 @@
     "A related resource that is supplanted, displaced, or superseded by the described resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Replaces@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/replaces]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def requires
   "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By."
@@ -1519,7 +1494,7 @@
     "A related resource that is required by the described resource to support its function, delivery, or coherence.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Requires@en",
-   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation :dcterms/requires]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/relation]})
 
 (def rights
   "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights. Recommended practice is to refer to a rights statement with a URI. If this is not possible or feasible, a literal value (name, label, or short text) may be provided."
@@ -1539,7 +1514,7 @@
                   "Information about rights held in and over the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Rights@en",
-   :rdfs/subPropertyOf [:dc11/rights :dcterms/rights]})
+   :rdfs/subPropertyOf :dc11/rights})
 
 (def rightsHolder
   "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided."
@@ -1559,8 +1534,7 @@
    #voc/lstr
     "A person or organization owning or managing rights over the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
-   :rdfs/label #voc/lstr "Rights Holder@en",
-   :rdfs/subPropertyOf :dcterms/rightsHolder})
+   :rdfs/label #voc/lstr "Rights Holder@en"})
 
 (def source
   "This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system."
@@ -1580,8 +1554,7 @@
     "A related resource from which the described resource is derived.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Source@en",
-   :rdfs/subPropertyOf
-   [:dcterms/relation :dc11/source :dcterms/source :dc11/relation]})
+   :rdfs/subPropertyOf [:dcterms/relation :dc11/source :dc11/relation]})
 
 (def spatial
   "Spatial characteristics of the resource."
@@ -1594,7 +1567,7 @@
    :rdfs/comment       #voc/lstr "Spatial characteristics of the resource.@en",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
    :rdfs/label         #voc/lstr "Spatial Coverage@en",
-   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage :dcterms/spatial]})
+   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage]})
 
 (def subject
   "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary."
@@ -1612,7 +1585,7 @@
    :rdfs/comment #voc/lstr "A topic of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Subject@en",
-   :rdfs/subPropertyOf [:dc11/subject :dcterms/subject]})
+   :rdfs/subPropertyOf :dc11/subject})
 
 (def tableOfContents
   "A list of subunits of the resource."
@@ -1624,9 +1597,7 @@
    :rdfs/comment       #voc/lstr "A list of subunits of the resource.@en",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
    :rdfs/label         #voc/lstr "Table Of Contents@en",
-   :rdfs/subPropertyOf [:dcterms/description
-                        :dc11/description
-                        :dcterms/tableOfContents]})
+   :rdfs/subPropertyOf [:dcterms/description :dc11/description]})
 
 (def temporal
   "Temporal characteristics of the resource."
@@ -1639,7 +1610,7 @@
    :rdfs/comment       #voc/lstr "Temporal characteristics of the resource.@en",
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
    :rdfs/label         #voc/lstr "Temporal Coverage@en",
-   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage :dcterms/temporal]})
+   :rdfs/subPropertyOf [:dcterms/coverage :dc11/coverage]})
 
 (def title
   "A name given to the resource."
@@ -1654,7 +1625,7 @@
    :rdfs/isDefinedBy   "http://purl.org/dc/terms/",
    :rdfs/label         #voc/lstr "Title@en",
    :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf [:dc11/title :dcterms/title]})
+   :rdfs/subPropertyOf :dc11/title})
 
 (def type
   "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format."
@@ -1672,7 +1643,7 @@
    :rdfs/comment #voc/lstr "The nature or genre of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Type@en",
-   :rdfs/subPropertyOf [:dc11/type :dcterms/type]})
+   :rdfs/subPropertyOf :dc11/type})
 
 (def valid
   "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."
@@ -1691,4 +1662,4 @@
    :rdfs/isDefinedBy "http://purl.org/dc/terms/",
    :rdfs/label #voc/lstr "Date Valid@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf [:dcterms/date :dc11/date :dcterms/valid]})
+   :rdfs/subPropertyOf [:dcterms/date :dc11/date]})

@@ -34,7 +34,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "Context@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#context-definitions"],
-   :rdfs/subClassOf [:rdfs/Resource :jsonld/Context]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def PrefixDefinition
   "A string ([simple term definition](http://www.w3.org/TR/json-ld11/#dfn-simple-term-definitions)), expanding to an IRI."
@@ -46,7 +46,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "Prefix Definition@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#dfn-term-definition"],
-   :rdfs/subClassOf [:rdfs/Resource :jsonld/PrefixDefinition]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def TermDefinition
   "A [term definition](http://www.w3.org/TR/json-ld11/#dfn-term-definitions) is an entry in a [context](#Context), where the key defines a term which may be used within a dictionary as a key, type, or elsewhere that a string is interpreted as a vocabulary item. Its value is an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions). An [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definition) MUST be a map composed of zero or more keys from `@id`, `@reverse`, `@type`, `@language`, `@container`, `@context`, `@prefix`, `@propagate`, or `@protected`. An expanded term definition SHOULD NOT contain any other keys."
@@ -58,7 +58,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "Term Definition@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#dfn-term-definition"],
-   :rdfs/subClassOf [:rdfs/Resource :jsonld/TermDefinition]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def base
   "If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) has an `@base` key, its value MUST be an _IRI reference_, or `null`."
@@ -70,7 +70,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "base@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#context-definitions"],
-   :rdfs/subPropertyOf :jsonld/base,
    :schema/domainIncludes :jsonld/Context,
    :schema/rangeIncludes :xsd/anyURI})
 
@@ -95,7 +94,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "container@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#expanded-term-definition"],
-   :rdfs/subPropertyOf :jsonld/container,
    :schema/domainIncludes :jsonld/TermDefinition,
    :schema/rangeIncludes :jsonld/ContainerType})
 
@@ -110,18 +108,16 @@
    :rdfs/label #voc/lstr "context@en",
    :rdfs/seeAlso
    ["https://www.w3.org/TR/json-ld11/#interpreting-json-as-json-ld"],
-   :rdfs/subPropertyOf :jsonld/context,
    :schema/rangeIncludes [:xsd/anyURI :jsonld/Context]})
 
 (def definition
   "Term definition(s) associated with this context."
-  {:db/ident           :jsonld/definition,
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr
-                        "Term definition(s) associated with this context.@en",
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/json-ld#",
-   :rdfs/label         #voc/lstr "definition@en",
-   :rdfs/subPropertyOf :jsonld/definition,
+  {:db/ident             :jsonld/definition,
+   :rdf/type             :rdf/Property,
+   :rdfs/comment         #voc/lstr
+                          "Term definition(s) associated with this context.@en",
+   :rdfs/isDefinedBy     "http://www.w3.org/ns/json-ld#",
+   :rdfs/label           #voc/lstr "definition@en",
    :schema/domainIncludes :jsonld/Context,
    :schema/rangeIncludes [:jsonld/PrefixDefinition :jsonld/TermDefinition]})
 
@@ -135,7 +131,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "direction@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#context-definitions"],
-   :rdfs/subPropertyOf :jsonld/direction,
    :schema/domainIncludes [:jsonld/TermDefinition :jsonld/Context],
    :schema/rangeIncludes :xsd/string})
 
@@ -186,7 +181,7 @@
 (def graphContainerType
   "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords."
   {:db/ident :jsonld/graphContainerType,
-   :rdf/type :jsonld/ContainerType
+   :rdf/type :jsonld/ContainerType,
    :rdfs/comment
    #voc/lstr
     "If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an _array_ containing exactly any one of those keywords.@en",
@@ -203,7 +198,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "id@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#expanded-term-definition"],
-   :rdfs/subPropertyOf :jsonld/id,
    :schema/domainIncludes [:jsonld/PrefixDefinition :jsonld/TermDefinition],
    :schema/rangeIncludes :xsd/anyURI})
 
@@ -228,7 +222,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "import@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#context-definitions"],
-   :rdfs/subPropertyOf :jsonld/import,
    :schema/domainIncludes :jsonld/Context,
    :schema/rangeIncludes :xsd/anyURI})
 
@@ -253,7 +246,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "language@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#dfn-default-language"],
-   :rdfs/subPropertyOf :jsonld/language,
    :schema/domainIncludes [:jsonld/TermDefinition :jsonld/Context],
    :schema/rangeIncludes :xsd/string})
 
@@ -289,7 +281,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "nest@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#expanded-term-definition"],
-   :rdfs/subPropertyOf :jsonld/nest,
    :schema/domainIncludes :jsonld/TermDefinition,
    :schema/rangeIncludes :xsd/string})
 
@@ -303,7 +294,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "prefix@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#expanded-term-definition"],
-   :rdfs/subPropertyOf :jsonld/prefix,
    :schema/domainIncludes :jsonld/TermDefinition,
    :schema/rangeIncludes :xsd/boolean})
 
@@ -317,7 +307,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "propagate@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#context-definitions"],
-   :rdfs/subPropertyOf :jsonld/propagate,
    :schema/domainIncludes [:jsonld/TermDefinition :jsonld/Context],
    :schema/rangeIncludes :xsd/boolean})
 
@@ -331,7 +320,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "protected@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#context-definitions"],
-   :rdfs/subPropertyOf :jsonld/protected,
    :schema/domainIncludes [:jsonld/TermDefinition :jsonld/Context],
    :schema/rangeIncludes :xsd/boolean})
 
@@ -345,7 +333,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "reverse@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#expanded-term-definition"],
-   :rdfs/subPropertyOf :jsonld/reverse,
    :schema/domainIncludes :jsonld/TermDefinition,
    :schema/rangeIncludes :xsd/anyURI})
 
@@ -382,7 +369,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "term@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#dfn-term"],
-   :rdfs/subPropertyOf :jsonld/term,
    :schema/domainIncludes [:jsonld/PrefixDefinition :jsonld/TermDefinition],
    :schema/rangeIncludes :xsd/string})
 
@@ -396,7 +382,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "type@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#context-definitions"],
-   :rdfs/subPropertyOf :jsonld/type,
    :schema/domainIncludes [:jsonld/TermDefinition :jsonld/Context],
    :schema/rangeIncludes [:xsd/string :xsd/anyURI]})
 
@@ -421,7 +406,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "version@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#dfn-processing-mode"],
-   :rdfs/subPropertyOf :jsonld/version,
    :schema/domainIncludes :jsonld/Context,
    :schema/rangeIncludes :xsd/decimal})
 
@@ -435,6 +419,5 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/json-ld#",
    :rdfs/label #voc/lstr "vocab@en",
    :rdfs/seeAlso ["https://www.w3.org/TR/json-ld11/#default-vocabulary"],
-   :rdfs/subPropertyOf :jsonld/vocab,
    :schema/domainIncludes :jsonld/Context,
    :schema/rangeIncludes :xsd/anyURI})

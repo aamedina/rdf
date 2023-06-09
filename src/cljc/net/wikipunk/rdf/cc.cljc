@@ -67,7 +67,7 @@
    :rdfs/comment    #voc/lstr
                      "the legal jurisdiction\n\t\t    of a license@en-US",
    :rdfs/label      #voc/lstr "Jurisdiction@en-US",
-   :rdfs/subClassOf [:rdfs/Resource :cc/Jurisdiction]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def LesserCopyleft
   "derivative works must be licensed under specified terms, with at least the same conditions as the original work; combinations with the work may be licensed under different terms"
@@ -86,7 +86,7 @@
    #voc/lstr
     "a set of\n\t\t    requests/permissions to users of a Work, e.g. a\n\t\t    copyright license, the public domain, information\n\t\t    for distributors@en-US",
    :rdfs/label #voc/lstr "License@en-US",
-   :rdfs/subClassOf [:rdfs/Resource :dcterms/LicenseDocument :cc/License]})
+   :rdfs/subClassOf [:rdfs/Resource :dcterms/LicenseDocument]})
 
 (def Notice
   "copyright and license notices be kept intact"
@@ -104,7 +104,7 @@
    #voc/lstr
     "an action that may or\n\t\t    may not be allowed or desired@en-US",
    :rdfs/label #voc/lstr "Permission@en-US",
-   :rdfs/subClassOf [:rdfs/Resource :cc/Permission]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Prohibition
   "something you may be asked not to do"
@@ -113,7 +113,7 @@
    :rdfs/comment    #voc/lstr
                      "something you may be\n\t\t    asked not to do@en-US",
    :rdfs/label      #voc/lstr "Prohibition@en-US",
-   :rdfs/subClassOf [:rdfs/Resource :cc/Prohibition]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Reproduction
   "making multiple copies"
@@ -129,7 +129,7 @@
    :rdfs/comment
    #voc/lstr "an action that may or\n\t\t    may not be requested of you@en-US",
    :rdfs/label #voc/lstr "Requirement@en-US",
-   :rdfs/subClassOf [:rdfs/Resource :cc/Requirement]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def ShareAlike
   "derivative works be licensed under the same terms or compatible terms as the original work"
@@ -164,46 +164,41 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #voc/lstr "a potentially\n\t\t    copyrightable work@en-US",
    :rdfs/label      #voc/lstr "Work@en-US",
-   :rdfs/subClassOf [:rdfs/Resource :cc/Work]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def attributionName
-  {:db/ident           :cc/attributionName,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/Work,
-   :rdfs/range         :rdfs/Literal,
-   :rdfs/subPropertyOf :cc/attributionName})
+  {:db/ident    :cc/attributionName,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/Work,
+   :rdfs/range  :rdfs/Literal})
 
 (def attributionURL
-  {:db/ident           :cc/attributionURL,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/Work,
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf :cc/attributionURL})
+  {:db/ident    :cc/attributionURL,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/Work,
+   :rdfs/range  :rdfs/Resource})
 
 (def deprecatedOn
   "deprecated on"
-  {:db/ident           :cc/deprecatedOn,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/License,
-   :rdfs/label         #voc/lstr "deprecated\n\t\t  on@en-US",
-   :rdfs/range         :xsd/date,
-   :rdfs/subPropertyOf :cc/deprecatedOn})
+  {:db/ident    :cc/deprecatedOn,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/License,
+   :rdfs/label  #voc/lstr "deprecated\n\t\t  on@en-US",
+   :rdfs/range  :xsd/date})
 
 (def jurisdiction
   "jurisdiction"
-  {:db/ident           :cc/jurisdiction,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/License,
-   :rdfs/label         #voc/lstr "jurisdiction@en-US",
-   :rdfs/range         :cc/Jurisdiction,
-   :rdfs/subPropertyOf :cc/jurisdiction})
+  {:db/ident    :cc/jurisdiction,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/License,
+   :rdfs/label  #voc/lstr "jurisdiction@en-US",
+   :rdfs/range  :cc/Jurisdiction})
 
 (def legalcode
-  {:db/ident           :cc/legalcode,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/License,
-   :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf :cc/legalcode})
+  {:db/ident    :cc/legalcode,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/License,
+   :rdfs/range  :rdfs/Resource})
 
 (def license
   "has license"
@@ -213,45 +208,42 @@
    :rdfs/domain        :cc/Work,
    :rdfs/label         #voc/lstr "has\n\t\t  license@en-US",
    :rdfs/range         :cc/License,
-   :rdfs/subPropertyOf [:dcterms/license :cc/license]})
+   :rdfs/subPropertyOf :dcterms/license})
 
 (def morePermissions
   {:db/ident           :cc/morePermissions,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/Work,
    :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf [:dcterms/relation :cc/morePermissions]})
+   :rdfs/subPropertyOf :dcterms/relation})
 
 (def permits
   "permits"
-  {:db/ident           :cc/permits,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/License,
-   :rdfs/label         #voc/lstr "permits@en-US",
-   :rdfs/range         :cc/Permission,
-   :rdfs/subPropertyOf :cc/permits})
+  {:db/ident    :cc/permits,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/License,
+   :rdfs/label  #voc/lstr "permits@en-US",
+   :rdfs/range  :cc/Permission})
 
 (def prohibits
   "prohibits"
-  {:db/ident           :cc/prohibits,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/License,
-   :rdfs/label         #voc/lstr "prohibits@en-US",
-   :rdfs/range         :cc/Prohibition,
-   :rdfs/subPropertyOf :cc/prohibits})
+  {:db/ident    :cc/prohibits,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/License,
+   :rdfs/label  #voc/lstr "prohibits@en-US",
+   :rdfs/range  :cc/Prohibition})
 
 (def requires
   "requires"
-  {:db/ident           :cc/requires,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :cc/License,
-   :rdfs/label         #voc/lstr "requires@en-US",
-   :rdfs/range         :cc/Requirement,
-   :rdfs/subPropertyOf :cc/requires})
+  {:db/ident    :cc/requires,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :cc/License,
+   :rdfs/label  #voc/lstr "requires@en-US",
+   :rdfs/range  :cc/Requirement})
 
 (def useGuidelines
   {:db/ident           :cc/useGuidelines,
    :rdf/type           :rdf/Property,
    :rdfs/domain        :cc/Work,
    :rdfs/range         :rdfs/Resource,
-   :rdfs/subPropertyOf [:dcterms/relation :cc/useGuidelines]})
+   :rdfs/subPropertyOf :dcterms/relation})

@@ -34,7 +34,7 @@
    :rdfs/comment    #voc/lstr
                      "A Tag asserted by the author of a content resource.@en",
    :rdfs/label      #voc/lstr "Author Tag@en",
-   :rdfs/subClassOf [:ctag/Tag :ctag/AuthorTag :rdfs/Resource]})
+   :rdfs/subClassOf [:ctag/Tag :rdfs/Resource]})
 
 (def AutoTag
   "A Tag asserted by an automated tool on a content resource."
@@ -43,7 +43,7 @@
    :rdfs/comment
    #voc/lstr "A Tag asserted by an automated tool on a content resource.@en",
    :rdfs/label #voc/lstr "Auto Tag@en",
-   :rdfs/subClassOf [:ctag/Tag :ctag/AutoTag :rdfs/Resource]})
+   :rdfs/subClassOf [:ctag/Tag :rdfs/Resource]})
 
 (def ReaderTag
   "A Tag asserted by the reader (consumer) of a content resource."
@@ -53,7 +53,7 @@
    #voc/lstr
     "A Tag asserted by the reader (consumer) of a content resource.@en",
    :rdfs/label #voc/lstr "Reader Tag@en",
-   :rdfs/subClassOf [:ctag/Tag :ctag/ReaderTag :rdfs/Resource]})
+   :rdfs/subClassOf [:ctag/Tag :rdfs/Resource]})
 
 (def Tag
   "A Common Tag associating a URI and a keyword to annotate a resource."
@@ -63,7 +63,7 @@
    #voc/lstr
     "A Common Tag associating a URI and a keyword to annotate a resource.@en",
    :rdfs/label #voc/lstr "Tag@en",
-   :rdfs/subClassOf [:rdfs/Resource :ctag/Tag]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def TaggedContent
   "Content which has one or more Common Tag."
@@ -71,7 +71,7 @@
    :rdf/type        :rdfs/Class,
    :rdfs/comment    #voc/lstr "Content which has one or more Common Tag.@en",
    :rdfs/label      #voc/lstr "Tagged Content@en",
-   :rdfs/subClassOf [:rdfs/Resource :ctag/TaggedContent]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def isAbout
   "A resource (URI) representing the concepts described by the content."
@@ -81,8 +81,7 @@
    #voc/lstr
     "A resource (URI) representing the concepts described by the content.@en",
    :rdfs/domain :ctag/TaggedContent,
-   :rdfs/label #voc/lstr "is about@en",
-   :rdfs/subPropertyOf :ctag/isAbout})
+   :rdfs/label #voc/lstr "is about@en"})
 
 (def label
   "A local, human-readable name for a Tag."
@@ -91,7 +90,7 @@
    :rdfs/comment       #voc/lstr "A local, human-readable name for a Tag.@en",
    :rdfs/domain        :ctag/Tag,
    :rdfs/label         #voc/lstr "tag label@en",
-   :rdfs/subPropertyOf [:rdfs/label :ctag/label]})
+   :rdfs/subPropertyOf :rdfs/label})
 
 (def means
   "A a resource (URI) representing the conceptual meaning of a Tag."
@@ -101,18 +100,16 @@
    #voc/lstr
     "A a resource (URI) representing the conceptual meaning of a Tag.@en",
    :rdfs/domain :ctag/Tag,
-   :rdfs/label #voc/lstr "means@en",
-   :rdfs/subPropertyOf :ctag/means})
+   :rdfs/label #voc/lstr "means@en"})
 
 (def tagged
   "Links a resource to a Common Tag."
-  {:db/ident           :ctag/tagged,
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr "Links a resource to a Common Tag.@en",
-   :rdfs/domain        :ctag/TaggedContent,
-   :rdfs/label         #voc/lstr "tagged@en",
-   :rdfs/range         :ctag/Tag,
-   :rdfs/subPropertyOf :ctag/tagged})
+  {:db/ident     :ctag/tagged,
+   :rdf/type     :rdf/Property,
+   :rdfs/comment #voc/lstr "Links a resource to a Common Tag.@en",
+   :rdfs/domain  :ctag/TaggedContent,
+   :rdfs/label   #voc/lstr "tagged@en",
+   :rdfs/range   :ctag/Tag})
 
 (def taggingDate
   "The date the Tag was assigned."
@@ -121,4 +118,4 @@
    :rdfs/comment       #voc/lstr "The date the Tag was assigned.@en",
    :rdfs/domain        :ctag/Tag,
    :rdfs/label         #voc/lstr "tagging date@en",
-   :rdfs/subPropertyOf [:dcterms/created :ctag/taggingDate]})
+   :rdfs/subPropertyOf :dcterms/created})

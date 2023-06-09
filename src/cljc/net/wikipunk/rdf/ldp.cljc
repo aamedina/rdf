@@ -50,11 +50,8 @@
    "An LDPC that uses a predefined predicate to simply link to its contained resources.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "BasicContainer",
-   :rdfs/subClassOf [:ldp/Container
-                     :ldp/BasicContainer
-                     :rdfs/Resource
-                     :ldp/Resource
-                     :ldp/RDFSource],
+   :rdfs/subClassOf
+   [:ldp/Container :ldp/RDFSource :rdfs/Resource :ldp/Resource],
    :vs/term_status "stable"})
 
 (def Container
@@ -65,8 +62,7 @@
    "A Linked Data Platform RDF Source (LDP-RS) that also conforms to additional patterns and conventions for managing membership. Readers should refer to the specification defining this ontology for the list of behaviors associated with it.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "Container",
-   :rdfs/subClassOf
-   [:ldp/RDFSource :ldp/Container :rdfs/Resource :ldp/Resource],
+   :rdfs/subClassOf [:ldp/RDFSource :rdfs/Resource :ldp/Resource],
    :vs/term_status "stable"})
 
 (def Descending
@@ -86,11 +82,8 @@
    "An LDPC that is similar to a LDP-DC but it allows an indirection with the ability to list as member a resource, such as a URI representing a real-world object, that is different from the resource that is created.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "DirectContainer",
-   :rdfs/subClassOf [:ldp/Container
-                     :ldp/DirectContainer
-                     :rdfs/Resource
-                     :ldp/Resource
-                     :ldp/RDFSource],
+   :rdfs/subClassOf
+   [:ldp/Container :ldp/RDFSource :rdfs/Resource :ldp/Resource],
    :vs/term_status "stable"})
 
 (def IndirectContainer
@@ -101,11 +94,8 @@
    "An LDPC that has the flexibility of choosing what form the membership triples take.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "IndirectContainer",
-   :rdfs/subClassOf [:ldp/Container
-                     :ldp/IndirectContainer
-                     :rdfs/Resource
-                     :ldp/Resource
-                     :ldp/RDFSource],
+   :rdfs/subClassOf
+   [:ldp/Container :ldp/RDFSource :rdfs/Resource :ldp/Resource],
    :vs/term_status "stable"})
 
 (def MemberSubject
@@ -126,7 +116,7 @@
    "A Linked Data Platform Resource (LDPR) whose state is NOT represented as RDF.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "NonRDFSource",
-   :rdfs/subClassOf [:ldp/Resource :ldp/NonRDFSource :rdfs/Resource],
+   :rdfs/subClassOf [:ldp/Resource :rdfs/Resource],
    :vs/term_status "stable"})
 
 (def Page
@@ -137,7 +127,7 @@
    "URI signifying that the resource is an in-sequence page resource, as defined by LDP Paging.  Typically used on Link rel='type' response headers.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "Page",
-   :rdfs/subClassOf [:rdfs/Resource :ldp/Page],
+   :rdfs/subClassOf :rdfs/Resource,
    :vs/term_status "testing"})
 
 (def PageSortCriterion
@@ -148,7 +138,7 @@
    "Element in the list of sorting criteria used by the server to assign container members to pages.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "PageSortCriterion",
-   :rdfs/subClassOf [:rdfs/Resource :ldp/PageSortCriterion],
+   :rdfs/subClassOf :rdfs/Resource,
    :vs/term_status "testing"})
 
 (def PreferContainment
@@ -200,7 +190,7 @@
    "A Linked Data Platform Resource (LDPR) whose state is represented as RDF.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "RDFSource",
-   :rdfs/subClassOf [:ldp/Resource :ldp/RDFSource :rdfs/Resource],
+   :rdfs/subClassOf [:ldp/Resource :rdfs/Resource],
    :vs/term_status "stable"})
 
 (def Resource
@@ -211,7 +201,7 @@
    "A HTTP-addressable resource whose lifecycle is managed by a LDP server.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "Resource",
-   :rdfs/subClassOf [:rdfs/Resource :ldp/Resource],
+   :rdfs/subClassOf :rdfs/Resource,
    :vs/term_status "stable"})
 
 (def constrainedBy
@@ -224,7 +214,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "constrainedBy",
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :ldp/constrainedBy,
    :vs/term_status "stable"})
 
 (def contains
@@ -237,7 +226,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "contains",
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :ldp/contains,
    :vs/term_status "stable"})
 
 (def hasMemberRelation
@@ -250,7 +238,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "hasMemberRelation",
    :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :ldp/hasMemberRelation,
    :vs/term_status "stable"})
 
 (def inbox
@@ -263,7 +250,6 @@
    "Links a resource to a container where notifications for the resource can be created and discovered.",
    :rdfs/isDefinedBy "https://www.w3.org/TR/ldn/",
    :rdfs/label "inbox",
-   :rdfs/subPropertyOf :ldp/inbox,
    :vs/term_status "stable"})
 
 (def insertedContentRelation
@@ -276,7 +262,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "insertedContentRelation",
    :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :ldp/insertedContentRelation,
    :vs/term_status "stable"})
 
 (def isMemberOfRelation
@@ -289,7 +274,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "isMemmberOfRelation",
    :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :ldp/isMemberOfRelation,
    :vs/term_status "stable"})
 
 (def member
@@ -302,7 +286,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "member",
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :ldp/member,
    :vs/term_status "stable"})
 
 (def membershipResource
@@ -315,7 +298,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "membershipResource",
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :ldp/membershipResource,
    :vs/term_status "stable"})
 
 (def pageSequence
@@ -326,7 +308,6 @@
    "Link to a page sequence resource, as defined by LDP Paging.  Typically used to communicate the sorting criteria used to allocate LDPC members to pages.",
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "Page",
-   :rdfs/subPropertyOf :ldp/pageSequence,
    :vs/term_status "testing"})
 
 (def pageSortCollation
@@ -339,7 +320,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "pageSortCollation",
    :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :ldp/pageSortCollation,
    :vs/term_status "testing"})
 
 (def pageSortCriteria
@@ -352,7 +332,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "pageSortCriteria",
    :rdfs/range :rdf/List,
-   :rdfs/subPropertyOf :ldp/pageSortCriteria,
    :vs/term_status "testing"})
 
 (def pageSortOrder
@@ -365,7 +344,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "pageSortOrder",
    :rdfs/range :rdfs/Resource,
-   :rdfs/subPropertyOf :ldp/pageSortOrder,
    :vs/term_status "testing"})
 
 (def pageSortPredicate
@@ -378,5 +356,4 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/ldp#",
    :rdfs/label "pageSortPredicate",
    :rdfs/range :rdf/Property,
-   :rdfs/subPropertyOf :ldp/pageSortPredicate,
    :vs/term_status "testing"})

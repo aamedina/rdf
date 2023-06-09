@@ -2,8 +2,8 @@
   "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective."
   {:dcterms/created #inst "2015-12-17T00:00:00.000-05:00",
    :dcterms/creator [{:foaf/name "Bernadette Farias Lóscio"}
-                     {:foaf/name "Sumit Purohit"}
-                     {:foaf/name "Eric G. Stephan"}],
+                     {:foaf/name "Eric G. Stephan"}
+                     {:foaf/name "Sumit Purohit"}],
    :dcterms/description
    #voc/lstr
     "The Dataset Usage Vocabulary (DUV) is used to describe consumer experiences, citations, and feedback about datasets from the human perspective.@en",
@@ -45,7 +45,7 @@
    #voc/lstr
     "Predefined criteria used to express a user opinion about a dataset or distribution using a discrete range of values.@en",
    :rdfs/label #voc/lstr "Rating Feedback@en",
-   :rdfs/subClassOf [:rdfs/Resource :duv/RatingFeedback],
+   :rdfs/subClassOf :rdfs/Resource,
    :rdfs/subclassOf :duv/UserFeedback})
 
 (def Usage
@@ -56,7 +56,7 @@
    #voc/lstr
     "A helpful description of actions that can be performed on a given dataset or distribution.@en",
    :rdfs/label #voc/lstr "Usage@en",
-   :rdfs/subClassOf [:rdfs/Resource :duv/Usage]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def UsageTool
   "A synopsis describing the way a tool can use a dataset or distribution."
@@ -66,7 +66,7 @@
    #voc/lstr
     "A synopsis describing the way a tool can use a dataset or distribution.@en",
    :rdfs/label #voc/lstr "UsageTool@en",
-   :rdfs/subClassOf [:rdfs/Resource :duv/UsageTool]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def UserFeedback
   "User feedback on the dataset. Expresses whether the dataset was useful or not, for example."
@@ -76,7 +76,7 @@
    #voc/lstr
     "User feedback on the dataset. Expresses whether the dataset was useful or not, for example.@en",
    :rdfs/label #voc/lstr "User Feedback@en",
-   :rdfs/subClassOf [:rdfs/Resource :duv/UserFeedback]})
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def hasDistributor
   "The distributor is the organization that makes the dataset available for downloading and use."
@@ -86,7 +86,6 @@
    #voc/lstr
     "The distributor is the organization that makes the dataset available for downloading and use.@en",
    :rdfs/label #voc/lstr "has distributor@en",
-   :rdfs/subPropertyOf :duv/hasDistributor,
    :vann/usageNote
    [#voc/lstr
      "dcat:Distribution (subject) duv:hasDistributor (predicate) foaf:Agent (object)@en"
@@ -100,7 +99,6 @@
    :rdfs/comment #voc/lstr
                   "User feedback associated with Dataset or distribution@en",
    :rdfs/label #voc/lstr "has dataset feedback@en",
-   :rdfs/subPropertyOf :duv/hasFeedback,
    :vann/usageNote
    [#voc/lstr
      "dcat:Distribution (subject) duv:hasFeedback (predicate) duv:UserFeedback (object)@en"
@@ -109,34 +107,29 @@
 
 (def hasRating
   "Rating Feedback has rating opinion"
-  {:db/ident           :duv/hasRating,
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr "Rating Feedback has rating opinion@en",
-   :rdfs/label         #voc/lstr "has rating@en",
-   :rdfs/subPropertyOf :duv/hasRating})
+  {:db/ident     :duv/hasRating,
+   :rdf/type     :rdf/Property,
+   :rdfs/comment #voc/lstr "Rating Feedback has rating opinion@en",
+   :rdfs/label   #voc/lstr "has rating@en"})
 
 (def hasUsage
   "Dataset/distribution usage guidance or instructions."
-  {:db/ident :duv/hasUsage,
-   :rdf/type :rdf/Property,
+  {:db/ident     :duv/hasUsage,
+   :rdf/type     :rdf/Property,
    :rdfs/comment #voc/lstr
                   "Dataset/distribution usage guidance or instructions.@en",
-   :rdfs/label #voc/lstr "has dataset/distribution usage@en",
-   :rdfs/subPropertyOf :duv/hasUsage})
+   :rdfs/label   #voc/lstr "has dataset/distribution usage@en"})
 
 (def hasUsageTool
   "Describes the tool that provides the Usage"
-  {:db/ident           :duv/hasUsageTool,
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr
-                        "Describes the tool that provides the Usage @en",
-   :rdfs/label         #voc/lstr "has usage tool@en",
-   :rdfs/subPropertyOf :duv/hasUsageTool})
+  {:db/ident     :duv/hasUsageTool,
+   :rdf/type     :rdf/Property,
+   :rdfs/comment #voc/lstr "Describes the tool that provides the Usage @en",
+   :rdfs/label   #voc/lstr "has usage tool@en"})
 
 (def refersTo
   "Dataset associated with Usage."
-  {:db/ident           :duv/refersTo,
-   :rdf/type           :rdf/Property,
-   :rdfs/comment       #voc/lstr "Dataset associated with Usage. @en",
-   :rdfs/label         #voc/lstr "refers to dataset@en",
-   :rdfs/subPropertyOf :duv/refersTo})
+  {:db/ident     :duv/refersTo,
+   :rdf/type     :rdf/Property,
+   :rdfs/comment #voc/lstr "Dataset associated with Usage. @en",
+   :rdfs/label   #voc/lstr "refers to dataset@en"})

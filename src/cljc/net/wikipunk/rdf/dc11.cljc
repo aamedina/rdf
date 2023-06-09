@@ -31,7 +31,6 @@
     "An entity responsible for making contributions to the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Contributor@en",
-   :rdfs/subPropertyOf :dc11/contributor,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -49,7 +48,6 @@
     "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Coverage@en",
-   :rdfs/subPropertyOf :dc11/coverage,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/coverage) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -66,7 +64,6 @@
                   "An entity primarily responsible for making the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Creator@en",
-   :rdfs/subPropertyOf :dc11/creator,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -84,7 +81,6 @@
     "A point or period of time associated with an event in the lifecycle of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Date@en",
-   :rdfs/subPropertyOf :dc11/date,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/date) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -100,7 +96,6 @@
    :rdfs/comment #voc/lstr "An account of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Description@en",
-   :rdfs/subPropertyOf :dc11/description,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/description) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -118,7 +113,6 @@
     "The file format, physical medium, or dimensions of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Format@en",
-   :rdfs/subPropertyOf :dc11/format,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/format) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -136,7 +130,6 @@
     "An unambiguous reference to the resource within a given context.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Identifier@en",
-   :rdfs/subPropertyOf :dc11/identifier,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/identifier) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -152,7 +145,6 @@
    :rdfs/comment #voc/lstr "A language of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Language@en",
-   :rdfs/subPropertyOf :dc11/language,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/language) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -169,7 +161,6 @@
                   "An entity responsible for making the resource available.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Publisher@en",
-   :rdfs/subPropertyOf :dc11/publisher,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/publisher) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -185,7 +176,6 @@
    :rdfs/comment #voc/lstr "A related resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Relation@en",
-   :rdfs/subPropertyOf :dc11/relation,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/relation) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -202,7 +192,6 @@
                   "Information about rights held in and over the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Rights@en",
-   :rdfs/subPropertyOf :dc11/rights,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/rights) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -220,7 +209,6 @@
     "A related resource from which the described resource is derived.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Source@en",
-   :rdfs/subPropertyOf :dc11/source,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -236,7 +224,6 @@
    :rdfs/comment #voc/lstr "The topic of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Subject@en",
-   :rdfs/subPropertyOf :dc11/subject,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/subject) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -249,7 +236,6 @@
    :rdfs/comment #voc/lstr "A name given to the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Title@en",
-   :rdfs/subPropertyOf :dc11/title,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/title) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
@@ -265,7 +251,6 @@
    :rdfs/comment #voc/lstr "The nature or genre of the resource.@en",
    :rdfs/isDefinedBy "http://purl.org/dc/elements/1.1/",
    :rdfs/label #voc/lstr "Type@en",
-   :rdfs/subPropertyOf :dc11/type,
    :skos/note
    #voc/lstr
     "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation.@en"})
