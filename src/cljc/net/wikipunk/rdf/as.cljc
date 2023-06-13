@@ -901,7 +901,7 @@
   "Provides the globally unique identifier for an Object or Link."
   {:db/ident       :as/id,
    :db/cardinality :db.cardinality/one
-   :db/valueType   :db.type/ref
+   :db/valueType   :db.type/string
    :db/unique      :db.unique/identity
    :db/doc         "Provides the globally unique identifier for an Object or Link."
    :rdf/type       [:owl/FunctionalProperty

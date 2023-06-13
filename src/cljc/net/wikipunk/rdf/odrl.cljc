@@ -38,7 +38,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Action@en",
-   :rdfs/subClassOf [:rdfs/Resource :schema/Action :odrl/Action],
+   :rdfs/subClassOf [:rdfs/Resource :schema/Action],
    :skos/definition #voc/lstr "An operation on an Asset.@en",
    :skos/note
    #voc/lstr
@@ -52,7 +52,7 @@
    :rdf/type [:owl/Class :rdfs/Class :skos/Concept],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Agreement@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy :odrl/Agreement],
+   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy],
    :skos/definition
    #voc/lstr
     "A Policy that grants the assignee a Rule over an Asset from an assigner.@en",
@@ -131,7 +131,7 @@
    :rdf/type [:rdfs/Class :owl/Class :skos/Concept],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Assertion@en",
-   :rdfs/subClassOf [:odrl/Policy :odrl/Assertion :rdfs/Resource],
+   :rdfs/subClassOf [:odrl/Policy :rdfs/Resource],
    :skos/definition
    #voc/lstr "A Policy that asserts a Rule over an Asset from parties.@en",
    :skos/note
@@ -145,7 +145,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Asset@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Asset],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "A resource or a collection of resources that are the subject of a Rule.@en",
@@ -159,7 +159,7 @@
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Asset Collection@en",
-   :rdfs/subClassOf  [:rdfs/Resource :odrl/Asset :odrl/AssetCollection],
+   :rdfs/subClassOf  [:rdfs/Resource :odrl/Asset],
    :skos/definition  #voc/lstr
                       "An Asset that is collection of individual resources@en"})
 
@@ -170,7 +170,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Asset Scope@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/AssetScope],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition #voc/lstr "Scopes for Asset Scope expressions.@en",
    :skos/note
    #voc/lstr
@@ -182,7 +182,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Conflict Strategy Preference@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/ConflictTerm],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "Used to establish strategies to resolve conflicts that arise from the merging of Policies or conflicts between Permissions and Prohibitions in the same Policy.@en",
@@ -196,7 +196,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Constraint@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Constraint],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.@en"})
@@ -208,7 +208,7 @@
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Duty@en",
-   :rdfs/subClassOf  [:odrl/Rule :odrl/Duty :rdfs/Resource],
+   :rdfs/subClassOf  [:odrl/Rule :rdfs/Resource],
    :skos/definition  #voc/lstr "The obligation to perform an Action@en"})
 
 (def Group
@@ -242,7 +242,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Left Operand@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/LeftOperand],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition #voc/lstr "Left operand for a constraint expression.@en",
    :skos/note
    #voc/lstr
@@ -254,7 +254,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Logical Constraint@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/LogicalConstraint],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "A logical expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.@en"})
@@ -267,7 +267,7 @@
    :rdf/type [:skos/Concept :rdfs/Class :owl/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Offer@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy :odrl/Offer],
+   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy],
    :skos/definition
    #voc/lstr "A Policy that proposes a Rule over an Asset from an assigner.@en",
    :skos/note
@@ -280,7 +280,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Operator@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Operator],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition #voc/lstr "Operator for constraint expression.@en",
    :skos/note
    #voc/lstr
@@ -301,8 +301,7 @@
                                     :vcard/Individual
                                     :vcard/Organization
                                     :vcard/Agent],
-                      :rdf/type    :owl/Class}
-                     :odrl/Party],
+                      :rdf/type    :owl/Class}],
    :skos/definition
    #voc/lstr
     "An entity or a collection of entities that undertake Roles in a Rule.@en",
@@ -317,7 +316,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Party Collection@en",
    :rdfs/subClassOf  [:odrl/Party
-                      :odrl/PartyCollection
                       {:owl/unionOf [:schema/Person
                                      :schema/Organization
                                      :foaf/Person
@@ -338,7 +336,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Party Scope@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/PartyScope],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition #voc/lstr "Scopes for Party Scope expressions.@en",
    :skos/note
    #voc/lstr
@@ -351,7 +349,7 @@
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Permission@en",
-   :rdfs/subClassOf  [:odrl/Rule :odrl/Permission :rdfs/Resource],
+   :rdfs/subClassOf  [:odrl/Rule :rdfs/Resource],
    :skos/definition  #voc/lstr
                       "The ability to perform an Action over an Asset.@en"})
 
@@ -361,7 +359,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Policy@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition #voc/lstr
                      "A non-empty group of Permissions and/or Prohibitions.@en",
    :skos/note #voc/lstr "A Policy may contain multiple Rules.@en"})
@@ -374,7 +372,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Privacy Policy@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy :odrl/Privacy],
+   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy],
    :skos/definition
    #voc/lstr
     "A Policy that expresses a Rule over an Asset containing personal information.@en",
@@ -390,7 +388,7 @@
    :rdf/type         [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Prohibition@en",
-   :rdfs/subClassOf  [:rdfs/Resource :odrl/Rule :odrl/Prohibition],
+   :rdfs/subClassOf  [:rdfs/Resource :odrl/Rule],
    :skos/definition  #voc/lstr
                       "The inability to perform an Action over an Asset.@en"})
 
@@ -402,7 +400,7 @@
    :rdf/type [:skos/Concept :rdfs/Class :owl/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Request@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy :odrl/Request],
+   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy],
    :skos/definition
    #voc/lstr "A Policy that proposes a Rule over an Asset from an assignee.@en",
    :skos/note
@@ -416,7 +414,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Right Operand@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/RightOperand],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition #voc/lstr "Right operand for constraint expression.@en",
    :skos/note
    #voc/lstr
@@ -428,7 +426,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Rule@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Rule],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.@en",
@@ -446,7 +444,7 @@
    :rdf/type [:owl/Class :rdfs/Class :skos/Concept],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Set@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy :odrl/Set],
+   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy],
    :skos/definition #voc/lstr
                      "A Policy that expresses a Rule over an Asset.@en",
    :skos/note
@@ -461,7 +459,7 @@
    :rdf/type [:owl/Class :rdfs/Class :skos/Concept],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Ticket@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy :odrl/Ticket],
+   :rdfs/subClassOf [:rdfs/Resource :odrl/Policy],
    :skos/definition
    #voc/lstr
     "A Policy that grants the holder a Rule over an Asset from an assigner.@en",
@@ -477,7 +475,7 @@
    :rdf/type [:skos/Concept :owl/Class :rdfs/Class],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Undefined Term@en",
-   :rdfs/subClassOf [:rdfs/Resource :odrl/UndefinedTerm],
+   :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
    #voc/lstr
     "Is used to indicate how to support Actions that are not part of any vocabulary or profile in the policy expression system.@en",
@@ -570,7 +568,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Has Action@en",
    :rdfs/range :odrl/Action,
-   :rdfs/subPropertyOf :odrl/action,
    :skos/definition
    #voc/lstr
     "The operation relating to the Asset for which the Rule is being subjected.@en"})
@@ -651,7 +648,7 @@
   "The act of sharing the asset to parties in close proximity to the owner."
   {:db/ident :odrl/adHocShare,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Ad-hoc sharing@en",
    :skos/definition
@@ -665,7 +662,7 @@
   "To use the Asset or parts of it as part of a composite collection."
   {:db/ident :odrl/aggregate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Aggregate@en",
    :skos/definition
@@ -679,7 +676,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "And@en",
-   :rdfs/subPropertyOf [:odrl/operand :odrl/and],
+   :rdfs/subPropertyOf :odrl/operand,
    :skos/definition
    #voc/lstr
     "The relation is satisfied when all of the Constraints are satisfied.@en",
@@ -693,7 +690,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "And Sequence@en",
-   :rdfs/subPropertyOf [:odrl/operand :odrl/andSequence],
+   :rdfs/subPropertyOf :odrl/operand,
    :skos/definition
    #voc/lstr
     "The relation is satisfied when each of the Constraints are satisfied in the order specified.@en",
@@ -705,7 +702,7 @@
   "To add explanatory notations/commentaries to the Asset without modifying the Asset in any other way."
   {:db/ident :odrl/annotate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Annotate@en",
    :skos/definition
@@ -717,7 +714,7 @@
   "To anonymize all or parts of the Asset."
   {:db/ident :odrl/anonymize,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Anonymize@en",
    :skos/definition #voc/lstr "To anonymize all or parts of the Asset.@en",
@@ -740,7 +737,7 @@
   "The act of appending data to the Asset without modifying the Asset in any other way."
   {:db/ident :odrl/appendTo,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Append To@en",
    :skos/definition
@@ -752,7 +749,7 @@
   "To store the Asset (in a non-transient form)."
   {:db/ident :odrl/archive,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Archive@en",
    :skos/definition #voc/lstr
@@ -802,7 +799,7 @@
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Assignee@en",
    :rdfs/range         :odrl/Party,
-   :rdfs/subPropertyOf [:odrl/function :odrl/assignee],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr "The Party is the recipient of the Rule.@en"})
 
 (def assigneeOf
@@ -813,7 +810,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Assignee Of@en",
    :rdfs/range :odrl/Policy,
-   :rdfs/subPropertyOf :odrl/assigneeOf,
    :skos/definition
    #voc/lstr
     "Identifies an ODRL Policy for which the identified Party undertakes the assignee functional role.@en",
@@ -830,7 +826,7 @@
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Assigner@en",
    :rdfs/range         :odrl/Party,
-   :rdfs/subPropertyOf [:odrl/function :odrl/assigner],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr "The Party is the issuer of the Rule.@en"})
 
 (def assignerOf
@@ -841,7 +837,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Assigner Of@en",
    :rdfs/range :odrl/Policy,
-   :rdfs/subPropertyOf :odrl/assignerOf,
    :skos/definition
    #voc/lstr
     "Identifies an ODRL Policy for which the identified Party undertakes the assigner functional role.@en",
@@ -853,7 +848,7 @@
   "The act of keeping the policy notice with the asset."
   {:db/ident         :odrl/attachPolicy,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Attach policy@en",
    :skos/definition  #voc/lstr
@@ -864,7 +859,7 @@
   "The act of attaching the source of the asset and its derivatives."
   {:db/ident :odrl/attachSource,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Attach source@en",
    :skos/definition
@@ -876,7 +871,7 @@
   "To attribute the use of the Asset."
   {:db/ident :odrl/attribute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Attribute@en",
    :skos/definition #voc/lstr "To attribute the use of the Asset.@en",
@@ -891,7 +886,7 @@
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Attributed Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/attributedParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr "The Party to be attributed.@en",
    :skos/note          #voc/lstr
                         "Maybe specified as part of the attribute action.@en",
@@ -903,7 +898,7 @@
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Attributing Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/attributingParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr "The Party who undertakes the attribution.@en",
    :skos/note          #voc/lstr
                         "Maybe specified as part of the attribute action.@en",
@@ -913,7 +908,7 @@
   "The act of using the asset in a business environment."
   {:db/ident :odrl/commercialize,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Commercialize@en",
    :skos/definition #voc/lstr
@@ -924,7 +919,7 @@
   "To compensate by transfer of some amount of value, if defined, for using or selling the Asset."
   {:db/ident :odrl/compensate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Compensate@en",
    :skos/definition
@@ -941,7 +936,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Compensated Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/compensatedParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition #voc/lstr
                      "The Party is the recipient of the compensation.@en",
    :skos/note #voc/lstr
@@ -954,7 +949,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Compensating Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/compensatingParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition #voc/lstr
                      "The Party that is the provider of the compensation.@en",
    :skos/note #voc/lstr
@@ -965,7 +960,7 @@
   "To create multiple copies of the Asset that are being concurrently used."
   {:db/ident :odrl/concurrentUse,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Concurrent Use@en",
    :skos/definition
@@ -981,7 +976,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Handle Policy Conflicts@en",
    :rdfs/range :odrl/ConflictTerm,
-   :rdfs/subPropertyOf :odrl/conflict,
    :skos/definition #voc/lstr
                      "The conflict-resolution strategy for a Policy.@en",
    :skos/note #voc/lstr
@@ -1002,7 +996,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Consented Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/consentedParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition #voc/lstr "The Party who obtains the consent.@en",
    :skos/note #voc/lstr
                "Maybe specified as part of the obtainConsent action.@en",
@@ -1014,7 +1008,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Consenting Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/consentingParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition #voc/lstr "The Party to obtain consent from.@en",
    :skos/note #voc/lstr
                "Maybe specified as part of the obtainConsent action.@en",
@@ -1028,7 +1022,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Consequence@en",
    :rdfs/range :odrl/Duty,
-   :rdfs/subPropertyOf [:odrl/failure :odrl/consequence],
+   :rdfs/subPropertyOf :odrl/failure,
    :skos/definition
    #voc/lstr
     "Relates a Duty to another Duty, the latter being a consequence of not fulfilling the former.@en",
@@ -1046,7 +1040,6 @@
    :rdfs/label #voc/lstr "Has Constraint@en",
    :rdfs/range {:owl/unionOf [:odrl/Constraint :odrl/LogicalConstraint],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :odrl/constraint,
    :skos/definition #voc/lstr "Constraint applied to a Rule@en",
    :skos/note
    #voc/lstr
@@ -1152,7 +1145,7 @@
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Contracted Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/contractedParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr "The Party who is being contracted.@en",
    :skos/scopeNote     #voc/lstr "Non-Normative@en"})
 
@@ -1162,7 +1155,7 @@
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Contracting Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/contractingParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr "The Party who is offering the contract.@en",
    :skos/scopeNote     #voc/lstr "Non-Normative@en"})
 
@@ -1171,7 +1164,7 @@
   {:db/ident :odrl/copy,
    :owl/deprecated true,
    :owl/sameAs :odrl/reproduce,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Copy@en",
    :skos/definition #voc/lstr
@@ -1205,7 +1198,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Datatype@en",
    :rdfs/range :rdfs/Datatype,
-   :rdfs/subPropertyOf :odrl/dataType,
    :skos/definition
    #voc/lstr
     "The datatype of the value of the rightOperand or rightOperandReference of a Constraint.@en",
@@ -1247,7 +1239,7 @@
   "To permanently remove all copies of the Asset after it has been used."
   {:db/ident :odrl/delete,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Delete@en",
    :skos/definition
@@ -1324,7 +1316,7 @@
   "To create a new derivative Asset from this Asset and to edit or modify the derivative."
   {:db/ident :odrl/derive,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Derive@en",
    :skos/definition
@@ -1379,7 +1371,7 @@
   "To supply the Asset to third-parties."
   {:db/ident :odrl/distribute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Distribute@en",
    :skos/definition #voc/lstr "To supply the Asset to third-parties.@en",
@@ -1405,7 +1397,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Has Duty@en",
    :rdfs/range :odrl/Duty,
-   :rdfs/subPropertyOf :odrl/duty,
    :skos/definition #voc/lstr "Relates an individual Duty to a Permission.@en",
    :skos/note
    #voc/lstr
@@ -1429,7 +1420,7 @@
   "To ensure that the Rule on the Asset is exclusive."
   {:db/ident :odrl/ensureExclusivity,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Ensure Exclusivity@en",
    :skos/definition #voc/lstr
@@ -1468,7 +1459,7 @@
   "To run the computer program Asset."
   {:db/ident :odrl/execute,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Execute@en",
    :skos/definition #voc/lstr "To run the computer program Asset.@en",
@@ -1481,7 +1472,7 @@
   "The act of transforming the asset into a new form."
   {:db/ident         :odrl/export,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Export@en",
    :skos/definition  #voc/lstr
@@ -1506,7 +1497,7 @@
   "The act of extracting (replicating) unchanged characters from the asset."
   {:db/ident :odrl/extractChar,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Extract character@en",
    :skos/definition
@@ -1534,7 +1525,7 @@
   "The act of extracting (replicating) unchanged words from the asset."
   {:db/ident :odrl/extractWord,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Extract word@en",
    :skos/definition
@@ -1552,7 +1543,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Failure@en",
    :rdfs/range :odrl/Rule,
-   :rdfs/subPropertyOf :odrl/failure,
    :skos/definition
    #voc/lstr
     "Failure is an abstract property that defines the violation (or unmet) relationship between Rules.@en",
@@ -1582,7 +1572,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Function@en",
    :rdfs/range :odrl/Party,
-   :rdfs/subPropertyOf :odrl/function,
    :skos/definition
    #voc/lstr
     "Function is an abstract property whose sub-properties define the functional roles which may be fulfilled by a party in relation to a Rule.@en"})
@@ -1591,7 +1580,7 @@
   "To transfer the ownership of the Asset to a third party without compensation and while deleting the original asset."
   {:db/ident :odrl/give,
    :odrl/includedIn :odrl/transfer,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Give@en",
    :skos/definition
@@ -1651,7 +1640,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Target Policy@en",
    :rdfs/range :odrl/Policy,
-   :rdfs/subPropertyOf :odrl/hasPolicy,
    :skos/definition
    #voc/lstr
     "Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules.@en",
@@ -1681,7 +1669,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Implies@en",
    :rdfs/range :odrl/Action,
-   :rdfs/subPropertyOf :odrl/implies,
    :skos/definition
    #voc/lstr
     "An Action asserts that another Action is not prohibited to enable its operational semantics.@en",
@@ -1712,7 +1699,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Included In@en",
    :rdfs/range :odrl/Action,
-   :rdfs/subPropertyOf :odrl/includedIn,
    :skos/definition
    #voc/lstr
     "An Action transitively asserts that another Action that encompasses its operational semantics.@en",
@@ -1724,7 +1710,7 @@
   "To record the Asset in an index."
   {:db/ident :odrl/index,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Index@en",
    :skos/definition #voc/lstr "To record the Asset in an index.@en",
@@ -1766,7 +1752,7 @@
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Informed Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/informedParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr "The Party to be informed of all uses.@en",
    :skos/note          #voc/lstr
                         "Maybe specified as part of the inform action.@en",
@@ -1778,7 +1764,7 @@
    :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
    :rdfs/label         #voc/lstr "Informing Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/informingParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition    #voc/lstr
                         "The Party who provides the inform use data.@en",
    :skos/note          #voc/lstr
@@ -1787,15 +1773,14 @@
 
 (def inheritAllowed
   "Indicates if the Policy entity can be inherited."
-  {:db/ident           :odrl/inheritAllowed,
-   :owl/deprecated     true,
-   :rdf/type           [:skos/Concept :owl/DatatypeProperty :rdf/Property],
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label         #voc/lstr "Inheritance Allowed@en",
-   :rdfs/subPropertyOf :odrl/inheritAllowed,
-   :skos/definition    #voc/lstr
-                        "Indicates if the Policy entity can be inherited.@en",
-   :skos/note          #voc/lstr "A boolean value.@en"})
+  {:db/ident         :odrl/inheritAllowed,
+   :owl/deprecated   true,
+   :rdf/type         [:skos/Concept :owl/DatatypeProperty :rdf/Property],
+   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+   :rdfs/label       #voc/lstr "Inheritance Allowed@en",
+   :skos/definition  #voc/lstr
+                      "Indicates if the Policy entity can be inherited.@en",
+   :skos/note        #voc/lstr "A boolean value.@en"})
 
 (def inheritFrom
   "Relates a (child) policy to another (parent) policy from which terms are inherited."
@@ -1805,7 +1790,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Inherits From@en",
    :rdfs/range :odrl/Policy,
-   :rdfs/subPropertyOf :odrl/inheritFrom,
    :skos/definition
    #voc/lstr
     "Relates a (child) policy to another (parent) policy from which terms are inherited.@en",
@@ -1819,7 +1803,6 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Inherit Relation@en",
-   :rdfs/subPropertyOf :odrl/inheritRelation,
    :skos/definition #voc/lstr "Indentifies the type of inheritance.@en",
    :skos/note
    #voc/lstr
@@ -1925,21 +1908,20 @@
 
 (def leftOperand
   "The left operand in a constraint expression."
-  {:db/ident           :odrl/leftOperand,
-   :rdf/type           [:skos/Concept :rdf/Property],
-   :rdfs/domain        :odrl/Constraint,
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label         #voc/lstr "Has Left Operand@en",
-   :rdfs/range         :odrl/LeftOperand,
-   :rdfs/subPropertyOf :odrl/leftOperand,
-   :skos/definition    #voc/lstr
-                        "The left operand in a constraint expression.@en"})
+  {:db/ident         :odrl/leftOperand,
+   :rdf/type         [:skos/Concept :rdf/Property],
+   :rdfs/domain      :odrl/Constraint,
+   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+   :rdfs/label       #voc/lstr "Has Left Operand@en",
+   :rdfs/range       :odrl/LeftOperand,
+   :skos/definition  #voc/lstr
+                      "The left operand in a constraint expression.@en"})
 
 (def lend
   "The act of making available the asset to a third-party for a fixed period of time without exchange of value."
   {:db/ident :odrl/lend,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Lend@en",
    :skos/definition
@@ -2019,7 +2001,7 @@
   "To change existing content of the Asset. A new asset is not created by this action."
   {:db/ident :odrl/modify,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Modify@en",
    :skos/definition
@@ -2070,16 +2052,15 @@
 
 (def obligation
   "Relates an individual Duty to a Policy."
-  {:db/ident :odrl/obligation,
-   :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
-   :rdfs/domain :odrl/Policy,
+  {:db/ident         :odrl/obligation,
+   :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
+   :rdfs/domain      :odrl/Policy,
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label #voc/lstr "Obligation@en",
-   :rdfs/range :odrl/Duty,
-   :rdfs/subPropertyOf :odrl/obligation,
-   :skos/definition #voc/lstr "Relates an individual Duty to a Policy.@en",
-   :skos/note #voc/lstr
-               "The Duty is a requirement which must be fulfilled.@en"})
+   :rdfs/label       #voc/lstr "Obligation@en",
+   :rdfs/range       :odrl/Duty,
+   :skos/definition  #voc/lstr "Relates an individual Duty to a Policy.@en",
+   :skos/note        #voc/lstr
+                      "The Duty is a requirement which must be fulfilled.@en"})
 
 (def obtainConsent
   "To obtain verifiable consent to perform the requested action in relation to the Asset."
@@ -2103,7 +2084,6 @@
    :rdfs/domain :odrl/LogicalConstraint,
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Operand@en",
-   :rdfs/subPropertyOf :odrl/operand,
    :skos/definition
    #voc/lstr "Operand is an abstract property for a logical relationship.@en",
    :skos/note
@@ -2117,7 +2097,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Has Operator@en",
    :rdfs/range :odrl/Operator,
-   :rdfs/subPropertyOf :odrl/operator,
    :skos/definition
    #voc/lstr "The operator function applied to operands of a Constraint@en"})
 
@@ -2127,7 +2106,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Or@en",
-   :rdfs/subPropertyOf [:odrl/operand :odrl/or],
+   :rdfs/subPropertyOf :odrl/operand,
    :skos/definition
    #voc/lstr
     "The relation is satisfied when at least one of the Constraints is satisfied.@en",
@@ -2143,7 +2122,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Output@en",
    :rdfs/range :odrl/Asset,
-   :rdfs/subPropertyOf [:odrl/relation :odrl/output],
+   :rdfs/subPropertyOf :odrl/relation,
    :skos/definition
    #voc/lstr
     "The output property specifies the Asset which is created from the output of the Action.@en",
@@ -2159,7 +2138,6 @@
    :rdfs/label #voc/lstr "Part Of@en",
    :rdfs/range {:owl/unionOf [:odrl/AssetCollection :odrl/PartyCollection],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :odrl/partOf,
    :skos/definition
    #voc/lstr
     "Identifies an Asset/PartyCollection that the Asset/Party is a member of.@en"})
@@ -2206,7 +2184,7 @@
   "The act of paying a financial amount to a party for use of the asset."
   {:db/ident :odrl/pay,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Pay@en",
    :skos/definition
@@ -2231,16 +2209,14 @@
 
 (def payeeParty
   "The Party is the recipient of the payment."
-  {:db/ident           :odrl/payeeParty,
-   :owl/deprecated     true,
-   :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label         #voc/lstr "Payee Party@en",
-   :rdfs/subPropertyOf :odrl/payeeParty,
-   :skos/definition    #voc/lstr
-                        "The Party is the recipient of the payment.@en",
-   :skos/exactMatch    :odrl/compensatedParty,
-   :skos/scopeNote     #voc/lstr "Non-Normative@en"})
+  {:db/ident         :odrl/payeeParty,
+   :owl/deprecated   true,
+   :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
+   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+   :rdfs/label       #voc/lstr "Payee Party@en",
+   :skos/definition  #voc/lstr "The Party is the recipient of the payment.@en",
+   :skos/exactMatch  :odrl/compensatedParty,
+   :skos/scopeNote   #voc/lstr "Non-Normative@en"})
 
 (def percentage
   "A percentage amount of the target Asset relevant for exercising the action of the Rule. Right operand value MUST be an xsd:decimal from 0 to 100."
@@ -2271,15 +2247,14 @@
 
 (def permission
   "Relates an individual Permission to a Policy."
-  {:db/ident           :odrl/permission,
-   :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
-   :rdfs/domain        :odrl/Policy,
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label         #voc/lstr "Has Permission@en",
-   :rdfs/range         :odrl/Permission,
-   :rdfs/subPropertyOf :odrl/permission,
-   :skos/definition    #voc/lstr
-                        "Relates an individual Permission to a Policy.@en"})
+  {:db/ident         :odrl/permission,
+   :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
+   :rdfs/domain      :odrl/Policy,
+   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+   :rdfs/label       #voc/lstr "Has Permission@en",
+   :rdfs/range       :odrl/Permission,
+   :skos/definition  #voc/lstr
+                      "Relates an individual Permission to a Policy.@en"})
 
 (def permissions
   "Permission"
@@ -2345,7 +2320,7 @@
   "To publicly perform the Asset."
   {:db/ident         :odrl/present,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Present@en",
    :skos/definition  #voc/lstr "To publicly perform the Asset.@en",
@@ -2398,7 +2373,6 @@
    :rdfs/domain :odrl/Policy,
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Profile@en",
-   :rdfs/subPropertyOf :odrl/profile,
    :skos/definition
    #voc/lstr
     "The identifier(s) of an ODRL Profile that the Policy conforms to.@en",
@@ -2422,15 +2396,14 @@
 
 (def prohibition
   "Relates an individual Prohibition to a Policy."
-  {:db/ident           :odrl/prohibition,
-   :rdf/type           [:skos/Concept :owl/ObjectProperty :rdf/Property],
-   :rdfs/domain        :odrl/Policy,
-   :rdfs/isDefinedBy   "http://www.w3.org/ns/odrl/2/",
-   :rdfs/label         #voc/lstr "Has Prohibition@en",
-   :rdfs/range         :odrl/Prohibition,
-   :rdfs/subPropertyOf :odrl/prohibition,
-   :skos/definition    #voc/lstr
-                        "Relates an individual Prohibition to a Policy.@en"})
+  {:db/ident         :odrl/prohibition,
+   :rdf/type         [:skos/Concept :owl/ObjectProperty :rdf/Property],
+   :rdfs/domain      :odrl/Policy,
+   :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
+   :rdfs/label       #voc/lstr "Has Prohibition@en",
+   :rdfs/range       :odrl/Prohibition,
+   :skos/definition  #voc/lstr
+                      "Relates an individual Prohibition to a Policy.@en"})
 
 (def prohibitions
   "Prohibition"
@@ -2447,7 +2420,6 @@
    :rdf/type [:skos/Concept :owl/DatatypeProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "proximity@en",
-   :rdfs/subPropertyOf :odrl/proximity,
    :skos/definition #voc/lstr
                      "An value indicating the closeness or nearness.@en",
    :skos/note
@@ -2505,7 +2477,6 @@
    :rdfs/label #voc/lstr "Refinement@en",
    :rdfs/range {:owl/unionOf [:odrl/Constraint :odrl/LogicalConstraint],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :odrl/refinement,
    :skos/definition
    #voc/lstr
     "Constraint used to refine the semantics of an Action, or Party/Asset Collection@en",
@@ -2522,7 +2493,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Relation@en",
    :rdfs/range :odrl/Asset,
-   :rdfs/subPropertyOf :odrl/relation,
    :skos/definition
    #voc/lstr
     "Relation is an abstract property which creates an explicit link between an Action and an Asset.@en",
@@ -2598,7 +2568,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Remedy@en",
    :rdfs/range :odrl/Duty,
-   :rdfs/subPropertyOf [:odrl/failure :odrl/remedy],
+   :rdfs/subPropertyOf :odrl/failure,
    :skos/definition #voc/lstr
                      "Relates an individual remedy Duty to a Prohibition.@en",
    :skos/note
@@ -2609,7 +2579,7 @@
   "To make duplicate copies the Asset in any material form."
   {:db/ident :odrl/reproduce,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Reproduce@en",
    :skos/definition
@@ -2654,7 +2624,6 @@
    :rdfs/label #voc/lstr "Has Right Operand@en",
    :rdfs/range {:owl/unionOf [:odrl/RightOperand :rdfs/Literal :xsd/anyURI],
                 :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf :odrl/rightOperand,
    :skos/definition
    #voc/lstr "The value of the right operand in a constraint expression.@en",
    :skos/note
@@ -2668,7 +2637,6 @@
    :rdfs/domain :odrl/Constraint,
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Has Right Operand Reference@en",
-   :rdfs/subPropertyOf :odrl/rightOperandReference,
    :skos/definition
    #voc/lstr
     "A reference to a web resource providing the value for the right operand of a Constraint.@en",
@@ -2691,7 +2659,6 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Scope@en",
-   :rdfs/subPropertyOf :odrl/scope,
    :skos/definition
    #voc/lstr
     "The identifier of a scope that provides context to the extent of the entity.@en",
@@ -2701,7 +2668,7 @@
   "The act of using the asset for a purpose other than the purpose it was intended for."
   {:db/ident :odrl/secondaryUse,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Secondary Use@en",
    :skos/definition
@@ -2724,7 +2691,7 @@
   "The act of the non-commercial reproduction and distribution of the asset to third-parties."
   {:db/ident :odrl/share,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Share@en",
    :skos/definition
@@ -2736,7 +2703,7 @@
   "The act of distributing any derivative asset under the same terms as the original asset."
   {:db/ident :odrl/shareAlike,
    :owl/deprecated true,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Share-alike@en",
    :skos/definition
@@ -2752,7 +2719,6 @@
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Source@en",
-   :rdfs/subPropertyOf :odrl/source,
    :skos/definition #voc/lstr "Reference to a Asset/PartyCollection@en",
    :skos/note
    #voc/lstr
@@ -2796,7 +2762,6 @@
    :rdfs/domain :odrl/Constraint,
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Status@en",
-   :rdfs/subPropertyOf :odrl/status,
    :skos/definition
    #voc/lstr
     "the value generated from the leftOperand action or a value related to the leftOperand set as the reference for the comparison.@en"})
@@ -2805,7 +2770,7 @@
   "To deliver the Asset in real-time."
   {:db/ident :odrl/stream,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Stream@en",
    :skos/definition #voc/lstr "To deliver the Asset in real-time.@en",
@@ -2878,7 +2843,7 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Target@en",
    :rdfs/range :odrl/Asset,
-   :rdfs/subPropertyOf [:odrl/relation :odrl/target],
+   :rdfs/subPropertyOf :odrl/relation,
    :skos/definition
    #voc/lstr
     "The target property indicates the Asset that is the primary subject to which the Rule action directly applies.@en"})
@@ -2887,7 +2852,7 @@
   "To have a text Asset read out loud."
   {:db/ident :odrl/textToSpeech,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Text-to-speech@en",
    :skos/definition #voc/lstr "To have a text Asset read out loud.@en",
@@ -2917,7 +2882,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Timed Count@en",
    :rdfs/range :rdfs/Literal,
-   :rdfs/subPropertyOf :odrl/timedCount,
    :skos/definition
    #voc/lstr
     "The number of seconds after which timed metering use of the asset begins.@en",
@@ -2931,7 +2895,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Tracked Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/trackedParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition #voc/lstr "The Party whose usage is being tracked.@en",
    :skos/note #voc/lstr
                "May be specified as part of the acceptTracking action.@en",
@@ -2943,7 +2907,7 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Tracking Party@en",
-   :rdfs/subPropertyOf [:odrl/function :odrl/trackingParty],
+   :rdfs/subPropertyOf :odrl/function,
    :skos/definition #voc/lstr "The Party who is tracking usage.@en",
    :skos/note #voc/lstr
                "May be specified as part of the acceptTracking action.@en",
@@ -2952,7 +2916,7 @@
 (def transfer
   "To transfer the ownership of the Asset in perpetuity."
   {:db/ident :odrl/transfer,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Transfer Ownership@en",
    :skos/definition
@@ -2976,7 +2940,7 @@
   "To translate the original natural language of an Asset into another natural language."
   {:db/ident :odrl/translate,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Translate@en",
    :skos/definition
@@ -2998,7 +2962,6 @@
                  :rdf/type    :owl/Class},
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Unique Identifier@en",
-   :rdfs/subPropertyOf :odrl/uid,
    :skos/definition #voc/lstr "An unambiguous identifier@en",
    :skos/note
    #voc/lstr
@@ -3012,7 +2975,6 @@
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Handle Undefined Term@en",
    :rdfs/range :odrl/UndefinedTerm,
-   :rdfs/subPropertyOf :odrl/undefined,
    :skos/definition
    #voc/lstr
     "Relates the strategy used for handling undefined actions to a Policy.@en",
@@ -3023,7 +2985,7 @@
   "To unload and delete the computer program Asset from a storage device and disable its readiness for operation."
   {:db/ident :odrl/uninstall,
    :odrl/includedIn :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Uninstall@en",
    :skos/definition
@@ -3041,7 +3003,6 @@
    :rdfs/domain :odrl/Constraint,
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Unit@en",
-   :rdfs/subPropertyOf :odrl/unit,
    :skos/definition
    #voc/lstr
     "The unit of measurement of the value of the rightOperand or rightOperandReference of a Constraint.@en"})
@@ -3064,7 +3025,7 @@
 (def use
   "To use the Asset"
   {:db/ident :odrl/use,
-   :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Use@en",
    :skos/definition #voc/lstr "To use the Asset@en",
@@ -3102,7 +3063,7 @@
   "To apply a watermark to the Asset."
   {:db/ident         :odrl/watermark,
    :odrl/includedIn  :odrl/use,
-   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
+   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Watermark@en",
    :skos/definition  #voc/lstr "To apply a watermark to the Asset.@en",
@@ -3122,7 +3083,7 @@
   "The act of adding data to the Asset."
   {:db/ident         :odrl/writeTo,
    :owl/deprecated   true,
-   :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
+   :rdf/type         [:skos/Concept :odrl/Action :schema/Action :rdfs/Resource],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label       #voc/lstr "Write to@en",
    :skos/definition  #voc/lstr "The act of adding data to the Asset.@en",
@@ -3134,167 +3095,10 @@
    :rdf/type [:skos/Concept :owl/ObjectProperty :rdf/Property],
    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
    :rdfs/label #voc/lstr "Only One@en",
-   :rdfs/subPropertyOf [:odrl/operand :odrl/xone],
+   :rdfs/subPropertyOf :odrl/operand,
    :skos/definition
    #voc/lstr
     "The relation is satisfied when only one, and not more, of the Constaints is satisfied@en",
    :skos/note
    #voc/lstr
     "This property MUST only be used for Logical Constraints, and the list of operand values MUST be Constraint instances.@en"})
-
-;; (def ^{:private true} Attribution
-;;   "Credit be given to copyright holder and/or author."
-;;   {:db/ident         :cc/Attribution,
-;;    :odrl/includedIn  :odrl/use,
-;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label       #voc/lstr "Attribution@en",
-;;    :skos/definition  #voc/lstr
-;;                       "Credit be given to copyright holder and/or author.@en",
-;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} CommercialUse
-;;   "Exercising rights for commercial purposes."
-;;   {:db/ident         :cc/CommercialUse,
-;;    :odrl/includedIn  :odrl/use,
-;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label       #voc/lstr "Commercial Use@en",
-;;    :skos/definition  #voc/lstr "Exercising rights for commercial purposes.@en",
-;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} DerivativeWorks
-;;   "Distribution of derivative works."
-;;   {:db/ident         :cc/DerivativeWorks,
-;;    :odrl/includedIn  :odrl/use,
-;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label       #voc/lstr "Derivative Works@en",
-;;    :skos/definition  #voc/lstr "Distribution of derivative works.@en",
-;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} Distribution
-;;   "Distribution, public display, and publicly performance."
-;;   {:db/ident :cc/Distribution,
-;;    :odrl/includedIn :odrl/use,
-;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label #voc/lstr "Distribution@en",
-;;    :skos/definition
-;;    #voc/lstr "Distribution, public display, and publicly performance.@en",
-;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} Notice
-;;   "Copyright and license notices be kept intact."
-;;   {:db/ident         :cc/Notice,
-;;    :odrl/includedIn  :odrl/use,
-;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label       #voc/lstr "Notice@en",
-;;    :skos/definition  #voc/lstr
-;;                       "Copyright and license notices be kept intact.@en",
-;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} Reproduction
-;;   "Making multiple copies."
-;;   {:db/ident         :cc/Reproduction,
-;;    :odrl/includedIn  :odrl/use,
-;;    :rdf/type         [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label       #voc/lstr "Reproduction@en",
-;;    :skos/definition  #voc/lstr "Making multiple copies.@en",
-;;    :skos/note        #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote   #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} ShareAlike
-;;   "Derivative works be licensed under the same terms or compatible terms as the original work."
-;;   {:db/ident :cc/ShareAlike,
-;;    :odrl/includedIn :odrl/use,
-;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label #voc/lstr "Share Alike@en",
-;;    :skos/definition
-;;    #voc/lstr
-;;     "Derivative works be licensed under the same terms or compatible terms as the original work.@en",
-;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} Sharing
-;;   "Permits commercial derivatives, but only non-commercial distribution."
-;;   {:db/ident :cc/Sharing,
-;;    :odrl/includedIn :odrl/use,
-;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label #voc/lstr "Sharing@en",
-;;    :skos/definition
-;;    #voc/lstr
-;;     "Permits commercial derivatives, but only non-commercial distribution.@en",
-;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} SourceCode
-;;   "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license."
-;;   {:db/ident :cc/SourceCode,
-;;    :odrl/includedIn :odrl/use,
-;;    :rdf/type [:skos/Concept :odrl/Action :rdfs/Resource :schema/Action],
-;;    :rdfs/isDefinedBy "http://www.w3.org/ns/odrl/2/",
-;;    :rdfs/label #voc/lstr "Source Code@en",
-;;    :skos/definition
-;;    #voc/lstr
-;;     "Source code (the preferred form for making modifications) must be provided when exercising some rights granted by the license.@en",
-;;    :skos/note #voc/lstr "This term is defined by Creative Commons.@en",
-;;    :skos/scopeNote #voc/lstr "Non-Normative@en"})
-
-;; (def ^{:private true} Action
-;;   {:db/ident        :schema/Action,
-;;    :rdf/type        :rdfs/Class,
-;;    :rdfs/subClassOf :schema/Action})
-
-;; (def ^{:private true} Collection
-;;   {:db/ident :skos/Collection,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} Concept
-;;   {:db/ident :skos/Concept,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} ConceptScheme
-;;   {:db/ident :skos/ConceptScheme,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} broader
-;;   {:db/ident :skos/broader,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} broaderTransitive
-;;   {:db/ident :skos/broaderTransitive,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} definition
-;;   {:db/ident :skos/definition,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} hasTopConcept
-;;   {:db/ident :skos/hasTopConcept,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} member
-;;   {:db/ident :skos/member,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} note
-;;   {:db/ident :skos/note,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} prefLabel
-;;   {:db/ident :skos/prefLabel,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} scopeNote
-;;   {:db/ident :skos/scopeNote,
-;;    :rdf/type :owl/AnnotationProperty})
