@@ -47,6 +47,8 @@
 (def HTML
   "The datatype of RDF literals storing fragments of HTML content"
   {:db/ident :rdf/HTML,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/string
    :rdf/type [:rdfs/Datatype :rdfs/Resource],
    :rdfs/comment
    "The datatype of RDF literals storing fragments of HTML content",
@@ -58,6 +60,8 @@
 (def JSON
   "The datatype of RDF literals storing JSON content."
   {:db/ident         :rdf/JSON,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/string
    :rdf/type         [:rdfs/Datatype :rdfs/Resource],
    :rdfs/comment     "The datatype of RDF literals storing JSON content.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -115,6 +119,8 @@
 (def XMLLiteral
   "The datatype of XML literal values."
   {:db/ident         :rdf/XMLLiteral,
+   :db/cardinality   :db.cardinality/one
+   :db/valueType     :db.type/string
    :rdf/type         [:rdfs/Datatype :rdfs/Resource],
    :rdfs/comment     "The datatype of XML literal values.",
    :rdfs/isDefinedBy "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
