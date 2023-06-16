@@ -26,7 +26,13 @@
    [xtdb.api :as xt]
    [xtdb.node]
    [xtdb.lucene]
-   [zprint.core :as zprint])
+   [zprint.core :as zprint]
+   [net.wikipunk.ext]
+   [net.wikipunk.rdf.rdf]
+   [net.wikipunk.rdf.rdfs]
+   [net.wikipunk.rdf.owl]
+   [net.wikipunk.rdf.xsd]
+   [net.wikipunk.rdf.mop])
   (:import
    (org.apache.jena.datatypes BaseDatatype$TypedValue)
    (org.apache.jena.datatypes.xsd XSDDatatype XSDDateTime)
@@ -1460,14 +1466,14 @@
                               (if (qualified-keyword? k)
                                 (if *datafy-mop*
                                   (case k
-                                    (:mop/class-direct-slots                                     
-                                     :mop/class-slots)
+                                    (:mop/classDirectSlots                                     
+                                     :mop/classSlots)
                                     (assoc m k (mapv (some-fn :db/ident identity) v))
 
-                                    (:mop/class-default-initargs
-                                     :mop/class-direct-default-initargs
-                                     :mop/class-precedence-list
-                                     :mop/class-prototype)
+                                    (:mop/classDefaultInitargs
+                                     :mop/classDirectDefaultInitargs
+                                     :mop/classPrecedenceList
+                                     :mop/classPrototype)
                                     m
 
                                     (assoc m k v))

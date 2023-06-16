@@ -145,20 +145,20 @@
 
 (defmethod mop/class-finalized? :rdfs/Class
   [class]
-  (boolean (:mop/class-precedence-list class)))
+  (boolean (:mop/classPrecedenceList class)))
 
 (defmethod mop/class-prototype :rdfs/Class
   [class]  
-  (or (:mop/class-prototype (meta class))
-      (alter-instance (:var (meta (meta class))) assoc :mop/class-prototype (mop/allocate-instance class))))
+  (or (:mop/classPrototype (meta class))
+      (alter-instance (:var (meta (meta class))) assoc :mop/classPrototype (mop/allocate-instance class))))
 
 (defmethod mop/class-precedence-list :rdfs/Class
   [class]
-  (:mop/class-precedence-list class (mop/compute-class-precedence-list class)))
+  (:mop/classPrecedenceList class (mop/compute-class-precedence-list class)))
 
 (defmethod mop/class-direct-default-initargs :rdfs/Class
   [class]
-  (:mop/class-direct-default-initargs class {}))
+  (:mop/classDirectDefaultInitargs class {}))
 
 (defmethod mop/class-direct-default-initargs :default
   [class]
@@ -269,11 +269,11 @@
 
 (defmethod mop/class-direct-slots :rdfs/Class
   [{:db/keys [ident]
-    :mop/keys [class-direct-slots]
+    :mop/keys [classDirectSlots]
     :rdfs/keys [subClassOf]
     :owl/keys [intersectionOf unionOf]
     :as class}]
-  (or (not-empty (:mop/class-direct-slots class))
+  (or (not-empty classDirectSlots)
       (when-some [slots (seq (concat (and ident (get-in rdf/*indexes* [:slots/by-domain ident]))
                                      (some->> (filter map? (concat intersectionOf
                                                                    unionOf
@@ -298,11 +298,11 @@
 
 (defmethod mop/class-default-initargs :rdfs/Class
   [class]
-  (:mop/class-default-initargs class {}))
+  (:mop/classDefaultInitargs class {}))
 
 (defmethod mop/class-slots :rdfs/Class
   [class]
-  (:mop/class-slots class (mop/compute-slots class)))
+  (:mop/classSlots class (mop/compute-slots class)))
 
 (defmethod mop/add-direct-subclass [:rdfs/Class :rdfs/Class]
   [superclass subclass]
@@ -312,7 +312,7 @@
                                    conj
                                    (:db/ident superclass))]
                  [::xt/put (update superclass
-                                   :mop/class-direct-subclasses
+                                   :mop/classDirectSubclasses
                                    conj
                                    (:db/ident subclass))]]))
 
@@ -324,7 +324,7 @@
                                    #(into [] (remove #{%2}) %1)
                                    (:db/ident superclass))]
                  [::xt/put (update superclass
-                                   :mop/class-direct-subclasses
+                                   :mop/classDirectSubclasses
                                    disj
                                    (:db/ident subclass))]]))
 
@@ -359,24 +359,24 @@
 (defmethod mop/finalize-inheritance :rdfs/Class
   [class]
   (let [class (assoc class
-                     :mop/class-direct-slots
+                     :mop/classDirectSlots
                      (mop/class-direct-slots class))
         class (assoc class
-                     :mop/class-direct-default-initargs
-                     (let [d (filter :sh/defaultValue (:mop/class-direct-slots class))]
+                     :mop/classDirectDefaultInitargs
+                     (let [d (filter :sh/defaultValue (:mop/classDirectSlots class))]
                        (zipmap (map :db/ident d)
                                (map :sh/defaultValue d))))
         class (assoc class
-                     :mop/class-precedence-list
+                     :mop/classPrecedenceList
                      (mop/compute-class-precedence-list class))
         class (assoc class
-                     :mop/class-slots
+                     :mop/classSlots
                      (mop/compute-slots class))
         class (assoc class
-                     :mop/class-default-initargs
+                     :mop/classDefaultInitargs
                      (mop/compute-default-initargs class))
         class (assoc class
-                     :mop/class-direct-subclasses
+                     :mop/classDirectSubclasses
                      (mop/class-direct-subclasses class))]
     (mop/intern-class-using-env class mop/*env*)))
 
@@ -389,24 +389,24 @@
       (throw (ex-info (.getMessage ex) {:class class} ex)))))
 
 (defmethod mop/compute-default-initargs :rdfs/Class
-  [{:mop/keys [class-precedence-list
-               class-direct-default-initargs]}]
+  [{:mop/keys [classPrecedenceList
+               classDirectDefaultInitargs]}]
   (reduce into
-          class-direct-default-initargs
+          classDirectDefaultInitargs
           (map mop/class-direct-default-initargs
-               (keep mop/find-class (rest class-precedence-list)))))
+               (keep mop/find-class (rest classPrecedenceList)))))
 (comment
   (xt/q (xt/db mop/*env*)
         '{:find  [?class-direct-slots]
           :in    [$ ?class]
           :where [[?class :rdfs/subClassOf ?e]
-                  [?e :mop/class-direct-slots ?class-direct-slots]
-                  [?e :mop/class-direct-subclasses ?class-direct-subclasses]]}
+                  [?e :mop/classDirectSlots ?class-direct-slots]
+                  [?e :mop/classDirectSubclasses ?class-direct-subclasses]]}
         :schema/Movie))
 
 (defmethod mop/compute-slots :rdfs/Class
-  [{:mop/keys  [class-precedence-list
-                class-direct-slots]
+  [{:mop/keys  [classPrecedenceList
+                classDirectSlots]
     :db/keys   [ident]
     :rdf/keys  [type]
     :rdfs/keys [subClassOf]
@@ -427,7 +427,7 @@
 
                                                           :else
                                                           #{:rdfs/Class :owl/ObjectProperty :owl/DatatypeProperty :rdf/Property :rdfs/Resource}))
-                                            (or class-precedence-list
+                                            (or classPrecedenceList
                                                 (mop/compute-class-precedence-list class)))
                                 (remove #{:rdfs/Resource} subClassOf)
                                 equivalentClass))
@@ -440,7 +440,7 @@
 
 (defmethod mop/slot-definition-initfunction :rdfs/Class
   [slot]
-  (:mop/slot-initfunction slot nil))
+  (:mop/slotInitfunction slot nil))
 
 (defmethod mop/slot-definition-name :rdfs/Class
   [slot]
@@ -448,15 +448,15 @@
 
 (defmethod mop/slot-definition-initargs :rdfs/Class
   [class]
-  (:mop/slot-initargs class #{}))
+  (:mop/slotInitargs class #{}))
 
 (defmethod mop/slot-definition-initform :rdfs/Class
   [class]
-  (:mop/slot-initform class))
+  (:mop/slotInitform class))
 
 (defmethod mop/slot-definition-allocation :rdfs/Class
   [class]
-  (:mop/slot-allocation class :mop/instance))
+  (:mop/slotAllocation class :mop/instance))
 
 (defmethod mop/slot-definition-type :rdfs/Class
   [class]
@@ -472,18 +472,18 @@
   (reduce merge direct-slot-definitions)
   #_(reduce (fn [effective-slot-def direct-slot-def]
             (cond-> (-> effective-slot-def
-                        (update :mop/slot-initargs
+                        (update :mop/slotInitargs
                                 (fnil into #{})
                                 (mop/slot-definition-initargs direct-slot-def)))
               (nil? (:db/ident effective-slot-def))
               (assoc :db/ident (mop/slot-definition-name direct-slot-def))
 
-              (nil? (:mop/slot-initform effective-slot-def))
-              (assoc :mop/slot-initform (mop/slot-definition-initform direct-slot-def)
-                     :mop/slot-initfunction (mop/slot-definition-initfunction direct-slot-def))
+              (nil? (:mop/slotInitform effective-slot-def))
+              (assoc :mop/slotInitform (mop/slot-definition-initform direct-slot-def)
+                     :mop/slotInitfunction (mop/slot-definition-initfunction direct-slot-def))
 
-              (nil? (:mop/slot-allocation effective-slot-def))
-              (assoc :mop/slot-allocation (mop/slot-definition-allocation direct-slot-def))))
+              (nil? (:mop/slotAllocation effective-slot-def))
+              (assoc :mop/slotAllocation (mop/slot-definition-allocation direct-slot-def))))
           {:db/ident slot}
           direct-slot-definitions))
 
@@ -538,8 +538,8 @@
 
 (defmethod mop/class-direct-subclasses :rdfs/Class
   [{:db/keys [ident]
-    :mop/keys [class-direct-subclasses]}]
-  (or class-direct-subclasses
+    :mop/keys [classDirectSubclasses]}]
+  (or classDirectSubclasses
       (into #{}
             (map first)
             (xt/q (xt/db mop/*env*)

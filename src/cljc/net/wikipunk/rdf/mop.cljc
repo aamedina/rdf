@@ -10,25 +10,25 @@
   its metaclass's initialization protocol."
   {:rdf/type :owl/Ontology})
 
-(def class-direct-slots
-  {:db/ident       :mop/class-direct-slots
+(def classDirectSlots
+  {:db/ident       :mop/classDirectSlots
    :db/cardinality :db.cardinality/many
    :db/valueType   :db.type/ref
    :rdf/type       :owl/ObjectProperty
    :rdfs/range     :rdfs/Class
    :rdfs/domain    :rdf/Property})
 
-(def class-direct-subclasses
+(def classDirectSubclasses
   "A class metaobject's direct subclasses."
-  {:db/ident       :mop/class-direct-subclasses
+  {:db/ident       :mop/classDirectSubclasses
    :db/cardinality :db.cardinality/many
    :db/valueType   :db.type/ref
    :rdf/type       :owl/ObjectProperty
    :rdfs/range     :rdfs/Class
    :rdfs/domain    :rdfs/Class})
 
-(def class-slots
-  {:db/ident       :mop/class-slots
+(def classSlots
+  {:db/ident       :mop/classSlots
    :db/cardinality :db.cardinality/many
    :db/valueType   :db.type/ref
    :rdf/type       :owl/ObjectProperty
