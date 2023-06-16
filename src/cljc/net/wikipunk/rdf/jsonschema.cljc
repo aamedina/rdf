@@ -362,7 +362,6 @@
   {:db/ident     :jsonschema/properties,
    :db/cardinality :db.cardinality/many,
    :db/valueType :db.type/ref,
-   :db/isComponent true,
    :rdf/type     :owl/ObjectProperty,
    :rdfs/comment #voc/lstr "Data schema nested definitions@en",
    :rdfs/label   "properties",
