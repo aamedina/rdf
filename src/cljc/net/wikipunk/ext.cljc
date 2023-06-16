@@ -280,7 +280,8 @@
    :rdfa/prefix      "event"})
 
 (def http
-  {:rdf/type         :rdfa/PrefixMapping
+  {:dcat/downloadURL "resources/http.rdf"
+   :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/2011/http#"
    :rdfa/prefix      "http"})
 
