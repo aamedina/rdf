@@ -64,7 +64,7 @@
   "If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) has an `@base` key, its value MUST be an _IRI reference_, or `null`."
   {:db/ident              :jsonld/base,
    :db/cardinality        :db.cardinality/one
-   :db/valueType          :db.type/ref
+   :db/valueType          :db.type/string
    :rdf/type              :rdf/Property,
    :rdfs/comment
    #voc/lstr
@@ -203,7 +203,7 @@
   "The `@id` mapping of a [term definition](#TermDefinition)."
   {:db/ident              :jsonld/id,
    :db/cardinality        :db.cardinality/one
-   :db/valueType          :db.type/ref
+   :db/valueType          :db.type/string
    :rdf/type              :rdf/Property,
    :rdfs/comment
    #voc/lstr "The `@id` mapping of a [term definition](#TermDefinition).@en",
@@ -228,7 +228,7 @@
   "If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@import` keyword, its value MUST be an _IRI reference_. When used as a reference from an `@import`, the referenced context definition MUST NOT include an `@import` key, itself."
   {:db/ident              :jsonld/import,
    :db/cardinality        :db.cardinality/one
-   :db/valueType          :db.type/ref
+   :db/valueType          :db.type/string
    :rdf/type              :rdf/Property,
    :rdfs/comment
    #voc/lstr
@@ -388,6 +388,8 @@
 (def term
   "The term associated with a [term definition](#TermDefinition)."
   {:db/ident              :jsonld/term,
+   :db/cardinality        :db.cardinality/one
+   :db/valueType          :db.type/string
    :rdf/type              :rdf/Property,
    :rdfs/comment
    #voc/lstr
@@ -401,6 +403,8 @@
 (def type
   "If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@type` keyword, its value MUST be a map with only the entry `@container` set to `@set`, and optionally an entry `@protected`. If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@type` keyword, its value MUST be an _IRI reference_, a _term_, `null`, or one of the keywords `@id`, `@json`, `@none`, or `@vocab`."
   {:db/ident              :jsonld/type,
+   :db/cardinality        :db.cardinality/one
+   :db/valueType          :db.type/ref
    :rdf/type              :rdf/Property,
    :rdfs/comment
    #voc/lstr
@@ -425,6 +429,8 @@
 (def version
   "The [processing mode](https://www.w3.org/TR/json-ld11/#dfn-processing-mode) defines how a JSON-LD document is processed. By default, all documents are assumed to be conformant with [JSON-LD 1.1`](http://www.w3.org/TR/json-ld11). By defining a different version via explicit API option, other processing modes can be accessed. This specification defines extensions for the `json-ld-1.1` processing mode."
   {:db/ident              :jsonld/version,
+   :db/cardinality        :db.cardinality/one
+   :db/valueType          :db.type/double
    :rdf/type              :rdf/Property,
    :rdfs/comment
    #voc/lstr
@@ -438,6 +444,8 @@
 (def vocab
   "Used to expand properties and values in `@type` with a common prefix IRI."
   {:db/ident              :jsonld/vocab,
+   :db/cardinality        :db.cardinality/one
+   :db/valueType          :db.type/string
    :rdf/type              :rdf/Property,
    :rdfs/comment
    #voc/lstr

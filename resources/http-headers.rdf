@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:http="http://www.w3.org/2011/http#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns="http://www.w3.org/2011/http-headers#"
+  xml:base="http://www.w3.org/2011/http-headers"
+>
+
+  <!-- Start Permanent HTTP Header Field Registrations -->
+  
+  <http:HeaderName rdf:about="#a-im">
+    <dcterms:title xml:lang="en">A-IM</dcterms:title>
+    <dcterms:description xml:lang="en">The A-IM header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3229.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#accept">
+    <dcterms:title xml:lang="en">Accept</dcterms:title>
+    <dcterms:description xml:lang="en">The Accept header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#accept-additions">
+    <dcterms:title xml:lang="en">Accept-Additions</dcterms:title>
+    <dcterms:description xml:lang="en">The Accept-Additions header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2324.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#accept-charset">
+    <dcterms:title xml:lang="en">Accept-Charset</dcterms:title>
+    <dcterms:description xml:lang="en">The Accept-Charset header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#accept-encoding">
+    <dcterms:title xml:lang="en">Accept-Encoding</dcterms:title>
+    <dcterms:description xml:lang="en">The Accept-Encoding header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#accept-features">
+    <dcterms:title xml:lang="en">Accept-Features</dcterms:title>
+    <dcterms:description xml:lang="en">The Accept-Features header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2295.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#accept-language">
+    <dcterms:title xml:lang="en">Accept-Language</dcterms:title>
+    <dcterms:description xml:lang="en">The Accept-Language header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#accept-ranges">
+    <dcterms:title xml:lang="en">Accept-Ranges</dcterms:title>
+    <dcterms:description xml:lang="en">The Accept-Ranges header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#age">
+    <dcterms:title xml:lang="en">Age</dcterms:title>
+    <dcterms:description xml:lang="en">The Age header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#allow">
+    <dcterms:title xml:lang="en">Allow</dcterms:title>
+    <dcterms:description xml:lang="en">The Allow header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#alternates">
+    <dcterms:title xml:lang="en">Alternates</dcterms:title>
+    <dcterms:description xml:lang="en">The alternates header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2295.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#apply-to-redirect-ref">
+    <dcterms:title xml:lang="en">Apply-To-Redirect-Ref</dcterms:title>
+    <dcterms:description xml:lang="en">The Apply-To-Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4437.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#authentication-info">
+    <dcterms:title xml:lang="en">Authentication-Info</dcterms:title>
+    <dcterms:description xml:lang="en">The Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2617.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#authorization">
+    <dcterms:title xml:lang="en">Authorization</dcterms:title>
+    <dcterms:description xml:lang="en">The Authorization header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#c-ext">
+    <dcterms:title xml:lang="en">C-Ext</dcterms:title>
+    <dcterms:description xml:lang="en">The C-Ext header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2774.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#c-man">
+    <dcterms:title xml:lang="en">C-Man</dcterms:title>
+    <dcterms:description xml:lang="en">The C-Man header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2774.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#c-opt">
+    <dcterms:title xml:lang="en">C-Opt</dcterms:title>
+    <dcterms:description xml:lang="en">The C-Opt header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2774.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#c-pep">
+    <dcterms:title xml:lang="en">C-PEP</dcterms:title>
+    <dcterms:description xml:lang="en">The C-PEP header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/WD-http-pep"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#c-pep-info">
+    <dcterms:title xml:lang="en">C-PEP-Info</dcterms:title>
+    <dcterms:description xml:lang="en">The C-PEP-Info header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/WD-http-pep"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#cache-control">
+    <dcterms:title xml:lang="en">Cache-Control</dcterms:title>
+    <dcterms:description xml:lang="en">The Cache-Control header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#connection">
+    <dcterms:title xml:lang="en">Connection</dcterms:title>
+    <dcterms:description xml:lang="en">The Connection header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-base">
+    <dcterms:title xml:lang="en">Content-Base</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Base header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2068.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-disposition">
+    <dcterms:title xml:lang="en">Content-Disposition</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Disposition header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-encoding">
+    <dcterms:title xml:lang="en">Content-Encoding</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Encoding header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-id">
+    <dcterms:title xml:lang="en">Content-ID</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-ID header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-drp-19970825"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-language">
+    <dcterms:title xml:lang="en">Content-Language</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Language header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-length">
+    <dcterms:title xml:lang="en">Content-Length</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Length header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-location">
+    <dcterms:title xml:lang="en">Content-Location</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Location header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-md5">
+    <dcterms:title xml:lang="en">Content-MD5</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-MD5 header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-range">
+    <dcterms:title xml:lang="en">Content-Range</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Range header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-script-type">
+    <dcterms:title xml:lang="en">Content-Script-Type</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Script-Type header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/1999/REC-html401-19991224/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-style-type">
+    <dcterms:title xml:lang="en">Content-Style-Type</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Style-Type header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/1999/REC-html401-19991224/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-type">
+    <dcterms:title xml:lang="en">Content-Type</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Type header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-version">
+    <dcterms:title xml:lang="en">Content-Version</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Version header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2068.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#cookie">
+    <dcterms:title xml:lang="en">Cookie</dcterms:title>
+    <dcterms:description xml:lang="en">The Cookie header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2965.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#cookie2">
+    <dcterms:title xml:lang="en">Cookie2</dcterms:title>
+    <dcterms:description xml:lang="en">The Cookie2 header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2965.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#dav">
+    <dcterms:title xml:lang="en">DAV</dcterms:title>
+    <dcterms:description xml:lang="en">The DAV header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#dasl">
+    <dcterms:title xml:lang="en">DASL</dcterms:title>
+    <dcterms:description xml:lang="en">The DASL header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc5323.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#date">
+    <dcterms:title xml:lang="en">Date</dcterms:title>
+    <dcterms:description xml:lang="en">The Date header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#default-style">
+    <dcterms:title xml:lang="en">Default-Style</dcterms:title>
+    <dcterms:description xml:lang="en">The Default-Style header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/1999/REC-html401-19991224/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#delta-base">
+    <dcterms:title xml:lang="en">Delta-Base</dcterms:title>
+    <dcterms:description xml:lang="en">The Delta-Base header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3229.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#depth">
+    <dcterms:title xml:lang="en">Depth</dcterms:title>
+    <dcterms:description xml:lang="en">The Depth header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#derived-from">
+    <dcterms:title xml:lang="en">Derived-From</dcterms:title>
+    <dcterms:description xml:lang="en">The Derived-From header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2068.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#destination">
+    <dcterms:title xml:lang="en">Destination</dcterms:title>
+    <dcterms:description xml:lang="en">The Destination header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#differential-id">
+    <dcterms:title xml:lang="en">Differential-ID</dcterms:title>
+    <dcterms:description xml:lang="en">The Differential-ID header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-drp-19970825"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#digest">
+    <dcterms:title xml:lang="en">Digest</dcterms:title>
+    <dcterms:description xml:lang="en">The Digest header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3230.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#etag">
+    <dcterms:title xml:lang="en">ETag</dcterms:title>
+    <dcterms:description xml:lang="en">The ETag header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#expect">
+    <dcterms:title xml:lang="en">Expect</dcterms:title>
+    <dcterms:description xml:lang="en">The Expect header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#expires">
+    <dcterms:title xml:lang="en">Expires</dcterms:title>
+    <dcterms:description xml:lang="en">The Expires header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#ext">
+    <dcterms:title xml:lang="en">Ext</dcterms:title>
+    <dcterms:description xml:lang="en">The Ext header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2774.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#from">
+    <dcterms:title xml:lang="en">From</dcterms:title>
+    <dcterms:description xml:lang="en">The From header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#getprofile">
+    <dcterms:title xml:lang="en">GetProfile</dcterms:title>
+    <dcterms:description xml:lang="en">The GetProfile header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-OPS-OverHTTP"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#host">
+    <dcterms:title xml:lang="en">Host</dcterms:title>
+    <dcterms:description xml:lang="en">The Host header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#im">
+    <dcterms:title xml:lang="en">IM</dcterms:title>
+    <dcterms:description xml:lang="en">The IM header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3229.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#if">
+    <dcterms:title xml:lang="en">If</dcterms:title>
+    <dcterms:description xml:lang="en">The If header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#if-match">
+    <dcterms:title xml:lang="en">If-Match</dcterms:title>
+    <dcterms:description xml:lang="en">The If-Match header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#if-modified-since">
+    <dcterms:title xml:lang="en">If-Modified-Since</dcterms:title>
+    <dcterms:description xml:lang="en">The If-Modified-Since header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#if-none-match">
+    <dcterms:title xml:lang="en">If-None-Match</dcterms:title>
+    <dcterms:description xml:lang="en">The If-None-Match header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#if-range">
+    <dcterms:title xml:lang="en">If-Range</dcterms:title>
+    <dcterms:description xml:lang="en">The If-Range header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#if-unmodified-since">
+    <dcterms:title xml:lang="en">If-Unmodified-Since</dcterms:title>
+    <dcterms:description xml:lang="en">The If-Unmodified-Since header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#keep-alive">
+    <dcterms:title xml:lang="en">Keep-Alive</dcterms:title>
+    <dcterms:description xml:lang="en">The Keep-Alive header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2068.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#label">
+    <dcterms:title xml:lang="en">Label</dcterms:title>
+    <dcterms:description xml:lang="en">The Label header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3253.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#last-modified">
+    <dcterms:title xml:lang="en">Last-Modified</dcterms:title>
+    <dcterms:description xml:lang="en">The Last-Modified header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#link">
+    <dcterms:title xml:lang="en">Link</dcterms:title>
+    <dcterms:description xml:lang="en">The Link header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2068.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#location">
+    <dcterms:title xml:lang="en">Location</dcterms:title>
+    <dcterms:description xml:lang="en">The Location header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#lock-token">
+    <dcterms:title xml:lang="en">Lock-Token</dcterms:title>
+    <dcterms:description xml:lang="en">The Lock-Token header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#mime-version">
+    <dcterms:title xml:lang="en">MIME-Version</dcterms:title>
+    <dcterms:description xml:lang="en">The MIME-Version header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#man">
+    <dcterms:title xml:lang="en">Man</dcterms:title>
+    <dcterms:description xml:lang="en">The Man header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2774.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#max-forwards">
+    <dcterms:title xml:lang="en">Max-Forwards</dcterms:title>
+    <dcterms:description xml:lang="en">The Max-Forwards header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#meter">
+    <dcterms:title xml:lang="en">Meter</dcterms:title>
+    <dcterms:description xml:lang="en">The Meter header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2227.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#negotiate">
+    <dcterms:title xml:lang="en">Negotiate</dcterms:title>
+    <dcterms:description xml:lang="en">The Negotiate header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2295.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#opt">
+    <dcterms:title xml:lang="en">Opt</dcterms:title>
+    <dcterms:description xml:lang="en">The Opt header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2774.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#ordering-type">
+    <dcterms:title xml:lang="en">Ordering-Type</dcterms:title>
+    <dcterms:description xml:lang="en">The Ordering-Type header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3648.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#overwrite">
+    <dcterms:title xml:lang="en">Overwrite</dcterms:title>
+    <dcterms:description xml:lang="en">The overwrite header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#p3p">
+    <dcterms:title xml:lang="en">P3P</dcterms:title>
+    <dcterms:description xml:lang="en">The P3P header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/2002/REC-P3P-20020416/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#pep">
+    <dcterms:title xml:lang="en">PEP</dcterms:title>
+    <dcterms:description xml:lang="en">The PEP header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/WD-http-pep"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#pics-label">
+    <dcterms:title xml:lang="en">PICS-Label</dcterms:title>
+    <dcterms:description xml:lang="en">The PICS-Label header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/REC-PICS-labels-961031"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#pep-info">
+    <dcterms:title xml:lang="en">Pep-Info</dcterms:title>
+    <dcterms:description xml:lang="en">The Pep-Info header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/WD-http-pep"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#position">
+    <dcterms:title xml:lang="en">Position</dcterms:title>
+    <dcterms:description xml:lang="en">The Position header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3648.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#pragma">
+    <dcterms:title xml:lang="en">Pragma</dcterms:title>
+    <dcterms:description xml:lang="en">The Pragma header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#profileobject">
+    <dcterms:title xml:lang="en">ProfileObject</dcterms:title>
+    <dcterms:description xml:lang="en">The ProfileObject header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-OPS-OverHTTP"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#protocol">
+    <dcterms:title xml:lang="en">Protocol</dcterms:title>
+    <dcterms:description xml:lang="en">The Protocol header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/REC-PICS-labels-961031"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#protocol-info">
+    <dcterms:title xml:lang="en">Protocol-Info</dcterms:title>
+    <dcterms:description xml:lang="en">The Protocol-Info header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-jepi-970519"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#protocol-query">
+    <dcterms:title xml:lang="en">Protocol-Query</dcterms:title>
+    <dcterms:description xml:lang="en">The Protocol-Query header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-jepi-970519"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#protocol-request">
+    <dcterms:title xml:lang="en">Protocol-Request</dcterms:title>
+    <dcterms:description xml:lang="en">The Protocol-Request header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/REC-PICS-labels-961031"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#proxy-authenticate">
+    <dcterms:title xml:lang="en">Proxy-Authenticate</dcterms:title>
+    <dcterms:description xml:lang="en">The Proxy-Authenticate header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#proxy-authentication-info">
+    <dcterms:title xml:lang="en">Proxy-Authentication-Info</dcterms:title>
+    <dcterms:description xml:lang="en">The Proxy-Authentication-Info header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2617.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#proxy-authorization">
+    <dcterms:title xml:lang="en">Proxy-Authorization</dcterms:title>
+    <dcterms:description xml:lang="en">The Proxy-Authorization header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#proxy-features">
+    <dcterms:title xml:lang="en">Proxy-Features</dcterms:title>
+    <dcterms:description xml:lang="en">The Proxy-Features header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/WD-proxy-960221"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#proxy-instruction">
+    <dcterms:title xml:lang="en">Proxy-Instruction</dcterms:title>
+    <dcterms:description xml:lang="en">The Proxy-Instruction header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/WD-proxy-960221"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#public">
+    <dcterms:title xml:lang="en">Public</dcterms:title>
+    <dcterms:description xml:lang="en">The Public header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2068.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#range">
+    <dcterms:title xml:lang="en">Range</dcterms:title>
+    <dcterms:description xml:lang="en">The Range header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#redirect-ref">
+    <dcterms:title xml:lang="en">Redirect-Ref</dcterms:title>
+    <dcterms:description xml:lang="en">The Redirect-Ref header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4437.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#referer">
+    <dcterms:title xml:lang="en">Referer</dcterms:title>
+    <dcterms:description xml:lang="en">The Referer header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#retry-after">
+    <dcterms:title xml:lang="en">Retry-After</dcterms:title>
+    <dcterms:description xml:lang="en">The Retry-After header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#safe">
+    <dcterms:title xml:lang="en">Safe</dcterms:title>
+    <dcterms:description xml:lang="en">The Safe header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2310.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#security-scheme">
+    <dcterms:title xml:lang="en">Security-Scheme</dcterms:title>
+    <dcterms:description xml:lang="en">The Security-Scheme header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2660.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#server">
+    <dcterms:title xml:lang="en">Server</dcterms:title>
+    <dcterms:description xml:lang="en">The Server header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#set-cookie">
+    <dcterms:title xml:lang="en">Set-Cookie</dcterms:title>
+    <dcterms:description xml:lang="en">The Set-Cookie header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2109.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#set-cookie2">
+    <dcterms:title xml:lang="en">Set-Cookie2</dcterms:title>
+    <dcterms:description xml:lang="en">The Set-Cookie2 header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2965.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#setprofile">
+    <dcterms:title xml:lang="en">SetProfile</dcterms:title>
+    <dcterms:description xml:lang="en">The SetProfile header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/NOTE-OPS-OverHTTP"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#slug">
+    <dcterms:title xml:lang="en">SLUG</dcterms:title>
+    <dcterms:description xml:lang="en">The SLUG header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://tools.ietf.org/html/draft-ietf-atompub-protocol-17"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#soapaction">
+    <dcterms:title xml:lang="en">SoapAction</dcterms:title>
+    <dcterms:description xml:lang="en">The SoapAction header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/2000/NOTE-SOAP-20000508/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#status-uri">
+    <dcterms:title xml:lang="en">Status-URI</dcterms:title>
+    <dcterms:description xml:lang="en">The Status-URI header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#surrogate-capability">
+    <dcterms:title xml:lang="en">Surrogate-Capability</dcterms:title>
+    <dcterms:description xml:lang="en">The Surrogate-Capability header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#surrogate-control">
+    <dcterms:title xml:lang="en">Surrogate-Control</dcterms:title>
+    <dcterms:description xml:lang="en">The Surrogate-Control header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/TR/2001/NOTE-edge-arch-20010804"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#tcn">
+    <dcterms:title xml:lang="en">TCN</dcterms:title>
+    <dcterms:description xml:lang="en">The TCN header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2295.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#te">
+    <dcterms:title xml:lang="en">TE</dcterms:title>
+    <dcterms:description xml:lang="en">The TE header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#timeout">
+    <dcterms:title xml:lang="en">Timeout</dcterms:title>
+    <dcterms:description xml:lang="en">The Timeout header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#trailer">
+    <dcterms:title xml:lang="en">Trailer</dcterms:title>
+    <dcterms:description xml:lang="en">The Trailer header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#transfer-encoding">
+    <dcterms:title xml:lang="en">Transfer-Encoding</dcterms:title>
+    <dcterms:description xml:lang="en">The Transfer-Encoding header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#uri">
+    <dcterms:title xml:lang="en">URI</dcterms:title>
+    <dcterms:description xml:lang="en">The URI header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2068.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#upgrade">
+    <dcterms:title xml:lang="en">Upgrade</dcterms:title>
+    <dcterms:description xml:lang="en">The Upgrade header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#user-agent">
+    <dcterms:title xml:lang="en">User-Agent</dcterms:title>
+    <dcterms:description xml:lang="en">The User-Agent header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#variant-vary">
+    <dcterms:title xml:lang="en">Variant-Vary</dcterms:title>
+    <dcterms:description xml:lang="en">The Variant-Vary header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2295.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#vary">
+    <dcterms:title xml:lang="en">Vary</dcterms:title>
+    <dcterms:description xml:lang="en">The Vary header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#via">
+    <dcterms:title xml:lang="en">Via</dcterms:title>
+    <dcterms:description xml:lang="en">The Via header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#www-authenticate">
+    <dcterms:title xml:lang="en">WWW-Authenticate</dcterms:title>
+    <dcterms:description xml:lang="en">The WWW-Authenticate header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#want-digest">
+    <dcterms:title xml:lang="en">Want-Digest</dcterms:title>
+    <dcterms:description xml:lang="en">The Want-Digest header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3230.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#warning">
+    <dcterms:title xml:lang="en">Warning</dcterms:title>
+    <dcterms:description xml:lang="en">The Warning header, as defined in the Permanent HTTP Header Field Registrations.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/perm-headers.html"/>
+  </http:HeaderName>
+
+  <!-- Start Provisional HTTP Header Field Submissions -->
+  
+  <http:HeaderName rdf:about="#access-control">
+    <dcterms:title xml:lang="en">Access-Control</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#access-control-allow-credentials">
+    <dcterms:title xml:lang="en">Access-Control-Allow-Credentials</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control-Allow-Credentials header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#access-control-allow-headers">
+    <dcterms:title xml:lang="en">Access-Control-Allow-Headers</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control-Allow-Headers header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#access-control-allow-methods">
+    <dcterms:title xml:lang="en">Access-Control-Allow-Methods</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control-Allow-Methods header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#access-control-allow-origin">
+    <dcterms:title xml:lang="en">Access-Control-Allow-Origin</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control-Allow-Origin header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#access-control-max-age">
+    <dcterms:title xml:lang="en">Access-Control-Max-Age</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control-Max-Age header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#access-control-request-headers">
+    <dcterms:title xml:lang="en">Access-Control-Request-Headers</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control-Request-Headers header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#access-control-request-method">
+    <dcterms:title xml:lang="en">Access-Control-Request-Method</dcterms:title>
+    <dcterms:description xml:lang="en">The Access-Control-Request-Method header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#compliance">
+    <dcterms:title xml:lang="en">Compliance</dcterms:title>
+    <dcterms:description xml:lang="en">The Compliance header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#content-transfer-encoding">
+    <dcterms:title xml:lang="en">Content-Transfer-Encoding</dcterms:title>
+    <dcterms:description xml:lang="en">The Content-Transfer-Encoding header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/Protocols/HTTP/Object_Headers.html"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#cost">
+    <dcterms:title xml:lang="en">Cost</dcterms:title>
+    <dcterms:description xml:lang="en">The Cost header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/Protocols/HTTP/Object_Headers.html"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#message-id">
+    <dcterms:title xml:lang="en">Message-ID</dcterms:title>
+    <dcterms:description xml:lang="en">The Message-ID header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/Protocols/HTTP/Object_Headers.html"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#method-check">
+    <dcterms:title xml:lang="en">Method-Check</dcterms:title>
+    <dcterms:description xml:lang="en">The Method-Check header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#method-check-expires">
+    <dcterms:title xml:lang="en">Method-Check-Expires</dcterms:title>
+    <dcterms:description xml:lang="en">The Method-Check-Expires header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#non-compliance">
+    <dcterms:title xml:lang="en">Non-Compliance</dcterms:title>
+    <dcterms:description xml:lang="en">The Non-Compliance header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/Protocols/HTTP/Object_Headers.html"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#optional">
+    <dcterms:title xml:lang="en">Optional</dcterms:title>
+    <dcterms:description xml:lang="en">The Optional header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#origin">
+    <dcterms:title xml:lang="en">Origin</dcterms:title>
+    <dcterms:description xml:lang="en">The Origin header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#referer-root">
+    <dcterms:title xml:lang="en">Referer-Root</dcterms:title>
+    <dcterms:description xml:lang="en">The Referer-Root header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/appformats/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#resolution-hint">
+    <dcterms:title xml:lang="en">Resolution-Hint</dcterms:title>
+    <dcterms:description xml:lang="en">The Resolution-Hint header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#resolver-location">
+    <dcterms:title xml:lang="en">Resolver-Location</dcterms:title>
+    <dcterms:description xml:lang="en">The Resolver-Location header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#subok">
+    <dcterms:title xml:lang="en">SubOK</dcterms:title>
+    <dcterms:description xml:lang="en">The SubOK header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#subst">
+    <dcterms:title xml:lang="en">Subst</dcterms:title>
+    <dcterms:description xml:lang="en">The Subst header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#title">
+    <dcterms:title xml:lang="en">Title</dcterms:title>
+    <dcterms:description xml:lang="en">The Title header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/Protocols/HTTP/Object_Headers.html"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#ua-color">
+    <dcterms:title xml:lang="en">UA-Color</dcterms:title>
+    <dcterms:description xml:lang="en">The UA-Color header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#ua-media">
+    <dcterms:title xml:lang="en">UA-Media</dcterms:title>
+    <dcterms:description xml:lang="en">The UA-Media header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#ua-pixels">
+    <dcterms:title xml:lang="en">UA-Pixels</dcterms:title>
+    <dcterms:description xml:lang="en">The UA-Pixels header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#ua-resolution">
+    <dcterms:title xml:lang="en">UA-Resolution</dcterms:title>
+    <dcterms:description xml:lang="en">The UA-Resolution header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#ua-windowpixels">
+    <dcterms:title xml:lang="en"></dcterms:title>
+    <dcterms:description xml:lang="en">The  header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#version">
+    <dcterms:title xml:lang="en">Version</dcterms:title>
+    <dcterms:description xml:lang="en">The Version header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/Protocols/HTTP/Object_Headers.html"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#x-device-accept">
+    <dcterms:title xml:lang="en">X-Device-Accept</dcterms:title>
+    <dcterms:description xml:lang="en">The X-Device-Accept header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2005/MWI/BPWG/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#x-device-accept-charset">
+    <dcterms:title xml:lang="en">X-Device-Accept-Charset</dcterms:title>
+    <dcterms:description xml:lang="en">The X-Device-Accept-Charset header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2005/MWI/BPWG/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#x-device-accept-encoding">
+    <dcterms:title xml:lang="en">X-Device-Accept-Encoding</dcterms:title>
+    <dcterms:description xml:lang="en">The X-Device-Accept-Encoding header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2005/MWI/BPWG/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#x-device-accept-language">
+    <dcterms:title xml:lang="en">X-Device-Accept-Language</dcterms:title>
+    <dcterms:description xml:lang="en">The X-Device-Accept-Language header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2005/MWI/BPWG/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <http:HeaderName rdf:about="#x-device-user-agent">
+    <dcterms:title xml:lang="en">X-Device-User-Agent</dcterms:title>
+    <dcterms:description xml:lang="en">The X-Device-User-Agent header, as defined in the Provisional HTTP Header Field Submissions.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2005/MWI/BPWG/"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.iana.org/assignments/message-headers/prov-headers.html"/>
+  </http:HeaderName>
+
+  <rdf:Description rdf:about="http://tools.ietf.org/html/draft-ietf-atompub-protocol-17">
+    <dcterms:title xml:lang="en">The Atom Publishing Protocol</dcterms:title>
+    <dcterms:identifier>http://tools.ietf.org/html/draft-ietf-atompub-protocol-17</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt">
+    <dcterms:title xml:lang="en">WIRE - W3 Identifier Resolution Extensions</dcterms:title>
+    <dcterms:identifier>http://www3.ietf.org/proceedings/98dec/I-D/draft-girod-w3-id-res-ext-00.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2068.txt">
+    <dcterms:title xml:lang="en">Hypertext Transfer Protocol -- HTTP/1.1</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2068.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2109.txt">
+    <dcterms:title xml:lang="en">HTTP State Management Mechanism</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2109.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2227.txt">
+    <dcterms:title xml:lang="en">Simple Hit-Metering and Usage-Limiting for HTTP</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2227.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2295.txt">
+    <dcterms:title xml:lang="en">Transparent Content Negotiation in HTTP</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2295.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2310.txt">
+    <dcterms:title xml:lang="en">The Safe Response Header Field</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2310.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2324.txt">
+    <dcterms:title xml:lang="en">Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0)</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2324.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2518.txt">
+    <dcterms:title xml:lang="en">HTTP Extensions for Distributed Authoring -- WEBDAV</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2518.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2616.txt">
+    <dcterms:title xml:lang="en">Hypertext Transfer Protocol -- HTTP/1.1</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2616.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2617.txt">
+    <dcterms:title xml:lang="en">HTTP Authentication: Basic and Digest Access Authentication</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2617.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2660.txt">
+    <dcterms:title xml:lang="en">The Secure HyperText Transfer Protocol</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2660.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2774.txt">
+    <dcterms:title xml:lang="en">An HTTP Extension Framework</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2774.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2965.txt">
+    <dcterms:title xml:lang="en">HTTP State Management Mechanism</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2965.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc3229.txt">
+    <dcterms:title xml:lang="en">Delta encoding in HTTP</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc3229.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc3230.txt">
+    <dcterms:title xml:lang="en">Instance Digests in HTTP</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc3230.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc3253.txt">
+    <dcterms:title xml:lang="en">Versioning Extensions to WebDAV (Web Distributed Authoring and Versioning)</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc3253.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc3648.txt">
+    <dcterms:title xml:lang="en">Web Distributed Authoring and Versioning (WebDAV) Ordered Collections Protocol</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc3648.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc4437.txt">
+    <dcterms:title xml:lang="en">Web Distributed Authoring and Versioning (WebDAV) Redirect Reference Resources</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc3648.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc5323.txt">
+    <dcterms:title xml:lang="en">Web Distributed Authoring and Versioning (WebDAV) SEARCH</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc5323.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt">
+    <dcterms:title xml:lang="en">Specification of HTTP/1.1 OPTIONS messages</dcterms:title>
+    <dcterms:identifier>http://www.watersprings.org/pub/id/draft-ietf-http-options-02.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt">
+    <dcterms:title xml:lang="en">User-Agent Display Attributes Headers</dcterms:title>
+    <dcterms:identifier>http://www.watersprings.org/pub/id/draft-mutz-http-attributes-00.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt">
+    <dcterms:title xml:lang="en">Duplicate Suppression in HTTP</dcterms:title>
+    <dcterms:identifier>http://www3.ietf.org/proceedings/98dec/I-D/draft-mogul-http-dupsup-00.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/2005/MWI/BPWG/">
+    <dcterms:title xml:lang="en">Mobile Web Best Practices Working Group</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/2005/MWI/BPWG/</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/2006/appformats/">
+    <dcterms:title xml:lang="en">Web Application Formats (WAF) Working Group</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/2006/appformats/</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/Protocols/HTTP/Object_Headers.html">
+    <dcterms:title xml:lang="en">Object Header lines in HTTP</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/Protocols/HTTP/Object_Headers.html</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/NOTE-drp-19970825">
+    <dcterms:title xml:lang="en">The HTTP Distribution and Replication Protocol</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/NOTE-drp-19970825</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/NOTE-jepi-970519">
+    <dcterms:title xml:lang="en">White Paper: Joint Electronic Payment Initiative</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/NOTE-jepi-970519</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/NOTE-OPS-OverHTTP">
+    <dcterms:title xml:lang="en">Implementation of OPS Over HTTP</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/NOTE-OPS-OverHTTP</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/REC-PICS-labels-961031">
+    <dcterms:title xml:lang="en">PICS 1.1 Label Distribution -- Label Syntax and Communication Protocols</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/REC-PICS-labels-961031</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/WD-http-pep">
+    <dcterms:title xml:lang="en">PEP Specification: an Extension Mechanism for HTTP</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/WD-http-pep</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/WD-proxy-960221">
+    <dcterms:title xml:lang="en">Notification for Proxy Caches</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/WD-proxy-960221</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/1999/REC-html401-19991224/">
+    <dcterms:title xml:lang="en">HTML 4.01 Specification</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/1999/REC-html401-19991224/</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/2000/NOTE-SOAP-20000508/">
+    <dcterms:title xml:lang="en">Simple Object Access Protocol (SOAP) 1.1</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/2000/NOTE-SOAP-20000508/</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/2001/NOTE-edge-arch-20010804">
+    <dcterms:title xml:lang="en">Edge Architecture Specification</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/2001/NOTE-edge-arch-20010804</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.w3.org/TR/2002/REC-P3P-20020416/">
+    <dcterms:title xml:lang="en">The Platform for Privacy Preferences 1.0 (P3P1.0) Specification</dcterms:title>
+    <dcterms:identifier>http://www.w3.org/TR/2002/REC-P3P-20020416/</dcterms:identifier>
+  </rdf:Description>
+
+</rdf:RDF>

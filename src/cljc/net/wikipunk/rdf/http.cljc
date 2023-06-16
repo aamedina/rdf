@@ -1,8 +1,6 @@
 (ns net.wikipunk.rdf.http
   "A namespace for describing HTTP messages (http://www.w3.org/Protocols/rfc2616/rfc2616.html)"
-  {:dcat/downloadURL
-   "https://lov.linkeddata.es/dataset/lov/vocabs/http/versions/2011-04-29.n3",
-   :owl/imports ["http://www.w3.org/2011/content#" "http://purl.org/dc/terms/"],
+  {:owl/imports ["http://www.w3.org/2011/content#" "http://purl.org/dc/terms/"],
    :owl/versionInfo #voc/lstr "Working Draft 29 April 2011@en",
    :rdf/ns-prefix-map {"http" "http://www.w3.org/2011/http#",
                        "owl"  "http://www.w3.org/2002/07/owl#",

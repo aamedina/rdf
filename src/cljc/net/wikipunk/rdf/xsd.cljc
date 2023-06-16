@@ -22,6 +22,8 @@
 
 (def anyURI
   {:db/ident       :xsd/anyURI,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
    :owl/onDatatype :xsd/anySimpleType,
    :rdf/type       :rdfs/Datatype,
    :rdfs/label     "any URI"})

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:http="http://www.w3.org/2011/http#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns="http://www.w3.org/2011/http-methods#" 
+  xml:base="http://www.w3.org/2011/http-methods"
+>
+
+  <!-- start methods -->
+  <http:Method rdf:about="#CONNECT">
+    <dcterms:title xml:lang="en">CONNECT</dcterms:title>
+    <dcterms:description xml:lang="en">The CONNECT method is reserved for use with a proxy that can dynamically switch to being a tunnel.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#DELETE">
+    <dcterms:title xml:lang="en">DELETE</dcterms:title>
+    <dcterms:description xml:lang="en">The DELETE method requests that the origin server delete the resource identified by the Request-URI.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#GET">
+    <dcterms:title xml:lang="en">GET</dcterms:title>
+    <dcterms:description xml:lang="en">The GET method means retrieve whatever information (in the form of an entity) is identified by the Request-URI.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#HEAD">
+    <dcterms:title xml:lang="en">HEAD</dcterms:title>
+    <dcterms:description xml:lang="en">The HEAD method is identical to GET except that the server MUST NOT return a message-body in the response.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#PATCH">
+    <dcterms:title xml:lang="en">PATCH</dcterms:title>
+    <dcterms:description xml:lang="en">The PATCH method requests that a set of changes described in the request entity be applied to the resource identified by the Request-URI.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc5789.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#POST">
+    <dcterms:title xml:lang="en">POST</dcterms:title>
+    <dcterms:description xml:lang="en">The POST method is used to request that the origin server accept the entity enclosed in the request as a new subordinate of the resource identified by the Request-URI in the Request-Line.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#PUT">
+    <dcterms:title xml:lang="en">PUT</dcterms:title>
+    <dcterms:description xml:lang="en">The PUT method requests that the enclosed entity be stored under the supplied Request-URI.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#OPTIONS">
+    <dcterms:title xml:lang="en">OPTIONS</dcterms:title>
+    <dcterms:description xml:lang="en">The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+
+  <http:Method rdf:about="#TRACE">
+    <dcterms:title xml:lang="en">TRACE</dcterms:title>
+    <dcterms:description xml:lang="en">The TRACE method is used to invoke a remote, application-layer loop-back of the request message.</dcterms:description>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+  </http:Method>
+  <!-- end methods -->
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2616.txt">
+    <dcterms:title xml:lang="en">Hypertext Transfer Protocol -- HTTP/1.1</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2616.txt</dcterms:identifier>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc5789.txt">
+    <dcterms:title xml:lang="en">PATCH Method for HTTP</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc5789.txt</dcterms:identifier>
+  </rdf:Description>
+
+</rdf:RDF>

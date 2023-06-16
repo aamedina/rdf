@@ -280,10 +280,27 @@
    :rdfa/prefix      "event"})
 
 (def http
-  {:dcat/downloadURL "https://lov.linkeddata.es/dataset/lov/vocabs/http/versions/2011-04-29.n3"
-   :rdf/type         :rdfa/PrefixMapping
+  {:rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/2011/http#"
    :rdfa/prefix      "http"})
+
+(def http-headers
+  {:dcat/downloadURL "resources/http-headers.rdf"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://www.w3.org/2011/http-headers#"
+   :rdfa/prefix      "http-headers"})
+
+(def http-methods
+  {:dcat/downloadURL "resources/http-methods.rdf"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://www.w3.org/2011/http-methods#"
+   :rdfa/prefix      "http-methods"})
+
+(def http-statusCodes
+  {:dcat/downloadURL "resources/http-statusCodes.rdf"
+   :rdf/type         :rdfa/PrefixMapping
+   :rdfa/uri         "http://www.w3.org/2011/http-statusCodes#"
+   :rdfa/prefix      "http-statusCodes"})
 
 (def afn
   {:rdf/type    :rdfa/PrefixMapping

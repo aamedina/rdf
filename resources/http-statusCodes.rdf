@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:http="http://www.w3.org/2011/http#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns="http://www.w3.org/2011/http-statusCodes#"
+  xml:base="http://www.w3.org/2011/http-statusCodes"
+>
+
+  <rdfs:Class rdf:about="#StatusCode1xx">
+    <rdfs:label xml:lang="en">Informational</rdfs:label>
+    <rdfs:comment xml:lang="en">A status code starting with 1</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="#StatusCode2xx">
+    <rdfs:label xml:lang="en">Successful</rdfs:label>
+    <rdfs:comment xml:lang="en">A status code starting with 2</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="#StatusCode3xx">
+    <rdfs:label xml:lang="en">Redirection</rdfs:label>
+    <rdfs:comment xml:lang="en">A status code starting with 3</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="#StatusCode4xx">
+    <rdfs:label xml:lang="en">Client Error</rdfs:label>
+    <rdfs:comment xml:lang="en">A status code starting with 4</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="#StatusCode5xx">
+    <rdfs:label xml:lang="en">Server Error</rdfs:label>
+    <rdfs:comment xml:lang="en">A status code starting with 5</rdfs:comment>
+  </rdfs:Class>
+  
+  <!-- Start status codes -->
+
+  <!-- Informational status codes -->
+  
+  <http:StatusCode rdf:about="#Continue">
+    <dcterms:title xml:lang="en">Continue</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode1xx"/>
+    <http:statusCodeNumber>100</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#SwitchingProtocols">
+    <dcterms:title xml:lang="en">Switching Protocols</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode1xx"/>
+    <http:statusCodeNumber>101</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Processing">
+    <dcterms:title xml:lang="en">Processing</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2518.txt"/>
+    <rdf:type rdf:resource="#StatusCode1xx"/>
+    <http:statusCodeNumber>102</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <!-- Successful status codes -->
+
+  <http:StatusCode rdf:about="#OK">
+    <dcterms:title xml:lang="en">OK</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>200</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Created">
+    <dcterms:title xml:lang="en">Created</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>201</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Accepted">
+    <dcterms:title xml:lang="en">Accepted</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>202</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#NonAuthoritativeInformation">
+    <dcterms:title xml:lang="en">Non-Authoritative Information</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>203</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#NoContent">
+    <dcterms:title xml:lang="en">No Content</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>204</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#ResetContent">
+    <dcterms:title xml:lang="en">Reset Content</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>205</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#PartialContent">
+    <dcterms:title xml:lang="en">Partial Content</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>206</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#MultiStatus">
+    <dcterms:title xml:lang="en">Multi-Status</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4918.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>207</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#IMUsed">
+    <dcterms:title xml:lang="en">IM Used</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc3229.txt"/>
+    <rdf:type rdf:resource="#StatusCode2xx"/>
+    <http:statusCodeNumber>226</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <!-- Redirection status codes -->
+
+  <http:StatusCode rdf:about="#MultipleChoices">
+    <dcterms:title xml:lang="en">Multiple Choices</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>300</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#MovedPermanently">
+    <dcterms:title xml:lang="en">Moved Permanently</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>301</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Found">
+    <dcterms:title xml:lang="en">Found</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>302</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#SeeOther">
+    <dcterms:title xml:lang="en">See Other</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>303</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#NotModified">
+    <dcterms:title xml:lang="en">Not Modified</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>304</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#UseProxy">
+    <dcterms:title xml:lang="en">Use Proxy</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>305</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Reserved">
+    <dcterms:title xml:lang="en">(Reserved)</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>306</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#TemporaryRedirect">
+    <dcterms:title xml:lang="en">Temporary Redirect</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode3xx"/>
+    <http:statusCodeNumber>307</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <!-- Client Error status codes -->
+  
+  <http:StatusCode rdf:about="#BadRequest">
+    <dcterms:title xml:lang="en">Bad Request</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>400</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Unauthorized">
+    <dcterms:title xml:lang="en">Unauthorized</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>401</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#PaymentRequired">
+    <dcterms:title xml:lang="en">Payment Required</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>402</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Forbidden">
+    <dcterms:title xml:lang="en">Forbidden</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>403</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#NotFound">
+    <dcterms:title xml:lang="en">Not Found</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>404</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#MethodNotAllowed">
+    <dcterms:title xml:lang="en">Method Not Allowed</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>405</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#NotAcceptable">
+    <dcterms:title xml:lang="en">Not Acceptable</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>406</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#ProxyAuthenticationRequired">
+    <dcterms:title xml:lang="en">Proxy Authentication Required</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>407</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#RequestTimeout">
+    <dcterms:title xml:lang="en">Request Timeout</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>408</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Conflict">
+    <dcterms:title xml:lang="en">Conflict</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>409</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Gone">
+    <dcterms:title xml:lang="en">Gone</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>410</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#LengthRequired">
+    <dcterms:title xml:lang="en">Length Required</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>411</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#PreconditionFailed">
+    <dcterms:title xml:lang="en">Precondition Failed</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>412</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#RequestEntityTooLarge">
+    <dcterms:title xml:lang="en">Request Entity Too Large</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>413</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#RequestURITooLong">
+    <dcterms:title xml:lang="en">Request-URI Too Long</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>414</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#UnsupportedMediaType">
+    <dcterms:title xml:lang="en">Unsupported Media Type</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>415</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#RequestedRangeNotSatisfiable">
+    <dcterms:title xml:lang="en">Requested Range Not Satisfiable</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>416</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#ExpectationFailed">
+    <dcterms:title xml:lang="en">Expectation Failed</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>417</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#UnprocessableEntity">
+    <dcterms:title xml:lang="en">Unprocessable Entity</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4918.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>422</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#Locked">
+    <dcterms:title xml:lang="en">Locked</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4918.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>423</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#FailedDependency">
+    <dcterms:title xml:lang="en">Failed Dependency</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4918.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>424</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#UpgradeRequired">
+    <dcterms:title xml:lang="en">Upgrade Required</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2817.txt"/>
+    <rdf:type rdf:resource="#StatusCode4xx"/>
+    <http:statusCodeNumber>426</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <!-- Server Error status codes -->
+
+  <http:StatusCode rdf:about="#InternalServerError">
+    <dcterms:title xml:lang="en">Internal Server Error</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>500</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#NotImplemented">
+    <dcterms:title xml:lang="en">Not Implemented</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>501</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#BadGateway">
+    <dcterms:title xml:lang="en">Bad Gateway</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>502</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#ServiceUnavailable">
+    <dcterms:title xml:lang="en">Service Unavailable</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>503</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#GatewayTimeout">
+    <dcterms:title xml:lang="en">Gateway Timeout</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>504</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#HTTPVersionNotSupported">
+    <dcterms:title xml:lang="en">HTTP Version Not Supported</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2616.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>505</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#VariantAlsoNegotiates">
+    <dcterms:title xml:lang="en">Variant Also Negotiates (Experimental)</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2295.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>506</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#InsufficientStorage">
+    <dcterms:title xml:lang="en">Insufficient Storage</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc4918.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>507</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <http:StatusCode rdf:about="#NotExtended">
+    <dcterms:title xml:lang="en">Not Extended</dcterms:title>
+    <rdfs:isDefinedBy rdf:resource="http://www.ietf.org/rfc/rfc2774.txt"/>
+    <rdf:type rdf:resource="#StatusCode5xx"/>
+    <http:statusCodeNumber>510</http:statusCodeNumber>
+  </http:StatusCode>
+
+  <!-- End status codes -->
+
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2518.txt">
+    <dcterms:title xml:lang="en">HTTP Extensions for Distributed Authoring -- WEBDAV</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2518.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2616.txt">
+    <dcterms:title xml:lang="en">Hypertext Transfer Protocol -- HTTP/1.1</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2616.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2774.txt">
+    <dcterms:title xml:lang="en">An HTTP Extension Framework</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2774.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc2817.txt">
+    <dcterms:title xml:lang="en">Upgrading to TLS Within HTTP/1.1</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc2817.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc3229.txt">
+    <dcterms:title xml:lang="en">Delta encoding in HTTP</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc3229.txt</dcterms:identifier>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.ietf.org/rfc/rfc4918.txt">
+    <dcterms:title xml:lang="en">HTTP Extensions for Distributed Authoring - WebDAV</dcterms:title>
+    <dcterms:identifier>http://www.ietf.org/rfc/rfc4918.txt</dcterms:identifier>
+  </rdf:Description>
+
+</rdf:RDF>
