@@ -189,8 +189,6 @@
 (def closeMatch
   "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."
   {:db/ident :skos/closeMatch,
-   :db/cardinality :db.cardinality/many,
-   :db/valueType :db.type/ref,
    :rdf/type [:rdf/Property :owl/SymmetricProperty :owl/ObjectProperty],
    :rdfs/isDefinedBy "http://www.w3.org/2004/02/skos/core",
    :rdfs/label #voc/lstr "has close match@en",
