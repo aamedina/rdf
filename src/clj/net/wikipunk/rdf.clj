@@ -1638,3 +1638,19 @@
                                         {} form)
                              form))
                          (all-ns-metaobjects)))))
+
+(defn ns-idents
+  "Returns a set of keywords used in the public metaobjects of this namespace."
+  [ns]
+  (let [idents (volatile! #{})]
+    (run! (fn [mo]
+            (walk/prewalk (fn [form]
+                            (if (and (qualified-keyword? form)
+                                     (iri form))
+                              (do
+                                (vswap! idents conj form)
+                                form)
+                              form))
+                          mo))
+          (map deref (vals (ns-publics ns))))
+    @idents))
