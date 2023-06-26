@@ -20,7 +20,8 @@
   instaparse/instaparse
   {:mvn/version "1.4.12"}
   io.github.arachne-framework/aristotle
-  {:git/sha "86f3ace210318bd9820322da45e627cec9cfba48"}
+  {:sha     "86f3ace210318bd9820322da45e627cec9cfba48"
+   :git/url "https://github.com/arachne-framework/aristotle.git"}
   ont-app/vocabulary
   {:mvn/version "0.3.0"}
   org.apache.jena/apache-jena-libs
