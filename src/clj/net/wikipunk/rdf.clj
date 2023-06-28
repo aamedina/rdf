@@ -389,19 +389,19 @@
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
-        (alter-var-root #'mop/*metaobjects* (constantly metaobjects))
+        (alter-var-root #'mop/*metaobjects* (constantly metaobjects))        
         (when db
           (alter-var-root #'mop/*env* (constantly db)))
         (when node
           (alter-var-root #'mop/*env* (constantly node)))
         (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
+        (require (or init-ns 'net.wikipunk.mop.init))
         (when node
           (try
             (xt/submit-tx node (into []
                                      (map (juxt (constantly ::xt/put) freezable))
                                      all-metaobjects))
-            (xt/sync node)
-            (require (or init-ns 'net.wikipunk.mop.init))            
+            (xt/sync node)            
             (finalize)
             (catch Throwable ex
               (log/error ex))))
