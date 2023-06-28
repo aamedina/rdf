@@ -377,32 +377,34 @@
 
 (declare iri)
 
-(defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config]
+(defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db]
   com/Lifecycle
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
       (let [all-metaobjects               (all-ns-metaobjects)
-            config                        (or config {:xtdb.lucene/lucene-store
-                                                      {:db-dir ".vocab/lucene"}})
-            node                          (xt/start-node config)
+            node                          (when config (xt/start-node config))
             {:keys [registry ns-aliases]} (make-boot-context)
             {:keys [metaobjects]}         (make-hierarchies all-metaobjects)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
         (alter-var-root #'mop/*metaobjects* (constantly metaobjects))
-        (alter-var-root #'mop/*env* (constantly node))
-        (try
-          (xt/submit-tx node (into []
-                                   (map (juxt (constantly ::xt/put) freezable))
-                                   all-metaobjects))
-          (xt/sync node)
-          (require (or init-ns 'net.wikipunk.mop.init))
-          (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
-          (finalize)
-          (catch Throwable ex
-            (log/error ex)))
+        (when db
+          (alter-var-root #'mop/*env* (constantly db)))
+        (when node
+          (alter-var-root #'mop/*env* (constantly node)))
+        (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
+        (when node
+          (try
+            (xt/submit-tx node (into []
+                                     (map (juxt (constantly ::xt/put) freezable))
+                                     all-metaobjects))
+            (xt/sync node)
+            (require (or init-ns 'net.wikipunk.mop.init))            
+            (finalize)
+            (catch Throwable ex
+              (log/error ex))))
         (cond-> this
           node (assoc :node node)))))
   (stop [this]

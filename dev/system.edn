@@ -1,4 +1,5 @@
 {:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+          :sc/refs      [:db]
           :boot         [net.wikipunk.boot
                          net.wikipunk.ext]
           :config       {:xtdb.lucene/lucene-store

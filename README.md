@@ -32,16 +32,36 @@ emitted Clojure namespaces from RDF models
 (optional, defaults to above)
 
 ### :boot
-A list of namespace-qualified symbols resolving to vars with
-:rdfa/prefix and :rdfa/uri mappings
+Provide a list of namespaces (instances of :jsonld/Context) where vars
+are `:rdfa/PrefixMapping` instances which can be emitted (via
+`net.wikipunk.rdf/emit`). For example in the `net.wikipunk.boot`
+namespace which corresponds to the RDFa 1.1 initial context;
 
-(These vars should exist in in a 'boot' namespace with metadata of
-{:rdf/type :jsonld/Context} where namespace prefixes for your system
-should be looked up.)
+``` clojure
+(def as
+  "Activity Vocabulary"
+  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/activitystreams/master/vocabulary/activitystreams2.owl"
+   :rdfa/uri         "https://www.w3.org/ns/activitystreams#",
+   :rdfa/prefix      "as",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://www.w3.org/TR/activitystreams-vocabulary/"},
+   :rdf/type         :rdfa/PrefixMapping})
+```
+
+`:rdf/type` is `:rdfa/PrefixMapping` which has two slots:
+
+`:rdfa/uri` contains the URI of the vocabulary
+`:rdfa/prefix` contains the prefix string used which expands to the
+uri 
+
+`:dcat/downloadURL` is used to declare the location of the RDF/OWL
+document to download when emitting a Clojure namespace and override
+the value of `:rdfa/uri`.
 
 ### :config
 [XTDB](https://github.com/xtdb/xtdb) node configuration to store the
-loaded vocabulary in-memory or locally. (optional, defaults to above)
+loaded vocabulary in-memory or locally. (optional, required to create
+an environment to bootstrap a Datomic Cloud or dev-local database)
 
 ### Boot namespace
 The convention is to place a file containing the JSON-LD context for
