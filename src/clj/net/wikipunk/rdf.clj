@@ -394,8 +394,8 @@
           (alter-var-root #'mop/*env* (constantly db)))
         (when node
           (alter-var-root #'mop/*env* (constantly node)))
-        (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
         (require (or init-ns 'net.wikipunk.mop.init))
+        (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
         (when node
           (try
             (xt/submit-tx node (into []
