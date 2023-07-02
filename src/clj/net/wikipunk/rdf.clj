@@ -17,7 +17,8 @@
    [clojure.java.io :as io]
    [clojure.set :as set]
    [clojure.string :as str]
-   [clojure.walk :as walk]   
+   [clojure.walk :as walk]
+   [clojure.repl]
    [com.stuartsierra.component :as com]
    [ont-app.vocabulary.lstr :as lstr]
    [net.wikipunk.boot :as boot]
@@ -557,12 +558,30 @@
   [^org.apache.jena.datatypes.xsd.XSDDuration x ^java.io.Writer writer]
   (print-method (str x) writer))
 
+(defn- lookup-prefix
+  "Construct a keyword from an IRI using the prefix tree, returns nil if not possible."
+  [registry iri]
+  (when-let [prefix (#'reg/longest-prefix (keys registry) iri)]
+    (let [fragment (subs iri (count prefix))
+          fragment-seq (str/split fragment #"/")
+          registration (get registry prefix)
+          wild? (= "*" (last registration))]
+      (if (not wild?)
+        (if (= 1 (count fragment-seq))
+          (keyword (str/join "." registration) fragment)
+          (keyword (str/join "." registration) (str/join "_SLASH_" fragment-seq)))
+        (keyword
+          (str/join "." (concat (drop-last registration)
+                                (drop-last fragment-seq)))
+          (last fragment-seq))))))
+
 (defn kw
   "returns a keyword for IRI accounting for unreadable symbols in
   Clojure"
-  [iri]
+  [iri]  
   (when-some [k (try
-                  (reg/kw iri)
+                  (or (-> reg/*registry* :aliases' (get iri))
+                      (lookup-prefix (:prefixes' reg/*registry*) iri))
                   (catch Throwable ex
                     (log/warn ex (.getMessage ex))))]
     (cond
@@ -589,16 +608,16 @@
           (re-find #":$" (name k)))
       (keyword (namespace k)
                (str \|
-                    (if (re-find #"[\s\(\)!,@\"\\~`^;]" (name k))
+                    (if (re-find #"[\s\(\)!,@\"\\~`^;/]" (name k))
                       (java.net.URLEncoder/encode (name k))
                       (name k))
                     \|))
 
-      (or (re-find #"[\s\(\)!,@\"\\~`^;]" (name k))
+      (or (re-find #"[\s\(\)!,@\"\\~`^;/]" (name k))
           (re-find #"::" (name k)))
       (keyword (namespace k) (java.net.URLEncoder/encode (name k)))
 
-      (re-find #"[\s\(\)!,@\"\\~`^;]" (java.net.URLDecoder/decode (name k)))
+      (re-find #"[\s\(\)!,@\"\\~`^;/]" (java.net.URLDecoder/decode (name k)))
       k
 
       :else (keyword (namespace k)
@@ -653,7 +672,8 @@
   (reg/iri (keyword (namespace ident)
                     (let [n (-> (name ident)
                                 (str/replace #"^\|" "")
-                                (str/replace #"\|$" ""))]
+                                (str/replace #"\|$" "")
+                                (str/replace #"_SLASH_" "/"))]
                       (try
                         (java.net.URLDecoder/decode n)
                         (catch Throwable ex
@@ -960,6 +980,9 @@
 
       (some? (:rdf/value form))
       (box-value update :rdf/value)
+
+      (some? (:dtype/value form))
+      (box-value update :dtype/value)
 
       (seq (:owl/oneOf form))
       (box-value update :owl/oneOf)

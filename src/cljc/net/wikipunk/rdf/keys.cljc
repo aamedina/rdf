@@ -301,11 +301,13 @@
    :rdf/type :owl/Class})
 
 (def mode
-  {:db/ident    :keys/mode,
-   :rdf/type    :owl/DatatypeProperty,
-   :rdfs/domain :keys/Key,
-   :rdfs/range  {:owl/oneOf [{:xsd/string "major"} {:xsd/string "minor"}],
-                 :rdf/type  :owl/DataRange}})
+  {:db/ident       :keys/mode,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
+   :rdf/type       :owl/DatatypeProperty,
+   :rdfs/domain    :keys/Key,
+   :rdfs/range     {:owl/oneOf [{:xsd/string "major"} {:xsd/string "minor"}],
+                    :rdf/type  :owl/DataRange}})
 
 (def tonic
   {:db/ident    :keys/tonic,
@@ -313,6 +315,8 @@
    :rdfs/domain :keys/Key})
 
 (def wikipedia
-  {:db/ident   :keys/wikipedia,
-   :rdf/type   :owl/DatatypeProperty,
-   :rdfs/range :xsd/anyURI})
+  {:db/ident       :keys/wikipedia,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
+   :rdf/type       :owl/DatatypeProperty,
+   :rdfs/range     :xsd/anyURI})

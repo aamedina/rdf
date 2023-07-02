@@ -144,6 +144,8 @@
 (def term
   "defines a term mapping for a URI; the value is supposed to be a NMTOKEN"
   {:db/ident    :rdfa/term,
+   :db/cardinality :db.cardinality/one
+   :db/valueType   :db.type/string
    :dcterms/description
    "defines a term mapping for a URI; the value is supposed to be a NMTOKEN",
    :rdf/type    [:owl/DatatypeProperty :rdf/Property],

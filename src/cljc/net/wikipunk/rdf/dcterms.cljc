@@ -1037,7 +1037,7 @@
    :dc11/description
    #voc/lstr
     "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration.@en",
-   :dcam/rangeIncludes [:dcterms/MediaType :dcterms/Extent],
+   :dcam/rangeIncludes [:dcterms/MediaTypeOrExtent],
    :dcterms/date #inst "2008-01-14T00:00:00.000-05:00",
    :dcterms/description
    #voc/lstr

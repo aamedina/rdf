@@ -245,10 +245,12 @@
 
 (def schema
   "The Schema.org vocabulary"
-  {:dcat/downloadURL "https://schema.org/docs/schemaorg.owl"
+  {:dcat/downloadURL "https://schema.org/version/latest/schemaorg-current-http.ttl"
    :rdfa/uri         "http://schema.org/",
    :rdfa/prefix      "schema",
    :rdfs/isDefinedBy {:rdfa/uri "http://schema.org/docs/full.html"},
+   :rdfs/seeAlso     ["https://schema.org/docs/jsonldcontext.json"
+                      "https://schema.org/docs/tree.jsonld"]
    :rdf/type         :rdfa/PrefixMapping})
 
 (def sd

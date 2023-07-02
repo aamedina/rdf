@@ -103,11 +103,11 @@
   {:db/ident :daq/dsd,
    :qb/component
    [{:qb/attribute
-     "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+     {:rdfa/uri "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure"},
      :qb/componentAttachment :qb/DataSet,
      :qb/componentRequired true}
     {:qb/measure :daq/value}
-    {:qb/dimension "http://purl.org/linked-data/sdmx/2009/dimension#timePeriod",
+    {:qb/dimension {:rdfa/uri "http://purl.org/linked-data/sdmx/2009/dimension#timePeriod"},
      :qb/order     3}
     {:qb/dimension :daq/computedOn,
      :qb/order     2}

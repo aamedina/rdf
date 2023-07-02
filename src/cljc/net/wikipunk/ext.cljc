@@ -188,12 +188,12 @@
    :rdf/type         :rdfa/PrefixMapping
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
 
-(def d3fend
-  {:dcat/downloadURL "https://d3fend.mitre.org/ontologies/d3fend.owl"
+(def d3f
+  {:dcat/downloadURL "resources/d3fend-full.owl"
    :rdfa/uri    "http://d3fend.mitre.org/ontologies/d3fend.owl#"
-   :rdfa/prefix "d3fend"
+   :rdfa/prefix "d3f"
    :rdf/type    :rdfa/PrefixMapping
-   :rdf/ns-prefix-map {"d3fend"
+   :rdf/ns-prefix-map {"d3f"
                        "http://d3fend.mitre.org/ontologies/d3fend.owl#",
                        "dcterms" "http://purl.org/dc/terms/",
                        "owl"     "http://www.w3.org/2002/07/owl#",
@@ -371,27 +371,27 @@
    :rdfa/uri         "http://open.vocab.org/terms/"
    :rdf/type         :rdfa/PrefixMapping})
 
-(def dbo
+#_(def dbo
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://dbpedia.org/ontology/"
    :rdfa/prefix "dbo"})
 
-(def dbc
+#_(def dbc
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://dbpedia.org/resource/Category:"
    :rdfa/prefix "dbc"})
 
-(def dbp
+#_(def dbp
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://dbpedia.org/property/"
    :rdfa/prefix "dbp"})
 
-(def dbr
+#_(def dbr
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://dbpedia.org/resource/"
    :rdfa/prefix "dbr"})
 
-(def dbt
+#_(def dbt
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://dbpedia.org/resource/Template:"
    :rdfa/prefix "dbt"})
@@ -622,3 +622,14 @@
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "https://wikipunk.net/mop/"
    :rdfa/prefix "mop"})
+
+(def eli
+  {:rdf/type   :rdfa/PrefixMapping
+   :rdfa/uri    "http://data.europa.eu/eli/ontology#"
+   :rdfa/prefix "eli"})
+
+(def frbroo
+  {:dcat/downloadURL "http://iflastandards.info/ns/fr/frbr/frbroo.xml"
+   :rdf/type   :rdfa/PrefixMapping
+   :rdfa/uri    "http://iflastandards.info/ns/fr/frbr/frbroo/"
+   :rdfa/prefix "frbroo"})

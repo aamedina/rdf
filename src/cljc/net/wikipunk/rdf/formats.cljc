@@ -12,19 +12,19 @@
   "A unique, top-level Class URI for specific file formats. Media types do not uniquely identify file formats (eg, serialization formats for various abstract concepts), because not all specific cases do have distinct media types, instances in this class can be used instead for proper identification.",
   {:db/ident            :formats/Format,
    :rdfs/subClassOf     :void/TechnicalFeature
-   :dcterms/modified    "2013-03-25",
+   :dcterms/modified    #inst "2013-03-25",
    :dcterms/description "A unique, top-level Class URI for specific file formats. Media types do not uniquely identify file formats (eg, serialization formats for various abstract concepts), because not all specific cases do have distinct media types, instances in this class can be used instead for proper identification.",
    :dcterms/creator     "http://www.ivan-herman.net/foaf#me",
-   :dcterms/created     "2010-05-27",
+   :dcterms/created     #inst "2010-05-27",
    :rdf/type            :owl/Class})
 
 (def JSON-LD
   "Unique identifier for the JSON-LD Syntax"
   {:db/ident :formats/JSON-LD,
-   :dcterms/created "2013-03-27",
+   :dcterms/created #inst "2013-03-27",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the JSON-LD Syntax",
-   :dcterms/modified "2021-10-13",
+   :dcterms/modified #inst "2021-10-13",
    :formats/media_type "application/ld+json",
    :formats/preferred_suffix ".jsonld",
    :rdf/type :formats/Format,
@@ -36,10 +36,10 @@
 (def LD_Patch
   "Unique identifier for the LD Patch Format"
   {:db/ident :formats/LD_Patch,
-   :dcterms/created "2015-02-07",
+   :dcterms/created #inst "2015-02-07",
    :dcterms/creator "https://deiu.rww.io/profile/card#me",
    :dcterms/description "Unique identifier for the LD Patch Format",
-   :dcterms/modified "2021-10-13",
+   :dcterms/modified #inst "2021-10-13",
    :formats/media_type "text/ldpatch",
    :formats/preferred_suffix ".ldp",
    :rdf/type :formats/Format,
@@ -51,11 +51,11 @@
 (def N-Quads
   "Unique identifier for the RDF Dataset serialization in N-Quads"
   {:db/ident :formats/N-Quads,
-   :dcterms/created "2013-09-05",
+   :dcterms/created #inst "2013-09-05",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the RDF Dataset serialization in N-Quads",
-   :dcterms/modified "2014-12-23",
+   :dcterms/modified #inst "2014-12-23",
    :formats/media_type "application/n-quads",
    :formats/preferred_suffix ".nq",
    :rdf/type :formats/Format,
@@ -66,11 +66,11 @@
 (def N-Triples
   "Unique identifier for the RDF serialization in N-Triples"
   {:db/ident :formats/N-Triples,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the RDF serialization in N-Triples",
-   :dcterms/modified "2013-12-23",
+   :dcterms/modified #inst "2013-12-23",
    :formats/media_type "application/n-triples",
    :formats/preferred_suffix ".nt",
    :rdf/type :formats/Format,
@@ -81,10 +81,10 @@
 (def N3
   "Unique identifier for the N3 RDF syntax"
   {:db/ident :formats/N3,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the N3 RDF syntax",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "text/rdf+n3",
    :rdf/type :formats/Format,
    :rdfs/comment
@@ -95,11 +95,11 @@
 (def OWL_Functional
   "Unique identifier for the OWL Serialization in Functional Syntax"
   {:db/ident :formats/OWL_Functional,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the OWL Serialization in Functional Syntax",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "text/owl-functional",
    :formats/preferred_suffix ".ofn",
    :rdf/type :formats/Format,
@@ -112,11 +112,11 @@
 (def OWL_Functional
   "Unique identifier for the OWL Serialization in Functional Syntax"
   {:db/ident :formats/OWL_Functional,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the OWL Serialization in Functional Syntax",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "text/owl-functional",
    :formats/preferred_suffix ".ofn",
    :rdf/type :formats/Format,
@@ -129,10 +129,10 @@
 (def OWL_XML
   "Unique identifier for the OWL Serialization in XML"
   {:db/ident :formats/OWL_XML,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the OWL Serialization in XML",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "application/owl+xml",
    :formats/preferred_suffix ".owx",
    :rdf/type :formats/Format,
@@ -145,10 +145,10 @@
 (def POWDER
   "Unique identifier for the POWDER file format"
   {:db/ident :formats/POWDER,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the POWDER file format",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "powder+xml",
    :rdf/type :formats/Format,
    :rdfs/comment
@@ -159,10 +159,10 @@
 (def POWDER-S
   "Unique identifier for the POWDER-S file format"
   {:db/ident :formats/POWDER-S,
-   :dcterms/created "2010-05-03",
+   :dcterms/created #inst "2010-05-03",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the POWDER-S file format",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "powder-s+xml",
    :rdf/type :formats/Format,
    :rdfs/comment
@@ -173,10 +173,10 @@
 (def PROV-N
   "Unique identifier for the PROV-N Provenance Notation"
   {:db/ident :formats/PROV-N,
-   :dcterms/created "2013-03-25",
+   :dcterms/created #inst "2013-03-25",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the PROV-N Provenance Notation",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "text/provenance-notation",
    :formats/preferred_suffix ".provn",
    :rdf/type :formats/Format,
@@ -188,11 +188,11 @@
 (def PROV-XML
   "Unique identifier for the PROV-XML Provenance Notation"
   {:db/ident :formats/PROV-XML,
-   :dcterms/created "2013-03-25",
+   :dcterms/created #inst "2013-03-25",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the PROV-XML Provenance Notation",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "application/provenance+xml",
    :formats/preferred_suffix ".provx",
    :rdf/type :formats/Format,
@@ -204,11 +204,10 @@
 (def RDF_JSON
   "Unique identifier for the RDF 1.1 JSON Alternate Serialization (RDF/JSON)"
   {:db/ident :formats/RDF_JSON,
-   :dcterms/created "2013-11-09",
+   :dcterms/created #inst "2013-11-09",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the RDF 1.1 JSON Alternate Serialization (RDF/JSON)",
-   :dcterms/modified "2021-20-13",
    :formats/media_type "application/rdf+json",
    :formats/preferred_suffix ".rj",
    :rdf/type :formats/Format,
@@ -220,11 +219,11 @@
 (def RDF_XML
   "Unique identifier for the RDF serialization in XML (RDF/XML)"
   {:db/ident :formats/RDF_XML,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the RDF serialization in XML (RDF/XML)",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "application/rdf+xml",
    :formats/preferred_suffix ".rdf",
    :rdf/type :formats/Format,
@@ -237,11 +236,11 @@
 (def RDFa
   "Unique Identifier for the RDFa RDF Serialization Format"
   {:db/ident :formats/RDFa,
-   :dcterms/created "2010-05-04",
+   :dcterms/created #inst "2010-05-04",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique Identifier for the RDFa RDF Serialization Format",
-   :dcterms/modified "2021-10-13",
+   :dcterms/modified #inst "2021-10-13",
    :rdf/type :formats/Format,
    :rdfs/comment
    "RDFa is defined by the “RDFa Core 1.1: Syntax and processing rules for embedding RDF through attributes” W3C Recommendation.",
@@ -251,7 +250,7 @@
   "Unique identifier for the RIF XML file format"
   {:db/ident :formats/RIF_XML,
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
-   :dcterms/date "2010-05-03",
+   :dcterms/date #inst "2010-05-03",
    :dcterms/description "Unique identifier for the RIF XML file format",
    :formats/media_type "application/rif+xml",
    :formats/preferred_suffix ".rif",
@@ -265,11 +264,11 @@
 (def SPARQL_Results_CSV
   "Unique identifier for the SPARQL Results in CSV file format"
   {:db/ident :formats/SPARQL_Results_CSV,
-   :dcterms/created "2011-10-19",
+   :dcterms/created #inst "2011-10-19",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the SPARQL Results in CSV file format",
-   :dcterms/modified "2021-10-13",
+   :dcterms/modified #inst "2021-10-13",
    :formats/media_type "text/csv",
    :formats/preferred_suffix ".csv",
    :rdf/type :formats/Format,
@@ -281,11 +280,11 @@
 (def SPARQL_Results_JSON
   "Unique identifier for the SPARQL Results in JSON file format"
   {:db/ident :formats/SPARQL_Results_JSON,
-   :dcterms/created "2010-05-03",
+   :dcterms/created #inst "2010-05-03",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the SPARQL Results in JSON file format",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "application/sparql-results+json",
    :formats/preferred_suffix ".srj",
    :rdf/type :formats/Format,
@@ -297,11 +296,11 @@
 (def SPARQL_Results_TSV
   "Unique identifier for the SPARQL Results in TSV file format"
   {:db/ident :formats/SPARQL_Results_TSV,
-   :dcterms/created "2011-10-19",
+   :dcterms/created #inst "2011-10-19",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the SPARQL Results in TSV file format",
-   :dcterms/modified "2013-03-25",
+   :dcterms/modified #inst "2013-03-25",
    :formats/media_type "text/tab-separated-values",
    :rdf/type :formats/Format,
    :rdfs/comment
@@ -313,11 +312,10 @@
 (def TriG
   "Unique identifier for the RDF Dataset Serialization in TriG"
   {:db/ident :formats/TriG,
-   :dcterms/created "2013-10-28",
+   :dcterms/created #inst "2013-10-28",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description
    "Unique identifier for the RDF Dataset Serialization in TriG",
-   :dcterms/modified "2014-13-23",
    :formats/media_type "application/trig",
    :formats/preferred_suffix ".trig",
    :rdf/type :formats/Format,
@@ -329,10 +327,9 @@
 (def Turtle
   "Unique identifier for the RDF Serialization in Turtle"
   {:db/ident :formats/Turtle,
-   :dcterms/created "2010-05-03",
+   :dcterms/created #inst "2010-05-03",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the RDF Serialization in Turtle",
-   :dcterms/modified "2014-23-23",
    :formats/media_type "text/turtle",
    :formats/preferred_suffix ".ttl",
    :rdf/type :formats/Format,
@@ -344,10 +341,10 @@
 (def microdata
   "Unique identifier for the Microdata Syntax"
   {:db/ident :formats/microdata,
-   :dcterms/created "2014-12-23",
+   :dcterms/created #inst "2014-12-23",
    :dcterms/creator "http://www.ivan-herman.net/foaf#me",
    :dcterms/description "Unique identifier for the Microdata Syntax",
-   :dcterms/modified "2014-12-23",
+   :dcterms/modified #inst "2014-12-23",
    :rdf/type :formats/Format,
    :rdfs/comment
    "Microdata is defined by the “HTML Microdata” W3C Working Group Note. Its extraction and conversion to RDF is defined in the separate “Microdata to RDF – Second Edition” Interest Group Note.",
