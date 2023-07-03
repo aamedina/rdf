@@ -41,10 +41,17 @@ jobs:
           key: cljdeps-${{ hashFiles('deps.edn') }}
           restore-keys: cljdeps-
 
+      - name: Run tests
+        run: clojure -M:test
+        env:
+          DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
+          DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Dependencies scan
         uses: clj-holmes/clj-watson-action@main
         with:
-          aliases: ''
+          aliases: 'test'
           clj-watson-sha: "56dfd3e"
           clj-watson-tag: "v4.1.3"
           deps-edn-path: 'deps.edn'
@@ -55,10 +62,4 @@ jobs:
           DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
           DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Run tests
-        run: clojure -M:test
-        env:
-          DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
-          DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
