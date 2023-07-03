@@ -24,8 +24,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           server-id: 'cognitect-dev-tools'
-          server-username: ${{ secrets.DEV_TOOLS_USER }}
-          server-password: ${{ secrets.DEV_TOOLS_PASSWORD }}
+          server-username: DEV_TOOLS_USER
+          server-password: DEV_TOOLS_PASSWORD
 
       - name: Install Clojure CLI
         uses: DeLaGuardo/setup-clojure@11.0
@@ -43,3 +43,7 @@ jobs:
       
       - name: Run tests
         run: clojure -X:test
+        env:
+          DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
+          DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
