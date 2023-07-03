@@ -40,6 +40,13 @@ jobs:
             ~/.gitlibs
           key: cljdeps-${{ hashFiles('deps.edn') }}
           restore-keys: cljdeps-
+
+      - name: Dependencies scan
+        uses: clj-holmes/clj-watson-action@main
+        with:
+          aliases: test
+          deps-edn-path: 'deps.edn'
+          suggest-fix: 'true'
       
       - name: Run tests
         run: clojure -M:test
