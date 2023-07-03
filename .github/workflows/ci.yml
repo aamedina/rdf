@@ -42,13 +42,13 @@ jobs:
           restore-keys: cljdeps-
 
       - name: Dependencies scan
-        uses: clj-holmes/clj-watson-action@main
+        uses: clj-holmes/clj-watson-action@39b8ed306f2c125860cf6e69b6939363689f998c
         with:
-          clj-watson-sha: "b4c3623"
-          clj-watson-tag: "main"
+          clj-watson-sha: "65d928c"
+          clj-watson-tag: "v4.0.1"
           aliases: test
           deps-edn-path: 'deps.edn'
-          suggest-fix: 'true'
+          suggest-fix: true
       
       - name: Run tests
         run: clojure -M:test
