@@ -42,7 +42,7 @@ jobs:
           restore-keys: cljdeps-
       
       - name: Run tests
-        run: clojure -X:test
+        run: clojure -M:test
         env:
           DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
           DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
