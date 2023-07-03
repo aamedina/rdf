@@ -59,7 +59,5 @@ jobs:
           output-type: 'stdout-simple'
           fail-on-result: false
         env:
-          DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
-          DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
