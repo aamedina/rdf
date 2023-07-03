@@ -44,6 +44,7 @@ jobs:
       - name: Dependencies scan
         uses: clj-holmes/clj-watson-action@main
         with:
+          clj-watson-sha: "b4c3623"
           aliases: test
           deps-edn-path: 'deps.edn'
           suggest-fix: 'true'
