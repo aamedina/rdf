@@ -49,6 +49,10 @@ jobs:
           aliases: test
           deps-edn-path: 'deps.edn'
           suggest-fix: true
+        env:
+          DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
+          DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Run tests
         run: clojure -M:test
