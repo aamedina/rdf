@@ -695,7 +695,7 @@
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [reasoner      (or (:reasoner md) (ReasonerRegistry/getOWLMicroReasoner))
+  (let [reasoner      (or (:reasoner md) (ReasonerRegistry/getRDFSSimpleReasoner))
         g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
                         (.bind reasoner g)
                         g)
