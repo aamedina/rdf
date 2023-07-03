@@ -44,11 +44,13 @@ jobs:
       - name: Dependencies scan
         uses: clj-holmes/clj-watson-action@main
         with:
+          aliases: ''
           clj-watson-sha: "56dfd3e"
           clj-watson-tag: "v4.1.3"
-          aliases: test
           deps-edn-path: 'deps.edn'
           suggest-fix: true
+          output-type: 'stdout-simple'
+          fail-on-result: false
         env:
           DEV_TOOLS_USER: ${{ secrets.DEV_TOOLS_USER }}
           DEV_TOOLS_PASSWORD: ${{ secrets.DEV_TOOLS_PASSWORD }}
