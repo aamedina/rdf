@@ -24,7 +24,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           server-id: 'cognitect-dev-tools'
-          server-user: ${{ secrets.DEV_TOOLS_USER }}
+          server-username: ${{ secrets.DEV_TOOLS_USER }}
           server-password: ${{ secrets.DEV_TOOLS_PASSWORD }}
 
       - name: Install Clojure CLI
