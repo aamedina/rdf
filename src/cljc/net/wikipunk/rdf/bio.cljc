@@ -261,11 +261,6 @@
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    {:xsd/string "Marked as testing"}},
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Birth \n    ; dc:date \"1879-03-14\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:parent &lt;http://dbpedia.org/resource/Pauline_Koch&gt;\n    ; bio:parent &lt;http://dbpedia.org/resource/Hermann_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Ulm&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The birth of Albert Einstein"},
    :vs/term_status "testing"})
 
 (def Burial
@@ -329,11 +324,6 @@
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
                      :event/Event],
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Cremation \n    ; dc:date \"1955-04-18\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The cremation of Albert Einstein"},
    :vs/term_status "unstable"})
 
 (def Death
@@ -355,11 +345,6 @@
    :skos/changeNote {:dc11/creator "Ian Davis",
                      :dc11/date    "2010-05-04",
                      :rdf/value    {:xsd/string "Marked as a stable term"}},
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Death \n    ; dc:date \"1955-04-18\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Princeton,_New_Jersey&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The death of Albert Einstein"},
    :vs/term_status "stable"})
 
 (def Demotion
@@ -442,11 +427,6 @@
                       :rdf/type           :owl/Restriction}
                      :dcmitype/Event
                      :event/Event],
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Divorce \n    ; dc:date \"1919-02-14\"\n    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Zurich&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The divorce of Albert Einstein and Mileva Marić"},
    :vs/term_status "unstable"})
 
 (def Emigration
@@ -468,11 +448,6 @@
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
                      :event/Event],
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Emigration \n    ; dc:date \"1933\"^^xsd:gYear\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "Albert Einstein emigrating to the United States"},
    :vs/term_status "unstable"})
 
 (def Employment
@@ -629,12 +604,6 @@
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
                      :event/Event],
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Graduation \n    ; dc:date \"1905\"^^xsd:gYear\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:organization &lt;http://dbpedia.org/resource/University_of_Zurich&gt;\n    .</code></pre>\n        ",
-    :rdfs/label
-    "Albert Einstein receiving his Doctorate from the University of Zurich"},
    :vs/term_status "unstable"})
 
 (def GroupEvent
@@ -777,11 +746,6 @@
    {:dc11/creator "Ian Davis",
     :dc11/date    "2010-05-04",
     :rdf/value    {:xsd/string "Made equivalent to cyc:WeddingEvent_Generic"}},
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Marriage \n    ; dc:date \"1903\"\n    ; bio:partner &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:partner &lt;http://dbpedia.org/resource/Mileva_Mari%C4%87&gt;\n    ; bio:place &lt;http://dbpedia.org/resource/Bern&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "The marriage of Albert Einstein and Mileva Marić"},
    :vs/term_status "stable"})
 
 (def Murder
@@ -844,11 +808,6 @@
                       :owl/onProperty  :bio/principal,
                       :rdf/type        :owl/Restriction}
                      :event/Event],
-   :vann/example
-   {:rdf/type :ov/SchemaExample,
-    :rdfs/comment
-    "\n        <pre><code>_:e a bio:Emigration \n    ; dc:date \"1940\"\n    ; bio:principal &lt;http://dbpedia.org/resource/Albert_Einstein&gt;\n    ; bio:state &lt;http://dbpedia.org/resource/United_States&gt;\n    .</code></pre>\n        ",
-    :rdfs/label "Albert Einstein becoming a citizen of the United States"},
    :vs/term_status "unstable"})
 
 (def Ordination

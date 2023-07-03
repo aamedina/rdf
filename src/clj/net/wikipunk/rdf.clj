@@ -695,8 +695,10 @@
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [reasoner      (ReasonerRegistry/getRDFSSimpleReasoner)
-        g             (.bind reasoner g)
+  (let [reasoner      (or (:reasoner md) (ReasonerRegistry/getOWLMicroReasoner))
+        g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
+                        (.bind reasoner g)
+                        g)
         ns-prefix-map (or (:rdf/ns-prefix-map md) ; use explicitly provided ns-prefix-map 
                           (dissoc (cond-> (into {} (.getNsPrefixMap (.getPrefixMapping g)))
                                     (and (:rdfa/prefix md)
@@ -994,7 +996,10 @@
       (box-value update :jsonschema/default)
 
       (some? (:jsonschema/const form))
-      (box-value update :jsonschema/const))
+      (box-value update :jsonschema/const)
+
+      (some? (:d3f/version form))
+      (box-value update :d3f/version))
     form))
 
 (def ^:dynamic *recurse* 2)
@@ -1477,10 +1482,7 @@
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
 
-(def ^:dynamic *datafy-mop*
-  "When truthy datafy will preserve the metaobject protocol
-  inferences."
-  nil)
+(def ^:dynamic ^:deprecated *datafy-mop* true)
 
 (extend-protocol clojure.core.protocols/Datafiable
   clojure.lang.Named
@@ -1489,22 +1491,24 @@
       (qualified-keyword? ident)
       (not-empty (reduce-kv (fn [m k v]
                               (if (qualified-keyword? k)
-                                (if *datafy-mop*
-                                  (case k
-                                    (:mop/classDirectSlots                                     
-                                     :mop/classSlots)
+                                (case k
+                                  (:mop/classDirectSlots                                     
+                                   :mop/classSlots)
+                                  (if (seq v)
                                     (assoc m k (mapv (some-fn :db/ident identity) v))
+                                    m)
 
-                                    (:mop/classDefaultInitargs
-                                     :mop/classDirectDefaultInitargs
-                                     :mop/classPrecedenceList
-                                     :mop/classPrototype)
-                                    m
+                                  (:mop/classDefaultInitargs
+                                   :mop/classDirectDefaultInitargs
+                                   :mop/classPrototype)
+                                  m
 
-                                    (assoc m k v))
-                                  (if (not= (namespace k) "mop")
+                                  :mop/classDirectSubclasses
+                                  (if (seq v)
                                     (assoc m k v)
-                                    m))
+                                    m)
+
+                                  (assoc m k v))
                                 m))
                             {} (dissoc (mop/find-class ident) :xt/id)))
 

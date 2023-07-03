@@ -34,3 +34,10 @@
    :rdf/type       :owl/ObjectProperty
    :rdfs/range     :rdfs/Class
    :rdfs/domain    :rdf/Property})
+
+;; unordered in Datomic for now, use sort isa? with mop/*metaobjects*
+(def classPrecedenceList
+  {:db/ident       :mop/classPrecedenceList   
+   :rdf/type       :owl/ObjectProperty
+   :rdfs/range     :rdfs/Class
+   :rdfs/domain    :rdfs/Class})

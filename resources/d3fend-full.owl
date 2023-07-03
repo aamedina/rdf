@@ -2458,12 +2458,12 @@
         <rdfs:subPropertyOf rdf:resource="http://d3fend.mitre.org/ontologies/d3fend.owl#d3fend-kb-data-property"/>
         <definition>Unique identifier for a D3FEND technique. D3-[Acronym].</definition>
         <rdfs:label>d3fend-id</rdfs:label>
-	<db:cardinality
-	    rdf:resource="https://wikipunk.net/db/cardinality/one"/>
-	<db:valueType
-	    rdf:resource="https://wikipunk.net/db/type/string"/>
-	<db:unique
-	    rdf:resource="https://wikipunk.net/db/unique/identity"/>
+	<!-- <db:cardinality -->
+	<!--     rdf:resource="https://wikipunk.net/db/cardinality/one"/> -->
+	<!-- <db:valueType -->
+	<!--     rdf:resource="https://wikipunk.net/db/type/string"/> -->
+	<!-- <db:unique -->
+	<!--     rdf:resource="https://wikipunk.net/db/unique/identity"/> -->
     </owl:DatatypeProperty>
     
 

@@ -2,8 +2,9 @@
           :sc/refs      [:db]
           :boot         [net.wikipunk.boot
                          net.wikipunk.ext]
-          :config       {:xtdb.lucene/lucene-store
-                         {:db-dir ".vocab/lucene"}}}
+          :config       {}
+          #_{:xtdb.lucene/lucene-store
+             {:db-dir ".vocab/lucene"}}}
  :client {:sc/create-fn datomic.client.api/client
           :server-type  :dev-local
           :system       "dev"}

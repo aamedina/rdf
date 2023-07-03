@@ -200,7 +200,8 @@
                        "rdf"     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"    "http://www.w3.org/2004/02/skos/core#",
-                       "xsd"     "http://www.w3.org/2001/XMLSchema#"}})
+                       "xsd"     "http://www.w3.org/2001/XMLSchema#"}
+   :reasoner :none})
 
 (def shacl
   {:rdfa/uri    "http://www.w3.org/ns/shacl#"
@@ -483,22 +484,22 @@
    :rdfa/prefix "mls"
    :rdf/type :rdfa/PrefixMapping})
 
-(def wn30
+#_(def wn30
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://wordnet-rdf.princeton.edu/wn30/"
    :rdfa/prefix "wn30"})
 
-(def wn.id
+#_(def wn.id
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://wordnet-rdf.princeton.edu/id/"
    :rdfa/prefix "wn.id"})
 
-(def wn.lemma
+#_(def wn.lemma
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://wordnet-rdf.princeton.edu/rdf/lemma/"
    :rdfa/prefix "wn.lemma"})
 
-(def wn.ttl
+#_(def wn.ttl
   {:rdf/type    :rdfa/PrefixMapping
    :rdfa/uri    "http://wordnet-rdf.princeton.edu/ttl/lemma/"
    :rdfa/prefix "wn.ttl"})

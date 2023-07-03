@@ -290,13 +290,7 @@
    :vaem/title
    "Vocabulary for Attaching Essential Metadata (VAEM) - Version 2.0",
    :vaem/turtleFileURL
-   "http://www.linkedmodel.org/2.0/schema/SCHEMA_vaem-v2.0.ttl",
-   :vaem/usesNonImportedResource [:dcterms/modified
-                                  :dcterms/abstract
-                                  :dcterms/created
-                                  :voag/CC-SHAREALIKE_3PT0-US
-                                  :dcterms/title
-                                  :dcterms/author],
+   "http://www.linkedmodel.org/2.0/schema/SCHEMA_vaem-v2.0.ttl",,
    :vaem/withAttributionTo
    "VAEM is issued under a Creative Commons Attribution Share Alike 3.0 United States License. Attribution should be made to TopQuadrant, Inc."})
 
