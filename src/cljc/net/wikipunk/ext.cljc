@@ -469,7 +469,7 @@
    :rdfa/uri    "http://www.isocat.org/ns/dcr.rdf#"
    :rdfa/prefix "isocat"})
 
-(def hydra
+#_(def hydra
   {:rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://www.w3.org/ns/hydra/core#"
    :rdfa/prefix      "hydra"})
