@@ -359,7 +359,7 @@
   "unrolls ont_app.vocabulary.lstr.LangStr into a string when datafying"
   [form]
   (if (instance? ont_app.vocabulary.lstr.LangStr form)
-    (str form)
+    (str form "@" (lstr/lang form))
     form))
 
 (defn freezable
