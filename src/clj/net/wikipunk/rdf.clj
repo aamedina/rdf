@@ -917,7 +917,7 @@
       (decimal? n)
       {:xsd/decimal n}
       (integer? n)
-      {:xsd/integer n}
+      {:xsd/integer (bigint n)}
       :else {:owl/real (bigdec n)}))
 
   String
@@ -983,6 +983,36 @@
       (some? (:rdf/value form))
       (box-value update :rdf/value)
 
+      (some? (:qudt/value form))
+      (box-value update :qudt/value)
+
+      (some? (:qudt/conversionMultiplier form))
+      (box-value update :qudt/conversionMultiplier)
+
+      (some? (:qudt/conversionOffset form))
+      (box-value update :qudt/conversionOffset)
+
+      (some? (:qudt/dimensionExponentForLength form))
+      (box-value update :qudt/dimensionExponentForLength)
+
+      (some? (:qudt/dimensionExponentForMass form))
+      (box-value update :qudt/dimensionExponentForMass)
+
+      (some? (:qudt/dimensionExponentForAmountOfSubstance form))
+      (box-value update :qudt/dimensionExponentForAmountOfSubstance)
+
+      (some? (:qudt/dimensionExponentForElectricCurrent form))
+      (box-value update :qudt/dimensionExponentForElectricCurrent)
+
+      (some? (:qudt/dimensionExponentForLuminousIntensity form))
+      (box-value update :qudt/dimensionExponentForLuminousIntensity)
+
+      (some? (:qudt/dimensionExponentForThermodynamicTemperature form))
+      (box-value update :qudt/dimensionExponentForThermodynamicTemperature)
+
+      (some? (:qudt/dimensionExponentForTime form))
+      (box-value update :qudt/dimensionExponentForTime)
+      
       (some? (:dtype/value form))
       (box-value update :dtype/value)
 
