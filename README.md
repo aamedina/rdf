@@ -184,6 +184,15 @@ https://www.w3.org/DesignIssues/
 
 https://wikipunk.net/
 
+### FAQ
+
+#### java.lang.IllegalArgumentException: Comparison method violates its general contract!
+This happens when sorting extremely large collections in JDK 8+, like those in
+the metaobjects hierarchy. 
+
+Add to :jvm-opts "-Djava.util.Arrays.useLegacyMergeSort=true" in your
+deps.edn alias.
+
 # The Art of the Metaobject Protocol in Wikipunk.net
 
 The Metaobject Protocol (MOP) in wikipunk.net is a powerful and
