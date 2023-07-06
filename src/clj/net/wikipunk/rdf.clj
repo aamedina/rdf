@@ -1029,7 +1029,10 @@
       (box-value update :jsonschema/const)
 
       (some? (:d3f/version form))
-      (box-value update :d3f/version))
+      (box-value update :d3f/version)
+
+      (some? (:dcterms/hasPart form))
+      (box-value update :dcterms/hasPart))
     form))
 
 (def ^:dynamic *recurse* 2)
