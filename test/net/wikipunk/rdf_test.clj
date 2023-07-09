@@ -10,7 +10,8 @@
 (use-fixtures :once
               (fn [f]
                 (assert system "the system must be started before running tests")
-                (f)))
+                (binding [rdf/*slash* true]
+                  (f))))
 
 (deftest iri->kw
   (testing "IRIs such as http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA have a slash in the name part that needs to be munged"
