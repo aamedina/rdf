@@ -1166,9 +1166,7 @@
                     docstring)
         docstring (if (map? docstring)
                     (:rdf/value docstring "")
-                    docstring)
-        docstring (when docstring
-                    (str/trim (str/replace docstring #"\s+" " ")))]
+                    docstring)]
     docstring))
 
 (defn unroll-ns
