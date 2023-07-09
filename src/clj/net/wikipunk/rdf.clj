@@ -558,6 +558,10 @@
   [^org.apache.jena.datatypes.xsd.XSDDuration x ^java.io.Writer writer]
   (print-method (str x) writer))
 
+(def ^:dynamic *slash*
+  "generate keywords with _SLASH_ in name (used for D3FEND)"
+  nil)
+
 (defn- lookup-prefix
   "Construct a keyword from an IRI using the prefix tree, returns nil if not possible."
   [registry iri]
@@ -569,7 +573,8 @@
       (if (not wild?)
         (if (= 1 (count fragment-seq))
           (keyword (str/join "." registration) fragment)
-          (keyword (str/join "." registration) (str/join "_SLASH_" fragment-seq)))
+          (when *slash*
+            (keyword (str/join "." registration) (str/join "_SLASH_" fragment-seq))))
         (keyword
           (str/join "." (concat (drop-last registration)
                                 (drop-last fragment-seq)))
@@ -634,7 +639,7 @@
   Node_URI
   (data [n]
     (let [uri (.getURI n)]
-      (or (kw uri) uri)))
+      (or (kw uri) {:rdfa/uri uri})))
 
   Node_Blank
   (data [n]
@@ -648,8 +653,8 @@
         (if-let [lang (not-empty (.getLiteralLanguage n))]
           (lstr/->LangStr (.getLiteralValue n) lang)
           #_(if (str/starts-with? lang "en")
-            (.getLiteralValue n)
-            (lstr/->LangStr (.getLiteralValue n) lang))
+              (.getLiteralValue n)
+              (lstr/->LangStr (.getLiteralValue n) lang))
           (let [value (.getLiteralValue n)]
             (if (instance? BaseDatatype$TypedValue value)
               (.-lexicalValue value)
@@ -1032,7 +1037,13 @@
       (box-value update :d3f/version)
 
       (some? (:dcterms/hasPart form))
-      (box-value update :dcterms/hasPart))
+      (box-value update :dcterms/hasPart)
+
+      (some? (:rdfs/isDefinedBy form))
+      (box-value update :rdfs/isDefinedBy)
+
+      (some? (:rdfs/seeAlso form))
+      (box-value update :rdfs/seeAlso))
     form))
 
 (def ^:dynamic *recurse* 2)
@@ -1067,7 +1078,6 @@
                             (pmap (fn [form]
                                     (->> form
                                          (walk/postwalk walk-rdf-list)
-                                         (walk/postwalk walk-seeAlso)
                                          (walk/prewalk box-values)))))
         concepts   (->> forms
                         (map (fn [form]
@@ -1428,7 +1438,8 @@
 (defn unroll-blank
   [form]
   (if (and (map? form)
-           (and (not (contains? form :db/ident))
+           (and (not (contains? form :rdfa/uri))
+                (not (contains? form :db/ident))
                 (not (contains? form :db/id))))
     (assoc form :db/id (str (random-uuid)))
     form))

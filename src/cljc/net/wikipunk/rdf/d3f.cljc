@@ -8,8 +8,9 @@
    :dcterms/title
    "D3FEND™ - A knowledge graph of cybersecurity countermeasures",
    :owl/versionIRI
-   "http://d3fend.mitre.org/ontologies/d3fend/0.12.0-BETA-2/d3fend.owl",
-   :owl/versionInfo "0.12.0-BETA-2",
+   {:rdfa/uri
+    "http://d3fend.mitre.org/ontologies/d3fend/0.13.0-BETA-1/d3fend.owl"},
+   :owl/versionInfo "0.13.0-BETA-1",
    :rdf/ns-prefix-map {"d3f" "http://d3fend.mitre.org/ontologies/d3fend.owl#",
                        "dcterms" "http://purl.org/dc/terms/",
                        "owl" "http://www.w3.org/2002/07/owl#",
@@ -19,7 +20,7 @@
                        "xsd" "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type :owl/Ontology,
    :rdfa/prefix "d3f",
-   :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl",
+   :rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#",
    :rdfs/comment
    "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
    :reasoner :none}
@@ -130,7 +131,7 @@
    :db/ident :d3f/AccessControlConfiguration,
    :rdf/type :owl/Class,
    :rdfs/label "Access Control Configuration",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Access-control_list"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Access-control_list"},
    :rdfs/subClassOf :d3f/ConfigurationResource})
 
 (def AccessControlGroup
@@ -141,7 +142,7 @@
    :db/ident :d3f/AccessControlGroup,
    :rdf/type :owl/Class,
    :rdfs/label "Access Control Group",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/group"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/group"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/restricted-by,
                       :owl/someValuesFrom :d3f/AccessControlList,
                       :rdf/type           :owl/Restriction}
@@ -153,7 +154,8 @@
    :d3f/restricts    :d3f/UserGroup,
    :db/ident         :d3f/AccessControlList,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Access-control_list",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Access-control_list"},
    :rdfs/label       "Access Control List",
    :rdfs/subClassOf  [{:owl/onProperty     :d3f/restricts,
                        :owl/someValuesFrom :d3f/UserGroup,
@@ -186,7 +188,7 @@
    :db/ident :d3f/AccessToken,
    :rdf/type :owl/Class,
    :rdfs/label "Access Token",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Access_token"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Access_token"},
    :rdfs/subClassOf :d3f/Credential,
    :skos/altLabel ["Token" "Ticket"]})
 
@@ -282,10 +284,12 @@
    :rdf/type :owl/Class,
    :rdfs/label "Activity",
    :rdfs/seeAlso
-   ["https://enterpriseintegrationlab.github.io/icity/Activity/doc/index-en.html"
-    "https://en.wikipedia.org/wiki/IDEF0"
-    "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation"
-    "http://wordnet-rdf.princeton.edu/id/00408356-n"],
+   [{:rdfa/uri
+     "https://enterpriseintegrationlab.github.io/icity/Activity/doc/index-en.html"}
+    {:rdfa/uri "https://en.wikipedia.org/wiki/IDEF0"}
+    {:rdfa/uri
+     "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation"}
+    {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00408356-n"}],
    :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def ActivityDependency
@@ -329,7 +333,7 @@
    "An address space defines a range of discrete addresses, each of which may correspond to a network host, peripheral device, disk sector, a memory cell or other logical or physical entity. For software programs to save and retrieve stored data, each unit of data must have an address where it can be located. The number of address spaces available depends on the underlying address structure, which is usually limited by the computer architecture being used.",
    :db/ident :d3f/AddressSpace,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Address_space",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Address_space"},
    :rdfs/label "Address Space",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -383,11 +387,11 @@
    :db/ident :d3f/AdministrativeNetworkActivityAnalysis,
    :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label "Administrative Network Activity Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty :d3f/analyzes,
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis]})
 
 (def AdministrativeNetworkTraffic
   "Administrative Network Traffic"
@@ -396,7 +400,8 @@
    :db/ident :d3f/AdministrativeNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Administrative Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Remote_administration"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Remote_administration"},
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
 (def AdobePDFFile1_3
@@ -443,7 +448,7 @@
    "In macOS, an alias is a small file that represents another object in a local, remote, or removable[1] file system and provides a dynamic link to it; the target object may be moved or renamed, and the alias will still link to it (unless the original file is recreated; such an alias is ambiguous and how it is resolved depends on the version of macOS).",
    :db/ident :d3f/Alias,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Alias_(Mac_OS)",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Alias_(Mac_OS)"},
    :rdfs/label "Alias",
    :rdfs/subClassOf :d3f/SlowSymbolicLink})
 
@@ -485,7 +490,8 @@
    :db/ident :d3f/AnalyticTechnique,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://dictionary.cambridge.org/us/dictionary/english/analytics",
+   {:rdfa/uri
+    "https://dictionary.cambridge.org/us/dictionary/english/analytics"},
    :rdfs/label "Analytic Technique",
    :rdfs/subClassOf :d3f/D3FENDThing})
 
@@ -524,8 +530,9 @@
    :db/ident :d3f/Application,
    :rdf/type :owl/Class,
    :rdfs/label "Application",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/06582286-n"
-                  "http://dbpedia.org/resource/Application_software"],
+   :rdfs/seeAlso [{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/06582286-n"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Application_software"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/ApplicationConfiguration,
                       :rdf/type           :owl/Restriction}
@@ -538,7 +545,7 @@
    :db/ident :d3f/ApplicationConfiguration,
    :rdf/type :owl/Class,
    :rdfs/label "Application Configuration",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/05739724-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/05739724-n"},
    :rdfs/subClassOf :d3f/ConfigurationResource})
 
 (def ApplicationConfigurationDatabase
@@ -591,10 +598,10 @@
    :db/ident :d3f/ApplicationConfigurationHardening,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ApplicationHardening],
    :rdfs/label "Application Configuration Hardening",
-   :rdfs/subClassOf [:d3f/ApplicationHardening
-                     {:owl/onProperty     :d3f/hardens,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/hardens,
                       :owl/someValuesFrom :d3f/ApplicationConfiguration,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ApplicationHardening]})
 
 (def ApplicationHardening
   "Application Hardening"
@@ -608,10 +615,10 @@
    :db/ident :d3f/ApplicationHardening,
    :rdf/type [:d3f/DefensiveTechnique :owl/Class :owl/NamedIndividual],
    :rdfs/label "Application Hardening",
-   :rdfs/subClassOf [:d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Harden,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DefensiveTechnique]})
 
 (def ApplicationInstaller
   "Application Installer"
@@ -638,7 +645,8 @@
    "An application firewall is a form of firewall that controls input, output, and/or access from, to, or by an application or service. It operates by monitoring and potentially blocking the input, output, or system service calls that do not meet the configured policy of the firewall. The application firewall is typically built to control all network traffic on any OSI layer up to the application layer. It is able to control applications or services specifically, unlike a stateful network firewall, which is - without additional software - unable to control network traffic regarding a specific application. There are two primary categories of application firewalls, network-based application firewalls and host-based application firewalls.",
    :db/ident :d3f/ApplicationLayerFirewall,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Application_firewall",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Application_firewall"},
    :rdfs/label "Application Layer Firewall",
    :rdfs/subClassOf :d3f/Firewall,
    :skos/altLabel "Application Firewall"})
@@ -658,7 +666,7 @@
    :db/ident :d3f/ApplicationProcess,
    :rdf/type :owl/Class,
    :rdfs/label "Application Process",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Application_software"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Application_software"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/runs,
                       :owl/someValuesFrom :d3f/Application,
                       :rdf/type           :owl/Restriction}
@@ -689,8 +697,9 @@
    :db/ident :d3f/ApplicationShim,
    :rdf/type :owl/Class,
    :rdfs/label "Application Shim",
-   :rdfs/seeAlso ["d3f:Shim"
-                  "http://dbpedia.org/resource/Shim_(computing)#Examples"],
+   :rdfs/seeAlso [{:xsd/string "d3f:Shim"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Shim_(computing)#Examples"}],
    :rdfs/subClassOf :d3f/Shim})
 
 (def ApproximateStringMatching
@@ -711,7 +720,7 @@
    "An archive file is a file that is composed of one or more computer files along with metadata. Archive files are used to collect multiple data files together into a single file for easier portability and storage, or simply to compress files to use less storage space. Archive files often store directory structures, error detection and correction information, arbitrary comments, and sometimes use built-in encryption.",
    :db/ident :d3f/ArchiveFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Archive_file",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Archive_file"},
    :rdfs/label "Archive File",
    :rdfs/subClassOf :d3f/File})
 
@@ -724,15 +733,16 @@
 
 (def Artifact
   "Artifact"
-  {:d3f/definition
-   ["A man-made object taken as a whole."
-    "http://www.ontologyrepository.com/CommonCoreOntologies/Artifact"],
+  {:d3f/definition "A man-made object taken as a whole.",
    :db/ident :d3f/Artifact,
    :rdf/type :owl/Class,
    :rdfs/label "Artifact",
-   :rdfs/seeAlso ["Asset"
-                  "http://wordnet-rdf.princeton.edu/id/00022119-n"
-                  "http://d3fend.mitre.org/ontologies/d3fend.owl"],
+   :rdfs/seeAlso
+   [{:xsd/string "Asset"}
+    {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00022119-n"}
+    {:rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl"}
+    {:rdfa/uri
+     "http://www.ontologyrepository.com/CommonCoreOntologies/Artifact"}],
    :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def ArtifactServer
@@ -742,8 +752,8 @@
    :db/ident :d3f/ArtifactServer,
    :rdf/type :owl/Class,
    :rdfs/label "Artifact Server",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Content_repository"
-                  "http://dbpedia.org/resource/Content_management"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Content_repository"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Content_management"}],
    :rdfs/subClassOf :d3f/WebServer})
 
 (def ArtificialNeuralNetClassification
@@ -766,7 +776,8 @@
    "The classification of someone or something with respect to its worth.",
    :db/ident :d3f/Assessment,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/05741528-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/05741528-n"},
    :rdfs/label "Assessment",
    :rdfs/subClassOf [{:owl/allValuesFrom {:owl/oneOf [{:xsd/string "below"}
                                                       {:xsd/string "exceeded"}
@@ -809,12 +820,12 @@
    :db/ident :d3f/AssetVulnerabilityEnumeration,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/AssetInventory],
    :rdfs/label "Asset Vulnerability Enumeration",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
-                      :owl/someValuesFrom :d3f/Vulnerability,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/evaluates,
+                      :owl/someValuesFrom :d3f/DigitalArtifact,
                       :rdf/type           :owl/Restriction}
                      :d3f/AssetInventory
-                     {:owl/onProperty     :d3f/evaluates,
-                      :owl/someValuesFrom :d3f/DigitalArtifact,
+                     {:owl/onProperty     :d3f/identifies,
+                      :owl/someValuesFrom :d3f/Vulnerability,
                       :rdf/type           :owl/Restriction}]})
 
 (def AssociationRuleLearning
@@ -850,7 +861,8 @@
    :db/ident :d3f/AsymmetricKey,
    :rdf/type :owl/Class,
    :rdfs/label "Asymmetric Key",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Public-key_cryptography"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Public-key_cryptography"},
    :rdfs/subClassOf :d3f/CryptographicKey})
 
 (def AudioInputDevice
@@ -860,7 +872,7 @@
    :db/ident :d3f/AudioInputDevice,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Input_device#Voice_input_devices",
+   {:rdfa/uri "http://dbpedia.org/resource/Input_device#Voice_input_devices"},
    :rdfs/label "Audio Input Device",
    :rdfs/subClassOf :d3f/InputDevice})
 
@@ -885,16 +897,16 @@
    :db/ident :d3f/Authentication,
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Authentication",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Authentication"
-                  "http://wordnet-rdf.princeton.edu/id/00155053-n"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-create,
-                      :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/authenticates,
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Authentication"}
+                  {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00155053-n"}],
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/User,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/originates-from,
                       :owl/someValuesFrom :d3f/PhysicalLocation,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-create,
+                      :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      :d3f/UserAction]})
 
@@ -912,10 +924,10 @@
    :db/ident :d3f/AuthenticationCacheInvalidation,
    :rdf/type [:owl/NamedIndividual :d3f/CredentialEviction :owl/Class],
    :rdfs/label "Authentication Cache Invalidation",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/deletes,
+   :rdfs/subClassOf [:d3f/CredentialEviction
+                     {:owl/onProperty     :d3f/deletes,
                       :owl/someValuesFrom :d3f/Credential,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialEviction]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def AuthenticationEventThresholding
   "Authentication Event Thresholding"
@@ -935,10 +947,10 @@
    :db/ident :d3f/AuthenticationEventThresholding,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/UserBehaviorAnalysis],
    :rdfs/label "Authentication Event Thresholding",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def AuthenticationFunction
   "Authentication Function"
@@ -960,8 +972,9 @@
    :db/ident        :d3f/AuthenticationLog,
    :rdf/type        :owl/Class,
    :rdfs/label      "Authentication Log",
-   :rdfs/seeAlso    ["http://wordnet-rdf.princeton.edu/id/00155053-n"
-                     "http://dbpedia.org/resource/Authorization"],
+   :rdfs/seeAlso    [{:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00155053-n"}
+                     {:rdfa/uri "http://dbpedia.org/resource/Authorization"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/records,
                       :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
@@ -973,7 +986,8 @@
    "An authentication server provides a network service that applications use to authenticate the credentials, usually account names and passwords, of their users. When a client submits a valid set of credentials, it receives a cryptographic ticket that it can subsequently use to access various services. Major authentication algorithms include passwords, Kerberos, and public key encryption.",
    :db/ident :d3f/AuthenticationServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Authentication_server",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Authentication_server"},
    :rdfs/label "Authentication Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -984,9 +998,10 @@
    :db/ident :d3f/AuthenticationService,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://www.gartner.com/en/information-technology/glossary/authentication-service",
+   {:rdfa/uri
+    "https://www.gartner.com/en/information-technology/glossary/authentication-service"},
    :rdfs/label "Authentication Service",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Authentication"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Authentication"},
    :rdfs/subClassOf :d3f/ServiceApplicationProcess})
 
 (def Authorization
@@ -996,7 +1011,7 @@
    "Authorization is the function of specifying access rights to resources related to information security and computer security in general and to access control in particular. More formally, \"to authorize\" is to define an access policy. For example, human resources staff is normally authorized to access employee records and this policy is usually formalized as access control rules in a computer system. During operation, the system uses the access control rules to decide whether access requests from (authenticated) consumers shall be approved (granted) or disapproved (rejected). Resources include individual files or an item's data, computer programs, computer devices and functionality provided by computer applications. Examples of consumers are computer users, computer program",
    :db/ident :d3f/Authorization,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Authorization",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Authorization"},
    :rdfs/label "Authorization",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/authorizes,
                       :owl/someValuesFrom :d3f/NetworkResourceAccess,
@@ -1020,10 +1035,10 @@
    :db/ident :d3f/AuthorizationEventThresholding,
    :rdf/type [:owl/Class :d3f/UserBehaviorAnalysis :owl/NamedIndividual],
    :rdfs/label "Authorization Event Thresholding",
-   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Authorization,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/UserBehaviorAnalysis]})
 
 (def AuthorizationLog
   "Authorization Log"
@@ -1032,8 +1047,9 @@
    :db/ident        :d3f/AuthorizationLog,
    :rdf/type        :owl/Class,
    :rdfs/label      "Authorization Log",
-   :rdfs/seeAlso    ["http://wordnet-rdf.princeton.edu/id/00155053-n"
-                     "http://dbpedia.org/resource/Authorization"],
+   :rdfs/seeAlso    [{:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00155053-n"}
+                     {:rdfa/uri "http://dbpedia.org/resource/Authorization"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/records,
                       :owl/someValuesFrom :d3f/NetworkResourceAccess,
                       :rdf/type           :owl/Restriction}
@@ -1046,9 +1062,10 @@
    :db/ident :d3f/AuthorizationService,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://www.sciencedirect.com/referencework/9780122272400/encyclopedia-of-information-systems",
+   {:rdfa/uri
+    "https://www.sciencedirect.com/referencework/9780122272400/encyclopedia-of-information-systems"},
    :rdfs/label "Authorization Service",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Authorization"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Authorization"},
    :rdfs/subClassOf [:d3f/ServiceApplicationProcess :d3f/NetworkService]})
 
 (def Autoencoding
@@ -1113,7 +1130,7 @@
    "A barcode reader (or barcode scanner) is an optical scanner that can read printed barcodes, decode the data contained in the barcode and send the data to a computer. Like a flatbed scanner, it consists of a light source, a lens and a light sensor translating for optical impulses into electrical signals. Additionally, nearly all barcode readers contain decoder circuitry that can analyze the barcode's image data provided by the sensor and sending the barcode's content to the scanner's output port.",
    :db/ident :d3f/BarcodeScannerInputDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Barcode_reader",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Barcode_reader"},
    :rdfs/label "Barcode Scanner Input Device",
    :rdfs/subClassOf :d3f/ImageScannerInputDevice,
    :skos/altLabel "Barcode Reader"})
@@ -1183,7 +1200,8 @@
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Bayesian Linear Regression Learning",
    :rdfs/seeAlso
-   ["http://d3fend.mitre.org/ontologies/d3fend.owl#BayesianLinearRegression"],
+   {:rdfa/uri
+    "http://d3fend.mitre.org/ontologies/d3fend.owl#BayesianLinearRegression"},
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def BayesianMethod
@@ -1237,7 +1255,8 @@
    "sometimes a record, but not always.  always Binary Data (but we don't have Data and Binary Data tax).  Also do we need to distinguish between information and data?  Don't think so.  IBO that is encoded as binary is Binary Data.  The notion of \"object\" is distinct as it may be part of file, part of DB, or file (part of file system).  Binary padding would relate, though is padding information if just used to pad (e.g., all zeroes?)",
    :db/ident :d3f/BinaryLargeObject,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Binary_large_object",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Binary_large_object"},
    :rdfs/label "Binary Large Object",
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel ["Blob" "BLOB"]})
@@ -1262,10 +1281,10 @@
    :db/ident :d3f/BiometricAuthentication,
    :rdf/type [:d3f/CredentialHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label "Biometric Authentication",
-   :rdfs/subClassOf [:d3f/CredentialHardening
-                     {:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/CredentialHardening]})
 
 (def Blob
   "Blob"
@@ -1273,7 +1292,8 @@
    "A binary large object (BLOB) is a collection of binary data stored as a single entity. Blobs are typically images, audio or other multimedia objects, though sometimes binary executable code is stored as a blob. They can exist as persistent values inside some databases, or exist at runtime as program variables in some languages. The term is used in NoSQL databases, especially in key-value store databases such as Redis. The term is also used by languages that allow runtime manipulation of Blobs, like JavaScript. (en)",
    :db/ident :d3f/Blob,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Binary_large_object",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Binary_large_object"},
    :rdfs/label "Blob",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -1285,19 +1305,21 @@
    :d3f/may-contain :d3f/Volume,
    :db/ident :d3f/BlockDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Device_file#BLOCKDEV",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Device_file#BLOCKDEV"},
    :rdfs/label "Block Device",
    :rdfs/seeAlso
-   ["https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_79"],
+   {:rdfa/uri
+    "https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_79"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/PartitionTable,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/Partition,
+                      :owl/someValuesFrom :d3f/BootSector,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/BootSector,
+                      :owl/someValuesFrom :d3f/Partition,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/Volume,
@@ -1348,7 +1370,7 @@
    "A bootloader is software that is responsible for booting a computer. When a computer is turned off, its software‍-‌including operating systems, application code, and data‍-‌remains stored on non-volatile memory. When the computer is powered on, it typically does not have an operating system or its loader in random-access memory (RAM). The computer first executes a relatively small program stored in read-only memory (ROM, and later EEPROM, NOR flash) along with some needed data, to initialize RAM (especially on x86 systems) to access the nonvolatile device (usually block device, eg NAND flash) or devices from which the operating system programs and data can be loaded into RAM.",
    :db/ident :d3f/BootLoader,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Bootloader",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Bootloader"},
    :rdfs/label "Boot Loader",
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel "Bootloader"})
@@ -1369,7 +1391,7 @@
    :db/ident :d3f/BootSector,
    :rdf/type :owl/Class,
    :rdfs/label "Boot Sector",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Boot_sector"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Boot_sector"},
    :rdfs/subClassOf :d3f/BootRecord})
 
 (def BootloaderAuthentication
@@ -1427,9 +1449,9 @@
    :d3f/may-contain :d3f/BrowserExtension,
    :db/ident :d3f/Browser,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Web_browser",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Web_browser"},
    :rdfs/label "Browser",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/13376000-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/13376000-n"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/BrowserExtension,
                       :rdf/type           :owl/Restriction}
@@ -1442,7 +1464,8 @@
    :d3f/extends :d3f/Browser,
    :db/ident :d3f/BrowserExtension,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Browser_extension",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Browser_extension"},
    :rdfs/label "Browser Extension",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/extends,
                       :owl/someValuesFrom :d3f/Browser,
@@ -1468,7 +1491,7 @@
    :db/ident :d3f/BuildTool,
    :rdf/type :owl/Class,
    :rdfs/label "Build Tool",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Build_automation"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Build_automation"},
    :rdfs/subClassOf :d3f/DeveloperApplication,
    :skos/altLabel "Build Automation Tool"})
 
@@ -1478,7 +1501,8 @@
    "Client software to enable the process of sharing information between employees within and outside a company.  Business communication encompasses topics such as marketing, brand management, customer relations, consumer behavior, advertising, public relations, corporate communication, community engagement, reputation management, interpersonal communication, employee engagement, and event management. It is closely related to the fields of professional communication and technical communication.",
    :db/ident :d3f/BusinessCommunicationPlatformClient,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Business_communication",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Business_communication"},
    :rdfs/label "Business Communication Platform Client",
    :rdfs/subClassOf :d3f/CollaborativeSoftware})
 
@@ -1530,8 +1554,9 @@
    :db/ident :d3f/CACertificateFile,
    :rdf/type :owl/Class,
    :rdfs/label "CA Certificate File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Public_key_infrastructure"
-                  "http://dbpedia.org/resource/Certificate_authority"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "http://dbpedia.org/resource/Public_key_infrastructure"}
+    {:rdfa/uri "http://dbpedia.org/resource/Certificate_authority"}],
    :rdfs/subClassOf :d3f/CertificateFile})
 
 (def CAPEC-663
@@ -1539,7 +1564,8 @@
   {:d3f/capec-id     "CAPEC-553",
    :db/ident         :d3f/CAPEC-663,
    :rdf/type         [:d3f/CommonAttackPattern :owl/NamedIndividual :owl/Class],
-   :rdfs/isDefinedBy "https://capec.mitre.org/data/definitions/663.html",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://capec.mitre.org/data/definitions/663.html"},
    :rdfs/label       "Exploitation of Transient Instruction Execution",
    :rdfs/subClassOf  :d3f/CommonAttackPattern})
 
@@ -1569,7 +1595,7 @@
    :rdf/type        [:d3f/ControlCorrelationIdentifierCatalog
                      :owl/NamedIndividual],
    :rdfs/label      "CCI Catalog v2022-04-05",
-   :rdfs/seeAlso    ["https://public.cyber.mil/stigs/cci/"]})
+   :rdfs/seeAlso    {:rdfa/uri "https://public.cyber.mil/stigs/cci/"}})
 
 (def CCIControl
   "CCI Control"
@@ -8476,10 +8502,10 @@
                      {:owl/onProperty     :d3f/may-be-weakness-of,
                       :owl/someValuesFrom :d3f/UserInputFunction,
                       :rdf/type           :owl/Restriction}
+                     :d3f/CWE-77
                      {:owl/onProperty     :d3f/may-be-weakness-of,
                       :owl/someValuesFrom :d3f/ProcessStartFunction,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CWE-77]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CWE-780
   "Use of RSA Algorithm without OAEP"
@@ -9302,19 +9328,20 @@
    :d3f/may-contain :d3f/ProcessSegment,
    :db/ident :d3f/CacheMemory,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://whatis.techtarget.com/definition/memory",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://whatis.techtarget.com/definition/memory"},
    :rdfs/label "Processor Cache Memory",
-   :rdfs/seeAlso ["https://dbpedia.org/page/CPU_cache"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/ProcessSegment,
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/page/CPU_cache"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/CacheMemory,
                       :rdf/type           :owl/Restriction}
-                     :d3f/PrimaryStorage
                      {:owl/onProperty     :d3f/accessed-by,
                       :owl/someValuesFrom :d3f/CentralProcessingUnit,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/CacheMemory,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/ProcessSegment,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PrimaryStorage]})
 
 (def CallStack
   "Call Stack"
@@ -9323,7 +9350,7 @@
    "In computer science, a call stack is a stack data structure that stores information about the active subroutines of a computer program. This kind of stack is also known as an execution stack, program stack, control stack, run-time stack, or machine stack, and is often shortened to just \"the stack\". Although maintenance of the call stack is important for the proper functioning of most software, the details are normally hidden and automatic in high-level programming languages. Many computer instruction sets provide special instructions for manipulating stacks.",
    :db/ident :d3f/CallStack,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Call_stack",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Call_stack"},
    :rdfs/label "Call Stack",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/StackFrame,
@@ -9349,10 +9376,11 @@
    :db/ident :d3f/Capability,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Capability_(systems_engineering)",
+   {:rdfa/uri "http://dbpedia.org/resource/Capability_(systems_engineering)"},
    :rdfs/label "Capability",
    :rdfs/seeAlso
-   ["https://web.archive.org/web/20081123014953/http://www.dtic.mil/doctrine/jel/new_pubs/jp1_02.pdf"],
+   {:rdfa/uri
+    "https://web.archive.org/web/20081123014953/http://www.dtic.mil/doctrine/jel/new_pubs/jp1_02.pdf"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/has-feature,
                       :owl/someValuesFrom :d3f/CapabilityFeature,
                       :rdf/type           :owl/Restriction}
@@ -9396,12 +9424,12 @@
    :db/ident :d3f/CapabilityFeatureClaim,
    :rdf/type :owl/Class,
    :rdfs/label "Capability Feature Claim",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/author,
-                      :owl/someValuesFrom :d3f/Agent,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modified,
+                      :owl/someValuesFrom :xsd/dateTime,
                       :rdf/type           :owl/Restriction}
                      :d3f/Statement
-                     {:owl/onProperty     :d3f/modified,
-                      :owl/someValuesFrom :xsd/dateTime,
+                     {:owl/onProperty     :d3f/assessed-by,
+                      :owl/someValuesFrom :d3f/DefensiveTechniqueAssessment,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/comments,
                       :owl/someValuesFrom :xsd/string,
@@ -9409,8 +9437,8 @@
                      {:owl/onProperty     :d3f/implemented-by,
                       :owl/someValuesFrom :d3f/CapabilityImplementation,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/assessed-by,
-                      :owl/someValuesFrom :d3f/DefensiveTechniqueAssessment,
+                     {:owl/onProperty     :d3f/author,
+                      :owl/someValuesFrom :d3f/Agent,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/created,
                       :owl/someValuesFrom :xsd/dateTime,
@@ -9442,7 +9470,8 @@
    "A catalog is a complete list of things; usually arranged systematically.",
    :db/ident :d3f/Catalog,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/06499734-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/06499734-n"},
    :rdfs/label "Catalog",
    :rdfs/subClassOf :d3f/InformationContentEntity})
 
@@ -9456,20 +9485,21 @@
    :d3f/synonym ["Central Processor" "CPU" "Main Processor"],
    :db/ident :d3f/CentralProcessingUnit,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://en.wikipedia.org/wiki/Central_processing_unit",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://en.wikipedia.org/wiki/Central_processing_unit"},
    :rdfs/label "Central Processing Unit",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/CacheMemory,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Processor
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ProcessorRegister,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/Processor
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/MemoryManagementUnit,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/CacheMemory,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/MemoryProtectionUnit,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ProcessorRegister,
                       :rdf/type           :owl/Restriction}]})
 
 (def CentralTendency
@@ -9505,9 +9535,10 @@
    "Since we say it contains a PK, must be PKC.  Rewire certificate hierarchy to include attribute/authorization certificates more generally.  Push this down to specifically represent PKCs.  Also key and authority issues may require parallel adjustments http://dbpedia.org/resource/Authorization_certificate",
    :db/ident :d3f/Certificate,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Public_key_certificate",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Public_key_certificate"},
    :rdfs/label "Certificate",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/certificate"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/certificate"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/PublicKey,
                       :rdf/type           :owl/Restriction}
@@ -9553,7 +9584,8 @@
    "A file containing a digital certificate. In cryptography, a public key certificate (also known as a digital certificate or identity certificate) is an electronic document used to prove the ownership of a public key. The certificate includes information about the key, information about its owner's identity, and the digital signature of an entity that has verified the certificate's contents are correct. If the signature is valid, and the person examining the certificate trusts the signer, then they know they can use that key to communicate with its owner.",
    :db/ident :d3f/CertificateFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Public_key_certificate",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Public_key_certificate"},
    :rdfs/label "Certificate File",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Certificate,
@@ -9573,10 +9605,10 @@
    :db/ident :d3f/CertificatePinning,
    :rdf/type [:owl/Class :d3f/CredentialHardening :owl/NamedIndividual],
    :rdfs/label "Certificate Pinning",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/CredentialHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/PublicKey,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CertificateTrustStore
   "Certificate Trust Store"
@@ -9586,8 +9618,9 @@
    :db/ident :d3f/CertificateTrustStore,
    :rdf/type :owl/Class,
    :rdfs/label "Certificate Trust Store",
-   :rdfs/seeAlso ["https://www.educative.io/edpresso/keystore-vs-truststore"
-                  "http://dbpedia.org/resource/Public_key_certificate"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "https://www.educative.io/edpresso/keystore-vs-truststore"}
+    {:rdfa/uri "http://dbpedia.org/resource/Public_key_certificate"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Certificate,
                       :rdf/type           :owl/Restriction}
@@ -9599,7 +9632,7 @@
    "Client software used to describe conduct any form of synchronous conferencing, occasionally even asynchronous conferencing. The term can thus mean any technology ranging from real-time online chat and online interaction with strangers (e.g., online forums) to fully immersive graphical social environments.",
    :db/ident :d3f/ChatroomClient,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Chat_room",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Chat_room"},
    :rdfs/label "Chatroom Client",
    :rdfs/subClassOf :d3f/CollaborativeSoftware,
    :skos/altLabel "Chat Room Client"})
@@ -9610,9 +9643,9 @@
    "A child process in computing is a process created by another process (the parent process). This technique pertains to multitasking operating systems, and is sometimes called a subprocess or traditionally a subtask. There are two major procedures for creating a child process: the fork system call (preferred in Unix-like systems and the POSIX standard) and the spawn (preferred in the modern (NT) kernel of Microsoft Windows, as well as in some historical operating systems).",
    :db/ident :d3f/ChildProcess,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Child_process",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Child_process"},
    :rdfs/label "Child Process",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Parent_process"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Parent_process"},
    :rdfs/subClassOf :d3f/Process})
 
 (def Classification
@@ -9645,12 +9678,12 @@
    :d3f/kb-reference
    :d3f/Reference-MethodAndSystemForDetectingMaliciousPayloads_VectraNetworksInc,
    :db/ident :d3f/Client-serverPayloadProfiling,
-   :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
+   :rdf/type [:owl/Class :d3f/NetworkTrafficAnalysis :owl/NamedIndividual],
    :rdfs/label "Client-server Payload Profiling",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkTrafficAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ClientApplication
   "Client Application"
@@ -9658,10 +9691,12 @@
    "A client application is software that accesses a service made available by a server. The server is often (but not always) on another computer system, in which case the client accesses the service by way of a network. The term applies to the role that programs or devices play in the client-server model",
    :db/ident :d3f/ClientApplication,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Client_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Client_(computing)"},
    :rdfs/label "Client Application",
    :rdfs/seeAlso
-   ["http://attackguidev.mitre.org/techniques/T1554/ \"Compromise Client Software Binary\""],
+   {:rdfa/uri
+    "http://attackguidev.mitre.org/techniques/T1554/ \"Compromise Client Software Binary\""},
    :rdfs/subClassOf :d3f/Application})
 
 (def ClientComputer
@@ -9670,9 +9705,10 @@
    "A client computer is a host that accesses a service made available by a server. The server is often (but not always) on another computer system, in which case the client accesses the service by way of a network.",
    :db/ident :d3f/ClientComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Client_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Client_(computing)"},
    :rdfs/label "Client Computer",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Host_(network)"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Host_(network)"},
    :rdfs/subClassOf :d3f/Host})
 
 (def Clipboard
@@ -9681,7 +9717,8 @@
    "The clipboard is a buffer that some operating systems provide for short-term storage and transfer within and between application programs. The clipboard is usually temporary and unnamed, and its contents reside in the computer's RAM. The clipboard is sometimes called the paste buffer. Windows, Linux and macOS support a single clipboard transaction. Each cut or copy overwrites the previous contents. Normally, paste operations copy the contents, leaving the contents available in the clipboard for further pasting.",
    :db/ident :d3f/Clipboard,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Clipboard_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Clipboard_(computing)"},
    :rdfs/label "Clipboard",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -9703,7 +9740,7 @@
    :rdf/type :owl/Class,
    :rdfs/label "Cloud Instance Metadata",
    :rdfs/seeAlso
-   ["https://isc.sans.edu/forums/diary/Cloud+Metadata+Urls/22046"],
+   {:rdfa/uri "https://isc.sans.edu/forums/diary/Cloud+Metadata+Urls/22046"},
    :rdfs/subClassOf :d3f/CloudConfiguration})
 
 (def CloudServiceAuthentication
@@ -9746,9 +9783,9 @@
   {:d3f/definition   "Cloud storage is storage held within a computing cloud.",
    :db/ident         :d3f/CloudStorage,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Cloud_storage",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Cloud_storage"},
    :rdfs/label       "Cloud Storage",
-   :rdfs/seeAlso     ["http://dbpedia.org/resource/Cloud_computing"],
+   :rdfs/seeAlso     {:rdfa/uri "http://dbpedia.org/resource/Cloud_computing"},
    :rdfs/subClassOf  :d3f/SecondaryStorage})
 
 (def CloudUserAccount
@@ -9788,7 +9825,7 @@
    :db/ident :d3f/CodeAnalyzer,
    :rdf/type :owl/Class,
    :rdfs/label "Code Analyzer",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Program_analysis"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Program_analysis"},
    :rdfs/subClassOf :d3f/DeveloperApplication,
    :skos/altLabel "Program Analysis Tool"})
 
@@ -9799,7 +9836,8 @@
    "A code repository is a form of database where code, typically source code, is stored and managed.  In revision control systems, a repository is a data structure that stores metadata for a set of files or directory structure. Depending on whether the version control system in use is distributed like (Git or Mercurial) or centralized like (Subversion, CVS, or Perforce), the whole set of information in the repository may be duplicated on every user's system or may be maintained on a single server.",
    :db/ident :d3f/CodeRepository,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Repository_(version_control)",
+   :rdfs/isDefinedBy
+   {:rdfa/uri "http://dbpedia.org/resource/Repository_(version_control)"},
    :rdfs/label "Code Repository",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/SourceCode,
@@ -9826,7 +9864,8 @@
    "Collaborative software or groupware is application software designed to help people working on a common task to attain their goals. One of the earliest definitions of groupware is \"intentional group processes plus software to support them\". Collaborative software is a broad concept that overlaps considerably with computer-supported cooperative work (CSCW). According to Carstensen and Schmidt (1999) groupware is part of CSCW. The authors claim that CSCW, and thereby groupware, addresses \"how collaborative activities and their coordination can be supported by means of computer systems.\"",
    :db/ident :d3f/CollaborativeSoftware,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Collaborative_software",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Collaborative_software"},
    :rdfs/label "Collaborative Software",
    :rdfs/subClassOf :d3f/UserApplication})
 
@@ -9865,7 +9904,8 @@
    "In computing, a command is a directive to a computer program acting as an interpreter of some kind, in order to perform a specific task. Most commonly a command is either a directive to some kind of command-line interface, such as a shell, or an event in a graphical user interface triggered by the user selecting an option in a menu.",
    :db/ident :d3f/Command,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Command_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Command_(computing)"},
    :rdfs/label "Command",
    :rdfs/subClassOf [:d3f/DigitalEvent :d3f/DigitalArtifact]})
 
@@ -9894,8 +9934,8 @@
    :db/ident        :d3f/CommandHistoryLog,
    :rdf/type        :owl/Class,
    :rdfs/label      "Command History Log",
-   :rdfs/seeAlso    ["d3f:CommandLineInterface"
-                     "http://dbpedia.org/resource/Command_history"],
+   :rdfs/seeAlso    [{:xsd/string "d3f:CommandLineInterface"}
+                     {:rdfa/uri "http://dbpedia.org/resource/Command_history"}],
    :rdfs/subClassOf :d3f/EventLog})
 
 (def CommandHistoryLogFile
@@ -9906,7 +9946,7 @@
    :db/ident :d3f/CommandHistoryLogFile,
    :rdf/type :owl/Class,
    :rdfs/label "Command History Log File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Command_history"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Command_history"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/CommandHistoryLog,
                       :rdf/type           :owl/Restriction}
@@ -9918,7 +9958,8 @@
    "A command-line interface or command language interpreter (CLI), also known as command-line user interface, console user interface, and character user interface (CUI), is a means of interacting with a computer program where the user (or client) issues commands to the program in the form of successive lines of text (command lines). Command-line interfaces to computer operating systems are less widely used by casual computer users, who favor graphical user interfaces. Programs with command-line interfaces are generally easier to automate via scripting.",
    :db/ident :d3f/CommandLineInterface,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Command-line_interface",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Command-line_interface"},
    :rdfs/label "Command Line Interface",
    :rdfs/subClassOf :d3f/UserInterface,
    :skos/altLabel ["Command-line Interface" "CUI" "CLI"]})
@@ -9939,7 +9980,7 @@
    :d3f/reads :d3f/CompilerConfigurationFile,
    :db/ident :d3f/Compiler,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Compiler",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Compiler"},
    :rdfs/label "Compiler",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/reads,
                       :owl/someValuesFrom :d3f/CompilerConfigurationFile,
@@ -9971,7 +10012,8 @@
    :db/ident :d3f/ComputingServer,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://www.encyclopedia.com/computing/dictionaries-thesauruses-pictures-and-press-releases/compute-server",
+   {:rdfa/uri
+    "https://www.encyclopedia.com/computing/dictionaries-thesauruses-pictures-and-press-releases/compute-server"},
    :rdfs/label "Computing Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -10007,7 +10049,8 @@
    "A file containing Information used to configure the parameters and initial settings for some computer programs. They are used for user applications, server processes and operating system settings.",
    :db/ident :d3f/ConfigurationFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Configuration_file",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Configuration_file"},
    :rdfs/label "Configuration File",
    :rdfs/subClassOf :d3f/File,
    :skos/altLabel "Settings File"})
@@ -10026,10 +10069,10 @@
    :db/ident :d3f/ConfigurationInventory,
    :rdf/type [:d3f/AssetInventory :owl/NamedIndividual :owl/Class],
    :rdfs/label "Configuration Inventory",
-   :rdfs/subClassOf [:d3f/AssetInventory
-                     {:owl/onProperty     :d3f/inventories,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/ConfigurationResource,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/AssetInventory]})
 
 (def ConfigurationManagementDatabase
   "Configuration Management Database"
@@ -10038,12 +10081,15 @@
    :db/ident :d3f/ConfigurationManagementDatabase,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://web.archive.org/web/20111201040529/http://www.best-management-practice.com/gempdf/itil_glossary_v3_1_24.pdf",
+   {:rdfa/uri
+    "https://web.archive.org/web/20111201040529/http://www.best-management-practice.com/gempdf/itil_glossary_v3_1_24.pdf"},
    :rdfs/label "Configuration Management Database",
    :rdfs/seeAlso
-   ["https://www.dmtf.org/standards/cmdbf"
-    "https://wiki.en.it-processmaps.com/index.php/ITIL_Glossary/_ITIL_Terms_C#Config_Management_Database_.28CMDB.29"
-    "https://dbpedia.org/resource/Configuration_management_database"],
+   [{:rdfa/uri "https://www.dmtf.org/standards/cmdbf"}
+    {:rdfa/uri
+     "https://wiki.en.it-processmaps.com/index.php/ITIL_Glossary/_ITIL_Terms_C#Config_Management_Database_.28CMDB.29"}
+    {:rdfa/uri
+     "https://dbpedia.org/resource/Configuration_management_database"}],
    :rdfs/subClassOf :d3f/ConfigurationDatabase})
 
 (def ConfigurationResource
@@ -10063,7 +10109,8 @@
    :db/ident :d3f/ConnectSocket,
    :rdf/type :owl/Class,
    :rdfs/label "Connect Socket",
-   :rdfs/seeAlso ["https://man7.org/linux/man-pages/man2/connect.2.html"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://man7.org/linux/man-pages/man2/connect.2.html"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/connects,
                       :owl/someValuesFrom :d3f/Pipe,
                       :rdf/type           :owl/Restriction}
@@ -10082,10 +10129,10 @@
    :db/ident :d3f/ConnectedHoneynet,
    :rdf/type [:d3f/DecoyEnvironment :owl/NamedIndividual :owl/Class],
    :rdfs/label "Connected Honeynet",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [:d3f/DecoyEnvironment
+                     {:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/LocalAreaNetwork,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DecoyEnvironment]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Connection-basedClustering
   "Connection-based Clustering"
@@ -10114,10 +10161,10 @@
    :db/ident :d3f/ConnectionAttemptAnalysis,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/NetworkTrafficAnalysis],
    :rdfs/label "Connection Attempt Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkTrafficAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ConsoleOutputFunction
   "Console Output Function"
@@ -10142,9 +10189,10 @@
    "A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.\n\nContainer images become containers at runtime and in the case of Docker containers - images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.",
    :db/ident :d3f/ContainerImage,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://www.docker.com/resources/what-container",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://www.docker.com/resources/what-container"},
    :rdfs/label "Container Image",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/image"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/image"},
    :rdfs/subClassOf [:d3f/SoftwarePackage :d3f/File]})
 
 (def ContainerOrchestrationSoftware
@@ -10162,7 +10210,7 @@
    :db/ident        :d3f/ContainerProcess,
    :rdf/type        :owl/Class,
    :rdfs/label      "Container Process",
-   :rdfs/seeAlso    ["https://schema.ocsf.io/objects/container"],
+   :rdfs/seeAlso    {:rdfa/uri "https://schema.ocsf.io/objects/container"},
    :rdfs/subClassOf :d3f/ApplicationProcess})
 
 (def ContainerRuntime
@@ -10213,7 +10261,7 @@
    :db/ident :d3f/ControlCorrelationIdentifierCatalog,
    :rdf/type :owl/Class,
    :rdfs/label "Control Correlation Identifier Catalog",
-   :rdfs/seeAlso ["https://public.cyber.mil/stigs/cci/"],
+   :rdfs/seeAlso {:rdfa/uri "https://public.cyber.mil/stigs/cci/"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/has-member,
                       :owl/someValuesFrom :d3f/CCIControl,
                       :rdf/type           :owl/Restriction}
@@ -10300,32 +10348,30 @@
    :rdf/type :owl/Class,
    :rdfs/label "Create File",
    :rdfs/seeAlso
-   ["https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea"
-    "https://linux.die.net/man/2/creat"
-    "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfile2"
-    "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
+   [{:rdfa/uri
+     "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea"}
+    {:rdfa/uri "https://linux.die.net/man/2/creat"}
+    {:rdfa/uri
+     "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfile2"}
+    {:rdfa/uri
+     "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew"}],
+   :rdfs/subClassOf [:d3f/SystemCall
+                     {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemCall]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CreateProcess
   "Create Process"
-  {:d3f/creates :d3f/Process,
-   :d3f/definition
-   "A process spawn refers to a function that loads and executes a new child process.The current process may wait for the child to terminate or may continue to execute asynchronously. Creating a new subprocess requires enough memory in which both the child process and the current program can execute. There is a family of spawn functions in DOS, inherited by Microsoft Windows. There is also a different family of spawn functions in an optional extension of the POSIX standards.  Fork-exec is another technique combining two Unix system calls, which can effect a process spawn.",
+  {:d3f/definition "Creates a process.",
    :db/ident :d3f/CreateProcess,
    :rdf/type :owl/Class,
    :rdfs/label "Create Process",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Fork%E2%80%93exec"
-    "http://dbpedia.org/resource/Spawn_(computing)"
-    "https://docs.microsoft.com/en-us/windows/win32/procthread/creating-processes"],
-   :rdfs/subClassOf [:d3f/SystemCall
-                     {:owl/onProperty     :d3f/creates,
-                      :owl/someValuesFrom :d3f/Process,
-                      :rdf/type           :owl/Restriction}],
-   :skos/altLabel "Process Spawn"})
+   [{:rdfa/uri
+     "https://learn.microsoft.com/en-us/windows/win32/procthread/creating-processes"}
+    {:rdfa/uri "https://dbpedia.org/page/Spawn_(computing)"}
+    {:rdfa/uri "https://dbpedia.org/page/Fork%E2%80%93exec"}],
+   :rdfs/subClassOf :d3f/SpawnProcess})
 
 (def CreateSocket
   "Create Socket"
@@ -10335,7 +10381,8 @@
    :db/ident :d3f/CreateSocket,
    :rdf/type :owl/Class,
    :rdfs/label "Create Socket",
-   :rdfs/seeAlso ["https://www.man7.org/linux/man-pages/man2/socket.2.html"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://www.man7.org/linux/man-pages/man2/socket.2.html"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/Pipe,
                       :rdf/type           :owl/Restriction}
@@ -10350,8 +10397,9 @@
    :rdf/type :owl/Class,
    :rdfs/label "Create Thread",
    :rdfs/seeAlso
-   ["https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createthread"
-    "http://dbpedia.org/resource/POSIX_Threads"],
+   [{:rdfa/uri
+     "https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createthread"}
+    {:rdfa/uri "http://dbpedia.org/resource/POSIX_Threads"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/Thread,
                       :rdf/type           :owl/Restriction}
@@ -10364,9 +10412,10 @@
    "A credential is a physical/tangible object, a piece of knowledge, or a facet of a person's physical being that enables an individual access to a given physical facility or computer-based information system. Typically, credentials can be something a person knows (such as a number or PIN), something they have (such as an access badge), something they are (such as a biometric feature), something they do (measurable behavioral patterns) or some combination of these items. This is known as multi-factor authentication. The typical credential is an access card or key-fob, and newer software can also turn users' smartphones into access devices.",
    :db/ident :d3f/Credential,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Access_control#Credential",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Access_control#Credential"},
    :rdfs/label "Credential",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Access_control"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Access_control"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
@@ -10385,22 +10434,22 @@
   {:d3f/accesses    :d3f/Credential,
    :d3f/enables     :d3f/CredentialAccess,
    :d3f/may-access  :d3f/PasswordFile,
-   :d3f/may-invoke  :d3f/CreateProcess,
+   :d3f/may-invoke  :d3f/SpawnProcess,
    :db/ident        :d3f/CredentialAccessTechnique,
    :rdf/type        :owl/Class,
    :rdfs/label      "Credential Access Technique",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
-                      :owl/someValuesFrom :d3f/Credential,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OffensiveTechnique
-                     {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/CredentialAccess,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OffensiveTechnique
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/PasswordFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/accesses,
+                      :owl/someValuesFrom :d3f/Credential,
                       :rdf/type           :owl/Restriction}]})
 
 (def CredentialCompromiseScopeAnalysis
@@ -10456,7 +10505,8 @@
    "Credential Management, also referred to as a Credential Management System (CMS), is an established form of software that is used for issuing and managing credentials as part of public key infrastructure (PKI).",
    :db/ident :d3f/CredentialManagementSystem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Credential_Management",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Credential_Management"},
    :rdfs/label "Credential Management System",
    :rdfs/subClassOf :d3f/ServiceApplication})
 
@@ -10509,8 +10559,8 @@
    :db/ident :d3f/CredentialTransmissionScoping,
    :rdf/type [:owl/NamedIndividual :d3f/CredentialHardening :owl/Class],
    :rdfs/label "Credential Transmission Scoping",
-   :rdfs/seeAlso ["https://pages.nist.gov/TIG-Stage/sp800-63c.html"
-                  "https://www.w3.org/TR/webauthn-2/"],
+   :rdfs/seeAlso [{:rdfa/uri "https://pages.nist.gov/TIG-Stage/sp800-63c.html"}
+                  {:rdfa/uri "https://www.w3.org/TR/webauthn-2/"}],
    :rdfs/subClassOf [:d3f/CredentialHardening
                      {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/Credential,
@@ -10522,7 +10572,8 @@
    "In cryptography, a key is a piece of information (a parameter) that determines the functional output of a cryptographic algorithm. For encryption algorithms, a key specifies the transformation of plaintext into ciphertext, and vice versa for decryption algorithms. Keys also specify transformations in other cryptographic algorithms, such as digital signature schemes and message authentication codes.",
    :db/ident :d3f/CryptographicKey,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Public-key_cryptography",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Public-key_cryptography"},
    :rdfs/label "Cryptographic Key",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -10619,7 +10670,8 @@
    :db/ident :d3f/DHCPServer,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Dynamic_Host_Configuration_Protocol",
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Dynamic_Host_Configuration_Protocol"},
    :rdfs/label "DHCP Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -10655,10 +10707,10 @@
    :db/ident :d3f/DNSAllowlisting,
    :rdf/type [:d3f/NetworkIsolation :owl/Class :owl/NamedIndividual],
    :rdfs/label "DNS Allowlisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
+   :rdfs/subClassOf [:d3f/NetworkIsolation
+                     {:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DNSDenylisting
   "DNS Denylisting"
@@ -10685,9 +10737,10 @@
    :db/ident :d3f/DNSLookup,
    :rdf/type :owl/Class,
    :rdfs/label "DNS Lookup",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/dns_query"
-                  "http://dbpedia.org/resource/List_of_DNS_record_types"
-                  "http://dbpedia.org/resource/Domain_Name_System"],
+   :rdfs/seeAlso [{:rdfa/uri "https://schema.ocsf.io/objects/dns_query"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/List_of_DNS_record_types"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Domain_Name_System"}],
    :rdfs/subClassOf [:d3f/DigitalEvent :d3f/DigitalArtifact]})
 
 (def DNSNetworkTraffic
@@ -10706,8 +10759,9 @@
    :db/ident :d3f/DNSRecord,
    :rdf/type :owl/Class,
    :rdfs/label "DNS Record",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/List_of_DNS_record_types"
-                  "http://dbpedia.org/resource/Domain_Name_System"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/List_of_DNS_record_types"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Domain_Name_System"}],
    :rdfs/subClassOf :d3f/Record})
 
 (def DNSServer
@@ -10716,7 +10770,7 @@
    "A Domain Name System (DNS) name server is a kind of name server.  Domain names are one of the two principal namespaces of the Internet. The most important function of DNS servers is the translation (resolution) of human-memorable domain names and hostnames into the corresponding numeric Internet Protocol (IP) addresses, the second principal name space of the Internet which is used to identify and locate computer systems and resources on the Internet. (en).\n\nMore generally, a name server is a computer application that implements a network service for providing responses to queries against a directory service. It translates an often humanly meaningful, text-based identifier to a system-internal, often numeric identification or addressing component. This service is performed by the server in response to a service protocol request.",
    :db/ident :d3f/DNSServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Name_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Name_server"},
    :rdfs/label "DNS Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -10754,7 +10808,7 @@
    :db/ident :d3f/DataArtifactServer,
    :rdf/type :owl/Class,
    :rdfs/label "Data Artifact Server",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Content_repository"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Content_repository"},
    :rdfs/subClassOf :d3f/ArtifactServer})
 
 (def DataDependency
@@ -10797,18 +10851,18 @@
    :db/ident :d3f/DataInventory,
    :rdf/type [:owl/Class :d3f/AssetInventory :owl/NamedIndividual],
    :rdfs/label "Data Inventory",
-   :rdfs/subClassOf [:d3f/AssetInventory
-                     {:owl/onProperty     :d3f/inventories,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/MultimediaDocumentFile,
                       :rdf/type           :owl/Restriction}
+                     :d3f/AssetInventory
                      {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/Database,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/inventories,
-                      :owl/someValuesFrom :d3f/Email,
+                      :owl/someValuesFrom :d3f/DocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/inventories,
-                      :owl/someValuesFrom :d3f/DocumentFile,
+                      :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}]})
 
 (def DataLinkLink
@@ -10819,7 +10873,7 @@
    :db/ident :d3f/DataLinkLink,
    :rdf/type :owl/Class,
    :rdfs/label "Data Link Link",
-   :rdfs/seeAlso ["https://dbpedia.org/resource/Link_layer"],
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/resource/Link_layer"},
    :rdfs/subClassOf :d3f/LogicalLink})
 
 (def Database
@@ -10828,9 +10882,9 @@
    "A database is an organized collection of data, generally stored and accessed electronically from a computer system. Where databases are more complex they are often developed using formal design and modeling techniques.",
    :db/ident :d3f/Database,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Database",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Database"},
    :rdfs/label "Database",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Database"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Database"},
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def DatabaseFile
@@ -10874,7 +10928,7 @@
    "A database server is a server which uses a database application that provides database services to other computer programs or to computers, as defined by the client-server model. Database management systems (DBMSs) frequently provide database-server functionality, and some database management systems (such as MySQL) rely exclusively on the client-server model for database access (while others e.g. SQLite are meant for using as an embedded database). For clarification, a database server is simply a server that maintains services related to clients via database applications.",
    :db/ident :d3f/DatabaseServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Database_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Database_server"},
    :rdfs/label "Database Server",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Database,
@@ -10950,13 +11004,14 @@
    :db/ident :d3f/DecoyArtifact,
    :rdf/type :owl/Class,
    :rdfs/label "Decoy Artifact",
-   :rdfs/seeAlso ["https://shield.mitre.org/"
-                  "https://doi.org/10.1007/978-3-319-25133-2"
-                  "http://dbpedia.org/resource/Deception_technology"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+   :rdfs/seeAlso [{:rdfa/uri "https://shield.mitre.org/"}
+                  {:rdfa/uri "https://doi.org/10.1007/978-3-319-25133-2"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Deception_technology"}],
+   :rdfs/subClassOf [:d3f/DigitalArtifact
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/DigitalArtifact,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel ["Lure" "Trap" "Decoy Object" "Decoy"]})
 
 (def DecoyEnvironment
@@ -10972,13 +11027,13 @@
    :db/ident :d3f/DecoyEnvironment,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/DefensiveTechnique],
    :rdfs/label "Decoy Environment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/DecoyArtifact,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Deceive,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique]})
+                     :d3f/DefensiveTechnique
+                     {:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/DecoyArtifact,
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyFile
   "Decoy File"
@@ -10995,10 +11050,10 @@
    :db/ident :d3f/DecoyFile,
    :rdf/type [:d3f/DecoyObject :owl/Class :owl/NamedIndividual],
    :rdfs/label "Decoy File",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [:d3f/DecoyObject
+                     {:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DecoyObject]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyNetworkResource
   "Decoy Network Resource"
@@ -11016,10 +11071,10 @@
    :db/ident :d3f/DecoyNetworkResource,
    :rdf/type [:owl/NamedIndividual :d3f/DecoyObject :owl/Class],
    :rdfs/label "Decoy Network Resource",
-   :rdfs/subClassOf [:d3f/DecoyObject
-                     {:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/NetworkResource,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DecoyObject]})
 
 (def DecoyObject
   "Decoy Object"
@@ -11033,10 +11088,10 @@
    :db/ident :d3f/DecoyObject,
    :rdf/type [:owl/Class :d3f/DefensiveTechnique :owl/NamedIndividual],
    :rdfs/label "Decoy Object",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [:d3f/DefensiveTechnique
+                     {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Deceive,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyPersona
   "Decoy Persona"
@@ -11052,10 +11107,10 @@
    :db/ident :d3f/DecoyPersona,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/DecoyObject],
    :rdfs/label "Decoy Persona",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [:d3f/DecoyObject
+                     {:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/User,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DecoyObject]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DecoyPublicRelease
   "Decoy Public Release"
@@ -11103,10 +11158,10 @@
    :db/ident :d3f/DecoyUserCredential,
    :rdf/type [:owl/NamedIndividual :d3f/DecoyObject :owl/Class],
    :rdfs/label "Decoy User Credential",
-   :rdfs/subClassOf [:d3f/DecoyObject
-                     {:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/Credential,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DecoyObject]})
 
 (def DeepConvolutionalGAN
   "Deep Convolutional GAN"
@@ -11153,7 +11208,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Default User Account",
    :rdfs/seeAlso
-   ["https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/local-accounts"],
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/local-accounts"},
    :rdfs/subClassOf :d3f/UserAccount})
 
 (def DefenseEvasion
@@ -11180,7 +11236,8 @@
   {:d3f/definition   "a plan for attaining a particular goal",
    :db/ident         :d3f/DefensiveTactic,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/05913746-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/05913746-n"},
    :rdfs/label       "Defensive Tactic",
    :rdfs/subClassOf  [{:owl/onProperty     :d3f/enabled-by,
                        :owl/someValuesFrom :d3f/DefensiveTechnique,
@@ -11198,21 +11255,22 @@
    :db/ident :d3f/DefensiveTechnique,
    :rdf/type [:d3f/Technique :owl/Class :owl/NamedIndividual],
    :rdfs/label "Defensive Technique",
-   :rdfs/seeAlso ["https://csrc.nist.gov/glossary/term/security_control"],
-   :rdfs/subClassOf [:d3f/CapabilityFeature
-                     :d3f/D3FENDThing
-                     :d3f/Technique
-                     {:owl/onProperty     :d3f/kb-reference,
-                      :owl/someValuesFrom :d3f/TechniqueReference,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/d3fend-id,
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://csrc.nist.gov/glossary/term/security_control"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/d3fend-id,
                       :owl/someValuesFrom :xsd/string,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/CapabilityFeature
+                     :d3f/D3FENDThing
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/DefensiveTactic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/date,
                       :owl/someValuesFrom :xsd/dateTime,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/DefensiveTactic,
+                     :d3f/Technique
+                     {:owl/onProperty     :d3f/kb-reference,
+                      :owl/someValuesFrom :d3f/TechniqueReference,
                       :rdf/type           :owl/Restriction}]})
 
 (def DefensiveTechniqueAssessment
@@ -11224,17 +11282,12 @@
    :db/ident :d3f/DefensiveTechniqueAssessment,
    :rdf/type :owl/Class,
    :rdfs/label "Defensive Technique Assessment",
-   :rdfs/subClassOf [{:owl/allValuesFrom {:owl/oneOf [{:xsd/string "0"}
-                                                      {:xsd/string "1"}
-                                                      {:xsd/string "2"}
-                                                      {:xsd/string "3"}],
-                                          :rdf/type  :rdfs/Datatype},
-                      :owl/onProperty    :d3f/rating,
-                      :rdf/type          :owl/Restriction}
-                     {:owl/onProperty     :d3f/counters,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/counters,
                       :owl/someValuesFrom :d3f/OffensiveTechnique,
                       :rdf/type           :owl/Restriction}
-                     :d3f/FeatureAssessment
+                     {:owl/onProperty     :d3f/confidence,
+                      :owl/someValuesFrom :xsd/integer,
+                      :rdf/type           :owl/Restriction}
                      {:owl/allValuesFrom {:owl/oneOf [{:xsd/string "Deceive"}
                                                       {:xsd/string "Detect"}
                                                       {:xsd/string "Evict"}
@@ -11243,19 +11296,24 @@
                                           :rdf/type  :rdfs/Datatype},
                       :owl/onProperty    :d3f/stage,
                       :rdf/type          :owl/Restriction}
-                     {:owl/onProperty     :d3f/assesses,
-                      :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/confidence,
-                      :owl/someValuesFrom :xsd/integer,
-                      :rdf/type           :owl/Restriction}
+                     {:owl/cardinality 1,
+                      :owl/onProperty  :d3f/rating,
+                      :rdf/type        :owl/Restriction}
+                     :d3f/FeatureAssessment
                      {:owl/onDataRange :xsd/string,
                       :owl/onProperty  :d3f/stage,
                       :owl/qualifiedCardinality 1,
                       :rdf/type        :owl/Restriction}
-                     {:owl/cardinality 1,
-                      :owl/onProperty  :d3f/rating,
-                      :rdf/type        :owl/Restriction}]})
+                     {:owl/onProperty     :d3f/assesses,
+                      :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom {:owl/oneOf [{:xsd/string "0"}
+                                                      {:xsd/string "1"}
+                                                      {:xsd/string "2"}
+                                                      {:xsd/string "3"}],
+                                          :rdf/type  :rdfs/Datatype},
+                      :owl/onProperty    :d3f/rating,
+                      :rdf/type          :owl/Restriction}]})
 
 (def DefensiveTechniqueClaim
   "Defensive Technique Claim"
@@ -11270,6 +11328,18 @@
                       :rdf/type           :owl/Restriction}
                      :d3f/CapabilityFeatureClaim],
    :skos/altLabel   "Countermeasure Claim"})
+
+(def DeleteFile
+  "Delete File"
+  {:d3f/definition  "Remove a file from a machine.",
+   :d3f/deletes     :d3f/File,
+   :db/ident        :d3f/DeleteFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Delete File",
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/deletes,
+                      :owl/someValuesFrom :d3f/File,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/SystemCall]})
 
 (def Density-basedClustering
   "Density-based Clustering"
@@ -11316,12 +11386,12 @@
    :db/ident :d3f/Dependency,
    :rdf/type :owl/Class,
    :rdfs/label "Dependency",
-   :rdfs/seeAlso ["https://www.cisa.gov/what-are-dependencies"
-                  "http://wordnet-rdf.princeton.edu/id/14024833-n"],
-   :rdfs/subClassOf [:d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/provider,
+   :rdfs/seeAlso [{:rdfa/uri "https://www.cisa.gov/what-are-dependencies"}
+                  {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/14024833-n"}],
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/provider,
                       :owl/someValuesFrom :d3f/D3FENDThing,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/dependent,
                       :owl/someValuesFrom :d3f/D3FENDThing,
                       :rdf/type           :owl/Restriction}]})
@@ -11365,7 +11435,7 @@
    "A desktop computer is a personal computer designed for regular use at a single location on or near a desk or table due to its size and power requirements. The most common configuration has a case that houses the power supply, motherboard (a printed circuit board with a microprocessor as the central processing unit (CPU), memory, bus, and other electronic components, disk storage (usually one or more hard disk drives, solid state drives, optical disc drives, and in early models a floppy disk drive); a keyboard and mouse for input; and a computer monitor, speakers, and, often, a printer for output. The case may be oriented horizontally or vertically and placed either underneath, beside, or on top of a desk.",
    :db/ident :d3f/DesktopComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Desktop_computer",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Desktop_computer"},
    :rdfs/label "Desktop Computer",
    :rdfs/subClassOf :d3f/PersonalComputer})
 
@@ -11387,8 +11457,9 @@
    :db/ident :d3f/DeveloperApplication,
    :rdf/type :owl/Class,
    :rdfs/label "Developer Application",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Application_software"
-                  "http://dbpedia.org/resource/Application_development"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Application_software"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Application_development"}],
    :rdfs/subClassOf :d3f/UserApplication})
 
 (def DialUpModem
@@ -11397,7 +11468,7 @@
    "A dial-up modem transmits computer data over an ordinary switched telephone line that has not been designed for data use. This contrasts with leased line modems, which also operate over lines provided by a telephone company, but ones which are intended for data use and do not impose the same signaling constraints. The modulated data must fit the frequency constraints of a normal voice audio signal, and the modem must be able to perform the actions needed to connect a call through a telephone exchange, namely: picking up the line, dialing, understanding signals sent back by phone company equipment (dial tone, ringing, busy signal,) and on the far end of the call, the second modem in the connection must be able to recognize the incoming ring signal and answer the line.",
    :db/ident :d3f/DialUpModem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Modem#Dial-up",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Modem#Dial-up"},
    :rdfs/label "Dial Up Modem",
    :rdfs/subClassOf :d3f/Modem})
 
@@ -11411,9 +11482,10 @@
    :rdf/type :owl/Class,
    :rdfs/label "Digital Artifact",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Digital_artifactual_value"
-    "https://www.iso.org/obp/ui/#iso:std:iso-iec:19770:-1:ed-3:v1:en"
-    "http://dbpedia.org/resource/Virtual_artifact"],
+   [{:rdfa/uri "http://dbpedia.org/resource/Digital_artifactual_value"}
+    {:rdfa/uri
+     "https://www.iso.org/obp/ui/#iso:std:iso-iec:19770:-1:ed-3:v1:en"}
+    {:rdfa/uri "http://dbpedia.org/resource/Virtual_artifact"}],
    :rdfs/subClassOf [:d3f/DigitalObject :d3f/Artifact]})
 
 (def DigitalEvent
@@ -11431,9 +11503,10 @@
    "Create relationship 'identifies some data' once data ontology implemented",
    :db/ident :d3f/DigitalFingerprint,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://csrc.nist.gov/glossary/term/digital_fingerprint",
+   :rdfs/isDefinedBy
+   {:rdfa/uri "https://csrc.nist.gov/glossary/term/digital_fingerprint"},
    :rdfs/label "Digital Fingerprint",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/fingerprint"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/fingerprint"},
    :rdfs/subClassOf :d3f/Identifier})
 
 (def DigitalObject
@@ -11443,8 +11516,9 @@
    :db/ident :d3f/DigitalObject,
    :rdf/type :owl/Class,
    :rdfs/label "Digital Object",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Virtual_artifact"
-                  "http://dbpedia.org/resource/Digital_artifactual_value"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Virtual_artifact"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Digital_artifactual_value"}],
    :rdfs/subClassOf :d3f/D3FENDThing})
 
 (def DigitalSystem
@@ -11454,7 +11528,7 @@
    :db/ident :d3f/DigitalSystem,
    :rdf/type :owl/Class,
    :rdfs/label "Digital System",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/System"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/System"},
    :rdfs/subClassOf [:d3f/System :d3f/DigitalArtifact]})
 
 (def DimensionReduction
@@ -11476,7 +11550,8 @@
    :d3f/may-contain :d3f/File,
    :db/ident :d3f/Directory,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Directory_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Directory_(computing)"},
    :rdfs/label "Directory",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/File,
@@ -11489,7 +11564,8 @@
    "In computing, directory service or name service maps the names of network resources to their respective network addresses. It is a shared information infrastructure for locating, managing, administering and organizing everyday items and network resources, which can include volumes, folders, files, printers, users, groups, devices, telephone numbers and other objects. A directory service is a critical component of a network operating system. A directory server or name server is a server which provides such a service. Each resource on the network is considered an object by the directory server. Information about a particular resource is stored as a collection of attributes associated with that resource or object.",
    :db/ident :d3f/DirectoryService,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Directory_service",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Directory_service"},
    :rdfs/label "Directory Service",
    :rdfs/subClassOf :d3f/NetworkService})
 
@@ -11545,7 +11621,7 @@
    "A graphics card (also called a display card, video card, display adapter, or graphics adapter) is an expansion card which generates a feed of output images to a display device (such as a computer monitor). Frequently, these are advertised as discrete or dedicated graphics cards, emphasizing the distinction between these and integrated graphics. At the core of both is the graphics processing unit (GPU), which is the main part that does the actual computations, but should not be confused with the video card as a whole, although \"GPU\" is often used to refer to video cards.",
    :db/ident :d3f/DisplayAdapter,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Video_card",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Video_card"},
    :rdfs/label "Display Adapter",
    :rdfs/subClassOf :d3f/OutputDevice,
    :skos/altLabel ["Video Card" "Graphics Adapter" "Display Card"]})
@@ -11557,8 +11633,8 @@
    :db/ident        :d3f/DisplayDeviceDriver,
    :rdf/type        :owl/Class,
    :rdfs/label      "Display Device Driver",
-   :rdfs/seeAlso    ["http://dbpedia.org/resource/Display_adapter"
-                     "http://dbpedia.org/resource/Device_driver"],
+   :rdfs/seeAlso    [{:rdfa/uri "http://dbpedia.org/resource/Display_adapter"}
+                     {:rdfa/uri "http://dbpedia.org/resource/Device_driver"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/drives,
                       :owl/someValuesFrom :d3f/DisplayAdapter,
                       :rdf/type           :owl/Restriction}
@@ -11570,7 +11646,7 @@
    "A display server or window server is a program whose primary task is to coordinate the input and output of its clients to and from the rest of the operating system, the hardware, and each other. The display server communicates with its clients over the display server protocol, a communications protocol, which can be network-transparent or simply network-capable. The display server is a key component in any graphical user interface, specifically the windowing system.",
    :db/ident :d3f/DisplayServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Display_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Display_server"},
    :rdfs/label "Display Server",
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel "Window Server"})
@@ -11616,7 +11692,7 @@
    :db/ident :d3f/DocumentFile,
    :rdf/type :owl/Class,
    :rdfs/label "Document File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Document"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Document"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}
@@ -11662,10 +11738,10 @@
    :rdf/type
    [:owl/Class :owl/NamedIndividual :d3f/IdentifierReputationAnalysis],
    :rdfs/label "Domain Name Reputation Analysis",
-   :rdfs/subClassOf [:d3f/IdentifierReputationAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/DomainName,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/IdentifierReputationAnalysis]})
 
 (def DomainRegistration
   "Domain Registration"
@@ -11675,8 +11751,9 @@
    :db/ident :d3f/DomainRegistration,
    :rdf/type :owl/Class,
    :rdfs/label "Domain Registration",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/WHOIS"
-                  "http://dbpedia.org/resource/Domain_registration"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/WHOIS"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Domain_registration"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/DomainName,
                       :rdf/type           :owl/Restriction}
@@ -11694,13 +11771,13 @@
    :db/ident :d3f/DomainTrustPolicy,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/CredentialHardening],
    :rdfs/label "Domain Trust Policy",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/DirectoryService,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/CredentialHardening
                      {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/T1087.002,
                       :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening]})
+                     {:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/DirectoryService,
+                      :rdf/type           :owl/Restriction}]})
 
 (def DomainUserAccount
   "Domain User Account"
@@ -11709,7 +11786,8 @@
    :db/ident :d3f/DomainUserAccount,
    :rdf/type :owl/Class,
    :rdfs/label "Domain User Account",
-   :rdfs/seeAlso ["https://networkencyclopedia.com/global-user-account"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://networkencyclopedia.com/global-user-account"},
    :rdfs/subClassOf :d3f/UserAccount})
 
 (def DriverLoadIntegrityChecking
@@ -11726,10 +11804,10 @@
    :db/ident :d3f/DriverLoadIntegrityChecking,
    :rdf/type [:d3f/PlatformHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label "Driver Load Integrity Checking",
-   :rdfs/subClassOf [:d3f/PlatformHardening
-                     {:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/HardwareDriver,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PlatformHardening]})
 
 (def Dyna-Q
   "Dyna-Q"
@@ -11773,7 +11851,8 @@
    "Find better full description; wikipedia entry is too narrow in focus after first sentence and misses a lot of the security aspects",
    :db/ident :d3f/DynamicAnalysisTool,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Dynamic_program_analysis",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Dynamic_program_analysis"},
    :rdfs/label "Dynamic Analysis Tool",
    :rdfs/subClassOf :d3f/CodeAnalyzer})
 
@@ -11785,8 +11864,8 @@
    :db/ident :d3f/Email,
    :rdf/type :owl/Class,
    :rdfs/label "Email",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/email"
-                  "http://dbpedia.org/resource/Email"],
+   :rdfs/seeAlso [{:rdfa/uri "https://schema.ocsf.io/objects/email"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Email"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
@@ -11802,7 +11881,7 @@
    "An email attachment is a computer file sent along with an email message. One or more files can be attached to any email message, and be sent along with it to the recipient. This is typically used as a simple method to share documents and images.",
    :db/ident :d3f/EmailAttachment,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Email_attachment",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Email_attachment"},
    :rdfs/label "Email Attachment",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/attached-to,
                       :owl/someValuesFrom :d3f/Email,
@@ -11822,10 +11901,10 @@
    :db/ident :d3f/EmailFiltering,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/InboundTrafficFiltering],
    :rdfs/label "Email Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [:d3f/InboundTrafficFiltering
+                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/Email,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/InboundTrafficFiltering]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def EmailRemoval
   "Email Removal"
@@ -11865,7 +11944,7 @@
    "An embedded computer is a computer system -- a combination of a computer processor, computer memory, and input/output peripheral devices-that has a dedicated function within a larger mechanical or electrical system. It is embedded as part of a complete device often including electrical or electronic hardware and mechanical parts. Because an embedded system typically controls physical operations of the machine that it is embedded within, it often has real-time computing constraints. Embedded systems control many devices in common use today. Ninety-eight percent of all microprocessors manufactured are used in embedded systems.",
    :db/ident :d3f/EmbeddedComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Embedded_system",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Embedded_system"},
    :rdfs/label "Embedded Computer",
    :rdfs/subClassOf :d3f/ClientComputer,
    :skos/altLabel "Embedded System"})
@@ -11882,12 +11961,12 @@
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/FileAnalysis],
    :rdfs/label "Emulated File Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/DocumentFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/FileAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/FileAnalysis]})
 
 (def Enclave
   "Enclave"
@@ -11896,7 +11975,7 @@
    :d3f/may-contain :d3f/LocalAreaNetwork,
    :db/ident :d3f/Enclave,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Network_enclave",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Network_enclave"},
    :rdfs/label "Enclave",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/LocalAreaNetwork,
@@ -11946,10 +12025,10 @@
    :db/ident :d3f/EndpointHealthBeacon,
    :rdf/type [:owl/Class :d3f/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label "Endpoint Health Beacon",
-   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3f/monitors,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/monitors,
                       :owl/someValuesFrom :d3f/NetworkNode,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OperatingSystemMonitoring]})
 
 (def EndpointSensor
   "Endpoint Sensor"
@@ -11958,7 +12037,7 @@
    :db/ident :d3f/EndpointSensor,
    :rdf/type :owl/Class,
    :rdfs/label "Endpoint Sensor",
-   :rdfs/seeAlso ["d3f:Platform"],
+   :rdfs/seeAlso {:xsd/string "d3f:Platform"},
    :rdfs/subClassOf :d3f/Sensor})
 
 (def EnsembleLearning
@@ -12031,7 +12110,8 @@
    "Event logs record events taking place in the execution of a system in order to provide an audit trail that can be used to understand the activity of the system and to diagnose problems. They are essential to understand the activities of complex systems, particularly in the case of applications with little user interaction (such as server applications).",
    :db/ident :d3f/EventLog,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Log_file#Event_logs",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Log_file#Event_logs"},
    :rdfs/label "Event Log",
    :rdfs/subClassOf :d3f/Log})
 
@@ -12073,7 +12153,7 @@
    :db/ident :d3f/ExceptionHandler,
    :rdf/type :owl/Class,
    :rdfs/label "Exception Handler",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Exception_handling"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Exception_handling"},
    :rdfs/subClassOf :d3f/Subroutine})
 
 (def ExceptionHandlerPointerValidation
@@ -12106,16 +12186,16 @@
    :d3f/kb-reference
    [:d3f/Reference-EnhancingNetworkSecurityByPreventingUser-InitiatedMalwareExecution_
     :d3f/Reference-ComputingApparatusWithAutomaticIntegrityReferenceGenerationAndMaintenance_Tripwire%2CInc.],
-   :d3f/restricts :d3f/CreateProcess,
+   :d3f/restricts :d3f/SpawnProcess,
    :d3f/synonym "File Signature Authentication",
    :db/ident :d3f/ExecutableAllowlisting,
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label "Executable Allowlisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                     {:owl/onProperty     :d3f/blocks,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}
                      :d3f/ExecutionIsolation]})
 
@@ -12128,15 +12208,15 @@
    :db/ident :d3f/ExecutableBinary,
    :rdf/type :owl/Class,
    :rdfs/label "Executable Binary",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Executable"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-interpret,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Executable"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ImageCodeSegment,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ImageDataSegment,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-interpret,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}
                      :d3f/ExecutableFile]})
 
@@ -12151,18 +12231,18 @@
    :d3f/kb-reference
    [:d3f/Reference-MethodAndApparatusForIncreasingTheSpeedAtWhichComputerVirusesAreDetected_McAfeeLLC
     :d3f/Reference-ContentExtractorAndAnalysisSystem_Bit9Inc%2CCarbonBlackInc],
-   :d3f/restricts :d3f/CreateProcess,
+   :d3f/restricts :d3f/SpawnProcess,
    :d3f/synonym "Executable Blacklisting",
    :db/ident :d3f/ExecutableDenylisting,
    :rdf/type [:owl/NamedIndividual :d3f/ExecutionIsolation :owl/Class],
    :rdfs/label "Executable Denylisting",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionIsolation
                      {:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/ExecutableFile,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ExecutionIsolation]})
 
 (def ExecutableFile
   "Executable File"
@@ -12171,7 +12251,7 @@
    "In computing, executable code or an executable file or executable program, sometimes simply an executable, causes a computer \"to perform indicated tasks according to encoded instructions,\" as opposed to a data file that must be parsed by a program to be meaningful. These instructions are traditionally machine code instructions for a physical CPU. However, in a more general sense, a file containing instructions (such as bytecode) for a software interpreter may also be considered executable; even a scripting language source file may therefore be considered executable in this sense. The exact interpretation depends upon the use; while the term often refers only to machine code files, in the context of protection against computer viruses all files which cause potentially hazardous instruction",
    :db/ident :d3f/ExecutableFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Executable",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Executable"},
    :rdfs/label "Executable File",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Subroutine,
@@ -12186,8 +12266,25 @@
    :db/ident :d3f/ExecutableScript,
    :rdf/type :owl/Class,
    :rdfs/label "Executable Script",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Executable"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Executable"},
    :rdfs/subClassOf :d3f/ExecutableFile})
+
+(def ExecuteProcess
+  "Execute Process"
+  {:d3f/definition "Executes a process.",
+   :d3f/executes :d3f/Process,
+   :db/ident :d3f/ExecuteProcess,
+   :rdf/type :owl/Class,
+   :rdfs/label "Execute Process",
+   :rdfs/seeAlso
+   [{:rdfa/uri
+     "https://learn.microsoft.com/en-us/windows/win32/procthread/creating-processes"}
+    {:rdfa/uri "https://dbpedia.org/page/Spawn_(computing)"}
+    {:rdfa/uri "https://dbpedia.org/page/Fork%E2%80%93exec"}],
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
+                      :owl/someValuesFrom :d3f/Process,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/SpawnProcess]})
 
 (def Execution
   "Execution"
@@ -12323,10 +12420,12 @@
    :owl/disjointWith :d3f/SlowSymbolicLink,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Symbolic_link#Storage_of_symbolic_links",
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Symbolic_link#Storage_of_symbolic_links"},
    :rdfs/label "Fast Symbolic Link",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Symbolic_link#Storage_of_symbolic_links"],
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Symbolic_link#Storage_of_symbolic_links"},
    :rdfs/subClassOf [:d3f/UnixLink :d3f/SymbolicLink],
    :skos/altLabel "Fast Symlink"})
 
@@ -12345,14 +12444,15 @@
    :db/ident        :d3f/File,
    :rdf/type        :owl/Class,
    :rdfs/label      "File",
-   :rdfs/seeAlso    ["http://wordnet-rdf.princeton.edu/id/06521201-n"],
+   :rdfs/seeAlso    {:rdfa/uri
+                     "http://wordnet-rdf.princeton.edu/id/06521201-n"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
+                     :d3f/Resource
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/FileSection,
                       :rdf/type           :owl/Restriction}
-                     :d3f/Resource
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}]})
@@ -12443,10 +12543,10 @@
    :db/ident :d3f/FileCreationAnalysis,
    :rdf/type [:owl/NamedIndividual :d3f/SystemCallAnalysis :owl/Class],
    :rdfs/label "File Creation Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/SystemCallAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/CreateFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemCallAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileEncryption
   "File Encryption"
@@ -12499,10 +12599,10 @@
    :rdf/type
    [:d3f/IdentifierReputationAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label "File Hash Reputation Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/IdentifierReputationAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/FileHash,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/IdentifierReputationAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileHashing
   "File Hashing"
@@ -12570,10 +12670,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/deletes,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
+                     :d3f/FileEviction
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/FileServer,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/FileEviction]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileSection
   "File Section"
@@ -12582,7 +12682,7 @@
    :db/ident :d3f/FileSection,
    :rdf/type :owl/Class,
    :rdfs/label "File Section",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/05876035-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/05876035-n"},
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel "File Part"})
 
@@ -12592,7 +12692,7 @@
    "The term server highlights the role of the machine in the traditional client-server scheme, where the clients are the workstations using the storage. A file server does not normally perform computational tasks or run programs on behalf of its client workstations. File servers are commonly found in schools and offices, where users use a local area network to connect their client computers.",
    :db/ident :d3f/FileServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/File_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/File_server"},
    :rdfs/label "File Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -12603,7 +12703,7 @@
    :db/ident :d3f/FileShareService,
    :rdf/type :owl/Class,
    :rdfs/label "File Share Service",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/File_sharing"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/File_sharing"},
    :rdfs/subClassOf :d3f/NetworkService})
 
 (def FileSystem
@@ -12614,16 +12714,16 @@
    "In computing, a file system or filesystem is used to control how data is stored and retrieved. Without a file system, information placed in a storage medium would be one large body of data with no way to tell where one piece of information stops and the next begins. By separating the data into pieces and giving each piece a name, the information is easily isolated and identified. Taking its name from the way paper-based information systems are named, each group of data is called a \"file\". The structure and logic rules used to manage the groups of information and their names is called a \"file system\".",
    :db/ident :d3f/FileSystem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/File_system",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/File_system"},
    :rdfs/label "File System",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/FileSystemLink,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/FileSystemMetadata,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/FileSystemLink,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Directory,
@@ -12636,7 +12736,7 @@
    "A file system link associates a name with a file on a file system.  Most generally, this may be a direct reference (a hard link) or an indirect one (a soft link).",
    :db/ident :d3f/FileSystemLink,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Hard_link",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Hard_link"},
    :rdfs/label "File System Link",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -12647,7 +12747,7 @@
    :db/ident :d3f/FileSystemMetadata,
    :rdf/type :owl/Class,
    :rdfs/label "File System Metadata",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/File_system#Metadata"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/File_system#Metadata"},
    :rdfs/subClassOf :d3f/Metadata})
 
 (def FileSystemSensor
@@ -12678,7 +12778,7 @@
    :db/ident :d3f/FingerPrintScannerInputDevice,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Fingerprint#Fingerprint_sensors",
+   {:rdfa/uri "http://dbpedia.org/resource/Fingerprint#Fingerprint_sensors"},
    :rdfs/label "Finger Print Scanner Input Device",
    :rdfs/subClassOf :d3f/ImageScannerInputDevice,
    :skos/altLabel "Fingerprint Sensor"})
@@ -12690,7 +12790,7 @@
    :db/ident :d3f/Firewall,
    :rdf/type :owl/Class,
    :rdfs/label "Firewall",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Firewall_(computing)"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Firewall_(computing)"},
    :rdfs/subClassOf :d3f/NetworkNode,
    :skos/altLabel "Network Firewall"})
 
@@ -12700,7 +12800,7 @@
    "In electronic systems and computing, firmware is a type of software that provides control, monitoring and data manipulation of engineered products and systems. Typical examples of devices containing firmware are embedded systems (such as traffic lights, consumer appliances, remote controls and digital watches), computers, computer peripherals, mobile phones, and digital cameras. The firmware contained in these devices provides the low-level control program for the device.",
    :db/ident :d3f/Firmware,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Firmware",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Firmware"},
    :rdfs/label "Firmware",
    :rdfs/subClassOf :d3f/Software})
 
@@ -12800,7 +12900,7 @@
    "Flash memory is an electronic non-volatile computer memory storage medium that can be electrically erased and reprogrammed.",
    :db/ident :d3f/FlashMemory,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Flash_memory",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Flash_memory"},
    :rdfs/label "Flash Memory",
    :rdfs/subClassOf :d3f/SecondaryStorage})
 
@@ -12817,7 +12917,7 @@
    "An forward (or open) proxy is a proxy server that is accessible by any Internet user. Generally, a proxy server only allows users within a network group (i.e. a closed proxy) to store and forward Internet services such as DNS or web pages to reduce and control the bandwidth used by the group. With an open proxy, however, any user on the Internet is able to use this forwarding service.",
    :db/ident :d3f/ForwardProxyServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Open_proxy",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Open_proxy"},
    :rdfs/label "Forward Proxy Server",
    :rdfs/subClassOf :d3f/ProxyServer})
 
@@ -12833,10 +12933,10 @@
    :db/ident :d3f/ForwardResolutionDomainDenylisting,
    :rdf/type [:d3f/DNSDenylisting :owl/NamedIndividual :owl/Class],
    :rdfs/label "Forward Resolution Domain Denylisting",
-   :rdfs/subClassOf [:d3f/DNSDenylisting
-                     {:owl/onProperty     :d3f/blocks,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DNSDenylisting]})
 
 (def ForwardResolutionIPDenylisting
   "Forward Resolution IP Denylisting"
@@ -12946,7 +13046,8 @@
   {:db/ident :d3f/GetForegroundWindow,
    :rdf/type [:d3f/GetOpenWindows :owl/NamedIndividual],
    :rdfs/isDefinedBy
-   "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getforegroundwindow"})
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getforegroundwindow"}})
 
 (def GetOpenSockets
   "Get Open Sockets"
@@ -12987,7 +13088,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Get System Config Value",
    :rdfs/seeAlso
-   ["https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regopenkeyexa"],
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regopenkeyexa"},
    :rdfs/subClassOf [{:owl/onProperty :d3f/reads,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
@@ -13008,7 +13110,8 @@
    :db/ident :d3f/GetSystemTime,
    :rdf/type :owl/Class,
    :rdfs/label "Get System Time",
-   :rdfs/seeAlso ["https://man7.org/linux/man-pages/man2/time.2.html"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://man7.org/linux/man-pages/man2/time.2.html"},
    :rdfs/subClassOf :d3f/SystemCall})
 
 (def GlobalUserAccount
@@ -13018,7 +13121,8 @@
    :db/ident :d3f/GlobalUserAccount,
    :rdf/type :owl/Class,
    :rdfs/label "Global User Account",
-   :rdfs/seeAlso ["https://networkencyclopedia.com/global-user-account"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://networkencyclopedia.com/global-user-account"},
    :rdfs/subClassOf :d3f/DomainUserAccount})
 
 (def GoodmanAndKruskalsGamma
@@ -13031,7 +13135,8 @@
    :db/ident :d3f/GoodmanAndKruskalsGamma,
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/isDefinedBy
-   "https://reference.wolfram.com/language/ref/GoodmanKruskalGamma.html",
+   {:rdfa/uri
+    "https://reference.wolfram.com/language/ref/GoodmanKruskalGamma.html"},
    :rdfs/label "Goodman and Kruskal's Gamma",
    :rdfs/subClassOf :d3f/RankCorrelationCoefficient})
 
@@ -13065,7 +13170,8 @@
    "A graphical user interface (GUI)  is a type of user interface that allows users to interact with electronic devices through graphical icons and visual indicators such as secondary notation, instead of text-based user interfaces, typed command labels or text navigation. GUIs were introduced in reaction to the perceived steep learning curve of command-line interfaces (CLIs), which require commands to be typed on a computer keyboard.",
    :db/ident :d3f/GraphicalUserInterface,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Graphical_user_interface",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Graphical_user_interface"},
    :rdfs/label "Graphical User Interface",
    :rdfs/subClassOf :d3f/UserInterface,
    :skos/altLabel "GUI"})
@@ -13076,7 +13182,7 @@
    :db/ident        :d3f/GraphicsCardFirmware,
    :rdf/type        :owl/Class,
    :rdfs/label      "Graphics Card Firmware",
-   :rdfs/seeAlso    ["d3f:Firmware"],
+   :rdfs/seeAlso    {:xsd/string "d3f:Firmware"},
    :rdfs/subClassOf :d3f/PeripheralFirmware,
    :skos/altLabel   "Video Card Firmware"})
 
@@ -13150,7 +13256,7 @@
    :db/ident :d3f/HTMLFile,
    :rdf/type :owl/Class,
    :rdfs/label "HTML File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/HTML"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/HTML"},
    :rdfs/subClassOf :d3f/DocumentFile,
    :skos/altLabel "HTML File"})
 
@@ -13172,7 +13278,7 @@
    :db/ident        :d3f/HardDiskFirmware,
    :rdf/type        :owl/Class,
    :rdfs/label      "Hard Disk Firmware",
-   :rdfs/seeAlso    ["http://dbpedia.org/resource/Hard_disk_drive"],
+   :rdfs/seeAlso    {:rdfa/uri "http://dbpedia.org/resource/Hard_disk_drive"},
    :rdfs/subClassOf :d3f/PeripheralFirmware,
    :skos/altLabel   "Hard Drive Firmware"})
 
@@ -13182,7 +13288,7 @@
    "In computing, a hard link is a directory entry that associates a name with a file on a file system. All directory-based file systems must have at least one hard link giving the original name for each file. The term \"hard link\" is usually only used in file systems that allow more than one hard link for the same file. Multiple hard links -- that is, multiple directory entries to the same file -- are supported by POSIX-compliant and partially POSIX-compliant operating systems, such as Linux, Android, macOS, and also Windows NT4 and later Windows NT operating systems.",
    :db/ident :d3f/HardLink,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Hard_link",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Hard_link"},
    :rdfs/label "Hard Link",
    :rdfs/subClassOf :d3f/FileSystemLink})
 
@@ -13209,14 +13315,14 @@
    [:d3f/Reference-IsolationOfApplicationsWithinAVirtualMachine_Bromium%2CInc.
     :d3f/Reference-VirtualizedProcessIsolation_AdvancedMicroDevicesInc
     :d3f/Reference-ApproachesForSecuringAnInternetEndpointUsingFine-grainedOperatingSystemVirtualization_Bromium%2CInc.],
-   :d3f/restricts :d3f/CreateProcess,
+   :d3f/restricts :d3f/SpawnProcess,
    :d3f/synonym "Virtualization",
    :db/ident :d3f/Hardware-basedProcessIsolation,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ExecutionIsolation],
    :rdfs/label "Hardware-based Process Isolation",
    :rdfs/subClassOf [:d3f/ExecutionIsolation
                      {:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/isolates,
                       :owl/someValuesFrom :d3f/Process,
@@ -13236,10 +13342,10 @@
    :db/ident :d3f/HardwareComponentInventory,
    :rdf/type [:owl/Class :d3f/AssetInventory :owl/NamedIndividual],
    :rdfs/label "Hardware Component Inventory",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
+   :rdfs/subClassOf [:d3f/AssetInventory
+                     {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/HardwareDevice,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/AssetInventory]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def HardwareDevice
   "Hardware Device"
@@ -13247,9 +13353,10 @@
    "Hardware devices are the physical artifacts that constitute a network or computer system. Hardware devices are the physical parts or components of a computer, such as the monitor, keyboard, computer data storage, hard disk drive (HDD), graphic cards, sound cards, memory (RAM), motherboard, and so on, all of which are tangible physical objects. By contrast, software is instructions that can be stored and run by hardware. Hardware is directed by the software to execute any command or instruction. A combination of hardware and software forms a usable computing system.",
    :db/ident :d3f/HardwareDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Computer_hardware",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Computer_hardware"},
    :rdfs/label "Hardware Device",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/device_hw_info"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/device_hw_info"},
    :rdfs/subClassOf [:d3f/PhysicalArtifact :d3f/DigitalArtifact]})
 
 (def HardwareDriver
@@ -13259,7 +13366,7 @@
    :d3f/drives :d3f/HardwareDevice,
    :db/ident :d3f/HardwareDriver,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Device_driver",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Device_driver"},
    :rdfs/label "Hardware Driver",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/drives,
                       :owl/someValuesFrom :d3f/HardwareDevice,
@@ -13286,7 +13393,8 @@
    :db/ident :d3f/HeapSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Heap Segment",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Memory_management#HEAP"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Memory_management#HEAP"},
    :rdfs/subClassOf :d3f/ProcessSegment})
 
 (def HeterogeneousAsymmetricFeature-basedTransferLearning
@@ -13429,10 +13537,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
-                     :d3f/IdentifierAnalysis
                      {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Email,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/IdentifierAnalysis]})
 
 (def Host
   "Host"
@@ -13442,18 +13550,18 @@
    :d3f/runs :d3f/OperatingSystem,
    :db/ident :d3f/Host,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Host_(network)",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Host_(network)"},
    :rdfs/label "Host",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/device"],
-   :rdfs/subClassOf [:d3f/NetworkNode
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/device"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/Application,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/OperatingSystem,
                       :rdf/type           :owl/Restriction}
+                     :d3f/NetworkNode
                      {:owl/onProperty     :d3f/runs,
                       :owl/someValuesFrom :d3f/OperatingSystem,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/Application,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel "Network Host"})
 
@@ -13502,12 +13610,12 @@
    :d3f/identifies :d3f/Host,
    :db/ident :d3f/Hostname,
    :rdf/type [:owl/Class :d3f/DomainName :owl/NamedIndividual],
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Hostname",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Hostname"},
    :rdfs/label "Hostname",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
+   :rdfs/subClassOf [:d3f/Identifier
+                     {:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Host,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Identifier],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel "Nodename"})
 
 (def HumanInputDeviceFirmware
@@ -13517,8 +13625,9 @@
    :db/ident :d3f/HumanInputDeviceFirmware,
    :rdf/type :owl/Class,
    :rdfs/label "Human Input Device Firmware",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Human_interface_device"
-                  "http://d3fend.mitre.org/ontologies/d3fend.owl#Firmware"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/Human_interface_device"}
+                  :d3f/Firmware],
    :rdfs/subClassOf :d3f/PeripheralFirmware})
 
 (def Hybrid-basedTransferLearning
@@ -13573,12 +13682,12 @@
    :rdf/type [:owl/Class :d3f/ExecutionIsolation :owl/NamedIndividual],
    :rdfs/label "IO Port Restriction",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
-                      :owl/someValuesFrom :d3f/RemovableMediaDevice,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/InputDevice,
                       :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionIsolation]})
+                     :d3f/ExecutionIsolation
+                     {:owl/onProperty     :d3f/filters,
+                      :owl/someValuesFrom :d3f/RemovableMediaDevice,
+                      :rdf/type           :owl/Restriction}]})
 
 (def IPAddress
   "IP Address"
@@ -13587,7 +13696,7 @@
    :d3f/identifies :d3f/NetworkNode,
    :db/ident :d3f/IPAddress,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/IP_address",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/IP_address"},
    :rdfs/label "IP Address",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/NetworkNode,
@@ -13638,7 +13747,7 @@
    "Rename and merge to URI with \"VoIP Phone\" as label VoipPhone as IRI",
    :db/ident :d3f/IPPhone,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/VoIP_phone",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/VoIP_phone"},
    :rdfs/label "IP Phone",
    :rdfs/subClassOf :d3f/PersonalComputer,
    :skos/altLabel "VoIP Phone"})
@@ -13666,7 +13775,7 @@
    "An identifier is a name that identifies (that is, labels the identity of) either a unique object or a unique class of objects, where the \"object\" or class may be an idea, physical [countable] object (or class thereof), or physical [noncountable] substance (or class thereof). The abbreviation ID often refers to identity, identification (the process of identifying), or an identifier (that is, an instance of identification). An identifier may be a word, number, letter, symbol, or any combination of those.",
    :db/ident :d3f/Identifier,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Identifier",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Identifier"},
    :rdfs/label "Identifier",
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel "ID"})
@@ -13694,11 +13803,11 @@
    :db/ident :d3f/IdentifierAnalysis,
    :rdf/type [:owl/Class :d3f/DefensiveTechnique :owl/NamedIndividual],
    :rdfs/label "Identifier Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/Detect,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Identifier,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/Detect,
                       :rdf/type           :owl/Restriction}
                      :d3f/DefensiveTechnique]})
 
@@ -13732,8 +13841,8 @@
    :db/ident :d3f/ImageCodeSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Image Code Segment",
-   :rdfs/seeAlso ["Process Code Segment"
-                  "http://dbpedia.org/resource/Code_segment"],
+   :rdfs/seeAlso [{:xsd/string "Process Code Segment"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Code_segment"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Subroutine,
                       :rdf/type           :owl/Restriction}
@@ -13746,8 +13855,8 @@
    :db/ident :d3f/ImageDataSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Image Data Segment",
-   :rdfs/seeAlso ["Process Data Segment"
-                  "http://dbpedia.org/resource/Data_segment"],
+   :rdfs/seeAlso [{:xsd/string "Process Data Segment"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Data_segment"}],
    :rdfs/subClassOf :d3f/ImageSegment})
 
 (def ImageScannerInputDevice
@@ -13756,7 +13865,7 @@
    "An image scanner -- often abbreviated to just scanner, is a device that optically scans images, printed text, handwriting or an object and converts it to a digital image. Commonly used in offices are variations of the desktop flatbed scanner where the document is placed on a glass window for scanning. Hand-held scanners, where the device is moved by hand, have evolved from text scanning \"wands\" to 3D scanners used for industrial design, reverse engineering, test and measurement, orthotics, gaming and other applications. Mechanically driven scanners that move the document are typically used for large-format documents, where a flatbed design would be impractical.",
    :db/ident :d3f/ImageScannerInputDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Image_scanner",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Image_scanner"},
    :rdfs/label "Image Scanner Input Device",
    :rdfs/subClassOf :d3f/VideoInputDevice,
    :skos/altLabel "Scanner"})
@@ -13768,7 +13877,8 @@
    :db/ident :d3f/ImageSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Image Segment",
-   :rdfs/seeAlso ["Object File" "http://dbpedia.org/resource/Object_file"],
+   :rdfs/seeAlso [{:xsd/string "Object File"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Object_file"}],
    :rdfs/subClassOf [:d3f/FileSection :d3f/BinarySegment]})
 
 (def ImageSynthesisGAN
@@ -13850,7 +13960,7 @@
    :db/ident :d3f/InboundInternetMailTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Inbound Internet Mail Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf [:d3f/MailNetworkTraffic
                      :d3f/InboundNetworkTraffic
                      :d3f/InboundInternetNetworkTraffic]})
@@ -13863,7 +13973,7 @@
    :db/ident :d3f/InboundInternetNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Inbound Internet Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
                       :rdf/type           :owl/Restriction}
@@ -13896,10 +14006,10 @@
    :db/ident :d3f/InboundSessionVolumeAnalysis,
    :rdf/type [:d3f/NetworkTrafficAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label "Inbound Session Volume Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis]})
 
 (def InboundTrafficFiltering
   "Inbound Traffic Filtering"
@@ -13922,10 +14032,10 @@
    :db/ident :d3f/InboundTrafficFiltering,
    :rdf/type [:d3f/NetworkTrafficFiltering :owl/Class :owl/NamedIndividual],
    :rdfs/label "Inbound Traffic Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [:d3f/NetworkTrafficFiltering
+                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/InboundNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkTrafficFiltering]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def IndirectBranchCallAnalysis
   "Indirect Branch Call Analysis"
@@ -13956,7 +14066,8 @@
   "Information Content Entity"
   {:db/ident         :d3f/InformationContentEntity,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "BFO, Cyc equiv, SUMO equiv, [Ontology Works] equiv",
+   :rdfs/isDefinedBy {:xsd/string
+                      "BFO, Cyc equiv, SUMO equiv, [Ontology Works] equiv"},
    :rdfs/label       "Information Content Entity",
    :rdfs/subClassOf  [{:owl/onProperty     :d3f/archived-at,
                        :owl/someValuesFrom :xsd/anyURI,
@@ -13971,8 +14082,9 @@
    :rdf/type :owl/Class,
    :rdfs/label "Init Script",
    :rdfs/seeAlso
-   ["https://blog.opstree.com/2020/02/11/shell-initialization-files/"
-    "http://dbpedia.org/resource/Init"],
+   [{:rdfa/uri
+     "https://blog.opstree.com/2020/02/11/shell-initialization-files/"}
+    {:rdfa/uri "http://dbpedia.org/resource/Init"}],
    :rdfs/subClassOf :d3f/ExecutableScript,
    :skos/altLabel "Initialization Script"})
 
@@ -14001,7 +14113,7 @@
    "In computing, an input device is a piece of equipment used to provide data and control signals to an information processing system such as a computer or information appliance. Examples of input devices include keyboards, mouse, scanners, digital cameras, joysticks, and microphones. Input devices can be categorized based on:",
    :db/ident :d3f/InputDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Input_device",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Input_device"},
    :rdfs/label "Input Device",
    :rdfs/subClassOf [:d3f/LocalResource :d3f/HardwareDevice]})
 
@@ -14051,7 +14163,7 @@
    "Client software used to engage in Instant Messaging, a type of online chat that offers real-time text transmission over the Internet. A LAN messenger operates in a similar way over a local area network. Short messages are typically transmitted between two parties, when each user chooses to complete a thought and select \"send\". Some IM applications can use push technology to provide real-time text, which transmits messages character by character, as they are composed. More advanced instant messaging can add file transfer, clickable hyperlinks, Voice over IP, or video chat.",
    :db/ident :d3f/InstantMessagingClient,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/wiki/Instant_messaging",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/wiki/Instant_messaging"},
    :rdfs/label "Instant Messaging Client",
    :rdfs/subClassOf :d3f/CollaborativeSoftware})
 
@@ -14080,7 +14192,7 @@
    :db/ident :d3f/IntegrationTestExecutionTool,
    :rdf/type :owl/Class,
    :rdfs/label "Integration Test Execution Tool",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Integration_testing"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Integration_testing"},
    :rdfs/subClassOf :d3f/TestExecutionTool})
 
 (def InternationalizedDomainName
@@ -14112,7 +14224,7 @@
    :db/ident :d3f/InternetDNSLookup,
    :rdf/type :owl/Class,
    :rdfs/label "Internet DNS Lookup",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf :d3f/DNSLookup})
 
 (def InternetFileTransferTraffic
@@ -14131,7 +14243,7 @@
    "A network of multiple, connected networks. Internetworking is the practice of connecting a computer network with other networks through the use of gateways that provide a common method of routing information packets between the networks. The resulting system of interconnected networks are called an internetwork, or simply an internet. Internetworking is a combination of the words inter (\"between\") and networking; not internet-working or international-network.",
    :db/ident :d3f/InternetNetwork,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Internetworking",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/label "Internet Network",
    :rdfs/subClassOf :d3f/Network,
    :skos/altLabel ["Internetwork" "Internet" "Interconnected Network"]})
@@ -14143,7 +14255,7 @@
    :db/ident :d3f/InternetNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Internet Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
 (def InterprocessCommunication
@@ -14152,7 +14264,8 @@
    "In computer science, inter-process communication or inter-process communication (IPC) refers specifically to the mechanisms an operating system provides to allow processes it manages to share data. Typically, applications can use IPC categorized as clients and servers, where the client requests data and the server responds to client requests. Many applications are both clients and servers, as commonly seen in distributed computing. Methods for achieving IPC are divided into categories which vary based on software requirements, such as performance and modularity requirements, and system circumstances, such as network bandwidth and latency.",
    :db/ident :d3f/InterprocessCommunication,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Inter-process_communication",
+   :rdfs/isDefinedBy
+   {:rdfa/uri "http://dbpedia.org/resource/Inter-process_communication"},
    :rdfs/label "Interprocess Communication",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -14188,7 +14301,7 @@
    :db/ident :d3f/IntranetAdministrativeNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet Administrative Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intranet"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf [:d3f/IntranetNetworkTraffic
                      :d3f/AdministrativeNetworkTraffic]})
 
@@ -14199,7 +14312,7 @@
    :db/ident :d3f/IntranetDNSLookup,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet DNS Lookup",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intranet"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf :d3f/DNSLookup})
 
 (def IntranetFileTransferTraffic
@@ -14209,8 +14322,8 @@
    :db/ident :d3f/IntranetFileTransferTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet File Transfer Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intranet"
-                  "http://dbpedia.org/resource/File_transfer"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Intranet"}
+                  {:rdfa/uri "http://dbpedia.org/resource/File_transfer"}],
    :rdfs/subClassOf [:d3f/IntranetNetworkTraffic
                      :d3f/FileTransferNetworkTraffic]})
 
@@ -14222,8 +14335,9 @@
    :db/ident :d3f/IntranetIPCNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet IPC Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intranet"
-                  "http://dbpedia.org/resource/Inter-process_communication"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Intranet"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Inter-process_communication"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
@@ -14239,7 +14353,7 @@
    :db/ident :d3f/IntranetMulticastNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet Multicast Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Multicast"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Multicast"},
    :rdfs/subClassOf :d3f/IntranetNetworkTraffic})
 
 (def IntranetNetwork
@@ -14248,7 +14362,7 @@
    "An intranet is a private network accessible only to an organization's staff or delegates. Generally a wide range of information and services from the organization's internal IT systems are available that would not be available to the public from the Internet. A company-wide intranet can constitute an important focal point of internal communication and collaboration, and provide a single starting point to access internal and external resources. In its simplest form an intranet is established with the technologies for local area networks (LANs) and wide area networks (WANs).",
    :db/ident :d3f/IntranetNetwork,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Intranet",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Intranet"},
    :rdfs/label "Intranet Network",
    :rdfs/subClassOf :d3f/Network})
 
@@ -14259,7 +14373,7 @@
    :db/ident :d3f/IntranetNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intranet"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
 (def IntranetRPCNetworkTraffic
@@ -14269,8 +14383,9 @@
    :db/ident :d3f/IntranetRPCNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet RPC Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Remote_procedure_call"
-                  "http://dbpedia.org/resource/Intranet"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/Remote_procedure_call"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Intranet"}],
    :rdfs/subClassOf [:d3f/RPCNetworkTraffic :d3f/IntranetNetworkTraffic]})
 
 (def IntranetWebNetworkTraffic
@@ -14281,7 +14396,7 @@
    :db/ident :d3f/IntranetWebNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Intranet Web Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intranet"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
@@ -14306,7 +14421,8 @@
    "An intrusion detection system (IDS) is a device or software application that monitors a network or systems for malicious activity or policy violations. Any intrusion activity or violation is typically reported either to an administrator or collected centrally using a security information and event management (SIEM) system. A SIEM system combines outputs from multiple sources and uses alarm filtering techniques to distinguish malicious activity from false alarms.",
    :db/ident :d3f/IntrusionDetectionSystem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Intrusion_detection_system",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Intrusion_detection_system"},
    :rdfs/label "Intrusion Detection System",
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel "IDS"})
@@ -14318,9 +14434,11 @@
    :db/ident :d3f/IntrusionPreventionSystem,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Intrusion_detection_system#Intrusion_prevention",
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Intrusion_detection_system#Intrusion_prevention"},
    :rdfs/label "Intrusion Prevention System",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intrusion_detection_system"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Intrusion_detection_system"},
    :rdfs/subClassOf :d3f/IntrusionDetectionSystem,
    :skos/altLabel ["Intrusion Detection and Prevention System" "IPS" "IDPS"]})
 
@@ -14342,7 +14460,7 @@
    :db/ident :d3f/JavaArchive,
    :rdf/type :owl/Class,
    :rdfs/label "Java Archive",
-   :rdfs/seeAlso ["https://dbpedia.org/page/JAR_(file_format)"],
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/page/JAR_(file_format)"},
    :rdfs/subClassOf [:d3f/SoftwarePackage :d3f/ArchiveFile]})
 
 (def JavaScriptBlob
@@ -14388,8 +14506,9 @@
    :db/ident :d3f/JobSchedule,
    :rdf/type :owl/Class,
    :rdfs/label "Job Schedule",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Cron"
-                  "http://dbpedia.org/resource/Windows_Task_Scheduler"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Cron"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Windows_Task_Scheduler"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ScheduledJob,
                       :rdf/type           :owl/Restriction}
@@ -14408,9 +14527,10 @@
    :db/ident :d3f/JobSchedulerSoftware,
    :rdf/type :owl/Class,
    :rdfs/label "Job Scheduler Software",
-   :rdfs/seeAlso ["Scheduled Task"
-                  "http://dbpedia.org/resource/Cron"
-                  "http://dbpedia.org/resource/Windows_Task_Scheduler"],
+   :rdfs/seeAlso [{:xsd/string "Scheduled Task"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Cron"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Windows_Task_Scheduler"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/ScheduledJob,
                       :rdf/type           :owl/Restriction}
@@ -14476,7 +14596,7 @@
    :db/ident :d3f/KendallsRankCorrelationCoefficient,
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/isDefinedBy
-   "https://reference.wolfram.com/language/ref/KendallTau.html",
+   {:rdfa/uri "https://reference.wolfram.com/language/ref/KendallTau.html"},
    :rdfs/label "Kendall's Rank Correlation Coefficient",
    :rdfs/subClassOf :d3f/RankCorrelationCoefficient})
 
@@ -14505,7 +14625,8 @@
    :db/ident :d3f/KerberosTicketGrantingTicket,
    :rdf/type :owl/Class,
    :rdfs/label "Kerberos Ticket Granting Ticket",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Ticket_Granting_Ticket"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Ticket_Granting_Ticket"},
    :rdfs/subClassOf [:d3f/TicketGrantingTicket :d3f/KerberosTicket]})
 
 (def Kernel
@@ -14518,28 +14639,29 @@
    :d3f/may-contain [:d3f/HardwareDriver :d3f/KernelModule],
    :db/ident :d3f/Kernel,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Kernel_(operating_system)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Kernel_(operating_system)"},
    :rdfs/label "Kernel",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/kernel"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/HardwareDriver,
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/kernel"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/OperatingSystemProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/KernelModule,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/loads,
+                      :owl/someValuesFrom :d3f/Application,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/manages,
                       :owl/someValuesFrom :d3f/UserProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/KernelModule,
+                      :owl/someValuesFrom :d3f/HardwareDriver,
                       :rdf/type           :owl/Restriction}
+                     :d3f/SystemSoftware
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/KernelProcessTable,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/OperatingSystemProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/loads,
-                      :owl/someValuesFrom :d3f/Application,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemSoftware]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Kernel-basedProcessIsolation
   "Kernel-based Process Isolation"
@@ -14569,9 +14691,10 @@
    "A loadable kernel module (LKM) is an object file that contains code to extend the running kernel, or so-called base kernel, of an operating system. LKMs are typically used to add support for new hardware (as device drivers) and/or filesystems, or for adding system calls. When the functionality provided by a LKM is no longer required, it can be unloaded in order to free memory and other resources.\n\nMost current Unix-like systems and Microsoft Windows support loadable kernel modules, although they might use a different name for them, such as kernel loadable module (kld) in FreeBSD, kernel extension (kext) in macOS,[1] kernel extension module in AIX, kernel-mode driver in Windows NT[2] and downloadable kernel module (DKM) in VxWorks. They are also known as kernel loadable modules (or KLM), and simply as kernel modules (KMOD).",
    :db/ident :d3f/KernelModule,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Loadable_kernel_module",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Loadable_kernel_module"},
    :rdfs/label "Kernel Module",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/kernel_driver"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/kernel_driver"},
    :rdfs/subClassOf :d3f/ObjectFile,
    :skos/altLabel ["Loadable Kernel Module" "LKM"]})
 
@@ -14582,11 +14705,12 @@
    :db/ident :d3f/KernelProcessTable,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://encyclopedia2.thefreedictionary.com/process+table",
+   {:rdfa/uri "https://encyclopedia2.thefreedictionary.com/process+table"},
    :rdfs/label "Kernel Process Table",
    :rdfs/seeAlso
-   ["https://www.geeksforgeeks.org/process-table-and-process-control-block-pcb/"
-    "http://dbpedia.org/resource/Process_(computing)"],
+   [{:rdfa/uri
+     "https://www.geeksforgeeks.org/process-table-and-process-control-block-pcb/"}
+    {:rdfa/uri "http://dbpedia.org/resource/Process_(computing)"}],
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def KeyboardInputDevice
@@ -14595,7 +14719,8 @@
    "A computer keyboard is a typewriter-style device which uses an arrangement of buttons or keys to act as mechanical levers or electronic switches. Following the decline of punch cards and paper tape, interaction via teleprinter-style keyboards became the main input method for computers. A keyboard is also used to give commands to the operating system of a computer, such as Windows' Control-Alt-Delete combination. Although on Pre-Windows 95 Microsoft operating systems this forced a re-boot, now it brings up a system security options screen.",
    :db/ident :d3f/KeyboardInputDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Computer_keyboard",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Computer_keyboard"},
    :rdfs/label "Keyboard Input Device",
    :rdfs/subClassOf :d3f/InputDevice,
    :skos/altLabel ["Keyboard" "Computer Keyboard"]})
@@ -14606,7 +14731,8 @@
    "An interactive kiosk is a computer terminal featuring specialized hardware and software that provides access to information and applications for communication, commerce, entertainment, or education. Early interactive kiosks sometimes resembled telephone booths, but have been embraced by retail, food service and hospitality to improve customer service and streamline operations. Interactive kiosks are typically placed in high foot traffic settings such as shops, hotel lobbies or airports.",
    :db/ident :d3f/KioskComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Interactive_kiosk",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Interactive_kiosk"},
    :rdfs/label "Kiosk Computer",
    :rdfs/subClassOf :d3f/SharedComputer,
    :skos/altLabel "Interactive Kiosk"})
@@ -14635,7 +14761,7 @@
    "A laptop computer (also laptop), is a small, portable personal computer (PC) with a \"clamshell\" form factor, typically having a thin LCD or LED computer screen mounted on the inside of the upper lid of the clamshell and an alphanumeric keyboard on the inside of the lower lid. The clamshell is opened up to use the computer. Laptops are folded shut for transportation, and thus are suitable for mobile use. Its name comes from lap, as it was deemed to be placed on a person's lap when being used. Although originally there was a distinction between laptops and notebooks (the former being bigger and heavier than the latter), as of 2014, there is often no longer any difference. Today, laptops are commonly used in a variety of settings, such as at work, in education, for playing games, web browsing",
    :db/ident :d3f/LaptopComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Laptop",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Laptop"},
    :rdfs/label "Laptop Computer",
    :rdfs/subClassOf :d3f/PersonalComputer,
    :skos/altLabel ["Notebook" "Laptop"]})
@@ -14674,7 +14800,7 @@
    :d3f/synonym "Legacy Digital System",
    :db/ident :d3f/LegacySystem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Legacy_system",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Legacy_system"},
    :rdfs/label "Legacy System",
    :rdfs/subClassOf :d3f/DigitalSystem})
 
@@ -14696,7 +14822,7 @@
   {:db/ident        :d3f/License,
    :rdf/type        :owl/Class,
    :rdfs/label      "License",
-   :rdfs/seeAlso    ["http://dbpedia.org/resource/Software_license"],
+   :rdfs/seeAlso    {:rdfa/uri "http://dbpedia.org/resource/Software_license"},
    :rdfs/subClassOf :d3f/InformationContentEntity})
 
 (def LinearClassifier
@@ -14746,7 +14872,7 @@
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Linear Regression Learning",
    :rdfs/seeAlso
-   ["http://d3fend.mitre.org/ontologies/d3fend.owl#LinearRegression"],
+   {:rdfa/uri "http://d3fend.mitre.org/ontologies/d3fend.owl#LinearRegression"},
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def Link
@@ -14754,8 +14880,73 @@
   {:db/ident        :d3f/Link,
    :rdf/type        :owl/Class,
    :rdfs/label      "Link",
-   :rdfs/seeAlso    ["https://dbpedia.org/resource/Link"],
+   :rdfs/seeAlso    {:rdfa/uri "https://dbpedia.org/resource/Link"},
    :rdfs/subClassOf :d3f/DigitalArtifact})
+
+(def LinuxClone
+  "Linux Clone"
+  {:d3f/definition
+   "Creates a child process and provides more precise control over the data shared between the parent and child processes",
+   :db/ident :d3f/LinuxClone,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/clone.2.html"},
+   :rdfs/label "Linux Clone",
+   :rdfs/subClassOf :d3f/CreateProcess})
+
+(def LinuxClone3
+  "Linux Clone3"
+  {:d3f/definition
+   "Creates a child process and provides more precise control over the data shared between the parent and child processes.\n\nNewer system call.",
+   :db/ident :d3f/LinuxClone3,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/clone3.2.html"},
+   :rdfs/label "Linux Clone3",
+   :rdfs/subClassOf :d3f/CreateProcess})
+
+(def LinuxClone3ArgumentCLONE_THREAD
+  "Linux Clone3 Argument CLONE_THREAD"
+  {:d3f/definition
+   "A flag parameter to the Clone3 syscall. If set, the child is placed in the same thread group as the calling process.",
+   :db/ident :d3f/LinuxClone3ArgumentCLONE_THREAD,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/clone3.2.html"},
+   :rdfs/label "Linux Clone3 Argument CLONE_THREAD",
+   :rdfs/subClassOf :d3f/CreateThread})
+
+(def LinuxCloneArgumentCLONE_THREAD
+  "Linux Clone Argument CLONE_THREAD"
+  {:d3f/definition
+   "A flag parameter to the Clone syscall. If set, the child is placed in the same thread group as the calling process.",
+   :db/ident :d3f/LinuxCloneArgumentCLONE_THREAD,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/clone.2.html"},
+   :rdfs/label "Linux Clone Argument CLONE_THREAD",
+   :rdfs/subClassOf :d3f/CreateThread})
+
+(def LinuxConnect
+  "Linux Connect"
+  {:d3f/definition   "Initiate a connection on a socket.",
+   :db/ident         :d3f/LinuxConnect,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/connect.2.html"},
+   :rdfs/label       "Linux Connect",
+   :rdfs/subClassOf  :d3f/ConnectSocket})
+
+(def LinuxCreat
+  "Linux Creat"
+  {:d3f/definition
+   "Equivalent to calling Linux Open with flags equal to O_CREAT|O_WRONLY|O_TRUNC.",
+   :db/ident :d3f/LinuxCreat,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/creat.2.html"},
+   :rdfs/label "Linux Creat",
+   :rdfs/subClassOf :d3f/CreateFile})
 
 (def LinuxELFFile32bit
   "Linux ELF File 32bit"
@@ -14770,17 +14961,340 @@
    :rdf/type   [:d3f/ExecutableBinary :owl/NamedIndividual],
    :rdfs/label "Linux ELF File 64bit"})
 
-(def LinuxExec
-  "Linux Exec"
-  {:db/ident   :d3f/LinuxExec,
-   :rdf/type   [:d3f/CreateProcess :owl/NamedIndividual],
-   :rdfs/label "Linux Exec"})
+(def LinuxExecve
+  "Linux Execve"
+  {:d3f/definition
+   "Executes a program by replacing the calling process with a new program, with newly initialized stack, heap, and (initialized and uninitialized) data segments. The PID stays the same.",
+   :db/ident :d3f/LinuxExecve,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/execve.2.html"},
+   :rdfs/label "Linux Execve",
+   :rdfs/subClassOf :d3f/ExecuteProcess})
+
+(def LinuxExecveat
+  "Linux Execveat"
+  {:d3f/definition
+   "Execute program relative to a directory file descriptor. Behavior is similar to Linux Execve.",
+   :db/ident :d3f/LinuxExecveat,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/execveat.2.html"},
+   :rdfs/label "Linux Execveat",
+   :rdfs/subClassOf :d3f/ExecuteProcess})
+
+(def LinuxFork
+  "Linux Fork"
+  {:d3f/definition
+   "Creates a child process with unique PID but retains parent PID as Parent Process Identifier (PPID)",
+   :db/ident :d3f/LinuxFork,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/fork.2.html"},
+   :rdfs/label "Linux Fork",
+   :rdfs/subClassOf :d3f/CreateProcess})
+
+(def LinuxKillArgumentSIGKILL
+  "Linux Kill Argument SIGKILL"
+  {:d3f/definition   "Send SIGKILL signal to a process.",
+   :db/ident         :d3f/LinuxKillArgumentSIGKILL,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/kill.2.html"},
+   :rdfs/label       "Linux Kill Argument SIGKILL",
+   :rdfs/subClassOf  :d3f/TerminateProcess})
+
+(def LinuxMmap
+  "Linux Mmap"
+  {:d3f/definition   "Map files or devices into memory.",
+   :db/ident         :d3f/LinuxMmap,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/mmap.2.html"},
+   :rdfs/label       "Linux Mmap",
+   :rdfs/subClassOf  :d3f/AllocateMemory})
+
+(def LinuxMmap2
+  "Linux Mmap2"
+  {:d3f/definition   "Map files or devices into memory.",
+   :db/ident         :d3f/LinuxMmap2,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/mmap2.2.html"},
+   :rdfs/label       "Linux Mmap2",
+   :rdfs/subClassOf  :d3f/AllocateMemory})
+
+(def LinuxMunmap
+  "Linux Munmap"
+  {:d3f/definition   "Unmap files or devices from memory.",
+   :db/ident         :d3f/LinuxMunmap,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/munmap.2.html"},
+   :rdfs/label       "Linux Munmap",
+   :rdfs/subClassOf  :d3f/FreeMemory})
+
+(def LinuxOpenArgumentO_CREAT
+  "Linux Open Argument O_CREAT"
+  {:d3f/definition   "Create a regular file.",
+   :db/ident         :d3f/LinuxOpenArgumentO_CREAT,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/open.2.html"},
+   :rdfs/label       "Linux Open Argument O_CREAT",
+   :rdfs/subClassOf  :d3f/CreateFile})
+
+(def LinuxOpenArgumentO_RDONLY-O_WRONLY-O_RDWR
+  "Linux Open Argument O_RDONLY, O_WRONLY, O_RDWR"
+  {:d3f/definition   "Opens a file specified by pathname.",
+   :db/ident         :d3f/LinuxOpenArgumentO_RDONLY-O_WRONLY-O_RDWR,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/open.2.html"},
+   :rdfs/label       "Linux Open Argument O_RDONLY, O_WRONLY, O_RDWR",
+   :rdfs/subClassOf  :d3f/OpenFile})
+
+(def LinuxOpenAt2ArgumentO_CREAT
+  "Linux OpenAt2 Argument O_CREAT"
+  {:d3f/definition   "Create a regular file. Extension of Linux Openat.",
+   :db/ident         :d3f/LinuxOpenAt2ArgumentO_CREAT,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/openat2.2.html"},
+   :rdfs/label       "Linux OpenAt2 Argument O_CREAT",
+   :rdfs/subClassOf  :d3f/CreateFile})
+
+(def LinuxOpenAt2ArgumentO_RDONLY-O_WRONLY-O_RDWR
+  "Linux OpenAt2 Argument O_RDONLY, O_WRONLY, O_RDWR"
+  {:d3f/definition   "Extension of Linux Openat.",
+   :db/ident         :d3f/LinuxOpenAt2ArgumentO_RDONLY-O_WRONLY-O_RDWR,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/openat2.2.html"},
+   :rdfs/label       "Linux OpenAt2 Argument O_RDONLY, O_WRONLY, O_RDWR",
+   :rdfs/subClassOf  :d3f/OpenFile})
+
+(def LinuxOpenAtArgumentO_CREAT
+  "Linux OpenAt Argument O_CREAT"
+  {:d3f/definition
+   "Create a regular file. Same functionality as Linux Open but slight differences in parameter.",
+   :db/ident :d3f/LinuxOpenAtArgumentO_CREAT,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/openat.2.html"},
+   :rdfs/label "Linux OpenAt Argument O_CREAT",
+   :rdfs/subClassOf :d3f/CreateFile})
+
+(def LinuxOpenAtArgumentO_RDONLY-O_WRONLY-O_RDWR
+  "Linux OpenAt Argument O_RDONLY, O_WRONLY, O_RDWR"
+  {:d3f/definition
+   "Same functionality as Linux Open but slight differences in parameter.",
+   :db/ident :d3f/LinuxOpenAtArgumentO_RDONLY-O_WRONLY-O_RDWR,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/openat.2.html"},
+   :rdfs/label "Linux OpenAt Argument O_RDONLY, O_WRONLY, O_RDWR",
+   :rdfs/subClassOf :d3f/OpenFile})
+
+(def LinuxPauseProcess
+  "Linux Pause Process"
+  {:d3f/definition
+   "Causes the calling process to sleep until a signal is delivered that either terminates the process or causes the invocation of a signal-catching function.",
+   :db/ident :d3f/LinuxPauseProcess,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/pause.2.html"},
+   :rdfs/label "Linux Pause Process",
+   :rdfs/subClassOf :d3f/SuspendProcess})
+
+(def LinuxPauseThread
+  "Linux Pause Thread"
+  {:d3f/definition
+   "Causes the calling thread to sleep until a signal is delivered that either terminates the thread or causes the invocation of a signal-catching function.",
+   :db/ident :d3f/LinuxPauseThread,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/pause.2.html"},
+   :rdfs/label "Linux Pause Thread",
+   :rdfs/subClassOf :d3f/SuspendThread})
 
 (def LinuxProcess
   "Linux Process"
   {:db/ident   :d3f/LinuxProcess,
    :rdf/type   [:d3f/Process :owl/NamedIndividual],
    :rdfs/label "Linux Process"})
+
+(def LinuxPtraceArgumentPTRACEINTERRUPT
+  "Linux Ptrace Argument PTRACE_INTERRUPT"
+  {:d3f/definition   "Stops a tracee.",
+   :db/ident         :d3f/LinuxPtraceArgumentPTRACEINTERRUPT,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/ptrace.2.html"},
+   :rdfs/label       "Linux Ptrace Argument PTRACE_INTERRUPT",
+   :rdfs/subClassOf  :d3f/SuspendProcess})
+
+(def LinuxPtraceArgumentPTRACE_TRACEME
+  "Linux Ptrace Argument PTRACE_TRACEME"
+  {:d3f/definition "Indicates that the process is to be traced by its parent.",
+   :db/ident :d3f/LinuxPtraceArgumentPTRACE_TRACEME,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/ptrace.2.html"},
+   :rdfs/label "Linux Ptrace Argument PTRACE_TRACEME",
+   :rdfs/subClassOf :d3f/TraceProcess})
+
+(def LinuxRead
+  "Linux Read"
+  {:d3f/definition   "Read from a file descriptor.",
+   :db/ident         :d3f/LinuxRead,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/read.2.html"},
+   :rdfs/label       "Linux Read",
+   :rdfs/subClassOf  :d3f/ReadFile})
+
+(def LinuxReadv
+  "Linux Readv"
+  {:d3f/definition   "Read data into multiple buffers.",
+   :db/ident         :d3f/LinuxReadv,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/readv.2.html"},
+   :rdfs/label       "Linux Readv",
+   :rdfs/subClassOf  :d3f/ReadFile})
+
+(def LinuxRename
+  "Linux Rename"
+  {:d3f/definition   "Change the name or location of a file",
+   :db/ident         :d3f/LinuxRename,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/rename.2.html"},
+   :rdfs/label       "Linux Rename",
+   :rdfs/subClassOf  :d3f/MoveFile})
+
+(def LinuxRenameat
+  "Linux Renameat"
+  {:d3f/definition
+   "Change the name or location of a file. Different parameter handling than Linux Rename.",
+   :db/ident :d3f/LinuxRenameat,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/renameat.2.html"},
+   :rdfs/label "Linux Renameat",
+   :rdfs/subClassOf :d3f/MoveFile})
+
+(def LinuxRenameat2
+  "Linux Renameat2"
+  {:d3f/definition
+   "Change the name or location of a file. Additional flags argument.",
+   :db/ident :d3f/LinuxRenameat2,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/renameat2.2.html"},
+   :rdfs/label "Linux Renameat2",
+   :rdfs/subClassOf :d3f/MoveFile})
+
+(def LinuxSocket
+  "Linux Socket"
+  {:d3f/definition   "Create an endpoint for communication.",
+   :db/ident         :d3f/LinuxSocket,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/socket.2.html"},
+   :rdfs/label       "Linux Socket",
+   :rdfs/subClassOf  :d3f/CreateSocket})
+
+(def LinuxSocketcallArgumentSYS_CONNECT
+  "Linux Socketcall Argument SYS_CONNECT"
+  {:db/ident :d3f/LinuxSocketcallArgumentSYS_CONNECT,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy
+   {:rdfa/uri "https://man7.org/linux/man-pages/man2/socketcall.2.html"},
+   :rdfs/label "Linux Socketcall Argument SYS_CONNECT",
+   :rdfs/subClassOf :d3f/ConnectSocket})
+
+(def LinuxSocketcallArgumentSYS_SOCKET
+  "Linux Socketcall Argument SYS_SOCKET"
+  {:db/ident :d3f/LinuxSocketcallArgumentSYS_SOCKET,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy
+   {:rdfa/uri "https://man7.org/linux/man-pages/man2/socketcall.2.html"},
+   :rdfs/label "Linux Socketcall Argument SYS_SOCKET",
+   :rdfs/subClassOf :d3f/CreateSocket})
+
+(def LinuxTime
+  "Linux Time"
+  {:d3f/definition   "Get time in seconds.",
+   :db/ident         :d3f/LinuxTime,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/time.2.html"},
+   :rdfs/label       "Linux Time",
+   :rdfs/subClassOf  :d3f/GetSystemTime})
+
+(def LinuxUnlink
+  "Linux Unlink"
+  {:d3f/definition   "Delete a name and possibly the file it refers to.",
+   :db/ident         :d3f/LinuxUnlink,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/unlink.2.html"},
+   :rdfs/label       "Linux Unlink",
+   :rdfs/subClassOf  :d3f/DeleteFile})
+
+(def LinuxUnlinkat
+  "Linux Unlinkat"
+  {:d3f/definition
+   "Delete a name and possibly the file it refers to. Different parameter handling than Linux Unlink",
+   :db/ident :d3f/LinuxUnlinkat,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/unlinkat.2.html"},
+   :rdfs/label "Linux Unlinkat",
+   :rdfs/subClassOf :d3f/DeleteFile})
+
+(def LinuxVfork
+  "Linux Vfork"
+  {:d3f/definition
+   "Create child process that temp suspends parent process until it terminates",
+   :db/ident :d3f/LinuxVfork,
+   :rdf/type :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/vfork.2.html"},
+   :rdfs/label "Linux Vfork",
+   :rdfs/subClassOf :d3f/CreateProcess})
+
+(def LinuxWrite
+  "Linux Write"
+  {:d3f/definition   "Write to a file descriptor.",
+   :db/ident         :d3f/LinuxWrite,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/write.2.html"},
+   :rdfs/label       "Linux Write",
+   :rdfs/subClassOf  :d3f/WriteFile})
+
+(def LinuxWritev
+  "Linux Writev"
+  {:d3f/definition   "Write data into multiple buffers.",
+   :db/ident         :d3f/LinuxWritev,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/writev.2.html"},
+   :rdfs/label       "Linux Writev",
+   :rdfs/subClassOf  :d3f/WriteFile})
+
+(def Linux_Exit
+  "Linux _Exit"
+  {:d3f/definition   "Terminate the calling process.",
+   :db/ident         :d3f/Linux_Exit,
+   :rdf/type         :owl/Class,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://man7.org/linux/man-pages/man2/exit.2.html"},
+   :rdfs/label       "Linux _Exit",
+   :rdfs/subClassOf  :d3f/TerminateProcess})
 
 (def LocalAccountMonitoring
   "Local Account Monitoring"
@@ -14806,7 +15320,8 @@
    :d3f/may-contain :d3f/Host,
    :db/ident :d3f/LocalAreaNetwork,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Local_area_network",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Local_area_network"},
    :rdfs/label "Local Area Network",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/Host,
@@ -14821,7 +15336,7 @@
    :db/ident :d3f/LocalAreaNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Local Area Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Intranet"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Intranet"},
    :rdfs/subClassOf :d3f/IntranetNetworkTraffic})
 
 (def LocalAuthenticationService
@@ -14867,7 +15382,7 @@
    :db/ident :d3f/LocalResource,
    :rdf/type :owl/Class,
    :rdfs/label "Local Resource",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/System_resource"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/System_resource"},
    :rdfs/subClassOf :d3f/Resource,
    :skos/altLabel "System Resource"})
 
@@ -14899,9 +15414,10 @@
   {:d3f/definition   "A record of events in the order of their occurrence.",
    :db/ident         :d3f/Log,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/06515215-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/06515215-n"},
    :rdfs/label       "Log",
-   :rdfs/seeAlso     ["http://dbpedia.org/resource/Chronology"],
+   :rdfs/seeAlso     {:rdfa/uri "http://dbpedia.org/resource/Chronology"},
    :rdfs/subClassOf  :d3f/DigitalArtifact,
    :skos/altLabel    "Chronology"})
 
@@ -14912,9 +15428,9 @@
    "A log file is a file that records either events that occur in an operating system or other software runs, or messages between different users of a communication software. Logging is the act of keeping a log. In the simplest case, messages are written to a single log file.\n\nA transaction log is a file (i.e., log) of the communications between a system and the users of that system, or a data collection method that automatically captures the type, content, or time of transactions made by a person from a terminal with that system. For Web searching, a transaction log is an electronic record of interactions that have occurred during a searching episode between a Web search engine and users searching for information on that Web search engine.\n\nMany operating systems, software frameworks and programs include a logging system. A widely used logging standard is syslog, defined in Internet Engineering Task Force (IETF) RFC 5424). The syslog standard enables a dedicated, standardized subsystem to generate, filter, record, and analyze log messages. This relieves software developers of having to design and code their own ad hoc logging systems.",
    :db/ident :d3f/LogFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Log_file",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Log_file"},
    :rdfs/label "Log File",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/06515875-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/06515875-n"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Log,
                       :rdf/type           :owl/Restriction}
@@ -14959,13 +15475,13 @@
    :rdfs/label "Logical Link Mapping",
    :rdfs/subClassOf [:d3f/NetworkMapping
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/LogicalLink,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Network,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/NetworkNode,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/maps,
+                      :owl/someValuesFrom :d3f/LogicalLink,
                       :rdf/type           :owl/Restriction}]})
 
 (def LogicalRules
@@ -14986,7 +15502,7 @@
    "In computing, a login session is the period of activity between a user logging in and logging out of a (multi-user) system. On Unix and Unix-like operating systems, a login session takes one of two main forms: (a) When a textual user interface is used, a login session is represented as a kernel session -- a collection of process groups with the logout action managed by a session leader, and (b) Where an X display manager is employed, a login session is considered to be the lifetime of a designated user process that the display manager invokes.",
    :db/ident :d3f/LoginSession,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Login_session",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Login_session"},
    :rdfs/label "Login Session",
    :rdfs/subClassOf :d3f/Session})
 
@@ -15013,7 +15529,8 @@
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Logistic Regression Learning",
    :rdfs/seeAlso
-   ["http://d3fend.mitre.org/ontologies/d3fend.owl#LogisticRegression"],
+   {:rdfa/uri
+    "http://d3fend.mitre.org/ontologies/d3fend.owl#LogisticRegression"},
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def LogonUser
@@ -15421,7 +15938,8 @@
    "Keychain is the password management system in macOS, developed by Apple. It was introduced with Mac OS 8.6, and has been included in all subsequent versions of the operating system, now known as macOS. A Keychain can contain various types of data: passwords (for websites, FTP servers, SSH accounts, network shares, wireless networks, groupware applications, encrypted disk images), private keys, certificates, and secure notes.",
    :db/ident :d3f/MacOSKeychain,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Keychain_(software)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Keychain_(software)"},
    :rdfs/label "MacOS Keychain",
    :rdfs/subClassOf :d3f/PasswordStore,
    :skos/altLabel "Keychain"})
@@ -15458,12 +15976,13 @@
    :d3f/runs :d3f/MessageTransferAgent,
    :db/ident :d3f/MailServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Message_transfer_agent",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Message_transfer_agent"},
    :rdfs/label "Mail Server",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/runs,
+   :rdfs/subClassOf [:d3f/Server
+                     {:owl/onProperty     :d3f/runs,
                       :owl/someValuesFrom :d3f/MessageTransferAgent,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Server],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel ["MX Host"
                    "Email Server Resource"
                    "Message transfer agent"
@@ -15478,8 +15997,9 @@
    :db/ident :d3f/MailService,
    :rdf/type :owl/Class,
    :rdfs/label "Mail Service",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Message_transfer_agent"
-                  "http://dbpedia.org/resource/Email"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/Message_transfer_agent"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Email"}],
    :rdfs/subClassOf :d3f/NetworkService,
    :skos/altLabel "Email Service"})
 
@@ -15494,17 +16014,17 @@
    :d3f/kb-reference
    [:d3f/Reference-AnalysisOfTheWindowsVistaSecurityModel_SymantecCorporation
     :d3f/Reference-ArchitectureOfTransparentNetworkSecurityForApplicationContainers_NeuvectorInc],
-   :d3f/restricts :d3f/CreateProcess,
+   :d3f/restricts :d3f/SpawnProcess,
    :db/ident :d3f/MandatoryAccessControl,
    :rdf/type
    [:d3f/Kernel-basedProcessIsolation :owl/NamedIndividual :owl/Class],
    :rdfs/label "Mandatory Access Control",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/isolates,
+                      :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
                      :d3f/Kernel-basedProcessIsolation
-                     {:owl/onProperty     :d3f/isolates,
-                      :owl/someValuesFrom :d3f/Process,
+                     {:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def MarketingMaterial
@@ -15579,7 +16099,7 @@
    "A media server is a computer appliance or an application software that stores digital media (video, audio or images) and makes it available over a network. Media servers range from servers that provide video on demand to smaller personal computers or NAS (Network Attached Storage) for the home.",
    :db/ident :d3f/MediaServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Media_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Media_server"},
    :rdfs/label "Media Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -15614,7 +16134,7 @@
    "In computing, a memory address is a reference to a specific memory location used at various levels by software and hardware.",
    :db/ident :d3f/MemoryAddress,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Memory_address",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Memory_address"},
    :rdfs/label "Memory Address",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/addresses,
                       :owl/someValuesFrom :d3f/MemoryWord,
@@ -15654,7 +16174,8 @@
    :d3f/may-contain :d3f/Record,
    :db/ident :d3f/MemoryBlock,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Block_(data_storage)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://dbpedia.org/page/Block_(data_storage)"},
    :rdfs/label "Memory Block",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/Record,
@@ -15712,21 +16233,22 @@
    :db/ident :d3f/MemoryManagementUnit,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://www.techopedia.com/definition/4768/memory-management-unit-mmu",
+   {:rdfa/uri
+    "https://www.techopedia.com/definition/4768/memory-management-unit-mmu"},
    :rdfs/label "Memory Management Unit",
-   :rdfs/seeAlso ["https://dbpedia.org/page/Memory_management_unit"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/TranslationLookasideBuffer,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/Storage,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/creates,
-                      :owl/someValuesFrom :d3f/VirtualAddress,
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/page/Memory_management_unit"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/PageTable,
                       :rdf/type           :owl/Restriction}
                      :d3f/ProcessorComponent
                      {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/PageTable,
+                      :owl/someValuesFrom :d3f/Storage,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/TranslationLookasideBuffer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/creates,
+                      :owl/someValuesFrom :d3f/VirtualAddress,
                       :rdf/type           :owl/Restriction}]})
 
 (def MemoryManagementUnitComponent
@@ -15743,7 +16265,7 @@
    "Memory pools, also called fixed-size blocks allocation, is the use of pools for memory management… preallocating a number of memory blocks with the same size called the memory pool. The application can allocate, access, and free blocks represented by handles at run time.",
    :db/ident :d3f/MemoryPool,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Memory_pool",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Memory_pool"},
    :rdfs/label "Memory Pool",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/MemoryBlock,
@@ -15763,7 +16285,8 @@
    "A memory word is the natural unit of data used by a particular computer processor design; a fixed-size piece of data handled as a unit by the instruction set or the hardware of the processor.",
    :db/ident :d3f/MemoryWord,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Word_(computer_architecture)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://dbpedia.org/page/Word_(computer_architecture)"},
    :rdfs/label "Memory Word",
    :rdfs/subClassOf :d3f/MemoryExtent})
 
@@ -15815,10 +16338,10 @@
    :db/ident :d3f/MessageEncryption,
    :rdf/type [:d3f/MessageHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label "Message Encryption",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/encrypts,
+   :rdfs/subClassOf [:d3f/MessageHardening
+                     {:owl/onProperty     :d3f/encrypts,
                       :owl/someValuesFrom :d3f/UserToUserMessage,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/MessageHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def MessageHardening
   "Message Hardening"
@@ -15830,10 +16353,10 @@
    :db/ident :d3f/MessageHardening,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique],
    :rdfs/label "Message Hardening",
-   :rdfs/subClassOf [:d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Harden,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DefensiveTechnique]})
 
 (def MessageTransferAgent
   "Message Transfer Agent"
@@ -15842,7 +16365,8 @@
    :db/ident :d3f/MessageTransferAgent,
    :rdf/type :owl/Class,
    :rdfs/label "Message Transfer Agent",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Message_transfer_agent"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Message_transfer_agent"},
    :rdfs/subClassOf :d3f/MailService,
    :skos/altLabel ["Mail Transfer Agent" "MTA"]})
 
@@ -15852,9 +16376,9 @@
    "Metadata is \"data [information] that provides information about other data\". Three distinct types of metadata exist: structural metadata, descriptive metadata, and administrative metadata. Structural metadata is data about the containers of data. For instance a \"book\" contains data, and data about the book is metadata about that container of data. Descriptive metadata uses individual instances of application data or the data content.",
    :db/ident :d3f/Metadata,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Metadata",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Metadata"},
    :rdfs/label "Metadata",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/metadata"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/metadata"},
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def Microcode
@@ -15863,7 +16387,7 @@
    "Microcode is a computer hardware technique that interposes a layer of organization between the CPU hardware and the programmer-visible instruction set architecture of the computer. As such, the microcode is a layer of hardware-level instructions that implement higher-level machine code instructions or internal state machine sequencing in many digital processing elements.",
    :db/ident :d3f/Microcode,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Microcode",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Microcode"},
    :rdfs/label "Microcode",
    :rdfs/subClassOf :d3f/Firmware})
 
@@ -15872,7 +16396,7 @@
   {:d3f/may-contain  :d3f/ExecutableScript,
    :db/ident         :d3f/MicrosoftHTMLApplication,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/HTML_Application",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/HTML_Application"},
    :rdfs/label       "Microsoft HTML Application",
    :rdfs/subClassOf  [{:owl/onProperty     :d3f/may-contain,
                        :owl/someValuesFrom :d3f/ExecutableScript,
@@ -15939,7 +16463,7 @@
    "A mobile phone, cellular phone, cell phone, cellphone or hand phone, sometimes shortened to simply mobile, cell or just phone, is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within a telephone service area. The radio frequency link establishes a connection to the switching systems of a mobile phone operator, which provides access to the public switched telephone network (PSTN). Modern mobile telephone services use a cellular network architecture and, therefore, mobile telephones are called cellular telephones or cell phones in North America. In addition to telephony, digital mobile phones (2G) support a variety of other services, such as text messaging, MMS, email, Internet access, short-range wireless communications (infrared,",
    :db/ident :d3f/MobilePhone,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Mobile_phone",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Mobile_phone"},
    :rdfs/label "Mobile Phone",
    :rdfs/subClassOf :d3f/PersonalComputer,
    :skos/altLabel ["Cellular Phone" "Cellphone"]})
@@ -16035,7 +16559,7 @@
    "A modem -- a portmanteau of \"modulator-demodulator\" -- is a hardware device that converts data into a format suitable for a transmission medium so that it can be transmitted from one computer to another (historically along telephone wires). A modem modulates one or more carrier wave signals to encode digital information for transmission and demodulates signals to decode the transmitted information. The goal is to produce a signal that can be transmitted easily and decoded reliably to reproduce the original digital data. Modems can be used with almost any means of transmitting analog signals from light-emitting diodes to radio. A common type of modem is one that turns the digital data of a computer into modulated electrical signal for transmission over telephone lines and demodulated by another modem at the receiver side to recover the digital data.",
    :db/ident :d3f/Modem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Modem",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Modem"},
    :rdfs/label "Modem",
    :rdfs/subClassOf :d3f/NetworkNode})
 
@@ -16059,7 +16583,8 @@
    "the act of observing something (and sometimes keeping a record of it)",
    :db/ident :d3f/Monitoring,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00881724-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00881724-n"},
    :rdfs/label "Monitoring",
    :rdfs/subClassOf :d3f/D3FENDThing})
 
@@ -16069,21 +16594,22 @@
    "A computer mouse (plural mice or mouses) is a hand-held pointing device that detects two-dimensional motion relative to a surface. This motion is typically translated into the motion of a pointer on a display, which allows a smooth control of the graphical user interface of a computer. In addition to moving a cursor, computer mice have one or more buttons to allow operations such as selection of a menu item on a display. Mice often also feature other elements, such as touch surfaces and scroll wheels, which enable additional control and dimensional input.",
    :db/ident :d3f/MouseInputDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Computer_mouse",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Computer_mouse"},
    :rdfs/label "Mouse Input Device",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Pointing_device"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Pointing_device"},
    :rdfs/subClassOf :d3f/InputDevice,
    :skos/altLabel "Computer Mouse"})
 
 (def MoveFile
   "Move File"
   {:d3f/definition
-   "A system call to rename or move a file.  Linux's rename() is an example of this kind of system call.",
+   "A system call to rename or move a file.  Linux's rename() is an example of this kind of system call. Another way of handling it is to call a copy file system call followed by a delete file system call.",
    :d3f/modifies :d3f/FileSystemMetadata,
    :db/ident :d3f/MoveFile,
    :rdf/type :owl/Class,
    :rdfs/label "Move File",
-   :rdfs/seeAlso ["https://man7.org/linux/man-pages/man2/rename.2.html"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://man7.org/linux/man-pages/man2/rename.2.html"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/FileSystemMetadata,
                       :rdf/type           :owl/Restriction}
@@ -16146,7 +16672,7 @@
    :db/ident        :d3f/MultimediaDocumentFile,
    :rdf/type        :owl/Class,
    :rdfs/label      "Multimedia Document File",
-   :rdfs/seeAlso    ["https://dbpedia.org/page/Multimedia"],
+   :rdfs/seeAlso    {:rdfa/uri "https://dbpedia.org/page/Multimedia"},
    :rdfs/subClassOf :d3f/DocumentFile})
 
 (def MultipleRegression
@@ -16173,7 +16699,8 @@
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Multiple Regression Learning",
    :rdfs/seeAlso
-   ["http://d3fend.mitre.org/ontologies/d3fend.owl#MultipleRegression"],
+   {:rdfa/uri
+    "http://d3fend.mitre.org/ontologies/d3fend.owl#MultipleRegression"},
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def MultivariateAnalysis
@@ -16206,7 +16733,7 @@
    :db/ident :d3f/NISTSP800-53ControlCatalog,
    :rdf/type :owl/Class,
    :rdfs/label "NIST SP 800-53 Control Catalog",
-   :rdfs/seeAlso ["https://doi.org/10.6028/NIST.SP.800-53r5"],
+   :rdfs/seeAlso {:rdfa/uri "https://doi.org/10.6028/NIST.SP.800-53r5"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/has-member,
                       :owl/someValuesFrom :d3f/NISTControl,
                       :rdf/type           :owl/Restriction}
@@ -16221,7 +16748,8 @@
    :rdf/type [:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual],
    :rdfs/label "NIST SP 800-53 R3",
    :rdfs/seeAlso
-   ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30"]})
+   {:rdfa/uri
+    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2013-04-30"}})
 
 (def NIST_SP_800-53_R4
   "NIST SP 800-53 R4"
@@ -16232,7 +16760,8 @@
    :rdf/type [:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual],
    :rdfs/label "NIST SP 800-53 R4",
    :rdfs/seeAlso
-   ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2015-01-22"]})
+   {:rdfa/uri
+    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2015-01-22"}})
 
 (def NIST_SP_800-53_R5
   "NIST SP 800-53 R5"
@@ -16243,7 +16772,8 @@
    :rdf/type [:d3f/NISTSP800-53ControlCatalog :owl/NamedIndividual],
    :rdfs/label "NIST SP 800-53 R5",
    :rdfs/seeAlso
-   ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"]})
+   {:rdfa/uri
+    "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"}})
 
 (def NTFSHardLink
   "NTFS Hard Link"
@@ -16251,9 +16781,9 @@
    "An NTFS hard link points to another file, and files share the same MFT entry (inode), in the same filesystem.",
    :db/ident :d3f/NTFSHardLink,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/NTFS_links",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/NTFS_links"},
    :rdfs/label "NTFS Hard Link",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Hard_link"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Hard_link"},
    :rdfs/subClassOf [:d3f/NTFSLink :d3f/HardLink]})
 
 (def NTFSJunctionPoint
@@ -16262,7 +16792,7 @@
    "NTFS junction points are are similar to NTFS symlinks but are defined only for directories. Only accepts local absolute paths.",
    :db/ident :d3f/NTFSJunctionPoint,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/NTFS_links",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/NTFS_links"},
    :rdfs/label "NTFS Junction Point",
    :rdfs/subClassOf [:d3f/SymbolicLink :d3f/NTFSLink],
    :skos/altLabel "Junction Point"})
@@ -16282,7 +16812,7 @@
    "An NTFS symbolic link records the path of another file that the links contents should show. Can accept relative paths. SMB networking (UNC path) and directory support added in NTFS 3.1.",
    :db/ident :d3f/NTFSSymbolicLink,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/NTFS_links",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/NTFS_links"},
    :rdfs/label "NTFS Symbolic Link",
    :rdfs/subClassOf [:d3f/SymbolicLink :d3f/NTFSLink],
    :skos/altLabel "NTFS Symlink"})
@@ -16306,7 +16836,7 @@
    :db/ident :d3f/Network,
    :rdf/type :owl/Class,
    :rdfs/label "Network",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/03826490-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/03826490-n"},
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel "Computer Network"})
 
@@ -16317,7 +16847,8 @@
    :db/ident :d3f/NetworkCardFirmware,
    :rdf/type :owl/Class,
    :rdfs/label "Network Card Firmware",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Network_interface_controller"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Network_interface_controller"},
    :rdfs/subClassOf :d3f/PeripheralFirmware,
    :skos/altLabel "Network Controller Firmware"})
 
@@ -16414,8 +16945,9 @@
    :rdf/type :owl/Class,
    :rdfs/label "Network Link",
    :rdfs/seeAlso
-   ["https://www.techtarget.com/searchnetworking/definition/Network-layer"
-    "https://dbpedia.org/resource/Network_layer"],
+   [{:rdfa/uri
+     "https://www.techtarget.com/searchnetworking/definition/Network-layer"}
+    {:rdfa/uri "https://dbpedia.org/resource/Network_layer"}],
    :rdfs/subClassOf :d3f/LogicalLink})
 
 (def NetworkMapping
@@ -16428,10 +16960,10 @@
    :db/ident :d3f/NetworkMapping,
    :rdf/type [:owl/NamedIndividual :d3f/DefensiveTechnique :owl/Class],
    :rdfs/label "Network Mapping",
-   :rdfs/subClassOf [:d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Model,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DefensiveTechnique]})
 
 (def NetworkNode
   "Network Node"
@@ -16440,7 +16972,8 @@
    :d3f/runs :d3f/OperatingSystem,
    :db/ident :d3f/NetworkNode,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Node_(networking)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Node_(networking)"},
    :rdfs/label "Network Node",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/runs,
                       :owl/someValuesFrom :d3f/OperatingSystem,
@@ -16466,10 +16999,10 @@
    :db/ident :d3f/NetworkNodeInventory,
    :rdf/type [:owl/NamedIndividual :d3f/AssetInventory :owl/Class],
    :rdfs/label "Network Node Inventory",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
+   :rdfs/subClassOf [:d3f/AssetInventory
+                     {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/NetworkNode,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/AssetInventory]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def NetworkPackets
   "Network Packet"
@@ -16477,7 +17010,7 @@
    "A network packet is a formatted unit of data carried by a packet-switched network. Computer communications links that do not support packets, such as traditional point-to-point telecommunications links, simply transmit data as a bit stream. When data is formatted into packets, packet switching is possible and the bandwidth of the communication medium can be better shared among users than with circuit switching.",
    :db/ident :d3f/NetworkPackets,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Network_packet",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Network_packet"},
    :rdfs/label "Network Packet",
    :rdfs/subClassOf :d3f/NetworkTraffic})
 
@@ -16489,7 +17022,8 @@
    "Need printer superclass (to encompass standalone/pc-connected printing devices)?",
    :db/ident :d3f/NetworkPrinter,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Printer_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Printer_(computing)"},
    :rdfs/label "Network Printer",
    :rdfs/subClassOf :d3f/SharedComputer})
 
@@ -16513,7 +17047,7 @@
    :db/ident :d3f/NetworkResource,
    :rdf/type :owl/Class,
    :rdfs/label "Network Resource",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Shared_resource"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Shared_resource"},
    :rdfs/subClassOf :d3f/RemoteResource,
    :skos/altLabel "Shared Resource"})
 
@@ -16546,7 +17080,7 @@
    "In computer networking, a network service is an application running at the network application layer and above, that provides data storage, manipulation, presentation, communication or other capability which is often implemented using a client-server or peer-to-peer architecture based on application layer network protocols. Clients and servers will often have a user interface, and sometimes other hardware associated with it.",
    :db/ident :d3f/NetworkService,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Network_service",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Network_service"},
    :rdfs/label "Network Service",
    :rdfs/subClassOf :d3f/ServiceApplicationProcess})
 
@@ -16558,9 +17092,10 @@
    :db/ident :d3f/NetworkSession,
    :rdf/type :owl/Class,
    :rdfs/label "Network Session",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/network_connection_info"
-                  "http://dbpedia.org/resource/Session_(computer_science)"
-                  "http://dbpedia.org/resource/OSI_model"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "https://schema.ocsf.io/objects/network_connection_info"}
+    {:rdfa/uri "http://dbpedia.org/resource/Session_(computer_science)"}
+    {:rdfa/uri "http://dbpedia.org/resource/OSI_model"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/NetworkPackets,
                       :rdf/type           :owl/Restriction}
@@ -16573,7 +17108,7 @@
    :db/ident :d3f/NetworkTimeServer,
    :rdf/type :owl/Class,
    :rdfs/label "Network Time Server",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Time_server"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Time_server"},
    :rdfs/subClassOf :d3f/Server})
 
 (def NetworkTraffic
@@ -16585,8 +17120,8 @@
    :db/ident :d3f/NetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Network Traffic",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/network_traffic"
-                  "http://dbpedia.org/resource/Network_traffic"],
+   :rdfs/seeAlso [{:rdfa/uri "https://schema.ocsf.io/objects/network_traffic"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Network_traffic"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/DomainName,
                       :rdf/type           :owl/Restriction}
@@ -16616,9 +17151,10 @@
    "A packet analyzer, also known as packet sniffer, protocol analyzer, or network analyzer, is a computer program or computer hardware such as a packet capture appliance, that can intercept and log traffic that passes over a computer network or part of a network.",
    :db/ident :d3f/NetworkTrafficAnalysisSoftware,
    :rdf/type [:d3f/DigitalArtifact :owl/NamedIndividual :owl/Class],
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Packet_analyzer",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Packet_analyzer"},
    :rdfs/label "Network Traffic Analysis Software",
-   :rdfs/seeAlso ["https://dbpedia.org/resource/Category:Network_analyzers"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://dbpedia.org/resource/Category:Network_analyzers"},
    :rdfs/subClassOf :d3f/DeveloperApplication,
    :skos/altLabel "Network Sniffer"})
 
@@ -16681,10 +17217,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/AccessControlConfiguration,
                       :rdf/type           :owl/Restriction}
-                     :d3f/NetworkMapping
                      {:owl/onProperty     :d3f/queries,
                       :owl/someValuesFrom :d3f/CollectorAgent,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkMapping]})
 
 (def NetworkVulnerabilityAssessment
   "Network Vulnerability Assessment"
@@ -16696,11 +17232,11 @@
    :db/ident :d3f/NetworkVulnerabilityAssessment,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/NetworkMapping],
    :rdfs/label "Network Vulnerability Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/evaluates,
-                      :owl/someValuesFrom :d3f/Network,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/identifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Vulnerability,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/evaluates,
+                      :owl/someValuesFrom :d3f/Network,
                       :rdf/type           :owl/Restriction}
                      :d3f/NetworkMapping]})
 
@@ -16758,7 +17294,8 @@
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Nonlinear Regression Learning",
    :rdfs/seeAlso
-   ["http://d3fend.mitre.org/ontologies/d3fend.owl#NonlinearRegression"],
+   {:rdfa/uri
+    "http://d3fend.mitre.org/ontologies/d3fend.owl#NonlinearRegression"},
    :rdfs/subClassOf :d3f/RegressionAnalysisLearning})
 
 (def NumericPatternMatching
@@ -16794,7 +17331,7 @@
    :db/ident :d3f/ObjectFile,
    :rdf/type :owl/Class,
    :rdfs/label "Object File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Object_file"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Object_file"},
    :rdfs/subClassOf :d3f/File})
 
 (def OffensiveTactic
@@ -16804,7 +17341,8 @@
    :db/ident :d3f/OffensiveTactic,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf",
+   {:rdfa/uri
+    "https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf"},
    :rdfs/label "Offensive Tactic",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/enabled-by,
                       :owl/someValuesFrom :d3f/OffensiveTechnique,
@@ -16817,7 +17355,8 @@
    :db/ident :d3f/OffensiveTechnique,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf",
+   {:rdfa/uri
+    "https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf"},
    :rdfs/label "Offensive Technique",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/OffensiveTactic,
@@ -16841,7 +17380,7 @@
    :db/ident :d3f/OfficeApplicationFile,
    :rdf/type :owl/Class,
    :rdfs/label "Office Application File",
-   :rdfs/seeAlso ["d3f:OfficeApplication"],
+   :rdfs/seeAlso {:xsd/string "d3f:OfficeApplication"},
    :rdfs/subClassOf :d3f/DocumentFile})
 
 (def One-timePassword
@@ -16858,7 +17397,7 @@
    :db/ident :d3f/One-timePassword,
    :rdf/type [:d3f/CredentialHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label "One-time Password",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/One-time_password"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/One-time_password"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/use-limits,
                       :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}
@@ -16881,7 +17420,8 @@
    "For most file systems, a program initializes access to a file in a file system using the open system call. This allocates resources associated to the file (the file descriptor), and returns a handle that the process will use to refer to that file. In some cases the open is performed by the first access. During the open, the filesystem may allocate memory for buffers, or it may wait until the first operation. Various other errors which may occur during the open include directory update failures, un-permitted multiple connections, media failures, communication link failures and device failures.",
    :db/ident :d3f/OpenFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Open_(system_call)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Open_(system_call)"},
    :rdfs/label "Open File",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
                       :owl/someValuesFrom :d3f/File,
@@ -16906,19 +17446,19 @@
    :db/ident :d3f/OperatingSystem,
    :rdf/type :owl/Class,
    :rdfs/label "Operating System",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Operating_system"
-                  "https://schema.ocsf.io/objects/os"],
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-contain,
-                      :owl/someValuesFrom
-                      :d3f/OperatingSystemConfigurationComponent,
-                      :rdf/type :owl/Restriction}
-                     :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/contains,
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Operating_system"}
+                  {:rdfa/uri "https://schema.ocsf.io/objects/os"}],
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/SystemServiceSoftware,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Kernel,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
+                     {:owl/onProperty :d3f/may-contain,
+                      :owl/someValuesFrom
+                      :d3f/OperatingSystemConfigurationComponent,
+                      :rdf/type :owl/Restriction}]})
 
 (def OperatingSystemConfiguration
   "Operating System Configuration"
@@ -16937,7 +17477,7 @@
    :db/ident :d3f/OperatingSystemConfigurationComponent,
    :rdf/type :owl/Class,
    :rdfs/label "Operating System Configuration Component",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/03085025-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/03085025-n"},
    :rdfs/subClassOf :d3f/OperatingSystemConfiguration,
    :skos/altLabel ["System Configuration"
                    "Operating System Configuration Information"]})
@@ -16951,9 +17491,9 @@
    :db/ident :d3f/OperatingSystemConfigurationFile,
    :rdf/type :owl/Class,
    :rdfs/label "Operating System Configuration File",
-   :rdfs/seeAlso ["Operating System"
-                  "Configuration File"
-                  "http://dbpedia.org/resource/Configuration_file"],
+   :rdfs/seeAlso [{:xsd/string "Operating System"}
+                  {:xsd/string "Configuration File"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Configuration_file"}],
    :rdfs/subClassOf [:d3f/ConfigurationFile :d3f/OperatingSystemFile],
    :skos/altLabel "System Configuration File"})
 
@@ -16973,8 +17513,8 @@
    :db/ident :d3f/OperatingSystemFile,
    :rdf/type :owl/Class,
    :rdfs/label "Operating System File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/System_file"
-                  "http://dbpedia.org/resource/Operating_system"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/System_file"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Operating_system"}],
    :rdfs/subClassOf :d3f/File})
 
 (def OperatingSystemLogFile
@@ -16983,9 +17523,9 @@
    "An operating system log file records events that occur in an operating system",
    :db/ident :d3f/OperatingSystemLogFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Log_file",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Log_file"},
    :rdfs/label "Operating System Log File",
-   :rdfs/seeAlso ["Log File"],
+   :rdfs/seeAlso {:xsd/string "Log File"},
    :rdfs/subClassOf [:d3f/OperatingSystemFile :d3f/LogFile]})
 
 (def OperatingSystemMonitoring
@@ -17021,7 +17561,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Operating System Process",
    :rdfs/seeAlso
-   ["http://people.scs.carleton.ca/~maheshwa/courses/300/l4/node7.html"],
+   {:rdfa/uri
+    "http://people.scs.carleton.ca/~maheshwa/courses/300/l4/node7.html"},
    :rdfs/subClassOf :d3f/Process,
    :skos/altLabel "System Process"})
 
@@ -17033,7 +17574,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Operating System Shared Library File",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Library_(computing)#Shared_libraries"],
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Library_(computing)#Shared_libraries"},
    :rdfs/subClassOf [:d3f/SharedLibraryFile :d3f/OperatingSystemFile]})
 
 (def OperationalActivityMapping
@@ -17068,10 +17610,10 @@
    :db/ident :d3f/OperationalDependencyMapping,
    :rdf/type [:owl/NamedIndividual :d3f/OperationalActivityMapping :owl/Class],
    :rdfs/label "Operational Dependency Mapping",
-   :rdfs/subClassOf [:d3f/OperationalActivityMapping
-                     {:owl/onProperty     :d3f/maps,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Dependency,
                       :rdf/type           :owl/Restriction}
+                     :d3f/OperationalActivityMapping
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/OrganizationalActivity,
                       :rdf/type           :owl/Restriction}]})
@@ -17094,10 +17636,10 @@
    :db/ident :d3f/OperationalRiskAssessment,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/OperationalActivityMapping],
    :rdfs/label "Operational Risk Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
+   :rdfs/subClassOf [:d3f/OperationalActivityMapping
+                     {:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Vulnerability,
                       :rdf/type           :owl/Restriction}
-                     :d3f/OperationalActivityMapping
                      {:owl/onProperty     :d3f/evaluates,
                       :owl/someValuesFrom :d3f/Organization,
                       :rdf/type           :owl/Restriction}]})
@@ -17108,9 +17650,10 @@
    "Mainframe computers or mainframes (colloquially referred to as \"big iron\") are computers used primarily by large organizations for critical applications; bulk data processing, such as census, industry and consumer statistics, and enterprise resource planning; and transaction processing. They are larger and have more processing power than some other classes of computers: minicomputers, servers, workstations, and personal computers.",
    :db/ident :d3f/OperationsCenterComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Mainframe_computer",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Mainframe_computer"},
    :rdfs/label "Operations Center Computer",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Time-sharing"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Time-sharing"},
    :rdfs/subClassOf :d3f/SharedComputer,
    :skos/altLabel "Mainframe"})
 
@@ -17120,7 +17663,8 @@
    "A modem that connects to a fiber optic network is known as an optical network terminal (ONT) or optical network unit (ONU). These are commonly used in fiber to the home installations, installed inside or outside a house to convert the optical medium to a copper Ethernet interface, after which a router or gateway is often installed to perform authentication, routing, NAT, and other typical consumer internet functions, in addition to \"triple play\" features such as telephony and television service.",
    :db/ident :d3f/OpticalModem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Modem#Optical_modem",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Modem#Optical_modem"},
    :rdfs/label "Optical Modem",
    :rdfs/subClassOf :d3f/Modem})
 
@@ -17144,7 +17688,8 @@
    :db/ident :d3f/OrchestrationServer,
    :rdf/type :owl/Class,
    :rdfs/label "Orchestration Server",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Orchestration_(computing)"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Orchestration_(computing)"},
    :rdfs/subClassOf :d3f/Server})
 
 (def OrchestrationWorker
@@ -17154,7 +17699,7 @@
    :db/ident :d3f/OrchestrationWorker,
    :rdf/type :owl/Class,
    :rdfs/label "Orchestration Worker",
-   :rdfs/seeAlso ["d3f:OrchestrationController"],
+   :rdfs/seeAlso {:xsd/string "d3f:OrchestrationController"},
    :rdfs/subClassOf :d3f/OrchestrationServer})
 
 (def Organization
@@ -17184,15 +17729,15 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Dependency,
                       :rdf/type           :owl/Restriction}
+                     :d3f/OperationalActivityMapping
+                     {:owl/onProperty     :d3f/maps,
+                      :owl/someValuesFrom :d3f/Organization,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-map,
                       :owl/someValuesFrom :d3f/OrganizationalActivity,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Person,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OperationalActivityMapping
-                     {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/Organization,
                       :rdf/type           :owl/Restriction}]})
 
 (def OrganizationalActivity
@@ -17210,7 +17755,7 @@
    :db/ident :d3f/OutboundInternetDNSLookupTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet DNS Lookup Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/DNSLookup,
                       :rdf/type           :owl/Restriction}
@@ -17236,7 +17781,7 @@
    :db/ident :d3f/OutboundInternetEncryptedTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Encrypted Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf :d3f/OutboundInternetNetworkTraffic})
 
 (def OutboundInternetEncryptedWebTraffic
@@ -17246,7 +17791,7 @@
    :db/ident :d3f/OutboundInternetEncryptedWebTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Encrypted Web Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf [:d3f/OutboundInternetWebTraffic
                      :d3f/OutboundInternetEncryptedTraffic]})
 
@@ -17258,8 +17803,8 @@
    :db/ident :d3f/OutboundInternetFileTransferTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet File Transfer Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/File_transfer"
-                  "http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/File_transfer"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Internetworking"}],
    :rdfs/subClassOf [:d3f/OutboundNetworkTraffic
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/File,
@@ -17274,7 +17819,7 @@
    :db/ident :d3f/OutboundInternetMailTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Mail Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf :d3f/OutboundInternetNetworkTraffic,
    :skos/altLabel "Outbound Internet Email Traffic"})
 
@@ -17285,7 +17830,7 @@
    :db/ident :d3f/OutboundInternetNetworkTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Network Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf [:d3f/OutboundNetworkTraffic :d3f/InternetNetworkTraffic]})
 
 (def OutboundInternetRPCTraffic
@@ -17295,8 +17840,9 @@
    :db/ident :d3f/OutboundInternetRPCTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet RPC Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Remote_procedure_call"
-                  "http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/Remote_procedure_call"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Internetworking"}],
    :rdfs/subClassOf [:d3f/RPCNetworkTraffic
                      :d3f/OutboundNetworkTraffic
                      :d3f/OutboundInternetNetworkTraffic]})
@@ -17309,7 +17855,7 @@
    :db/ident :d3f/OutboundInternetWebTraffic,
    :rdf/type :owl/Class,
    :rdfs/label "Outbound Internet Web Traffic",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Internetworking"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Internetworking"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
@@ -17349,7 +17895,7 @@
    "An output device is any piece of computer hardware equipment which converts information into human-readable form. It can be text, graphics, tactile, audio, and video. Some of the output devices are Visual Display Units (VDU) i.e. a Monitor, Printer, Graphic Output devices, Plotters, Speakers etc. A new type of Output device is been developed these days, known as Speech synthesizer, a mechanism attached to the computer which produces verbal output sounding almost like human speeches.",
    :db/ident :d3f/OutputDevice,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Output_device",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Output_device"},
    :rdfs/label "Output Device",
    :rdfs/subClassOf :d3f/HardwareDevice})
 
@@ -17371,7 +17917,7 @@
    "A POSIX-compliant symbolic link.  These are often fast symbolic links, but need not be.",
    :db/ident :d3f/POSIXSymbolicLink,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Symbolic_link",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Symbolic_link"},
    :rdfs/label "POSIX Symbolic Link",
    :rdfs/subClassOf [:d3f/UnixLink :d3f/SymbolicLink]})
 
@@ -17383,7 +17929,7 @@
    :db/ident :d3f/PacketLog,
    :rdf/type :owl/Class,
    :rdfs/label "Packet Log",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Packet_analyzer"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Packet_analyzer"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/records,
                       :owl/someValuesFrom :d3f/NetworkSession,
                       :rdf/type           :owl/Restriction}
@@ -17395,7 +17941,8 @@
    "A page, memory page, logical page, or virtual page is a fixed-length contiguous block of virtual memory, described by a single entry in the page table. It is the smallest unit of data for memory management in a virtual memory operating system.",
    :db/ident :d3f/Page,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Page_(computer_memory)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://dbpedia.org/page/Page_(computer_memory)"},
    :rdfs/label "Page",
    :rdfs/subClassOf :d3f/MemoryBlock})
 
@@ -17406,7 +17953,8 @@
    "A page frame is the smallest fixed-length contiguous block of physical memory into which memory pages are mapped by the operating system.",
    :db/ident :d3f/PageFrame,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Page_(computer_memory)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://dbpedia.org/page/Page_(computer_memory)"},
    :rdfs/label "Page Frame",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contained-by,
                       :owl/someValuesFrom :d3f/PrimaryStorage,
@@ -17420,7 +17968,7 @@
    "A page table  is the data structure used by the MMU in a virtual memory computer system  to store the mapping between virtual addresses (virtual pages) and physical addresses (page frames).",
    :db/ident :d3f/PageTable,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "Page table - Wikipedia",
+   :rdfs/isDefinedBy {:xsd/string "Page table - Wikipedia"},
    :rdfs/label "Page Table",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/VirtualAddress,
@@ -17460,9 +18008,9 @@
    "In computing, a parent process is a process that has created one or more child processes.",
    :db/ident :d3f/ParentProcess,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Parent_process",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Parent_process"},
    :rdfs/label "Parent Process",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Child_process"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Child_process"},
    :rdfs/subClassOf :d3f/Process})
 
 (def PartialMatching
@@ -17484,11 +18032,13 @@
    "A partition is a region on secondary storage device created so that the region can be managed by itself; separate from any other regions (partitions) on that secondary storage device. Creating partitions is typically the first step of preparing a newly installed storage device, before any file system is created. The device stores the information about the partitions' locations and sizes in an area known as the partition table that the operating system reads before any other part of the disk. Each partition then appears to the operating system as a distinct \"logical\" storage device that uses part of the actual device. System administrators use a program called a partition editor to create, resize, delete, and manipulate the partitions. Partitioning allows the use of different filesystems to be installed for different kinds of files. Separating user data from system data can prevent the system partition from becoming full and rendering the system unusable. Partitioning can also make backing up easier. [Definition adapted as generalization from definition of disk partitioning and distinct from in-memory partitions.]",
    :db/ident :d3f/Partition,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Disk_partitioning",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Disk_partitioning"},
    :rdfs/label "Partition",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Memory_management_(operating_systems)"
-    "http://dbpedia.org/resource/Partition_table"],
+   [{:rdfa/uri
+     "http://dbpedia.org/resource/Memory_management_(operating_systems)"}
+    {:rdfa/uri "http://dbpedia.org/resource/Partition_table"}],
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel ["Disk Slice" "Disk Partition"]})
 
@@ -17499,7 +18049,7 @@
    "A partition is a fixed-size subset of a storage device which is treated as a unit by the operating system. A partition table is a table maintained on the storage device by the operating system describing the partitions on that device. The terms partition table and partition map are most commonly associated with the MBR partition table of a Master Boot Record (MBR) in IBM PC compatibles, but it may be used generically to refer to other \"formats\" that divide a disk drive into partitions, such as: GUID Partition Table (GPT), Apple partition map (APM), or BSD disklabel.",
    :db/ident :d3f/PartitionTable,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Partition_table",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Partition_table"},
    :rdfs/label "Partition Table",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/addresses,
                       :owl/someValuesFrom :d3f/Partition,
@@ -17550,7 +18100,7 @@
    "A password, sometimes called a passcode, is a memorized secret, typically a string of characters, usually used to confirm the identity of a user. Using the terminology of the NIST Digital Identity Guidelines, the secret is memorized by a party called the claimant while the party verifying the identity of the claimant is called the verifier. When the claimant successfully demonstrates knowledge of the password to the verifier through an established authentication protocol, the verifier is able to infer the claimant's identity.",
    :db/ident :d3f/Password,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Password",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Password"},
    :rdfs/label "Password",
    :rdfs/subClassOf :d3f/Credential,
    :skos/altLabel "Passcode"})
@@ -17579,7 +18129,7 @@
    "A password manager is a software application or hardware that helps a user store and organize passwords. Password managers usually store passwords encrypted, requiring the user to create a master password: a single, ideally very strong password which grants the user access to their entire password database. Some password managers store passwords on the user's computer (called offline password managers), whereas others store data in the provider's cloud (often called online password managers). However offline password managers also offer data storage in the user's own cloud accounts rather than the provider's cloud. While the core functionality of a password manager is to securely store large collections of passwords, many provide additional features such as form filling and password generation.",
    :db/ident :d3f/PasswordManager,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Password_manager",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Password_manager"},
    :rdfs/label "Password Manager",
    :rdfs/subClassOf :d3f/Application})
 
@@ -17590,7 +18140,7 @@
    :db/ident :d3f/PasswordStore,
    :rdf/type :owl/Class,
    :rdfs/label "Password Store",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Password_manager"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Password_manager"},
    :rdfs/subClassOf :d3f/PasswordDatabase})
 
 (def Patent
@@ -17645,10 +18195,10 @@
    :db/ident :d3f/PerHostDownload-UploadRatioAnalysis,
    :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label "Per Host Download-Upload Ratio Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkTrafficAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def PeripheralFirmware
   "Peripheral Firmware"
@@ -17656,8 +18206,8 @@
    :db/ident :d3f/PeripheralFirmware,
    :rdf/type :owl/Class,
    :rdfs/label "Peripheral Firmware",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Peripheral"
-                  "http://d3fend.mitre.org/ontologies/d3fend.owl#Firmware"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Peripheral"}
+                  :d3f/Firmware],
    :rdfs/subClassOf :d3f/Firmware})
 
 (def PeripheralFirmwareVerification
@@ -17684,7 +18234,7 @@
    :db/ident :d3f/PeripheralHubFirmware,
    :rdf/type :owl/Class,
    :rdfs/label "Peripheral Hub Firmware",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/USB_hub"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/USB_hub"},
    :rdfs/subClassOf :d3f/PeripheralFirmware,
    :skos/altLabel "USB Hub Firmware"})
 
@@ -17723,7 +18273,8 @@
    "A personal computer (PC) is a multi-purpose computer whose size, capabilities, and price make it feasible for individual use. Personal computers are intended to be operated directly by an end user, rather than by a computer expert or technician. Unlike large, costly minicomputers and mainframes, time-sharing by many people at the same time is not used with personal computers. PCs have in practice become powerful enough that they may be shared by multiple users at any given time, though this is not common practice nor the primary purpose of a PC.",
    :db/ident :d3f/PersonalComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Personal_computer",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Personal_computer"},
    :rdfs/label "Personal Computer",
    :rdfs/subClassOf :d3f/ClientComputer})
 
@@ -17759,7 +18310,7 @@
    "In a computer supporting virtual memory, the term physical address is used mostly to differentiate from a virtual address. In particular, in computers utilizing a memory management unit(MMU) to translate memory addresses, the virtual and physical addresses refer to an address before and after translation performed by the MMU, respectively.",
    :db/ident :d3f/PhysicalAddress,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Physical_address",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Physical_address"},
    :rdfs/label "Physical Address",
    :rdfs/subClassOf :d3f/MemoryAddress})
 
@@ -17778,7 +18329,7 @@
    :db/ident :d3f/PhysicalLink,
    :rdf/type :owl/Class,
    :rdfs/label "Physical Link",
-   :rdfs/seeAlso ["https://dbpedia.org/resource/Physical_layer"],
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/resource/Physical_layer"},
    :rdfs/subClassOf :d3f/Link})
 
 (def PhysicalLinkMapping
@@ -17794,10 +18345,10 @@
    :rdfs/label "Physical Link Mapping",
    :rdfs/subClassOf [:d3f/NetworkMapping
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/PhysicalLink,
+                      :owl/someValuesFrom :d3f/NetworkNode,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/NetworkNode,
+                      :owl/someValuesFrom :d3f/PhysicalLink,
                       :rdf/type           :owl/Restriction}]})
 
 (def PhysicalLocation
@@ -17806,9 +18357,10 @@
    "The terms location  [here, a physical location] and place in geography are used to identify a point or an area on the Earth's surface or elsewhere. The term location generally implies a higher degree of certainty than place, which often indicates an entity with an ambiguous boundary, relying more on human or social attributes of place identity and sense of place than on geometry. The distinction between space and place is considered a central concern of geography, and has been addressed by scholars such as Yi-Fu Tuan and John Agnew.",
    :db/ident :d3f/PhysicalLocation,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Location_(geography)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Location_(geography)"},
    :rdfs/label "Physical Location",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/location"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/location"},
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def PhysicalObject
@@ -17827,9 +18379,9 @@
    "In Unix-like computer operating systems, a pipeline is a mechanism for inter-process communication using message passing.  In the strictest sense, a pipe is a single segment of a pipeline, allowing one process to pass information forward to another.  Network pipes allow processes on different hosts to interact.",
    :db/ident :d3f/Pipe,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://www.linfo.org/pipe.html",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.linfo.org/pipe.html"},
    :rdfs/label "Pipe",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Pipeline_(Unix)"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Pipeline_(Unix)"},
    :rdfs/subClassOf :d3f/InterprocessCommunication,
    :skos/altLabel "Pipeline"})
 
@@ -17862,16 +18414,16 @@
    :db/ident :d3f/Platform,
    :rdf/type :owl/Class,
    :rdfs/label "Platform",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Computing_platform"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Computing_platform"},
    :rdfs/subClassOf [:d3f/DigitalArtifact
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/HardwareDevice,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/OperatingSystem,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Firmware,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/HardwareDevice,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel "Computer Platform"})
 
@@ -17901,10 +18453,10 @@
    :db/ident :d3f/PlatformMonitoring,
    :rdf/type [:d3f/DefensiveTechnique :owl/NamedIndividual :owl/Class],
    :rdfs/label "Platform Monitoring",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [:d3f/DefensiveTechnique
+                     {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Detect,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Point-biserialCorrelationCoefficient
   "Point-biserial Correlation Coefficient"
@@ -17937,7 +18489,7 @@
    :db/ident :d3f/Pointer,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Pointer_(computer_programming)",
+   {:rdfa/uri "http://dbpedia.org/resource/Pointer_(computer_programming)"},
    :rdfs/label "Pointer",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -18022,7 +18574,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "PowerShell Profile Script",
    :rdfs/seeAlso
-   ["https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.1"],
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.1"},
    :rdfs/subClassOf :d3f/UserInitScript})
 
 (def PowershellScriptFile
@@ -18051,17 +18604,19 @@
    :db/ident :d3f/PrimaryStorage,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://www.memorymanagement.org/glossary/m.html#term-main-memory",
+   {:rdfa/uri
+    "https://www.memorymanagement.org/glossary/m.html#term-main-memory"},
    :rdfs/label "Primary Storage",
    :rdfs/seeAlso
-   ["https://en.wikipedia.org/wiki/Computer_data_storage#Primary_storage"],
-   :rdfs/subClassOf [:d3f/Storage
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/PageFrame,
+   {:rdfa/uri
+    "https://en.wikipedia.org/wiki/Computer_data_storage#Primary_storage"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
+                     :d3f/Storage
                      :d3f/HardwareDevice
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ProcessSegment,
+                      :owl/someValuesFrom :d3f/PageFrame,
                       :rdf/type           :owl/Restriction}]})
 
 (def PrincipalComponentAnalysis
@@ -18095,7 +18650,7 @@
    "A print server, or printer server, is a device that connects printers to client computers over a network. It accepts print jobs from the computers and sends the jobs to the appropriate printers, queuing the jobs locally to accommodate the fact that work may arrive more quickly than the printer can actually handle.",
    :db/ident :d3f/PrintServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Print_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Print_server"},
    :rdfs/label "Print Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -18106,7 +18661,8 @@
    :db/ident :d3f/PrivateKey,
    :rdf/type :owl/Class,
    :rdfs/label "Private Key",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Public-key_cryptography"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Public-key_cryptography"},
    :rdfs/subClassOf :d3f/AsymmetricKey})
 
 (def PrivilegeEscalation
@@ -18134,10 +18690,12 @@
    "A privileged account is a user account that has more privileges than ordinary users. Privileged accounts might, for example, be able to install or remove software, upgrade the operating system, or modify system or application configurations. They might also have access to files that are not normally accessible to standard users. Typical examples are root and administrator accounts. But there also service accounts, system accounts, etc. Privileged accounts are especially powerful, and should be monitored especially closely.",
    :db/ident :d3f/PrivilegedUserAccount,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://www.ssh.com/iam/user/privileged-account",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://www.ssh.com/iam/user/privileged-account"},
    :rdfs/label "Privileged User Account",
    :rdfs/seeAlso
-   ["https://www.cyberark.com/resources/blog/7-types-of-privileged-accounts-service-accounts-and-more"],
+   {:rdfa/uri
+    "https://www.cyberark.com/resources/blog/7-types-of-privileged-accounts-service-accounts-and-more"},
    :rdfs/subClassOf :d3f/UserAccount})
 
 (def ProbabilisticLogic
@@ -18175,39 +18733,40 @@
    :d3f/uses :d3f/Resource,
    :db/ident :d3f/Process,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Process_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Process_(computing)"},
    :rdfs/label "Process",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/process"],
-   :rdfs/subClassOf [:d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/process-environmental-variables,
-                      :owl/someValuesFrom :xsd/string,
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/process"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/uses,
+                      :owl/someValuesFrom :d3f/Resource,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/process-command-line-arguments,
                       :owl/someValuesFrom :xsd/string,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/uses,
-                      :owl/someValuesFrom :d3f/Resource,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/process-image-path,
                       :owl/someValuesFrom :d3f/ExecutableBinary,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-execute,
-                      :owl/someValuesFrom :d3f/Thread,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/process-security-context,
-                      :owl/someValuesFrom :xsd/string,
+                     {:owl/onProperty     :d3f/process-identifier,
+                      :owl/someValuesFrom :xsd/integer,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/instructed-by,
                       :owl/someValuesFrom :d3f/Software,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/process-identifier,
-                      :owl/someValuesFrom :xsd/integer,
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ProcessImage,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/process-security-context,
+                      :owl/someValuesFrom :xsd/string,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-execute,
+                      :owl/someValuesFrom :d3f/Thread,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/process-environmental-variables,
+                      :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/process-user,
                       :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ProcessImage,
                       :rdf/type           :owl/Restriction}]})
 
 (def ProcessAnalysis
@@ -18233,16 +18792,15 @@
    :db/ident :d3f/ProcessCodeSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Process Code Segment",
-   :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Code_segment"
-    "http://d3fend.mitre.org/ontologies/d3fend.owl#ImageCodeSegment"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Code_segment"}
+                  :d3f/ImageCodeSegment],
+   :rdfs/subClassOf [:d3f/ProcessSegment
+                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Subroutine,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ProcessSegment],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel "Process Text Segment"})
 
 (def ProcessCodeSegmentVerification
@@ -18275,8 +18833,8 @@
    :db/ident :d3f/ProcessDataSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Process Data Segment",
-   :rdfs/seeAlso ["Image Data Segment"
-                  "http://dbpedia.org/resource/Data_segment"],
+   :rdfs/seeAlso [{:xsd/string "Image Data Segment"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Data_segment"}],
    :rdfs/subClassOf :d3f/ProcessSegment})
 
 (def ProcessEnvironmentVariable
@@ -18287,7 +18845,8 @@
    "Did \"Environment Variable\" have an conflict with prior version of ATT&CK technique names or were there other env var classes that are no longer in d3fend?",
    :db/ident :d3f/ProcessEnvironmentVariable,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Environment_variable",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Environment_variable"},
    :rdfs/label "Process Environment Variable",
    :rdfs/subClassOf :d3f/ApplicationConfiguration,
    :skos/altLabel "Environment Variable"})
@@ -18313,7 +18872,8 @@
    "A process image is a copy of a given process's state at a given point in time. It is often used to create persistence within an otherwise volatile system.",
    :db/ident :d3f/ProcessImage,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/System_image#Process_images",
+   :rdfs/isDefinedBy
+   {:rdfa/uri "http://dbpedia.org/resource/System_image#Process_images"},
    :rdfs/label "Process Image",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ProcessSegment,
@@ -18353,10 +18913,10 @@
    :rdfs/label "Process Lineage Analysis",
    :rdfs/subClassOf [:d3f/ProcessSpawnAnalysis
                      {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/ProcessTree,
+                      :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/Process,
+                      :owl/someValuesFrom :d3f/ProcessTree,
                       :rdf/type           :owl/Restriction}]})
 
 (def ProcessSegment
@@ -18383,10 +18943,10 @@
    :db/ident :d3f/ProcessSegmentExecutionPrevention,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/ApplicationHardening],
    :rdfs/label "Process Segment Execution Prevention",
-   :rdfs/subClassOf [:d3f/ApplicationHardening
-                     {:owl/onProperty     :d3f/neutralizes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/neutralizes,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ApplicationHardening]})
 
 (def ProcessSelf-ModificationDetection
   "Process Self-Modification Detection"
@@ -18401,14 +18961,14 @@
    :db/ident :d3f/ProcessSelf-ModificationDetection,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ProcessAnalysis],
    :rdfs/label "Process Self-Modification Detection",
-   :rdfs/subClassOf [:d3f/ProcessAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Process,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ProcessAnalysis]})
 
 (def ProcessSpawnAnalysis
   "Process Spawn Analysis"
-  {:d3f/analyzes [:d3f/Process :d3f/CreateProcess],
+  {:d3f/analyzes [:d3f/SpawnProcess :d3f/Process],
    :d3f/d3fend-id "D3-PSA",
    :d3f/definition
    "Analyzing spawn arguments or attributes of a process to detect processes that are unauthorized.",
@@ -18461,23 +19021,23 @@
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ProcessAnalysis],
    :rdfs/label "Process Spawn Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
-                     :d3f/ProcessAnalysis]})
+                     :d3f/ProcessAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}]})
 
 (def ProcessStartFunction
   "Process Start Function"
   {:d3f/definition
    "A function creates a new computer process, usually by invoking a create process system call.",
-   :d3f/invokes :d3f/CreateProcess,
+   :d3f/invokes :d3f/SpawnProcess,
    :db/ident :d3f/ProcessStartFunction,
    :rdf/type :owl/Class,
    :rdfs/label "Process Start Function",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/Subroutine]})
 
@@ -18526,9 +19086,9 @@
    :db/ident :d3f/ProcessTree,
    :rdf/type :owl/Class,
    :rdfs/label "Process Tree",
-   :rdfs/seeAlso ["Process Spawn"
-                  "http://dbpedia.org/resource/Parent_process"
-                  "http://dbpedia.org/resource/Child_process"],
+   :rdfs/seeAlso [{:xsd/string "Process Spawn"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Parent_process"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Child_process"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
@@ -18556,9 +19116,10 @@
    "A processor register is a quickly accessible location available to a computer's processor. Registers usually consist of a small amount of fast storage, although some registers have specific hardware functions, and may be read-only or write-only.",
    :db/ident :d3f/ProcessorRegister,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Processor_register",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Processor_register"},
    :rdfs/label "Processor Register",
-   :rdfs/seeAlso ["https://www.techtarget.com/whatis/definition/register"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://www.techtarget.com/whatis/definition/register"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contained-by,
                       :owl/someValuesFrom :d3f/CentralProcessingUnit,
                       :rdf/type           :owl/Restriction}
@@ -18638,7 +19199,7 @@
    "In the OS X, iOS, NeXTSTEP, and GNUstep programming frameworks, property list files are files that store serialized objects. Property list files use the filename extension .plist, and thus are often referred to as p-list files. Property list files are often used to store a user's settings. They are also used to store information about bundles and applications, a task served by the resource fork in the old Mac OS.",
    :db/ident :d3f/PropertyListFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Property_list",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Property_list"},
    :rdfs/label "Property List File",
    :rdfs/subClassOf :d3f/ConfigurationFile,
    :skos/altLabel "Plist File"})
@@ -18647,7 +19208,8 @@
   "Proposition"
   {:db/ident         :d3f/Proposition,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://semanticscience.org/resource/SIO_000256",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://semanticscience.org/resource/SIO_000256"},
    :rdfs/label       "Proposition",
    :rdfs/subClassOf  :d3f/D3FENDCatalogThing})
 
@@ -18707,9 +19269,9 @@
    "In computer networking, a proxy server is a server application or appliance that acts as an intermediary for requests from clients seeking resources from servers that provide those resources. A proxy server thus functions on behalf of the client when requesting service, potentially masking the true origin of the request to the resource server.",
    :db/ident :d3f/ProxyServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Proxy_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Proxy_server"},
    :rdfs/label "Proxy Server",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/network_proxy"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/network_proxy"},
    :rdfs/subClassOf [:d3f/Server :d3f/NetworkNode]})
 
 (def PublicKey
@@ -18719,7 +19281,8 @@
    :db/ident :d3f/PublicKey,
    :rdf/type :owl/Class,
    :rdfs/label "Public Key",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Public-key_cryptography"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Public-key_cryptography"},
    :rdfs/subClassOf :d3f/AsymmetricKey})
 
 (def PythonPackage
@@ -18729,7 +19292,7 @@
    :db/ident :d3f/PythonPackage,
    :rdf/type :owl/Class,
    :rdfs/label "Python Package",
-   :rdfs/seeAlso ["https://packaging.python.org/"],
+   :rdfs/seeAlso {:rdfa/uri "https://packaging.python.org/"},
    :rdfs/subClassOf :d3f/SoftwarePackage})
 
 (def PythonScriptFile
@@ -18770,7 +19333,8 @@
    :d3f/synonym "Random-access Memory",
    :db/ident :d3f/RAM,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Random-access_memory",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://dbpedia.org/page/Random-access_memory"},
    :rdfs/label "RAM",
    :rdfs/subClassOf :d3f/PrimaryStorage})
 
@@ -18781,8 +19345,9 @@
    :db/ident :d3f/RDPSession,
    :rdf/type :owl/Class,
    :rdfs/label "RDP Session",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Remote_Desktop_Services"
-                  "http://dbpedia.org/resource/Remote_Desktop_Protocol"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "http://dbpedia.org/resource/Remote_Desktop_Services"}
+    {:rdfa/uri "http://dbpedia.org/resource/Remote_Desktop_Protocol"}],
    :rdfs/subClassOf :d3f/RemoteSession,
    :skos/altLabel ["Terminal Services" "Remote Desktop Session"]})
 
@@ -18834,7 +19399,7 @@
    :d3f/synonym "Read-only Memory",
    :db/ident :d3f/ROM,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Read-only_memory",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Read-only_memory"},
    :rdfs/label "ROM",
    :rdfs/subClassOf :d3f/PrimaryStorage})
 
@@ -18879,7 +19444,7 @@
    "A radio modem provides the means to send digital data wirelessly.  Radio modems are used to communicate by direct broadcast satellite, WiFi, WiMax, mobile phones, GPS, Bluetooth and NFC. Modern telecommunications and data networks also make extensive use of radio modems where long distance data links are required. Such systems are an important part of the PSTN, and are also in common use for high-speed computer network links to outlying areas where fiber optic is not economical.",
    :db/ident :d3f/RadioModem,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Modem#Radio",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Modem#Radio"},
    :rdfs/label "Radio Modem",
    :rdfs/subClassOf :d3f/Modem})
 
@@ -18962,7 +19527,7 @@
    :db/ident :d3f/ReadFile,
    :rdf/type :owl/Class,
    :rdfs/label "Read File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Read_(system_call)"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Read_(system_call)"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/reads,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
@@ -18991,7 +19556,8 @@
    "In computer science, a record (also called struct or compound data) is a basic data structure. A record is a collection of fields, possibly of different data types, typically in fixed number and sequence . The fields of a record may also be called members, particularly in object-oriented programming. Fields may also be called elements, though these risk confusion with the elements of a collection. A tuple may or may not be considered a record, and vice versa, depending on conventions and the specific programming language.",
    :db/ident :d3f/Record,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Record_(computer_science)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Record_(computer_science)"},
    :rdfs/label "Record",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -24510,9 +25076,10 @@
    "In distributed computing a remote procedure call (RPC) is when a computer program causes a procedure (subroutine) to execute in another address space (commonly on another computer on a shared network), which is coded as if it were a normal (local) procedure call, without the programmer explicitly coding the details for the remote interaction. That is, the programmer writes essentially the same code whether the subroutine is local to the executing program, or remote. This is a form of client-server interaction (caller is client, executor is server), typically implemented via a request-response message-passing system. The object-oriented programming analog is remote method invocation (RMI). The RPC model implies a level of location transparency.",
    :db/ident :d3f/RemoteProcedureCall,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Remote_procedure_call",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Remote_procedure_call"},
    :rdfs/label "Remote Procedure Call",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/dce_rpc"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/dce_rpc"},
    :rdfs/subClassOf :d3f/RemoteCommand})
 
 (def RemoteResource
@@ -24522,8 +25089,7 @@
    :db/ident :d3f/RemoteResource,
    :rdf/type :owl/Class,
    :rdfs/label "Remote Resource",
-   :rdfs/seeAlso
-   ["http://d3fend.mitre.org/ontologies/d3fend.owl#NetworkResource"],
+   :rdfs/seeAlso :d3f/NetworkResource,
    :rdfs/subClassOf :d3f/Resource})
 
 (def RemoteSession
@@ -24571,7 +25137,7 @@
    :db/ident :d3f/RemovableMediaDevice,
    :rdf/type :owl/Class,
    :rdfs/label "Removable Media Device",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Removable_media"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Removable_media"},
    :rdfs/subClassOf :d3f/HardwareDevice})
 
 (def ResamplingEnsemble
@@ -24604,7 +25170,7 @@
    "In computing, a system resource, or simply resource, is any physical or virtual component of limited availability within a computer system. Every device connected to a computer system is a resource. Every internal system component is a resource. Virtual system resources include files (concretely file handles), network connections (concretely network sockets), and memory areas. Managing resources is referred to as resource management, and includes both preventing resource leaks (releasing a resource when a process has finished using it) and dealing with resource contention (when multiple processes wish to access a limited resource).",
    :db/ident :d3f/Resource,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/System_resource",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/System_resource"},
    :rdfs/label "Resource",
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
@@ -24615,7 +25181,8 @@
    :db/ident :d3f/ResourceAccess,
    :rdf/type :owl/Class,
    :rdfs/label "Resource Access",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Computer_access_control"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Computer_access_control"},
    :rdfs/subClassOf [:d3f/UserAction :d3f/DigitalEvent]})
 
 (def ResourceAccessPatternAnalysis
@@ -24667,7 +25234,7 @@
    "The resource fork is a fork or section of a file on Apple's classic Mac OS operating system, which was also carried over to the modern macOS for compatibility, used to store structured data along with the unstructured data stored within the data fork.",
    :db/ident :d3f/ResourceFork,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Resource_fork",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Resource_fork"},
    :rdfs/label "Resource Fork",
    :rdfs/subClassOf :d3f/FileSection})
 
@@ -24677,7 +25244,7 @@
    "In computer networks, a reverse proxy is a type of proxy server that retrieves resources on behalf of a client from one or more servers. These resources are then returned to the client, appearing as if they originated from the proxy server itself. Unlike a forward proxy, which is an intermediary for its associated clients to contact any server, a reverse proxy is an intermediary for its associated servers to be contacted by any client. In other words, a proxy acts on behalf of the client(s), while a reverse proxy acts on behalf of the server(s); a reverse proxy is usually an internal-facing proxy used as a 'front-end' to control and protect access to a server on a private network.",
    :db/ident :d3f/ReverseProxyServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Reverse_proxy",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Reverse_proxy"},
    :rdfs/label "Reverse Proxy Server",
    :rdfs/subClassOf :d3f/ProxyServer})
 
@@ -24723,7 +25290,8 @@
    "A router is a networking device that forwards data packets between computer networks. Routers perform the traffic directing functions on the Internet. Data sent through the internet, such as a web page or email, is in the form of data packets. A packet is typically forwarded from one router to another router through the networks that constitute an internetwork (e.g. the Internet) until it reaches its destination node.",
    :db/ident :d3f/Router,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Router_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Router_(computing)"},
    :rdfs/label "Router",
    :rdfs/subClassOf :d3f/NetworkNode})
 
@@ -24743,7 +25311,8 @@
    :db/ident :d3f/SARSA,
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/isDefinedBy
-   "https://dbpedia.org/page/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action",
+   {:rdfa/uri
+    "https://dbpedia.org/page/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action"},
    :rdfs/label "SARSA",
    :rdfs/subClassOf :d3f/Model-freeReinforcementLearning})
 
@@ -24754,7 +25323,8 @@
    :db/ident :d3f/SSHSession,
    :rdf/type :owl/Class,
    :rdfs/label "SSH Session",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Secure_Shell_Protocol"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Secure_Shell_Protocol"},
    :rdfs/subClassOf :d3f/RemoteSession})
 
 (def SavedInstructionPointer
@@ -24764,7 +25334,7 @@
    :db/ident :d3f/SavedInstructionPointer,
    :rdf/type :owl/Class,
    :rdfs/label "Saved Instruction Pointer",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Exception_handling"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Exception_handling"},
    :rdfs/subClassOf [:d3f/StackComponent :d3f/Pointer]})
 
 (def ScheduledJob
@@ -24778,14 +25348,15 @@
    :db/ident :d3f/ScheduledJob,
    :rdf/type :owl/Class,
    :rdfs/label "Scheduled Job",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Cron"
-                  "https://schema.ocsf.io/objects/job"
-                  "http://dbpedia.org/resource/Windows_Task_Scheduler"
-                  "https://linux.die.net/man/1/at"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/created-by,
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Cron"}
+                  {:rdfa/uri "https://schema.ocsf.io/objects/job"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Windows_Task_Scheduler"}
+                  {:rdfa/uri "https://linux.die.net/man/1/at"}],
+   :rdfs/subClassOf [:d3f/OperatingSystemProcess
+                     {:owl/onProperty     :d3f/created-by,
                       :owl/someValuesFrom :d3f/JobSchedulerSoftware,
                       :rdf/type           :owl/Restriction}
-                     :d3f/OperatingSystemProcess
                      {:owl/onProperty     :d3f/modified-by,
                       :owl/someValuesFrom :d3f/JobSchedulerSoftware,
                       :rdf/type           :owl/Restriction}
@@ -24809,10 +25380,10 @@
    :db/ident :d3f/ScheduledJobAnalysis,
    :rdf/type [:owl/Class :d3f/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label "Scheduled Job Analysis",
-   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/JobSchedule,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OperatingSystemMonitoring]})
 
 (def Scheduling
   "Scheduling"
@@ -24869,10 +25440,12 @@
    "Secondary memory (storage, hard disk) is the computer component holding information that does not need to be accessed quickly and that needs to be retained long-term.",
    :db/ident :d3f/SecondaryStorage,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://whatis.techtarget.com/definition/memory",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://whatis.techtarget.com/definition/memory"},
    :rdfs/label "Secondary Storage",
    :rdfs/seeAlso
-   ["https://en.wikipedia.org/wiki/Computer_data_storage#Secondary_storage"],
+   {:rdfa/uri
+    "https://en.wikipedia.org/wiki/Computer_data_storage#Secondary_storage"},
    :rdfs/subClassOf [:d3f/Storage :d3f/HardwareDevice]})
 
 (def SecurityToken
@@ -24882,7 +25455,7 @@
    "Security tokens are peripheral devices used to prove one's identity electronically (as in the case of a customer trying to access their bank account). The token is used in addition to or in place of a password to prove that the customer is who they claim to be. The token acts like an electronic key to access something.",
    :db/ident :d3f/SecurityToken,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Security_token",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Security_token"},
    :rdfs/label "Security Token",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/AccessToken,
@@ -24933,7 +25506,7 @@
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Semi-Supervised Learning",
    :rdfs/seeAlso
-   ["https://link.springer.com/article/10.1007/s10994-019-05855-6"],
+   {:rdfa/uri "https://link.springer.com/article/10.1007/s10994-019-05855-6"},
    :rdfs/subClassOf :d3f/MachineLearning})
 
 (def Semi-supervisedBoosting
@@ -25140,7 +25713,8 @@
    :d3f/runs :d3f/ServiceApplication,
    :db/ident :d3f/Server,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Server_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Server_(computing)"},
    :rdfs/label "Server",
    :rdfs/subClassOf [:d3f/NetworkResource
                      :d3f/Host
@@ -25165,8 +25739,9 @@
    :db/ident :d3f/ServiceApplication,
    :rdf/type :owl/Class,
    :rdfs/label "Service Application",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Service_(systems_architecture)"
-                  "http://dbpedia.org/resource/Server_(computing)"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/Service_(systems_architecture)"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Server_(computing)"}],
    :rdfs/subClassOf :d3f/Application})
 
 (def ServiceApplicationProcess
@@ -25239,9 +25814,10 @@
    "In computer science, in particular networking, a session is a semi-permanent interactive information interchange, also known as a dialogue, a conversation or a meeting, between two or more communicating devices, or between a computer and user (see Login session). A session is set up or established at a certain point in time, and then torn down at some later point. An established communication session may involve more than one message in each direction. A session is typically, but not always, stateful, meaning that at least one of the communicating parts needs to save information about the session history in order to be able to communicate, as opposed to stateless communication, where the communication consists of independent requests with responses.",
    :db/ident :d3f/Session,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Session_(computer_science)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Session_(computer_science)"},
    :rdfs/label "Session",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/session"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/session"},
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def SessionCookie
@@ -25250,10 +25826,10 @@
    "A session cookie, also known as an in-memory cookie, transient cookie or non-persistent cookie, exists only in temporary memory while the user navigates the website. Web browsers normally delete session cookies when the user closes the browser. Unlike other cookies, session cookies do not have an expiration date assigned to them, which is how the browser knows to treat them as session cookies.",
    :db/ident :d3f/SessionCookie,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://schema.ocsf.io/objects/http_cookie",
+   :rdfs/isDefinedBy {:rdfa/uri "https://schema.ocsf.io/objects/http_cookie"},
    :rdfs/label "Session Cookie",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/http_cookie"
-                  "http://dbpedia.org/resource/HTTP_cookie"],
+   :rdfs/seeAlso [{:rdfa/uri "https://schema.ocsf.io/objects/http_cookie"}
+                  {:rdfa/uri "http://dbpedia.org/resource/HTTP_cookie"}],
    :rdfs/subClassOf :d3f/Credential,
    :skos/altLabel ["In-memory Cookie"
                    "Web Session Cookie"
@@ -25289,7 +25865,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Set System Config Value",
    :rdfs/seeAlso
-   ["https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regsetvalueexa"],
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regsetvalueexa"},
    :rdfs/subClassOf [{:owl/onProperty :d3f/modifies,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
@@ -25305,7 +25882,7 @@
    "Model more completely: what manages the shadowstack, where does it reside specifically in memory.",
    :db/ident :d3f/ShadowStack,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Shadow_stack",
+   :rdfs/isDefinedBy {:rdfa/uri "https://dbpedia.org/page/Shadow_stack"},
    :rdfs/label "Shadow Stack",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/copy-of,
                       :owl/someValuesFrom :d3f/CallStack,
@@ -25337,7 +25914,7 @@
    :db/ident :d3f/SharedComputer,
    :rdf/type :owl/Class,
    :rdfs/label "Shared Computer",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Time-sharing"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Time-sharing"},
    :rdfs/subClassOf :d3f/ClientComputer})
 
 (def SharedLibraryFile
@@ -25347,7 +25924,8 @@
    :db/ident :d3f/SharedLibraryFile,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Library_(computing)#Shared_libraries",
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Library_(computing)#Shared_libraries"},
    :rdfs/label "Shared Library File",
    :rdfs/subClassOf :d3f/ObjectFile,
    :skos/altLabel ["Shared Object" "Shared Library"]})
@@ -25370,7 +25948,7 @@
    "In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere. Shims can be used to support an old API in a newer environment, or a new API in an older environment. Shims can also be used for running programs on different software platforms than those for which they were developed.",
    :db/ident :d3f/Shim,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Shim_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Shim_(computing)"},
    :rdfs/label "Shim",
    :rdfs/subClassOf :d3f/Software})
 
@@ -25390,8 +25968,9 @@
    :db/ident :d3f/ShortcutFile,
    :rdf/type :owl/Class,
    :rdfs/label "Shortcut File",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Symbolic_link#Shortcuts"
-                  "http://dbpedia.org/resource/Shortcut_(computing)"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "http://dbpedia.org/resource/Symbolic_link#Shortcuts"}
+    {:rdfa/uri "http://dbpedia.org/resource/Shortcut_(computing)"}],
    :rdfs/subClassOf :d3f/File})
 
 (def Simulation
@@ -25433,7 +26012,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Slow Symbolic Link",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Symbolic_link#Storage_of_symbolic_links"],
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Symbolic_link#Storage_of_symbolic_links"},
    :rdfs/subClassOf [:d3f/UnixLink :d3f/SymbolicLink],
    :skos/altLabel "Slow Symlink"})
 
@@ -25445,17 +26025,17 @@
    :d3f/instructs :d3f/Process,
    :db/ident :d3f/Software,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Software",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Software"},
    :rdfs/label "Software",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/implements,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/implements,
                       :owl/someValuesFrom :d3f/Subroutine,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/instructs,
                       :owl/someValuesFrom :d3f/Process,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def SoftwareArtifactServer
@@ -25465,8 +26045,9 @@
    :db/ident :d3f/SoftwareArtifactServer,
    :rdf/type :owl/Class,
    :rdfs/label "Software Artifact Server",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Artifact_(software_development)"
-                  "http://dbpedia.org/resource/Software_repository"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "http://dbpedia.org/resource/Artifact_(software_development)"}
+    {:rdfa/uri "http://dbpedia.org/resource/Software_repository"}],
    :rdfs/subClassOf :d3f/ArtifactServer})
 
 (def SoftwareDeploymentTool
@@ -25506,7 +26087,7 @@
    :db/ident :d3f/SoftwareLibrary,
    :rdf/type :owl/Class,
    :rdfs/label "Software Library",
-   :rdfs/seeAlso ["https://dbpedia.org/page/Library_(computing)"],
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/page/Library_(computing)"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/SoftwareLibraryFile,
                       :rdf/type           :owl/Restriction}
@@ -25521,16 +26102,16 @@
    :db/ident :d3f/SoftwareLibraryFile,
    :rdf/type :owl/Class,
    :rdfs/label "Software Library File",
-   :rdfs/seeAlso ["https://dbpedia.org/page/Library_(computing)"],
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/page/Library_(computing)"},
    :rdfs/subClassOf [:d3f/File
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
+                      :owl/someValuesFrom :d3f/ExecutableBinary,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Subroutine,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/ExecutableBinary,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
 (def SoftwarePackage
@@ -25538,7 +26119,7 @@
   {:db/ident        :d3f/SoftwarePackage,
    :rdf/type        :owl/Class,
    :rdfs/label      "Software Package",
-   :rdfs/seeAlso    ["https://schema.ocsf.io/objects/package"],
+   :rdfs/seeAlso    {:rdfa/uri "https://schema.ocsf.io/objects/package"},
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def SoftwarePackagingTool
@@ -25548,8 +26129,8 @@
    :db/ident :d3f/SoftwarePackagingTool,
    :rdf/type :owl/Class,
    :rdfs/label "Software Packaging Tool",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Package_manager"
-                  "http://dbpedia.org/resource/Build_automation"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Package_manager"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Build_automation"}],
    :rdfs/subClassOf :d3f/BuildTool})
 
 (def SoftwarePatch
@@ -25558,7 +26139,8 @@
    "A patch is a piece of software designed to update a computer program or its supporting data, to fix or improve it. This includes fixing security vulnerabilities and other bugs, with such patches usually called bugfixes or bug fixes, and improving the usability or performance. Although meant to fix problems, poorly designed patches can sometimes introduce new problems (see software regressions). In some special cases updates may knowingly break the functionality, for instance, by removing components for which the update provider is no longer licensed or disabling a device.",
    :db/ident :d3f/SoftwarePatch,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Patch_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Patch_(computing)"},
    :rdfs/label "Software Patch",
    :rdfs/subClassOf :d3f/Software,
    :skos/altLabel "Patch"})
@@ -25589,10 +26171,10 @@
    :db/ident :d3f/SoftwareUpdate,
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label "Software Update",
-   :rdfs/subClassOf [:d3f/PlatformHardening
-                     {:owl/onProperty     :d3f/updates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/updates,
                       :owl/someValuesFrom :d3f/Software,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PlatformHardening]})
 
 (def SomersD
   "Somers' D"
@@ -25628,7 +26210,8 @@
    :db/ident :d3f/SourceCodeAnalyzerTool,
    :rdf/type :owl/Class,
    :rdfs/label "Source Code Analyzer Tool",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Static_program_analysis"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Static_program_analysis"},
    :rdfs/subClassOf :d3f/StaticAnalysisTool})
 
 (def SourceCodeReference
@@ -25638,6 +26221,21 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Source Code Reference",
    :rdfs/subClassOf :d3f/TechniqueReference})
+
+(def SpawnProcess
+  "Spawn Process"
+  {:d3f/definition
+   "A process spawn refers to a function that loads and executes a new child process.The current process may wait for the child to terminate or may continue to execute asynchronously. Creating a new subprocess requires enough memory in which both the child process and the current program can execute. There is a family of spawn functions in DOS, inherited by Microsoft Windows. There is also a different family of spawn functions in an optional extension of the POSIX standards.  Fork-exec is another technique combining two Unix system calls, which can effect a process spawn.",
+   :db/ident :d3f/SpawnProcess,
+   :rdf/type :owl/Class,
+   :rdfs/label "Spawn Process",
+   :rdfs/seeAlso
+   [{:rdfa/uri
+     "https://docs.microsoft.com/en-us/windows/win32/procthread/creating-processes"}
+    {:rdfa/uri "http://dbpedia.org/resource/Spawn_(computing)"}
+    {:rdfa/uri "http://dbpedia.org/resource/Fork%E2%80%93exec"}],
+   :rdfs/subClassOf :d3f/SystemCall,
+   :skos/altLabel "Process Spawn"})
 
 (def SpearmansRankCorrelationCoefficient
   "Spearman's Rank Correlation Coefficient"
@@ -25682,7 +26280,7 @@
    :db/ident :d3f/StackComponent,
    :rdf/type :owl/Class,
    :rdfs/label "Stack Component",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Call_stack"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Call_stack"},
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def StackFrame
@@ -25692,15 +26290,16 @@
    :d3f/may-contain [:d3f/StackFrameCanary :d3f/Pointer],
    :db/ident :d3f/StackFrame,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Call_stack#Structure",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Call_stack#Structure"},
    :rdfs/label "Stack Frame",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Call_stack"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Call_stack"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/Pointer,
+                      :owl/someValuesFrom :d3f/StackFrameCanary,
                       :rdf/type           :owl/Restriction}
                      :d3f/StackComponent
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/StackFrameCanary,
+                      :owl/someValuesFrom :d3f/Pointer,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel ["Activation Record" "Activation Frame"]})
 
@@ -25711,7 +26310,8 @@
    :db/ident :d3f/StackFrameCanary,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Stack_buffer_overflow#Stack_canaries",
+   {:rdfa/uri
+    "http://dbpedia.org/resource/Stack_buffer_overflow#Stack_canaries"},
    :rdfs/label "Stack Frame Canary",
    :rdfs/subClassOf :d3f/StackComponent,
    :skos/altLabel "Stack Canary"})
@@ -25742,8 +26342,8 @@
    :db/ident :d3f/StackSegment,
    :rdf/type :owl/Class,
    :rdfs/label "Stack Segment",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Data_segment#Stack"
-                  "http://dbpedia.org/resource/Call_stack"],
+   :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Data_segment#Stack"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Call_stack"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/StackFrame,
                       :rdf/type           :owl/Restriction}
@@ -25774,10 +26374,10 @@
    :db/ident :d3f/StandaloneHoneynet,
    :rdf/type [:owl/Class :d3f/DecoyEnvironment :owl/NamedIndividual],
    :rdfs/label "Standalone Honeynet",
-   :rdfs/subClassOf [:d3f/DecoyEnvironment
-                     {:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/IntranetNetwork,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DecoyEnvironment]})
 
 (def StandardDeviation
   "Standard Deviation"
@@ -25807,7 +26407,8 @@
    "A statement is a proposition that is either (a) a meaningful declarative sentence that is either true or false, or (b) that which a true or false declarative sentence asserts.",
    :db/ident :d3f/Statement,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://semanticscience.org/resource/SIO_001183",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://semanticscience.org/resource/SIO_001183"},
    :rdfs/label "Statement",
    :rdfs/subClassOf :d3f/Proposition})
 
@@ -25819,10 +26420,12 @@
    "Not sure what intended diff of Source Code Analyzer Tool and Static Analysis Tool is.  At high level these are grouped.  There are subtypes of analysis, but much finer grained operations/capes.  Also, there ought to be a Dynamic Analysis Tool (http://dbpedia.org/resource/Dynamic_program_analysis) as part of Program Analysis as parent.  Not sure what Code Analyzer parent is other than another name for Static Code Analyzer/Static Analysis Tool... or Program Analysis Tool see",
    :db/ident :d3f/StaticAnalysisTool,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Static_program_analysis",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Static_program_analysis"},
    :rdfs/label "Static Analysis Tool",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Category:Program_analysis"
-                  "http://dbpedia.org/resource/Program_analysis"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/Category:Program_analysis"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Program_analysis"}],
    :rdfs/subClassOf :d3f/CodeAnalyzer,
    :skos/altLabel "Static Program Analysis Tool"})
 
@@ -25863,7 +26466,8 @@
    :d3f/synonym ["Storage" "Computer data storage"],
    :db/ident :d3f/Storage,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Computer_data_storage",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Computer_data_storage"},
    :rdfs/label "Storage",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/FileSystem,
@@ -25876,7 +26480,7 @@
    "A stored procedure (also termed proc, storp, sproc, StoPro, StoredProc, StoreProc, sp, or SP) is a subroutine available to applications that access a relational database management system (RDBMS). Such procedures are stored in the database data dictionary.",
    :db/ident :d3f/StoredProcedure,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Stored_procedure",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Stored_procedure"},
    :rdfs/label "Stored Procedure",
    :rdfs/subClassOf :d3f/Subroutine})
 
@@ -25928,10 +26532,10 @@
    :rdf/type [:d3f/CredentialHardening :owl/Class :owl/NamedIndividual],
    :rdfs/label "Strong Password Policy",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/strengthens,
-                      :owl/someValuesFrom :d3f/UserAccount,
+                      :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/strengthens,
-                      :owl/someValuesFrom :d3f/Password,
+                      :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
                      :d3f/CredentialHardening]})
 
@@ -25955,7 +26559,7 @@
    :db/ident :d3f/Subroutine,
    :rdf/type :owl/Class,
    :rdfs/label "Subroutine",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Subroutine"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Subroutine"},
    :rdfs/subClassOf :d3f/Software})
 
 (def SubspaceClustering
@@ -26015,12 +26619,28 @@
 
 (def SuspendProcess
   "Suspend Process"
-  {:d3f/evicts      :d3f/Process,
+  {:d3f/suspends    :d3f/Process,
    :db/ident        :d3f/SuspendProcess,
    :rdf/type        :owl/Class,
    :rdfs/label      "Suspend Process",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/evicts,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/suspends,
                       :owl/someValuesFrom :d3f/Process,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/SystemCall]})
+
+(def SuspendThread
+  "Suspend Thread"
+  {:d3f/definition
+   "Suspending a thread causes the thread to stop executing user-mode code.",
+   :d3f/suspends :d3f/Thread,
+   :db/ident :d3f/SuspendThread,
+   :rdf/type :owl/Class,
+   :rdfs/label "Suspend Thread",
+   :rdfs/seeAlso
+   {:rdfa/uri
+    "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-suspendthread"},
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/suspends,
+                      :owl/someValuesFrom :d3f/Thread,
                       :rdf/type           :owl/Restriction}
                      :d3f/SystemCall]})
 
@@ -26030,7 +26650,7 @@
    "A network switch (also called switching hub, bridging hub, and by the IEEE MAC bridge) is networking hardware that connects devices on a computer network by using packet switching to receive and forward data to the destination device. A network switch is a multiport network bridge that uses MAC addresses to forward data at the data link layer (layer 2) of the OSI model. Some switches can also forward data at the network layer (layer 3) by additionally incorporating routing functionality. Such switches are commonly known as layer-3 switches or multilayer switches.",
    :db/ident :d3f/Switch,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Network_switch",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Network_switch"},
    :rdfs/label "Switch",
    :rdfs/subClassOf :d3f/NetworkNode,
    :skos/altLabel
@@ -26056,13 +26676,13 @@
    "A symbolic link (also symlink or soft link) is a term for any file that contains a reference to another file or directory in the form of an absolute or relative path and that affects pathname resolution.",
    :db/ident :d3f/SymbolicLink,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Symbolic_link",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Symbolic_link"},
    :rdfs/label "Symbolic Link",
    :rdfs/subClassOf [:d3f/FileSystemLink
-                     :d3f/File
                      {:owl/onProperty     :d3f/addresses,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}],
+                      :rdf/type           :owl/Restriction}
+                     :d3f/File],
    :skos/altLabel ["Soft Link" "Symlink" "Softlink"]})
 
 (def SymbolicLogic
@@ -26096,7 +26716,8 @@
    :db/ident :d3f/SymmetricKey,
    :rdf/type :owl/Class,
    :rdfs/label "Symmetric Key",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Symmetric-key_algorithm"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Symmetric-key_algorithm"},
    :rdfs/subClassOf :d3f/CryptographicKey})
 
 (def SystemClass
@@ -26105,7 +26726,8 @@
    "An artifact (instrumentality) that combines interrelated interacting artifacts designed to work as a coherent entity.  [Note that not all digital artifacts are systems nor are all systems digital artifacts.]",
    :db/ident :d3f/System,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/04384144-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/04384144-n"},
    :rdfs/label "System",
    :rdfs/subClassOf :d3f/Artifact})
 
@@ -26117,7 +26739,7 @@
    :d3f/synonym "API Monitoring",
    :db/ident :d3f/SystemCall,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/System_call",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/System_call"},
    :rdfs/label "System Call",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/Subroutine,
@@ -26162,10 +26784,10 @@
    :rdf/type
    [:owl/NamedIndividual :owl/Class :d3f/Kernel-basedProcessIsolation],
    :rdfs/label "System Call Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [:d3f/Kernel-basedProcessIsolation
+                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/SystemCall,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Kernel-basedProcessIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SystemConfigSystemCall
   "System Config System Call"
@@ -26226,13 +26848,13 @@
    :db/ident :d3f/SystemConfigurationPermissions,
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label "System Configuration Permissions",
-   :rdfs/subClassOf [{:owl/hasValue   :d3f/M1028,
+   :rdfs/subClassOf [:d3f/PlatformHardening
+                     {:owl/hasValue   :d3f/M1028,
                       :owl/onProperty :d3f/restricts,
                       :rdf/type       :owl/Restriction}
                      {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PlatformHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SystemDaemonMonitoring
   "System Daemon Monitoring"
@@ -26262,9 +26884,10 @@
    :rdf/type :owl/Class,
    :rdfs/label "System Dependency",
    :rdfs/seeAlso
-   ["https://www.ibm.com/docs/en/taddm/7.3.0?topic=model-dependencies-between-resources"
-    "https://r-docs.synapse.org/articles/systemDependencies.html"
-    "https://dl.acm.org/doi/10.1145/960116.53994"],
+   [{:rdfa/uri
+     "https://www.ibm.com/docs/en/taddm/7.3.0?topic=model-dependencies-between-resources"}
+    {:rdfa/uri "https://r-docs.synapse.org/articles/systemDependencies.html"}
+    {:rdfa/uri "https://dl.acm.org/doi/10.1145/960116.53994"}],
    :rdfs/subClassOf :d3f/Dependency})
 
 (def SystemDependencyMapping
@@ -26317,7 +26940,7 @@
    :db/ident :d3f/SystemFirewallConfiguration,
    :rdf/type :owl/Class,
    :rdfs/label "System Firewall Configuration",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Firewall_(computing)"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Firewall_(computing)"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/configures,
                       :owl/someValuesFrom :d3f/Host-basedFirewall,
                       :rdf/type           :owl/Restriction}
@@ -26387,9 +27010,10 @@
    :db/ident :d3f/SystemInitProcess,
    :rdf/type :owl/Class,
    :rdfs/label "System Init Process",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Windows_startup_process"
-                  "http://dbpedia.org/resource/Linux_startup_process"
-                  "http://dbpedia.org/resource/Booting"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "http://dbpedia.org/resource/Windows_startup_process"}
+    {:rdfa/uri "http://dbpedia.org/resource/Linux_startup_process"}
+    {:rdfa/uri "http://dbpedia.org/resource/Booting"}],
    :rdfs/subClassOf :d3f/OperatingSystemProcess,
    :skos/altLabel ["System Startup Process" "System Initialization Process"]})
 
@@ -26436,7 +27060,8 @@
    :db/ident :d3f/SystemServiceSoftware,
    :rdf/type :owl/Class,
    :rdfs/label "System Service Software",
-   :rdfs/seeAlso ["https://www.os-book.com/OS9/slide-dir/PPT-dir/ch2.ppt"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "https://www.os-book.com/OS9/slide-dir/PPT-dir/ch2.ppt"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/OperatingSystemFile,
                       :rdf/type           :owl/Restriction}
@@ -26494,10 +27119,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/evaluates,
                       :owl/someValuesFrom :d3f/DigitalSystem,
                       :rdf/type           :owl/Restriction}
+                     :d3f/SystemMapping
                      {:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Vulnerability,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemMapping]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1001
   "Data Obfuscation"
@@ -26584,10 +27209,10 @@
                       :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/AuthenticationService,
+                      :owl/someValuesFrom :d3f/SystemPasswordDatabase,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/SystemPasswordDatabase,
+                      :owl/someValuesFrom :d3f/AuthenticationService,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1003_003
@@ -26718,15 +27343,15 @@
 (def T1007
   "System Service Discovery"
   {:d3f/attack-id   "T1007",
-   :d3f/may-invoke  [:d3f/GetRunningProcesses :d3f/CreateProcess],
+   :d3f/may-invoke  [:d3f/SpawnProcess :d3f/GetRunningProcesses],
    :db/ident        :d3f/T1007,
    :rdf/type        :owl/Class,
    :rdfs/label      "System Service Discovery",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/GetRunningProcesses,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/GetRunningProcesses,
                       :rdf/type           :owl/Restriction}
                      :d3f/DiscoveryTechnique]})
 
@@ -26753,15 +27378,15 @@
 (def T1010
   "Application Window Discovery"
   {:d3f/attack-id   "T1010",
-   :d3f/may-invoke  [:d3f/GetOpenWindows :d3f/CreateProcess],
+   :d3f/may-invoke  [:d3f/SpawnProcess :d3f/GetOpenWindows],
    :db/ident        :d3f/T1010,
    :rdf/type        :owl/Class,
    :rdfs/label      "Application Window Discovery",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/GetOpenWindows,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/GetOpenWindows,
                       :rdf/type           :owl/Restriction}
                      :d3f/DiscoveryTechnique]})
 
@@ -26822,21 +27447,21 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Rootkit",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootSector,
+                      :owl/someValuesFrom :d3f/KernelModule,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/Kernel,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/Firmware,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/KernelModule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DefenseEvasionTechnique]})
+                     :d3f/DefenseEvasionTechnique
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/BootSector,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/Firmware,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1015
   "Accessibility Features"
@@ -26851,7 +27476,7 @@
   "System Network Configuration Discovery"
   {:d3f/attack-id   "T1016",
    :d3f/may-execute :d3f/ExecutableScript,
-   :d3f/may-invoke  [:d3f/GetSystemNetworkConfigValue :d3f/CreateProcess],
+   :d3f/may-invoke  [:d3f/GetSystemNetworkConfigValue :d3f/SpawnProcess],
    :db/ident        :d3f/T1016,
    :rdf/type        :owl/Class,
    :rdfs/label      "System Network Configuration Discovery",
@@ -26859,7 +27484,7 @@
                       :owl/someValuesFrom :d3f/GetSystemNetworkConfigValue,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-execute,
                       :owl/someValuesFrom :d3f/ExecutableScript,
@@ -26886,7 +27511,7 @@
   "Remote System Discovery"
   {:d3f/attack-id   "T1018",
    :d3f/may-access  :d3f/OperatingSystemConfigurationFile,
-   :d3f/may-invoke  [:d3f/CreateProcess :d3f/CreateSocket],
+   :d3f/may-invoke  [:d3f/SpawnProcess :d3f/CreateSocket],
    :d3f/produces    :d3f/NetworkTraffic,
    :db/ident        :d3f/T1018,
    :rdf/type        :owl/Class,
@@ -26894,15 +27519,15 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/CreateSocket,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/NetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/OperatingSystemConfigurationFile,
                       :rdf/type           :owl/Restriction}
                      :d3f/DiscoveryTechnique
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/NetworkTraffic,
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1019
@@ -27178,28 +27803,28 @@
                      :d3f/PasswordFile
                      :d3f/GetSystemConfigValue
                      :d3f/ProcessSegment],
-   :d3f/may-invoke  [:d3f/CopyToken :d3f/CreateProcess],
+   :d3f/may-invoke  [:d3f/SpawnProcess :d3f/CopyToken],
    :db/ident        :d3f/T1033,
    :rdf/type        :owl/Class,
    :rdfs/label      "System Owner/User Discovery",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CopyToken,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/DirectoryService,
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/GetSystemConfigValue,
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/CopyToken,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/PasswordFile,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/DirectoryService,
+                      :rdf/type           :owl/Restriction}
                      :d3f/DiscoveryTechnique
-                     {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/GetSystemConfigValue,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1035
@@ -27471,12 +28096,12 @@
   "Windows Management Instrumentation Execution"
   {:d3f/attack-id   "T1047",
    :d3f/may-create  :d3f/IntranetAdministrativeNetworkTraffic,
-   :d3f/may-invoke  :d3f/CreateProcess,
+   :d3f/may-invoke  :d3f/SpawnProcess,
    :db/ident        :d3f/T1047,
    :rdf/type        :owl/Class,
    :rdfs/label      "Windows Management Instrumentation Execution",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3f/may-create,
                       :owl/someValuesFrom
@@ -27584,22 +28209,22 @@
    :d3f/definition
    "The sub-techniques of this are specific software implementations of scheduling capabilities",
    :d3f/executes :d3f/ScheduledJob,
-   :d3f/invokes :d3f/CreateProcess,
+   :d3f/invokes :d3f/SpawnProcess,
    :d3f/modifies :d3f/JobSchedule,
    :db/ident :d3f/T1053,
    :rdf/type :owl/Class,
    :rdfs/label "Scheduled Task/Job Execution",
    :rdfs/subClassOf [:d3f/PrivilegeEscalationTechnique
                      :d3f/PersistenceTechnique
+                     :d3f/ExecutionTechnique
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/ScheduledJob,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/JobSchedule,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionTechnique
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1053_001
@@ -27697,13 +28322,13 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/SystemCall,
                       :rdf/type           :owl/Restriction}
+                     :d3f/T1055
                      {:owl/onProperty     :d3f/adds,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1055]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1055_002
   "Portable Executable Injection"
@@ -27736,12 +28361,12 @@
 (def T1055_004
   "Asynchronous Procedure Call"
   {:d3f/attack-id   "T1055.004",
-   :d3f/may-invoke  :d3f/CreateProcess,
+   :d3f/may-invoke  :d3f/SpawnProcess,
    :db/ident        :d3f/T1055.004,
    :rdf/type        :owl/Class,
    :rdfs/label      "Asynchronous Procedure Call",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1055]})
 
@@ -27808,12 +28433,12 @@
 (def T1055_013
   "Process Doppelgänging"
   {:d3f/attack-id   "T1055.013",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :db/ident        :d3f/T1055.013,
    :rdf/type        :owl/Class,
    :rdfs/label      "Process Doppelgänging",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1055]})
 
@@ -27900,15 +28525,15 @@
 (def T1057
   "Process Discovery"
   {:d3f/attack-id   "T1057",
-   :d3f/may-invoke  [:d3f/GetRunningProcesses :d3f/CreateProcess],
+   :d3f/may-invoke  [:d3f/SpawnProcess :d3f/GetRunningProcesses],
    :db/ident        :d3f/T1057,
    :rdf/type        :owl/Class,
    :rdfs/label      "Process Discovery",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/GetRunningProcesses,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/GetRunningProcesses,
                       :rdf/type           :owl/Restriction}
                      :d3f/DiscoveryTechnique]})
 
@@ -28052,11 +28677,11 @@
                       :owl/someValuesFrom :d3f/StackFrame,
                       :rdf/type           :owl/Restriction}
                      :d3f/PrivilegeEscalationTechnique
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/PrivilegeEscalation,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1069
@@ -28254,14 +28879,14 @@
    :db/ident        :d3f/T1072,
    :rdf/type        :owl/Class,
    :rdfs/label      "Software Deployment Tools Execution",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/installs,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
+                      :owl/someValuesFrom :d3f/File,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/installs,
                       :owl/someValuesFrom :d3f/Software,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/SoftwareDeploymentTool,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/adds,
-                      :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
                      :d3f/ExecutionTechnique
                      :d3f/LateralMovementTechnique]})
@@ -28347,13 +28972,13 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Valid Accounts",
    :rdfs/subClassOf [:d3f/InitialAccessTechnique
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}
                      :d3f/DefenseEvasionTechnique
-                     :d3f/PersistenceTechnique
                      {:owl/onProperty     :d3f/uses,
                       :owl/someValuesFrom :d3f/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PersistenceTechnique
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authorization,
@@ -28440,12 +29065,12 @@
   "System Information Discovery"
   {:d3f/attack-id   "T1082",
    :d3f/may-access  :d3f/DecoyArtifact,
-   :d3f/may-invoke  :d3f/CreateProcess,
+   :d3f/may-invoke  :d3f/SpawnProcess,
    :db/ident        :d3f/T1082,
    :rdf/type        :owl/Class,
    :rdfs/label      "System Information Discovery",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/DecoyArtifact,
@@ -28898,15 +29523,15 @@
    :db/ident        :d3f/T1110.001,
    :rdf/type        :owl/Class,
    :rdfs/label      "Password Guessing",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
+                      :owl/someValuesFrom :d3f/Password,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1110
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/accesses,
-                      :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1110_002
@@ -28941,10 +29566,10 @@
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1110
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/AuthenticationLog,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1110]})
 
 (def T1110_004
   "Credential Stuffing"
@@ -28955,17 +29580,17 @@
    :db/ident        :d3f/T1110.004,
    :rdf/type        :owl/Class,
    :rdfs/label      "Credential Stuffing",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-create,
-                      :owl/someValuesFrom
-                      :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1110
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1110
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty :d3f/may-create,
+                      :owl/someValuesFrom
+                      :d3f/IntranetAdministrativeNetworkTraffic,
+                      :rdf/type :owl/Restriction}]})
 
 (def T1111
   "Two-Factor Authentication Interception"
@@ -29143,15 +29768,15 @@
 (def T1124
   "System Time Discovery"
   {:d3f/attack-id   "T1124",
-   :d3f/may-invoke  [:d3f/GetSystemTime :d3f/CreateProcess],
+   :d3f/may-invoke  [:d3f/SpawnProcess :d3f/GetSystemTime],
    :db/ident        :d3f/T1124,
    :rdf/type        :owl/Class,
    :rdfs/label      "System Time Discovery",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/GetSystemTime,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/GetSystemTime,
                       :rdf/type           :owl/Restriction}
                      :d3f/DiscoveryTechnique]})
 
@@ -29270,17 +29895,17 @@
    :db/ident        :d3f/T1133,
    :rdf/type        :owl/Class,
    :rdfs/label      "External Remote Services",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authorization,
                       :rdf/type           :owl/Restriction}
+                     :d3f/PersistenceTechnique
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/NetworkSession,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/InitialAccessTechnique
-                     :d3f/PersistenceTechnique]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1134
   "Access Token Manipulation"
@@ -29328,26 +29953,26 @@
    :db/ident        :d3f/T1134.003,
    :rdf/type        :owl/Class,
    :rdfs/label      "Make and Impersonate Token",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/copies,
-                      :owl/someValuesFrom :d3f/AccessToken,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
+                      :owl/someValuesFrom :d3f/LoginSession,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1134
+                     {:owl/onProperty     :d3f/copies,
+                      :owl/someValuesFrom :d3f/AccessToken,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EventLog,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/creates,
-                      :owl/someValuesFrom :d3f/LoginSession,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1134_004
   "Parent PID Spoofing"
   {:d3f/attack-id   "T1134.004",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :db/ident        :d3f/T1134.004,
    :rdf/type        :owl/Class,
    :rdfs/label      "Parent PID Spoofing",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1134]})
 
@@ -29425,15 +30050,15 @@
    :db/ident        :d3f/T1137.001,
    :rdf/type        :owl/Class,
    :rdfs/label      "Office Template Macros",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-add,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3f/may-modify,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
                      :d3f/T1137
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-add,
                       :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
@@ -29498,13 +30123,13 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/OfficeApplication,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1137
+                     {:owl/onProperty     :d3f/adds,
+                      :owl/someValuesFrom :d3f/Software,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/adds,
-                      :owl/someValuesFrom :d3f/Software,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/T1137]})
 
 (def T1138
   "Application Shimming"
@@ -29526,21 +30151,21 @@
 (def T1140
   "Deobfuscate/Decode Files or Information"
   {:d3f/attack-id   "T1140",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :d3f/may-add     :d3f/ExecutableFile,
    :d3f/may-modify  :d3f/EventLog,
    :db/ident        :d3f/T1140,
    :rdf/type        :owl/Class,
    :rdfs/label      "Deobfuscate/Decode Files or Information",
    :rdfs/subClassOf [:d3f/DefenseEvasionTechnique
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                     {:owl/onProperty     :d3f/may-add,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EventLog,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-add,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1141
@@ -29922,15 +30547,15 @@
    :db/ident        :d3f/T1187,
    :rdf/type        :owl/Class,
    :rdfs/label      "Forced Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/WindowsShortcutFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialAccessTechnique
-                     {:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}
+                     :d3f/CredentialAccessTechnique
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/WindowsShortcutFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1188
@@ -29950,14 +30575,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Drive-by Compromise",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/URL,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                       :rdf/type           :owl/Restriction}
+                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/InitialAccessTechnique
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1190
@@ -29970,11 +30595,11 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Exploit Public-Facing Application",
    :rdfs/subClassOf [:d3f/InitialAccessTechnique
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/injects,
                       :owl/someValuesFrom :d3f/DatabaseQuery,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/InboundInternetNetworkTraffic,
@@ -30079,14 +30704,14 @@
    :rdfs/label      "BITS Jobs",
    :rdfs/subClassOf [:d3f/DefenseEvasionTechnique
                      {:owl/onProperty     :d3f/may-produce,
-                      :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PersistenceTechnique
-                     {:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/IntranetWebNetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/IntranetIPCNetworkTraffic,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PersistenceTechnique
+                     {:owl/onProperty     :d3f/may-produce,
+                      :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1198
@@ -30283,16 +30908,16 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ProcessCodeSegment,
                       :rdf/type           :owl/Restriction}
-                     :d3f/LateralMovementTechnique
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/StackFrame,
+                      :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :owl/someValuesFrom :d3f/StackFrame,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/LateralMovementTechnique]})
 
 (def T1211
   "Exploitation for Defense Evasion"
@@ -30318,10 +30943,10 @@
    :db/ident        :d3f/T1212,
    :rdf/type        :owl/Class,
    :rdfs/label      "Exploitation for Credential Access",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
+   :rdfs/subClassOf [:d3f/CredentialAccessTechnique
+                     {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/AuthenticationService,
                       :rdf/type           :owl/Restriction}
-                     :d3f/CredentialAccessTechnique
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/CredentialManagementSystem,
                       :rdf/type           :owl/Restriction}
@@ -30432,12 +31057,12 @@
 (def T1218_001
   "Compiled HTML File"
   {:d3f/attack-id   "T1218.001",
-   :d3f/invokes     [:d3f/CreateProcess :d3f/CreateFile],
+   :d3f/invokes     [:d3f/SpawnProcess :d3f/CreateFile],
    :db/ident        :d3f/T1218.001,
    :rdf/type        :owl/Class,
    :rdfs/label      "Compiled HTML File",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/CreateFile,
@@ -30447,7 +31072,7 @@
 (def T1218_002
   "Control Panel Execution"
   {:d3f/attack-id   "T1218.002",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :d3f/may-modify  :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1218.002,
    :rdf/type        :owl/Class,
@@ -30457,14 +31082,14 @@
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1218]})
 
 (def T1218_003
   "CMSTP"
   {:d3f/attack-id   "T1218.003",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :d3f/may-produce :d3f/NetworkTraffic,
    :db/ident        :d3f/T1218.003,
    :rdf/type        :owl/Class,
@@ -30473,7 +31098,7 @@
                       :owl/someValuesFrom :d3f/NetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1218]})
 
@@ -30536,7 +31161,7 @@
 (def T1218_011
   "Rundll32 Execution"
   {:d3f/attack-id   "T1218.011",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :d3f/loads       :d3f/SharedLibraryFile,
    :db/ident        :d3f/T1218.011,
    :rdf/type        :owl/Class,
@@ -30545,7 +31170,7 @@
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1218]})
 
@@ -30568,7 +31193,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Mavinject",
    :rdfs/seeAlso
-   ["https://posts.specterops.io/mavinject-exe-functionality-deconstructed-c29ab2cf5c0e"],
+   {:rdfa/uri
+    "https://posts.specterops.io/mavinject-exe-functionality-deconstructed-c29ab2cf5c0e"},
    :rdfs/subClassOf [:d3f/T1218
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/CreateThread,
@@ -30588,15 +31214,15 @@
    :db/ident :d3f/T1218.014,
    :rdf/type :owl/Class,
    :rdfs/label "MMC",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
-                      :owl/someValuesFrom :d3f/Command,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/T1218
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1218
                      {:owl/onProperty     :d3f/may-add,
                       :owl/someValuesFrom :d3f/Software,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/executes,
+                      :owl/someValuesFrom :d3f/Command,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1219
@@ -30616,19 +31242,19 @@
   {:d3f/adds        :d3f/File,
    :d3f/attack-id   "T1220",
    :d3f/interprets  :d3f/ExecutableScript,
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :db/ident        :d3f/T1220,
    :rdf/type        :owl/Class,
    :rdfs/label      "XSL Script Processing",
-   :rdfs/subClassOf [:d3f/DefenseEvasionTechnique
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/adds,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DefenseEvasionTechnique
                      {:owl/onProperty     :d3f/interprets,
                       :owl/someValuesFrom :d3f/ExecutableScript,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1221
@@ -31026,12 +31652,12 @@
   "SQL Stored Procedures"
   {:d3f/attack-id   "T1505.001",
    :d3f/creates     :d3f/StoredProcedure,
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :db/ident        :d3f/T1505.001,
    :rdf/type        :owl/Class,
    :rdfs/label      "SQL Stored Procedures",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/StoredProcedure,
@@ -31063,12 +31689,12 @@
    :db/ident        :d3f/T1505.003,
    :rdf/type        :owl/Class,
    :rdfs/label      "Web Shell",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
-                      :owl/someValuesFrom :d3f/WebScriptFile,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/WebServer,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1505
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/WebServer,
+                     {:owl/onProperty     :d3f/adds,
+                      :owl/someValuesFrom :d3f/WebScriptFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Process,
@@ -31133,21 +31759,21 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Security Software Discovery",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/SystemFirewallConfiguration,
+                      :owl/someValuesFrom :d3f/KernelProcessTable,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3f/may-access,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/KernelProcessTable,
+                      :owl/someValuesFrom :d3f/FileSystemMetadata,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/SystemFirewallConfiguration,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1518
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/GetRunningProcesses,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/FileSystemMetadata,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1519
@@ -31339,15 +31965,15 @@
    :db/ident        :d3f/T1542.003,
    :rdf/type        :owl/Class,
    :rdfs/label      "Bootkit",
-   :rdfs/subClassOf [:d3f/T1542
-                     {:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/BootSector,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootLoader,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/VolumeBootRecord,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1542
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/BootLoader,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1542_004
@@ -31510,17 +32136,17 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Trap",
    :rdfs/subClassOf [:d3f/T1546
-                     {:owl/onProperty     :d3f/may-create,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/EventLog,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/Command,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-create,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1546_006
@@ -31561,60 +32187,60 @@
    :db/ident        :d3f/T1546.008,
    :rdf/type        :owl/Class,
    :rdfs/label      "Accessibility Features",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-create,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/ExecutableBinary,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1546
+                     {:owl/onProperty :d3f/may-create,
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
                       :rdf/type :owl/Restriction}
-                     :d3f/T1546
                      {:owl/onProperty :d3f/may-modify,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
-                      :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ExecutableBinary,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}]})
 
 (def T1546_009
   "AppCert DLLs"
   {:d3f/attack-id   "T1546.009",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :d3f/loads       :d3f/SharedLibraryFile,
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1546.009,
    :rdf/type        :owl/Class,
    :rdfs/label      "AppCert DLLs",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/modifies,
-                      :owl/someValuesFrom
-                      :d3f/SystemConfigurationDatabaseRecord,
-                      :rdf/type :owl/Restriction}
-                     :d3f/T1546
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/T1546
                      {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3f/modifies,
+                      :owl/someValuesFrom
+                      :d3f/SystemConfigurationDatabaseRecord,
+                      :rdf/type :owl/Restriction}]})
 
 (def T1546_010
   "AppInit DLLs"
   {:d3f/attack-id   "T1546.010",
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :d3f/loads       :d3f/SharedLibraryFile,
    :d3f/modifies    :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1546.010,
    :rdf/type        :owl/Class,
    :rdfs/label      "AppInit DLLs",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/modifies,
-                      :owl/someValuesFrom
-                      :d3f/SystemConfigurationDatabaseRecord,
-                      :rdf/type :owl/Restriction}
-                     :d3f/T1546
+   :rdfs/subClassOf [:d3f/T1546
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty :d3f/modifies,
+                      :owl/someValuesFrom
+                      :d3f/SystemConfigurationDatabaseRecord,
+                      :rdf/type :owl/Restriction}]})
 
 (def T1546_011
   "Application Shimming"
@@ -31684,7 +32310,8 @@
    :db/ident        :d3f/T1546.015,
    :rdf/type        :owl/Class,
    :rdfs/label      "Component Object Model Hijacking",
-   :rdfs/seeAlso    ["http://dbpedia.org/resource/Component_Object_Model"],
+   :rdfs/seeAlso    {:rdfa/uri
+                     "http://dbpedia.org/resource/Component_Object_Model"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}
@@ -31914,20 +32541,20 @@
   "Bypass User Access Control"
   {:d3f/attack-id   "T1548.002",
    :d3f/executes    :d3f/ExecutableFile,
-   :d3f/invokes     :d3f/CreateProcess,
+   :d3f/invokes     :d3f/SpawnProcess,
    :d3f/may-modify  :d3f/SystemConfigurationDatabaseRecord,
    :db/ident        :d3f/T1548.002,
    :rdf/type        :owl/Class,
    :rdfs/label      "Bypass User Access Control",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3f/may-modify,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/CreateProcess,
+                     {:owl/onProperty     :d3f/executes,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1548]})
 
@@ -32258,16 +32885,16 @@
    :db/ident        :d3f/T1555.003,
    :rdf/type        :owl/Class,
    :rdfs/label      "Credentials from Web Browsers",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
-                      :owl/someValuesFrom :d3f/DatabaseFile,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/ReadFile,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/In-memoryPasswordStore,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1555]})
+                     {:owl/onProperty     :d3f/accesses,
+                      :owl/someValuesFrom :d3f/DatabaseFile,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1555
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/ReadFile,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1555_004
   "Windows Credential Manager"
@@ -32446,7 +33073,8 @@
    :rdf/type :owl/Class,
    :rdfs/label "Kerberoasting",
    :rdfs/seeAlso
-   ["https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-nspi/6dd0a3ea-b4d4-4a73-a857-add03a89a543"],
+   {:rdfa/uri
+    "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-nspi/6dd0a3ea-b4d4-4a73-a857-add03a89a543"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/RPCNetworkTraffic,
                       :rdf/type           :owl/Restriction}
@@ -32564,20 +33192,20 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Disk Content Wipe",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/Volume,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/PartitionTable,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1561
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/BlockDevice,
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/BootSector,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/Partition,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootSector,
+                      :owl/someValuesFrom :d3f/Volume,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1561
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/BlockDevice,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1561_002
@@ -32641,15 +33269,15 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Impair Command History Logging",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/UserInitScript,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/WindowsRegistryKey,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1562
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessEnvironmentVariable,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/UserInitScript,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1562]})
 
 (def T1562_004
   "Disable or Modify System Firewall"
@@ -32696,17 +33324,17 @@
    :db/ident        :d3f/T1562.009,
    :rdf/type        :owl/Class,
    :rdfs/label      "Safe Mode Boot",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/disables,
-                      :owl/someValuesFrom :d3f/EndpointSensor,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1562
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/EndpointHealthBeacon,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/T1562
                      {:owl/onProperty :d3f/disables,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationInitDatabaseRecord,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/EndpointHealthBeacon,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/disables,
+                      :owl/someValuesFrom :d3f/EndpointSensor,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1562_010
   "Downgrade Attack"
@@ -32849,18 +33477,18 @@
    :db/ident        :d3f/T1564.006,
    :rdf/type        :owl/Class,
    :rdfs/label      "Run Virtual Instance",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-add,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/VirtualizationSoftware,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1564
+                     {:owl/onProperty     :d3f/may-add,
+                      :owl/someValuesFrom :d3f/VirtualizationSoftware,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/Directory,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/executes,
-                      :owl/someValuesFrom :d3f/VirtualizationSoftware,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1564_007
@@ -32884,12 +33512,12 @@
    :db/ident        :d3f/T1564.008,
    :rdf/type        :owl/Class,
    :rdfs/label      "Email Hiding Rules",
-   :rdfs/subClassOf [:d3f/T1564
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/EmailRule,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1564
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ApplicationConfiguration,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/EmailRule,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/EmailRule,
@@ -32994,14 +33622,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      "Spearphishing Link",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/URL,
+                      :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1566
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
+                      :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Email,
+                      :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1566_003
@@ -34310,7 +34938,7 @@
    :db/ident :d3f/TFTPServer,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Trivial_File_Transfer_Protocol",
+   {:rdfa/uri "http://dbpedia.org/resource/Trivial_File_Transfer_Protocol"},
    :rdfs/label "TFTP Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -34337,7 +34965,7 @@
    "A tablet computer, commonly shortened to tablet, is a mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package. Tablets, being computers, do what other personal computers do, but lack some input/output (I/O) abilities that others have. Modern tablets largely resemble modern smartphones, the only differences being that tablets are relatively larger than smartphones, with screens 7 inches (18 cm) or larger, measured diagonally, and may not support access to a cellular network.",
    :db/ident :d3f/TabletComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Tablet_computer",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Tablet_computer"},
    :rdfs/label "Tablet Computer",
    :rdfs/subClassOf :d3f/PersonalComputer,
    :skos/altLabel "Tablet"})
@@ -34413,7 +35041,8 @@
    :d3f/terminates :d3f/Process,
    :db/ident :d3f/TerminateProcess,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Exit_(system_call)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Exit_(system_call)"},
    :rdfs/label "Terminate Process",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/terminates,
                       :owl/someValuesFrom :d3f/Process,
@@ -34427,7 +35056,8 @@
    :db/ident :d3f/TertiaryStorage,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://en.wikipedia.org/wiki/Computer_data_storage#Tertiary_storage",
+   {:rdfa/uri
+    "https://en.wikipedia.org/wiki/Computer_data_storage#Tertiary_storage"},
    :rdfs/label "Tertiary Storage",
    :rdfs/subClassOf
    [:d3f/SecondaryStorage :d3f/MemoryBlock :d3f/HardwareDevice]})
@@ -34438,7 +35068,8 @@
    "A test execution tool is a type of software used to test software, hardware or complete systems.  Synonyms of test execution tool include test execution engine, test executive, test manager, test sequencer.  Two common forms in which a test execution engine may appear are as a: (a) module of a test software suite (test bench) or an integrated development environment, or (b) stand-alone application software.",
    :db/ident :d3f/TestExecutionTool,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Test_execution_engine",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Test_execution_engine"},
    :rdfs/label "Test Execution Tool",
    :rdfs/subClassOf :d3f/DeveloperApplication,
    :skos/altLabel ["Test Manager" "Test Executive" "Test Execution Engine"]})
@@ -34449,7 +35080,7 @@
    "A thin client is a lightweight computer that has been optimized for establishing a remote connection with a server-based computing environment. The server does most of the work, which can include launching software programs, performing calculations, and storing data. This contrasts with a fat client or a conventional personal computer; the former is also intended for working in a client-server model but has significant local processing power, while the latter aims to perform its function mostly locally. Thin clients are shared computers as the thin client's computing resources are provided by a remote server.",
    :db/ident :d3f/ThinClientComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Thin_client",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Thin_client"},
    :rdfs/label "Thin Client Computer",
    :rdfs/subClassOf :d3f/SharedComputer})
 
@@ -34478,10 +35109,11 @@
    "In some computer security systems, a Ticket Granting Ticket or Ticket to Get Tickets (TGT) is a small, encrypted identification file with a limited validity period. After authentication, this file is granted to a user for data traffic protection by the key distribution center (KDC) subsystem of authentication services such as Kerberos. The TGT file contains the session key, its expiration date, and the user's IP address, which protects the user from man-in-the-middle attacks. The TGT is used to obtain a service ticket from Ticket Granting Service (TGS). User is granted access to network services only after this service ticket is provided.",
    :db/ident :d3f/TicketGrantingTicket,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Ticket_Granting_Ticket",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Ticket_Granting_Ticket"},
    :rdfs/label "Ticket Granting Ticket",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Charlie_and_the_Chocolate_Factory"],
+   {:rdfa/uri "http://dbpedia.org/resource/Charlie_and_the_Chocolate_Factory"},
    :rdfs/subClassOf :d3f/AccessToken,
    :skos/altLabel "Golden Ticket"})
 
@@ -34506,12 +35138,13 @@
    :db/ident :d3f/TraceProcess,
    :rdf/type :owl/Class,
    :rdfs/label "Trace Process",
-   :rdfs/seeAlso ["https://linux.die.net/man/2/ptrace"
-                  "https://dbpedia.org/resource/Ptrace"],
+   :rdfs/seeAlso [{:rdfa/uri "https://linux.die.net/man/2/ptrace"}
+                  {:rdfa/uri "https://dbpedia.org/resource/Ptrace"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/monitors,
                       :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
-                     :d3f/SystemCall]})
+                     :d3f/SystemCall],
+   :skos/altLabel "Open Process"})
 
 (def TrajectoryPrediction
   "Trajectory Prediction"
@@ -34547,9 +35180,10 @@
    :rdf/type [:owl/NamedIndividual :owl/Class],
    :rdfs/label "Transfer Learning",
    :rdfs/seeAlso
-   ["https://arxiv.org/abs/1808.01974"
-    "https://arxiv.org/abs/1911.02685"
-    "https://journalofbigdata.springeropen.com/articles/10.1186/s40537-016-0043-6"],
+   [{:rdfa/uri "https://arxiv.org/abs/1808.01974"}
+    {:rdfa/uri "https://arxiv.org/abs/1911.02685"}
+    {:rdfa/uri
+     "https://journalofbigdata.springeropen.com/articles/10.1186/s40537-016-0043-6"}],
    :rdfs/subClassOf :d3f/MachineLearning})
 
 (def Transformer-XL
@@ -34582,7 +35216,8 @@
    "A translation lookaside buffer (TLB) is a memory cache that is used to reduce the time taken to access a user memory location. It is a part of the chip's memory-management unit (MMU).",
    :db/ident :d3f/TranslationLookasideBuffer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://dbpedia.org/page/Translation_lookaside_buffer",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://dbpedia.org/page/Translation_lookaside_buffer"},
    :rdfs/label "Translation Lookaside Buffer",
    :rdfs/subClassOf :d3f/MemoryManagementUnitComponent})
 
@@ -34615,8 +35250,9 @@
    :db/ident :d3f/TrustStore,
    :rdf/type :owl/Class,
    :rdfs/label "Trust Store",
-   :rdfs/seeAlso ["https://www.educative.io/edpresso/keystore-vs-truststore"
-                  "http://dbpedia.org/resource/Public_key_certificate"],
+   :rdfs/seeAlso
+   [{:rdfa/uri "https://www.educative.io/edpresso/keystore-vs-truststore"}
+    {:rdfa/uri "http://dbpedia.org/resource/Public_key_certificate"}],
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def URL
@@ -34626,9 +35262,10 @@
    "A Uniform Resource Locator (URL), commonly informally termed a web address (a term which is not defined identically) is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.A URL is a specific type of Uniform Resource Identifier (URI), although many people use the two terms interchangeably. A URL implies the means to access an indicated resource, which is not true of every URI. URLs occur most commonly to reference web pages (http), but are also used for file transfer (ftp), email (mailto), database access (JDBC), and many other applications.",
    :db/ident :d3f/URL,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Uniform_Resource_Locator",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Uniform_Resource_Locator"},
    :rdfs/label "URL",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/url"],
+   :rdfs/seeAlso {:rdfa/uri "https://schema.ocsf.io/objects/url"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/addresses,
                       :owl/someValuesFrom :d3f/Resource,
                       :rdf/type           :owl/Restriction}
@@ -34689,7 +35326,7 @@
    :db/ident :d3f/UnitTestExecutionTool,
    :rdf/type :owl/Class,
    :rdfs/label "Unit Test Execution Tool",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Unit_testing"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Unit_testing"},
    :rdfs/subClassOf :d3f/TestExecutionTool})
 
 (def UnixHardLink
@@ -34697,7 +35334,7 @@
   {:d3f/definition   "A Unix hard link is a hard link on a Unix file system.",
    :db/ident         :d3f/UnixHardLink,
    :rdf/type         :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Hard_link",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Hard_link"},
    :rdfs/label       "Unix Hard Link",
    :rdfs/subClassOf  [:d3f/UnixLink :d3f/HardLink]})
 
@@ -34769,17 +35406,17 @@
    :d3f/restricted-by :d3f/AccessControlList,
    :db/ident :d3f/User,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/User_(computing)",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/User_(computing)"},
    :rdfs/label "User",
-   :rdfs/seeAlso ["UserAccount"
-                  "http://wordnet-rdf.princeton.edu/id/10761247-n"],
+   :rdfs/seeAlso [{:xsd/string "UserAccount"}
+                  {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/10761247-n"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/restricted-by,
                       :owl/someValuesFrom :d3f/AccessControlList,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/has-account,
                       :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def UserAccount
   "User Account"
@@ -34788,10 +35425,10 @@
    :db/ident :d3f/UserAccount,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/User_(computing)#User_account",
+   {:rdfa/uri "http://dbpedia.org/resource/User_(computing)#User_account"},
    :rdfs/label "User Account",
-   :rdfs/seeAlso ["https://schema.ocsf.io/objects/user"
-                  "http://dbpedia.org/resource/User_account"],
+   :rdfs/seeAlso [{:rdfa/uri "https://schema.ocsf.io/objects/user"}
+                  {:rdfa/uri "http://dbpedia.org/resource/User_account"}],
    :rdfs/subClassOf :d3f/DigitalArtifact})
 
 (def UserAccountPermissions
@@ -34824,7 +35461,7 @@
    :db/ident :d3f/UserApplication,
    :rdf/type :owl/Class,
    :rdfs/label "User Application",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Enterprise_software"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Enterprise_software"},
    :rdfs/subClassOf :d3f/Application})
 
 (def UserBehavior
@@ -34835,7 +35472,8 @@
    :db/ident :d3f/UserBehavior,
    :rdf/type :owl/Class,
    :rdfs/label "User Behavior",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/User_behavior_analytics"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/User_behavior_analytics"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/UserAction,
                       :rdf/type           :owl/Restriction}
@@ -34852,7 +35490,8 @@
    :d3f/synonym ["Credential Monitoring" "UBA"],
    :db/ident :d3f/UserBehaviorAnalysis,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique],
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/User_behavior_analytics",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/User_behavior_analytics"},
    :rdfs/label "User Behavior Analysis",
    :rdfs/subClassOf [:d3f/DefensiveTechnique
                      {:owl/onProperty     :d3f/enables,
@@ -34946,7 +35585,7 @@
    "The user interface (UI), in the industrial design field of human-machine interaction, is the space where interactions between humans and machines occur. The goal of this interaction is to allow effective operation and control of the machine from the human end, whilst the machine simultaneously feeds back information that aids the operators' decision-making process. Examples of this broad concept of user interfaces include the interactive aspects of computer operating systems, hand tools, heavy machinery operator controls, and process controls. The design considerations applicable when creating user interfaces are related to or involve such disciplines as ergonomics and psychology.",
    :db/ident :d3f/UserInterface,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/User_interface",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/User_interface"},
    :rdfs/label "User Interface",
    :rdfs/subClassOf :d3f/DigitalArtifact,
    :skos/altLabel "UI"})
@@ -35035,12 +35674,12 @@
    :d3f/may-contain :d3f/Email,
    :db/ident :d3f/UserToUserMessage,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Personal_message",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Personal_message"},
    :rdfs/label "User to User Message",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/has-recipient,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/has-sender,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/has-sender,
+                     {:owl/onProperty     :d3f/has-recipient,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
@@ -35055,7 +35694,7 @@
    "Utility applications are software applications designed to help to analyze, configure, optimize or maintain a computer. It is used to support the computer infrastructure - in contrast to application software, which is aimed at directly performing tasks that benefit ordinary users. However, utilities often form part of the application systems. For example, a batch job may run user-written code to update a database and may then include a step that runs a utility to back up the database, or a job may run a utility to compress a disk before copying files.",
    :db/ident :d3f/UtilitySoftware,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Utility_software",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Utility_software"},
    :rdfs/label "Utility Software",
    :rdfs/subClassOf :d3f/Software,
    :skos/altLabel "Utility Application"})
@@ -35066,9 +35705,11 @@
    "A VPN server is a type of server that enables hosting and delivery of VPN services.\n\nIt is a combination of VPN hardware and software technologies that provides VPN clients with connectivity to a secure and/or private network, or rather, the VPN.",
    :db/ident :d3f/VPNServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://www.techopedia.com/definition/30750/vpn-server",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://www.techopedia.com/definition/30750/vpn-server"},
    :rdfs/label "VPN Server",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Virtual_private_network"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Virtual_private_network"},
    :rdfs/subClassOf :d3f/Server})
 
 (def Variability
@@ -35125,10 +35766,10 @@
    "Version control tools are tools that used to conduct version control. A  component of software configuration management, version control, also known as revision control, source control, or source code management systems are systems responsible for the management of changes to documents, computer programs, large web sites, and other collections of information. Changes are usually identified by a number or letter code, termed the \"revision number\", \"revision level\", or simply \"revision\". For example, an initial set of files is \"revision 1\". When the first change is made, the resulting set is \"revision 2\", and so on. Each revision is associated with a timestamp and the person making the change. Revisions can be compared, restored, and with some types of files, merged.",
    :db/ident :d3f/VersionControlTool,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Version_control",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Version_control"},
    :rdfs/label "Version Control Tool",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Software_configuration_management"],
+   {:rdfa/uri "http://dbpedia.org/resource/Software_configuration_management"},
    :rdfs/subClassOf :d3f/DeveloperApplication,
    :skos/altLabel ["Source Control" "Revision Control"]})
 
@@ -35139,7 +35780,7 @@
    :db/ident :d3f/VideoInputDevice,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Input_device#Video_input_devices",
+   {:rdfa/uri "http://dbpedia.org/resource/Input_device#Video_input_devices"},
    :rdfs/label "Video Input Device",
    :rdfs/subClassOf :d3f/InputDevice})
 
@@ -35151,11 +35792,11 @@
    :db/ident :d3f/VirtualAddress,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://www.techopedia.com/definition/9934/virtual-address-va",
+   {:rdfa/uri "https://www.techopedia.com/definition/9934/virtual-address-va"},
    :rdfs/label "Virtual Address",
    :rdfs/seeAlso
-   ["https://en.wikipedia.org/wiki/Memory_address#Logical_addresses"
-    "https://dbpedia.org/page/Virtual_address_space"],
+   [{:rdfa/uri "https://en.wikipedia.org/wiki/Memory_address#Logical_addresses"}
+    {:rdfa/uri "https://dbpedia.org/page/Virtual_address_space"}],
    :rdfs/subClassOf :d3f/MemoryAddress})
 
 (def VirtualMemorySpace
@@ -35164,9 +35805,10 @@
    "Virtual memory is a memory management technique where secondary memory can be used as if it were a part of the main memory. Virtual memory uses hardware and software to enable a computer to compensate for physical memory shortages",
    :db/ident :d3f/VirtualMemorySpace,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "https://whatis.techtarget.com/definition/memory",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "https://whatis.techtarget.com/definition/memory"},
    :rdfs/label "Virtual Memory Space",
-   :rdfs/seeAlso ["https://dbpedia.org/page/Virtual_memory"],
+   :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/page/Virtual_memory"},
    :rdfs/subClassOf :d3f/MemoryAddressSpace})
 
 (def VirtualizationSoftware
@@ -35176,7 +35818,7 @@
    :db/ident :d3f/VirtualizationSoftware,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "http://dbpedia.org/resource/Category:Virtualization_software",
+   {:rdfa/uri "http://dbpedia.org/resource/Category:Virtualization_software"},
    :rdfs/label "Virtualization Software",
    :rdfs/subClassOf :d3f/ServiceApplication})
 
@@ -35198,7 +35840,8 @@
    "A volume boot record (VBR) (also known as a volume boot sector, a partition boot record or a partition boot sector) is a type of boot sector introduced by the IBM Personal Computer. It may be found on a partitioned data storage device, such as a hard disk, or an unpartitioned device, such as a floppy disk, and contains machine code for bootstrapping programs (usually, but not necessarily, operating systems) stored in other parts of the device. On non-partitioned storage devices, it is the first sector of the device. On partitioned devices, it is the first sector of an individual partition on the device, with the first sector of the entire device being a Master Boot Record (MBR) containing the partition table.",
    :db/ident :d3f/VolumeBootRecord,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Volume_boot_record",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Volume_boot_record"},
    :rdfs/label "Volume Boot Record",
    :rdfs/subClassOf :d3f/BootRecord})
 
@@ -35242,7 +35885,8 @@
    "A web application firewall (or WAF) filters, monitors, and blocks HTTP traffic to and from a web application. A WAF is differentiated from a regular firewall in that a WAF is able to filter the content of specific web applications while regular firewalls serve as a safety gate between servers. By inspecting HTTP traffic, it can prevent attacks stemming from web application security flaws, such as SQL injection, cross-site scripting (XSS), file inclusion, and security misconfigurations.",
    :db/ident :d3f/WebApplicationFirewall,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Web_application_firewall",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Web_application_firewall"},
    :rdfs/label "Web Application Firewall",
    :rdfs/subClassOf :d3f/ApplicationLayerFirewall,
    :skos/altLabel "WAF"})
@@ -35253,7 +35897,8 @@
    "A web application server is a web server that hosts applications. Application server frameworks are software frameworks for building application servers. An application server framework provides both facilities to create web applications and a server environment to run them. In the case of Java application servers, the server behaves like an extended virtual machine for running applications, transparently handling connections to the database on one side, and, often, connections to the Web client on the other.",
    :db/ident :d3f/WebApplicationServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Application_server",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Application_server"},
    :rdfs/label "Web Application Server",
    :rdfs/subClassOf :d3f/WebServer})
 
@@ -35278,7 +35923,7 @@
    :db/ident :d3f/WebFileResource,
    :rdf/type :owl/Class,
    :rdfs/label "Web File Resource",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Web_resource"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Web_resource"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/addressed-by,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
@@ -35319,7 +35964,7 @@
    "A web server is server software, or hardware dedicated to running this software, that can satisfy client requests on the World Wide Web. A web server can, in general, contain one or more websites. A web server processes incoming network requests over HTTP and several other related protocols. While the major function is to serve content, a full implementation of HTTP also includes ways of receiving content from clients. This feature is used for submitting web forms, including uploading of files.",
    :db/ident :d3f/WebServer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Web_server",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Web_server"},
    :rdfs/label "Web Server",
    :rdfs/subClassOf :d3f/Server})
 
@@ -35329,7 +35974,7 @@
    "A web server application (or web app) is an application software that runs on a web server, unlike computer-based software programs that are stored locally on the Operating System (OS) of the device. Web applications are accessed by the user through a web browser with an active internet connection. These applications are programmed using a client-server modeled structure-the user (\"client\") is provided services through an off-site server that is hosted by a third-party. Examples of commonly-used, web applications, include: web-mail, online retail sales, online banking, and online auctions.",
    :db/ident :d3f/WebServerApplication,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Web_application",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Web_application"},
    :rdfs/label "Web Server Application",
    :rdfs/subClassOf :d3f/ServiceApplication,
    :skos/altLabel ["Web Application" "Web App"]})
@@ -35379,7 +36024,8 @@
    "By contrast to a local area network (LAN), a wide area network (WAN), not only covers a larger geographic distance, but also generally involves leased telecommunication circuits or Internet links.",
    :db/ident :d3f/WideAreaNetwork,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Local_area_network",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Local_area_network"},
    :rdfs/label "Wide Area Network",
    :rdfs/subClassOf :d3f/Network,
    :skos/altLabel "WAN"})
@@ -35389,6 +36035,214 @@
   {:db/ident   :d3f/WindowsBatchFile,
    :rdf/type   [:d3f/ExecutableScript :owl/NamedIndividual],
    :rdfs/label "Windows Batch File"})
+
+(def WindowsNtAllocateVirtualMemory
+  "Windows NtAllocateVirtualMemory"
+  {:db/ident        :d3f/WindowsNtAllocateVirtualMemory,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtAllocateVirtualMemory",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/AllocateMemory})
+
+(def WindowsNtAllocateVirtualMemoryEx
+  "Windows NtAllocateVirtualMemoryEx"
+  {:db/ident        :d3f/WindowsNtAllocateVirtualMemoryEx,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtAllocateVirtualMemoryEx",
+   :rdfs/subClassOf :d3f/AllocateMemory})
+
+(def WindowsNtCreateFile
+  "Windows NtCreateFile"
+  {:db/ident        :d3f/WindowsNtCreateFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtCreateFile",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/CreateFile})
+
+(def WindowsNtCreateMailslotFile
+  "Windows NtCreateMailslotFile"
+  {:d3f/definition  "Creates a special File Object called Mailslot.",
+   :db/ident        :d3f/WindowsNtCreateMailslotFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtCreateMailslotFile",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/CreateFile})
+
+(def WindowsNtCreateNamedPipeFile
+  "Windows NtCreateNamedPipeFile"
+  {:d3f/definition  "Creates Named Pipe File Object.",
+   :db/ident        :d3f/WindowsNtCreateNamedPipeFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtCreateNamedPipeFile",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/CreateFile})
+
+(def WindowsNtCreatePagingFile
+  "Windows NtCreatePagingFile"
+  {:d3f/definition
+   "Typically used by Control Panel's \"System\" applet for creating new paged files.",
+   :db/ident :d3f/WindowsNtCreatePagingFile,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows NtCreatePagingFile",
+   :rdfs/seeAlso {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/CreateFile})
+
+(def WindowsNtCreateProcess
+  "Windows NtCreateProcess"
+  {:db/ident        :d3f/WindowsNtCreateProcess,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtCreateProcess",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf [:d3f/ExecuteProcess :d3f/CreateProcess]})
+
+(def WindowsNtCreateProcessEx
+  "Windows NtCreateProcessEx"
+  {:db/ident        :d3f/WindowsNtCreateProcessEx,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtCreateProcessEx",
+   :rdfs/subClassOf [:d3f/ExecuteProcess :d3f/CreateProcess]})
+
+(def WindowsNtCreateThread
+  "Windows NtCreateThread"
+  {:db/ident        :d3f/WindowsNtCreateThread,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtCreateThread",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/CreateThread})
+
+(def WindowsNtCreateThreadEx
+  "Windows NtCreateThreadEx"
+  {:db/ident        :d3f/WindowsNtCreateThreadEx,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtCreateThreadEx",
+   :rdfs/subClassOf :d3f/CreateThread})
+
+(def WindowsNtDeleteFile
+  "Windows NtDeleteFile"
+  {:d3f/definition  "Deletes the specified file.",
+   :db/ident        :d3f/WindowsNtDeleteFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtDeleteFile",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/DeleteFile})
+
+(def WindowsNtDuplicateToken
+  "Windows NtDuplicateToken"
+  {:db/ident        :d3f/WindowsNtDuplicateToken,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtDuplicateToken",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/CopyToken})
+
+(def WindowsNtFreeVirtualMemory
+  "Windows NtFreeVirtualMemory"
+  {:db/ident        :d3f/WindowsNtFreeVirtualMemory,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtFreeVirtualMemory",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/FreeMemory})
+
+(def WindowsNtOpenFile
+  "Windows NtOpenFile"
+  {:db/ident        :d3f/WindowsNtOpenFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtOpenFile",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/OpenFile})
+
+(def WindowsNtOpenProcess
+  "Windows NtOpenProcess"
+  {:d3f/definition
+   "Opens a handle to process obj and sets the access rights to this object.",
+   :db/ident :d3f/WindowsNtOpenProcess,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows NtOpenProcess",
+   :rdfs/seeAlso
+   {:rdfa/uri
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-ntopenprocess"},
+   :rdfs/subClassOf :d3f/TraceProcess})
+
+(def WindowsNtQuerySystemTime
+  "Windows NtQuerySystemTime"
+  {:d3f/definition
+   "Returns current time in Coordinated Universal Time (UTC) 8-bytes format.",
+   :db/ident :d3f/WindowsNtQuerySystemTime,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows NtQuerySystemTime",
+   :rdfs/seeAlso {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/GetSystemTime})
+
+(def WindowsNtReadFile
+  "Windows NtReadFile"
+  {:db/ident        :d3f/WindowsNtReadFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtReadFile",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/ReadFile})
+
+(def WindowsNtReadFileScatter
+  "Windows NtReadFileScatter"
+  {:d3f/definition
+   "Reads specified block from file into multiple buffers. Each buffer must have one page length.",
+   :db/ident :d3f/WindowsNtReadFileScatter,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows NtReadFileScatter",
+   :rdfs/seeAlso {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/ReadFile})
+
+(def WindowsNtSetInformationFileArgumentFileDispositionInformation
+  "Windows NtSetInformationFile Argument FileDispositionInformation"
+  {:d3f/definition
+   "Request to delete the file when it is closed or cancel a previously requested deletion.",
+   :db/ident :d3f/WindowsNtSetInformationFileArgumentFileDispositionInformation,
+   :rdf/type :owl/Class,
+   :rdfs/label
+   "Windows NtSetInformationFile Argument FileDispositionInformation",
+   :rdfs/seeAlso
+   {:rdfa/uri
+    "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntsetinformationfile"},
+   :rdfs/subClassOf :d3f/DeleteFile})
+
+(def WindowsNtSuspendProcess
+  "Windows NtSuspendProcess"
+  {:db/ident        :d3f/WindowsNtSuspendProcess,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtSuspendProcess",
+   :rdfs/subClassOf :d3f/SuspendProcess})
+
+(def WindowsNtSuspendThread
+  "Windows NtSuspendThread"
+  {:db/ident        :d3f/WindowsNtSuspendThread,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtSuspendThread",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/SuspendThread})
+
+(def WindowsNtTerminateProcess
+  "Windows NtTerminateProcess"
+  {:db/ident        :d3f/WindowsNtTerminateProcess,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtTerminateProcess",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/TerminateProcess})
+
+(def WindowsNtWriteFile
+  "Windows NtWriteFile"
+  {:db/ident        :d3f/WindowsNtWriteFile,
+   :rdf/type        :owl/Class,
+   :rdfs/label      "Windows NtWriteFile",
+   :rdfs/seeAlso    {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/WriteFile})
+
+(def WindowsNtWriteFileGather
+  "Windows NtWriteFileGather"
+  {:d3f/definition
+   "Writes specified block of file with data from memory pages.",
+   :db/ident :d3f/WindowsNtWriteFileGather,
+   :rdf/type :owl/Class,
+   :rdfs/label "Windows NtWriteFileGather",
+   :rdfs/seeAlso {:rdfa/uri "https://j00ru.vexillium.org/syscalls/nt/64/"},
+   :rdfs/subClassOf :d3f/WriteFile})
 
 (def WindowsProcess
   "Windows Process"
@@ -35404,8 +36258,9 @@
    :db/ident :d3f/WindowsRegistry,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   ["https://learn.microsoft.com/en-us/troubleshoot/windows-server/performance/windows-registry-advanced-users"
-    "http://dbpedia.org/resource/Windows_Registry"],
+   [{:rdfa/uri
+     "https://learn.microsoft.com/en-us/troubleshoot/windows-server/performance/windows-registry-advanced-users"}
+    {:rdfa/uri "http://dbpedia.org/resource/Windows_Registry"}],
    :rdfs/label "Windows Registry",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/WindowsRegistryKey,
@@ -35420,12 +36275,14 @@
    :db/ident :d3f/WindowsRegistryKey,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   ["https://learn.microsoft.com/en-us/windows/win32/sysinfo/structure-of-the-registry"
-    "http://dbpedia.org/resource/Windows_Registry#Keys_and_values"],
+   [{:rdfa/uri
+     "https://learn.microsoft.com/en-us/windows/win32/sysinfo/structure-of-the-registry"}
+    {:rdfa/uri "http://dbpedia.org/resource/Windows_Registry#Keys_and_values"}],
    :rdfs/label "Windows Registry Key",
    :rdfs/seeAlso
-   ["https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
-    "https://schema.ocsf.io/objects/registry_key"],
+   [{:rdfa/uri
+     "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"}
+    {:rdfa/uri "https://schema.ocsf.io/objects/registry_key"}],
    :rdfs/subClassOf [:d3f/SystemConfigurationDatabaseRecord
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/WindowsRegistryKey,
@@ -35445,11 +36302,13 @@
    :db/ident :d3f/WindowsRegistryValue,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy
-   "https://learn.microsoft.com/en-us/windows/win32/api/winreg/ns-winreg-valentw",
+   {:rdfa/uri
+    "https://learn.microsoft.com/en-us/windows/win32/api/winreg/ns-winreg-valentw"},
    :rdfs/label "Windows Registry Value",
    :rdfs/seeAlso
-   ["https://learn.microsoft.com/en-us/windows/win32/sysinfo/structure-of-the-registry"
-    "https://schema.ocsf.io/objects/registry_value"],
+   [{:rdfa/uri
+     "https://learn.microsoft.com/en-us/windows/win32/sysinfo/structure-of-the-registry"}
+    {:rdfa/uri "https://schema.ocsf.io/objects/registry_value"}],
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contained-by,
                       :owl/someValuesFrom :d3f/WindowsRegistryKey,
                       :rdf/type           :owl/Restriction}
@@ -35465,8 +36324,9 @@
    :rdf/type :owl/Class,
    :rdfs/label "Windows Shortcut File",
    :rdfs/seeAlso
-   ["http://dbpedia.org/resource/Symbolic_link#Shortcuts"
-    "http://dbpedia.org/resource/Shortcut_(computing)#Microsoft_Windows"],
+   [{:rdfa/uri "http://dbpedia.org/resource/Symbolic_link#Shortcuts"}
+    {:rdfa/uri
+     "http://dbpedia.org/resource/Shortcut_(computing)#Microsoft_Windows"}],
    :rdfs/subClassOf :d3f/ShortcutFile,
    :skos/altLabel "Shell Link"})
 
@@ -35476,7 +36336,8 @@
    "In computer networking, a wireless access point (WAP), or more generally just access point (AP), is a networking hardware device that allows other Wi-Fi devices to connect to a wired network. The AP usually connects to a router (via a wired network) as a standalone device, but it can also be an integral component of the router itself. An AP is differentiated from a hotspot which is a physical location where Wi-Fi access is available.",
    :db/ident :d3f/WirelessAccessPoint,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Wireless_access_point",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Wireless_access_point"},
    :rdfs/label "Wireless Access Point",
    :rdfs/subClassOf [:d3f/RFTransceiver :d3f/NetworkNode],
    :skos/altLabel "WAP"})
@@ -35487,9 +36348,9 @@
    "A wireless router is a device that performs the functions of a router and also includes the functions of a wireless access point. It is used to provide access to the Internet or a private computer network. Depending on the manufacturer and model, it can function in a wired local area network, in a wireless-only LAN, or in a mixed wired and wireless network.",
    :db/ident :d3f/WirelessRouter,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Wireless_router",
+   :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Wireless_router"},
    :rdfs/label "Wireless Router",
-   :rdfs/seeAlso ["Wireless Access Point"],
+   :rdfs/seeAlso {:xsd/string "Wireless Access Point"},
    :rdfs/subClassOf [:d3f/WirelessAccessPoint :d3f/Router]})
 
 (def WriteFile
@@ -35499,7 +36360,8 @@
    :d3f/modifies :d3f/File,
    :db/ident :d3f/WriteFile,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Write_(system_call)",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Write_(system_call)"},
    :rdfs/label "Write File",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/File,
@@ -35520,7 +36382,8 @@
    "Zero client is also referred as ultra thin client, contains no moving parts but centralizes all processing and storage to just what is running on the server. As a result, it requires no local driver to install, no patch management, and no local operating system licensing fees or updates. The device consumes very little power and is tamper-resistant and completely incapable of storing any data locally, providing a more secure endpoint.",
    :db/ident :d3f/ZeroClientComputer,
    :rdf/type :owl/Class,
-   :rdfs/isDefinedBy "http://dbpedia.org/resource/Thin_client#Zero_client",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://dbpedia.org/resource/Thin_client#Zero_client"},
    :rdfs/label "Zero Client Computer",
    :rdfs/subClassOf :d3f/ThinClientComputer})
 
@@ -35530,7 +36393,8 @@
    "x abuses y: The entity x applies an artifact y to a wrong thing or person; x applies y badly or incorrectly.",
    :db/ident :d3f/abuses,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01163606-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01163606-v"},
    :rdfs/label "abuses",
    :rdfs/subPropertyOf :d3f/uses,
    :skos/altLabel ["misuses" "misapplies"]})
@@ -35549,7 +36413,8 @@
    "x accesses y: An subject x takes the action of reading from, writing into, or executing the stored information in the object y. Reads, writes, and executes are specific cases of accesses.",
    :db/ident :d3f/accesses,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02673854-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02673854-n"},
    :rdfs/label "accesses",
    :rdfs/range :d3f/NetworkResource,
    :rdfs/subPropertyOf [:d3f/may-access :d3f/associated-with]})
@@ -35577,8 +36442,9 @@
    :rdfs/domain :d3f/Identifier,
    :rdfs/label "addresses",
    :rdfs/range :d3f/Resource,
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Pointer_(computer_programming)"
-                  "http://wordnet-rdf.princeton.edu/id/02253826-v"],
+   :rdfs/seeAlso [{:rdfa/uri
+                   "http://dbpedia.org/resource/Pointer_(computer_programming)"}
+                  {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/02253826-v"}],
    :rdfs/subPropertyOf :d3f/associated-with,
    :skos/altLabel "points-to"})
 
@@ -35597,7 +36463,8 @@
    "x analyzes y: The subject x break down object y into components or essential features, assessing y by quantitative methods, qualitative methods, or both.  Usually the analysis is done in terms of some model or framework.",
    :db/ident :d3f/analyzes,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00738221-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00738221-v"},
    :rdfs/label "analyzes",
    :rdfs/subPropertyOf [:d3f/detects :d3f/associated-with]})
 
@@ -35635,7 +36502,7 @@
    :db/ident :d3f/associated-with,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "associated-with",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/13804981-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/13804981-n"},
    :rdfs/subPropertyOf :d3f/may-be-associated-with})
 
 (def attached-to
@@ -35644,9 +36511,10 @@
    "x attached-to y: A subject x is joined in close association to an object y.",
    :db/ident :d3f/attached-to,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01980375-s",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01980375-s"},
    :rdfs/label "attached-to",
-   :rdfs/seeAlso ["d3f:connects"],
+   :rdfs/seeAlso {:xsd/string "d3f:connects"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def attack-id
@@ -35693,7 +36561,8 @@
    "x authenticates y: The subject x establishes the authenticity of some y. This relation indicates an authentication event has occurred.",
    :db/ident :d3f/authenticates,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01980375-s",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01980375-s"},
    :rdfs/label "authenticates",
    :rdfs/subPropertyOf [:d3f/hardens :d3f/associated-with]})
 
@@ -35712,9 +36581,10 @@
    "x authorizes y: A subject x grants authorization or clearance for an agent y to use an object.  This relation indicates an authorization event has occurred.",
    :db/ident :d3f/authorizes,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00804987-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00804987-v"},
    :rdfs/label "authorizes",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/00805664-v"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00805664-v"},
    :rdfs/subPropertyOf [:d3f/hardens :d3f/associated-with]})
 
 (def available
@@ -35734,7 +36604,8 @@
    "x blocks y: The entity x blocks off the use of digital artifact y by reference to a block or allow list (or both.)",
    :db/ident :d3f/blocks,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01480024-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01480024-v"},
    :rdfs/label "blocks",
    :rdfs/subPropertyOf [:d3f/filters :d3f/counters]})
 
@@ -35834,7 +36705,8 @@
    "x connects y to z is a complete capture of the action, but requires and event to reify that.  y connected-to z could be relation for the state after the event \"x connects y to z\".  But there is also the likely need to model the sense of x connects y to z, where x is the communications equipment (might be a simple cable) and y and z are the systems being connected.",
    :db/ident :d3f/connects,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01071413-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01071413-v"},
    :rdfs/label "connects",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -35854,7 +36726,8 @@
    "x contains y: A core relation that holds between a whole x and its part y.  Equivalent to relational concept 'has part' and thus transitive.",
    :db/ident :d3f/contains,
    :rdf/type [:owl/TransitiveProperty :owl/ObjectProperty],
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02639021-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02639021-v"},
    :rdfs/label "contains",
    :rdfs/subPropertyOf [:d3f/may-contain :d3f/associated-with]})
 
@@ -35878,7 +36751,8 @@
    "x copies y: An technique or agent x reproduces or makes and exact copy of some digital artifact y.",
    :db/ident :d3f/copies,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01738810-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01738810-v"},
    :rdfs/label "copies",
    :rdfs/subPropertyOf :d3f/creates})
 
@@ -35922,9 +36796,10 @@
    "x creates y: The subject x bring into existence an object y.  Some technique or agent x creates a persistent digital artifact y (as opposed to production of a consumable or transient object.); i.e., bring forth or generate",
    :db/ident :d3f/creates,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01630392-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01630392-v"},
    :rdfs/label "creates",
-   :rdfs/seeAlso ["produces"],
+   :rdfs/seeAlso {:xsd/string "produces"},
    :rdfs/subPropertyOf [:d3f/may-create :d3f/associated-with]})
 
 (def creator
@@ -36135,7 +37010,8 @@
    :rdfs/label #voc/lstr "date@en",
    :rdfs/range :xsd/dateTime,
    :rdfs/seeAlso
-   ["https://www.w3.org/wiki/Good_Ontologies#The_Dublin_Core_.28DC.29_ontology"],
+   {:rdfa/uri
+    "https://www.w3.org/wiki/Good_Ontologies#The_Dublin_Core_.28DC.29_ontology"},
    :rdfs/subPropertyOf :d3f/d3fend-data-property})
 
 (def deceives
@@ -36161,7 +37037,7 @@
    "Will port rdfs:comment entries that have been definitions to d3f:definition to free up comments for non-definitional expansions and commentary.",
    :db/ident :d3f/definition,
    :rdf/type :owl/AnnotationProperty,
-   :rdfs/isDefinedBy "http://purl.obolibrary.org/obo/IAO_0000115",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.obolibrary.org/obo/IAO_0000115"},
    :rdfs/label ["definition" "comment"],
    :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
@@ -36171,7 +37047,8 @@
    "x deletes y: A technique or agent x wipes out the digitally or magnetically recorded information of digital object y.",
    :db/ident :d3f/deletes,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01001860-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01001860-v"},
    :rdfs/label "deletes",
    :rdfs/subPropertyOf [:d3f/modifies :d3f/evicts]})
 
@@ -36181,7 +37058,8 @@
    "x dependent y: A dependent y is an entity that requires the fulfillment of the requirements specified in dependency x.",
    :db/ident :d3f/dependent,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00729216-a",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00729216-a"},
    :rdfs/label "dependent",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -36191,10 +37069,11 @@
    :owl/inverseOf :d3f/has-dependent,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
-   ["x depends-on y: The entity x is contingent on y being available; x relies on y."
-    "http://wordnet-rdf.princeton.edu/id/00729216-a"],
+   [{:xsd/string
+     "x depends-on y: The entity x is contingent on y being available; x relies on y."}
+    {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00729216-a"}],
    :rdfs/label "depends-on",
-   :rdfs/seeAlso ["https://www.cisa.gov/what-are-dependencies"],
+   :rdfs/seeAlso {:rdfa/uri "https://www.cisa.gov/what-are-dependencies"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def description
@@ -36202,7 +37081,8 @@
   {:d3f/definition     "A statement that represents something in words.",
    :db/ident           :d3f/description,
    :rdf/type           :owl/AnnotationProperty,
-   :rdfs/isDefinedBy   "http://wordnet-rdf.princeton.edu/id/06737512-n",
+   :rdfs/isDefinedBy   {:rdfa/uri
+                        "http://wordnet-rdf.princeton.edu/id/06737512-n"},
    :rdfs/label         #voc/lstr "description@en",
    :rdfs/subPropertyOf :d3f/d3fend-catalog-annotation-property})
 
@@ -36219,7 +37099,8 @@
    "x disables y: The technique or agent x makes an entity y unable to perform its actions or capabilities.",
    :db/ident :d3f/disables,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00513267-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00513267-v"},
    :rdfs/label "disables",
    :rdfs/subPropertyOf [:d3f/modifies :d3f/may-disable :d3f/evicts]})
 
@@ -36262,9 +37143,10 @@
    "x drives y: The device driver x causes a system component y to function by controlling it.",
    :db/ident :d3f/drives,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01184038-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01184038-v"},
    :rdfs/label "drives",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Device_driver"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Device_driver"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def employed-by
@@ -36274,7 +37156,8 @@
    :db/ident :d3f/employed-by,
    :owl/inverseOf :d3f/employs,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01161188-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01161188-v"},
    :rdfs/label "employed-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -36292,7 +37175,8 @@
    :db/ident :d3f/enabled-by,
    :owl/inverseOf :d3f/enables,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00513958-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00513958-v"},
    :rdfs/label "enabled-by",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -36302,7 +37186,8 @@
    "x enables y: A top level technique x enables a tactic y, that is, the property indicates that a technique x is used to put a particular tactic y into action. In other words, x renders y capable or able for some task.",
    :db/ident :d3f/enables,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00513958-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00513958-v"},
    :rdfs/label "enables",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -36312,7 +37197,8 @@
    "x encrypts y: The entity x converts the ordinary representation of a digital artifact y into a secret code.",
    :db/ident :d3f/encrypts,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00996121-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00996121-v"},
    :rdfs/label "encrypts",
    :rdfs/subPropertyOf [:d3f/hardens :d3f/associated-with]})
 
@@ -36384,7 +37270,8 @@
    "x executes y: The subject x takes the action of carrying out (executing) y, which is a single software module, function, or instruction.",
    :db/ident :d3f/executes,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02569242-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02569242-v"},
    :rdfs/label "executes",
    :rdfs/subPropertyOf [:d3f/runs :d3f/may-execute :d3f/accesses]})
 
@@ -36409,7 +37296,8 @@
    "x extends y: The entity x extend the scope or range or area of entity y, especially in the sense of widen the range of applications.",
    :db/ident :d3f/extends,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00541315-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00541315-v"},
    :rdfs/label "extends",
    :rdfs/subPropertyOf :d3f/modifies})
 
@@ -36428,11 +37316,13 @@
    "x filters y: An technique or agent x removes some specified set of of entities from the content of a digital artifact y, by passing an artifact's content through a filter.  A filter is a device that removes something from whatever passes through it.",
    :db/ident :d3f/filters,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01461293-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01461293-v"},
    :rdfs/label "filters",
    :rdfs/seeAlso
-   ["http://wordnet-rdf.princeton.edu/id/03344588-n"
-    "http://www.ontologyrepository.com/CommonCoreOntologies/Filter"],
+   [{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/03344588-n"}
+    {:rdfa/uri
+     "http://www.ontologyrepository.com/CommonCoreOntologies/Filter"}],
    :rdfs/subPropertyOf [:d3f/isolates :d3f/associated-with]})
 
 (def forges
@@ -36442,7 +37332,7 @@
    :db/ident :d3f/forges,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "forges",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/01657814-v"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/01657814-v"},
    :rdfs/subPropertyOf :d3f/creates})
 
 (def fork
@@ -36466,7 +37356,7 @@
    :db/ident :d3f/has-account,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "has-account",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/02209474-v"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/02209474-v"},
    :rdfs/subPropertyOf :d3f/owns})
 
 (def has-audience
@@ -36536,9 +37426,10 @@
    "x has-location y: The entity x is situated in a particular spot or position y.",
    :db/ident :d3f/has-location,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02133811-s",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02133811-s"},
    :rdfs/label "has-location",
-   :rdfs/seeAlso ["http://www.obofoundry.org/ro/#OBO_REL:located_in"],
+   :rdfs/seeAlso {:rdfa/uri "http://www.obofoundry.org/ro/#OBO_REL:located_in"},
    :rdfs/subPropertyOf :d3f/associated-with,
    :skos/altLabel "located_in"})
 
@@ -36569,10 +37460,11 @@
    :db/ident :d3f/has-recipient,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
-   "http://www.ontologyrepository.com/CommonCoreOntologies/has_recipient",
+   {:rdfa/uri
+    "http://www.ontologyrepository.com/CommonCoreOntologies/has_recipient"},
    :rdfs/label "has-recipient",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/09651094-n"
-                  "http://wordnet-rdf.princeton.edu/id/09788768-n"],
+   :rdfs/seeAlso [{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/09651094-n"}
+                  {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/09788768-n"}],
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def has-sender
@@ -36582,9 +37474,10 @@
    :db/ident :d3f/has-sender,
    :rdf/type :owl/ObjectProperty,
    :rdfs/isDefinedBy
-   "http://www.ontologyrepository.com/CommonCoreOntologies/has_sender",
+   {:rdfa/uri
+    "http://www.ontologyrepository.com/CommonCoreOntologies/has_sender"},
    :rdfs/label "has-sender",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/10598214-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/10598214-n"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def has-weakness
@@ -36666,8 +37559,8 @@
    :db/ident :d3f/injects,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "injects",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/00916722-v"
-                  "http://dbpedia.org/resource/Code_injection"],
+   :rdfs/seeAlso [{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00916722-v"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Code_injection"}],
    :rdfs/subPropertyOf :d3f/executes})
 
 (def installs
@@ -36676,7 +37569,8 @@
    "x installs y: An entity x sets up a digital artifact y for subsequent use.  For example, an installation program can install application software.",
    :db/ident :d3f/installs,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01572394-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01572394-v"},
    :rdfs/label "installs",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -36705,7 +37599,8 @@
    :db/ident :d3f/interprets,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "interprets",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Interpreter_(computing)"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Interpreter_(computing)"},
    :rdfs/subPropertyOf [:d3f/may-interpret :d3f/executes]})
 
 (def inventoried-by
@@ -36739,9 +37634,10 @@
    "Calls in Wordnet can be function call or system / supervisor call; we may want to make this distinction in future.  So far, we have always used this in the second sense (system call.)",
    :db/ident :d3f/invokes,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/06599393-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/06599393-n"},
    :rdfs/label "invokes",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/System_call"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/System_call"},
    :rdfs/subPropertyOf [:d3f/may-invoke :d3f/executes],
    :skos/altLabel "calls"})
 
@@ -36751,7 +37647,8 @@
    "x isolates y: The technique or agent x sets digital artifact y apart from other digital artifacts, sequestering y.",
    :db/ident :d3f/isolates,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00496744-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00496744-v"},
    :rdfs/label "isolates",
    :rdfs/subPropertyOf [:d3f/d3fend-tactical-verb-property
                         :d3f/associated-with]})
@@ -36893,9 +37790,10 @@
    "x limits y: An entity x specifies a designated limit beyond which some entity y cannot function or must be terminated.",
    :db/ident :d3f/limits,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/13781154-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/13781154-n"},
    :rdfs/label "limits",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/13780436-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/13780436-n"},
    :rdfs/subPropertyOf :d3f/restricts,
    :skos/altLabel "cutoff"})
 
@@ -36913,7 +37811,8 @@
    "x loads y: The technique or process x transfers a software from a storage y to a computer's memory for subsequent execution.",
    :db/ident :d3f/loads,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02236692-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02236692-v"},
    :rdfs/label "loads",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -36929,7 +37828,8 @@
    "x manages y: The technique or agent x watches and directs the use of a digital artifact y.",
    :db/ident :d3f/manages,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02447914-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02447914-v"},
    :rdfs/label "manages",
    :rdfs/subPropertyOf :d3f/associated-with,
    :skos/altLabel ["supervises" "oversees"]})
@@ -36984,7 +37884,7 @@
    :db/ident :d3f/may-be-associated-with,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "may-be-associated-with",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/13804981-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/13804981-n"},
    :rdfs/subPropertyOf :d3f/d3fend-object-property})
 
 (def may-be-contained-by
@@ -37297,7 +38197,8 @@
    "x modifies y: A technique or agent x causes a digital object y to change; become different; or undertake a transformation.  Afterwards, the data or state held by a digital object is changed.",
    :db/ident :d3f/modifies,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00126072-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00126072-v"},
    :rdfs/label "modifies",
    :rdfs/subPropertyOf [:d3f/may-modify :d3f/associated-with :d3f/accesses],
    :skos/altLabel "alters"})
@@ -37318,7 +38219,8 @@
    "x monitors y: The technique or agent x keep tabs on; keeps an eye on; or keep the digital artifact y under surveillance.",
    :db/ident :d3f/monitors,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02167732-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02167732-v"},
    :rdfs/label "monitors",
    :rdfs/subPropertyOf [:d3f/detects :d3f/associated-with]})
 
@@ -37349,7 +38251,8 @@
    "x neutralizes y: The technique x makes the execution of actions of y ineffective by preventing or counterbalancing the effect of y.",
    :db/ident :d3f/neutralizes,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00471015-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00471015-v"},
    :rdfs/label "neutralizes",
    :rdfs/subPropertyOf [:d3f/hardens :d3f/associated-with]})
 
@@ -37378,9 +38281,11 @@
    "x obfuscates y: The technique x makes the digital artifact y unclear or obscure.  Typically obfuscation is a way to hide a digital artifact from discovery, use, or both.",
    :db/ident :d3f/obfuscates,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00942245-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00942245-v"},
    :rdfs/label "obfuscates",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Obfuscation_(software)"],
+   :rdfs/seeAlso {:rdfa/uri
+                  "http://dbpedia.org/resource/Obfuscation_(software)"},
    :rdfs/subPropertyOf [:d3f/modifies :d3f/evicts]})
 
 (def operating-system
@@ -37400,7 +38305,8 @@
    "x originates-from y: The digital event or artifact x began its network transit from a physical location y.",
    :db/ident :d3f/originates-from,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02749218-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02749218-v"},
    :rdfs/label "originates-from",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -37410,9 +38316,10 @@
    "x owns y: The subject x has ownership or possession of some object y.",
    :db/ident :d3f/owns,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02209474-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02209474-v"},
    :rdfs/label "owns",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Ownership"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Ownership"},
    :rdfs/subPropertyOf :d3f/associated-with,
    :skos/altLabel "possesses"})
 
@@ -37552,9 +38459,10 @@
    "Make definition of produces more generic to match sense of Product Developer produces Product (so generalize to any object really, not just computery digital stuff.)",
    :db/ident :d3f/produces,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01625832-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01625832-v"},
    :rdfs/label "produces",
-   :rdfs/seeAlso ["creates"],
+   :rdfs/seeAlso {:xsd/string "creates"},
    :rdfs/subPropertyOf
    [:d3f/may-produce :d3f/d3fend-catalog-object-property :d3f/associated-with],
    :skos/altLabel "outputs"})
@@ -37565,9 +38473,10 @@
    "x provider y: A provider y is an entity that supplies a service, system, or data resources to a dependent entity x.",
    :db/ident :d3f/provider,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/05901034-n",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/05901034-n"},
    :rdfs/label "provider",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/10696710-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/10696710-n"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def provides
@@ -37622,8 +38531,8 @@
    :db/ident :d3f/reads,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "reads",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/00629157-v"
-                  "http://dbpedia.org/resource/Reading_(computer)"],
+   :rdfs/seeAlso [{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00629157-v"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Reading_(computer)"}],
    :rdfs/subPropertyOf :d3f/accesses})
 
 (def real-time-analytic
@@ -37653,9 +38562,10 @@
    "a log doesn't summarize an event, it records it; it logs it in the sense of holding the records; it contains it in sense of a record in a historical list of records, maybe---but if we model loggers we might want to reserve 'log' to say they 'log' the event.  The chronological order of the log events (log event records to be exact) would suggest 'chronicles' but that verb might be too twee for first D3FEND release.",
    :db/ident :d3f/records,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01002259-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01002259-v"},
    :rdfs/label "records",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/01003181-v"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/01003181-v"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def regenerates
@@ -37664,7 +38574,8 @@
    "x regenerates y: The entity x discards the current digital artifact y and creates a new version that serves the same function.",
    :db/ident :d3f/regenerates,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00167632-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00167632-v"},
    :rdfs/label "regenerates",
    :rdfs/subPropertyOf [:d3f/hardens :d3f/associated-with]})
 
@@ -37700,9 +38611,21 @@
   {:d3f/definition     "x restricts y: An entity x bounds the use of entity y.",
    :db/ident           :d3f/restricts,
    :rdf/type           :owl/ObjectProperty,
-   :rdfs/isDefinedBy   "http://wordnet-rdf.princeton.edu/id/00234091-v",
+   :rdfs/isDefinedBy   {:rdfa/uri
+                        "http://wordnet-rdf.princeton.edu/id/00234091-v"},
    :rdfs/label         "restricts",
    :rdfs/subPropertyOf :d3f/associated-with})
+
+(def resume
+  "resume"
+  {:d3f/definition
+   "The agent or technique x continues a previous action on entity y. Usually occurs after suspension on y.",
+   :db/ident :d3f/resume,
+   :rdf/type :owl/ObjectProperty,
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00350758-v"},
+   :rdfs/label "resume",
+   :rdfs/subPropertyOf :d3f/d3fend-process-object-property})
 
 (def runs
   "runs"
@@ -37711,7 +38634,7 @@
    :db/ident :d3f/runs,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "runs",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/02569242-v"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/02569242-v"},
    :rdfs/subPropertyOf [:d3f/may-run :d3f/associated-with]})
 
 (def seller
@@ -37743,8 +38666,8 @@
    :db/ident :d3f/spoofs,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "spoofs",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/03323383-n"
-                  "http://dbpedia.org/resource/Spoof"],
+   :rdfs/seeAlso [{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/03323383-n"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Spoof"}],
    :rdfs/subPropertyOf [:d3f/deceives-with :d3f/associated-with]})
 
 (def stage
@@ -37783,7 +38706,8 @@
    "x strengthens y: The technique x make digital artifact y resistant (to harm or misuse.)",
    :db/ident :d3f/strengthens,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00165779-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00165779-v"},
    :rdfs/label "strengthens",
    :rdfs/subPropertyOf [:d3f/hardens :d3f/associated-with]})
 
@@ -37800,7 +38724,8 @@
    "x summarizes y: The sensor x summarizes a set y of events concerning digital artifacts over time",
    :db/ident :d3f/summarizes,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/02758570-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/02758570-v"},
    :rdfs/label "summarizes",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -37809,7 +38734,8 @@
   {:d3f/definition "x suspends y: The agent or technique x pauses entity y.",
    :db/ident :d3f/suspends,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00543748-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00543748-v"},
    :rdfs/label "suspends",
    :rdfs/subPropertyOf :d3f/evicts})
 
@@ -37840,9 +38766,10 @@
    :d3f/synonym "aborts",
    :db/ident :d3f/terminates,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00353480-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00353480-v"},
    :rdfs/label "terminates",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/00354493-v"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00354493-v"},
    :rdfs/subPropertyOf [:d3f/evicts :d3f/associated-with]})
 
 (def text
@@ -37880,7 +38807,7 @@
    :db/ident :d3f/unmounts,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "unmounts",
-   :rdfs/seeAlso ["http://dbpedia.org/resource/Mount_(computing)"],
+   :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Mount_(computing)"},
    :rdfs/subPropertyOf :d3f/associated-with})
 
 (def updates
@@ -37899,7 +38826,7 @@
    :db/ident :d3f/use-limits,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "use-limits",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/13781154-n"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/13781154-n"},
    :rdfs/subPropertyOf :d3f/limits})
 
 (def used-by
@@ -37917,7 +38844,8 @@
    "x uses y: An entity x puts into service a resource or implement y; makes y work or employ for a particular purpose or for its inherent or natural purpose.",
    :db/ident :d3f/uses,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/01161188-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/01161188-v"},
    :rdfs/label "uses",
    :rdfs/subPropertyOf :d3f/associated-with})
 
@@ -37938,7 +38866,8 @@
    "x validates y: The technique x proves the digital artifact y is valid; that is, x shows or confirms the validity of y.",
    :db/ident :d3f/validates,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00669142-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00669142-v"},
    :rdfs/label "validates",
    :rdfs/subPropertyOf [:d3f/hardens :d3f/associated-with]})
 
@@ -37957,11 +38886,13 @@
    "verifies and validates both share common parent confirms ala Wordnet (they are siblings). Might be useful parent, but leave out until it is clear it is helpful.  Wordnet 'checks' might also be in play here, though in our world spec of verifies as in http://wordnet-rdf.princeton.edu/id/00665271-v, or is that checks more like validates?  Eschewing altLabel 'checks' for either for now.",
    :db/ident :d3f/verifies,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://wordnet-rdf.princeton.edu/id/00666401-v",
+   :rdfs/isDefinedBy {:rdfa/uri
+                      "http://wordnet-rdf.princeton.edu/id/00666401-v"},
    :rdfs/label "verifies",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/00665271-v"
-                  "http://dbpedia.org/resource/Formal_verification"
-                  "http://dbpedia.org/resource/Runtime_verification"],
+   :rdfs/seeAlso [{:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00665271-v"}
+                  {:rdfa/uri "http://dbpedia.org/resource/Formal_verification"}
+                  {:rdfa/uri
+                   "http://dbpedia.org/resource/Runtime_verification"}],
    :rdfs/subPropertyOf [:d3f/analyzes :d3f/associated-with]})
 
 (def version
@@ -38019,5 +38950,5 @@
    :db/ident :d3f/writes,
    :rdf/type :owl/ObjectProperty,
    :rdfs/label "writes",
-   :rdfs/seeAlso ["http://wordnet-rdf.princeton.edu/id/01000931-v"],
+   :rdfs/seeAlso {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/01000931-v"},
    :rdfs/subPropertyOf :d3f/accesses})

@@ -106,7 +106,7 @@
   "The defininition of the subject resource."
   {:db/ident           :rdfs/isDefinedBy,
    :db/cardinality     :db.cardinality/many,
-   :db/valueType       :db.type/string,
+   :db/valueType       :db.type/ref,
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "The defininition of the subject resource.",
    :rdfs/domain        :rdfs/Resource,
@@ -158,7 +158,7 @@
   "Further information about the subject resource."
   {:db/ident           :rdfs/seeAlso,
    :db/cardinality     :db.cardinality/many,
-   :db/valueType       :db.type/string
+   :db/valueType       :db.type/ref
    :rdf/type           [:rdf/Property :rdfs/Resource],
    :rdfs/comment       "Further information about the subject resource.",
    :rdfs/domain        :rdfs/Resource,
