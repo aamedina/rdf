@@ -447,7 +447,6 @@
   {:db/ident :skos/notation,
    :db/cardinality :db.cardinality/one,
    :db/valueType :db.type/string,
-   :db/unique :db.unique/identity
    :rdf/type [:rdf/Property :owl/DatatypeProperty],
    :rdfs/isDefinedBy "http://www.w3.org/2004/02/skos/core",
    :rdfs/label #voc/lstr "notation@en",
