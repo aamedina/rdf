@@ -1167,7 +1167,7 @@
         docstring (if (map? docstring)
                     (:rdf/value docstring "")
                     docstring)]
-    docstring))
+    (str docstring)))
 
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -1404,7 +1404,7 @@
     (println "-------------------------")
     (println (:db/ident metaobject))
     (when-some [doc (rdf-doc metaobject)]
-      (println "  " doc))
+      (println " " doc))
     (when-some [supers (next (mop/compute-class-precedence-list metaobject))]
       (println "  isa?")
       (reduce (fn [cnt class]

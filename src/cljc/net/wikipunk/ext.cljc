@@ -634,3 +634,18 @@
    :rdf/type   :rdfa/PrefixMapping
    :rdfa/uri    "http://iflastandards.info/ns/fr/frbr/frbroo/"
    :rdfa/prefix "frbroo"})
+
+(def rml
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://semweb.mmlab.be/ns/rml#"
+   :rdfa/prefix "rml"})
+
+(def rmlt
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://semweb.mmlab.be/ns/rml-target#"
+   :rdfa/prefix "rmlt"})
+
+(def ql
+  {:rdf/type    :rdfa/PrefixMapping
+   :rdfa/uri    "http://semweb.mmlab.be/ns/ql#"
+   :rdfa/prefix "ql"})
