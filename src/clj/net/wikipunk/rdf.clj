@@ -46,19 +46,17 @@
    (org.apache.jena.shared PrefixMapping)))
 
 (defprotocol LinkedData
-  (sniff [x] "Follow your nose."))
-
-(defprotocol Parsable
   (parse [x]
     "Parses source using Apache Jena's RDFParser and converts it to
   Clojure data using Aristotle.
 
   Adapted from arachne.aristotle.graph/graph->clj")
   (graph [x]
-    "Returns Jena Graph from x."))
-
-(defprotocol NamespaceSpitter
-  (emit [x arg-map]))
+    "Returns Jena Graph from x.")
+  (sniff [x]
+    "Follow your nose.")
+  (emit [x arg-map]
+    "Write Clojure namespace after parsing x with arg-map."))
 
 (def ^:dynamic *indexes*
   "A map of useful indexes across metaobjects."
@@ -413,7 +411,7 @@
       (.close ^java.io.Closeable node))
     (assoc this :node nil))
 
-  NamespaceSpitter
+  LinkedData
   (emit [_ arg-map]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]
@@ -635,6 +633,11 @@
                        (catch Throwable ex
                          (name k)))))))
 
+(extend-protocol arachne.aristotle.graph/AsNode
+  clojure.lang.BigInt
+  (node [obj]
+    (org.apache.jena.graph.NodeFactory/createLiteralByValue (biginteger obj) XSDDatatype/XSDinteger)))
+
 (defmethod print-dup clojure.lang.TaggedLiteral
   [x ^java.io.Writer w]
   (.write w (str "#" (:tag x) " " (pr-str (:form x)))))
@@ -764,95 +767,6 @@
 (def ^:dynamic *graph*
   "Bound to the apache jena graph during parsing."
   nil)
-
-(extend-protocol Parsable
-  clojure.lang.IPersistentMap
-  (parse [md]
-    (binding [*graph* (graph md)]
-      (parse-with-meta *graph* md)))
-  (graph [md]
-    (let [{:rdfa/keys [uri prefix]
-           :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
-           :dcat/keys [downloadURL]
-           :rdf/keys  [value]
-           :keys      [format]} md
-          parser                (if value
-                                  (doto (RDFParser/fromString value)
-                                    (.lang (get a/formats (or format :ttl))))
-                                  (RDFParser/source (or downloadURL uri)))]
-      (try
-        (.toGraph parser)
-        (catch org.apache.jena.riot.RiotException ex
-          ;; if an appropriate content-type cannot be inferred try Turtle
-          (try
-            (.toGraph (doto parser (.lang Lang/TTL)))
-            (catch org.apache.jena.riot.RiotException ex
-              ;; ...try RDF/XML?
-              (try
-                (.toGraph (doto parser (.lang Lang/RDFXML)))
-                (catch org.apache.jena.riot.RiotException ex
-                  ;; ...try N3?
-                  (try
-                    (.toGraph (doto parser (.lang Lang/N3)))
-                    (catch org.apache.jena.riot.RiotException ex
-                      ;; ...try JSONLD?
-                      (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
-
-  clojure.lang.Keyword
-  (parse [ident]
-    (when-some [url (iri ident)]
-      (parse {:rdfa/prefix      (namespace ident)
-              :dcat/downloadURL url})))
-  (graph [ident]
-    (when-some [url (iri ident)]
-      (graph {:rdfa/prefix      (namespace ident)
-              :dcat/downloadURL url})))
-
-  clojure.lang.Named
-  (parse [ident]
-    (if (qualified-ident? ident)
-      (some-> (resolve ident) deref parse)
-      (some-> (find-ns ident) meta parse)))
-  (graph [ident]
-    (if (qualified-ident? ident)
-      (some-> (resolve ident) deref graph)
-      (some-> (find-ns ident) meta graph)))
-
-  clojure.lang.Namespace
-  (parse [ns]
-    (parse (meta ns)))
-  (graph [ns]
-    (graph (meta ns)))
-
-  String
-  (parse [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))
-      (parse {:dcat/downloadURL s})
-      (parse {:rdf/value s})))
-  (graph [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))
-      (graph {:dcat/downloadURL s})
-      (graph {:rdf/value s})))
-
-  java.net.URI
-  (parse [uri]
-    (parse {:dcat/downloadURL (str uri)}))
-  (graph [uri]
-    (graph {:dcat/downloadURL (str uri)}))
-
-  java.net.URL
-  (parse [url]
-    (parse {:dcat/downloadURL (str url)}))
-  (graph [url]
-    (graph {:dcat/downloadURL (str url)}))
-
-  Graph
-  (parse [g]
-    (binding [*graph* g]
-      (parse-with-meta g nil)))
-  (graph [g] g))
 
 (def mem-parse (memo/memo parse))
 
@@ -1332,36 +1246,6 @@
                       (newline))))))))
     (zprint/zprint (unroll-forms model))))
 
-(extend-protocol NamespaceSpitter
-  clojure.lang.IPersistentCollection
-  (emit [xs arg-map]
-    (dorun (pmap #(try
-                    (emit % arg-map)
-                    (catch Throwable ex
-                      (println % (.getMessage ex))))
-                 xs)))
-
-  String
-  (emit [s arg-map]
-    (emit {:dcat/downloadURL s} arg-map))
-
-  clojure.lang.Named
-  (emit [n arg-map]
-    (when-some [x (if (qualified-ident? n)
-                    (some-> (resolve (symbol n)) deref)
-                    (find-ns (symbol n)))]
-      (emit x arg-map)))
-  
-  clojure.lang.IPersistentMap
-  (emit [x arg-map]
-    (let [model (parse x)
-          md    (meta model)]
-      (emit-ns model md arg-map)))
-
-  clojure.lang.Namespace
-  (emit [ns arg-map]
-    (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map)))
-
 (defn find-obo-metaobject
   "Find a metaobject in the OBO namespace."
   [ident]
@@ -1605,50 +1489,6 @@
 
       :else (find-ns (symbol ident)))))
 
-(extend-protocol LinkedData
-  clojure.lang.Sequential
-  (sniff [coll]
-    (pmap #(sniff %) coll))
-
-  String
-  (sniff [s]
-    (if (or (str/starts-with? s "http")
-            (str/starts-with? s "/"))      
-      (sniff {:dcat/downloadURL s})
-      (let [model (sniff {:rdf/value s})]
-        (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
-  
-  clojure.lang.IPersistentMap
-  (sniff [m]
-    (let [model (mem-parse m)]
-      (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model))))
-
-  clojure.lang.Keyword
-  (sniff [k]
-    (try
-      (when-some [model (mem-parse k)]
-        (let [forms (mapv #(dissoc % :private) (unroll-forms model))
-              idx   (group-by :db/ident forms)]
-          (if-some [val (get idx k)]
-            (with-meta (first val)
-              (merge (meta model)
-                     (update-vals (dissoc idx k) first)))
-            (with-meta (peek forms)
-              (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
-      (catch Throwable ex
-        (log/debug (.getMessage ex)))))
-
-  java.net.URI
-  (sniff [uri]
-    (sniff {:dcat/downloadURL (str uri)}))
-
-  java.net.URL
-  (sniff [url]
-    (sniff {:dcat/downloadURL (str url)}))
-
-  nil
-  (sniff [_] nil))
-
 (defmulti import-from
   "Import metaobjects `from` into `to`"
   (fn [from to]
@@ -1673,65 +1513,6 @@
                (intern to
                        (:name (meta v))
                        (merge (some-> (get (ns-publics to) (:name (meta v))) deref) @v))))))
-
-(defn parse-rdf*
-  "Parse RDF* metadata from x."
-  [x]
-  (let [model (parse x)]
-    (->> (group-by (comp :rdf/subject :db/ident) model)
-         (reduce-kv (fn [forms k v]
-                      (conj forms (reduce (fn [m x]
-                                            (-> m
-                                                (assoc (:rdf/predicate (:db/ident x))
-                                                       (:rdf/object (:db/ident x)))
-                                                (vary-meta assoc
-                                                           [(:rdf/subject (:db/ident x))
-                                                            (:rdf/predicate (:db/ident x))
-                                                            (:rdf/object (:db/ident x))]
-                                                           (dissoc x :db/ident))))
-                                          {:db/ident k}
-                                          v)))
-                    (with-meta [] (meta model))))))
-
-(defn emit-rdf*
-  "Emit Clojure namespace with subjects annotated with metadata using
-  RDF*.
-
-  You may have to add :refer-clojure :exclude [exclusions] to
-  generated ns metadata."
-  [x & {:as arg-map}]
-  (let [model (parse-rdf* x)
-        md    (meta model)]
-    (if-some [prefix (or (:prefix arg-map)
-                         (:rdfa/prefix md)
-                         (:vann/preferredNamespacePrefix md))]
-      (spit (str (or (:target arg-map) *target*)
-                 (namespace-munge (str/replace prefix #"\." "/"))
-                 ".cljc")
-            (binding [*print-namespace-maps* nil
-                      *print-meta*           true]
-              (let [forms (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
-                                  ~(or (:doc md) "RDF*")
-                                  ~(merge md arg-map))
-                                (map (fn [m]
-                                       (list 'def (with-meta (symbol (name (:db/ident m))) (meta m)) m))
-                                     model))]
-                (with-out-str
-                  (doseq [form forms]
-                    (zprint/zprint form {:map    {:justify?      true
-                                                  :nl-separator? false
-                                                  :hang?         true
-                                                  :indent        0
-                                                  :sort-in-code? true
-                                                  :force-nl?     true}
-                                         :vector {:wrap? false}})
-                    (newline))))))
-      (zprint/zprint model))))
-
-(extend-protocol arachne.aristotle.graph/AsNode
-  clojure.lang.BigInt
-  (node [obj]
-    (org.apache.jena.graph.NodeFactory/createLiteralByValue (biginteger obj) XSDDatatype/XSDinteger)))
 
 (defn ns-graph
   "Return a graph of all the namespaces in the current system."
@@ -1771,3 +1552,143 @@
           (map deref (vals (ns-publics ns))))
     @idents))
 
+(extend-protocol LinkedData
+  java.util.List
+  (emit [xs arg-map]
+    (dorun (pmap #(try
+                    (emit % arg-map)
+                    (catch Throwable ex
+                      (println % (.getMessage ex))))
+                 xs)))
+  (sniff [xs]
+    (pmap #(sniff %) xs))
+  
+  clojure.lang.IPersistentMap
+  (parse [md]
+    (binding [*graph* (graph md)]
+      (parse-with-meta *graph* md)))
+  (graph [md]
+    (let [{:rdfa/keys [uri prefix]
+           :vann/keys [preferredNamespacePrefix preferredNamespaceUri]
+           :dcat/keys [downloadURL]
+           :rdf/keys  [value]
+           :keys      [format]} md
+          parser                (if value
+                                  (doto (RDFParser/fromString value)
+                                    (.lang (get a/formats (or format :ttl))))
+                                  (RDFParser/source (or downloadURL uri)))]
+      (try
+        (.toGraph parser)
+        (catch org.apache.jena.riot.RiotException ex
+          ;; if an appropriate content-type cannot be inferred try Turtle
+          (try
+            (.toGraph (doto parser (.lang Lang/TTL)))
+            (catch org.apache.jena.riot.RiotException ex
+              ;; ...try RDF/XML?
+              (try
+                (.toGraph (doto parser (.lang Lang/RDFXML)))
+                (catch org.apache.jena.riot.RiotException ex
+                  ;; ...try N3?
+                  (try
+                    (.toGraph (doto parser (.lang Lang/N3)))
+                    (catch org.apache.jena.riot.RiotException ex
+                      ;; ...try JSONLD?
+                      (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
+  (emit [x arg-map]
+    (let [model (parse x)
+          md    (meta model)]
+      (emit-ns model md arg-map)))
+  (sniff [m]
+    (let [model (mem-parse m)]
+      (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model))))
+
+  clojure.lang.Keyword
+  (parse [ident]
+    (when-some [url (iri ident)]
+      (parse {:rdfa/prefix      (namespace ident)
+              :dcat/downloadURL url})))
+  (graph [ident]
+    (when-some [url (iri ident)]
+      (graph {:rdfa/prefix      (namespace ident)
+              :dcat/downloadURL url})))
+  (sniff [k]
+    (try
+      (when-some [model (mem-parse k)]
+        (let [forms (mapv #(dissoc % :private) (unroll-forms model))
+              idx   (group-by :db/ident forms)]
+          (if-some [val (get idx k)]
+            (with-meta (first val)
+              (merge (meta model)
+                     (update-vals (dissoc idx k) first)))
+            (with-meta (peek forms)
+              (merge (meta model) (dissoc idx (get (peek forms) :db/ident)))))))
+      (catch Throwable ex
+        (log/debug (.getMessage ex)))))
+
+  clojure.lang.Named
+  (parse [ident]
+    (if (qualified-ident? ident)
+      (some-> (resolve ident) deref parse)
+      (some-> (find-ns ident) meta parse)))
+  (graph [ident]
+    (if (qualified-ident? ident)
+      (some-> (resolve ident) deref graph)
+      (some-> (find-ns ident) meta graph)))
+  (emit [n arg-map]
+    (when-some [x (if (qualified-ident? n)
+                    (some-> (resolve (symbol n)) deref)
+                    (find-ns (symbol n)))]
+      (emit x arg-map)))
+
+  clojure.lang.Namespace
+  (parse [ns]
+    (parse (meta ns)))
+  (graph [ns]
+    (graph (meta ns)))
+  (emit [ns arg-map]
+    (emit (filter (some-fn :dcat/downloadURL :rdfa/uri) (map deref (vals (ns-publics ns)))) arg-map))
+
+  String
+  (parse [s]
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))
+      (parse {:dcat/downloadURL s})
+      (parse {:rdf/value s})))
+  (graph [s]
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))
+      (graph {:dcat/downloadURL s})
+      (graph {:rdf/value s})))
+  (emit [s arg-map]
+    (emit {:dcat/downloadURL s} arg-map))
+  (sniff [s]
+    (if (or (str/starts-with? s "http")
+            (str/starts-with? s "/"))      
+      (sniff {:dcat/downloadURL s})
+      (let [model (sniff {:rdf/value s})]
+        (with-meta (into [] (map #(dissoc % :private)) model) (meta model)))))
+
+  java.net.URI
+  (parse [uri]
+    (parse {:dcat/downloadURL (str uri)}))
+  (graph [uri]
+    (graph {:dcat/downloadURL (str uri)}))
+  (sniff [uri]
+    (sniff {:dcat/downloadURL (str uri)}))
+
+  java.net.URL
+  (parse [url]
+    (parse {:dcat/downloadURL (str url)}))
+  (graph [url]
+    (graph {:dcat/downloadURL (str url)}))
+  (sniff [url]
+    (sniff {:dcat/downloadURL (str url)}))
+
+  Graph
+  (parse [g]
+    (binding [*graph* g]
+      (parse-with-meta g nil)))
+  (graph [g] g)
+
+  nil
+  (sniff [_] nil))
