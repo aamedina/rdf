@@ -163,8 +163,6 @@
   By default Clojure namespaces are searched."
   (fn [env] (mop/type-of env)))
 
-(declare find-ns-metaobject)
-
 (defn all-ns-metaobjects
   "Searches Clojure namespaces for metaobjects.
 
@@ -1212,9 +1210,6 @@
             forms)
       forms)))
 
-(def mem-unroll
-  (memo/memo unroll-forms))
-
 (defn emit-ns
   "Emits a model to a Clojure namespace using metadata map."
   [model md arg-map]
@@ -1273,12 +1268,13 @@
             (throw (ex-info "Could not resolve OBO metaobject" {:ident ident}))))
         nil))))
 
-(defn find-ns-metaobject
-  "Finds a metaobject by namespace-qualified keyword identity by
-  looking up its namespace in the system's registry and attempting to
-  resolve the name as a Var in that namespace, requiring it when
-  necessary."
-  [ident]
+;; Finds a metaobject by namespace-qualified keyword identity by
+;; looking up its namespace in the system's registry and attempting to
+;; resolve the name as a Var in that namespace, requiring it when
+;; necessary.
+
+(defmethod mop/find-class-using-env [clojure.lang.Keyword nil]
+  [ident _]
   (when (qualified-keyword? ident)
     (when-some [var (if (= (namespace ident) "obo")
                       (find-obo-metaobject ident)
@@ -1418,21 +1414,6 @@
                            m domain))
                  {}
                  (group-by :rdfs/domain slots))})))
-
-(comment
-  (conj (set/union (set/difference (descendants :rdfs/Class)
-                                   (descendants :rdf/Property)
-                                   (descendants :owl/NamedIndividual)
-                                   (descendants :skos/Concept)
-                                   (descendants :schema/Thing)
-                                   (descendants :owl/Thing))
-                   (mop/class-direct-subclasses :rdf/Property))
-        :rdfs/Class
-        :rdf/Property
-        :owl/NamedIndividual
-        :skos/Concept
-        :schema/Thing
-        :owl/Thing))
 
 (defn finalize
   "Finalizes all of the loaded classes."

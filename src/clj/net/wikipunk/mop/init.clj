@@ -14,12 +14,12 @@
 
 (defmethod mop/find-class-using-env :default
   [ident env]
-  (rdf/find-ns-metaobject ident))
+  (mop/find-class-using-env ident nil))
 
 (defmethod mop/find-class-using-env [clojure.lang.Keyword xtdb.node.XtdbNode]
   [ident env]
   (or (xt/entity (xt/db env) ident)
-      (rdf/find-ns-metaobject ident)))
+      (mop/find-class-using-env ident nil)))
 
 (defmethod mop/make-instance :rdfs/Class
   [class & {:as initargs}]
