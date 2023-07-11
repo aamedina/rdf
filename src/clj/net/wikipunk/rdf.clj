@@ -635,6 +635,31 @@
                        (catch Throwable ex
                          (name k)))))))
 
+(defmethod print-dup clojure.lang.TaggedLiteral
+  [x ^java.io.Writer w]
+  (.write w (str "#" (:tag x) " " (pr-str (:form x)))))
+
+(defmulti rdf-literal
+  "When parsing org.apache.jena.graph.Node_Literal instances construct
+  an appropriate tagged literal so that Clojure can read and write
+  values of this type.
+
+  Idea: Support reading tagged RDF literals by binding to preferred
+  `clojure.core/*data-readers*`."
+  (fn [^Node_Literal node]
+    (if-some [uri (.getLiteralDatatypeURI node)]
+      (kw uri)
+      (class (.getLiteralValue node)))))
+
+(defmethod rdf-literal :rdf/langString
+  [^Node_Literal node]
+  (lstr/->LangStr (.getLiteralValue node) (.getLiteralLanguage node)))
+
+(defmethod rdf-literal :default
+  [^Node_Literal node]
+  (let [uri (.getLiteralDatatypeURI node)]
+    (tagged-literal (symbol (kw uri)) (.getLiteralValue node))))
+
 (extend-protocol g/AsClojureData
   Node_URI
   (data [n]
@@ -647,19 +672,7 @@
 
   Node_Literal
   (data [n]
-    (let [value (.getLiteralValue n)
-          id    (str (gensym "rdf"))]
-      (if-some [dt (.getLiteralDatatypeURI n)]
-        {(kw dt) value :db/id id}
-        (if-let [lang (not-empty (.getLiteralLanguage n))]
-          {:rdf/type     :rdf/CompoundLiteral
-           :rdf/value    value
-           :rdf/language lang
-           :db/id        id}
-          {:rdf/type  :rdfs/Literal
-           :rdf/value (if (instance? BaseDatatype$TypedValue value)
-                        (.-lexicalValue value)
-                        value)}))))
+    (rdf-literal n))
 
   Node_Triple
   (data [node]

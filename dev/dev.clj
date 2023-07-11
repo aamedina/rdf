@@ -103,7 +103,7 @@
 (defmethod db/infer-datomic-type :schema/keywords [_] :db.type/string)
 
 (set! *default-data-reader-fn* tagged-literal)
-(set! *data-readers* (assoc *data-readers* 'xsd/string (fn [form]
+#_(set! *data-readers* (assoc *data-readers* 'xsd/string (fn [form]
                                                          (with-meta {:rdf/type  :xsd/string
                                                                      :rdf/value (str form)}
                                                            {:type :xsd/string}))))
