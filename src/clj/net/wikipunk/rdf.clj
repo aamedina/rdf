@@ -1534,7 +1534,19 @@
 (defn finalize
   "Finalizes all of the loaded classes."
   ([]
-   (finalize true (conj (descendants :rdfs/Class) :rdfs/Class)))
+   (finalize true (conj (set/union (set/difference (descendants :rdfs/Class)
+                                                   (descendants :rdf/Property)
+                                                   (descendants :owl/NamedIndividual)
+                                                   (descendants :skos/Concept)
+                                                   (descendants :schema/Thing)
+                                                   (descendants :owl/Thing))
+                                   (mop/class-direct-subclasses :rdf/Property))
+                        :rdfs/Class
+                        :rdf/Property
+                        :owl/NamedIndividual
+                        :skos/Concept
+                        :schema/Thing
+                        :owl/Thing)))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
@@ -1546,8 +1558,6 @@
                    (throw (ex-info "Could not finalize inheritance for metaobject" {:ident ident} ex))))
                (throw (ex-info "Could not locate metaobject" {:ident ident}))))
            metaobjects))))
-
-(def ^:dynamic ^:deprecated *datafy-mop* true)
 
 (extend-protocol clojure.core.protocols/Datafiable
   clojure.lang.Named
