@@ -157,6 +157,12 @@
     :skos/broader
     :skos/narrower})
 
+(defmulti all-metaobjects
+  "A multimethod to enable finding all metaobjects in an environment. 
+
+  By default Clojure namespaces are searched."
+  (fn [env] (mop/type-of env)))
+
 (declare find-ns-metaobject)
 
 (defn all-ns-metaobjects
@@ -194,6 +200,10 @@
   ([env]
    (all-ns-metaobjects)))
 
+(defmethod all-metaobjects :default
+  [_]
+  (all-ns-metaobjects))
+
 (defn make-class-hierarchy
   "The make-class-hierarchy function creates a hierarchy of classes
   based on the :rdf/type metadata for all namespaces in the current
@@ -201,7 +211,7 @@
 
   The resulting class hierarchy is returned."
   ([]
-   (make-class-hierarchy (all-ns-metaobjects)))
+   (make-class-hierarchy (all-metaobjects)))
   ([metaobjects]
    (reduce (fn [h {:db/keys   [ident]
                    :rdf/keys  [type]
@@ -241,7 +251,7 @@
   property to the hierarchy. Finally, it returns the hierarchy of
   properties."
   ([classes]
-   (make-property-hierarchy classes (all-ns-metaobjects)))
+   (make-property-hierarchy classes (all-metaobjects)))
   ([classes metaobjects]
    (reduce
      (fn [h {:db/keys   [ident]
@@ -274,7 +284,7 @@
 
     A hierarchy of metaobjects derived from the input RDF classes and properties."
   ([classes properties]
-   (make-metaobject-hierarchy classes properties (all-ns-metaobjects)))
+   (make-metaobject-hierarchy classes properties (all-metaobjects)))
   ([classes properties metaobjects]
    (reduce
      (fn [h {:db/keys   [ident]
@@ -317,7 +327,7 @@
 (defn make-hierarchies
   "Returns a map of hierarchies used to derive the global multimethod
   hierarchy from a sequence of metaobjects."
-  ([] (make-hierarchies (all-ns-metaobjects)))
+  ([] (make-hierarchies (all-metaobjects)))
   ([xs]
    (let [classes     (make-class-hierarchy xs)
          properties  (make-property-hierarchy classes xs)
@@ -377,10 +387,10 @@
   (start [this]
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [all-metaobjects               (all-ns-metaobjects)
+      (let [all                           (all-metaobjects db) ; when a :db has been provided use it as the env
             node                          (when config (xt/start-node config))
             {:keys [registry ns-aliases]} (make-boot-context)
-            {:keys [metaobjects]}         (make-hierarchies all-metaobjects)]
+            {:keys [metaobjects]}         (make-hierarchies all)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
@@ -395,7 +405,7 @@
           (try
             (xt/submit-tx node (into []
                                      (map (juxt (constantly ::xt/put) freezable))
-                                     all-metaobjects))
+                                     all))
             (xt/sync node)            
             (finalize)
             (catch Throwable ex
@@ -1530,7 +1540,7 @@
                                             m))
                                         {} form)
                              form))
-                         (all-ns-metaobjects)))))
+                         (all-metaobjects)))))
 
 (defn ns-idents
   "Returns a set of keywords used in the public metaobjects of this namespace."

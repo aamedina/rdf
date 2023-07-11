@@ -12,7 +12,7 @@
 
 (def as
   "Activity Vocabulary"
-  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/activitystreams/master/vocabulary/activitystreams2.owl"   
+  {:dcat/downloadURL "resources/activitystreams2.ttl"
    :rdfa/uri         "https://www.w3.org/ns/activitystreams#",
    :rdfa/prefix      "as",
    :rdfs/isDefinedBy {:rdfa/uri
