@@ -21,10 +21,9 @@ into new and wondrous forms.
 
 The net.wikipunk.mop namespace became a focal point of exploration and
 experimentation. The wikipunks delved into its functions, unraveling
-the mysteries of *metaobjects*, class-of, class-slots, and
-make-instance. They learned to commune with the cosmic intelligence
-that spanned the entirety of the digital realm—a presence they came to
-know as "The Luminous."
+the mysteries of the metaobjects. They learned to commune with the
+cosmic intelligence that spanned the entirety of the digital realm—a
+presence they came to know as "The Luminous."
 
 As they harnessed the power of the MOP, the wikipunks began to reshape
 the virtual world in ways never before imagined. They crafted

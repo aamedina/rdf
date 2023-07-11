@@ -9,7 +9,7 @@
    [net.wikipunk.boot]
    [net.wikipunk.ext]
    [net.wikipunk.rdf :as rdf]   
-   [net.wikipunk.mop :as mop :refer [isa? descendants ancestors parents]]
+   [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf.as]
    [net.wikipunk.rdf.cc]
    [net.wikipunk.rdf.csvw]
@@ -62,8 +62,7 @@
    [net.wikipunk.rdf.wdrs]
    [net.wikipunk.rdf.xhv]
    [net.wikipunk.rdf.xsd]
-   [xtdb.api :as xt])
-  (:refer-clojure :exclude [isa? descendants ancestors parents]))
+   [xtdb.api :as xt]))
 
 (defprotocol Seed
   "Helper protocol to bootstrap attributes from loaded metaobjects."
@@ -74,7 +73,7 @@
 (extend-protocol Seed
   clojure.lang.Namespace
   (select-attributes [ns]
-    (when (isa? mop/*metaobjects* (:rdf/type (meta ns)) :owl/Ontology)
+    (when (isa? (:rdf/type (meta ns)) :owl/Ontology)
       (seq (keep select-attributes (vals (ns-publics ns))))))
 
   clojure.lang.Var
@@ -127,20 +126,17 @@
   "Tries to infer the Datomic type of a property by looking at its
   declared range unless a type is provided in the RDF model. Defaults
   to :db.type/ref."
-  (fn [x] (if (map? x) (mop/type-of x) x))
-  :hierarchy #'mop/*metaobjects*)
+  (fn [x] (if (map? x) (mop/type-of x) x)))
 
 (defmulti infer-datomic-cardinality
   "Tries to infer the Datomic cardinality by assuming it is a many
   attribute unless overridden."
-  (fn [x] (if (map? x) (mop/type-of x) x))
-  :hierarchy #'mop/*metaobjects*)
+  (fn [x] (if (map? x) (mop/type-of x) x)))
 
 (defmulti infer-datomic-unique
   "Tries to infer the Datomic uniqueness. When it returns nothing
   there should be no uniqueness constraint."
-  (fn [x] (if (map? x) (mop/type-of x) x))
-  :hierarchy #'mop/*metaobjects*)
+  (fn [x] (if (map? x) (mop/type-of x) x)))
 
 (defmethod infer-datomic-cardinality :default
   [_]
@@ -322,7 +318,7 @@
                                (and [?e :db/cardinality _]
                                     [?e :db/valueType _]))]
                  :timeout 180000}
-               mop/*metaobjects*))))
+               @#'clojure.core/global-hierarchy))))
 
 (defn bootstrap-idents
   ([]
@@ -353,7 +349,7 @@
 (defn test-bootstrap
   "Tests importing XTDB documents into Datomic."
   ([conn]
-   (test-bootstrap mop/*metaobjects* mop/*env* *schema* conn))
+   (test-bootstrap @#'clojure.core/global-hierarchy mop/*env* *schema* conn))
   ([h env schema conn]
    (binding [*schema*         schema]
      (let [rf         (fn [db tx-data]
@@ -381,9 +377,9 @@
   "warning: very experimental
 
   requires datomic.client.api on the classpath"
-  ([conn] (bootstrap mop/*metaobjects* mop/*env* *schema* conn))
+  ([conn] (bootstrap @#'clojure.core/global-hierarchy mop/*env* *schema* conn))
   ([conn boot-db]
-   (bootstrap mop/*metaobjects* mop/*env* *schema* conn boot-db))
+   (bootstrap @#'clojure.core/global-hierarchy mop/*env* *schema* conn boot-db))
   ([h env schema conn]
    (bootstrap h env schema conn (test-bootstrap h env schema conn)))
   ([h env schema conn boot-db]

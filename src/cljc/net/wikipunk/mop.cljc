@@ -9,86 +9,26 @@
 
   Key Components
 
-  `*metaobjects*`
-
-  A dynamic variable that represents the hierarchy used by the
-  multimethods of the MOP. This hierarchy is used to determine the
-  relationships between different types and to dispatch to the correct
-  method implementation based on the types of their arguments. The
-  `*metaobjects*` hierarchy can represent relationships between any
-  namespace-qualified keyword, including relationships between RDF
-  types in a semantic web context.
-
   `*env*`
 
   A dynamic variable that represents the environment in which
   metaobject idents are resolved. This could be a Datomic database, an
   XTDB node, or, if `*env*` is nil, Clojure namespaces themselves are
-  searched. The `-using-env` multimethods consider this environment
-  when dispatching.
-
-  Key Functions
-
-  - `isa?`: Determines if a child is the same as the parent, or if the
-    child is derived from the parent, either directly or indirectly.
-
-  - `ancestors`: Returns the immediate and indirect parents of the given tag.
-
-  - `descendants`: Returns the immediate and indirect children of the given tag.
-
-  - `parents`: Returns the immediate parents of the given tag.
-
-  These functions bind `*metaobjects*` to a specific hierarchy before
-  delegating to the corresponding `-using-env` multimethod.
-
-  Multimethods
-
-  The MOP includes several key multimethods for creating,
-  initializing, and manipulating instances of classes, as well as for
-  defining and modifying classes themselves.
+  searched.
 
   !!! WARNING: VERY EXPERIMENTAL !!!
 
   Docstrings based on AMOP."
-  {:rdfs/seeAlso ["http://www.lispworks.com/documentation/lw80/MOP/mop/index.html"]}
-  (:refer-clojure :exclude [isa? ancestors parents descendants]))
-
-(def ^:dynamic *metaobjects*
-  "A dynamic variable that represents the hierarchy used by the
-  multimethods of the Metaobject Protocol (MOP).
-  
-  These multimethods use the hierarchy to determine the relationships
-  between different types and to dispatch to the correct method
-  implementation based on the types of their arguments.  
-  
-  The `*metaobjects*` hierarchy can represent relationships between
-  any types, not just Java classes. This includes relationships
-  between RDF types in a semantic web context, which is particularly
-  relevant for wikipunk.net.
-  
-  In summary, `*metaobjects*` is a central part of the MOP's flexible
-  and extensible type system, enabling powerful polymorphism based on
-  both Java type inheritance and user-defined relationships.
-
-  The `*metaobjects*` hierarchy is also used by the `isa?`,
-  `ancestors`, `descendants`, and `parents` functions when determining
-  type relationships. These functions bind `*metaobjects*` to a
-  specific hierarchy before delegating to the corresponding
-  `-using-env` multimethod."
-  (make-hierarchy))
+  {:rdfs/seeAlso ["http://www.lispworks.com/documentation/lw80/MOP/mop/index.html"]})
 
 (def ^:dynamic *env*
   "The `*env*` dynamic variable represents the environment in which
   metaobject idents are resolved. This could be a Datomic database, an
   XTDB node, or, if `*env*` is nil, Clojure namespaces themselves are
-  searched. The `-using-env` multimethods consider this environment
-  when dispatching. For example, if `*env*` is a Datomic database, the
-  multimethods should dispatch based on the RDF types of entities in
-  the database; in that case the `*metaobjects*` hierarchy should be
-  consistent with this environment."
+  searched."
   nil)
 
-(declare find-class isa?)
+(declare find-class)
 
 (defmulti type-of
   "Returns the type of the given object. If the object is a persistent map with a :rdf/type entry, 
@@ -117,113 +57,6 @@
        (find-class class error? env)
        class))))
 
-(defmulti make-hierarchy-using-env
-  "Creates a metaobject hierarchy for use with derive, isa?
-  etc. using the given environment."
-  {:arglists '([env])}
-  (fn [env]
-    [(type-of env)])
-  :hierarchy #'*metaobjects*)
-
-(defmulti isa-using-env?
-  "Returns true if the child is the same as the parent, or if the child is derived from the parent, 
-  either directly or indirectly. This can be through a Java type inheritance relationship or a 
-  relationship established via `derive`. "
-  {:arglists '([child parent env])}
-  (fn [child parent env]
-    [child parent (type-of env)])
-  :hierarchy #'*metaobjects*)
-
-(defmethod isa-using-env? :default
-  [child parent env]
-  (clojure.core/isa? *metaobjects* child parent))
-
-(defn isa?
-  "Returns true if the child is the same as the parent, or if the child is derived from the parent, 
-  either directly or indirectly. This can be through a Java type inheritance relationship or a 
-  relationship established via `derive`. 
-
-  The hierarchy h must be obtained from `make-hierarchy`. If not supplied, it defaults to `*metaobjects*`. 
-
-  The function also considers the current environment *env* for resolving metaobject idents."
-  ([child parent]
-   (isa-using-env? child parent *env*))
-  ([h child parent]
-   (binding [*metaobjects* h]
-     (isa-using-env? child parent *env*))))
-
-(defmulti ancestors-using-env
-  "Returns the immediate and indirect parents of the given tag. This can be through a Java type
-  inheritance relationship or a relationship established via `derive`. The function also considers 
-  the current environment *env* for resolving metaobject idents."
-  {:arglists '([tag env])}
-  (fn [tag env]
-    [tag (type-of env)])
-  :hierarchy #'*metaobjects*)
-
-(defmethod ancestors-using-env :default
-  [tag env]
-  (clojure.core/ancestors *metaobjects* tag))
-
-(defn ancestors
-  "Returns the immediate and indirect parents of the given tag. This can be through a Java type
-  inheritance relationship or a relationship established via `derive`. The hierarchy h must be obtained 
-  from `make-hierarchy`. If not supplied, it defaults to `*metaobjects*`."
-  ([tag]
-   (ancestors-using-env tag *env*))
-  ([h tag]
-   (binding [*metaobjects* h]
-     (ancestors-using-env tag *env*))))
-
-(defmulti descendants-using-env
-  "Returns the immediate and indirect children of the given tag. This is through a
-  relationship established via `derive`. The function also considers the current environment 
-  *env* for resolving metaobject idents. 
-
-  Note: This function does not work on Java type inheritance relationships."
-  {:arglists '([tag env])}
-  (fn [tag env]
-    [tag (type-of env)])
-  :hierarchy #'*metaobjects*)
-
-(defmethod descendants-using-env :default
-  [tag env]
-  (clojure.core/descendants *metaobjects* tag))
-
-(defn descendants
-  "Returns the immediate and indirect children of the given tag. This is through a
-  relationship established via `derive`. The hierarchy h must be obtained from `make-hierarchy`, 
-  if not supplied defaults to `*metaobjects*`. Note: This function does not work on Java type 
-  inheritance relationships."
-  ([tag]
-   (descendants-using-env tag *env*))
-  ([h tag]
-   (binding [*metaobjects* h]
-     (descendants-using-env tag *env*))))
-
-(defmulti parents-using-env
-  "Returns the immediate parents of the given tag using the bound
-  `*metaobjects*` hierarchy. The function also considers the current
-  environment *env* for resolving metaobject idents."
-  {:arglists '([tag env])}
-  (fn [tag env]
-    [tag (type-of env)])
-  :hierarchy #'*metaobjects*)
-
-(defmethod parents-using-env :default
-  [tag env]
-  (clojure.core/parents *metaobjects* tag))
-
-(defn parents
-  "Returns the immediate parents of the given tag. This can be through a Java type
-  inheritance relationship or a relationship established via `derive`. The hierarchy h must be obtained 
-  from `make-hierarchy`. If not supplied, it defaults to `*metaobjects*`."
-  ([tag]
-   (parents-using-env tag *env*))
-  ([h tag]
-   (binding [*metaobjects* h]
-     (parents-using-env tag *env*))))
-
 (defmulti add-dependent
   "This multimethod adds dependent to the dependents of
   metaobject. If dependent is already in the set of dependents it is
@@ -238,8 +71,7 @@
 
   The situations in which add-dependent is called are not specified."
   {:arglists '([metaobject dependent])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti add-direct-subclass
   "This multimethod is called to maintain a set of backpointers
@@ -255,8 +87,7 @@
   superclass of the class."
   {:arglists '([superclass subclass])}
   (fn [superclass subclass]
-    [(type-of superclass) (type-of subclass)])
-  :hierarchy #'*metaobjects*)
+    [(type-of superclass) (type-of subclass)]))
 
 (defmulti change-class
   "The multimethod change-class changes the class of an instance to
@@ -266,8 +97,7 @@
   returns the same instance."
   {:arglists '([instance new-class & {:as initargs}])}
   (fn [instance new-class & initargs]
-    [(type-of instance) (type-of new-class)])
-  :hierarchy #'*metaobjects*)
+    [(type-of instance) (type-of new-class)]))
 
 (defmulti compute-class-precedence-list
   "This multimethod is called to determine the class precedence
@@ -287,8 +117,7 @@
   metaobject. The value can then be accessed by calling
   `class-precedence-list`."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti allocate-instance
   "This multimethod is called to create a new, uninitialized
@@ -299,8 +128,7 @@
   if class has been finalized. If it has not been finalized,
   finalize-inheritance is called before the new instance is allocated."
   {:arglists '([class & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-default-initargs
   "Returns a list of the default initialization arguments for
@@ -316,8 +144,7 @@
   This multimethod signals an error if class has not been
   finalized."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-direct-default-initargs
   "Returns a list of the direct default initialization arguments for
@@ -328,8 +155,7 @@
   associated with the class during initialization or
   reinitialization."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-direct-slots
   "Returns a set of the direct slots of class. The elements of this
@@ -338,8 +164,7 @@
   of the :direct-slots initialization argument that was associated
   with the class during initialization and reinitialization."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-direct-subclasses
   "Returns a set of the direct subclasses of class. The elements of
@@ -348,8 +173,7 @@
   direct subclasses. This value is maintained by the multimethods
   add-direct-subclass and remove-direct-subclass."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-direct-superclasses
   "Returns a list of the direct superclasses of class. The elements of
@@ -358,16 +182,14 @@
   :direct-superclasses initialization argument that was associated
   with the class during initialization or reinitialization."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-finalized?
   "Returns true if class has been finalized. Returns false
   otherwise. Also returns false if the class has not been
   initialized."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-name
   "Returns the name of class. This value can be any Lisp object, but
@@ -376,8 +198,7 @@
   associated with the class during initialization or
   reinitialization."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-precedence-list
   "Returns the class precedence list of class. The elements of this
@@ -391,8 +212,7 @@
   This multimethod signals an error if class has not been
   finalized."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-prototype
   "Returns a prototype instance of class. Whether the instance is
@@ -403,8 +223,7 @@
   This multimethod signals an error if class has not been
   finalized."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti class-slots
   "Returns a possibly empty set of the slots accessible in instances
@@ -418,8 +237,7 @@
   This multimethod signals an error if class has not been
   finalized."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti compute-default-initargs
   "This generic-function is called to determine the default
@@ -442,8 +260,7 @@
   metaobject. The value can then be accessed by calling
   class-default-initargs."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti compute-effective-slot-definition
   "This multimethod determines the effective slot definition for
@@ -465,8 +282,7 @@
 
   See ``Initialization of Slot Definition Metaobjects'' for details."
   {:arglists '([class slot direct-slot-definitions])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti compute-slots
   "This multimethod computes a set of effective slot definition
@@ -500,8 +316,7 @@
   implementation. The results are undefined if a portable program
   mutates the list returned by this multimethod."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti direct-slot-definition-class
   "When a class is initialized, each of the canonicalized slot
@@ -512,8 +327,7 @@
   The initargs argument is simply the canonicalized slot specification
   for the slot."
   {:arglists '([class & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti effective-slot-definition-class
   "This multimethod is called by
@@ -523,8 +337,7 @@
   be passed to make-instance when the effective slot definition
   metaobject is created."
   {:arglists '([class & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti ensure-class-using-class
   "This multimethod is called to define or modify the definition
@@ -583,8 +396,7 @@
                                            name
                                            metaclass]
                                     :as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defn ensure-class
   "This function is called to define or redefine a class with the
@@ -619,22 +431,19 @@
   and the result of calling `class-finalized?` on the class metaobject
   will be `true`."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti find-class-using-env
   "Resolves a class by ident in some environment."
   {:arglists '([ident env])}
   (fn [ident env]
-    [(type-of ident) (type-of env)])
-  :hierarchy #'*metaobjects*)
+    [(type-of ident) (type-of env)]))
 
 (defmulti intern-class-using-env
   "Interns a class using some environment."
   {:arglists '([class env])}
   (fn [class env]
-    [(type-of class) (type-of env)])
-  :hierarchy #'*metaobjects*)
+    [(type-of class) (type-of env)]))
 
 (defn find-class
   "Finds a class by name."
@@ -650,14 +459,12 @@
 (defmulti initialize-instance
   "Called by make-instance to initialize a newly created instance."
   {:arglists '([instance & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti make-instance
   "Creates and returns a new instance of the given class."
   {:arglists '([class & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti make-instances-obsolete
   "The function make-instances-obsolete has the effect of initiating
@@ -674,8 +481,7 @@
   If the second of the above methods is selected, that method invokes
   make-instances-obsolete on (find-class class)."
   {:arglists '([class])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti map-dependents
   "This multimethod applies function to each of the dependents of
@@ -686,14 +492,12 @@
   whether the newly added or removed dependent will have function
   applied to it."
   {:arglists '([f metaobject])}
-  (fn [f metaobject] (type metaobject))
-  :hierarchy #'*metaobjects*)
+  (fn [f metaobject] (type metaobject)))
 
 (defmulti reinitialize-instance
   "Used to update an instance with validated initargs."
   {:arglists '([instance & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti remove-dependent
   "This multimethod removes dependent from the dependents of
@@ -707,8 +511,7 @@
   add-dependent or remove-dependent while a call to map-dependents on
   the same class or multimethod is in progress is unspecified."
   {:arglists '([metaobject dependent])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti remove-direct-subclass
   "This multimethod is called to maintain a set of backpointers
@@ -720,8 +523,7 @@
   once with each deleted direct superclass of the class."
   {:arglists '([superclass subclass])}
   (fn [superclass subclass]
-    [(type-of superclass) (type-of subclass)])
-  :hierarchy #'*metaobjects*)
+    [(type-of superclass) (type-of subclass)]))
 
 (defmulti shared-initialize
   "The multimethod shared-initialize is used to fill the slots of
@@ -735,8 +537,7 @@
   reinitialize-instance, update-instance-for-redefined-class, and
   update-instance-for-different-class."
   {:arglists '([instance slot-names & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-bound-using-class?
   "This multimethod implements the behavior of the slot-bound?
@@ -752,8 +553,7 @@
   the set of effective slots associated with the class argument."
   {:arglists '([class object slot])}
   (fn [class object slot]
-    [(type-of class) (type-of slot)])
-  :hierarchy #'*metaobjects*)
+    [(type-of class) (type-of slot)]))
 
 (defn slot-bound?
   "Returns true if the slot named slot-name in instance is bound; otherwise, returns false."
@@ -766,8 +566,7 @@
   associated with the slot definition metaobject during
   initialization."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-initargs
   "Returns the set of initialization argument keywords for slot. This
@@ -775,8 +574,7 @@
   was associated with the slot definition metaobject during
   initialization."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-initform
   "Returns the initialization form of slot. This can be any form. This
@@ -786,8 +584,7 @@
   returned is unspecified (however, slot-definition-initfunction is
   guaranteed to return nil)."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-initfunction
   "Returns the initialization function of slot. This value is either a
@@ -796,16 +593,14 @@
   :initfunction initialization argument that was associated with the
   slot definition metaobject during initialization."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-location
   "Returns the location of effective-slot-definition. The meaning and
   interpretation of this value is described in the section called
   ``Instance Structure Protocol.''"
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-name
   "Returns the name of slot. This value is a symbol that can be used
@@ -813,8 +608,7 @@
   argument that was associated with the slot definition metaobject
   during initialization."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-readers
   "Returns a (possibly empty) set of readers of the direct slot. This
@@ -822,8 +616,7 @@
   the :readers initialization argument that was associated with the
   direct slot definition metaobject during initialization."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-type
   "Returns the type of slot. This is a type specifier name. This is
@@ -831,8 +624,7 @@
   associated with the slot definition metaobject during
   initialization."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-definition-writers
   "Returns a (possibly empty) set of writers of the direct slot. This
@@ -840,14 +632,12 @@
   the :writers initialization argument that was associated with the
   direct slot definition metaobject during initialization."
   {:arglists '([slot])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-exists-using-class?
   "Returns true if the object has a slot named slot-name."
   {:arglists '([class object slot-def])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defn slot-exists?
   "Returns true if the object has a slot named slot-name."
@@ -868,8 +658,7 @@
   the object argument, or if the slot argument does not appear among
   the set of effective slots associated with the class argument."
   {:arglists '([class instance slot-def])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defn slot-makunbound
   "Restores a slot of the name slot-name in an instance to the unbound state."
@@ -882,8 +671,7 @@
   and the slot of the name slot-name is not a name of a slot in that
   class. The default method signals an error."
   {:arglists '([class object slot-name & {:as info}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-unbound
   "The multimethod slot-unbound is called when an unbound slot is
@@ -893,8 +681,7 @@
   variable, and the instance slot of the unbound-slot condition is
   initialized to the offending instance."
   {:arglists '([class object slot-name])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti slot-value-using-class
   "This multimethod implements the behavior of the slot-value
@@ -911,8 +698,7 @@
   the set of effective slots associated with the class argument."
   {:arglists '([class object slot])}
   (fn [class object slot]
-    [(type-of class) (type-of slot)])
-  :hierarchy #'*metaobjects*)
+    [(type-of class) (type-of slot)]))
 
 (defn slot-value
   [object slot-name]
@@ -933,8 +719,7 @@
   the set of effective slots associated with the class argument."
   {:arglists '([class object slot new-value])}
   (fn [class object slot new-value]
-    [(type-of class) (type-of slot)])
-  :hierarchy #'*metaobjects*)
+    [(type-of class) (type-of slot)]))
 
 (defn set-slot-value
   "(setf slot-value)"
@@ -959,8 +744,7 @@
   two elements: the symbol remove-method, and the method that was
   removed."
   {:arglists '([class object slot-def])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti update-instance-for-different-class
   "The multimethod update-instance-for-different-class is not
@@ -1007,8 +791,7 @@
   applicable to instances of the original class."
   {:arglists '([previous current & {:as initargs}])}
   (fn [previous current & initargs]
-    [(type-of previous) (type-of current)])
-  :hierarchy #'*metaobjects*)
+    [(type-of previous) (type-of current)]))
 
 (defmulti update-instance-for-redefined-class
   "The multimethod update-instance-for-redefined-class is not
@@ -1043,8 +826,7 @@
 
   The value returned by update-instance-for-redefined-class is ignored."
   {:arglists '([instance added-slots discarded-slots property-list & {:as initargs}])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)
 
 (defmulti validate-superclass
   "This multimethod is called to determine whether the class
@@ -1057,11 +839,9 @@
   reinitialization will signal an error."
   {:arglists '([class superclass])}
   (fn [class superclass]
-    [(type-of class) (type-of superclass)])
-  :hierarchy #'*metaobjects*)
+    [(type-of class) (type-of superclass)]))
 
 (defmulti sniff
   "Follow your nose."
   {:arglists '([x])}
-  type-of
-  :hierarchy #'*metaobjects*)
+  type-of)

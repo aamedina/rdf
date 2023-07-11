@@ -6,12 +6,11 @@
    [clojure.set :as set]
    [clojure.string :as str]
    [clojure.walk :as walk]
-   [net.wikipunk.mop :as mop :refer [isa? ancestors descendants parents]]
+   [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf :as rdf]
    [net.wikipunk.boot]
    [net.wikipunk.ext]
-   [taoensso.nippy :as nippy])
-  (:refer-clojure :exclude [isa? ancestors descendants parents]))
+   [taoensso.nippy :as nippy]))
 
 (defmethod mop/find-class-using-env :default
   [ident env]

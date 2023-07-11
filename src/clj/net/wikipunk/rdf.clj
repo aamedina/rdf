@@ -317,8 +317,8 @@
      metaobjects)))
 
 (defn make-hierarchies
-  "Returns a map of hierarchies used to derive the `mop/*metaobjects*`
-  multimethod hierarchy from a sequence of metaobjects."
+  "Returns a map of hierarchies used to derive the global multimethod
+  hierarchy from a sequence of metaobjects."
   ([] (make-hierarchies (all-ns-metaobjects)))
   ([xs]
    (let [classes     (make-class-hierarchy xs)
@@ -327,10 +327,6 @@
      {:classes     classes
       :properties  properties
       :metaobjects metaobjects})))
-
-(defmethod mop/make-hierarchy-using-env :default
-  [env]
-  (:metaobjects (make-hierarchies)))
 
 (declare finalize setup-indexes)
 
@@ -394,7 +390,7 @@
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
-        (alter-var-root #'mop/*metaobjects* (constantly metaobjects))        
+        (alter-var-root #'clojure.core/global-hierarchy (constantly metaobjects))
         (when db
           (alter-var-root #'mop/*env* (constantly db)))
         (when node
@@ -986,8 +982,7 @@
 
 (defmulti box-values
   "Boxes multi-value typed literals for Datomic :db.type/ref."
-  mop/type-of
-  :hierarchy #'mop/*metaobjects*)
+  mop/type-of)
 
 (defmethod box-values :default
   [form]
@@ -1132,9 +1127,9 @@
         ontologies (->> (remove public? forms)
                         (filter :rdf/type)
                         (filter (fn [form]
-                                  (some #(or (isa? mop/*metaobjects* % :owl/Ontology)
-                                             (isa? mop/*metaobjects* % :voaf/Vocabulary)
-                                             (isa? mop/*metaobjects* % :madsrdf/MADSScheme))
+                                  (some #(or (isa? % :owl/Ontology)
+                                             (isa? % :voaf/Vocabulary)
+                                             (isa? % :madsrdf/MADSScheme))
                                         (if (coll? (:rdf/type form))
                                           (:rdf/type form)
                                           [(:rdf/type form)])))))
@@ -1194,8 +1189,8 @@
                         ;; todo: refactor this into a multimethod
                         (pmap (fn [form]
                                 (if (and (pos? *recurse*)
-                                         (some #(or (isa? mop/*metaobjects* % :skos/Concept)
-                                                    (isa? mop/*metaobjects* % :skos/ConceptScheme))
+                                         (some #(or (isa? % :skos/Concept)
+                                                    (isa? % :skos/ConceptScheme))
                                                (if (sequential? (:rdf/type form))
                                                  (:rdf/type form)
                                                  [(:rdf/type form)])))
@@ -1500,7 +1495,7 @@
 
 (defn setup-indexes
   ([]
-   (setup-indexes mop/*metaobjects*))
+   (setup-indexes @#'clojure.core/global-hierarchy))
   ([h]
    (let [slots (into []
                      (comp
@@ -1521,11 +1516,25 @@
                  {}
                  (group-by :rdfs/domain slots))})))
 
+(comment
+  (conj (set/union (set/difference (descendants :rdfs/Class)
+                                   (descendants :rdf/Property)
+                                   (descendants :owl/NamedIndividual)
+                                   (descendants :skos/Concept)
+                                   (descendants :schema/Thing)
+                                   (descendants :owl/Thing))
+                   (mop/class-direct-subclasses :rdf/Property))
+        :rdfs/Class
+        :rdf/Property
+        :owl/NamedIndividual
+        :skos/Concept
+        :schema/Thing
+        :owl/Thing))
 
 (defn finalize
   "Finalizes all of the loaded classes."
   ([]
-   (finalize true (conj (descendants mop/*metaobjects* :rdfs/Class) :rdfs/Class)))
+   (finalize true (conj (descendants :rdfs/Class) :rdfs/Class)))
   ([force? metaobjects]
    (dorun
      (pmap (fn [ident]
@@ -1620,8 +1629,7 @@
 (defmulti import-from
   "Import metaobjects `from` into `to`"
   (fn [from to]
-    [(mop/type-of from) (mop/type-of to)])
-  :hierarchy #'mop/*metaobjects*)
+    [(mop/type-of from) (mop/type-of to)]))
 
 (defmethod import-from [String String]
   [from to]
