@@ -372,10 +372,6 @@
 
 (declare iri)
 
-(comment
-  (ns-unmap 'clojure.core 'global-hierarchy)
-  )
-
 (defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db]
   com/Lifecycle
   (start [this]
