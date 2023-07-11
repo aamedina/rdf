@@ -41,7 +41,8 @@
    [xtdb.api :as xt]
    [zprint.core :as zprint]
    [datomic.client.api :as d]
-   [net.wikipunk.punk.db :as db])
+   [net.wikipunk.datomic :as datomic]
+   [net.wikipunk.datomic.boot :as db])
   (:refer-clojure :exclude [isa? descendants parents ancestors]))
 
 (set-init
@@ -62,3 +63,48 @@
 
 (comment
   (rdf/emit (:vocab system) nil))
+
+(prefer-method db/infer-datomic-type :dc11/description :owl/AnnotationProperty)
+(prefer-method db/infer-datomic-type :dcterms/source :owl/AnnotationProperty)
+(defmethod db/infer-datomic-type :dcterms/source [_] :db.type/string)
+(defmethod db/infer-datomic-type :dc11/rights [_] :db.type/string)
+(defmethod db/infer-datomic-type :dc11/contributor [_] :db.type/string)
+(prefer-method db/infer-datomic-type :dc11/contributor :owl/AnnotationProperty)
+(prefer-method db/infer-datomic-type :dc11/contributor :dc11/creator)
+(prefer-method db/infer-datomic-type :dc11/rights :owl/AnnotationProperty)
+(prefer-method db/infer-datomic-type :dc11/date :owl/AnnotationProperty)
+(prefer-method db/infer-datomic-type :dc11/title :owl/AnnotationProperty)
+(prefer-method db/infer-datomic-type :dc11/creator :owl/AnnotationProperty)
+(defmethod db/infer-datomic-type :cmns-txt/hasTextValue [_] :db.type/string)
+(defmethod db/infer-datomic-type :lcc-lr/hasName [_] :db.type/string)
+(defmethod db/infer-datomic-type :fibo-sec-sec-lst/hasListingDate [_] :db.type/string)
+(defmethod db/infer-datomic-type :fibo-fnd-plc-adr/requiresSecondaryUnitRange [_] :db.type/boolean)
+(defmethod db/infer-datomic-type :cmns-dt/hasObservedDateTime [_] :db.type/instant)
+(defmethod db/infer-datomic-type :fibo-fnd-plc-loc/hasCityName [_] :db.type/string)
+(defmethod db/infer-datomic-type :fibo-fnd-utl-alx/isCalculatedViaMethodology [_] :db.type/string)
+(defmethod db/infer-datomic-type :fibo-fbc-fct-ra/hasRegistrationDate [_] :db.type/string)
+(defmethod db/infer-datomic-type :fibo-fbc-fct-breg/hasRenewalDate [_] :db.type/instant)
+(defmethod db/infer-datomic-type :fibo-fbc-fct-breg/hasRegistrationRevisionDate [_] :db.type/instant)
+(defmethod db/infer-datomic-type :fibo-fbc-fct-breg/hasInitialRegistrationDate [_] :db.type/instant)
+(defmethod db/infer-datomic-type :rdfs/label [_] :db.type/string)
+(prefer-method db/infer-datomic-type :rdfs/label :owl/AnnotationProperty)
+(prefer-method db/infer-datomic-type :dc11/title :rdfs/label)
+(defmethod db/infer-datomic-type :qudt/elementTypeCount [_] :db.type/long)
+(defmethod db/infer-datomic-type :xsd/integer [_] :db.type/long)
+(defmethod db/infer-datomic-type :qudt/conversionMultiplier [_] :db.type/ref)
+(defmethod db/infer-datomic-type :qudt/literal [_] :db.type/string)
+(defmethod db/infer-datomic-type :qudt/omUnit [_] :db.type/string)
+(defmethod db/infer-datomic-type :qudt/dimensionlessExponent [_] :db.type/long)
+(defmethod db/infer-datomic-type :qudt/code [_] :db.type/long)
+(defmethod db/infer-datomic-type :qudt/lowerBound [_] :db.type/ref)
+(defmethod db/infer-datomic-type :qudt/upperBound [_] :db.type/ref)
+(defmethod db/infer-datomic-type :qudt/rgbCode [_] :db.type/string)
+(defmethod db/infer-datomic-type :qudt/numericValue [_] :db.type/double)
+(defmethod db/infer-datomic-type :vaem/acronym [_] :db.type/string)
+(defmethod db/infer-datomic-type :schema/keywords [_] :db.type/string)
+
+(set! *default-data-reader-fn* tagged-literal)
+(set! *data-readers* (assoc *data-readers* 'xsd/string (fn [form]
+                                                         (with-meta {:rdf/type  :xsd/string
+                                                                     :rdf/value (str form)}
+                                                           {:type :xsd/string}))))

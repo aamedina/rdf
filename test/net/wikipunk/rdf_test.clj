@@ -25,3 +25,10 @@
            "http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA")
         "Keywords containing _SLASH_ are demunged into a / character")))
 
+
+;; write tests for RDF literals
+
+;; #xsd/string "hello"
+;; #xsd/long 0
+;; #xsd/float 0.0
+

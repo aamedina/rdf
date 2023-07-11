@@ -164,22 +164,6 @@
   [class]
   nil)
 
-#_(into #{}
-        (comp
-          (map first)
-          (map mop/find-class))
-        (xt/q (xt/db mop/*env*)
-              '{:find  [?e]
-                :in    [$ ?class]
-                :where [[?e :rdfs/domain ?domain]
-                        (or-join [?domain ?class]
-                                 [(== ?domain ?class)]
-                                 (and [(get ?domain :owl/unionOf) ?unionOf]
-                                      [(some? ?unionOf)]                              
-                                      [(identity ?unionOf) [?unionClass ...]]
-                                      [(== ?unionClass ?class)]))]}
-              (:db/ident class)))
-
 (defmethod mop/class-direct-slots clojure.lang.IPersistentMap
   [class]
   nil)
@@ -191,76 +175,6 @@
                allValuesFrom
                someValuesFrom]
     :as class}]
-  ;; TODO: figure out the following restrictions...
-  
-  ;; The value constraint owl:allValuesFrom is a built-in OWL property
-  ;; that links a restriction class to either a class description or a
-  ;; data range. A restriction containing an owl:allValuesFrom
-  ;; constraint is used to describe a class of all individuals for
-  ;; which all values of the property under consideration are either
-  ;; members of the class extension of the class description or are
-  ;; data values within the specified data range. In other words, it
-  ;; defines a class of individuals x for which holds that if the pair
-  ;; (x,y) is an instance of P (the property concerned), then y should
-  ;; be an instance of the class description or a value in the data
-  ;; range, respectively.
-
-  ;; This example describes an anonymous OWL class of all individuals
-  ;; for which the hasParent property only has values of class
-  ;; Human. Note that this class description does not state that the
-  ;; property always has values of this class; just that this is true
-  ;; for individuals that belong to the class extension of the
-  ;; anonymous restriction class.
-
-  ;; NOTE: In OWL Lite the only type of class description allowed as
-  ;; object of owl:allValuesFrom is a class name.
-
-  ;; An owl:allValuesFrom constraint is analogous to the universal
-  ;; (for-all) quantifier of Predicate logic - for each instance of
-  ;; the class that is being described, every value for P must fulfill
-  ;; the constraint. Also notice that the correspondence of
-  ;; owl:allValuesFrom with the universal quantifier means that an
-  ;; owl:allValuesFrom constraint for a property P is trivially
-  ;; satisfied for an individual that has no value for property P at
-  ;; all. To see why this is so, observe that the owl:allValuesFrom
-  ;; constraint demands that all values of P should be of type T, and
-  ;; if no such values exist, the constraint is trivially true.
-
-  ;;   A simple example:
-
-  ;; {:rdf/type :owl/Restriction
-  ;;  :owl/onProperty :hasParent
-  ;;  :owl/allValuesFrom :Human}
-
-
-  ;; The value constraint owl:someValuesFrom is a built-in OWL
-  ;; property that links a restriction class to a class description or
-  ;; a data range. A restriction containing an owl:someValuesFrom
-  ;; constraint describes a class of all individuals for which at
-  ;; least one value of the property concerned is an instance of the
-  ;; class description or a data value in the data range. In other
-  ;; words, it defines a class of individuals x for which there is at
-  ;; least one y (either an instance of the class description or value
-  ;; of the data range) such that the pair (x,y) is an instance of
-  ;; P. This does not exclude that there are other instances (x,y') of
-  ;; P for which y' does not belong to the class description or data
-  ;; range.
-
-  ;;   The following example defines a class of individuals which have
-  ;;   at least one parent who is a physician:
-
-  ;; {:rdf/type :owl/Restriction
-  ;;  :owl/onProperty :hasParent
-  ;;  :owl/someValuesFrom :Physician}
-
-  ;; The owl:someValuesFrom constraint is analogous to the existential
-  ;; quantifier of Predicate logic - for each instance of the class
-  ;; that is being defined, there exists at least one value for P that
-  ;; fulfills the constraint.
-
-  ;; NOTE: In OWL Lite the only type of class description allowed as
-  ;; object of owl:someValuesFrom is a class name.
-
   [(cond-> {:db/ident onProperty}
      allValuesFrom (update :rdfs/range (fnil conj #{}) allValuesFrom)
      someValuesFrom (update :rdfs/range (fnil conj #{}) someValuesFrom)
@@ -384,7 +298,6 @@
   [class env]
   (try
     (xt/submit-tx env [[::xt/put (rdf/freezable class)]])
-    #_(xt/sync env)
     (catch Throwable ex
       (throw (ex-info (.getMessage ex) {:class class} ex)))))
 
@@ -469,23 +382,7 @@
   ;; semantics. Should effective slot definitions incorporate all of
   ;; that computed property precedence information? Probably? I think
   ;; so...?
-  (reduce merge direct-slot-definitions)
-  #_(reduce (fn [effective-slot-def direct-slot-def]
-            (cond-> (-> effective-slot-def
-                        (update :mop/slotInitargs
-                                (fnil into #{})
-                                (mop/slot-definition-initargs direct-slot-def)))
-              (nil? (:db/ident effective-slot-def))
-              (assoc :db/ident (mop/slot-definition-name direct-slot-def))
-
-              (nil? (:mop/slotInitform effective-slot-def))
-              (assoc :mop/slotInitform (mop/slot-definition-initform direct-slot-def)
-                     :mop/slotInitfunction (mop/slot-definition-initfunction direct-slot-def))
-
-              (nil? (:mop/slotAllocation effective-slot-def))
-              (assoc :mop/slotAllocation (mop/slot-definition-allocation direct-slot-def))))
-          {:db/ident slot}
-          direct-slot-definitions))
+  (reduce merge direct-slot-definitions))
 
 (defmethod mop/validate-superclass [:rdfs/Class :rdfs/Class]
   [class superclass]

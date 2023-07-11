@@ -378,6 +378,10 @@
 
 (declare iri)
 
+(comment
+  (ns-unmap 'clojure.core 'global-hierarchy)
+  )
+
 (defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db]
   com/Lifecycle
   (start [this]
@@ -643,25 +647,23 @@
 
   Node_Blank
   (data [n]
-    {:rdf/blank (.getLabelString (.getBlankNodeId n))})
+    {:db/id (.getLabelString (.getBlankNodeId n))})
 
   Node_Literal
   (data [n]
-    (try
-      (if (= XSDDatatype/XSDdateTime (.getLiteralDatatype n))
-        (.getTime (.asCalendar ^XSDDateTime (.getLiteralValue n)))
+    (let [value (.getLiteralValue n)
+          id    (str (gensym "rdf"))]
+      (if-some [dt (.getLiteralDatatypeURI n)]
+        {(kw dt) value :db/id id}
         (if-let [lang (not-empty (.getLiteralLanguage n))]
-          (lstr/->LangStr (.getLiteralValue n) lang)
-          #_(if (str/starts-with? lang "en")
-              (.getLiteralValue n)
-              (lstr/->LangStr (.getLiteralValue n) lang))
-          (let [value (.getLiteralValue n)]
-            (if (instance? BaseDatatype$TypedValue value)
-              (.-lexicalValue value)
-              value))))
-      (catch org.apache.jena.datatypes.DatatypeFormatException ex
-        (log/warn (.getMessage ex))
-        (str n))))
+          {:rdf/type     :rdf/CompoundLiteral
+           :rdf/value    value
+           :rdf/language lang
+           :db/id        id}
+          {:rdf/type  :rdfs/Literal
+           :rdf/value (if (instance? BaseDatatype$TypedValue value)
+                        (.-lexicalValue value)
+                        value)}))))
 
   Node_Triple
   (data [node]
@@ -700,7 +702,9 @@
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [reasoner      (or (:reasoner md) (ReasonerRegistry/getRDFSSimpleReasoner))
+  (let [reasoner      (or (:reasoner md)
+                          #_(ReasonerRegistry/getRDFSSimpleReasoner)
+                          (ReasonerRegistry/getOWLMicroReasoner))
         g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
                         (.bind reasoner g)
                         g)
@@ -728,8 +732,18 @@
                                                  (remove (fn [^Triple t] 
                                                            (= (.getSubject t) (.getObject t))) 
                                                          triples) 
-                                                 triples)] ; Remove the self-reference triple if it exists.
-                                   (into {:db/ident (g/data subject)}
+                                                 triples) ; Remove the self-reference triple if it exists.
+                                       iri (g/data subject)] 
+                                   (into (cond
+                                           (keyword? iri)
+                                           {:db/ident iri}
+                                           (map? iri)
+                                           iri
+                                           (and (string? iri) (str/starts-with? iri "http"))
+                                           {:rdfa/uri iri}
+                                           (string? iri)
+                                           {:db/id iri}
+                                           :else (throw (ex-info "Could not generate IRI for Node." {:subject iri})))
                                          (map (fn [[pred triples]]
                                                 (let [k       (g/data pred)
                                                       objects (mapv #(g/data (.getObject ^Triple %)) triples)]
@@ -1063,7 +1077,7 @@
         model-by-ident (update-vals (group-by :db/ident model) first)
         index          (update-vals model-by-ident #(dissoc % :db/ident))
         forms          (->> index
-                            (walk/prewalk (partial walk-blanks index))
+                            #_(walk/prewalk (partial walk-blanks index))
                             (walk/postwalk walk-dcterms)
                             (walk/postwalk walk-bytes)
                             (map (fn [[k v]]
@@ -1725,3 +1739,4 @@
                           mo))
           (map deref (vals (ns-publics ns))))
     @idents))
+
