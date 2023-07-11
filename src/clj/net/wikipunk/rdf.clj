@@ -566,10 +566,10 @@
   "Construct a keyword from an IRI using the prefix tree, returns nil if not possible."
   [registry iri]
   (when-let [prefix (#'reg/longest-prefix (keys registry) iri)]
-    (let [fragment (subs iri (count prefix))
+    (let [fragment     (subs iri (count prefix))
           fragment-seq (str/split fragment #"/")
           registration (get registry prefix)
-          wild? (= "*" (last registration))]
+          wild?        (= "*" (last registration))]
       (if (not wild?)
         (if (= 1 (count fragment-seq))
           (keyword (str/join "." registration) fragment)
@@ -742,7 +742,7 @@
                                                            (= (.getSubject t) (.getObject t))) 
                                                          triples) 
                                                  triples) ; Remove the self-reference triple if it exists.
-                                       iri (g/data subject)] 
+                                       iri     (g/data subject)] 
                                    (into (cond
                                            (keyword? iri)
                                            {:db/ident iri}
@@ -777,9 +777,9 @@
            :rdf/keys  [value]
            :keys      [format]} md
           parser                (if value
-                             (doto (RDFParser/fromString value)
-                               (.lang (get a/formats (or format :ttl))))
-                             (RDFParser/source (or downloadURL uri)))]
+                                  (doto (RDFParser/fromString value)
+                                    (.lang (get a/formats (or format :ttl))))
+                                  (RDFParser/source (or downloadURL uri)))]
       (try
         (.toGraph parser)
         (catch org.apache.jena.riot.RiotException ex
@@ -1731,7 +1731,7 @@
 (extend-protocol arachne.aristotle.graph/AsNode
   clojure.lang.BigInt
   (node [obj]
-    (arachne.aristotle.graph/node (bigdec obj))))
+    (org.apache.jena.graph.NodeFactory/createLiteralByValue (biginteger obj) XSDDatatype/XSDinteger)))
 
 (defn ns-graph
   "Return a graph of all the namespaces in the current system."
