@@ -45,6 +45,8 @@
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
 
+(set! *default-data-reader-fn* tagged-literal)
+
 (defprotocol LinkedData
   (parse [x]
     "Parses source using Apache Jena's RDFParser and converts it to
@@ -362,6 +364,13 @@
   [form]
   (if (instance? ont_app.vocabulary.lstr.LangStr form)
     (str form "@" (lstr/lang form))
+    form))
+
+(defn unroll-tagged-literals
+  "unrolls tagged-literals forms"
+  [form]
+  (if (tagged-literal? form)
+    (:form form)
     form))
 
 (defn freezable
@@ -719,8 +728,8 @@
   "parses graph with ns-prefix-map"
   [g & {:as md}]
   (let [reasoner      (or (:reasoner md)
-                          #_(ReasonerRegistry/getRDFSSimpleReasoner)
-                          (ReasonerRegistry/getOWLMicroReasoner))
+                          (ReasonerRegistry/getRDFSSimpleReasoner)
+                          #_(ReasonerRegistry/getOWLMicroReasoner))
         g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
                         (.bind reasoner g)
                         g)
@@ -774,14 +783,51 @@
 
 (def mem-parse (memo/memo parse))
 
+(defn bnode?
+  "Checks if a value is a blank node."
+  [val]
+  (and (map? val) (:db/id val)))
+
+(defn get-definition
+  "Retrieves the definition of a blank node from the graph."
+  [graph bnode-id]
+  (some #(= (:db/id %) bnode-id) graph))
+
+(defn replace-bnode
+  "Replaces a blank node with its definition, if it exists."
+  [graph node]
+  (if (bnode? node)
+    (or (get-definition graph (:db/id node)) node)
+    node))
+
+(defn replace-bnodes-in-val
+  "Replaces all blank nodes in a value with their definitions."
+  [graph val]
+  (cond
+    (vector? val) (mapv #(replace-bnodes-in-val graph %) val)
+    (bnode? val) (replace-bnode graph val)
+    :else val))
+
+(defn replace-bnodes
+  "Replaces all blank nodes recursively with their definitions."
+  [graph]
+  (let [bnode-definitions (into {} (map (juxt :db/id identity) graph))]
+    (walk/postwalk
+      (fn [node]
+        (if (and (map? node) (:db/id node))
+          (get bnode-definitions (:db/id node) node)
+          node))
+      graph)))
+
 (defn walk-blanks
   "Replaces blank nodes with their values."
   ([index form]
    (walk-blanks index form #{:rdfs/subClassOf :rdfs/subPropertyOf}))
   ([index form keys]
-   (if-some [_ (:rdf/blank form)]
-     (let [node (get index form)]
-       (reduce (fn [n k]
+   (if-some [id (:db/id form)]
+     (let [node (get index id)]
+       (walk/postwalk #(walk-blanks (dissoc index id) %) node)
+       #_(reduce (fn [n k]
                  (if (contains? n k)
                    (let [value     (get n k)
                          new-value (cond
@@ -878,28 +924,33 @@
 
   clojure.lang.IPersistentMap
   (box [m]
-    ;; special case coerce these to doubles 
+    ;; special case coerce these to doubles
     (if (some #{:xsd/minExclusive :xsd/minInclusive
-                :xsd/maxExclusive :xsd/maxInclusive
-                :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
-                :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
-              (keys m))
-      (reduce #(update %1 %2 (fn [x]
-                               (if (string? x)
-                                 (try
-                                   (double (Long/parseLong x))
-                                   (catch Throwable ex
-                                     (try
-                                       (Double/parseDouble x)
-                                       (catch Throwable ex
-                                         (double (read-string (str "0x" x)))))))
-                                 (double x))))
-              m (filter #{:xsd/minExclusive :xsd/minInclusive
-                          :xsd/maxExclusive :xsd/maxInclusive
-                          :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
-                          :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
-                        (keys m)))
-      m))
+                  :xsd/maxExclusive :xsd/maxInclusive
+                  :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
+                  :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
+                (keys m))
+        (reduce #(update %1 %2 (fn [x]
+                                 (cond
+                                   (string? x)
+                                   (try
+                                     (double (Long/parseLong x))
+                                     (catch Throwable ex
+                                       (try
+                                         (Double/parseDouble x)
+                                         (catch Throwable ex
+                                           (double (read-string (str "0x" x)))))))
+                                   (number? x)
+                                   (double x)
+
+                                   (tagged-literal? x)
+                                   (double (:form x)))))
+                m (filter #{:xsd/minExclusive :xsd/minInclusive
+                            :xsd/maxExclusive :xsd/maxInclusive
+                            :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
+                            :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
+                          (keys m)))
+        m))
 
   Object
   (box [o] o)
@@ -1000,10 +1051,10 @@
         prefix         (or (:rdfa/prefix md)
                            (:vann/preferredNamespacePrefix md)
                            (some-> (:ns md) ns-name #(str/split #"\.") peek))
-        model-by-ident (update-vals (group-by :db/ident model) first)
-        index          (update-vals model-by-ident #(dissoc % :db/ident))
+        model-by-ident (update-vals (group-by (some-fn :db/id :db/ident) model) first)
+        index          (update-vals model-by-ident #(dissoc % :db/id))
         forms          (->> index
-                            #_(walk/prewalk (partial walk-blanks index))
+                            (walk/prewalk (partial walk-blanks index))
                             (walk/postwalk walk-dcterms)
                             (walk/postwalk walk-bytes)
                             (map (fn [[k v]]
@@ -1107,7 +1158,9 @@
         docstring (if (map? docstring)
                     (:rdf/value docstring "")
                     docstring)]
-    (str docstring)))
+    (if (tagged-literal? docstring)
+      (:form docstring)
+      (str docstring))))
 
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -1422,14 +1475,12 @@
                                                    (descendants :rdf/Property)
                                                    (descendants :owl/NamedIndividual)
                                                    (descendants :skos/Concept)
-                                                   (descendants :schema/Thing)
                                                    (descendants :owl/Thing))
                                    (mop/class-direct-subclasses :rdf/Property))
                         :rdfs/Class
                         :rdf/Property
                         :owl/NamedIndividual
                         :skos/Concept
-                        :schema/Thing
                         :owl/Thing)))
   ([force? metaobjects]
    (dorun
