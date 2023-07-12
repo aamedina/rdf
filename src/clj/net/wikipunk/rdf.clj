@@ -45,9 +45,14 @@
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
 
+;; ugly
 (if (thread-bound? #'*default-data-reader-fn*)
   (set! *default-data-reader-fn* tagged-literal)
   (alter-var-root #'*default-data-reader-fn* (constantly tagged-literal)))
+
+(if (thread-bound? #'clojure.tools.reader/*default-data-reader-fn*)
+  (set! clojure.tools.reader/*default-data-reader-fn* tagged-literal)
+  (alter-var-root #'clojure.tools.reader/*default-data-reader-fn* (constantly tagged-literal)))
 
 (defprotocol LinkedData
   "This is a protocol for parsing RDF models. 
@@ -88,13 +93,10 @@
   metaobjects when the Universal Translator was started."
   nil)
 
-(def ^:dynamic *indexes*
-  "A map of useful indexes across metaobjects."
-  {})
-
 (def ^:dynamic *ns-aliases*
   "Configured by `make-boot-context` holding a map of namespace
-  aliases."
+  aliases mapping prefixes to delays which when dereferenced return a
+  Clojure namespace or nil if none could be found."
   {})
 
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
@@ -122,18 +124,42 @@
     (-> (name ident)
         (symbol))))
 
-(defn make-boot-context
-  "a function which configures an Aristotle registry for bootstrapping
-  RDF data."
+(defn ns-contexts
+  "Returns a sequence of Clojure namespaces that are JSON-LD
+  contexts.
+
+  Namespaces which are JSON-LD contexts contain public vars which
+  correspond to e.g, :rdfa/PrefixMapping instances to declare prefix
+  mappings for each context.
+
+  (ns your.namespace.boot
+    {:rdf/type :jsonld/Context})
+
+  (def preferredNamespacePrefix
+    {:rdf/type :rdfa/PrefixMapping
+     :rdfa/prefix \"preferredNamespacePrefix\"
+     :rdfa/uri \"preferredNamespaceURI\"}"
   []
-  (let [ns-prefixes (->> (all-ns)
-                         (filter #(= (:rdf/type (meta %)) :jsonld/Context))
-                         (map #(str/replace % #"boot$" "rdf")))]
+  (filter #(isa? (mop/type-of %) :jsonld/Context) (all-ns)))
+
+(defn make-boot-context
+  "A function which configures an Aristotle registry for bootstrapping
+  RDF data.
+
+  For each JSON-LD context namespace you require before calling this
+  function, its public vars are enumerated declaring what prefix
+  mappings are being \"booted\" by this context.
+
+  The name of the namespace is used to resolve the Clojure namespaces
+  emitted from these prefix mappings."
+  []
+  (let [ns-prefixes (->> (ns-contexts)
+                         (map #(str (str/join "." (pop (str/split (str %) #"\."))) ".rdf"))
+                         (distinct))]
     (transduce
       (comp
-        (filter #(= (:rdf/type (meta %)) :jsonld/Context))
-        (map ns-publics)
-        (mapcat vals)
+        (map ns-publics) 
+        (mapcat vals)    
         (map deref)
         (map (juxt :rdfa/prefix :rdfa/uri)))
       (completing
@@ -149,9 +175,15 @@
                       (fn [ns-aliases]
                         (assoc ns-aliases
                                prefix
-                               (some #(when-some [ns (find-ns (symbol (str % "." prefix)))]
-                                        ns)
-                                     ns-prefixes)))))))
+                               (delay
+                                 (some (fn [ns-prefix]
+                                         (let [ns-name (symbol (str ns-prefix "." prefix))]
+                                           (try
+                                             (require ns-name)
+                                             (find-ns ns-name)
+                                             (catch java.io.FileNotFoundException ex
+                                               nil))))
+                                       ns-prefixes))))))))
       {:registry   (reg/add-prefix {:prefixes  {}
                                     :prefixes' {}
                                     :aliases   {}
@@ -160,7 +192,7 @@
                                    "dcterms"
                                    "http://purl.org/dc/terms/")
        :ns-aliases {}}
-      (all-ns))))
+      (ns-contexts))))
 
 (defn deriving
   "a function which derives ident from each of its parents in the
@@ -455,7 +487,9 @@
 (defn freezable
   "Ensure the metaobject can be frozen and thawed by Nippy."
   [mo]
-  (->> (walk/prewalk unroll-langString (assoc mo :xt/id (:db/ident mo)))
+  (->> (assoc mo :xt/id (:db/ident mo))
+       (walk/prewalk unroll-langString)
+       (walk/prewalk unroll-tagged-literals)
        (walk/postwalk (fn [form]
                         (cond
                           (map? form)
@@ -487,7 +521,6 @@
         (when node
           (alter-var-root #'mop/*env* (constantly node)))
         (require (or init-ns 'net.wikipunk.mop.init))
-        #_(alter-var-root #'*indexes* (constantly (setup-indexes (:metaobjects hierarchies))))
         (when node
           (try
             (xt/submit-tx node (into []
@@ -1475,6 +1508,7 @@
       :else                                  nil)))
 
 (defn unroll-blank
+  "used to add :db/id's to blank nodes"
   [form]
   (if (and (map? form)
            (and (not (contains? form :rdfa/uri))
@@ -1484,69 +1518,11 @@
     form))
 
 (defn unroll-missing-uris
+  "not sure if this is needed"
   [form]
   (if (sequential? form)
     (filterv (some-fn keyword? map?) form)
     form))
-
-(defn- unroll-term
-  [x]
-  (cond
-    (keyword? x) #{x}
-    
-    (map? x) (into #{} (or (:owl/unionOf x)
-                           (:owl/oneOf x)
-                           (some-> (:owl/intersectionOf x) (hash-set))))
-    
-    (coll? x) (into #{} (mapcat unroll-term) x)
-
-    :else #{}))
-
-(defn direct-slot-definition
-  [x]
-  (reduce (fn [mo term]
-            (if (contains? mo term)
-              (let [mo' (update mo term unroll-term)]
-                (if (get mo' term)
-                  mo'
-                  (dissoc mo' term)))
-              mo))
-          (set/rename-keys
-            (cond
-              (qualified-keyword? x)
-              (mop/find-class x)
-              (map? x)
-              x
-              :else (throw (ex-info "cannot coerce x to direct-slot-definition" {:x x})))
-            {:schema/domainIncludes :rdfs/domain
-             :schema/rangeIncludes  :rdfs/range})
-          [:rdf/type
-           :rdfs/domain
-           :rdfs/range
-           :rdfs/subPropertyOf]))
-
-(defn setup-indexes
-  ([]
-   (setup-indexes @#'clojure.core/global-hierarchy))
-  ([h]
-   (let [slots (into []
-                     (comp
-                       (filter #(some #{:owl/ObjectProperty
-                                        :owl/DatatypeProperty
-                                        :owl/AnnotationProperty
-                                        :owl/TransitiveProperty
-                                        :owl/SymmetricProperty
-                                        :owl/FunctionalProperty
-                                        :rdf/Property}
-                                      (:rdf/type %))))
-                     (pmap direct-slot-definition (descendants h :rdf/Property)))]
-     {:slots/by-domain
-      (reduce-kv (fn [m domain slots]
-                   (reduce (fn [m k]
-                             (update m k (fnil into #{}) slots))
-                           m domain))
-                 {}
-                 (group-by :rdfs/domain slots))})))
 
 (defn finalize
   "Finalizes all of the loaded classes."
