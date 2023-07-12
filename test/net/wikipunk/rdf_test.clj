@@ -201,7 +201,7 @@
 
 (deftest class-slots
   (testing "validating the MOP :schema/Movie inferred class slots"
-    (is (= (set (map :db/ident (mop/class-slots :schema/Movie)))
+    (is (= (set (mop/class-slots :schema/Movie))
            #{:schema/alternateName
              :schema/encodingFormat
              :schema/awards
@@ -338,7 +338,7 @@
              :schema/offers
              :schema/discussionUrl})))
   (testing "validating the MOP :schema/Movie inferred class direct slots"
-    (is (= (set (map :db/ident (mop/class-direct-slots :schema/Movie)))
+    (is (= (set (mop/class-direct-slots :schema/Movie))
            #{:schema/director
              :schema/trailer
              :schema/productionCompany

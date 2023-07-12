@@ -15,8 +15,8 @@
    :db/cardinality :db.cardinality/many
    :db/valueType   :db.type/ref
    :rdf/type       :owl/ObjectProperty
-   :rdfs/range     :rdfs/Class
-   :rdfs/domain    :rdf/Property})
+   :rdfs/domain    :rdfs/Class
+   :rdfs/range     :rdf/Property})
 
 (def classDirectSubclasses
   "A class metaobject's direct subclasses."
@@ -32,12 +32,12 @@
    :db/cardinality :db.cardinality/many
    :db/valueType   :db.type/ref
    :rdf/type       :owl/ObjectProperty
-   :rdfs/range     :rdfs/Class
-   :rdfs/domain    :rdf/Property})
+   :rdfs/domain    :rdfs/Class
+   :rdfs/range     :rdf/Property})
 
 ;; unordered in Datomic for now, use sort isa?
 (def classPrecedenceList
-  {:db/ident       :mop/classPrecedenceList   
-   :rdf/type       :owl/ObjectProperty
-   :rdfs/range     :rdfs/Class
-   :rdfs/domain    :rdfs/Class})
+  {:db/ident    :mop/classPrecedenceList   
+   :rdf/type    :owl/ObjectProperty
+   :rdfs/range  :rdfs/Class
+   :rdfs/domain :rdfs/Class})

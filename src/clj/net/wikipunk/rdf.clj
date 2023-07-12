@@ -83,13 +83,10 @@
   (emit [x arg-map]
     "Write Clojure namespace after parsing x with arg-map."))
 
-(def ^:dynamic *classes*
-  "A multimethod hierarchy dedicated to RDF classes."
-  {})
-
-(def ^:dynamic *properties*
-  "A multimethod hierarchy dedicated to RDF properties."
-  {})
+(def ^:dynamic *metaobjects*
+  "Contains a map of multimethod hierarchies derived from loaded
+  metaobjects when the Universal Translator was started."
+  nil)
 
 (def ^:dynamic *indexes*
   "A map of useful indexes across metaobjects."
@@ -260,7 +257,7 @@
                (deriving h entity (concat (filter keyword? type)
                                           (filter keyword? subClassOf)
                                           (filter keyword? equivalentClass)
-                                          (filter keyword? (mapcat :owl/unionOf (filter map? subClassOf)))))
+                                          (filter keyword? (mapcat (some-fn :owl/unionOf :owl/intersectionOf) (filter map? subClassOf)))))
                h))
            (make-hierarchy)
            metaobjects)))
@@ -299,12 +296,54 @@
              (some #(isa? classes % :rdf/Property) type))
          (deriving entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
                                   (filter keyword? subPropertyOf)
-                                  (filter keyword? equivalentProperty)))
-
-         (or domain domainIncludes)
-         (deriving entity (filter keyword? (concat domain domainIncludes)))))
+                                  (filter keyword? equivalentProperty)))))
      (make-hierarchy)
      metaobjects)))
+
+(defn make-domain-hierarchy
+  "Creates a multimethod hierarchy deriving named classes which are
+  declared in the :rdfs/domain or :schema/domainIncludes of some
+  :rdf/Property."
+  ([classes]
+   (make-domain-hierarchy classes (all-metaobjects mop/*env*)))
+  ([classes metaobjects]
+   (reduce
+     (fn [h {:db/keys   [ident]
+             :rdf/keys  [type]
+             :rdfs/keys [subPropertyOf domain range]
+             :schema/keys [domainIncludes rangeIncludes]
+             :owl/keys  [equivalentProperty]
+             :as        entity}]
+       (let [domain'     (concat domain domainIncludes)
+             domain-keys (filter keyword? domain')
+             domain-maps (->> (filter map? domain')
+                              (keep (some-fn :owl/unionOf :owl/intersectionOf))
+                              (filter keyword?))]
+         (cond-> h
+           (or domain domainIncludes)
+           (deriving entity (concat domain-keys )))))
+     (make-hierarchy)
+     (filter (some-fn :rdfs/domain :schema/domainIncludes) metaobjects))))
+
+(defn make-range-hierarchy
+  "Creates a multimethod hierarchy deriving named classes which are
+  declared in the :rdfs/range or :schema/rangeIncludes of some
+  :rdf/Property."
+  ([classes]
+   (make-range-hierarchy classes (all-metaobjects mop/*env*)))
+  ([classes metaobjects]
+   (reduce
+     (fn [h {:db/keys   [ident]
+             :rdf/keys  [type]
+             :rdfs/keys [subPropertyOf domain range]
+             :schema/keys [domainIncludes rangeIncludes]
+             :owl/keys  [equivalentProperty]
+             :as        entity}]
+       (cond-> h
+         (or range rangeIncludes)
+         (deriving entity (filter keyword? (concat range rangeIncludes)))))
+     (make-hierarchy)
+     (filter (some-fn :rdfs/range :schema/rangeIncludes) metaobjects))))
 
 (defn make-metaobject-hierarchy
   "The make-metaobject-hierarchy function takes in two arguments,
@@ -369,9 +408,11 @@
    (let [classes     (make-class-hierarchy xs)
          properties  (make-property-hierarchy classes xs)
          metaobjects (make-metaobject-hierarchy classes properties xs)]
-     {:classes     classes
-      :properties  properties
-      :metaobjects metaobjects})))
+     {:rdfs/Resource metaobjects
+      :rdfs/Class    classes
+      :rdf/Property  properties
+      :rdfs/domain   (make-domain-hierarchy classes xs)
+      :rdfs/range    (make-range-hierarchy classes xs)})))
 
 (declare finalize setup-indexes)
 
@@ -431,20 +472,21 @@
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [all                                      (all-metaobjects db) ; when a :db has been provided use it as the env
-            node                                     (when config (xt/start-node config))
-            {:keys [registry ns-aliases]}            (make-boot-context)
-            {:keys [classes properties metaobjects]} (make-hierarchies all)]
+      (let [all                           (all-metaobjects db) ; when a :db has been provided use it as the env
+            node                          (when config (xt/start-node config))
+            {:keys [registry ns-aliases]} (make-boot-context)
+            hierarchies                   (make-hierarchies all)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
-        (alter-var-root #'*ns-aliases* (constantly ns-aliases))
-        (alter-var-root #'clojure.core/global-hierarchy (constantly metaobjects))
+        (alter-var-root #'*ns-aliases* (constantly ns-aliases))        
+        (alter-var-root #'*metaobjects* (constantly hierarchies))
+        (alter-var-root #'clojure.core/global-hierarchy (constantly (:rdfs/Resource hierarchies)))
         (when db
           (alter-var-root #'mop/*env* (constantly db)))
         (when node
           (alter-var-root #'mop/*env* (constantly node)))
         (require (or init-ns 'net.wikipunk.mop.init))
-        (alter-var-root #'*indexes* (constantly (setup-indexes metaobjects)))
+        #_(alter-var-root #'*indexes* (constantly (setup-indexes (:metaobjects hierarchies))))
         (when node
           (try
             (xt/submit-tx node (into []
