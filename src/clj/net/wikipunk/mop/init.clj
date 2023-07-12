@@ -173,19 +173,19 @@
                maxCardinality
                allValuesFrom
                someValuesFrom]
-    :as class}]
+    :as       class}]
   [(cond-> {:db/ident onProperty}
-     allValuesFrom (update :rdfs/range (fnil conj #{}) allValuesFrom)
+     allValuesFrom  (update :rdfs/range (fnil conj #{}) allValuesFrom)
      someValuesFrom (update :rdfs/range (fnil conj #{}) someValuesFrom)
      minCardinality (assoc :owl/minCardinality minCardinality)
      maxCardinality (assoc :owl/maxCardinality maxCardinality))])
 
 (defmethod mop/class-direct-slots :rdfs/Class
-  [{:db/keys [ident]
-    :mop/keys [classDirectSlots]
+  [{:db/keys   [ident]
+    :mop/keys  [classDirectSlots]
     :rdfs/keys [subClassOf]
-    :owl/keys [intersectionOf unionOf]
-    :as class}]
+    :owl/keys  [intersectionOf unionOf]
+    :as        class}]
   (or (not-empty classDirectSlots)
       (when-some [slots (seq (concat (and ident (get-in rdf/*indexes* [:slots/by-domain ident]))
                                      (some->> (filter map? (concat intersectionOf
@@ -219,27 +219,13 @@
 
 (defmethod mop/add-direct-subclass [:rdfs/Class :rdfs/Class]
   [superclass subclass]
-  (xt/submit-tx mop/*env*
-                [[::xt/put (update subclass
-                                   :rdfs/subClassOf
-                                   conj
-                                   (:db/ident superclass))]
-                 [::xt/put (update superclass
-                                   :mop/classDirectSubclasses
-                                   conj
-                                   (:db/ident subclass))]]))
+  (throw (ex-info "mop/add-direct-subclass is not implemented" {:superclass superclass
+                                                                :subclass   subclass})))
 
 (defmethod mop/remove-direct-subclass [:rdfs/Class :rdfs/Class]
   [superclass subclass]
-  (xt/submit-tx mop/*env*
-                [[::xt/put (update subclass
-                                   :rdfs/subClassOf
-                                   #(into [] (remove #{%2}) %1)
-                                   (:db/ident superclass))]
-                 [::xt/put (update superclass
-                                   :mop/classDirectSubclasses
-                                   disj
-                                   (:db/ident subclass))]]))
+  (throw (ex-info "mop/remove-direct-subclass is not implemented" {:superclass superclass
+                                                                   :subclass   subclass})))
 
 (defmethod mop/ensure-class-using-class nil
   [class class-name & {:keys [direct-default-initargs
@@ -438,7 +424,7 @@
        (remove #{:rdfs/Resource})))
 
 (defmethod mop/class-direct-subclasses :rdfs/Class
-  [{:db/keys [ident]
+  [{:db/keys  [ident]
     :mop/keys [classDirectSubclasses]}]
   (or classDirectSubclasses
       (into #{}
@@ -465,9 +451,9 @@
           (mop/allocate-instance initargs)))
 
 #_(defmethod mop/change-class clojure.lang.Keyword
-  [instance new-class & {:as initargs}]
-  (some-> (mop/find-class instance)
-          (mop/change-class new-class initargs)))
+    [instance new-class & {:as initargs}]
+    (some-> (mop/find-class instance)
+            (mop/change-class new-class initargs)))
 
 (defmethod mop/class-default-initargs clojure.lang.Keyword
   [class]
@@ -553,7 +539,7 @@
   [class class-name &
    {:keys [direct-default-initargs direct-slots direct-superclasses name
            metaclass],
-    :as initargs}]
+    :as   initargs}]
   (some-> (mop/find-class class)
           (mop/ensure-class-using-class class-name initargs)))
 
@@ -701,9 +687,9 @@
   [instance added-slots discarded-slots property-list & {:as initargs}]
   (some-> (mop/find-class instance)
           (mop/update-instance-for-redefined-class added-slots
-                                               discarded-slots
-                                               property-list
-                                               initargs)))
+                                                   discarded-slots
+                                                   property-list
+                                                   initargs)))
 
 (defmethod mop/validate-superclass clojure.lang.Keyword
   [class superclass]

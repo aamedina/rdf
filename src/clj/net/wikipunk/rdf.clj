@@ -83,6 +83,14 @@
   (emit [x arg-map]
     "Write Clojure namespace after parsing x with arg-map."))
 
+(def ^:dynamic *classes*
+  "A multimethod hierarchy dedicated to RDF classes."
+  {})
+
+(def ^:dynamic *properties*
+  "A multimethod hierarchy dedicated to RDF properties."
+  {})
+
 (def ^:dynamic *indexes*
   "A map of useful indexes across metaobjects."
   {})
@@ -179,6 +187,8 @@
     :owl/sameAs
     :rdfs/domain
     :rdfs/range
+    :schema/domainIncludes
+    :schema/rangeIncludes
     :skos/broader
     :skos/narrower})
 
@@ -234,7 +244,7 @@
 
   The resulting class hierarchy is returned."
   ([]
-   (make-class-hierarchy (all-metaobjects)))
+   (make-class-hierarchy (all-metaobjects mop/*env*)))
   ([metaobjects]
    (reduce (fn [h {:db/keys   [ident]
                    :rdf/keys  [type]
@@ -274,21 +284,25 @@
   property to the hierarchy. Finally, it returns the hierarchy of
   properties."
   ([classes]
-   (make-property-hierarchy classes (all-metaobjects)))
+   (make-property-hierarchy classes (all-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
      (fn [h {:db/keys   [ident]
              :rdf/keys  [type]
-             :rdfs/keys [subPropertyOf]
+             :rdfs/keys [subPropertyOf domain range]
+             :schema/keys [domainIncludes rangeIncludes]
              :owl/keys  [equivalentProperty]
              :as        entity}]
-       (if (or subPropertyOf
-               equivalentProperty
-               (some #(isa? classes % :rdf/Property) type))
-         (deriving h entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
-                                    (filter keyword? subPropertyOf)
-                                    (filter keyword? equivalentProperty)))
-         h))
+       (cond-> h
+         (or subPropertyOf
+             equivalentProperty
+             (some #(isa? classes % :rdf/Property) type))
+         (deriving entity (concat (filter keyword? (filter #(isa? classes % :rdf/Property) type))
+                                  (filter keyword? subPropertyOf)
+                                  (filter keyword? equivalentProperty)))
+
+         (or domain domainIncludes)
+         (deriving entity (filter keyword? (concat domain domainIncludes)))))
      (make-hierarchy)
      metaobjects)))
 
@@ -307,7 +321,7 @@
 
     A hierarchy of metaobjects derived from the input RDF classes and properties."
   ([classes properties]
-   (make-metaobject-hierarchy classes properties (all-metaobjects)))
+   (make-metaobject-hierarchy classes properties (all-metaobjects mop/*env*)))
   ([classes properties metaobjects]
    (reduce
      (fn [h {:db/keys   [ident]
@@ -350,7 +364,7 @@
 (defn make-hierarchies
   "Returns a map of hierarchies used to derive the global multimethod
   hierarchy from a sequence of metaobjects."
-  ([] (make-hierarchies (all-metaobjects)))
+  ([] (make-hierarchies (all-metaobjects mop/*env*)))
   ([xs]
    (let [classes     (make-class-hierarchy xs)
          properties  (make-property-hierarchy classes xs)
@@ -417,10 +431,10 @@
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
-      (let [all                           (all-metaobjects db) ; when a :db has been provided use it as the env
-            node                          (when config (xt/start-node config))
-            {:keys [registry ns-aliases]} (make-boot-context)
-            {:keys [metaobjects]}         (make-hierarchies all)]
+      (let [all                                      (all-metaobjects db) ; when a :db has been provided use it as the env
+            node                                     (when config (xt/start-node config))
+            {:keys [registry ns-aliases]}            (make-boot-context)
+            {:keys [classes properties metaobjects]} (make-hierarchies all)]
         (alter-var-root #'reg/*registry* (constantly registry))
         (alter-var-root #'*ns-prefix* (constantly (or ns-prefix "net.wikipunk.rdf.")))
         (alter-var-root #'*ns-aliases* (constantly ns-aliases))
