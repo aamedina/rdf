@@ -257,7 +257,8 @@
                (deriving h entity (concat (filter keyword? type)
                                           (filter keyword? subClassOf)
                                           (filter keyword? equivalentClass)
-                                          (filter keyword? (mapcat (some-fn :owl/unionOf :owl/intersectionOf) (filter map? subClassOf)))))
+                                          (filter keyword? (mapcat (some-fn :owl/unionOf :owl/intersectionOf)
+                                                                   (filter map? subClassOf)))))
                h))
            (make-hierarchy)
            metaobjects)))
@@ -315,13 +316,13 @@
              :owl/keys  [equivalentProperty]
              :as        entity}]
        (let [domain'     (concat domain domainIncludes)
-             domain-keys (filter keyword? domain')
-             domain-maps (->> (filter map? domain')
-                              (keep (some-fn :owl/unionOf :owl/intersectionOf))
-                              (filter keyword?))]
+             domain-keys (filter keyword? domain')]
          (cond-> h
            (or domain domainIncludes)
-           (deriving entity (concat domain-keys )))))
+           (deriving entity (concat domain-keys
+                                    (->> (remove keyword? domain')
+                                         (keep (some-fn :owl/unionOf :owl/intersectionOf))
+                                         (filter keyword?)))))))
      (make-hierarchy)
      (filter (some-fn :rdfs/domain :schema/domainIncludes) metaobjects))))
 
