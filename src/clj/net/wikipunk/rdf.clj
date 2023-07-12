@@ -506,8 +506,11 @@
   com/Lifecycle
   (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
-              *target*    (or target *target*)]            
-      (let [all                           (all-metaobjects db) ; when a :db has been provided use it as the env
+              *target*    (or target *target*)]
+      (require (or init-ns 'net.wikipunk.mop.init))
+      (let [all                           (all-metaobjects (when-not node
+                                                             ;; when a :db has been provided and we are not bootstrapping with XTDB then use the :db as the environment to find metaobjects
+                                                             db))
             node                          (when config (xt/start-node config))
             {:keys [registry ns-aliases]} (make-boot-context)
             hierarchies                   (make-hierarchies all)]
@@ -519,8 +522,7 @@
         (when db
           (alter-var-root #'mop/*env* (constantly db)))
         (when node
-          (alter-var-root #'mop/*env* (constantly node)))
-        (require (or init-ns 'net.wikipunk.mop.init))
+          (alter-var-root #'mop/*env* (constantly node)))        
         (when node
           (try
             (xt/submit-tx node (into []
@@ -814,6 +816,8 @@
 (defn iri
   "returns IRI for ident using aristotle's registry"
   [ident]
+  (assert @(get *ns-aliases* (namespace ident))
+          (str ident ": the namespace has not been booted by a JSON-LD context"))
   (reg/iri (keyword (namespace ident)
                     (let [n (-> (name ident)
                                 (str/replace #"^\|" "")

@@ -737,3 +737,7 @@
   [class superclass]
   (some-> (mop/find-class class)
           (mop/validate-superclass superclass)))
+
+(defmethod mop/type-of clojure.lang.Namespace
+  [ns]
+  (mop/type-of (meta ns)))
