@@ -45,9 +45,32 @@
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
 
-(set! *default-data-reader-fn* tagged-literal)
+(if (thread-bound? #'*default-data-reader-fn*)
+  (set! *default-data-reader-fn* tagged-literal)
+  (alter-var-root #'*default-data-reader-fn* (constantly tagged-literal)))
 
 (defprotocol LinkedData
+  "This is a protocol for parsing RDF models. 
+
+  Usually, the input is a map like so:
+
+  The :rdfa/uri is used to download the model is a :dcat/downloadURL
+  is not provided. The :rdfa/prefix is used to bind @base URI of the
+  RDF model to that prefix.
+
+  {:rdfa/uri \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
+   :rdfa/prefix \"rdf\" 
+   ;; used to override the :rdfa/uri for downloading a RDF model
+   :dcat/downloadURL \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" 
+   ;; optionally force Jena to parse a specific format
+   :format :turtle 
+   ;; optional and used to override the models
+   specified prefixes which becomes invaluable when the source model
+   has odd prefixes for standard vocabularies
+   :rdf/ns-prefix-map {...}}
+
+  (Note: not all keys are required. You can try just passing the URL
+  of the model.)"
   (parse [x]
     "Parses source using Apache Jena's RDFParser and converts it to
   Clojure data using Aristotle.
@@ -391,7 +414,7 @@
 
 (defrecord UniversalTranslator [ns-prefix target boot init-ns conn node config db]
   com/Lifecycle
-  (start [this]
+  (start [this]    
     (binding [*ns-prefix* (or ns-prefix *ns-prefix*)
               *target*    (or target *target*)]            
       (let [all                           (all-metaobjects db) ; when a :db has been provided use it as the env

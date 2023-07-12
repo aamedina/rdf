@@ -430,19 +430,20 @@
 
 (defmethod mop/class-direct-superclasses :rdfs/Class
   [{:rdfs/keys [subClassOf]}]
-  (filter keyword? subClassOf))
+  (->> subClassOf
+       (filter keyword?)
+       ;; Everything is an :rdfs/Resource in this protocol and we are
+       ;; not concerned with obvious inferences, but the non-obvious
+       ;; ones.
+       (remove #{:rdfs/Resource})))
 
 (defmethod mop/class-direct-subclasses :rdfs/Class
   [{:db/keys [ident]
     :mop/keys [classDirectSubclasses]}]
   (or classDirectSubclasses
       (into #{}
-            (map first)
-            (xt/q (xt/db mop/*env*)
-                  '{:find  [?e]
-                    :in    [$ ?class]
-                    :where [[?e :rdfs/subClassOf ?class]]}
-                  ident))))
+            (filter #(some #{ident} (mop/class-direct-superclasses %)))
+            (descendants ident))))
 
 (defmethod mop/compute-class-precedence-list :default
   [_]
