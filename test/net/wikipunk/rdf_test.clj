@@ -1,5 +1,6 @@
 (ns net.wikipunk.rdf-test
   (:require
+   [clojure.datafy :refer [datafy]]
    [clojure.test :refer :all]
    [com.stuartsierra.component.repl :refer [system]]
    [net.wikipunk.mop :as mop]
@@ -352,8 +353,8 @@
              :schema/directors
              :schema/actor}))))
 
-;; write tests for RDF literals
-
-;; #xsd/string "hello"
-;; #xsd/long 0
-;; #xsd/float 0.0
+(deftest get-doc
+  (is (= (rdf/get-doc (meta (find-ns 'net.wikipunk.rdf.d3f)))
+         "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature."))
+  (is (= (rdf/get-doc (datafy :d3f/BayesianEstimation))
+         "A Bayes estimator or a Bayes action is an estimator or decision rule that minimizes the posterior expected value of a loss function (i.e., the posterior expected loss).")))

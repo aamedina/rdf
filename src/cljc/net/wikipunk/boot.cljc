@@ -1,14 +1,8 @@
 (ns net.wikipunk.boot
   "RDFa Core Initial Context"
-  {:rdf/type :jsonld/Context}
+  {:rdf/type         :jsonld/Context
+   :dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"}
   (:refer-clojure :exclude [time keys]))
-
-(def initial-context
-  {:dcat/downloadURL "https://raw.githubusercontent.com/w3c/json-ld-rc/main/rdfa-1.1.ttl"
-   :prefixes         #{"as" "cc" "csvw" "ctag" "dc" "dc11" "dcat" "dcterms" "dqv" "duv" "foaf" "gr"
-                       "grddl" "ical" "jsonld" "ldp" "ma" "oa" "odrl" "og" "org" "owl" "prov" "qb"
-                       "rdf" "rdfa" "rdfs" "rev" "rif" "rr" "schema" "sd" "sioc" "skos" "skosxl"
-                       "sosa" "ssn" "time" "v" "vcard" "void" "wdr" "wdrs" "xhv" "xml" "xsd"}})
 
 (def as
   "Activity Vocabulary"
@@ -97,7 +91,8 @@
    :rdfa/prefix      "gr",
    :rdfs/isDefinedBy {:rdfa/uri
                       "http://www.heppnetz.de/ontologies/goodrelations/v1"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :emit false})
 
 (def grddl
   "GRDDL"
@@ -234,7 +229,8 @@
    :rdfa/prefix "rif",
    :rdfs/isDefinedBy
    {:rdfa/uri "http://www.w3.org/TR/2010/NOTE-rif-overview-20100622/"},
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def rr
   "R2RML"
@@ -318,7 +314,8 @@
    :rdfs/isDefinedBy
    {:rdfa/uri
     "http://www.google.com/support/webmasters/bin/answer.py?answer=99170"},
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def vcard
   "vCard in RDF"
@@ -341,7 +338,8 @@
    :rdfa/prefix "wdr",
    :rdfs/isDefinedBy
    {:rdfa/uri "http://www.w3.org/TR/2009/REC-powder-formal-20090901/"},
-   :rdf/type    :rdfa/PrefixMapping})
+   :rdf/type    :rdfa/PrefixMapping
+   :emit false})
 
 (def wdrs
   "POWDER-S"
@@ -364,7 +362,8 @@
   {:rdfa/uri         "http://www.w3.org/XML/1998/namespace",
    :rdfa/prefix      "xml",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/REC-xml-names/"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :emit             false})
 
 (def xsd
   "XML Schema Datatypes"
@@ -372,4 +371,5 @@
    :rdfa/uri         "http://www.w3.org/2001/XMLSchema#",
    :rdfa/prefix      "xsd",
    :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/TR/xmlschema-2/"},
-   :rdf/type         :rdfa/PrefixMapping})
+   :rdf/type         :rdfa/PrefixMapping
+   :emit             false})

@@ -8,8 +8,13 @@
    [clojure.tools.reader]
    [clojure.java.io :as io]
    [com.stuartsierra.component.repl :refer [reset set-init]]
-   [com.walmartlabs.schematic :as sc]
-   [net.wikipunk.rdf]))
+   [com.walmartlabs.schematic :as sc]))
+
+(alter-var-root #'*default-data-reader-fn* (constantly tagged-literal))
+
+(defmethod print-dup clojure.lang.TaggedLiteral
+  [x ^java.io.Writer w]
+  (.write w (str "#" (:tag x) " " (pr-str (:form x)))))
 
 ;; tools.namespace reads Clojure code using tools.reader which binds
 ;; *data-readers* separately from the standard Clojure reader

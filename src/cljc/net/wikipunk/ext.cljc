@@ -189,10 +189,10 @@
    :dcat/downloadURL "https://vocab.org/vann/vann-vocab-20100607.rdf"})
 
 (def d3f
-  {:dcat/downloadURL "resources/d3fend-full.owl"
-   :rdfa/uri    "http://d3fend.mitre.org/ontologies/d3fend.owl#"
-   :rdfa/prefix "d3f"
-   :rdf/type    :rdfa/PrefixMapping
+  {:dcat/downloadURL  "resources/d3fend-full.owl"
+   :rdfa/uri          "http://d3fend.mitre.org/ontologies/d3fend.owl#"
+   :rdfa/prefix       "d3f"
+   :rdf/type          :rdfa/PrefixMapping
    :rdf/ns-prefix-map {"d3f"
                        "http://d3fend.mitre.org/ontologies/d3fend.owl#",
                        "dcterms" "http://purl.org/dc/terms/",
@@ -201,7 +201,8 @@
                        "rdfs"    "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"    "http://www.w3.org/2004/02/skos/core#",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"}
-   :reasoner :none})
+   :reasoner          nil
+   :slash             true})
 
 (def shacl
   {:rdfa/uri    "http://www.w3.org/ns/shacl#"

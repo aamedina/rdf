@@ -1,5 +1,5 @@
 (ns net.wikipunk.rdf.d3f
-  "clojure.lang.TaggedLiteral@9c2663ab"
+  "D3FEND is a framework which encodes a countermeasure knowledge base as a knowledge graph. The graph contains the types and relations that define key concepts in the cybersecurity countermeasure domain and the relations necessary to link those concepts to each other. Each of these concepts and relations are linked to references in the cybersecurity literature."
   {:d3f/release-date #xsd/dateTime #inst "2023-03-21T00:00:00.000+00:00",
    :dcat/downloadURL "resources/d3fend-full.owl",
    :dcterms/description
@@ -25,7 +25,8 @@
    :rdfs/comment
    #xsd/string
     "Use of the D3FEND Knowledge Graph, and the associated references from this ontology are subject to the Terms of Use. D3FEND is funded by the National Security Agency (NSA) Cybersecurity Directorate and managed by the National Security Engineering Center (NSEC) which is operated by The MITRE Corporation. D3FEND™ and the D3FEND logo are trademarks of The MITRE Corporation. This software was produced for the U.S. Government under Basic Contract No. W56KGU-18-D0004, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause 252.227-7014 (FEB 2012) Copyright 2022 The MITRE Corporation.",
-   :reasoner :none}
+   :reasoner nil,
+   :slash true}
   (:refer-clojure :exclude [comment name next]))
 
 (def AMD64CodeSegment
@@ -273,10 +274,10 @@
    :db/ident :d3f/ActiveLogicalLinkMapping,
    :rdf/type [:d3f/LogicalLinkMapping :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Active Logical Link Mapping",
-   :rdfs/subClassOf [:d3f/LogicalLinkMapping
-                     {:owl/onProperty     :d3f/may-query,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-query,
                       :owl/someValuesFrom :d3f/CollectorAgent,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/LogicalLinkMapping]})
 
 (def ActivePhysicalLinkMapping
   "Active physical link mapping sends and receives network traffic as a means to map the physical layer."
@@ -293,10 +294,10 @@
    :owl/disjointWith :d3f/PassivePhysicalLinkMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/PhysicalLinkMapping],
    :rdfs/label #xsd/string "Active Physical Link Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-query,
+   :rdfs/subClassOf [:d3f/PhysicalLinkMapping
+                     {:owl/onProperty     :d3f/may-query,
                       :owl/someValuesFrom :d3f/CollectorAgent,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PhysicalLinkMapping]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Activity
   "An activity is a specific behavior representing a set of actions that may be accomplished by an agent."
@@ -394,7 +395,7 @@
                      :d3f/CapabilityFeatureClaim]})
 
 (def AdministrativeFeature
-  "Administrative Feature"
+  "Administrative Capability"
   {:db/ident        :d3f/AdministrativeFeature,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Administrative Feature",
@@ -419,11 +420,11 @@
    :db/ident :d3f/AdministrativeNetworkActivityAnalysis,
    :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Administrative Network Activity Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty :d3f/analyzes,
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis]})
 
 (def AdministrativeNetworkTraffic
   "Administrative network traffic is network traffic related to the remote administration or control of hosts or devices through a standard remote administrative protocol.  Remote shells, terminals, RDP, and VNC are examples of these protocols, which are typically only used by administrators."
@@ -887,12 +888,12 @@
    :db/ident :d3f/AssetVulnerabilityEnumeration,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/AssetInventory],
    :rdfs/label #xsd/string "Asset Vulnerability Enumeration",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/evaluates,
-                      :owl/someValuesFrom :d3f/DigitalArtifact,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/AssetInventory
+   :rdfs/subClassOf [:d3f/AssetInventory
                      {:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Vulnerability,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/evaluates,
+                      :owl/someValuesFrom :d3f/DigitalArtifact,
                       :rdf/type           :owl/Restriction}]})
 
 (def AssociationRuleLearning
@@ -974,14 +975,14 @@
    :rdfs/label #xsd/string "Authentication",
    :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Authentication"}
                   {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/00155053-n"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-create,
-                      :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/originates-from,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/originates-from,
                       :owl/someValuesFrom :d3f/PhysicalLocation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/User,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-create,
+                      :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                       :rdf/type           :owl/Restriction}
                      :d3f/UserAction]})
 
@@ -1429,19 +1430,19 @@
    :rdfs/seeAlso
    {:rdfa/uri
     "https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_79"},
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/Volume,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/BootSector,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/PartitionTable,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Partition,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/BootSector,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact],
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/Volume,
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Block Special File"})
 
 (def Book
@@ -1531,10 +1532,10 @@
    :db/ident :d3f/BootloaderAuthentication,
    :rdf/type [:d3f/PlatformHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Bootloader Authentication",
-   :rdfs/subClassOf [:d3f/PlatformHardening
-                     {:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/BootLoader,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PlatformHardening]})
 
 (def BootstrapAggregating
   "Bootstrap aggregating, also called bagging (from bootstrap aggregating), is a machine learning ensemble meta-algorithm designed to improve the stability and accuracy of machine learning algorithms used in statistical classification and regression. It also reduces variance and helps to avoid overfitting. Although it is usually applied to decision tree methods, it can be used with any type of method. Bagging is a special case of the model averaging approach."
@@ -1567,10 +1568,10 @@
    :db/ident :d3f/BroadcastDomainIsolation,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/NetworkIsolation],
    :rdfs/label #xsd/string "Broadcast Domain Isolation",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [:d3f/NetworkIsolation
+                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/LocalAreaNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Browser
   "A web browser (commonly referred to as a browser) is a software application for retrieving, presenting, and traversing information resources on the World Wide Web. An information resource is identified by a Uniform Resource Identifier (URI/URL) and may be a web page, image, video or other piece of content. Hyperlinks present in resources enable users easily to navigate their browsers to related resources. Although browsers are primarily intended to use the World Wide Web, they can also be used to access information provided by web servers in private networks or files in file systems."
@@ -9922,11 +9923,11 @@
                       :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
                      :d3f/PrimaryStorage
-                     {:owl/onProperty     :d3f/accessed-by,
-                      :owl/someValuesFrom :d3f/CentralProcessingUnit,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/CacheMemory,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/accessed-by,
+                      :owl/someValuesFrom :d3f/CentralProcessingUnit,
                       :rdf/type           :owl/Restriction}]})
 
 (def CallStack
@@ -10017,17 +10018,17 @@
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Capability Feature Claim",
    :rdfs/subClassOf [:d3f/Statement
-                     {:owl/onProperty     :d3f/implemented-by,
-                      :owl/someValuesFrom :d3f/CapabilityImplementation,
+                     {:owl/onProperty     :d3f/author,
+                      :owl/someValuesFrom :d3f/Agent,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modified,
                       :owl/someValuesFrom :xsd/dateTime,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/implemented-by,
+                      :owl/someValuesFrom :d3f/CapabilityImplementation,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/assessed-by,
                       :owl/someValuesFrom :d3f/DefensiveTechniqueAssessment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/author,
-                      :owl/someValuesFrom :d3f/Agent,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/comments,
                       :owl/someValuesFrom :xsd/string,
@@ -10076,26 +10077,26 @@
     "A central processing unit (CPU), also called a central processor, main processor or just processor, is the electronic circuitry that executes instructions comprising a computer program. The CPU performs basic arithmetic, logic, controlling, and input/output (I/O) operations specified by the instructions in the program. This contrasts with external components such as main memory and I/O circuitry, and specialized processors such as graphics",
    :d3f/may-contain
    [:d3f/MemoryManagementUnit :d3f/MemoryProtectionUnit :d3f/CacheMemory],
-   :d3f/synonym [#xsd/string "CPU"
-                 #xsd/string "Main Processor"
-                 #xsd/string "Central Processor"],
+   :d3f/synonym [#xsd/string "Central Processor"
+                 #xsd/string "CPU"
+                 #xsd/string "Main Processor"],
    :db/ident :d3f/CentralProcessingUnit,
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy #xsd/string
                       "https://en.wikipedia.org/wiki/Central_processing_unit",
    :rdfs/label #xsd/string "Central Processing Unit",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ProcessorRegister,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Processor
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/MemoryProtectionUnit,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-contain,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/CacheMemory,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/MemoryManagementUnit,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/MemoryProtectionUnit,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/Processor
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ProcessorRegister,
                       :rdf/type           :owl/Restriction}]})
 
 (def CentralTendency
@@ -10213,10 +10214,10 @@
    :db/ident :d3f/CertificatePinning,
    :rdf/type [:owl/Class :d3f/CredentialHardening :owl/NamedIndividual],
    :rdfs/label #xsd/string "Certificate Pinning",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/CredentialHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/PublicKey,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def CertificateTrustStore
   "A certificate truststore is used to store public certificates used to authenticate clients by the server for an SSL connection."
@@ -10781,10 +10782,10 @@
    :db/ident :d3f/ConnectedHoneynet,
    :rdf/type [:d3f/DecoyEnvironment :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Connected Honeynet",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/spoofs,
+   :rdfs/subClassOf [:d3f/DecoyEnvironment
+                     {:owl/onProperty     :d3f/spoofs,
                       :owl/someValuesFrom :d3f/LocalAreaNetwork,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DecoyEnvironment]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Connection-basedClustering
   "Connectivity-based clustering is based on connectivity between the elements Clusters are created by building a hierarchical tree-type structure."
@@ -10817,10 +10818,10 @@
    :db/ident :d3f/ConnectionAttemptAnalysis,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/NetworkTrafficAnalysis],
    :rdfs/label #xsd/string "Connection Attempt Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis]})
 
 (def ConsoleOutputFunction
   "Outputs characters to a computer console."
@@ -11113,18 +11114,18 @@
    :db/ident        :d3f/CredentialAccessTechnique,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Credential Access Technique",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/CredentialAccess,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
+                      :owl/someValuesFrom :d3f/Credential,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/PasswordFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OffensiveTechnique
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/accesses,
-                      :owl/someValuesFrom :d3f/Credential,
+                     :d3f/OffensiveTechnique
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/PasswordFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/CredentialAccess,
                       :rdf/type           :owl/Restriction}]})
 
 (def CredentialCompromiseScopeAnalysis
@@ -11143,10 +11144,10 @@
    :db/ident :d3f/CredentialCompromiseScopeAnalysis,
    :rdf/type [:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Credential Compromise Scope Analysis",
-   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Credential,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/UserBehaviorAnalysis]})
 
 (def CredentialEviction
   "Credential Eviction techniques disable or remove compromised credentials from a computer network."
@@ -11221,8 +11222,7 @@
     "## How it works\n\nManagement servers with enterprise policies for account management provide the ability to change or reset passwords for accounts. Some organizations rotate credentials periodically to limit the risk of stolen credentials.\n\n## Considerations\n\n- When responding to an incident, severity of compromise should be considered to determine what credentials to what accounts should be regenerated\n- If proactively rotating credentials periodically, several factors should be considered to determine the frequency. Also introduces some risk including promoting the creation of weak passwords and poor storage practices for employees and presents challenges in proper tracking.",
    :d3f/kb-reference
    [:d3f/Reference-PasswordandKeyRotation-SSH
-    {:rdfa/uri
-     "http://d3fend.mitre.org/ontologies/d3fend.owl#Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory/M365Compromise-CISA"}],
+    :d3f/Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory_SLASH_M365Compromise-CISA],
    :d3f/regenerates :d3f/Credential,
    :db/ident :d3f/CredentialRotation,
    :rdf/type [:owl/Class :d3f/CredentialHardening :owl/NamedIndividual],
@@ -11289,7 +11289,7 @@
    :rdfs/subClassOf :d3f/Image-to-ImageTranslationGAN})
 
 (def D3FENDCatalogThing
-  "D3FEND Catalog Thing"
+  "D3FEND Vendor Registry Thing"
   {:db/ident        :d3f/D3FENDCatalogThing,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "D3FEND Catalog Thing",
@@ -11427,10 +11427,10 @@
    :db/ident :d3f/DNSDenylisting,
    :rdf/type [:owl/NamedIndividual :d3f/NetworkIsolation :owl/Class],
    :rdfs/label #xsd/string "DNS Denylisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
+   :rdfs/subClassOf [:d3f/NetworkIsolation
+                     {:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/DNSNetworkTraffic,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/NetworkIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def DNSLookup
   "A Domain Name System (DNS) lookup is a record returned from a DNS resolver after querying a DNS name server.  Typically considered an A or AAAA record, where a domain name is resolved to an IPv4 or IPv6 address, respectively."
@@ -11501,10 +11501,10 @@
    :db/ident :d3f/DNSTrafficAnalysis,
    :rdf/type [:owl/NamedIndividual :d3f/NetworkTrafficAnalysis :owl/Class],
    :rdfs/label #xsd/string "DNS Traffic Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
                       :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/DNSLookup,
                       :rdf/type           :owl/Restriction}]})
@@ -11564,14 +11564,14 @@
    :rdf/type [:owl/Class :d3f/AssetInventory :owl/NamedIndividual],
    :rdfs/label #xsd/string "Data Inventory",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
-                      :owl/someValuesFrom :d3f/DocumentFile,
+                      :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
                      :d3f/AssetInventory
                      {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/MultimediaDocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/inventories,
-                      :owl/someValuesFrom :d3f/Email,
+                      :owl/someValuesFrom :d3f/DocumentFile,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/Database,
@@ -11763,11 +11763,11 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/DefensiveTechnique],
    :rdfs/label #xsd/string "Decoy Environment",
    :rdfs/subClassOf [:d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/Deceive,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/manages,
                       :owl/someValuesFrom :d3f/DecoyArtifact,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/Deceive,
                       :rdf/type           :owl/Restriction}]})
 
 (def DecoyFile
@@ -12014,13 +12014,13 @@
    :rdfs/label #xsd/string "Defensive Technique",
    :rdfs/seeAlso {:rdfa/uri
                   "https://csrc.nist.gov/glossary/term/security_control"},
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/DefensiveTactic,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/d3fend-id,
+                      :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
                      :d3f/CapabilityFeature
                      :d3f/D3FENDThing
-                     {:owl/onProperty     :d3f/d3fend-id,
-                      :owl/someValuesFrom :xsd/string,
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/DefensiveTactic,
                       :rdf/type           :owl/Restriction}
                      :d3f/Technique
                      {:owl/onProperty     :d3f/date,
@@ -12041,17 +12041,16 @@
    :db/ident :d3f/DefensiveTechniqueAssessment,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Defensive Technique Assessment",
-   :rdfs/subClassOf [{:owl/onDataRange :xsd/string,
-                      :owl/onProperty  :d3f/stage,
-                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/confidence,
+                      :owl/someValuesFrom :xsd/integer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/assesses,
+                      :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/FeatureAssessment
+                     {:owl/cardinality #xsd/nonNegativeInteger 1,
+                      :owl/onProperty  :d3f/rating,
                       :rdf/type        :owl/Restriction}
-                     {:owl/allValuesFrom {:owl/oneOf [#xsd/string "0"
-                                                      #xsd/string "1"
-                                                      #xsd/string "2"
-                                                      #xsd/string "3"],
-                                          :rdf/type  :rdfs/Datatype},
-                      :owl/onProperty    :d3f/rating,
-                      :rdf/type          :owl/Restriction}
                      {:owl/allValuesFrom {:owl/oneOf [#xsd/string "Deceive"
                                                       #xsd/string "Detect"
                                                       #xsd/string "Evict"
@@ -12060,22 +12059,23 @@
                                           :rdf/type  :rdfs/Datatype},
                       :owl/onProperty    :d3f/stage,
                       :rdf/type          :owl/Restriction}
-                     {:owl/cardinality #xsd/nonNegativeInteger 1,
-                      :owl/onProperty  :d3f/rating,
+                     {:owl/onDataRange :xsd/string,
+                      :owl/onProperty  :d3f/stage,
+                      :owl/qualifiedCardinality #xsd/nonNegativeInteger 1,
                       :rdf/type        :owl/Restriction}
-                     :d3f/FeatureAssessment
-                     {:owl/onProperty     :d3f/assesses,
-                      :owl/someValuesFrom :d3f/DefensiveTechniqueClaim,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/confidence,
-                      :owl/someValuesFrom :xsd/integer,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/counters,
                       :owl/someValuesFrom :d3f/OffensiveTechnique,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     {:owl/allValuesFrom {:owl/oneOf [#xsd/string "0"
+                                                      #xsd/string "1"
+                                                      #xsd/string "2"
+                                                      #xsd/string "3"],
+                                          :rdf/type  :rdfs/Datatype},
+                      :owl/onProperty    :d3f/rating,
+                      :rdf/type          :owl/Restriction}]})
 
 (def DefensiveTechniqueClaim
-  "Defensive Technique Claim"
+  "Countermeasure Claim"
   {:db/ident        :d3f/DefensiveTechniqueClaim,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Defensive Technique Claim",
@@ -12154,10 +12154,10 @@
    :rdfs/label #xsd/string "Dependency",
    :rdfs/seeAlso [#xsd/string "https://www.cisa.gov/what-are-dependencies"
                   #xsd/string "http://wordnet-rdf.princeton.edu/id/14024833-n"],
-   :rdfs/subClassOf [:d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/provider,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/provider,
                       :owl/someValuesFrom :d3f/D3FENDThing,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/dependent,
                       :owl/someValuesFrom :d3f/D3FENDThing,
                       :rdf/type           :owl/Restriction}]})
@@ -12573,12 +12573,12 @@
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/CredentialHardening],
    :rdfs/label #xsd/string "Domain Trust Policy",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/DirectoryService,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/T1087.002,
                       :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening
-                     {:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/DirectoryService,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/CredentialHardening]})
 
 (def DomainUserAccount
   "A domain user account in Microsoft Windows (2000) defines that user's access to a logical group of network objects (computers, users, devices) that share the same Active Directory databases; that is, a user's access to a domain."
@@ -12644,12 +12644,12 @@
    :db/ident :d3f/DynamicAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/FileAnalysis],
    :rdfs/label #xsd/string "Dynamic Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/DocumentFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/FileAnalysis
+   :rdfs/subClassOf [:d3f/FileAnalysis
                      {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/analyzes,
+                      :owl/someValuesFrom :d3f/DocumentFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def DynamicAnalysisTool
@@ -12680,10 +12680,10 @@
                   {:rdfa/uri "http://dbpedia.org/resource/Email"}],
    :rdfs/subClassOf [:d3f/DocumentFile
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/URL,
+                      :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/File,
+                      :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}]})
 
 (def EmailAttachment
@@ -12737,11 +12737,11 @@
    :db/ident :d3f/EmailRemoval,
    :rdf/type [:d3f/FileRemoval :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Email Removal",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/deletes,
-                      :owl/someValuesFrom :d3f/Email,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/MailServer,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/deletes,
+                      :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
                      :d3f/FileRemoval]})
 
@@ -12828,10 +12828,10 @@
    :db/ident         :d3f/EncryptedTunnels,
    :rdf/type         [:owl/NamedIndividual :owl/Class :d3f/NetworkIsolation],
    :rdfs/label       #xsd/string "Encrypted Tunnels",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3f/isolates,
+   :rdfs/subClassOf  [:d3f/NetworkIsolation
+                      {:owl/onProperty     :d3f/isolates,
                        :owl/someValuesFrom :d3f/IntranetNetwork,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/NetworkIsolation]})
+                       :rdf/type           :owl/Restriction}]})
 
 (def EndpointHealthBeacon
   "Monitoring the security status of an endpoint by sending periodic messages with health status, where absence of a response may indicate that the endpoint has been compromised."
@@ -13010,10 +13010,10 @@
    :db/ident :d3f/ExceptionHandlerPointerValidation,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ApplicationHardening],
    :rdfs/label #xsd/string "Exception Handler Pointer Validation",
-   :rdfs/subClassOf [:d3f/ApplicationHardening
-                     {:owl/onProperty     :d3f/validates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/validates,
                       :owl/someValuesFrom :d3f/Pointer,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ApplicationHardening]})
 
 (def ExecutableAllowlisting
   "Using a digital signature to authenticate a file before opening."
@@ -13033,13 +13033,13 @@
    :db/ident :d3f/ExecutableAllowlisting,
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label #xsd/string "Executable Allowlisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionIsolation
-                     {:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/ExecutionIsolation]})
 
 (def ExecutableBinary
   "An executable binary contains machine code instructions for a physical CPU. D3FEND also considers byte code for a virtual machine to be binary code.  This is in contrast to executable scripts written in a scripting language."
@@ -13081,12 +13081,12 @@
    :db/ident :d3f/ExecutableDenylisting,
    :rdf/type [:owl/NamedIndividual :d3f/ExecutionIsolation :owl/Class],
    :rdfs/label #xsd/string "Executable Denylisting",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionIsolation
+   :rdfs/subClassOf [:d3f/ExecutionIsolation
                      {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/blocks,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def ExecutableFile
@@ -13303,16 +13303,16 @@
    :rdfs/label      #xsd/string "File",
    :rdfs/seeAlso    {:rdfa/uri
                      "http://wordnet-rdf.princeton.edu/id/06521201-n"},
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/FileSection,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/Resource
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
-                     :d3f/Resource]})
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/FileSection,
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileAccessPatternAnalysis
   "Analyzing the files accessed by a process to identify unauthorized activity."
@@ -13348,13 +13348,13 @@
    :db/ident :d3f/FileAnalysis,
    :rdf/type [:d3f/DefensiveTechnique :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "File Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
-                      :owl/someValuesFrom :d3f/Detect,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DefensiveTechnique]})
+                     :d3f/DefensiveTechnique
+                     {:owl/onProperty     :d3f/enables,
+                      :owl/someValuesFrom :d3f/Detect,
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileCarving
   "Identifying and extracting files from network application protocols through the use of network stream reassembly software."
@@ -13426,10 +13426,10 @@
    :db/ident :d3f/FileEncryption,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/PlatformHardening],
    :rdfs/label #xsd/string "File Encryption",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/encrypts,
+   :rdfs/subClassOf [:d3f/PlatformHardening
+                     {:owl/onProperty     :d3f/encrypts,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PlatformHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileEviction
   "File eviction techniques evict files from system storage."
@@ -13467,10 +13467,10 @@
    :rdf/type
    [:d3f/IdentifierReputationAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "File Hash Reputation Analysis",
-   :rdfs/subClassOf [:d3f/IdentifierReputationAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/FileHash,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/IdentifierReputationAnalysis]})
 
 (def FileHashing
   "Employing file hash comparisons to detect known malware."
@@ -13545,10 +13545,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/FileServer,
                       :rdf/type           :owl/Restriction}
+                     :d3f/FileEviction
                      {:owl/onProperty     :d3f/deletes,
                       :owl/someValuesFrom :d3f/File,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/FileEviction]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def FileSection
   "A file section is one of the portions of a file in which the file is regarded as divided and where together the file sections constitute the whole file."
@@ -13596,13 +13596,13 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/File_system"},
    :rdfs/label #xsd/string "File System",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/File,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/FileSystemLink,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Directory,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/FileSystemMetadata,
@@ -13834,10 +13834,10 @@
    :db/ident :d3f/ForwardResolutionDomainDenylisting,
    :rdf/type [:d3f/DNSDenylisting :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Forward Resolution Domain Denylisting",
-   :rdfs/subClassOf [:d3f/DNSDenylisting
-                     {:owl/onProperty     :d3f/blocks,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/blocks,
                       :owl/someValuesFrom :d3f/OutboundInternetDNSLookupTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DNSDenylisting]})
 
 (def ForwardResolutionIPDenylisting
   "Blocking a DNS lookup's answer's IP address value."
@@ -13853,11 +13853,11 @@
    :db/ident :d3f/ForwardResolutionIPDenylisting,
    :rdf/type [:d3f/DNSDenylisting :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Forward Resolution IP Denylisting",
-   :rdfs/subClassOf [:d3f/DNSDenylisting
-                     {:owl/onProperty :d3f/blocks,
+   :rdfs/subClassOf [{:owl/onProperty :d3f/blocks,
                       :owl/someValuesFrom
                       :d3f/InboundInternetDNSResponseTraffic,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     :d3f/DNSDenylisting]})
 
 (def FreeMemory
   "Free Memory"
@@ -13956,7 +13956,6 @@
    :rdfs/subClassOf :d3f/CentralTendency})
 
 (def GetForegroundWindow
-  "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getforegroundwindow"
   {:db/ident :d3f/GetForegroundWindow,
    :rdf/type [:d3f/GetOpenWindows :owl/NamedIndividual],
    :rdfs/isDefinedBy
@@ -14256,11 +14255,11 @@
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/ExecutionIsolation],
    :rdfs/label #xsd/string "Hardware-based Process Isolation",
    :rdfs/subClassOf [:d3f/ExecutionIsolation
-                     {:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/isolates,
                       :owl/someValuesFrom :d3f/Process,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def HardwareComponentInventory
@@ -14518,14 +14517,14 @@
    :rdfs/label #xsd/string "Host",
    :rdfs/seeAlso #xsd/string "https://schema.ocsf.io/objects/device",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/OperatingSystem,
+                      :owl/someValuesFrom :d3f/Application,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/runs,
                       :owl/someValuesFrom :d3f/OperatingSystem,
                       :rdf/type           :owl/Restriction}
                      :d3f/NetworkNode
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/Application,
+                      :owl/someValuesFrom :d3f/OperatingSystem,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Network Host"})
 
@@ -14580,10 +14579,10 @@
    :rdf/type [:owl/Class :d3f/DomainName :owl/NamedIndividual],
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Hostname"},
    :rdfs/label #xsd/string "Hostname",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
+   :rdfs/subClassOf [:d3f/Identifier
+                     {:owl/onProperty     :d3f/identifies,
                       :owl/someValuesFrom :d3f/Host,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Identifier],
+                      :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Nodename"})
 
 (def HumanInputDeviceFirmware
@@ -14748,10 +14747,10 @@
    :rdf/type
    [:owl/NamedIndividual :owl/Class :d3f/IdentifierReputationAnalysis],
    :rdfs/label #xsd/string "IP Reputation Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/IdentifierReputationAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/IPAddress,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/IdentifierReputationAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Identifier
   "An identifier is a name that identifies (that is, labels the identity of) either a unique object or a unique class of objects, where the \"object\" or class may be an idea, physical [countable] object (or class thereof), or physical [noncountable] substance (or class thereof). The abbreviation ID often refers to identity, identification (the process of identifying), or an identifier (that is, an instance of identification). An identifier may be a word, number, letter, symbol, or any combination of those."
@@ -15037,10 +15036,10 @@
    :db/ident :d3f/InboundTrafficFiltering,
    :rdf/type [:d3f/NetworkTrafficFiltering :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Inbound Traffic Filtering",
-   :rdfs/subClassOf [:d3f/NetworkTrafficFiltering
-                     {:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/InboundNetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficFiltering]})
 
 (def IndirectBranchCallAnalysis
   "Analyzing vendor specific branch call recording in order to detect ROP style attacks."
@@ -15144,10 +15143,10 @@
    :db/ident :d3f/InputDeviceAnalysis,
    :rdf/type [:owl/NamedIndividual :d3f/OperatingSystemMonitoring :owl/Class],
    :rdfs/label #xsd/string "Input Device Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/InputDevice,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OperatingSystemMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def InputFunction
   "Generic function that receives input from an untrusted source."
@@ -15228,7 +15227,7 @@
    :rdfs/subClassOf :d3f/NewsArticle})
 
 (def InternetArticleReference
-  "Internet Article Reference"
+  "Internet Blog Reference"
   {:d3f/pref-label  #xsd/string "Internet Article",
    :db/ident        :d3f/InternetArticleReference,
    :rdf/type        :owl/Class,
@@ -15542,10 +15541,10 @@
    :db/ident :d3f/JobFunctionAccessPatternAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/UserBehaviorAnalysis],
    :rdfs/label #xsd/string "Job Function Access Pattern Analysis",
-   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Authorization,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/UserBehaviorAnalysis]})
 
 (def JobSchedule
   "A job schedule contains specification of tasks to be executed at particular times or time intervals.  The schedule is a plan that enacted by a task scheduling process. In Windows, the schedule can be accessed at 'C:\\Windows\\System32\\Tasks' or in the registry. In Linux, the schedule is located at '/etc/crontab'"
@@ -15561,13 +15560,13 @@
    :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Cron"}
                   {:rdfa/uri
                    "http://dbpedia.org/resource/Windows_Task_Scheduler"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modified-by,
+                      :owl/someValuesFrom :d3f/JobSchedulerSoftware,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ScheduledJob,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/modified-by,
-                      :owl/someValuesFrom :d3f/JobSchedulerSoftware,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/DigitalArtifact]})
 
 (def JobSchedulerSoftware
   "A job scheduler software is operating system software that when run executes scheduled tasks (time-scheduling in the sense of wall clock time; not operating system scheduling of processes for multitasking). Processes running such software are task scheduler processes. In Windows, Scheduled Tasks are created and managed by the Task Scheduler. In Unix-like OSes, the `cron` utitility serves a similar role."
@@ -15584,16 +15583,16 @@
                   {:rdfa/uri "http://dbpedia.org/resource/Cron"}
                   {:rdfa/uri
                    "http://dbpedia.org/resource/Windows_Task_Scheduler"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/creates,
-                      :owl/someValuesFrom :d3f/ScheduledJob,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/ScheduledJob,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemServiceSoftware
-                     {:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/JobSchedule,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/creates,
+                      :owl/someValuesFrom :d3f/ScheduledJob,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/ScheduledJob,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/SystemServiceSoftware]})
 
 (def JournalArticle
   "Journal Article"
@@ -15712,21 +15711,21 @@
                       :owl/someValuesFrom :d3f/Application,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/HardwareDriver,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/KernelModule,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/OperatingSystemProcess,
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/KernelProcessTable,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/manages,
                       :owl/someValuesFrom :d3f/UserProcess,
                       :rdf/type           :owl/Restriction}
-                     :d3f/SystemSoftware
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/KernelProcessTable,
-                      :rdf/type           :owl/Restriction}]})
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/HardwareDriver,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/OperatingSystemProcess,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/SystemSoftware]})
 
 (def Kernel-basedProcessIsolation
   "Using kernel-level capabilities to isolate processes."
@@ -16479,12 +16478,12 @@
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label #xsd/string "Local File Permissions",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/Directory,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/restricts,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
-                     :d3f/PlatformHardening
-                     {:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/Directory,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/PlatformHardening]})
 
 (def LocalResource
   "In computing, a system resource, or simply resource, is any physical or virtual component of limited availability within a computer system. Every device connected to a computer system is a resource. Every internal system component is a resource. Virtual system resources include files (concretely file handles), network connections (concretely network sockets), and memory areas. Managing resources is referred to as resource management, and includes both preventing resource leaks (releasing a resource when a process has finished using it) and dealing with resource contention (when multiple processes wish to access a limited resource)."
@@ -16593,14 +16592,14 @@
    :rdf/type [:owl/NamedIndividual :d3f/NetworkMapping :owl/Class],
    :rdfs/label #xsd/string "Logical Link Mapping",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/Network,
+                      :owl/someValuesFrom :d3f/LogicalLink,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/NetworkNode,
+                      :owl/someValuesFrom :d3f/Network,
                       :rdf/type           :owl/Restriction}
                      :d3f/NetworkMapping
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/LogicalLink,
+                      :owl/someValuesFrom :d3f/NetworkNode,
                       :rdf/type           :owl/Restriction}]})
 
 (def LogicalRules
@@ -17167,13 +17166,13 @@
    :rdf/type
    [:d3f/Kernel-basedProcessIsolation :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Mandatory Access Control",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/isolates,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/isolates,
                       :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
-                     :d3f/Kernel-basedProcessIsolation]})
+                     :d3f/Kernel-basedProcessIsolation
+                     {:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}]})
 
 (def MarketingMaterial
   "Marketing Material"
@@ -17361,10 +17360,10 @@
    :db/ident :d3f/MemoryBoundaryTracking,
    :rdf/type [:owl/Class :d3f/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label #xsd/string "Memory Boundary Tracking",
-   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/ProcessCodeSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OperatingSystemMonitoring]})
 
 (def MemoryExtent
   "Memory Extent"
@@ -17402,17 +17401,17 @@
    :rdfs/label #xsd/string "Memory Management Unit",
    :rdfs/seeAlso #xsd/string "https://dbpedia.org/page/Memory_management_unit",
    :rdfs/subClassOf [:d3f/ProcessorComponent
+                     {:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/PageTable,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/VirtualAddress,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/Storage,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/TranslationLookasideBuffer,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/PageTable,
+                      :owl/someValuesFrom :d3f/Storage,
                       :rdf/type           :owl/Restriction}]})
 
 (def MemoryManagementUnitComponent
@@ -17492,10 +17491,10 @@
    :db/ident :d3f/MessageAuthentication,
    :rdf/type [:d3f/MessageHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Message Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/MessageHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/UserToUserMessage,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/MessageHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def MessageEncryption
   "Encrypting a message body using a cryptographic key."
@@ -18192,10 +18191,10 @@
    :db/ident :d3f/NetworkMapping,
    :rdf/type [:owl/NamedIndividual :d3f/DefensiveTechnique :owl/Class],
    :rdfs/label #xsd/string "Network Mapping",
-   :rdfs/subClassOf [:d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Model,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DefensiveTechnique]})
 
 (def NetworkNode
   "In telecommunications networks, a node (Latin nodus, 'knot') is either a redistribution point or a communication endpoint. The definition of a node depends on the network and protocol layer referred to. A physical network node is an electronic device that is attached to a network, and is capable of creating, receiving, or transmitting information over a communications channel. A passive distribution point such as a distribution frame or patch panel is consequently not a node."
@@ -18235,10 +18234,10 @@
    :db/ident :d3f/NetworkNodeInventory,
    :rdf/type [:owl/NamedIndividual :d3f/AssetInventory :owl/Class],
    :rdfs/label #xsd/string "Network Node Inventory",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/inventories,
+   :rdfs/subClassOf [:d3f/AssetInventory
+                     {:owl/onProperty     :d3f/inventories,
                       :owl/someValuesFrom :d3f/NetworkNode,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/AssetInventory]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def NetworkPackets
   "A network packet is a formatted unit of data carried by a packet-switched network. Computer communications links that do not support packets, such as traditional point-to-point telecommunications links, simply transmit data as a bit stream. When data is formatted into packets, packet switching is possible and the bandwidth of the communication medium can be better shared among users than with circuit switching."
@@ -18368,13 +18367,13 @@
    :rdfs/label #xsd/string "Network Traffic",
    :rdfs/seeAlso [#xsd/string "https://schema.ocsf.io/objects/network_traffic"
                   {:rdfa/uri "http://dbpedia.org/resource/Network_traffic"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/originates-from,
+                      :owl/someValuesFrom :d3f/PhysicalLocation,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/DomainName,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/originates-from,
-                      :owl/someValuesFrom :d3f/PhysicalLocation,
-                      :rdf/type           :owl/Restriction}],
+                     :d3f/DigitalArtifact],
    :skos/altLabel #xsd/string "Data Traffic"})
 
 (def NetworkTrafficAnalysis
@@ -18466,13 +18465,13 @@
    :db/ident :d3f/NetworkTrafficPolicyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/NetworkMapping],
    :rdfs/label #xsd/string "Network Traffic Policy Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/queries,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
+                      :owl/someValuesFrom :d3f/AccessControlConfiguration,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/queries,
                       :owl/someValuesFrom :d3f/CollectorAgent,
                       :rdf/type           :owl/Restriction}
-                     :d3f/NetworkMapping
-                     {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/AccessControlConfiguration,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/NetworkMapping]})
 
 (def NetworkVulnerabilityAssessment
   "Network vulnerability assessment relates all the vulnerabilities of a network's components in the context of their configuration and interdependencies and can also include assessing risk emerging from the network's design as a whole, not just the sum of individual network node or network segment vulnerabilities."
@@ -18721,14 +18720,14 @@
    :rdfs/label #xsd/string "Operating System",
    :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/Operating_system"}
                   #xsd/string "https://schema.ocsf.io/objects/os"],
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-contain,
-                      :owl/someValuesFrom
-                      :d3f/OperatingSystemConfigurationComponent,
-                      :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Kernel,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
+                     {:owl/onProperty :d3f/may-contain,
+                      :owl/someValuesFrom
+                      :d3f/OperatingSystemConfigurationComponent,
+                      :rdf/type :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/SystemServiceSoftware,
                       :rdf/type           :owl/Restriction}]})
@@ -18899,10 +18898,10 @@
    :rdfs/label #xsd/string "Operational Dependency Mapping",
    :rdfs/subClassOf [:d3f/OperationalActivityMapping
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/OrganizationalActivity,
+                      :owl/someValuesFrom :d3f/Dependency,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/Dependency,
+                      :owl/someValuesFrom :d3f/OrganizationalActivity,
                       :rdf/type           :owl/Restriction}]})
 
 (def OperationalRiskAssessment
@@ -19020,18 +19019,18 @@
    :db/ident :d3f/OrganizationMapping,
    :rdf/type [:owl/Class :d3f/OperationalActivityMapping :owl/NamedIndividual],
    :rdfs/label #xsd/string "Organization Mapping",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-map,
-                      :owl/someValuesFrom :d3f/OrganizationalActivity,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
+                      :owl/someValuesFrom :d3f/Organization,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Dependency,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/Organization,
-                      :rdf/type           :owl/Restriction}
                      :d3f/OperationalActivityMapping
                      {:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/Person,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-map,
+                      :owl/someValuesFrom :d3f/OrganizationalActivity,
                       :rdf/type           :owl/Restriction}]})
 
 (def OrganizationalActivity
@@ -19106,10 +19105,10 @@
    :rdfs/seeAlso [{:rdfa/uri "http://dbpedia.org/resource/File_transfer"}
                   {:rdfa/uri "http://dbpedia.org/resource/Internetworking"}],
    :rdfs/subClassOf [:d3f/OutboundNetworkTraffic
-                     :d3f/FileTransferNetworkTraffic
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
+                     :d3f/FileTransferNetworkTraffic
                      :d3f/OutboundInternetNetworkTraffic]})
 
 (def OutboundInternetMailTraffic
@@ -19533,10 +19532,10 @@
    :db/ident :d3f/PerHostDownload-UploadRatioAnalysis,
    :rdf/type [:d3f/NetworkTrafficAnalysis :owl/Class :owl/NamedIndividual],
    :rdfs/label #xsd/string "Per Host Download-Upload Ratio Analysis",
-   :rdfs/subClassOf [:d3f/NetworkTrafficAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/NetworkTrafficAnalysis]})
 
 (def PeripheralFirmware
   "Firmware that is installed on computer peripheral devices."
@@ -19563,10 +19562,10 @@
    :db/ident :d3f/PeripheralFirmwareVerification,
    :rdf/type [:owl/NamedIndividual :d3f/FirmwareVerification :owl/Class],
    :rdfs/label #xsd/string "Peripheral Firmware Verification",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/verifies,
+   :rdfs/subClassOf [:d3f/FirmwareVerification
+                     {:owl/onProperty     :d3f/verifies,
                       :owl/someValuesFrom :d3f/PeripheralFirmware,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/FirmwareVerification]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def PeripheralHubFirmware
   "Firmware that is installed on peripheral hub device such as a USB or Firewire hub."
@@ -19696,10 +19695,10 @@
    :rdfs/label #xsd/string "Physical Link Mapping",
    :rdfs/subClassOf [:d3f/NetworkMapping
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/PhysicalLink,
+                      :owl/someValuesFrom :d3f/NetworkNode,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/maps,
-                      :owl/someValuesFrom :d3f/NetworkNode,
+                      :owl/someValuesFrom :d3f/PhysicalLink,
                       :rdf/type           :owl/Restriction}]})
 
 (def PhysicalLocation
@@ -19773,14 +19772,14 @@
    :rdfs/label #xsd/string "Platform",
    :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Computing_platform"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/Firmware,
+                      :owl/someValuesFrom :d3f/OperatingSystem,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/HardwareDevice,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/OperatingSystem,
+                      :owl/someValuesFrom :d3f/Firmware,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel #xsd/string "Computer Platform"})
 
@@ -19874,10 +19873,10 @@
    :db/ident :d3f/PointerAuthentication,
    :rdf/type [:d3f/ApplicationHardening :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "Pointer Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/authenticates,
+   :rdfs/subClassOf [:d3f/ApplicationHardening
+                     {:owl/onProperty     :d3f/authenticates,
                       :owl/someValuesFrom :d3f/Pointer,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ApplicationHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def PointerDereferencingFunction
   "A function which has an operation which dereferences a pointer."
@@ -19990,10 +19989,10 @@
                       :owl/someValuesFrom :d3f/PageFrame,
                       :rdf/type           :owl/Restriction}
                      :d3f/Storage
-                     :d3f/HardwareDevice
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/HardwareDevice]})
 
 (def PrincipalComponentAnalysis
   "Principal components analysis (PCA) creates a new set of orthogonal variables that contain the same information as the original set. It rotates the axes of variation to give a new set of orthogonal axes, ordered so that they summarize decreasing proportions of the variation."
@@ -20126,32 +20125,32 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/process-identifier,
                       :owl/someValuesFrom :xsd/integer,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/instructed-by,
-                      :owl/someValuesFrom :d3f/Software,
-                      :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/process-user,
-                      :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-execute,
-                      :owl/someValuesFrom :d3f/Thread,
+                     {:owl/onProperty     :d3f/process-environmental-variables,
+                      :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/process-image-path,
                       :owl/someValuesFrom :d3f/ExecutableBinary,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/process-environmental-variables,
+                     {:owl/onProperty     :d3f/process-security-context,
                       :owl/someValuesFrom :xsd/string,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-execute,
+                      :owl/someValuesFrom :d3f/Thread,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/instructed-by,
+                      :owl/someValuesFrom :d3f/Software,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/process-user,
+                      :owl/someValuesFrom :d3f/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contains,
+                      :owl/someValuesFrom :d3f/ProcessImage,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/uses,
                       :owl/someValuesFrom :d3f/Resource,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/process-command-line-arguments,
-                      :owl/someValuesFrom :xsd/string,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/contains,
-                      :owl/someValuesFrom :d3f/ProcessImage,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/process-security-context,
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}]})
 
@@ -20987,7 +20986,6 @@
                      :d3f/SystemCall]})
 
 (def Reconnaissance
-  "0"
   {:d3f/display-order #xsd/integer 0,
    :db/ident          :d3f/Reconnaissance,
    :rdf/type          :owl/Class,
@@ -23184,6 +23182,23 @@
    :rdfs/label
    #xsd/string
     "Reference - Enhancing Network Security By Preventing User-Initiated Malware Execution - MITRE"})
+
+(def
+  Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory_SLASH_M365Compromise-CISA
+  "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"
+  {:d3f/has-link #xsd/anyURI
+                  "https://www.cisa.gov/news-events/analysis-reports/ar21-134a",
+   :d3f/kb-organization #xsd/string "CISA",
+   :d3f/kb-reference-of :d3f/CredentialRotation,
+   :d3f/kb-reference-title
+   #xsd/string
+    "Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise",
+   :db/ident
+   :d3f/Reference-EvictionGuidanceforNetworksAffectedbytheSolarWindsandActiveDirectory_SLASH_M365Compromise-CISA,
+   :rdf/type [:d3f/InternetArticleReference :owl/NamedIndividual],
+   :rdfs/label
+   #xsd/string
+    "Reference - Eviction Guidance for Networks Affected by the SolarWinds and Active Directory/M365 Compromise - CISA"})
 
 (def Reference-ExecutionWithAT_MITRE
   "Reference - CAR-2013-05-004: Execution with AT - MITRE"
@@ -27738,10 +27753,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Authorization,
                       :rdf/type           :owl/Restriction}
+                     :d3f/UserBehaviorAnalysis
                      {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def ResourceDevelopment
   "Resource Development"
@@ -27796,11 +27811,11 @@
    :db/ident :d3f/ReverseResolutionDomainDenylisting,
    :rdf/type [:owl/Class :d3f/DNSDenylisting :owl/NamedIndividual],
    :rdfs/label #xsd/string "Reverse Resolution Domain Denylisting",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/blocks,
+   :rdfs/subClassOf [:d3f/DNSDenylisting
+                     {:owl/onProperty :d3f/blocks,
                       :owl/someValuesFrom
                       :d3f/InboundInternetDNSResponseTraffic,
-                      :rdf/type :owl/Restriction}
-                     :d3f/DNSDenylisting]})
+                      :rdf/type :owl/Restriction}]})
 
 (def ReverseResolutionIPDenylisting
   "Blocking a reverse lookup based on the query's IP address value."
@@ -27898,10 +27913,10 @@
                   {:rdfa/uri
                    "http://dbpedia.org/resource/Windows_Task_Scheduler"}
                   #xsd/string "https://linux.die.net/man/1/at"],
-   :rdfs/subClassOf [:d3f/OperatingSystemProcess
-                     {:owl/onProperty     :d3f/contained-by,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/contained-by,
                       :owl/someValuesFrom :d3f/JobSchedule,
                       :rdf/type           :owl/Restriction}
+                     :d3f/OperatingSystemProcess
                      {:owl/onProperty     :d3f/created-by,
                       :owl/someValuesFrom :d3f/JobSchedulerSoftware,
                       :rdf/type           :owl/Restriction}
@@ -27927,10 +27942,10 @@
    :db/ident :d3f/ScheduledJobAnalysis,
    :rdf/type [:owl/Class :d3f/OperatingSystemMonitoring :owl/NamedIndividual],
    :rdfs/label #xsd/string "Scheduled Job Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/JobSchedule,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/OperatingSystemMonitoring]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def Scheduling
   "Scheduling"
@@ -28308,12 +28323,12 @@
                       "http://dbpedia.org/resource/Server_(computing)"},
    :rdfs/label #xsd/string "Server",
    :rdfs/subClassOf [:d3f/NetworkResource
+                     {:owl/onProperty     :d3f/manages,
+                      :owl/someValuesFrom :d3f/ServiceApplicationProcess,
+                      :rdf/type           :owl/Restriction}
                      :d3f/Host
                      {:owl/onProperty     :d3f/runs,
                       :owl/someValuesFrom :d3f/ServiceApplication,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/manages,
-                      :owl/someValuesFrom :d3f/ServiceApplicationProcess,
                       :rdf/type           :owl/Restriction}]})
 
 (def Service
@@ -28452,11 +28467,11 @@
    :rdf/type [:owl/Class :d3f/UserBehaviorAnalysis :owl/NamedIndividual],
    :rdfs/label #xsd/string "Session Duration Analysis",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/Authentication,
+                      :owl/someValuesFrom :d3f/Authorization,
                       :rdf/type           :owl/Restriction}
                      :d3f/UserBehaviorAnalysis
                      {:owl/onProperty     :d3f/analyzes,
-                      :owl/someValuesFrom :d3f/Authorization,
+                      :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}]})
 
 (def SetSystemConfigValue
@@ -28507,10 +28522,10 @@
    :db/ident :d3f/ShadowStackComparisons,
    :rdf/type [:owl/Class :d3f/ProcessAnalysis :owl/NamedIndividual],
    :rdfs/label #xsd/string "Shadow Stack Comparisons",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/ProcessAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/StackFrame,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ProcessAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SharedComputer
   "A computer whose resources are intended to be shared widely."
@@ -28643,11 +28658,11 @@
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Software"},
    :rdfs/label #xsd/string "Software",
    :rdfs/subClassOf [:d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/instructs,
-                      :owl/someValuesFrom :d3f/Process,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/instructs,
+                      :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/implements,
                       :owl/someValuesFrom :d3f/Subroutine,
@@ -28726,11 +28741,11 @@
    :rdfs/label #xsd/string "Software Library File",
    :rdfs/seeAlso {:rdfa/uri "https://dbpedia.org/page/Library_(computing)"},
    :rdfs/subClassOf [:d3f/File
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/contains,
                       :owl/someValuesFrom :d3f/Subroutine,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/ExecutableBinary,
@@ -28770,7 +28785,7 @@
    :skos/altLabel #xsd/string "Patch"})
 
 (def SoftwareProduct
-  "Software Product"
+  "SaaP"
   {:db/ident        :d3f/SoftwareProduct,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Software Product",
@@ -28778,7 +28793,7 @@
    :skos/altLabel   #xsd/string "SaaP"})
 
 (def SoftwareService
-  "Software Service"
+  "SaaS"
   {:db/ident        :d3f/SoftwareService,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Software Service",
@@ -28796,10 +28811,10 @@
    :db/ident :d3f/SoftwareUpdate,
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label #xsd/string "Software Update",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/updates,
+   :rdfs/subClassOf [:d3f/PlatformHardening
+                     {:owl/onProperty     :d3f/updates,
                       :owl/someValuesFrom :d3f/Software,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PlatformHardening]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SomersD
   "Somers' D"
@@ -28928,11 +28943,11 @@
    :rdfs/label #xsd/string "Stack Frame",
    :rdfs/seeAlso {:rdfa/uri "http://dbpedia.org/resource/Call_stack"},
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/Pointer,
+                      :owl/someValuesFrom :d3f/StackFrameCanary,
                       :rdf/type           :owl/Restriction}
                      :d3f/StackComponent
                      {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/StackFrameCanary,
+                      :owl/someValuesFrom :d3f/Pointer,
                       :rdf/type           :owl/Restriction}],
    :skos/altLabel [#xsd/string "Activation Record"
                    #xsd/string "Activation Frame"]})
@@ -29192,10 +29207,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/strengthens,
                       :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}
-                     :d3f/CredentialHardening
                      {:owl/onProperty     :d3f/strengthens,
                       :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/CredentialHardening]})
 
 (def StyleGAN
   "Successor to the ProGAN."
@@ -29452,10 +29467,10 @@
    :db/ident :d3f/SystemCallAnalysis,
    :rdf/type [:d3f/ProcessAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "System Call Analysis",
-   :rdfs/subClassOf [:d3f/ProcessAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/SystemCall,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ProcessAnalysis]})
 
 (def SystemCallFiltering
   "Configuring a kernel to use an allow or deny list to filter kernel api calls."
@@ -29470,10 +29485,10 @@
    :rdf/type
    [:owl/NamedIndividual :owl/Class :d3f/Kernel-basedProcessIsolation],
    :rdfs/label #xsd/string "System Call Filtering",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/filters,
+   :rdfs/subClassOf [:d3f/Kernel-basedProcessIsolation
+                     {:owl/onProperty     :d3f/filters,
                       :owl/someValuesFrom :d3f/SystemCall,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/Kernel-basedProcessIsolation]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def SystemConfigSystemCall
   "System Config System Call"
@@ -29539,13 +29554,13 @@
    :db/ident :d3f/SystemConfigurationPermissions,
    :rdf/type [:owl/Class :d3f/PlatformHardening :owl/NamedIndividual],
    :rdfs/label #xsd/string "System Configuration Permissions",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricts,
-                      :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/PlatformHardening
-                     {:owl/hasValue   :d3f/M1028,
+   :rdfs/subClassOf [{:owl/hasValue   :d3f/M1028,
                       :owl/onProperty :d3f/restricts,
-                      :rdf/type       :owl/Restriction}]})
+                      :rdf/type       :owl/Restriction}
+                     :d3f/PlatformHardening
+                     {:owl/onProperty     :d3f/restricts,
+                      :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
+                      :rdf/type           :owl/Restriction}]})
 
 (def SystemDaemonMonitoring
   "Tracking changes to the state or configuration of critical system level processes."
@@ -29602,10 +29617,10 @@
    :db/ident :d3f/SystemDependencyMapping,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/SystemMapping],
    :rdfs/label #xsd/string "System Dependency Mapping",
-   :rdfs/subClassOf [:d3f/SystemMapping
-                     {:owl/onProperty     :d3f/maps,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/maps,
                       :owl/someValuesFrom :d3f/SystemDependency,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/SystemMapping]})
 
 (def SystemFileAnalysis
   "Monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering."
@@ -29623,10 +29638,10 @@
    :db/ident :d3f/SystemFileAnalysis,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/OperatingSystemMonitoring],
    :rdfs/label #xsd/string "System File Analysis",
-   :rdfs/subClassOf [:d3f/OperatingSystemMonitoring
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/OperatingSystemFile,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/OperatingSystemMonitoring]})
 
 (def SystemFirewallConfiguration
   "The configuration for a individual host operating system's firewall."
@@ -29747,10 +29762,10 @@
    :db/ident :d3f/SystemMapping,
    :rdf/type [:owl/NamedIndividual :owl/Class :d3f/DefensiveTechnique],
    :rdfs/label #xsd/string "System Mapping",
-   :rdfs/subClassOf [:d3f/DefensiveTechnique
-                     {:owl/onProperty     :d3f/enables,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/Model,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DefensiveTechnique]})
 
 (def SystemPasswordDatabase
   "A password database used by a system service or process to authenticate users (e.g., Security Account Manager)"
@@ -29832,12 +29847,12 @@
    :db/ident :d3f/SystemVulnerabilityAssessment,
    :rdf/type [:owl/NamedIndividual :d3f/SystemMapping :owl/Class],
    :rdfs/label #xsd/string "System Vulnerability Assessment",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/identifies,
-                      :owl/someValuesFrom :d3f/Vulnerability,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/SystemMapping
+   :rdfs/subClassOf [:d3f/SystemMapping
                      {:owl/onProperty     :d3f/evaluates,
                       :owl/someValuesFrom :d3f/DigitalSystem,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/identifies,
+                      :owl/someValuesFrom :d3f/Vulnerability,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1001
@@ -29925,10 +29940,10 @@
                       :owl/someValuesFrom :d3f/AuthenticationService,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/SystemPasswordDatabase,
+                      :owl/someValuesFrom :d3f/Process,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/Process,
+                      :owl/someValuesFrom :d3f/SystemPasswordDatabase,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1003_003
@@ -30171,13 +30186,13 @@
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DefenseEvasionTechnique
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/BootSector,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/Firmware,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootSector,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/DefenseEvasionTechnique]})
 
 (def T1015
   "Accessibility Features"
@@ -30199,12 +30214,12 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/GetSystemNetworkConfigValue,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-execute,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DiscoveryTechnique
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DiscoveryTechnique
+                     {:owl/onProperty     :d3f/may-execute,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1016_001
@@ -30232,19 +30247,19 @@
    :db/ident        :d3f/T1018,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Remote System Discovery",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/CreateSocket,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/produces,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/OperatingSystemConfigurationFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DiscoveryTechnique
                      {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}]})
+                      :owl/someValuesFrom :d3f/CreateSocket,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DiscoveryTechnique]})
 
 (def T1019
   "System Firmware"
@@ -30520,28 +30535,28 @@
                      :d3f/PasswordFile
                      :d3f/GetSystemConfigValue
                      :d3f/ProcessSegment],
-   :d3f/may-invoke  [:d3f/SpawnProcess :d3f/CopyToken],
+   :d3f/may-invoke  [:d3f/CopyToken :d3f/SpawnProcess],
    :db/ident        :d3f/T1033,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "System Owner/User Discovery",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/DirectoryService,
+                      :owl/someValuesFrom :d3f/PasswordFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/GetSystemConfigValue,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/GetSystemConfigValue,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/DiscoveryTechnique
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/PasswordFile,
+                      :owl/someValuesFrom :d3f/DirectoryService,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/CopyToken,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DiscoveryTechnique
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1035
@@ -30937,15 +30952,15 @@
    :db/ident :d3f/T1053,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "Scheduled Task/Job Execution",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
+   :rdfs/subClassOf [:d3f/PrivilegeEscalationTechnique
+                     :d3f/PersistenceTechnique
+                     {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/ScheduledJob,
                       :rdf/type           :owl/Restriction}
-                     :d3f/PrivilegeEscalationTechnique
-                     :d3f/PersistenceTechnique
+                     :d3f/ExecutionTechnique
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/JobSchedule,
                       :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionTechnique
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}]})
@@ -31043,16 +31058,16 @@
    :db/ident        :d3f/T1055.001,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Dynamic-link Library Injection",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1055
+                     {:owl/onProperty     :d3f/adds,
+                      :owl/someValuesFrom :d3f/SharedLibraryFile,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/SystemCall,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/loads,
-                      :owl/someValuesFrom :d3f/SharedLibraryFile,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/T1055]})
 
 (def T1055_002
   "Portable Executable Injection"
@@ -31307,7 +31322,7 @@
    :rdfs/subClassOf :d3f/T1059})
 
 (def T1059_004
-  "Unix Shell Execution"
+  "Bash Execution"
   {:d3f/attack-id   #xsd/string "T1059.004",
    :d3f/todo        #xsd/string "Retained Bash Execution as altLabel.",
    :db/ident        :d3f/T1059.004,
@@ -31397,15 +31412,15 @@
    :db/ident        :d3f/T1068,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Exploitation for Privilege Escalation",
-   :rdfs/subClassOf [:d3f/PrivilegeEscalationTechnique
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PrivilegeEscalationTechnique
                      {:owl/onProperty     :d3f/enables,
                       :owl/someValuesFrom :d3f/PrivilegeEscalation,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/StackFrame,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1069
@@ -31603,16 +31618,16 @@
    :db/ident        :d3f/T1072,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Software Deployment Tools Execution",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/installs,
+                      :owl/someValuesFrom :d3f/Software,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/ExecutionTechnique
+                     :d3f/LateralMovementTechnique
+                     {:owl/onProperty     :d3f/adds,
                       :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/SoftwareDeploymentTool,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/ExecutionTechnique
-                     :d3f/LateralMovementTechnique
-                     {:owl/onProperty     :d3f/installs,
-                      :owl/someValuesFrom :d3f/Software,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1073
@@ -31699,15 +31714,15 @@
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authorization,
                       :rdf/type           :owl/Restriction}
+                     :d3f/DefenseEvasionTechnique
+                     :d3f/PersistenceTechnique
                      {:owl/onProperty     :d3f/uses,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DefenseEvasionTechnique
-                     :d3f/PersistenceTechnique
-                     :d3f/PrivilegeEscalationTechnique
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/PrivilegeEscalationTechnique]})
 
 (def T1078_001
   "Default Accounts"
@@ -32251,15 +32266,15 @@
    :db/ident        :d3f/T1110.001,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Password Guessing",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/AuthenticationLog,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/accesses,
+                      :owl/someValuesFrom :d3f/Password,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1110
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/accesses,
-                      :owl/someValuesFrom :d3f/Password,
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1110_002
@@ -32288,11 +32303,11 @@
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/AuthenticationLog,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/accesses,
                       :owl/someValuesFrom :d3f/Password,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authentication,
@@ -32308,17 +32323,17 @@
    :db/ident        :d3f/T1110.004,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Credential Stuffing",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/AuthenticationLog,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1110
                      {:owl/onProperty :d3f/may-create,
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/Authentication,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/T1110]})
 
 (def T1111
   "Two-Factor Authentication Interception"
@@ -32625,14 +32640,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "External Remote Services",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/NetworkSession,
+                      :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}
-                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/Authorization,
                       :rdf/type           :owl/Restriction}
+                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
+                      :owl/someValuesFrom :d3f/NetworkSession,
                       :rdf/type           :owl/Restriction}
                      :d3f/PersistenceTechnique]})
 
@@ -32682,15 +32697,15 @@
    :db/ident        :d3f/T1134.003,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Make and Impersonate Token",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/EventLog,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/copies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/copies,
                       :owl/someValuesFrom :d3f/AccessToken,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1134
                      {:owl/onProperty     :d3f/creates,
                       :owl/someValuesFrom :d3f/LoginSession,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/EventLog,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1134_004
@@ -32779,15 +32794,15 @@
    :db/ident        :d3f/T1137.001,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Office Template Macros",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-add,
                       :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1137
                      {:owl/onProperty :d3f/may-modify,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-add,
+                     :d3f/T1137
+                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
@@ -32849,15 +32864,15 @@
    :db/ident        :d3f/T1137.006,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Add-ins",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
-                      :owl/someValuesFrom :d3f/Software,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+                      :owl/someValuesFrom :d3f/OfficeApplication,
                       :rdf/type           :owl/Restriction}
+                     :d3f/T1137
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1137
-                     {:owl/onProperty     :d3f/modifies,
-                      :owl/someValuesFrom :d3f/OfficeApplication,
+                     {:owl/onProperty     :d3f/adds,
+                      :owl/someValuesFrom :d3f/Software,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1138
@@ -32887,14 +32902,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Deobfuscate/Decode Files or Information",
    :rdfs/subClassOf [:d3f/DefenseEvasionTechnique
+                     {:owl/onProperty     :d3f/may-add,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/SpawnProcess,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EventLog,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-add,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1141
@@ -33276,15 +33291,15 @@
    :db/ident        :d3f/T1187,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Forced Authentication",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Authentication,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/CredentialAccessTechnique
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/WindowsShortcutFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/CredentialAccessTechnique
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/AuthenticationLog,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/Authentication,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1188
@@ -33304,14 +33319,14 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Drive-by Compromise",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
+                      :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/URL,
                       :rdf/type           :owl/Restriction}
                      :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessSegment,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/OutboundInternetNetworkTraffic,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1190
@@ -33323,10 +33338,10 @@
    :db/ident        :d3f/T1190,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Exploit Public-Facing Application",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [:d3f/InitialAccessTechnique
+                     {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
-                     :d3f/InitialAccessTechnique
                      {:owl/onProperty     :d3f/injects,
                       :owl/someValuesFrom :d3f/DatabaseQuery,
                       :rdf/type           :owl/Restriction}
@@ -33436,10 +33451,10 @@
                      {:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/OutboundInternetWebTraffic,
                       :rdf/type           :owl/Restriction}
-                     :d3f/PersistenceTechnique
                      {:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/IntranetIPCNetworkTraffic,
                       :rdf/type           :owl/Restriction}
+                     :d3f/PersistenceTechnique
                      {:owl/onProperty     :d3f/may-produce,
                       :owl/someValuesFrom :d3f/IntranetWebNetworkTraffic,
                       :rdf/type           :owl/Restriction}]})
@@ -33640,15 +33655,15 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/IntranetNetworkTraffic,
                       :rdf/type           :owl/Restriction}
+                     :d3f/LateralMovementTechnique
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ProcessSegment,
                       :rdf/type           :owl/Restriction}
-                     :d3f/LateralMovementTechnique
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/StackFrame,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ProcessCodeSegment,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1211
@@ -33675,15 +33690,15 @@
    :db/ident        :d3f/T1212,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Exploitation for Credential Access",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/CredentialManagementSystem,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/CredentialAccessTechnique
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/AuthenticationService,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [:d3f/CredentialAccessTechnique
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/StackFrame,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/CredentialManagementSystem,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/AuthenticationService,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/ProcessCodeSegment,
@@ -33948,13 +33963,13 @@
    :db/ident :d3f/T1218.014,
    :rdf/type :owl/Class,
    :rdfs/label #xsd/string "MMC",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-add,
+                      :owl/someValuesFrom :d3f/Software,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/SystemConfigurationDatabase,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1218
-                     {:owl/onProperty     :d3f/may-add,
-                      :owl/someValuesFrom :d3f/Software,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/Command,
                       :rdf/type           :owl/Restriction}]})
@@ -33980,15 +33995,15 @@
    :db/ident        :d3f/T1220,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "XSL Script Processing",
-   :rdfs/subClassOf [:d3f/DefenseEvasionTechnique
-                     {:owl/onProperty     :d3f/adds,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/adds,
                       :owl/someValuesFrom :d3f/File,
+                      :rdf/type           :owl/Restriction}
+                     :d3f/DefenseEvasionTechnique
+                     {:owl/onProperty     :d3f/interprets,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/interprets,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1221
@@ -34495,22 +34510,22 @@
    :db/ident        :d3f/T1518.001,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Security Software Discovery",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-access,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-invoke,
+                      :owl/someValuesFrom :d3f/GetRunningProcesses,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3f/may-access,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
                      {:owl/onProperty     :d3f/may-access,
+                      :owl/someValuesFrom :d3f/FileSystemMetadata,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/SystemFirewallConfiguration,
                       :rdf/type           :owl/Restriction}
+                     :d3f/T1518
                      {:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/KernelProcessTable,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1518
-                     {:owl/onProperty     :d3f/may-invoke,
-                      :owl/someValuesFrom :d3f/GetRunningProcesses,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-access,
-                      :owl/someValuesFrom :d3f/FileSystemMetadata,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1519
@@ -34704,13 +34719,13 @@
    :rdfs/label      #xsd/string "Bootkit",
    :rdfs/subClassOf [:d3f/T1542
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootLoader,
+                      :owl/someValuesFrom :d3f/VolumeBootRecord,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/BootSector,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/VolumeBootRecord,
+                      :owl/someValuesFrom :d3f/BootLoader,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1542_004
@@ -34877,14 +34892,14 @@
                      {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/ExecutableScript,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/EventLog,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/Command,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ExecutableScript,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1546_006
@@ -34930,13 +34945,13 @@
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/ExecutableBinary,
+                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty :d3f/may-create,
                       :owl/someValuesFrom
                       :d3f/IntranetAdministrativeNetworkTraffic,
-                      :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/ExecutableBinary,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type :owl/Restriction}]})
 
 (def T1546_009
   "AppCert DLLs"
@@ -34947,17 +34962,17 @@
    :db/ident        :d3f/T1546.009,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "AppCert DLLs",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/invokes,
-                      :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
+   :rdfs/subClassOf [{:owl/onProperty :d3f/modifies,
+                      :owl/someValuesFrom
+                      :d3f/SystemConfigurationDatabaseRecord,
+                      :rdf/type :owl/Restriction}
                      :d3f/T1546
                      {:owl/onProperty     :d3f/loads,
                       :owl/someValuesFrom :d3f/SharedLibraryFile,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty :d3f/modifies,
-                      :owl/someValuesFrom
-                      :d3f/SystemConfigurationDatabaseRecord,
-                      :rdf/type :owl/Restriction}]})
+                     {:owl/onProperty     :d3f/invokes,
+                      :owl/someValuesFrom :d3f/SpawnProcess,
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1546_010
   "AppInit DLLs"
@@ -35029,16 +35044,16 @@
    :db/ident        :d3f/T1546.014,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Emond",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-create,
+                      :owl/someValuesFrom :d3f/PropertyListFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ConfigurationResource,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/PropertyListFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1546
-                     {:owl/onProperty     :d3f/may-create,
-                      :owl/someValuesFrom :d3f/PropertyListFile,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/T1546]})
 
 (def T1546_015
   "Component Object Model Hijacking"
@@ -35285,17 +35300,17 @@
    :db/ident        :d3f/T1548.002,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Bypass User Access Control",
-   :rdfs/subClassOf [{:owl/onProperty :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/executes,
+                      :owl/someValuesFrom :d3f/ExecutableFile,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty :d3f/may-modify,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationDatabaseRecord,
                       :rdf/type :owl/Restriction}
-                     {:owl/onProperty     :d3f/executes,
-                      :owl/someValuesFrom :d3f/ExecutableFile,
-                      :rdf/type           :owl/Restriction}
+                     :d3f/T1548
                      {:owl/onProperty     :d3f/invokes,
                       :owl/someValuesFrom :d3f/SpawnProcess,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/T1548]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def T1548_003
   "Sudo and Sudo Caching"
@@ -35627,10 +35642,10 @@
    :rdfs/subClassOf [{:owl/onProperty     :d3f/may-access,
                       :owl/someValuesFrom :d3f/In-memoryPasswordStore,
                       :rdf/type           :owl/Restriction}
+                     :d3f/T1555
                      {:owl/onProperty     :d3f/may-invoke,
                       :owl/someValuesFrom :d3f/ReadFile,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1555
                      {:owl/onProperty     :d3f/accesses,
                       :owl/someValuesFrom :d3f/DatabaseFile,
                       :rdf/type           :owl/Restriction}]})
@@ -35931,21 +35946,21 @@
    :db/ident        :d3f/T1561.001,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Disk Content Wipe",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/BootSector,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/BlockDevice,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/BootSector,
+                      :owl/someValuesFrom :d3f/Volume,
                       :rdf/type           :owl/Restriction}
-                     :d3f/T1561
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/PartitionTable,
                       :rdf/type           :owl/Restriction}
+                     :d3f/T1561
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/Partition,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/Volume,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1561_002
@@ -36008,14 +36023,14 @@
    :db/ident        :d3f/T1562.003,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Impair Command History Logging",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/modifies,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
+                      :owl/someValuesFrom :d3f/UserInitScript,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ProcessEnvironmentVariable,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/WindowsRegistryKey,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
-                      :owl/someValuesFrom :d3f/UserInitScript,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1562]})
 
@@ -36064,14 +36079,14 @@
    :db/ident        :d3f/T1562.009,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Safe Mode Boot",
-   :rdfs/subClassOf [:d3f/T1562
-                     {:owl/onProperty :d3f/disables,
+   :rdfs/subClassOf [{:owl/onProperty :d3f/disables,
                       :owl/someValuesFrom
                       :d3f/SystemConfigurationInitDatabaseRecord,
                       :rdf/type :owl/Restriction}
                      {:owl/onProperty     :d3f/disables,
                       :owl/someValuesFrom :d3f/EndpointSensor,
                       :rdf/type           :owl/Restriction}
+                     :d3f/T1562
                      {:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EndpointHealthBeacon,
                       :rdf/type           :owl/Restriction}]})
@@ -36220,17 +36235,17 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Run Virtual Instance",
    :rdfs/subClassOf [:d3f/T1564
-                     {:owl/onProperty     :d3f/may-add,
-                      :owl/someValuesFrom :d3f/VirtualizationSoftware,
-                      :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-create,
                       :owl/someValuesFrom :d3f/Directory,
                       :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/creates,
-                      :owl/someValuesFrom :d3f/File,
+                     {:owl/onProperty     :d3f/may-add,
+                      :owl/someValuesFrom :d3f/VirtualizationSoftware,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/executes,
                       :owl/someValuesFrom :d3f/VirtualizationSoftware,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/creates,
+                      :owl/someValuesFrom :d3f/File,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1564_007
@@ -36254,15 +36269,15 @@
    :db/ident        :d3f/T1564.008,
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Email Hiding Rules",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-create,
-                      :owl/someValuesFrom :d3f/EmailRule,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/may-modify,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-modify,
                       :owl/someValuesFrom :d3f/EmailRule,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1564
                      {:owl/onProperty     :d3f/modifies,
                       :owl/someValuesFrom :d3f/ApplicationConfiguration,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-create,
+                      :owl/someValuesFrom :d3f/EmailRule,
                       :rdf/type           :owl/Restriction}]})
 
 (def T1564_009
@@ -36364,11 +36379,11 @@
    :rdf/type        :owl/Class,
    :rdfs/label      #xsd/string "Spearphishing Link",
    :rdfs/subClassOf [{:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/Email,
+                      :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
                       :rdf/type           :owl/Restriction}
                      :d3f/T1566
                      {:owl/onProperty     :d3f/produces,
-                      :owl/someValuesFrom :d3f/InboundInternetMailTraffic,
+                      :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/produces,
                       :owl/someValuesFrom :d3f/URL,
@@ -36530,7 +36545,6 @@
                      :d3f/CommandAndControlTechnique]})
 
 (def T1573
-  "Encrypted Channel"
   {:d3f/attack-id   #xsd/string "T1573",
    :d3f/produces    :d3f/OutboundInternetEncryptedTraffic,
    :db/ident        :d3f/T1573,
@@ -36693,7 +36707,7 @@
                      :d3f/T1574]})
 
 (def T1574_010
-  "Services File Permissions Weakness"
+  "Service Registry Permissions Weakness"
   {:d3f/attack-id   #xsd/string "T1574.010",
    :d3f/modifies    :d3f/ServiceApplication,
    :db/ident        :d3f/T1574.010,
@@ -38086,10 +38100,10 @@
                       :owl/Class
                       :d3f/IdentifierReputationAnalysis],
    :rdfs/label       #xsd/string "URL Reputation Analysis",
-   :rdfs/subClassOf  [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf  [:d3f/IdentifierReputationAnalysis
+                      {:owl/onProperty     :d3f/analyzes,
                        :owl/someValuesFrom :d3f/URL,
-                       :rdf/type           :owl/Restriction}
-                      :d3f/IdentifierReputationAnalysis]})
+                       :rdf/type           :owl/Restriction}]})
 
 (def UncertaintySampling
   "Makes the utility inversely proportional to the uncertainty of the model with respect to the sample and will work with any  model provided it can assess its uncertainty of a predection."
@@ -38204,13 +38218,13 @@
    :rdfs/label #xsd/string "User",
    :rdfs/seeAlso [#xsd/string "UserAccount"
                   {:rdfa/uri "http://wordnet-rdf.princeton.edu/id/10761247-n"}],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/has-account,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/restricted-by,
+                      :owl/someValuesFrom :d3f/AccessControlList,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/has-account,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
-                     :d3f/DigitalArtifact
-                     {:owl/onProperty     :d3f/restricted-by,
-                      :owl/someValuesFrom :d3f/AccessControlList,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/DigitalArtifact]})
 
 (def UserAccount
   "A user account allows a user to authenticate to a system and potentially to receive authorization to access resources provided by or connected to that system; however, authentication does not imply authorization. To log into an account, a user is typically required to authenticate oneself with a password or other credentials for the purposes of accounting, security, logging, and resource management."
@@ -38336,10 +38350,10 @@
    :db/ident :d3f/UserGeolocationLogonPatternAnalysis,
    :rdf/type [:d3f/UserBehaviorAnalysis :owl/NamedIndividual :owl/Class],
    :rdfs/label #xsd/string "User Geolocation Logon Pattern Analysis",
-   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
-                     {:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/NetworkTraffic,
-                      :rdf/type           :owl/Restriction}]})
+                      :rdf/type           :owl/Restriction}
+                     :d3f/UserBehaviorAnalysis]})
 
 (def UserGroup
   "User groups are a way to collect user accounts and/or computer accounts into manageable units. Administrators can assign permissions, roles, or access to resources, as well as modify group membership, depending on the operating system."
@@ -38492,13 +38506,13 @@
    :rdf/type :owl/Class,
    :rdfs/isDefinedBy {:rdfa/uri "http://dbpedia.org/resource/Personal_message"},
    :rdfs/label #xsd/string "User to User Message",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/may-contain,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/has-recipient,
+                      :owl/someValuesFrom :d3f/UserAccount,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/Email,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/has-sender,
-                      :owl/someValuesFrom :d3f/UserAccount,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/has-recipient,
                       :owl/someValuesFrom :d3f/UserAccount,
                       :rdf/type           :owl/Restriction}
                      :d3f/DigitalArtifact],
@@ -38845,10 +38859,10 @@
    :db/ident :d3f/WebSessionActivityAnalysis,
    :rdf/type [:owl/Class :owl/NamedIndividual :d3f/UserBehaviorAnalysis],
    :rdfs/label #xsd/string "Web Session Activity Analysis",
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/analyzes,
+   :rdfs/subClassOf [:d3f/UserBehaviorAnalysis
+                     {:owl/onProperty     :d3f/analyzes,
                       :owl/someValuesFrom :d3f/WebResourceAccess,
-                      :rdf/type           :owl/Restriction}
-                     :d3f/UserBehaviorAnalysis]})
+                      :rdf/type           :owl/Restriction}]})
 
 (def WebSocketURL
   "Web Socket URL"
@@ -39148,12 +39162,12 @@
                       :owl/someValuesFrom :xsd/string,
                       :rdf/type           :owl/Restriction}
                      {:owl/onProperty     :d3f/may-contain,
+                      :owl/someValuesFrom :d3f/WindowsRegistryKey,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/may-contain,
                       :owl/someValuesFrom :d3f/WindowsRegistryValue,
                       :rdf/type           :owl/Restriction}
-                     :d3f/SystemConfigurationDatabaseRecord
-                     {:owl/onProperty     :d3f/may-contain,
-                      :owl/someValuesFrom :d3f/WindowsRegistryKey,
-                      :rdf/type           :owl/Restriction}]})
+                     :d3f/SystemConfigurationDatabaseRecord]})
 
 (def WindowsRegistryValue
   "A Windows Registry Value is a data structure consisting of a name, type, data (as a pointer), and the length. Windows Registry Values are always associated with a Windows Registry Key. They store the actual configuration data for the operating system and the programs that run on the system."
@@ -39171,11 +39185,11 @@
    [#xsd/string
      "https://learn.microsoft.com/en-us/windows/win32/sysinfo/structure-of-the-registry"
     #xsd/string "https://schema.ocsf.io/objects/registry_value"],
-   :rdfs/subClassOf [{:owl/onProperty     :d3f/contained-by,
-                      :owl/someValuesFrom :d3f/WindowsRegistryKey,
-                      :rdf/type           :owl/Restriction}
-                     {:owl/onProperty     :d3f/windows-registry-value,
+   :rdfs/subClassOf [{:owl/onProperty     :d3f/windows-registry-value,
                       :owl/someValuesFrom :xsd/string,
+                      :rdf/type           :owl/Restriction}
+                     {:owl/onProperty     :d3f/contained-by,
+                      :owl/someValuesFrom :d3f/WindowsRegistryKey,
                       :rdf/type           :owl/Restriction}
                      :d3f/SystemConfigurationDatabaseRecord]})
 
@@ -39342,7 +39356,6 @@
    :rdfs/subPropertyOf [:d3f/detects :d3f/associated-with]})
 
 (def archived-at
-  "schema.org's archivedAt vice schema.org notion of url, previously has-link"
   {:d3f/comment
    #xsd/string
     "schema.org's archivedAt vice schema.org notion of url, previously has-link",
@@ -39420,7 +39433,7 @@
    :rdfs/subPropertyOf :d3f/d3fend-annotation})
 
 (def attack-kb-data-property
-  "attack-kb-data-property"
+  "attack-kb-property"
   {:db/ident           :d3f/attack-kb-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         #xsd/string "attack-kb-data-property",
@@ -39743,7 +39756,7 @@
    :rdfs/subPropertyOf :d3f/d3fend-data-property})
 
 (def d3fend-catalog-annotation-property
-  "d3fend-catalog-annotation-property"
+  "d3fend-vendor-registry-annotation-property"
   {:db/ident           :d3f/d3fend-catalog-annotation-property,
    :rdf/type           :owl/AnnotationProperty,
    :rdfs/label         #xsd/string "d3fend-catalog-annotation-property",
@@ -39752,7 +39765,6 @@
                         "d3fend-vendor-registry-annotation-property"})
 
 (def d3fend-catalog-data-property
-  "d3fend-catalog-data-property"
   {:db/ident           :d3f/d3fend-catalog-data-property,
    :rdf/type           :owl/DatatypeProperty,
    :rdfs/label         #xsd/string "d3fend-catalog-data-property",
@@ -39761,7 +39773,7 @@
                         "d3fend-vendor-registry-data-property@en"})
 
 (def d3fend-catalog-object-property
-  "d3fend-catalog-object-property"
+  "d3fend-vendor-registry-object-property"
   {:db/ident           :d3f/d3fend-catalog-object-property,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/label         #xsd/string "d3fend-catalog-object-property",
@@ -40678,7 +40690,7 @@
    :rdfs/subPropertyOf :d3f/d3fend-kb-annotation-property})
 
 (def kb-reference
-  "kb-reference"
+  "has-technique-reference"
   {:db/ident           :d3f/kb-reference,
    :owl/inverseOf      :d3f/kb-reference-of,
    :rdf/type           :owl/ObjectProperty,

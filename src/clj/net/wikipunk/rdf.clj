@@ -45,15 +45,6 @@
    (org.apache.jena.util.iterator ClosableIterator)
    (org.apache.jena.shared PrefixMapping)))
 
-;; ugly
-(if (thread-bound? #'*default-data-reader-fn*)
-  (set! *default-data-reader-fn* tagged-literal)
-  (alter-var-root #'*default-data-reader-fn* (constantly tagged-literal)))
-
-(if (thread-bound? #'clojure.tools.reader/*default-data-reader-fn*)
-  (set! clojure.tools.reader/*default-data-reader-fn* tagged-literal)
-  (alter-var-root #'clojure.tools.reader/*default-data-reader-fn* (constantly tagged-literal)))
-
 (defprotocol LinkedData
   "This is a protocol for parsing RDF models. 
 
@@ -80,7 +71,16 @@
     "Parses source using Apache Jena's RDFParser and converts it to
   Clojure data using Aristotle.
 
-  Adapted from arachne.aristotle.graph/graph->clj")
+  Adapted from arachne.aristotle.graph/graph->clj
+
+ Options:
+ :emit -- set to false to prevent emitting the namespace
+ :recurse -- set to number of recursive calls you are willing to make for linked data
+ :reasoner -- set to your preferred org.apache.jena.reasoner.Reasoner
+ instance or nil for no reasoning (defaults to RDFSSimpleReasoner)
+ :private -- set to truthy value to emit ^:private vars, but inspect
+ the namespace after to make sure there are no var name conflicts
+ :slash -- If a vocab term has a slash in its name you should set this to true (edge case for D3FEND).")
   (graph [x]
     "Returns Jena Graph from x.")
   (sniff [x]
@@ -101,6 +101,20 @@
 
 (def ^:dynamic *ns-prefix* "net.wikipunk.rdf.")
 (def ^:dynamic *target* "src/cljc/net/wikipunk/rdf/")
+
+(def ^:dynamic *slash*
+  "generate keywords with _SLASH_ in name (used for D3FEND)"
+  nil)
+
+(def ^:dynamic *graph*
+  "Bound to the apache jena graph during parsing."
+  nil)
+
+(def ^:dynamic *recurse* 2)
+
+(def ^:dynamic *private*
+  "bind to true if you want private vars to be emitted"
+  nil)
 
 #rdf/global-prefix ["dcterms" "http://purl.org/dc/terms/"]
 
@@ -688,10 +702,6 @@
   [^ont_app.vocabulary.lstr.LangStr literal ^java.io.Writer w]
   (.write w (pr-str (tagged-literal 'xsd/langString  (str literal "@" (.lang literal))))))
 
-(def ^:dynamic *slash*
-  "generate keywords with _SLASH_ in name (used for D3FEND)"
-  nil)
-
 (defn- lookup-prefix
   "Construct a keyword from an IRI using the prefix tree, returns nil if not possible."
   [registry iri]
@@ -770,10 +780,6 @@
   (node [obj]
     (org.apache.jena.graph.NodeFactory/createLiteralByValue (biginteger obj) XSDDatatype/XSDinteger)))
 
-(defmethod print-dup clojure.lang.TaggedLiteral
-  [x ^java.io.Writer w]
-  (.write w (str "#" (:tag x) " " (pr-str (:form x)))))
-
 (defmulti rdf-literal
   "When parsing org.apache.jena.graph.Node_Literal instances construct
   an appropriate tagged literal so that Clojure can read and write
@@ -848,9 +854,7 @@
 (defn parse-with-meta
   "parses graph with ns-prefix-map"
   [g & {:as md}]
-  (let [reasoner      (or (:reasoner md)
-                          (ReasonerRegistry/getRDFSSimpleReasoner)
-                          #_(ReasonerRegistry/getOWLMicroReasoner))
+  (let [reasoner      (:reasoner md (ReasonerRegistry/getRDFSSimpleReasoner))
         g             (if (instance? org.apache.jena.reasoner.Reasoner reasoner)
                         (.bind reasoner g)
                         g)
@@ -897,10 +901,6 @@
                                                        (first objects)
                                                        objects)])))
                                          (group-by #(.getPredicate ^Triple %) triples))))))))))
-
-(def ^:dynamic *graph*
-  "Bound to the apache jena graph during parsing."
-  nil)
 
 (def mem-parse (memo/memo parse))
 
@@ -1059,79 +1059,73 @@
 (defmethod box-values :default
   [form]
   (if (map? form)
-    (cond-> (box form)
-      (:owl/deprecated form)
-      (update :owl/deprecated boolean)
+      (cond-> (box form)
+        (:owl/deprecated form)
+        (update :owl/deprecated boolean)
       
-      (some? (:owl/hasValue form))
-      (box-value update :owl/hasValue)
+        (some? (:owl/hasValue form))
+        (box-value update :owl/hasValue)
 
-      (some? (:rdf/value form))
-      (box-value update :rdf/value)
+        (some? (:rdf/value form))
+        (box-value update :rdf/value)
 
-      (some? (:qudt/value form))
-      (box-value update :qudt/value)
+        (some? (:qudt/value form))
+        (box-value update :qudt/value)
 
-      (some? (:qudt/conversionMultiplier form))
-      (box-value update :qudt/conversionMultiplier)
+        (some? (:qudt/conversionMultiplier form))
+        (box-value update :qudt/conversionMultiplier)
 
-      (some? (:qudt/conversionOffset form))
-      (box-value update :qudt/conversionOffset)
+        (some? (:qudt/conversionOffset form))
+        (box-value update :qudt/conversionOffset)
 
-      (some? (:qudt/dimensionExponentForLength form))
-      (box-value update :qudt/dimensionExponentForLength)
+        (some? (:qudt/dimensionExponentForLength form))
+        (box-value update :qudt/dimensionExponentForLength)
 
-      (some? (:qudt/dimensionExponentForMass form))
-      (box-value update :qudt/dimensionExponentForMass)
+        (some? (:qudt/dimensionExponentForMass form))
+        (box-value update :qudt/dimensionExponentForMass)
 
-      (some? (:qudt/dimensionExponentForAmountOfSubstance form))
-      (box-value update :qudt/dimensionExponentForAmountOfSubstance)
+        (some? (:qudt/dimensionExponentForAmountOfSubstance form))
+        (box-value update :qudt/dimensionExponentForAmountOfSubstance)
 
-      (some? (:qudt/dimensionExponentForElectricCurrent form))
-      (box-value update :qudt/dimensionExponentForElectricCurrent)
+        (some? (:qudt/dimensionExponentForElectricCurrent form))
+        (box-value update :qudt/dimensionExponentForElectricCurrent)
 
-      (some? (:qudt/dimensionExponentForLuminousIntensity form))
-      (box-value update :qudt/dimensionExponentForLuminousIntensity)
+        (some? (:qudt/dimensionExponentForLuminousIntensity form))
+        (box-value update :qudt/dimensionExponentForLuminousIntensity)
 
-      (some? (:qudt/dimensionExponentForThermodynamicTemperature form))
-      (box-value update :qudt/dimensionExponentForThermodynamicTemperature)
+        (some? (:qudt/dimensionExponentForThermodynamicTemperature form))
+        (box-value update :qudt/dimensionExponentForThermodynamicTemperature)
 
-      (some? (:qudt/dimensionExponentForTime form))
-      (box-value update :qudt/dimensionExponentForTime)
+        (some? (:qudt/dimensionExponentForTime form))
+        (box-value update :qudt/dimensionExponentForTime)
       
-      (some? (:dtype/value form))
-      (box-value update :dtype/value)
+        (some? (:dtype/value form))
+        (box-value update :dtype/value)
 
-      (seq (:owl/oneOf form))
-      (box-value update :owl/oneOf)
+        (seq (:owl/oneOf form))
+        (box-value update :owl/oneOf)
 
-      (seq (:owl/withRestrictions form))
-      (box-value update :owl/withRestrictions)
+        (seq (:owl/withRestrictions form))
+        (box-value update :owl/withRestrictions)
 
-      (some? (:jsonschema/default form))
-      (box-value update :jsonschema/default)
+        (some? (:jsonschema/default form))
+        (box-value update :jsonschema/default)
 
-      (some? (:jsonschema/const form))
-      (box-value update :jsonschema/const)
+        (some? (:jsonschema/const form))
+        (box-value update :jsonschema/const)
 
-      (some? (:d3f/version form))
-      (box-value update :d3f/version)
+        (some? (:d3f/version form))
+        (box-value update :d3f/version)
 
-      (some? (:dcterms/hasPart form))
-      (box-value update :dcterms/hasPart)
+        (some? (:dcterms/hasPart form))
+        (box-value update :dcterms/hasPart)
 
-      (some? (:rdfs/isDefinedBy form))
-      (box-value update :rdfs/isDefinedBy)
+        (some? (:rdfs/isDefinedBy form))
+        (box-value update :rdfs/isDefinedBy)
 
-      (some? (:rdfs/seeAlso form))
-      (box-value update :rdfs/seeAlso))
-    form))
-
-(def ^:dynamic *recurse* 2)
-
-(def ^:dynamic *private*
-  "bind to true if you want private vars to be emitted"
-  nil)
+        (some? (:rdfs/seeAlso form))
+        (box-value update :rdfs/seeAlso))
+      form))
 
 (defn unroll-forms
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -1234,33 +1228,15 @@
   [_]
   nil)
 
-(defmethod rdf-doc clojure.lang.TaggedLiteral
-  [x]
-  (str (:form x)))
+(defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
 
-(defmethod rdf-doc String
-  [x]
-  x)
+(defmethod rdf-doc String [x] x)
 
-(defmethod rdf-doc :rdfs/label
-  [[k v]]
-  (rdf-doc v))
+(defmethod rdf-doc :rdfs/label [[k v]] (rdf-doc v))
 
-(defmethod rdf-doc :rdfs/comment
-  [[k v]]
-  (rdf-doc v))
+(defmethod rdf-doc :rdfs/comment [[k v]] (rdf-doc v))
 
-(defmethod rdf-doc :d3f/definition
-  [[k v]]
-  (rdf-doc v))
-
-(defmethod rdf-doc :owl/AnnotationProperty
-  [[k v]]
-  (rdf-doc v))
-
-(defmethod rdf-doc :d3f/definition
-  [[k v]]
-  (rdf-doc v))
+(defmethod rdf-doc :d3f/d3fend-annotation [[k v]] (rdf-doc v))
 
 (defmethod rdf-doc :rdf/Property [[k v]] (rdf-doc v))
 
@@ -1268,9 +1244,14 @@
 
 (defmethod rdf-doc :d3f/kb-article [_] nil)
 
+(defmethod rdf-doc :dc11/description [[k v]] (rdf-doc v))
+
 (prefer-method rdf-doc :rdfs/comment :rdfs/label)
 
 (prefer-method rdf-doc :d3f/definition :rdfs/comment)
+(prefer-method rdf-doc :d3f/definition :rdfs/label)
+
+(prefer-method rdf-doc :dc11/description :rdfs/comment)
 
 (defn get-prefs
   "Returns a sequence of dispatching keywords on multifn sorted by
@@ -1280,17 +1261,17 @@
         kws   (->> (methods multifn)
                    (keys)
                    (filter qualified-keyword?)
-                   (filter #(isa? (:rdf/Property *metaobjects*) % :rdf/Property)))]
+                   (filter #(isa? (:rdf/Property *metaobjects*) % :rdf/Property))
+                   (remove (conj (mop/class-direct-subclasses :rdf/Property) :rdf/Property)))]
     (distinct (concat prefs kws))))
 
 (defn get-doc
   [m]
   (let [prefs (get-prefs rdf-doc)]
-    (some (fn [k]
-            (when (isa? k :rdf/Property)
-              (when-some [v (get m k)]
-                (rdf-doc v))))
-          (distinct (concat prefs (keys m))))))
+    (some (fn [pref]
+            (when-some [kv (first (filter #(isa? (key %) pref) m))]
+              (rdf-doc kv)))
+          prefs)))
 
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -1361,33 +1342,10 @@
                                     (list 'def sym v))))))]
     (if prefix
       (cons `(~'ns ~(symbol (str *ns-prefix* prefix))
-              ~@(let [docstring (or (get-in md [:lv2/project :lv2/documentation])
-                                    (:dcterms/abstract md)
-                                    (:dcterms/description md)
-                                    (:dcterms/title md)
-                                    (:madsrdf/definitionNote md)
-                                    (:rdfs/comment md)
-                                    (:rdfs/label md)
-                                    (:rdfa/uri md)
-                                    (:doc md))
-                      docstring (if (vector? docstring)
-                                  (if (every? string? docstring)
-                                    (str/join \newline docstring)
-                                    (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
-                                               (get (group-by lstr/lang (remove string? docstring)) "en-US")
-                                               (seq (filter string? docstring)))))
-                                  docstring)
-                      docstring (if (map? docstring)
-                                  (:rdf/value docstring)
-                                  docstring)
-                      docstring (when docstring
-                                  (str/trim (str/replace docstring #"\s+" " ")))]
+              ~@(let [docstring (or (get-doc md) (:doc md))]
                   (when docstring
-                    [docstring]))              
-              ~(dissoc (cond-> md
-                         (:lv2/project md)
-                         (update :lv2/project #(dissoc % :lv2/documentation)))
-                       :doc)
+                    [docstring]))
+              ~(dissoc md :doc)
               ~@(when (seq exclusions)
                   [(list :refer-clojure :exclude exclusions)]))
             forms)
@@ -1676,7 +1634,10 @@
   
   clojure.lang.IPersistentMap
   (parse [md]
-    (binding [*graph* (graph md)]
+    (binding [*graph*   (graph md)
+              *slash*   (:slash md)
+              *private* (:private md)
+              *recurse* (:recurse md 0)]
       (parse-with-meta *graph* md)))
   (graph [md]
     (let [{:rdfa/keys [uri prefix]
@@ -1706,9 +1667,10 @@
                       ;; ...try JSONLD?
                       (.toGraph (doto parser (.lang Lang/JSONLD)))))))))))))
   (emit [x arg-map]
-    (let [model (parse x)
-          md    (meta model)]
-      (emit-ns model md arg-map)))
+    (when (:emit x true)
+      (let [model (parse x)
+            md    (meta model)]
+        (emit-ns model md arg-map))))
   (sniff [m]
     (let [model (mem-parse m)]
       (with-meta (into [] (map #(dissoc % :private)) (unroll-forms model)) (meta model))))
