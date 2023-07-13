@@ -1213,7 +1213,11 @@
       (merge md the-ont))))
 
 (defmulti rdf-doc
-  "Returns a docstring for the metaobject."
+  "`rdf-doc` is a multimethod that dispatches on the type of its
+  argument. It has various methods defined for different types and
+  keys, each returning a docstring for the corresponding value in the
+  map. It defaults to returning `nil` when a method for a given type
+  or key is not defined."
   (fn [x]
     (cond
       (map-entry? x)
@@ -1224,33 +1228,20 @@
 
       :else (type x))))
 
-(defmethod rdf-doc :default
-  [_]
-  nil)
-
+(defmethod rdf-doc :default [_] nil)
 (defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
-
 (defmethod rdf-doc String [x] x)
-
 (defmethod rdf-doc :rdfs/label [[k v]] (rdf-doc v))
-
 (defmethod rdf-doc :rdfs/comment [[k v]] (rdf-doc v))
-
-(defmethod rdf-doc :d3f/d3fend-annotation [[k v]] (rdf-doc v))
-
+(defmethod rdf-doc :d3f/definition [[k v]] (rdf-doc v))
 (defmethod rdf-doc :rdf/Property [[k v]] (rdf-doc v))
-
 (defmethod rdf-doc :d3f/todo [_] nil)
-
 (defmethod rdf-doc :d3f/kb-article [_] nil)
-
 (defmethod rdf-doc :dc11/description [[k v]] (rdf-doc v))
 
 (prefer-method rdf-doc :rdfs/comment :rdfs/label)
-
 (prefer-method rdf-doc :d3f/definition :rdfs/comment)
 (prefer-method rdf-doc :d3f/definition :rdfs/label)
-
 (prefer-method rdf-doc :dc11/description :rdfs/comment)
 
 (defn get-prefs
@@ -1266,6 +1257,8 @@
     (distinct (concat prefs kws))))
 
 (defn get-doc
+  "Returns the docstring for the first key-value pair in the map where
+  the key is a subclass of a preferred key."
   [m]
   (let [prefs (get-prefs rdf-doc)]
     (some (fn [pref]
