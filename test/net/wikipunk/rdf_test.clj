@@ -4,7 +4,8 @@
    [com.stuartsierra.component.repl :refer [system]]
    [net.wikipunk.mop :as mop]
    [net.wikipunk.rdf :as rdf]
-   [net.wikipunk.rdf.d3f]))
+   [net.wikipunk.rdf.d3f]
+   [net.wikipunk.rdf.schema]))
 
 (use-fixtures :once
               (fn [f]

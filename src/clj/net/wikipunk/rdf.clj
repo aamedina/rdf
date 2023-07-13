@@ -317,12 +317,12 @@
    (make-property-hierarchy classes (all-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
-     (fn [h {:db/keys   [ident]
-             :rdf/keys  [type]
-             :rdfs/keys [subPropertyOf domain range]
+     (fn [h {:db/keys     [ident]
+             :rdf/keys    [type]
+             :rdfs/keys   [subPropertyOf domain range]
              :schema/keys [domainIncludes rangeIncludes]
-             :owl/keys  [equivalentProperty]
-             :as        entity}]
+             :owl/keys    [equivalentProperty]
+             :as          entity}]
        (cond-> h
          (or subPropertyOf
              equivalentProperty
@@ -341,12 +341,12 @@
    (make-domain-hierarchy classes (all-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
-     (fn [h {:db/keys   [ident]
-             :rdf/keys  [type]
-             :rdfs/keys [subPropertyOf domain range]
+     (fn [h {:db/keys     [ident]
+             :rdf/keys    [type]
+             :rdfs/keys   [subPropertyOf domain range]
              :schema/keys [domainIncludes rangeIncludes]
-             :owl/keys  [equivalentProperty]
-             :as        entity}]
+             :owl/keys    [equivalentProperty]
+             :as          entity}]
        (let [domain'     (concat domain domainIncludes)
              domain-keys (filter keyword? domain')]
          (cond-> h
@@ -366,12 +366,12 @@
    (make-range-hierarchy classes (all-metaobjects mop/*env*)))
   ([classes metaobjects]
    (reduce
-     (fn [h {:db/keys   [ident]
-             :rdf/keys  [type]
-             :rdfs/keys [subPropertyOf domain range]
+     (fn [h {:db/keys     [ident]
+             :rdf/keys    [type]
+             :rdfs/keys   [subPropertyOf domain range]
              :schema/keys [domainIncludes rangeIncludes]
-             :owl/keys  [equivalentProperty]
-             :as        entity}]
+             :owl/keys    [equivalentProperty]
+             :as          entity}]
        (cond-> h
          (or range rangeIncludes)
          (deriving entity (filter keyword? (concat range rangeIncludes)))))
@@ -684,6 +684,10 @@
   [^org.apache.jena.datatypes.xsd.XSDDuration x ^java.io.Writer writer]
   (print-method (str x) writer))
 
+(defmethod print-method ont_app.vocabulary.lstr.LangStr
+  [^ont_app.vocabulary.lstr.LangStr literal ^java.io.Writer w]
+  (.write w (pr-str (tagged-literal 'xsd/langString  (str literal "@" (.lang literal))))))
+
 (def ^:dynamic *slash*
   "generate keywords with _SLASH_ in name (used for D3FEND)"
   nil)
@@ -922,8 +926,8 @@
   [graph val]
   (cond
     (vector? val) (mapv #(replace-bnodes-in-val graph %) val)
-    (bnode? val) (replace-bnode graph val)
-    :else val))
+    (bnode? val)  (replace-bnode graph val)
+    :else         val))
 
 (defn replace-bnodes
   "Replaces all blank nodes recursively with their definitions."
@@ -939,27 +943,9 @@
 (defn walk-blanks
   "Replaces blank nodes with their values."
   ([index form]
-   (walk-blanks index form #{:rdfs/subClassOf :rdfs/subPropertyOf}))
-  ([index form keys]
    (if-some [id (:db/id form)]
      (let [node (get index id)]
-       (walk/postwalk #(walk-blanks (dissoc index id) %) node)
-       #_(reduce (fn [n k]
-                 (if (contains? n k)
-                   (let [value     (get n k)
-                         new-value (cond
-                                     (= value form)
-                                     nil
-                                     (when (sequential? value)
-                                       (some #(= form %) value))
-                                     (not-empty (into [] (remove #(= form %) value)))
-                                     :else value)]
-                     (if (nil? new-value)
-                       (dissoc n k)
-                       (assoc n k new-value)))
-                   n))
-               node
-               keys))
+       (walk/postwalk #(walk-blanks (dissoc index id) %) node))
      form)))
 
 (defn walk-dcterms
@@ -991,23 +977,6 @@
     (into (vector-of :byte) form)
     form))
 
-(defn walk-seeAlso
-  "Turns :rdfs/seeAlso forms into strings"
-  [form]
-  (if (and (map? form)
-           (contains? form :rdfs/seeAlso))
-    (let [seeAlso  (:rdfs/seeAlso form)
-          seeAlso  (if (sequential? seeAlso)
-                     seeAlso
-                     [seeAlso])
-          seeAlso' (mapv (fn [x]
-                           (if (keyword? x)
-                             (iri x)
-                             x))
-                         seeAlso)]
-      (assoc form :rdfs/seeAlso (filterv string? seeAlso')))
-    form))
-
 (defprotocol Box
   (box [val] "boxes the value"))
 
@@ -1019,15 +988,19 @@
   Number
   (box [n]
     (cond
-      (float? n)
+      (double? n)
       {:xsd/double n}
+      (float? n)
+      {:xsd/float n}
+      (instance? Integer n)
+      {:xsd/int n}
       (int? n)
       {:xsd/long n}
       (decimal? n)
       {:xsd/decimal n}
       (integer? n)
       {:xsd/integer (bigint n)}
-      :else {:owl/real (bigdec n)}))
+      :else {:xsd/decimal (bigdec n)}))
 
   String
   (box [s]
@@ -1043,31 +1016,31 @@
   (box [m]
     ;; special case coerce these to doubles
     (if (some #{:xsd/minExclusive :xsd/minInclusive
-                  :xsd/maxExclusive :xsd/maxInclusive
-                  :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
-                  :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
-                (keys m))
-        (reduce #(update %1 %2 (fn [x]
-                                 (cond
-                                   (string? x)
-                                   (try
-                                     (double (Long/parseLong x))
-                                     (catch Throwable ex
-                                       (try
-                                         (Double/parseDouble x)
-                                         (catch Throwable ex
-                                           (double (read-string (str "0x" x)))))))
-                                   (number? x)
-                                   (double x)
+                :xsd/maxExclusive :xsd/maxInclusive
+                :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
+                :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
+              (keys m))
+      (reduce #(update %1 %2 (fn [x]
+                               (cond
+                                 (string? x)
+                                 (try
+                                   (double (Long/parseLong x))
+                                   (catch Throwable ex
+                                     (try
+                                       (Double/parseDouble x)
+                                       (catch Throwable ex
+                                         (double (read-string (str "0x" x)))))))
+                                 (number? x)
+                                 (double x)
 
-                                   (tagged-literal? x)
-                                   (double (:form x)))))
-                m (filter #{:xsd/minExclusive :xsd/minInclusive
-                            :xsd/maxExclusive :xsd/maxInclusive
-                            :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
-                            :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
-                          (keys m)))
-        m))
+                                 (tagged-literal? x)
+                                 (double (:form x)))))
+              m (filter #{:xsd/minExclusive :xsd/minInclusive
+                          :xsd/maxExclusive :xsd/maxInclusive
+                          :jsonschema/maximum :jsonschema/minimum :jsonschema/multipleOf
+                          :jsonschema/exclusiveMaximum :jsonschema/exclusiveMinimum}
+                        (keys m)))
+      m))
 
   Object
   (box [o] o)
@@ -1245,39 +1218,79 @@
                      (when *private* (sort-by :db/ident privates)))
       (merge md the-ont))))
 
-(defn rdf-doc
-  "Returns docstring for v."
-  [v]  
-  (let [docstring (or (some-> (:db/doc v))
-                      (:lv2/documentation v)
-                      (:dcterms/abstract v)
-                      (:dcterms/description v)
-                      (:dc11/description v)
-                      (:skos/definition v)
-                      (:prov/definition v)
-                      (:prov/editorsDefinition v)
-                      (:madsrdf/definitionNote v)
-                      (:madsrdf/authoritativeLabel v)
-                      (:d3fend/definition v)
-                      (:d3fend/d3fend-comment v)
-                      (:d3fend/kb-article v)
-                      (:d3fend/control-name v)
-                      (:rdfs/comment v)
-                      (:skos/prefLabel v)                      
-                      (:rdfs/label v))
-        docstring (if (vector? docstring)
-                    (if (every? string? docstring)
-                      (str/join \newline docstring)
-                      (first (or (get (group-by lstr/lang (remove string? docstring)) "en")
-                                 (get (group-by lstr/lang (remove string? docstring)) "en-US")
-                                 (seq (filter string? docstring)))))
-                    docstring)
-        docstring (if (map? docstring)
-                    (:rdf/value docstring "")
-                    docstring)]
-    (if (tagged-literal? docstring)
-      (:form docstring)
-      (str docstring))))
+(defmulti rdf-doc
+  "Returns a docstring for the metaobject."
+  (fn [x]
+    (cond
+      (map-entry? x)
+      (key x)
+
+      (indexed? x)
+      (nth x 0)
+
+      :else (type x))))
+
+(defmethod rdf-doc :default
+  [_]
+  nil)
+
+(defmethod rdf-doc clojure.lang.TaggedLiteral
+  [x]
+  (str (:form x)))
+
+(defmethod rdf-doc String
+  [x]
+  x)
+
+(defmethod rdf-doc :rdfs/label
+  [[k v]]
+  (rdf-doc v))
+
+(defmethod rdf-doc :rdfs/comment
+  [[k v]]
+  (rdf-doc v))
+
+(defmethod rdf-doc :d3f/definition
+  [[k v]]
+  (rdf-doc v))
+
+(defmethod rdf-doc :owl/AnnotationProperty
+  [[k v]]
+  (rdf-doc v))
+
+(defmethod rdf-doc :d3f/definition
+  [[k v]]
+  (rdf-doc v))
+
+(defmethod rdf-doc :rdf/Property [[k v]] (rdf-doc v))
+
+(defmethod rdf-doc :d3f/todo [_] nil)
+
+(defmethod rdf-doc :d3f/kb-article [_] nil)
+
+(prefer-method rdf-doc :rdfs/comment :rdfs/label)
+
+(prefer-method rdf-doc :d3f/definition :rdfs/comment)
+
+(defn get-prefs
+  "Returns a sequence of dispatching keywords on multifn sorted by
+  preference."
+  [multifn]
+  (let [prefs (sort (comp > isa?) (keys (prefers multifn)))
+        kws   (->> (methods multifn)
+                   (keys)
+                   (filter qualified-keyword?)
+                   (filter #(isa? (:rdf/Property *metaobjects*) % :rdf/Property)))]
+    (distinct (concat prefs kws))))
+
+(defn get-doc
+  [m]
+  (let [prefs (get-prefs rdf-doc)]
+    (some (fn [k]
+            (when (isa? k :rdf/Property)
+              (when-some [v (get m k)]
+                (rdf-doc v))))
+          (distinct (concat prefs (keys m))))))
 
 (defn unroll-ns
   "Walks the parsed RDF model and replaces references to blank nodes
@@ -1334,7 +1347,7 @@
                                             :else sym)
                                       sym       (if (:private v) (with-meta sym {:private true}) sym)
                                       v         (if (:private v) (dissoc v :private) v)
-                                      docstring (rdf-doc v)  
+                                      docstring (get-doc v)
                                       v         (cond-> (assoc v :db/ident k)
                                                   (and (nil? (:rdf/type v))
                                                        (:rdfs/subClassOf v))
@@ -1481,7 +1494,7 @@
   (when-some [metaobject (mop/find-class ident)]
     (println "-------------------------")
     (println (:db/ident metaobject))
-    (when-some [doc (rdf-doc metaobject)]
+    (when-some [doc (get-doc metaobject)]
       (println " " doc))
     (when-some [supers (next (mop/compute-class-precedence-list metaobject))]
       (println "  isa?")

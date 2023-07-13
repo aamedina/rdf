@@ -11,6 +11,7 @@
 ;; tools.namespace reads Clojure code using tools.reader which binds
 ;; *data-readers* separately from the standard Clojure reader
 (alter-var-root #'clojure.tools.reader/*data-readers* (constantly *data-readers*))
+(alter-var-root #'clojure.tools.reader/*default-data-reader-fn* (constantly tagged-literal))
 
 (clojure.tools.namespace.repl/set-refresh-dirs "dev" "src")
 
