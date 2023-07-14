@@ -1,22 +1,6 @@
 (ns net.wikipunk.rdf.scovo
-  "A vocabulary for representing statistical data on the Web. <div style=\"border: 2px solid red; padding: 0.4em 0.7em; background: #fcc\">Note: The SCOVO vocabulary is deprecated. We strongly advise to use the <a href=\"http://www.w3.org/TR/vocab-data-cube/\">Data Cube Vocabulary</a> instead.</div>"
-  {:dc11/creator ["http://vocab.deri.ie/scovo#yraimond"
-                  "http://vocab.deri.ie/scovo#theath"
-                  "http://vocab.deri.ie/scovo#Michael%20Hausenblas"
-                  "http://vocab.deri.ie/scovo#lfeigenbaum"
-                  "http://vocab.deri.ie/scovo#whalb"
-                  "http://vocab.deri.ie/scovo#dayers"],
-   :dcat/downloadURL
+  {:dcat/downloadURL
    "https://lov.linkeddata.es/dataset/lov/vocabs/scovo/versions/2012-08-09.n3",
-   :dcterms/created #inst "2010-01-26T00:00:00.000-05:00",
-   :dcterms/description
-   "A vocabulary for representing statistical data on the Web.\r\n\r\n<div style=\"border: 2px solid red; padding: 0.4em 0.7em; background: #fcc\">Note: The SCOVO vocabulary is deprecated. We strongly advise to use the <a href=\"http://www.w3.org/TR/vocab-data-cube/\">Data Cube Vocabulary</a> instead.</div>",
-   :dcterms/modified #inst "2012-08-09T00:00:00.000-04:00",
-   :dcterms/publisher "http://vocab.deri.ie/scovo#LiDRC",
-   :dcterms/status "http://purl.org/adms/status/UnderDevelopment",
-   :dcterms/title "The Statistical Core Vocabulary (SCOVO)",
-   :dcterms/type "http://purl.org/adms/assettype/Ontology",
-   :foaf/homepage "http://vocab.deri.ie/scovo.html",
    :rdf/ns-prefix-map {"adms"    "http://www.w3.org/ns/adms#",
                        "dc11"    "http://purl.org/dc/elements/1.1/",
                        "dcterms" "http://purl.org/dc/terms/",
@@ -27,76 +11,69 @@
                        "scovo"   "http://purl.org/NET/scovo#",
                        "vann"    "http://purl.org/vocab/vann/",
                        "xsd"     "http://www.w3.org/2001/XMLSchema#"},
-   :rdf/type [:owl/Ontology :adms/SemanticAsset],
+   :rdf/type :rdfa/PrefixMapping,
    :rdfa/prefix "scovo",
-   :rdfa/uri "http://vocab.deri.ie/scovo",
-   :vann/preferredNamespacePrefix "scovo",
-   :vann/preferredNamespaceUri "http://purl.org/NET/scovo#"}
+   :rdfa/uri "http://purl.org/NET/scovo#"}
   (:refer-clojure :exclude [max min]))
 
 (def Dataset
   "a statistical dataset"
   {:db/ident        :scovo/Dataset,
    :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    "a statistical dataset",
-   :rdfs/label      "Dataset",
-   :rdfs/subClassOf [:rdfs/Resource :scovo/Dataset]})
+   :rdfs/comment    #xsd/string "a statistical dataset",
+   :rdfs/label      #xsd/string "Dataset",
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Dimension
   "a dimension of a statistical data item"
   {:db/ident        :scovo/Dimension,
    :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    "a dimension of a statistical data item",
-   :rdfs/label      "Dimension",
-   :rdfs/subClassOf [:rdfs/Resource :scovo/Dimension]})
+   :rdfs/comment    #xsd/string "a dimension of a statistical data item",
+   :rdfs/label      #xsd/string "Dimension",
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def Item
   "a statistical data item"
   {:db/ident        :scovo/Item,
    :rdf/type        [:rdfs/Class :owl/Class],
-   :rdfs/comment    "a statistical data item",
-   :rdfs/label      "Item",
-   :rdfs/subClassOf [:rdfs/Resource :scovo/Item]})
+   :rdfs/comment    #xsd/string "a statistical data item",
+   :rdfs/label      #xsd/string "Item",
+   :rdfs/subClassOf :rdfs/Resource})
 
 (def dataset
   "belongs to dataset"
-  {:db/ident           :scovo/dataset,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :scovo/Item,
-   :rdfs/label         "belongs to dataset",
-   :rdfs/range         :scovo/Dataset,
-   :rdfs/subPropertyOf :scovo/dataset})
+  {:db/ident    :scovo/dataset,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :scovo/Item,
+   :rdfs/label  #xsd/string "belongs to dataset",
+   :rdfs/range  :scovo/Dataset})
 
 (def datasetOf
   "is the dataset of"
-  {:db/ident           :scovo/datasetOf,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :scovo/Dataset,
-   :rdfs/label         "is the dataset of",
-   :rdfs/range         :scovo/Item,
-   :rdfs/subPropertyOf :scovo/datasetOf})
+  {:db/ident    :scovo/datasetOf,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :scovo/Dataset,
+   :rdfs/label  #xsd/string "is the dataset of",
+   :rdfs/range  :scovo/Item})
 
 (def dimension
   "has a dimension"
-  {:db/ident           :scovo/dimension,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :scovo/Item,
-   :rdfs/label         "has a dimension",
-   :rdfs/range         :scovo/Dimension,
-   :rdfs/subPropertyOf :scovo/dimension})
+  {:db/ident    :scovo/dimension,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :scovo/Item,
+   :rdfs/label  #xsd/string "has a dimension",
+   :rdfs/range  :scovo/Dimension})
 
 (def max
   "has a maximum range value"
-  {:db/ident           :scovo/max,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :scovo/Dimension,
-   :rdfs/label         "has a maximum range value",
-   :rdfs/subPropertyOf :scovo/max})
+  {:db/ident    :scovo/max,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :scovo/Dimension,
+   :rdfs/label  #xsd/string "has a maximum range value"})
 
 (def min
   "has a minimum range value"
-  {:db/ident           :scovo/min,
-   :rdf/type           :rdf/Property,
-   :rdfs/domain        :scovo/Dimension,
-   :rdfs/label         "has a minimum range value",
-   :rdfs/subPropertyOf :scovo/min})
+  {:db/ident    :scovo/min,
+   :rdf/type    :rdf/Property,
+   :rdfs/domain :scovo/Dimension,
+   :rdfs/label  #xsd/string "has a minimum range value"})

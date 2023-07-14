@@ -799,7 +799,9 @@
 (defmethod rdf-literal :default
   [^Node_Literal node]
   (let [uri (.getLiteralDatatypeURI node)]
-    (tagged-literal (symbol (kw uri)) (.getLiteralValue node))))
+    (if (instance? BaseDatatype$TypedValue (.getLiteralValue node))
+      (tagged-literal (symbol (kw uri)) (.-lexicalValue (.getLiteralValue node)))
+      (tagged-literal (symbol (kw uri)) (.getLiteralValue node)))))
 
 (extend-protocol g/AsClojureData
   Node_URI
@@ -1102,6 +1104,9 @@
         (some? (:dtype/value form))
         (box-value update :dtype/value)
 
+        (some? (:jsonschema/enum form))
+        (box-value update :jsonschema/enum)
+
         (seq (:owl/oneOf form))
         (box-value update :owl/oneOf)
 
@@ -1119,6 +1124,9 @@
 
         (some? (:dcterms/hasPart form))
         (box-value update :dcterms/hasPart)
+
+        (some? (:dcterms/creator form))
+        (box-value update :dcterms/creator)
 
         (some? (:rdfs/isDefinedBy form))
         (box-value update :rdfs/isDefinedBy)
@@ -1193,14 +1201,11 @@
         ontologies (->> (remove public? forms)
                         (filter :rdf/type)
                         (filter (fn [form]
-                                  (some #(or (isa? % :owl/Ontology)
-                                             (isa? % :voaf/Vocabulary)
-                                             (isa? % :madsrdf/MADSScheme))
-                                        (if (coll? (:rdf/type form))
-                                          (:rdf/type form)
-                                          [(:rdf/type form)])))))
-        the-ont    (or (first ontologies)
-                       (first (filter :rdfa/uri (remove public? forms))))
+                                  (let [t (mop/type-of form)]
+                                    (or (isa? t :owl/Ontology)
+                                        (isa? t :voaf/Vocabulary)
+                                        (isa? t :madsrdf/MADSScheme))))))
+        the-ont    (first ontologies)
         forms      (filter #(keyword? (:db/ident %)) forms)
         publics    (filter public? forms)
         privates   (->> (remove public? forms)
@@ -1230,6 +1235,7 @@
 
 (defmethod rdf-doc :default [_] nil)
 (defmethod rdf-doc clojure.lang.TaggedLiteral [x] (str (:form x)))
+(defmethod rdf-doc ont_app.vocabulary.lstr.LangStr [x] (str x))
 (defmethod rdf-doc String [x] x)
 (defmethod rdf-doc :rdfs/label [[k v]] (rdf-doc v))
 (defmethod rdf-doc :rdfs/comment [[k v]] (rdf-doc v))
@@ -1238,11 +1244,13 @@
 (defmethod rdf-doc :d3f/todo [_] nil)
 (defmethod rdf-doc :d3f/kb-article [_] nil)
 (defmethod rdf-doc :dc11/description [[k v]] (rdf-doc v))
+(defmethod rdf-doc :dc11/title [[k v]] (rdf-doc v))
 
 (prefer-method rdf-doc :rdfs/comment :rdfs/label)
 (prefer-method rdf-doc :d3f/definition :rdfs/comment)
 (prefer-method rdf-doc :d3f/definition :rdfs/label)
 (prefer-method rdf-doc :dc11/description :rdfs/comment)
+(prefer-method rdf-doc :dc11/title :rdfs/label)
 
 (defn get-prefs
   "Returns a sequence of dispatching keywords on multifn sorted by
@@ -1261,7 +1269,7 @@
   the key is a subclass of a preferred key."
   [m]
   (let [prefs (get-prefs rdf-doc)]
-    (some (fn [pref]
+    (some (fn [pref]            
             (when-some [kv (first (filter #(isa? (key %) pref) m))]
               (rdf-doc kv)))
           prefs)))

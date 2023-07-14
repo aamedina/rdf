@@ -1,7 +1,6 @@
 (ns net.wikipunk.rdf.sampling
-  "http://www.w3.org/ns/sosa/sampling/"
-  {:owl/imports       ["http://www.w3.org/ns/sosa/"
-                       "http://www.w3.org/2004/02/skos/core"],
+  {:owl/imports       [{:rdfa/uri "http://www.w3.org/ns/sosa/"}
+                       {:rdfa/uri "http://www.w3.org/2004/02/skos/core"}],
    :rdf/ns-prefix-map {"owl"      "http://www.w3.org/2002/07/owl#",
                        "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
@@ -15,63 +14,64 @@
    :rdfa/uri          "http://www.w3.org/ns/sosa/sampling/"})
 
 (def RelationshipNature
-  "Members of this class indicate the nature of a relationship between two samples"
+  "Nature of relationship (between samples)"
   {:db/ident :sampling/RelationshipNature,
    :rdf/type [:rdfs/Class :owl/Class],
-   :rdfs/label #voc/lstr "Nature of relationship (between samples)@en",
+   :rdfs/label #xsd/langString "Nature of relationship (between samples)@en",
    :rdfs/subClassOf [:rdfs/Resource :skos/Concept],
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "Members of this class indicate the nature of a relationship between two samples@en",
-   :skos/example ["Adjacent flight-line"
-                  "Probe spot on polished specimen"
-                  "Pixel within image or scene"
-                  "Sub-sample with grain size smaller than specified seive mesh"
-                  "Males"
-                  "Females"
-                  "Station along a traverse"
-                  "Specimen taken from borehole"
-                  "Split of core sample"
-                  "Juveniles"]})
+   :skos/example
+   [#xsd/string "Adjacent flight-line"
+    #xsd/string "Probe spot on polished specimen"
+    #xsd/string "Pixel within image or scene"
+    #xsd/string "Sub-sample with grain size smaller than specified seive mesh"
+    #xsd/string "Males"
+    #xsd/string "Females"
+    #xsd/string "Station along a traverse"
+    #xsd/string "Specimen taken from borehole"
+    #xsd/string "Split of core sample"
+    #xsd/string "Juveniles"]})
 
 (def SampleRelationship
-  "Members of this class represent a relationship between a sample and another"
+  "Sample relationship"
   {:db/ident :sampling/SampleRelationship,
    :rdf/type [:owl/Class :rdfs/Class],
-   :rdfs/label #voc/lstr "Sample relationship@en",
+   :rdfs/label #xsd/langString "Sample relationship@en",
    :rdfs/subClassOf :rdfs/Resource,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "Members of this class represent a relationship between a sample and another@en"})
 
 (def hasSampleRelationship
-  "Links a sample to a sample relationship (which links to a related sample)"
+  "has sample relationship"
   {:db/ident :sampling/hasSampleRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label #voc/lstr "has sample relationship@en",
+   :rdfs/label #xsd/langString "has sample relationship@en",
    :schema/domainIncludes :sosa/Sample,
    :schema/rangeIncludes :sampling/SampleRelationship,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "Links a sample to a sample relationship (which links to a related sample)@en"})
 
 (def natureOfRelationship
-  "Links a SampleRelationship to an indication of the nature of the relationship"
+  "nature of (sample) relationship"
   {:db/ident :sampling/natureOfRelationship,
    :rdf/type :owl/ObjectProperty,
-   :rdfs/label #voc/lstr "nature of (sample) relationship@en",
+   :rdfs/label #xsd/langString "nature of (sample) relationship@en",
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sampling/RelationshipNature,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "Links a SampleRelationship to an indication of the nature of the relationship@en"})
 
 (def relatedSample
-  "Links a sample relationship to the related sample"
+  "related sample"
   {:db/ident        :sampling/relatedSample,
    :rdf/type        :owl/ObjectProperty,
-   :rdfs/label      #voc/lstr "related sample@en",
+   :rdfs/label      #xsd/langString "related sample@en",
    :schema/domainIncludes :sampling/SampleRelationship,
    :schema/rangeIncludes :sosa/Sample,
-   :skos/definition #voc/lstr
+   :skos/definition #xsd/langString
                      "Links a sample relationship to the related sample@en"})

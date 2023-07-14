@@ -1,18 +1,21 @@
 (ns net.wikipunk.rdf.frbr
-  "This vocabulary is an expression in RDF of the concepts and relations described in the IFLA report on the Functional Requirements for Bibliographic Records (FRBR)."
-  {:cc/license "http://creativecommons.org/licenses/by/2.0/uk/",
-   :dc11/contributor "Bruce D'Arcus",
-   :dc11/creator ["Richard Newman" "Ian Davis <http://purl.org/NET/iand>"],
-   :dc11/date #inst "2005-08-10",
-   :dc11/identifier "http://purl.org/vocab/frbr/frbr-core-20050810",
-   :dc11/rights "Copyright © 2005 Richard Newman and Ian Davis",
-   :dc11/title #voc/lstr "Expression of Core FRBR Concepts in RDF@en",
-   :dcat/downloadURL "https://vocab.org/frbr/frbr-core-20050810.rdf",
-   :dcterms/hasFormat ["http://purl.org/vocab/frbr/frbr-core-20050810.rdf"
-                       "http://purl.org/vocab/frbr/frbr-core-20050810.html"],
-   :dcterms/isVersionOf "http://purl.org/vocab/frbr/core#",
-   :dcterms/issued #inst "2005-07-15",
-   :dcterms/replaces "http://purl.org/vocab/frbr/frbr-core-20050809",
+  "Expression of Core FRBR Concepts in RDF"
+  {:cc/license {:rdfa/uri "http://creativecommons.org/licenses/by/2.0/uk/"},
+   :dc11/contributor #xsd/string "Bruce D'Arcus",
+   :dc11/creator [#xsd/string "Ian Davis <http://purl.org/NET/iand>"
+                  #xsd/string "Richard Newman"],
+   :dc11/date #xsd/date #inst "2005-08-10T00:00:00.000-04:00",
+   :dc11/identifier #xsd/string "http://purl.org/vocab/frbr/frbr-core-20050810",
+   :dc11/rights #xsd/string "Copyright © 2005 Richard Newman and Ian Davis",
+   :dc11/title #xsd/langString "Expression of Core FRBR Concepts in RDF@en",
+   :dcat/downloadURL "resources/frbr-core-20050810.rdf",
+   :dcterms/hasFormat
+   [{:rdfa/uri "http://purl.org/vocab/frbr/frbr-core-20050810.rdf"}
+    {:rdfa/uri "http://purl.org/vocab/frbr/frbr-core-20050810.html"}],
+   :dcterms/isVersionOf {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :dcterms/issued #xsd/date #inst "2005-07-15T00:00:00.000-04:00",
+   :dcterms/replaces {:rdfa/uri
+                      "http://purl.org/vocab/frbr/frbr-core-20050809"},
    :rdf/ns-prefix-map {"cc"       "http://web.resource.org/cc/",
                        "dc11"     "http://purl.org/dc/elements/1.1/",
                        "dcmitype" "http://purl.org/dc/dcmitype/",
@@ -22,1536 +25,852 @@
                        "rdf"      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs"     "http://www.w3.org/2000/01/rdf-schema#",
                        "skos"     "http://www.w3.org/2004/02/skos/core#",
-                       "vann"     "http://purl.org/vocab/vann/"},
+                       "vann"     "http://purl.org/vocab/vann/",
+                       "xsd"      "http://www.w3.org/2001/XMLSchema#"},
    :rdf/type [:owl/Ontology :cc/Work],
    :rdfa/prefix "frbr",
-   :rdfa/uri "https://vocab.org/frbr/frbr-core-20050810.rdf",
+   :rdfa/uri
+   "file:///home/adrian/src/wikipunk/rdf/resources/frbr-core-20050810.rdf",
    :rdfs/comment
-   [#voc/lstr
-     "\n      This vocabulary is an expression in RDF of the concepts and relations described in the\n      IFLA report on the Functional Requirements for Bibliographic Records (FRBR). \n    @en"
-    #voc/lstr
-     "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    @en"],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-10",
-     :rdf/value
-     "Added experimental paraphrases to property and class descriptions"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-10",
-     :rdf/value    "Fixed type in film example and added creator and date"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-10",
-     :rdf/value    "Sorted properties and classes alphabetically by URI"}],
-   :skos/example "https://vocab.org/frbr/frbr-example-film-20050809.html",
-   :skos/historyNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-10",
-     :rdf/value
-     "Added alternate, alternateOf, reconfiguration, reconfigurationOf properties"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-10",
-     :rdf/value    "Item is now not a subclass of geo:SpatialThing"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-10",
-     :rdf/value    "Made domains and ranges of many properties more specific"}],
-   :vann/preferredNamespacePrefix "frbr",
-   :vann/preferredNamespaceUri "http://purl.org/vocab/frbr/core#"}
+   [#xsd/langString
+     "\n      This vocabulary is a work in progress, it includes RDF classes for the group 1, 2 and 3 entities\n      described by the FRBR report and properties corresponding to the core relationships between\n      those entities. It does not yet describe attributes of the entities. Where possible, appropriate \n      relationships with other vocabularies are included in order to place this vocabulary in the \n      context of existing RDF work.\n    @en"
+    #xsd/langString
+     "\n      This vocabulary is an expression in RDF of the concepts and relations described in the\n      IFLA report on the Functional Requirements for Bibliographic Records (FRBR). \n    @en"],
+   :skos/example
+   {:rdfa/uri
+    "file:///home/adrian/src/wikipunk/rdf/resources/frbr-example-film-20050809.html"},
+   :vann/preferredNamespacePrefix #xsd/string "frbr",
+   :vann/preferredNamespaceUri #xsd/string "http://purl.org/vocab/frbr/core#"}
   (:refer-clojure :exclude [complement]))
 
 (def Concept
-  "An abstract idea or notion."
+  "This class corresponds to the FRBR group three entity 'Concept'."
   {:db/ident :frbr/Concept,
-   :dcterms/issued #inst "2005-07-15",
    :owl/disjointWith [:frbr/Place :frbr/Object :frbr/Event],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "This class corresponds to the FRBR group three entity 'Concept'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "concept@en",
-   :rdfs/subClassOf [:frbr/Subject :skos/Concept :frbr/Concept],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}],
-   :skos/definition #voc/lstr "An abstract idea or notion.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-08",
-                      :rdf/value    "Made subclass of skos:Concept"}})
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "concept@en",
+   :rdfs/subClassOf [:frbr/Subject :skos/Concept],
+   :skos/definition #xsd/langString "An abstract idea or notion.@en"})
 
 (def CorporateBody
-  "An organization or group of individuals and/or other organizations."
+  "This class corresponds to the FRBR group two entity 'Corporate Body'."
   {:db/ident :frbr/CorporateBody,
-   :dcterms/issued #inst "2005-07-15",
    :owl/equivalentClass {:owl/unionOf [:foaf/Organization :foaf/Group],
                          :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "This class corresponds to the FRBR group two entity 'Corporate Body'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "corporate body@en",
-   :rdfs/subClassOf [:frbr/ResponsibleEntity :frbr/CorporateBody],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "corporate body@en",
+   :rdfs/subClassOf :frbr/ResponsibleEntity,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "An organization or group of individuals and/or other organizations.@en"})
 
 (def Endeavour
-  "Any of the products of artistic or creative endeavour."
+  "This class represents any one of the FRBR group one entities."
   {:db/ident :frbr/Endeavour,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/disjointWith [:frbr/ResponsibleEntity :frbr/Subject],
+   :owl/disjointWith [:frbr/Subject :frbr/ResponsibleEntity],
    :owl/equivalentClass
    {:owl/unionOf [:frbr/Expression :frbr/Item :frbr/Manifestation :frbr/Work],
     :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr "This class represents any one of the FRBR group one entities.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "endeavour@en",
-   :rdfs/subClassOf :frbr/Endeavour,
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+   #xsd/langString
+    "This class represents any one of the FRBR group one entities.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "endeavour@en",
    :skos/definition
-   #voc/lstr "Any of the products of artistic or creative endeavour.@en"})
+   #xsd/langString "Any of the products of artistic or creative endeavour.@en"})
 
 (def Event
-  "An action or occurrence."
+  "This class corresponds to the FRBR group three entity 'Event'."
   {:db/ident :frbr/Event,
-   :dcterms/issued #inst "2005-07-15",
    :owl/disjointWith [:frbr/Concept :frbr/Object :frbr/Place],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "This class corresponds to the FRBR group three entity 'Event'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "event@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "event@en",
    :rdfs/subClassOf [:frbr/Subject
-                     :frbr/Event],
-   :skos/changeNote [{:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-09",
-                      :rdf/value "Extracted definition from existing comment"}
-                     {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-08",
-                      :rdf/value    "Added comment"}],
-   :skos/definition #voc/lstr "An action or occurrence.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-08",
-                      :rdf/value    "Made subclass of owltime:Event"}})
+                     {:rdfa/uri
+                      "http://www.isi.edu/~pan/damltime/time-entry.owl#Event"}],
+   :skos/definition #xsd/langString "An action or occurrence.@en"})
 
 (def Expression
-  "A realization of a single work usually in a physical form."
+  "This class corresponds to the FRBR group one entity 'Expression'."
   {:db/ident :frbr/Expression,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/disjointWith [:frbr/Manifestation :frbr/Work :frbr/Item],
+   :owl/disjointWith [:frbr/Manifestation :frbr/Item :frbr/Work],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "This class corresponds to the FRBR group one entity 'Expression'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "expression@en",
-   :rdfs/subClassOf [:frbr/Endeavour :frbr/Expression],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}],
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "expression@en",
+   :rdfs/subClassOf :frbr/Endeavour,
    :skos/definition
-   #voc/lstr "A realization of a single work usually in a physical form.@en"})
+   #xsd/langString
+    "A realization of a single work usually in a physical form.@en"})
 
 (def Item
-  "An exemplar of a single manifestation."
+  "This class corresponds to the FRBR group one entity 'Item'."
   {:db/ident :frbr/Item,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/disjointWith [:frbr/Manifestation :frbr/Work :frbr/Expression],
+   :owl/disjointWith [:frbr/Manifestation :frbr/Expression :frbr/Work],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr "This class corresponds to the FRBR group one entity 'Item'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "item@en",
-   :rdfs/subClassOf [:frbr/Endeavour :frbr/Item],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
-   :skos/definition #voc/lstr "An exemplar of a single manifestation.@en",
-   :skos/historyNote [{:dc11/creator "Ian Davis",
-                       :dc11/date    #inst "2005-08-08",
-                       :rdf/value    "Made subclass of geo:SpatialThing"}
-                      {:dc11/creator "Ian Davis",
-                       :dc11/date    #inst "2005-08-10",
-                       :rdf/value    "Removed subclass of geo:SpatialThing"}]})
+   #xsd/langString
+    "This class corresponds to the FRBR group one entity 'Item'.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "item@en",
+   :rdfs/subClassOf :frbr/Endeavour,
+   :skos/definition #xsd/langString
+                     "An exemplar of a single manifestation.@en"})
 
 (def Manifestation
-  "The physical embodiment of one or more expressions."
+  "This class corresponds to the FRBR group one entity 'Manifestation'."
   {:db/ident :frbr/Manifestation,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/disjointWith [:frbr/Work :frbr/Expression :frbr/Item],
+   :owl/disjointWith [:frbr/Item :frbr/Expression :frbr/Work],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "This class corresponds to the FRBR group one entity 'Manifestation'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "manifestation@en",
-   :rdfs/subClassOf [:frbr/Endeavour :frbr/Manifestation],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
-   :skos/definition #voc/lstr
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "manifestation@en",
+   :rdfs/subClassOf :frbr/Endeavour,
+   :skos/definition #xsd/langString
                      "The physical embodiment of one or more expressions.@en"})
 
 (def ObjectClass
-  "A tangible or material thing."
+  "This class corresponds to the FRBR group three entity 'Object'."
   {:db/ident :frbr/Object,
-   :dcterms/issued #inst "2005-07-15",
    :owl/disjointWith [:frbr/Place :frbr/Event :frbr/Concept],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "This class corresponds to the FRBR group three entity 'Object'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "object@en",
-   :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject :frbr/Object],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
-   :skos/definition #voc/lstr "A tangible or material thing.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-08",
-                      :rdf/value    "Made subclass of geo:SpatialThing"}})
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "object@en",
+   :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject],
+   :skos/definition #xsd/langString "A tangible or material thing.@en"})
 
 (def Person
-  "A living or dead individual."
+  "This class corresponds to the FRBR group two entity 'Person'."
   {:db/ident :frbr/Person,
-   :dcterms/issued #inst "2005-08-08",
    :owl/disjointWith [:frbr/Subject :frbr/Endeavour],
    :owl/equivalentClass :foaf/Person,
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr "This class corresponds to the FRBR group two entity 'Person'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "person@en",
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}],
-   :skos/definition #voc/lstr "A living or dead individual.@en"})
+   #xsd/langString
+    "This class corresponds to the FRBR group two entity 'Person'.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "person@en",
+   :skos/definition #xsd/langString "A living or dead individual.@en"})
 
 (def Place
-  "A location."
+  "This class corresponds to the FRBR group three entity 'Place'."
   {:db/ident :frbr/Place,
-   :dcterms/issued #inst "2005-07-15",
    :owl/disjointWith [:frbr/Concept :frbr/Object :frbr/Event],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "This class corresponds to the FRBR group three entity 'Place'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "place@en",
-   :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject :frbr/Place],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
-   :skos/definition #voc/lstr "A location.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-08",
-                      :rdf/value    "Made subclass of geo:SpatialThing"}})
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "place@en",
+   :rdfs/subClassOf [:geo/SpatialThing :frbr/Subject],
+   :skos/definition #xsd/langString "A location.@en"})
 
 (def ResponsibleEntity
-  "One responsible for the creation, production, distribution or maintenance of artistic or creative content."
+  "This class represents any of the FRBR group two entities."
   {:db/ident :frbr/ResponsibleEntity,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/disjointWith [:frbr/Endeavour :frbr/Subject],
+   :owl/disjointWith [:frbr/Subject :frbr/Endeavour],
    :owl/equivalentClass {:owl/unionOf [:frbr/CorporateBody :foaf/Person],
                          :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr "This class represents any of the FRBR group two entities.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "responsible entity@en",
-   :rdfs/subClassOf :frbr/ResponsibleEntity,
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}],
+   #xsd/langString
+    "This class represents any of the FRBR group two entities.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "responsible entity@en",
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "One responsible for the creation, production, distribution or maintenance of artistic or creative content.@en"})
 
 (def Subject
-  "Something that may serve as the subject of a work."
+  "This class represents any of the FRBR group three entities."
   {:db/ident :frbr/Subject,
-   :dcterms/issued #inst "2005-07-15",
    :owl/disjointWith [:frbr/Endeavour :frbr/ResponsibleEntity],
    :owl/equivalentClass
    {:owl/unionOf [:frbr/Event :frbr/Object :frbr/Place :frbr/Concept],
     :rdf/type    :owl/Class},
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr "This class represents any of the FRBR group three entities.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "subject@en",
-   :rdfs/subClassOf :frbr/Subject,
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
-   :skos/definition #voc/lstr
+   #xsd/langString
+    "This class represents any of the FRBR group three entities.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "subject@en",
+   :skos/definition #xsd/langString
                      "Something that may serve as the subject of a work.@en"})
 
 (def Work
-  "An abstract notion of an artistic or intellectual creation."
+  "This class corresponds to the FRBR group one entity 'Work'."
   {:db/ident :frbr/Work,
-   :dcterms/issued #inst "2005-07-15",
    :owl/disjointWith [:frbr/Manifestation :frbr/Expression :frbr/Item],
    :rdf/type :owl/Class,
    :rdfs/comment
-   #voc/lstr "This class corresponds to the FRBR group one entity 'Work'.@en",
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "work@en",
-   :rdfs/subClassOf
-   [:frbr/Endeavour :frbr/Work],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-08",
-     :rdf/value    "Added comment"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Extracted definition from existing comment"}],
+   #xsd/langString
+    "This class corresponds to the FRBR group one entity 'Work'.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "work@en",
+   :rdfs/subClassOf [:frbr/Endeavour
+                     {:rdfa/uri "http://xmlns.com/wordnet/1.6/Work~2"}],
    :skos/definition
-   #voc/lstr "An abstract notion of an artistic or intellectual creation.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-08",
-                      :rdf/value    "Made subclass of wordnet:Work~2"}})
+   #xsd/langString
+    "An abstract notion of an artistic or intellectual creation.@en"})
 
 (def abridgement
-  "An abridgment of an expression."
-  {:db/ident :frbr/abridgement,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/abridgementOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "abridgement@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/abridgement],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "An abridgment of an expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
+  "abridgement"
+  {:db/ident           :frbr/abridgement,
+   :owl/inverseOf      :frbr/abridgementOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "abridgement@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An abridgment of an expression.@en"})
 
 (def abridgementOf
-  "An expression that is abridged."
-  {:db/ident :frbr/abridgementOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/abridgement,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "abridgement of@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/abridgementOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "An expression that is abridged.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
+  "abridgement of"
+  {:db/ident           :frbr/abridgementOf,
+   :owl/inverseOf      :frbr/abridgement,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "abridgement of@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An expression that is abridged.@en"})
 
 (def adaption
-  "An adaption of a work or expression."
-  {:db/ident :frbr/adaption,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/adaptionOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "adaption@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/adaption],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "An adaption of a work or expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "adaption"
+  {:db/ident           :frbr/adaption,
+   :owl/inverseOf      :frbr/adaptionOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "adaption@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "An adaption of a work or expression.@en"})
 
 (def adaptionOf
-  "A work or expression that is adapted."
-  {:db/ident :frbr/adaptionOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/adaption,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "adaption of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/adaptionOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A work or expression that is adapted.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "adaption of"
+  {:db/ident           :frbr/adaptionOf,
+   :owl/inverseOf      :frbr/adaption,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "adaption of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A work or expression that is adapted.@en"})
 
 (def alternate
-  "An alternative to a manifestation."
+  "alternate"
   {:db/ident           :frbr/alternate,
-   :dcterms/issued     #inst "2005-08-10",
    :owl/inverseOf      :frbr/alternateOf,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Manifestation,
-   :rdfs/isDefinedBy   "http://purl.org/vocab/frbr/core#",
-   :rdfs/label         #voc/lstr "alternate@en",
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "alternate@en",
    :rdfs/range         :frbr/Manifestation,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/alternate],
-   :skos/definition    #voc/lstr "An alternative to a manifestation.@en"})
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An alternative to a manifestation.@en"})
 
 (def alternateOf
-  "A manifestation that is alternated."
+  "alternate of"
   {:db/ident           :frbr/alternateOf,
-   :dcterms/issued     #inst "2005-08-10",
    :owl/inverseOf      :frbr/alternate,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Manifestation,
-   :rdfs/isDefinedBy   "http://purl.org/vocab/frbr/core#",
-   :rdfs/label         #voc/lstr "alternate of@en",
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "alternate of@en",
    :rdfs/range         :frbr/Manifestation,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/alternateOf],
-   :skos/definition    #voc/lstr "A manifestation that is alternated.@en"})
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A manifestation that is alternated.@en"})
 
 (def arrangement
-  "An arrangement of an expression."
-  {:db/ident :frbr/arrangement,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/arrangementOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "arrangement@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/arrangement],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "An arrangement of an expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
+  "arrangement"
+  {:db/ident           :frbr/arrangement,
+   :owl/inverseOf      :frbr/arrangementOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "arrangement@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An arrangement of an expression.@en"})
 
 (def arrangementOf
-  "An expression that is arranged."
-  {:db/ident :frbr/arrangementOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/arrangement,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "arrangement of@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/arrangementOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "An expression that is arranged.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
+  "arrangement of"
+  {:db/ident           :frbr/arrangementOf,
+   :owl/inverseOf      :frbr/arrangement,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "arrangement of@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An expression that is arranged.@en"})
 
 (def complement
-  "A complement to a work or expression."
-  {:db/ident :frbr/complement,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/complementOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "complement@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/complement],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "A complement to a work or expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "complement"
+  {:db/ident           :frbr/complement,
+   :owl/inverseOf      :frbr/complementOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "complement@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A complement to a work or expression.@en"})
 
 (def complementOf
-  "A work or expression that is complemented."
-  {:db/ident :frbr/complementOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/complement,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "complement of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/complementOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A work or expression that is complemented.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "complement of"
+  {:db/ident           :frbr/complementOf,
+   :owl/inverseOf      :frbr/complement,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "complement of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A work or expression that is complemented.@en"})
 
 (def creator
-  "An entity in some way responsible for the creation of a work."
+  "creator"
   {:db/ident :frbr/creator,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/creatorOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Work,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "creator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "creator@en",
    :rdfs/range :frbr/ResponsibleEntity,
-   :rdfs/subPropertyOf [:frbr/responsibleEntity :frbr/creator],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
+   :rdfs/subPropertyOf :frbr/responsibleEntity,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "An entity in some way responsible for the creation of a work.@en"})
 
 (def creatorOf
-  "A work that was in some way created by of an entity."
+  "creator of"
   {:db/ident :frbr/creatorOf,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/creator,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "creator of@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "creator of@en",
    :rdfs/range :frbr/Work,
-   :rdfs/subPropertyOf [:frbr/responsibleEntityOf :frbr/creatorOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr
+   :rdfs/subPropertyOf :frbr/responsibleEntityOf,
+   :skos/definition #xsd/langString
                      "A work that was in some way created by of an entity.@en"})
 
 (def embodiment
-  "A manifestation that embodies an expression."
-  {:db/ident :frbr/embodiment,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/embodimentOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "embodiment@en",
-   :rdfs/range :frbr/Manifestation,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/embodiment],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr
-                     "A manifestation that embodies an expression.@en"})
+  "embodiment"
+  {:db/ident           :frbr/embodiment,
+   :owl/inverseOf      :frbr/embodimentOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "embodiment@en",
+   :rdfs/range         :frbr/Manifestation,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A manifestation that embodies an expression.@en"})
 
 (def embodimentOf
-  "An expression that is embodied by a manifestation."
+  "embodiment of"
   {:db/ident :frbr/embodimentOf,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/embodiment,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Manifestation,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "embodiment of@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "embodiment of@en",
    :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/embodimentOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition #xsd/langString
                      "An expression that is embodied by a manifestation.@en"})
 
 (def exemplar
-  "An item that is an exemplar of a manifestation."
-  {:db/ident :frbr/exemplar,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/exemplarOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Manifestation,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "exemplar@en",
-   :rdfs/range :frbr/Item,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/exemplar],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr
-                     "An item that is an exemplar of a manifestation.@en"})
+  "exemplar"
+  {:db/ident           :frbr/exemplar,
+   :owl/inverseOf      :frbr/exemplarOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Manifestation,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "exemplar@en",
+   :rdfs/range         :frbr/Item,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "An item that is an exemplar of a manifestation.@en"})
 
 (def exemplarOf
-  "The manifestation that is exemplified by a item."
-  {:db/ident :frbr/exemplarOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/exemplar,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Item,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "exemplar of@en",
-   :rdfs/range :frbr/Manifestation,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/exemplarOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr
-                     "The manifestation that is exemplified by a item.@en"})
+  "exemplar of"
+  {:db/ident           :frbr/exemplarOf,
+   :owl/inverseOf      :frbr/exemplar,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Item,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "exemplar of@en",
+   :rdfs/range         :frbr/Manifestation,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "The manifestation that is exemplified by a item.@en"})
 
 (def imitation
-  "An imitation of a work or expression."
-  {:db/ident :frbr/imitation,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/imitationOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "imitation@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/imitation],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "An imitation of a work or expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "imitation"
+  {:db/ident           :frbr/imitation,
+   :owl/inverseOf      :frbr/imitationOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "imitation@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "An imitation of a work or expression.@en"})
 
 (def imitationOf
-  "A work or expression that is imitated."
-  {:db/ident :frbr/imitationOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/imitation,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "imitation of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/imitationOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "A work or expression that is imitated.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "imitation of"
+  {:db/ident           :frbr/imitationOf,
+   :owl/inverseOf      :frbr/imitation,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "imitation of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A work or expression that is imitated.@en"})
 
 (def owner
-  "An entity that owns an item."
-  {:db/ident :frbr/owner,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/ownerOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Item,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "owner@en",
-   :rdfs/range :frbr/ResponsibleEntity,
-   :rdfs/subPropertyOf [:frbr/responsibleEntity :frbr/owner],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "An entity that owns an item.@en"})
+  "owner"
+  {:db/ident           :frbr/owner,
+   :owl/inverseOf      :frbr/ownerOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Item,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "owner@en",
+   :rdfs/range         :frbr/ResponsibleEntity,
+   :rdfs/subPropertyOf :frbr/responsibleEntity,
+   :skos/definition    #xsd/langString "An entity that owns an item.@en"})
 
 (def ownerOf
-  "An item that is in some way owned an entity."
-  {:db/ident :frbr/ownerOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/owner,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/ResponsibleEntity,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "owner of@en",
-   :rdfs/range :frbr/Item,
-   :rdfs/subPropertyOf [:frbr/responsibleEntityOf :frbr/ownerOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr
-                     "An item that is in some way owned an entity.@en"})
+  "owner of"
+  {:db/ident           :frbr/ownerOf,
+   :owl/inverseOf      :frbr/owner,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/ResponsibleEntity,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "owner of@en",
+   :rdfs/range         :frbr/Item,
+   :rdfs/subPropertyOf :frbr/responsibleEntityOf,
+   :skos/definition    #xsd/langString
+                        "An item that is in some way owned an entity.@en"})
 
 (def part
-  "A part of an endeavour."
-  {:db/ident :frbr/part,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/partOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "part@en",
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/part],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A part of an endeavour.@en"})
+  "part"
+  {:db/ident           :frbr/part,
+   :owl/inverseOf      :frbr/partOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "part@en",
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "A part of an endeavour.@en"})
 
 (def partOf
-  "An endeavour incorporating an endeavour."
-  {:db/ident :frbr/partOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/part,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "part of@en",
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/partOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "An endeavour incorporating an endeavour.@en"})
+  "part of"
+  {:db/ident           :frbr/partOf,
+   :owl/inverseOf      :frbr/part,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "part of@en",
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "An endeavour incorporating an endeavour.@en"})
 
 (def producer
-  "An entity in some way responsible for producing a manifestation."
+  "producer"
   {:db/ident :frbr/producer,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/producerOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Manifestation,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "producer@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "producer@en",
    :rdfs/range :frbr/ResponsibleEntity,
-   :rdfs/subPropertyOf [:frbr/responsibleEntity :frbr/producer],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
+   :rdfs/subPropertyOf :frbr/responsibleEntity,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "An entity in some way responsible for producing a manifestation.@en"})
 
 (def producerOf
-  "A manifestation that was in some way produced an entity."
+  "producer of"
   {:db/ident :frbr/producerOf,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/producer,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "producer of@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "producer of@en",
    :rdfs/range :frbr/Manifestation,
-   :rdfs/subPropertyOf [:frbr/responsibleEntityOf :frbr/producerOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+   :rdfs/subPropertyOf :frbr/responsibleEntityOf,
    :skos/definition
-   #voc/lstr "A manifestation that was in some way produced an entity.@en"})
+   #xsd/langString
+    "A manifestation that was in some way produced an entity.@en"})
 
 (def realization
-  "An expression that is an intellectual or artistic realization of a work."
+  "realization"
   {:db/ident :frbr/realization,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/realizationOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Work,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "realization@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "realization@en",
    :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/realization],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "An expression that is an intellectual or artistic realization of a work.@en"})
 
 (def realizationOf
-  "The work that has been realized by an expression."
-  {:db/ident :frbr/realizationOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/realization,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "realization of@en",
-   :rdfs/range :frbr/Work,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/realizationOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr
-                     "The work that has been realized by an expression.@en"})
+  "realization of"
+  {:db/ident           :frbr/realizationOf,
+   :owl/inverseOf      :frbr/realization,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "realization of@en",
+   :rdfs/range         :frbr/Work,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "The work that has been realized by an expression.@en"})
 
 (def realizer
-  "An entity in some way responsible for realizing an expression."
+  "realizer"
   {:db/ident :frbr/realizer,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/realizerOf,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "realizer@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "realizer@en",
    :rdfs/range :frbr/ResponsibleEntity,
-   :rdfs/subPropertyOf [:frbr/responsibleEntity :frbr/realizer],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
+   :rdfs/subPropertyOf :frbr/responsibleEntity,
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "An entity in some way responsible for realizing an expression.@en"})
 
 (def realizerOf
-  "An expression that was in some way realized by an entity."
+  "realizer of"
   {:db/ident :frbr/realizerOf,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/realizer,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "realizer of@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "realizer of@en",
    :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/responsibleEntityOf :frbr/realizerOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
+   :rdfs/subPropertyOf :frbr/responsibleEntityOf,
    :skos/definition
-   #voc/lstr "An expression that was in some way realized by an entity.@en"})
+   #xsd/langString
+    "An expression that was in some way realized by an entity.@en"})
 
 (def reconfiguration
-  "A recongifuration of an item."
+  "reconfiguration"
   {:db/ident           :frbr/reconfiguration,
-   :dcterms/issued     #inst "2005-08-10",
    :owl/inverseOf      :frbr/reconfigurationOf,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Item,
-   :rdfs/isDefinedBy   "http://purl.org/vocab/frbr/core#",
-   :rdfs/label         #voc/lstr "reconfiguration@en",
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "reconfiguration@en",
    :rdfs/range         :frbr/Item,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/reconfiguration],
-   :skos/definition    #voc/lstr "A recongifuration of an item.@en"})
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "A recongifuration of an item.@en"})
 
 (def reconfigurationOf
-  "An item that is reconfigured."
+  "reconfiguration of"
   {:db/ident           :frbr/reconfigurationOf,
-   :dcterms/issued     #inst "2005-08-10",
    :owl/inverseOf      :frbr/reconfiguration,
    :rdf/type           :owl/ObjectProperty,
    :rdfs/domain        :frbr/Item,
-   :rdfs/isDefinedBy   "http://purl.org/vocab/frbr/core#",
-   :rdfs/label         #voc/lstr "reconfiguration of@en",
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "reconfiguration of@en",
    :rdfs/range         :frbr/Item,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/reconfigurationOf],
-   :skos/definition    #voc/lstr "An item that is reconfigured.@en"})
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An item that is reconfigured.@en"})
 
 (def relatedEndeavour
-  "Another endeavour that is related in some way to an endeavour."
+  "related endeavour"
   {:db/ident :frbr/relatedEndeavour,
-   :dcterms/issued #inst "2005-07-15",
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/Endeavour,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "related endeavour@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "related endeavour@en",
    :rdfs/range :frbr/Endeavour,
-   :rdfs/subPropertyOf :frbr/relatedEndeavour,
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
    :skos/definition
-   #voc/lstr
+   #xsd/langString
     "Another endeavour that is related in some way to an endeavour.@en"})
 
 (def reproduction
-  "A reproduction of a manifestation or item."
-  {:db/ident :frbr/reproduction,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/reproductionOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Manifestation :frbr/Item],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "reproduction@en",
-   :rdfs/range {:owl/unionOf [:frbr/Manifestation :frbr/Item],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/reproduction],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "A reproduction of a manifestation or item.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Manifestation or Item"}})
+  "reproduction"
+  {:db/ident           :frbr/reproduction,
+   :owl/inverseOf      :frbr/reproductionOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Manifestation :frbr/Item],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "reproduction@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Manifestation :frbr/Item],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A reproduction of a manifestation or item.@en"})
 
 (def reproductionOf
-  "A manifestation or item that is reproduced."
-  {:db/ident :frbr/reproductionOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/reproduction,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Manifestation :frbr/Item],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "reproduction of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Manifestation :frbr/Item],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/reproductionOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A manifestation or item that is reproduced.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Manifestation or Item"}})
+  "reproduction of"
+  {:db/ident           :frbr/reproductionOf,
+   :owl/inverseOf      :frbr/reproduction,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Manifestation :frbr/Item],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "reproduction of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Manifestation :frbr/Item],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A manifestation or item that is reproduced.@en"})
 
 (def responsibleEntity
-  "An entity in some way responsible for an endeavour."
-  {:db/ident :frbr/responsibleEntity,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/responsibleEntityOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Endeavour,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "responsible entity@en",
-   :rdfs/range :frbr/ResponsibleEntity,
-   :rdfs/subPropertyOf :frbr/responsibleEntity,
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr
-                     "An entity in some way responsible for an endeavour.@en"})
+  "responsible entity"
+  {:db/ident         :frbr/responsibleEntity,
+   :owl/inverseOf    :frbr/responsibleEntityOf,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/domain      :frbr/Endeavour,
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label       #xsd/langString "responsible entity@en",
+   :rdfs/range       :frbr/ResponsibleEntity,
+   :skos/definition  #xsd/langString
+                      "An entity in some way responsible for an endeavour.@en"})
 
 (def responsibleEntityOf
-  "An endeavour that is the responsibility of an entity."
+  "responsible entity of"
   {:db/ident :frbr/responsibleEntityOf,
-   :dcterms/issued #inst "2005-07-15",
    :owl/inverseOf :frbr/responsibleEntity,
    :rdf/type :owl/ObjectProperty,
    :rdfs/domain :frbr/ResponsibleEntity,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "responsible entity of@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label #xsd/langString "responsible entity of@en",
    :rdfs/range :frbr/Endeavour,
-   :rdfs/subPropertyOf :frbr/responsibleEntityOf,
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
    :skos/definition
-   #voc/lstr "An endeavour that is the responsibility of an entity.@en"})
+   #xsd/langString "An endeavour that is the responsibility of an entity.@en"})
 
 (def revision
-  "A revision of an expression."
-  {:db/ident :frbr/revision,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/revisionOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "revision@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/revision],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A revision of an expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
+  "revision"
+  {:db/ident           :frbr/revision,
+   :owl/inverseOf      :frbr/revisionOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "revision@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "A revision of an expression.@en"})
 
 (def revisionOf
-  "An expression that is revised."
-  {:db/ident :frbr/revisionOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/revision,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "revision of@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/revisionOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "An expression that is revised.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
+  "revision of"
+  {:db/ident           :frbr/revisionOf,
+   :owl/inverseOf      :frbr/revision,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "revision of@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An expression that is revised.@en"})
 
 (def subject
-  "The subject of a work."
-  {:db/ident :frbr/subject,
-   :dcterms/issued #inst "2005-07-15",
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Work,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "subject@en",
-   :rdfs/range
-   {:owl/unionOf [:frbr/Endeavour :frbr/ResponsibleEntity :frbr/Subject],
-    :rdf/type    :owl/Class},
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "The subject of a work.@en"})
+  "subject"
+  {:db/ident         :frbr/subject,
+   :rdf/type         :owl/ObjectProperty,
+   :rdfs/domain      :frbr/Work,
+   :rdfs/isDefinedBy {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label       #xsd/langString "subject@en",
+   :rdfs/range       {:owl/unionOf [:frbr/Endeavour
+                                    :frbr/ResponsibleEntity
+                                    :frbr/Subject],
+                      :rdf/type    :owl/Class},
+   :skos/definition  #xsd/langString "The subject of a work.@en"})
 
 (def successor
-  "A successor to a work or expression."
-  {:db/ident :frbr/successor,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/successorOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "successor@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/successor],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A successor to a work or expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "successor"
+  {:db/ident           :frbr/successor,
+   :owl/inverseOf      :frbr/successorOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "successor@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A successor to a work or expression.@en"})
 
 (def successorOf
-  "A work or expression that is succeeded."
-  {:db/ident :frbr/successorOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/successor,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "successor of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/successorOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "A work or expression that is succeeded.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "successor of"
+  {:db/ident           :frbr/successorOf,
+   :owl/inverseOf      :frbr/successor,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "successor of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A work or expression that is succeeded.@en"})
 
 (def summarization
-  "A summarization of a work or expression."
-  {:db/ident :frbr/summarization,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/summarizationOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "summarization@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/summarization],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A summarization of a work or expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "summarization"
+  {:db/ident           :frbr/summarization,
+   :owl/inverseOf      :frbr/summarizationOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "summarization@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A summarization of a work or expression.@en"})
 
 (def summarizationOf
-  "A work or expression that is summarized."
-  {:db/ident :frbr/summarizationOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/summarization,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "summarization of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/summarizationOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "A work or expression that is summarized.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "summarization of"
+  {:db/ident           :frbr/summarizationOf,
+   :owl/inverseOf      :frbr/summarization,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "summarization of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A work or expression that is summarized.@en"})
 
 (def supplement
-  "A supplement to a work or expression."
-  {:db/ident :frbr/supplement,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/supplementOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "supplement@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/supplement],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "A supplement to a work or expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "supplement"
+  {:db/ident           :frbr/supplement,
+   :owl/inverseOf      :frbr/supplementOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "supplement@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A supplement to a work or expression.@en"})
 
 (def supplementOf
-  "A work or expression that is supplemented."
-  {:db/ident :frbr/supplementOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/supplement,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "supplement of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/supplementOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A work or expression that is supplemented.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "supplement of"
+  {:db/ident           :frbr/supplementOf,
+   :owl/inverseOf      :frbr/supplement,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "supplement of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A work or expression that is supplemented.@en"})
 
 (def transformation
-  "A transformation of a work or expression."
-  {:db/ident :frbr/transformation,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/transformationOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "transformation@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/transformation],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A transformation of a work or expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "transformation"
+  {:db/ident           :frbr/transformation,
+   :owl/inverseOf      :frbr/transformationOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "transformation@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A transformation of a work or expression.@en"})
 
 (def transformationOf
-  "A work or expression that is transformed."
-  {:db/ident :frbr/transformationOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/transformation,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain {:owl/unionOf [:frbr/Work :frbr/Expression],
-                 :rdf/type    :owl/Class},
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "transformation of@en",
-   :rdfs/range {:owl/unionOf [:frbr/Work :frbr/Expression],
-                :rdf/type    :owl/Class},
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/transformationOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "A work or expression that is transformed.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date #inst "2005-08-10",
-                      :rdf/value
-                      "Added domain and range of Work or Expression"}})
+  "transformation of"
+  {:db/ident           :frbr/transformationOf,
+   :owl/inverseOf      :frbr/transformation,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "transformation of@en",
+   :rdfs/range         {:owl/unionOf [:frbr/Work :frbr/Expression],
+                        :rdf/type    :owl/Class},
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString
+                        "A work or expression that is transformed.@en"})
 
 (def translation
-  "A translation of an expression."
-  {:db/ident :frbr/translation,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/translationOf,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "translation@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/translation],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}],
-   :skos/definition #voc/lstr "A translation of an expression.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
+  "translation"
+  {:db/ident           :frbr/translation,
+   :owl/inverseOf      :frbr/translationOf,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "translation@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "A translation of an expression.@en"})
 
 (def translationOf
-  "An expression that is translated."
-  {:db/ident :frbr/translationOf,
-   :dcterms/issued #inst "2005-07-15",
-   :owl/inverseOf :frbr/translation,
-   :rdf/type :owl/ObjectProperty,
-   :rdfs/domain :frbr/Expression,
-   :rdfs/isDefinedBy "http://purl.org/vocab/frbr/core#",
-   :rdfs/label #voc/lstr "translation of@en",
-   :rdfs/range :frbr/Expression,
-   :rdfs/subPropertyOf [:frbr/relatedEndeavour :frbr/translationOf],
-   :skos/changeNote
-   [{:dc11/creator "Ian Davis",
-     :dc11/date #inst "2005-08-08",
-     :rdf/value "Added isDefinedBy property referring to FRBR core namespace"}
-    {:dc11/creator "Ian Davis",
-     :dc11/date    #inst "2005-08-09",
-     :rdf/value    "Added definition"}],
-   :skos/definition #voc/lstr "An expression that is translated.@en",
-   :skos/historyNote {:dc11/creator "Ian Davis",
-                      :dc11/date    #inst "2005-08-10",
-                      :rdf/value    "Added domain and range of Expression"}})
-
-;; (def ^{:private true} Attribution
-;;   {:db/ident :cc/Attribution,
-;;    :rdf/type :cc/Requirement})
-
-;; (def ^{:private true} DerivativeWorks
-;;   {:db/ident :cc/DerivativeWorks,
-;;    :rdf/type :cc/Permission})
-
-;; (def ^{:private true} Distribution
-;;   {:db/ident :cc/Distribution,
-;;    :rdf/type :cc/Permission})
-
-;; (def ^{:private true} License
-;;   {:db/ident :cc/License,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} Notice
-;;   {:db/ident :cc/Notice,
-;;    :rdf/type :cc/Requirement})
-
-;; (def ^{:private true} Permission
-;;   {:db/ident :cc/Permission,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} Reproduction
-;;   {:db/ident :cc/Reproduction,
-;;    :rdf/type :cc/Permission})
-
-;; (def ^{:private true} Requirement
-;;   {:db/ident :cc/Requirement,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} license
-;;   {:db/ident :cc/license,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} permits
-;;   {:db/ident :cc/permits,
-;;    :rdf/type :owl/ObjectProperty})
-
-;; (def ^{:private true} requires
-;;   {:db/ident :cc/requires,
-;;    :rdf/type :owl/ObjectProperty})
-
-;; (def ^{:private true} Text
-;;   {:db/ident :dcmitype/Text,
-;;    :rdf/type :owl/Class})
-
-;; (def ^{:private true} Group
-;;   {:db/ident        :foaf/Group,
-;;    :rdf/type        :owl/Class,
-;;    :rdfs/subClassOf [:frbr/CorporateBody :foaf/Group :frbr/ResponsibleEntity]})
-
-;; (def ^{:private true} Organization
-;;   {:db/ident        :foaf/Organization,
-;;    :rdf/type        :owl/Class,
-;;    :rdfs/subClassOf [:frbr/CorporateBody
-;;                      :foaf/Organization
-;;                      :frbr/ResponsibleEntity]})
-
-;; (def ^{:private true} Person
-;;   {:db/ident        :foaf/Person,
-;;    :rdf/type        :owl/Class,
-;;    :rdfs/subClassOf [:frbr/ResponsibleEntity :foaf/Person]})
-
-;; (def ^{:private true} SpatialThing
-;;   {:db/ident        :geo/SpatialThing,
-;;    :rdf/type        :owl/Class,
-;;    :rdfs/subClassOf :geo/SpatialThing})
-
-;; (def ^{:private true} Concept
-;;   {:db/ident        :skos/Concept,
-;;    :rdf/type        :owl/Class,
-;;    :rdfs/subClassOf :skos/Concept})
-
-;; (def ^{:private true} changes
-;;   {:db/ident :vann/changes,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} preferredNamespacePrefix
-;;   {:db/ident :vann/preferredNamespacePrefix,
-;;    :rdf/type :owl/AnnotationProperty})
-
-;; (def ^{:private true} preferredNamespaceUri
-;;   {:db/ident :vann/preferredNamespaceUri,
-;;    :rdf/type :owl/AnnotationProperty})
+  "translation of"
+  {:db/ident           :frbr/translationOf,
+   :owl/inverseOf      :frbr/translation,
+   :rdf/type           :owl/ObjectProperty,
+   :rdfs/domain        :frbr/Expression,
+   :rdfs/isDefinedBy   {:rdfa/uri "http://purl.org/vocab/frbr/core#"},
+   :rdfs/label         #xsd/langString "translation of@en",
+   :rdfs/range         :frbr/Expression,
+   :rdfs/subPropertyOf :frbr/relatedEndeavour,
+   :skos/definition    #xsd/langString "An expression that is translated.@en"})

@@ -146,6 +146,10 @@
   [_]
   nil)
 
+(defmethod infer-datomic-type :rdfa/uri [_] :db.type/string)
+(defmethod infer-datomic-cardinality :rdfa/uri [_] :db.cardinality/one)
+(defmethod infer-datomic-unique :rdfa/uri [_] :db.unique/identity)
+
 (defmethod infer-datomic-type :rdf/Property
   [ident]
   (let [{:rdfs/keys   [range]
@@ -181,6 +185,8 @@
 
 (prefer-method infer-datomic-type :rdfs/Literal :rdfs/Datatype)
 
+(defmethod infer-datomic-type :rdfa/term [_] :db.type/string)
+(defmethod infer-datomic-type :rdfa/prefix [_] :db.type/string)
 (defmethod infer-datomic-type :owl/AnnotationProperty [_] :db.type/string)
 (defmethod infer-datomic-type :owl/real [_] :db.type/bigdec)
 (defmethod infer-datomic-type :xsd/base64Binary [_] :db.type/string)
@@ -230,8 +236,8 @@
 (defmethod infer-datomic-type :schema/URL [_] :db.type/ref)
 (defmethod infer-datomic-type :vs/term_status [_] :db.type/string)
 (defmethod infer-datomic-type :dcterms/created [_] :db.type/instant)
-(defmethod infer-datomic-type :dcterms/source [_] :db.type/string)
-(defmethod infer-datomic-type :dc11/creator [_] :db.type/string)
+(defmethod infer-datomic-type :dc11/creator [_] :db.type/ref)
+(defmethod infer-datomic-type :dcterms/creator [_] :db.type/ref)
 (defmethod infer-datomic-type :dc11/date [_] :db.type/instant)
 (defmethod infer-datomic-type :dc11/description [_] :db.type/string)
 (defmethod infer-datomic-type :dc11/title [_] :db.type/string)
@@ -250,6 +256,7 @@
 (defmethod infer-datomic-type :sh/maxCount [_] :db.type/long)
 (defmethod infer-datomic-type :vs/moreinfo [_] :db.type/string)
 (defmethod infer-datomic-type :vaem/url [_] :db.type/string)
+(defmethod infer-datomic-type :vaem/acronym [_] :db.type/string)
 (defmethod infer-datomic-type :voag/url [_] :db.type/string)
 (defmethod infer-datomic-type :org/roleProperty [_] :db.type/ref)
 (defmethod infer-datomic-type :xsd/anyURI [_] :db.type/string)
@@ -271,6 +278,14 @@
 (defmethod infer-datomic-type :lv2.pg/harmonicDegree [_] :db.type/long)
 (defmethod infer-datomic-type :lv2.pg/harmonicIndex [_] :db.type/long)
 (defmethod infer-datomic-type :lv2/minimum [_] :db.type/long)
+(defmethod infer-datomic-type :jsonschema/minimum [_] :db.type/double)
+(defmethod infer-datomic-type :jsonschema/maximum [_] :db.type/double)
+(defmethod infer-datomic-type :jsonschema/exclusiveMaximum [_] :db.type/double)
+(defmethod infer-datomic-type :jsonschema/exclusiveMinimum [_] :db.type/double)
+(defmethod infer-datomic-type :jsonschema/multipleOf [_] :db.type/double)
+(defmethod infer-datomic-type :keys/mode [_] :db.type/string)
+(defmethod infer-datomic-type :vann/example [_] :db.type/ref)
+(defmethod infer-datomic-type :vaem/usesNonImportedResource [_] :db.type/ref)
 
 (defmethod infer-datomic-type :default
   [x]

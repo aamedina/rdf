@@ -1,5 +1,4 @@
 (ns net.wikipunk.rdf.sh
-  "http://www.w3.org/ns/shacl-shacl#"
   {:rdf/ns-prefix-map {"owl"  "http://www.w3.org/2002/07/owl#",
                        "rdf"  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                        "rdfs" "http://www.w3.org/2000/01/rdf-schema#",
@@ -15,10 +14,10 @@
   {:db/ident :sh/AbstractResult,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The base class of validation results, typically not instantiated directly.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Abstract result@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Abstract result@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def AndConstraintComponent
@@ -26,58 +25,59 @@
   {:db/ident :sh/AndConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to test whether a value node conforms to all members of a provided list of shapes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "And constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "And constraint component@en",
    :sh/parameter :sh/AndConstraintComponent-and})
 
 (def AndConstraintComponent-and
   {:db/ident         :sh/AndConstraintComponent-and,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/and})
 
 (def BlankNode
   "The node kind of all blank nodes."
   {:db/ident         :sh/BlankNode,
    :rdf/type         [:sh/NodeKind :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "The node kind of all blank nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Blank node@en"})
+   :rdfs/comment     #xsd/langString "The node kind of all blank nodes.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Blank node@en"})
 
 (def BlankNodeOrIRI
   "The node kind of all blank nodes or IRIs."
   {:db/ident         :sh/BlankNodeOrIRI,
    :rdf/type         [:sh/NodeKind :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "The node kind of all blank nodes or IRIs.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Blank node or IRI@en"})
+   :rdfs/comment     #xsd/langString
+                      "The node kind of all blank nodes or IRIs.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Blank node or IRI@en"})
 
 (def BlankNodeOrLiteral
   "The node kind of all blank nodes or literals."
   {:db/ident         :sh/BlankNodeOrLiteral,
    :rdf/type         [:sh/NodeKind :rdfs/Resource],
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "The node kind of all blank nodes or literals.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Blank node or literal@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Blank node or literal@en"})
 
 (def ClassConstraintComponent
   "A constraint component that can be used to verify that each value node is an instance of a given type."
   {:db/ident :sh/ClassConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that each value node is an instance of a given type.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Class constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Class constraint component@en",
    :sh/parameter :sh/ClassConstraintComponent-class})
 
 (def ClassConstraintComponent-class
   {:db/ident         :sh/ClassConstraintComponent-class,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/nodeKind      :sh/IRI,
    :sh/path          :sh/class})
 
@@ -86,34 +86,34 @@
   {:db/ident :sh/ClosedConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to indicate that focus nodes must only have values for those properties that have been explicitly enumerated via sh:property/sh:path.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Closed constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Closed constraint component@en",
    :sh/parameter [:sh/ClosedConstraintComponent-ignoredProperties
                   :sh/ClosedConstraintComponent-closed]})
 
 (def ClosedConstraintComponent-closed
   {:db/ident         :sh/ClosedConstraintComponent-closed,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/boolean,
    :sh/path          :sh/closed})
 
 (def ClosedConstraintComponent-ignoredProperties
   {:db/ident         :sh/ClosedConstraintComponent-ignoredProperties,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/optional      true,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/optional      #xsd/boolean true,
    :sh/path          :sh/ignoredProperties})
 
 (def ConstraintComponent
   "The class of constraint components."
   {:db/ident         :sh/ConstraintComponent,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     #voc/lstr "The class of constraint components.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Constraint component@en",
+   :rdfs/comment     #xsd/langString "The class of constraint components.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Constraint component@en",
    :rdfs/subClassOf  [:sh/Parameterizable :rdfs/Resource]})
 
 (def DatatypeConstraintComponent
@@ -121,17 +121,17 @@
   {:db/ident :sh/DatatypeConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the datatype of all value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Datatype constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Datatype constraint component@en",
    :sh/parameter :sh/DatatypeConstraintComponent-datatype})
 
 (def DatatypeConstraintComponent-datatype
   {:db/ident         :sh/DatatypeConstraintComponent-datatype,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/maxCount      1,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/maxCount      #xsd/integer 1,
    :sh/nodeKind      :sh/IRI,
    :sh/path          :sh/datatype})
 
@@ -140,16 +140,16 @@
   {:db/ident :sh/DisjointConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that the set of value nodes is disjoint with the the set of nodes that have the focus node as subject and the value of a given property as predicate.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Disjoint constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Disjoint constraint component@en",
    :sh/parameter :sh/DisjointConstraintComponent-disjoint})
 
 (def DisjointConstraintComponent-disjoint
   {:db/ident         :sh/DisjointConstraintComponent-disjoint,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/nodeKind      :sh/IRI,
    :sh/path          :sh/disjoint})
 
@@ -158,16 +158,16 @@
   {:db/ident :sh/EqualsConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that the set of value nodes is equal to the set of nodes that have the focus node as subject and the value of a given property as predicate.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Equals constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Equals constraint component@en",
    :sh/parameter :sh/EqualsConstraintComponent-equals})
 
 (def EqualsConstraintComponent-equals
   {:db/ident         :sh/EqualsConstraintComponent-equals,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/nodeKind      :sh/IRI,
    :sh/path          :sh/equals})
 
@@ -176,25 +176,25 @@
   {:db/ident :sh/ExpressionConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that a given node expression produces true for all value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Expression constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Expression constraint component@en",
    :sh/parameter :sh/ExpressionConstraintComponent-expression})
 
 (def ExpressionConstraintComponent-expression
   {:db/ident         :sh/ExpressionConstraintComponent-expression,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/expression})
 
 (def Function
   "The class of SHACL functions."
   {:db/ident         :sh/Function,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     #voc/lstr "The class of SHACL functions.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Function@en",
+   :rdfs/comment     #xsd/langString "The class of SHACL functions.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Function@en",
    :rdfs/subClassOf  [:sh/Parameterizable :rdfs/Resource]})
 
 (def HasValueConstraintComponent
@@ -202,75 +202,77 @@
   {:db/ident :sh/HasValueConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that one of the value nodes is a given RDF node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Has-value constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Has-value constraint component@en",
    :sh/parameter :sh/HasValueConstraintComponent-hasValue})
 
 (def HasValueConstraintComponent-hasValue
   {:db/ident         :sh/HasValueConstraintComponent-hasValue,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/hasValue})
 
 (def IRI
   "The node kind of all IRIs."
   {:db/ident         :sh/IRI,
    :rdf/type         [:sh/NodeKind :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "The node kind of all IRIs.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "IRI@en"})
+   :rdfs/comment     #xsd/langString "The node kind of all IRIs.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "IRI@en"})
 
 (def IRIOrLiteral
   "The node kind of all IRIs or literals."
   {:db/ident         :sh/IRIOrLiteral,
    :rdf/type         [:sh/NodeKind :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "The node kind of all IRIs or literals.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "IRI or literal@en"})
+   :rdfs/comment     #xsd/langString
+                      "The node kind of all IRIs or literals.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "IRI or literal@en"})
 
 (def InConstraintComponent
   "A constraint component that can be used to exclusively enumerate the permitted value nodes."
   {:db/ident :sh/InConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to exclusively enumerate the permitted value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "In constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "In constraint component@en",
    :sh/parameter :sh/InConstraintComponent-in})
 
 (def InConstraintComponent-in
   {:db/ident         :sh/InConstraintComponent-in,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/maxCount      1,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/in})
 
 (def Info
   "The severity for an informational validation result."
   {:db/ident         :sh/Info,
    :rdf/type         [:sh/Severity :rdfs/Resource],
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "The severity for an informational validation result.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Info@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Info@en"})
 
 (def JSConstraint
   "The class of constraints backed by a JavaScript function."
   {:db/ident :sh/JSConstraint,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr "The class of constraints backed by a JavaScript function.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript-based constraint@en",
+   #xsd/langString
+    "The class of constraints backed by a JavaScript function.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript-based constraint@en",
    :rdfs/subClassOf [:sh/JSExecutable :rdfs/Resource]})
 
 (def JSConstraint-js
   {:db/ident         :sh/JSConstraint-js,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/js})
 
 (def JSConstraintComponent
@@ -278,10 +280,10 @@
   {:db/ident :sh/JSConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component with the parameter sh:js linking to a sh:JSConstraint containing a sh:script.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript constraint component@en",
    :sh/parameter :sh/JSConstraint-js})
 
 (def JSExecutable
@@ -289,10 +291,10 @@
   {:db/ident :sh/JSExecutable,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Abstract base class of resources that declare an executable JavaScript.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript executable@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript executable@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def JSFunction
@@ -300,32 +302,32 @@
   {:db/ident :sh/JSFunction,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of SHACL functions that execute a JavaScript function when called.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript function@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript function@en",
    :rdfs/subClassOf
-   [:sh/JSExecutable :sh/Function :rdfs/Resource :sh/Parameterizable]})
+   [:sh/JSExecutable :sh/Function :sh/Parameterizable :rdfs/Resource]})
 
 (def JSLibrary
   "Represents a JavaScript library, typically identified by one or more URLs of files to include."
   {:db/ident :sh/JSLibrary,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Represents a JavaScript library, typically identified by one or more URLs of files to include.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript library@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript library@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def JSRule
   "The class of SHACL rules expressed using JavaScript."
   {:db/ident         :sh/JSRule,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "The class of SHACL rules expressed using JavaScript.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "JavaScript rule@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "JavaScript rule@en",
    :rdfs/subClassOf  [:sh/Rule :sh/JSExecutable :rdfs/Resource]})
 
 (def JSTarget
@@ -333,9 +335,10 @@
   {:db/ident :sh/JSTarget,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr "The class of targets that are based on JavaScript functions.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript target@en",
+   #xsd/langString
+    "The class of targets that are based on JavaScript functions.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript target@en",
    :rdfs/subClassOf [:sh/JSExecutable :sh/Target :rdfs/Resource]})
 
 (def JSTargetType
@@ -343,25 +346,25 @@
   {:db/ident :sh/JSTargetType,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (meta) class for parameterizable targets that are based on JavaScript functions.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript target type@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript target type@en",
    :rdfs/subClassOf [:sh/JSExecutable
                      :sh/TargetType
+                     :sh/Parameterizable
                      :rdfs/Class
-                     :rdfs/Resource
-                     :sh/Parameterizable]})
+                     :rdfs/Resource]})
 
 (def JSValidator
   "A SHACL validator based on JavaScript. This can be used to declare SHACL constraint components that perform JavaScript-based validation when used."
   {:db/ident :sh/JSValidator,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A SHACL validator based on JavaScript. This can be used to declare SHACL constraint components that perform JavaScript-based validation when used.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript validator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript validator@en",
    :rdfs/subClassOf [:sh/Validator :sh/JSExecutable :rdfs/Resource]})
 
 (def LanguageInConstraintComponent
@@ -369,17 +372,17 @@
   {:db/ident :sh/LanguageInConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to enumerate language tags that all value nodes must have.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Language-in constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Language-in constraint component@en",
    :sh/parameter :sh/LanguageInConstraintComponent-languageIn})
 
 (def LanguageInConstraintComponent-languageIn
   {:db/ident         :sh/LanguageInConstraintComponent-languageIn,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/maxCount      1,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/languageIn})
 
 (def LessThanConstraintComponent
@@ -387,16 +390,16 @@
   {:db/ident :sh/LessThanConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that each value node is smaller than all the nodes that have the focus node as subject and the value of a given property as predicate.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Less-than constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Less-than constraint component@en",
    :sh/parameter :sh/LessThanConstraintComponent-lessThan})
 
 (def LessThanConstraintComponent-lessThan
   {:db/ident         :sh/LessThanConstraintComponent-lessThan,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/nodeKind      :sh/IRI,
    :sh/path          :sh/lessThan})
 
@@ -405,16 +408,16 @@
   {:db/ident :sh/LessThanOrEqualsConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that every value node is smaller than all the nodes that have the focus node as subject and the value of a given property as predicate.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "less-than-or-equals constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "less-than-or-equals constraint component@en",
    :sh/parameter :sh/LessThanOrEqualsConstraintComponent-lessThanOrEquals})
 
 (def LessThanOrEqualsConstraintComponent-lessThanOrEquals
   {:db/ident         :sh/LessThanOrEqualsConstraintComponent-lessThanOrEquals,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/nodeKind      :sh/IRI,
    :sh/path          :sh/lessThanOrEquals})
 
@@ -422,27 +425,27 @@
   "The node kind of all literals."
   {:db/ident         :sh/Literal,
    :rdf/type         [:sh/NodeKind :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "The node kind of all literals.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Literal@en"})
+   :rdfs/comment     #xsd/langString "The node kind of all literals.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Literal@en"})
 
 (def MaxCountConstraintComponent
   "A constraint component that can be used to restrict the maximum number of value nodes."
   {:db/ident :sh/MaxCountConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the maximum number of value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Max-count constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Max-count constraint component@en",
    :sh/parameter :sh/MaxCountConstraintComponent-maxCount})
 
 (def MaxCountConstraintComponent-maxCount
   {:db/ident         :sh/MaxCountConstraintComponent-maxCount,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/integer,
-   :sh/maxCount      1,
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/maxCount})
 
 (def MaxExclusiveConstraintComponent
@@ -450,17 +453,17 @@
   {:db/ident :sh/MaxExclusiveConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the range of value nodes with a maximum exclusive value.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Max-exclusive constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Max-exclusive constraint component@en",
    :sh/parameter :sh/MaxExclusiveConstraintComponent-maxExclusive})
 
 (def MaxExclusiveConstraintComponent-maxExclusive
   {:db/ident         :sh/MaxExclusiveConstraintComponent-maxExclusive,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/maxCount      1,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/maxCount      #xsd/integer 1,
    :sh/nodeKind      :sh/Literal,
    :sh/path          :sh/maxExclusive})
 
@@ -469,17 +472,17 @@
   {:db/ident :sh/MaxInclusiveConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the range of value nodes with a maximum inclusive value.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Max-inclusive constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Max-inclusive constraint component@en",
    :sh/parameter :sh/MaxInclusiveConstraintComponent-maxInclusive})
 
 (def MaxInclusiveConstraintComponent-maxInclusive
   {:db/ident         :sh/MaxInclusiveConstraintComponent-maxInclusive,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/maxCount      1,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/maxCount      #xsd/integer 1,
    :sh/nodeKind      :sh/Literal,
    :sh/path          :sh/maxInclusive})
 
@@ -488,18 +491,18 @@
   {:db/ident :sh/MaxLengthConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the maximum string length of value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Max-length constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Max-length constraint component@en",
    :sh/parameter :sh/MaxLengthConstraintComponent-maxLength})
 
 (def MaxLengthConstraintComponent-maxLength
   {:db/ident         :sh/MaxLengthConstraintComponent-maxLength,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/integer,
-   :sh/maxCount      1,
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/maxLength})
 
 (def MinCountConstraintComponent
@@ -507,18 +510,18 @@
   {:db/ident :sh/MinCountConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the minimum number of value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Min-count constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Min-count constraint component@en",
    :sh/parameter :sh/MinCountConstraintComponent-minCount})
 
 (def MinCountConstraintComponent-minCount
   {:db/ident         :sh/MinCountConstraintComponent-minCount,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/integer,
-   :sh/maxCount      1,
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/minCount})
 
 (def MinExclusiveConstraintComponent
@@ -526,17 +529,17 @@
   {:db/ident :sh/MinExclusiveConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the range of value nodes with a minimum exclusive value.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Min-exclusive constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Min-exclusive constraint component@en",
    :sh/parameter :sh/MinExclusiveConstraintComponent-minExclusive})
 
 (def MinExclusiveConstraintComponent-minExclusive
   {:db/ident         :sh/MinExclusiveConstraintComponent-minExclusive,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/maxCount      1,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/maxCount      #xsd/integer 1,
    :sh/nodeKind      :sh/Literal,
    :sh/path          :sh/minExclusive})
 
@@ -545,17 +548,17 @@
   {:db/ident :sh/MinInclusiveConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the range of value nodes with a minimum inclusive value.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Min-inclusive constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Min-inclusive constraint component@en",
    :sh/parameter :sh/MinInclusiveConstraintComponent-minInclusive})
 
 (def MinInclusiveConstraintComponent-minInclusive
   {:db/ident         :sh/MinInclusiveConstraintComponent-minInclusive,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :sh/maxCount      1,
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :sh/maxCount      #xsd/integer 1,
    :sh/nodeKind      :sh/Literal,
    :sh/path          :sh/minInclusive})
 
@@ -564,18 +567,18 @@
   {:db/ident :sh/MinLengthConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the minimum string length of value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Min-length constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Min-length constraint component@en",
    :sh/parameter :sh/MinLengthConstraintComponent-minLength})
 
 (def MinLengthConstraintComponent-minLength
   {:db/ident         :sh/MinLengthConstraintComponent-minLength,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/integer,
-   :sh/maxCount      1,
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/minLength})
 
 (def NodeConstraintComponent
@@ -583,16 +586,16 @@
   {:db/ident :sh/NodeConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that all value nodes conform to the given node shape.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Node constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Node constraint component@en",
    :sh/parameter :sh/NodeConstraintComponent-node})
 
 (def NodeConstraintComponent-node
   {:db/ident         :sh/NodeConstraintComponent-node,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/node})
 
 (def NodeKind
@@ -600,10 +603,10 @@
   {:db/ident :sh/NodeKind,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of all node kinds, including sh:BlankNode, sh:IRI, sh:Literal or the combinations of these: sh:BlankNodeOrIRI, sh:BlankNodeOrLiteral, sh:IRIOrLiteral.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Node kind@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Node kind@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def NodeKindConstraintComponent
@@ -611,23 +614,23 @@
   {:db/ident :sh/NodeKindConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the RDF node kind of each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Node-kind constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Node-kind constraint component@en",
    :sh/parameter :sh/NodeKindConstraintComponent-nodeKind})
 
 (def NodeKindConstraintComponent-nodeKind
   {:db/ident         :sh/NodeKindConstraintComponent-nodeKind,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/in            [:sh/BlankNode
                       :sh/IRI
                       :sh/Literal
                       :sh/BlankNodeOrIRI
                       :sh/BlankNodeOrLiteral
                       :sh/IRIOrLiteral],
-   :sh/maxCount      1,
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/nodeKind})
 
 (def NodeShape
@@ -635,10 +638,10 @@
   {:db/ident :sh/NodeShape,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A node shape is a shape that specifies constraint that need to be met with respect to focus nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Node shape@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Node shape@en",
    :rdfs/subClassOf [:sh/Shape :rdfs/Resource]})
 
 (def NotConstraintComponent
@@ -646,16 +649,16 @@
   {:db/ident :sh/NotConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that value nodes do not conform to a given shape.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Not constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Not constraint component@en",
    :sh/parameter :sh/NotConstraintComponent-not})
 
 (def NotConstraintComponent-not
   {:db/ident         :sh/NotConstraintComponent-not,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/not})
 
 (def OrConstraintComponent
@@ -663,16 +666,16 @@
   {:db/ident :sh/OrConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the value nodes so that they conform to at least one out of several provided shapes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Or constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Or constraint component@en",
    :sh/parameter :sh/OrConstraintComponent-or})
 
 (def OrConstraintComponent-or
   {:db/ident         :sh/OrConstraintComponent-or,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/or})
 
 (def Parameter
@@ -680,21 +683,21 @@
   {:db/ident :sh/Parameter,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of parameter declarations, consisting of a path predicate and (possibly) information about allowed value type, cardinality and other characteristics.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Parameter@en",
-   :rdfs/subClassOf [:sh/PropertyShape :sh/Shape :rdfs/Resource]})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Parameter@en",
+   :rdfs/subClassOf [:sh/PropertyShape :rdfs/Resource :sh/Shape]})
 
 (def Parameterizable
   "Superclass of components that can take parameters, especially functions and constraint components."
   {:db/ident :sh/Parameterizable,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Superclass of components that can take parameters, especially functions and constraint components.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Parameterizable@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Parameterizable@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def PatternConstraintComponent
@@ -702,25 +705,25 @@
   {:db/ident :sh/PatternConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that every value node matches a given regular expression.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Pattern constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Pattern constraint component@en",
    :sh/parameter [:sh/PatternConstraintComponent-flags
                   :sh/PatternConstraintComponent-pattern]})
 
 (def PatternConstraintComponent-flags
   {:db/ident         :sh/PatternConstraintComponent-flags,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/string,
-   :sh/optional      true,
+   :sh/optional      #xsd/boolean true,
    :sh/path          :sh/flags})
 
 (def PatternConstraintComponent-pattern
   {:db/ident         :sh/PatternConstraintComponent-pattern,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/string,
    :sh/path          :sh/pattern})
 
@@ -729,10 +732,10 @@
   {:db/ident :sh/PrefixDeclaration,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of prefix declarations, consisting of pairs of a prefix with a namespace.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Prefix declaration@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Prefix declaration@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def PropertyConstraintComponent
@@ -740,16 +743,16 @@
   {:db/ident :sh/PropertyConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that all value nodes conform to the given property shape.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Property constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Property constraint component@en",
    :sh/parameter :sh/PropertyConstraintComponent-property})
 
 (def PropertyConstraintComponent-property
   {:db/ident         :sh/PropertyConstraintComponent-property,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/property})
 
 (def PropertyGroup
@@ -757,10 +760,10 @@
   {:db/ident :sh/PropertyGroup,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Instances of this class represent groups of property shapes that belong together.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Property group@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Property group@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def PropertyShape
@@ -768,10 +771,10 @@
   {:db/ident :sh/PropertyShape,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A property shape is a shape that specifies constraints on the values of a focus node for a given property or path.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Property shape@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Property shape@en",
    :rdfs/subClassOf [:sh/Shape :rdfs/Resource]})
 
 (def QualifiedMaxCountConstraintComponent
@@ -779,10 +782,10 @@
   {:db/ident :sh/QualifiedMaxCountConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that a specified maximum number of value nodes conforms to a given shape.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Qualified-max-count constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Qualified-max-count constraint component@en",
    :sh/parameter
    [:sh/QualifiedMaxCountConstraintComponent-qualifiedValueShapesDisjoint
     :sh/QualifiedMaxCountConstraintComponent-qualifiedValueShape
@@ -791,23 +794,23 @@
 (def QualifiedMaxCountConstraintComponent-qualifiedMaxCount
   {:db/ident         :sh/QualifiedMaxCountConstraintComponent-qualifiedMaxCount,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/integer,
    :sh/path          :sh/qualifiedMaxCount})
 
 (def QualifiedMaxCountConstraintComponent-qualifiedValueShape
   {:db/ident :sh/QualifiedMaxCountConstraintComponent-qualifiedValueShape,
    :rdf/type [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path :sh/qualifiedValueShape})
 
 (def QualifiedMaxCountConstraintComponent-qualifiedValueShapesDisjoint
   {:db/ident
    :sh/QualifiedMaxCountConstraintComponent-qualifiedValueShapesDisjoint,
    :rdf/type [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype :xsd/boolean,
-   :sh/optional true,
+   :sh/optional #xsd/boolean true,
    :sh/path :sh/qualifiedValueShapesDisjoint})
 
 (def QualifiedMinCountConstraintComponent
@@ -815,10 +818,10 @@
   {:db/ident :sh/QualifiedMinCountConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to verify that a specified minimum number of value nodes conforms to a given shape.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Qualified-min-count constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Qualified-min-count constraint component@en",
    :sh/parameter
    [:sh/QualifiedMinCountConstraintComponent-qualifiedValueShapesDisjoint
     :sh/QualifiedMinCountConstraintComponent-qualifiedValueShape
@@ -827,23 +830,23 @@
 (def QualifiedMinCountConstraintComponent-qualifiedMinCount
   {:db/ident         :sh/QualifiedMinCountConstraintComponent-qualifiedMinCount,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/integer,
    :sh/path          :sh/qualifiedMinCount})
 
 (def QualifiedMinCountConstraintComponent-qualifiedValueShape
   {:db/ident :sh/QualifiedMinCountConstraintComponent-qualifiedValueShape,
    :rdf/type [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path :sh/qualifiedValueShape})
 
 (def QualifiedMinCountConstraintComponent-qualifiedValueShapesDisjoint
   {:db/ident
    :sh/QualifiedMinCountConstraintComponent-qualifiedValueShapesDisjoint,
    :rdf/type [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype :xsd/boolean,
-   :sh/optional true,
+   :sh/optional #xsd/boolean true,
    :sh/path :sh/qualifiedValueShapesDisjoint})
 
 (def ResultAnnotation
@@ -851,20 +854,20 @@
   {:db/ident :sh/ResultAnnotation,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A class of result annotations, which define the rules to derive the values of a given annotation property as extra values for a validation result.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Result annotation@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Result annotation@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Rule
   "The class of SHACL rules. Never instantiated directly."
   {:db/ident :sh/Rule,
    :rdf/type :rdfs/Class,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "The class of SHACL rules. Never instantiated directly.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Rule@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Rule@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def SPARQLAskExecutable
@@ -872,10 +875,10 @@
   {:db/ident :sh/SPARQLAskExecutable,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of SPARQL executables that are based on an ASK query.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL ASK executable@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL ASK executable@en",
    :rdfs/subClassOf [:sh/SPARQLExecutable :rdfs/Resource]})
 
 (def SPARQLAskValidator
@@ -883,39 +886,39 @@
   {:db/ident :sh/SPARQLAskValidator,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of validators based on SPARQL ASK queries. The queries are evaluated for each value node and are supposed to return true if the given node conforms.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL ASK validator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL ASK validator@en",
    :rdfs/subClassOf
-   [:sh/SPARQLAskExecutable :sh/Validator :sh/SPARQLExecutable :rdfs/Resource]})
+   [:sh/SPARQLAskExecutable :sh/Validator :rdfs/Resource :sh/SPARQLExecutable]})
 
 (def SPARQLConstraint
   "The class of constraints based on SPARQL SELECT queries."
   {:db/ident :sh/SPARQLConstraint,
    :rdf/type :rdfs/Class,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "The class of constraints based on SPARQL SELECT queries.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL constraint@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL constraint@en",
    :rdfs/subClassOf
-   [:sh/SPARQLSelectExecutable :sh/SPARQLExecutable :rdfs/Resource]})
+   [:sh/SPARQLSelectExecutable :rdfs/Resource :sh/SPARQLExecutable]})
 
 (def SPARQLConstraintComponent
   "A constraint component that can be used to define constraints based on SPARQL queries."
   {:db/ident :sh/SPARQLConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to define constraints based on SPARQL queries.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL constraint component@en",
    :sh/parameter :sh/SPARQLConstraintComponent-sparql})
 
 (def SPARQLConstraintComponent-sparql
   {:db/ident         :sh/SPARQLConstraintComponent-sparql,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/sparql})
 
 (def SPARQLConstructExecutable
@@ -923,20 +926,20 @@
   {:db/ident :sh/SPARQLConstructExecutable,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of SPARQL executables that are based on a CONSTRUCT query.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL CONSTRUCT executable@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL CONSTRUCT executable@en",
    :rdfs/subClassOf [:sh/SPARQLExecutable :rdfs/Resource]})
 
 (def SPARQLExecutable
   "The class of resources that encapsulate a SPARQL query."
   {:db/ident :sh/SPARQLExecutable,
    :rdf/type :rdfs/Class,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "The class of resources that encapsulate a SPARQL query.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL executable@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL executable@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def SPARQLFunction
@@ -944,37 +947,39 @@
   {:db/ident :sh/SPARQLFunction,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr "A function backed by a SPARQL query - either ASK or SELECT.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL function@en",
+   #xsd/langString
+    "A function backed by a SPARQL query - either ASK or SELECT.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL function@en",
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/SPARQLAskExecutable
                      :sh/Function
-                     :sh/SPARQLExecutable
+                     :sh/Parameterizable
                      :rdfs/Resource
-                     :sh/Parameterizable]})
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLRule
   "The class of SHACL rules based on SPARQL CONSTRUCT queries."
   {:db/ident :sh/SPARQLRule,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr "The class of SHACL rules based on SPARQL CONSTRUCT queries.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL CONSTRUCT rule@en",
+   #xsd/langString
+    "The class of SHACL rules based on SPARQL CONSTRUCT queries.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL CONSTRUCT rule@en",
    :rdfs/subClassOf [:sh/SPARQLConstructExecutable
                      :sh/Rule
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLSelectExecutable
   "The class of SPARQL executables based on a SELECT query."
   {:db/ident :sh/SPARQLSelectExecutable,
    :rdf/type :rdfs/Class,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "The class of SPARQL executables based on a SELECT query.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL SELECT executable@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL SELECT executable@en",
    :rdfs/subClassOf [:sh/SPARQLExecutable :rdfs/Resource]})
 
 (def SPARQLSelectValidator
@@ -982,54 +987,55 @@
   {:db/ident :sh/SPARQLSelectValidator,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of validators based on SPARQL SELECT queries. The queries are evaluated for each focus node and are supposed to produce bindings for all focus nodes that do not conform.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL SELECT validator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL SELECT validator@en",
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/Validator
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLTarget
   "The class of targets that are based on SPARQL queries."
   {:db/ident :sh/SPARQLTarget,
    :rdf/type :rdfs/Class,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "The class of targets that are based on SPARQL queries.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL target@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL target@en",
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/SPARQLAskExecutable
                      :sh/Target
-                     :sh/SPARQLExecutable
-                     :rdfs/Resource]})
+                     :rdfs/Resource
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLTargetType
   "The (meta) class for parameterizable targets that are based on SPARQL queries."
   {:db/ident :sh/SPARQLTargetType,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (meta) class for parameterizable targets that are based on SPARQL queries.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL target type@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL target type@en",
    :rdfs/subClassOf [:sh/SPARQLSelectExecutable
                      :sh/SPARQLAskExecutable
                      :sh/TargetType
+                     :sh/Parameterizable
                      :rdfs/Class
-                     :sh/SPARQLExecutable
                      :rdfs/Resource
-                     :sh/Parameterizable]})
+                     :sh/SPARQLExecutable]})
 
 (def SPARQLUpdateExecutable
   "The class of SPARQL executables based on a SPARQL UPDATE."
   {:db/ident :sh/SPARQLUpdateExecutable,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr "The class of SPARQL executables based on a SPARQL UPDATE.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "SPARQL UPDATE executable@en",
+   #xsd/langString
+    "The class of SPARQL executables based on a SPARQL UPDATE.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "SPARQL UPDATE executable@en",
    :rdfs/subClassOf [:sh/SPARQLExecutable :rdfs/Resource]})
 
 (def Severity
@@ -1037,10 +1043,10 @@
   {:db/ident :sh/Severity,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of validation result severity levels, including violation and warning levels.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Severity@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Severity@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Shape
@@ -1048,10 +1054,10 @@
   {:db/ident :sh/Shape,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A shape is a collection of constraints that may be targeted for certain nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Shape@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Shape@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Target
@@ -1059,30 +1065,31 @@
   {:db/ident :sh/Target,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The base class of targets such as those based on SPARQL queries.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Target@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Target@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def TargetType
-  "The (meta) class for parameterizable targets. Instances of this are instantiated as values of the sh:target property."
+  "The (meta) class for parameterizable targets.\tInstances of this are instantiated as values of the sh:target property."
   {:db/ident :sh/TargetType,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (meta) class for parameterizable targets.\tInstances of this are instantiated as values of the sh:target property.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Target type@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Target type@en",
    :rdfs/subClassOf [:sh/Parameterizable :rdfs/Class :rdfs/Resource]})
 
 (def TripleRule
   "A rule based on triple (subject, predicate, object) pattern."
   {:db/ident :sh/TripleRule,
    :rdf/type :rdfs/Class,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :rdfs/label
-   #voc/lstr "A rule based on triple (subject, predicate, object) pattern.@en",
+   #xsd/langString
+    "A rule based on triple (subject, predicate, object) pattern.@en",
    :rdfs/subClassOf [:sh/Rule :rdfs/Resource]})
 
 (def UniqueLangConstraintComponent
@@ -1090,36 +1097,37 @@
   {:db/ident :sh/UniqueLangConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to specify that no pair of value nodes may use the same language tag.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Unique-languages constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Unique-languages constraint component@en",
    :sh/parameter :sh/UniqueLangConstraintComponent-uniqueLang})
 
 (def UniqueLangConstraintComponent-uniqueLang
   {:db/ident         :sh/UniqueLangConstraintComponent-uniqueLang,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/datatype      :xsd/boolean,
-   :sh/maxCount      1,
+   :sh/maxCount      #xsd/integer 1,
    :sh/path          :sh/uniqueLang})
 
 (def ValidationReport
   "The class of SHACL validation reports."
   {:db/ident         :sh/ValidationReport,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     #voc/lstr "The class of SHACL validation reports.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Validation report@en",
+   :rdfs/comment     #xsd/langString
+                      "The class of SHACL validation reports.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Validation report@en",
    :rdfs/subClassOf  :rdfs/Resource})
 
 (def ValidationResult
   "The class of validation results."
   {:db/ident         :sh/ValidationResult,
    :rdf/type         :rdfs/Class,
-   :rdfs/comment     #voc/lstr "The class of validation results.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Validation result@en",
+   :rdfs/comment     #xsd/langString "The class of validation results.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Validation result@en",
    :rdfs/subClassOf  [:sh/AbstractResult :rdfs/Resource]})
 
 (def Validator
@@ -1127,45 +1135,45 @@
   {:db/ident :sh/Validator,
    :rdf/type :rdfs/Class,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The class of validators, which provide instructions on how to process a constraint definition. This class serves as base class for the SPARQL-based validators and other possible implementations.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Validator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Validator@en",
    :rdfs/subClassOf :rdfs/Resource})
 
 (def Violation
   "The severity for a violation validation result."
   {:db/ident         :sh/Violation,
    :rdf/type         [:sh/Severity :rdfs/Resource],
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "The severity for a violation validation result.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Violation@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Violation@en"})
 
 (def Warning
   "The severity for a warning validation result."
   {:db/ident         :sh/Warning,
    :rdf/type         [:sh/Severity :rdfs/Resource],
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "The severity for a warning validation result.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "Warning@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "Warning@en"})
 
 (def XoneConstraintComponent
   "A constraint component that can be used to restrict the value nodes so that they conform to exactly one out of several provided shapes."
   {:db/ident :sh/XoneConstraintComponent,
    :rdf/type [:sh/ConstraintComponent :sh/Parameterizable :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A constraint component that can be used to restrict the value nodes so that they conform to exactly one out of several provided shapes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "Exactly one constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "Exactly one constraint component@en",
    :sh/parameter :sh/XoneConstraintComponent-xone})
 
 (def XoneConstraintComponent-xone
   {:db/ident         :sh/XoneConstraintComponent-xone,
    :rdf/type         [:sh/Parameter :sh/PropertyShape :rdfs/Resource :sh/Shape],
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
    :sh/path          :sh/xone})
 
 (def alternativePath
@@ -1173,80 +1181,83 @@
   {:db/ident :sh/alternativePath,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (single) value of this property must be a list of path elements, representing the elements of alternative paths.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "alternative path@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "alternative path@en",
    :rdfs/range :rdf/List})
 
 (def and
   "RDF list of shapes to validate the value nodes against."
   {:db/ident :sh/and,
    :rdf/type [:rdf/Property :rdfs/Resource],
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "RDF list of shapes to validate the value nodes against.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "and@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "and@en",
    :rdfs/range :rdf/List})
 
 (def annotationProperty
   "The annotation property that shall be set."
   {:db/ident         :sh/annotationProperty,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The annotation property that shall be set.@en",
+   :rdfs/comment     #xsd/langString
+                      "The annotation property that shall be set.@en",
    :rdfs/domain      :sh/ResultAnnotation,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "annotation property@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "annotation property@en",
    :rdfs/range       :rdf/Property})
 
 (def annotationValue
   "The (default) values of the annotation property."
   {:db/ident         :sh/annotationValue,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "The (default) values of the annotation property.@en",
    :rdfs/domain      :sh/ResultAnnotation,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "annotation value@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "annotation value@en"})
 
 (def annotationVarName
   "The name of the SPARQL variable from the SELECT clause that shall be used for the values."
   {:db/ident :sh/annotationVarName,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The name of the SPARQL variable from the SELECT clause that shall be used for the values.@en",
    :rdfs/domain :sh/ResultAnnotation,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "annotation variable name@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "annotation variable name@en",
    :rdfs/range :xsd/string})
 
 (def ask
   "The SPARQL ASK query to execute."
   {:db/ident         :sh/ask,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The SPARQL ASK query to execute.@en",
+   :rdfs/comment     #xsd/langString "The SPARQL ASK query to execute.@en",
    :rdfs/domain      :sh/SPARQLAskExecutable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "ask@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "ask@en",
    :rdfs/range       :xsd/string})
 
 (def class
   "The type that all value nodes must have."
   {:db/ident         :sh/class,
    :rdf/type         [:rdf/Property :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "The type that all value nodes must have.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "class@en",
+   :rdfs/comment     #xsd/langString
+                      "The type that all value nodes must have.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "class@en",
    :rdfs/range       :rdfs/Class})
 
 (def closed
   "If set to true then the shape is closed."
   {:db/ident         :sh/closed,
    :rdf/type         [:rdf/Property :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "If set to true then the shape is closed.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "closed@en",
+   :rdfs/comment     #xsd/langString
+                      "If set to true then the shape is closed.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "closed@en",
    :rdfs/range       :xsd/boolean})
 
 (def condition
@@ -1254,11 +1265,11 @@
   {:db/ident :sh/condition,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The shapes that the focus nodes need to conform to before a rule is executed on them.@en",
    :rdfs/domain :sh/Rule,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "condition@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "condition@en",
    :rdfs/range :sh/Shape})
 
 (def conforms
@@ -1266,21 +1277,22 @@
   {:db/ident :sh/conforms,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "True if the validation did not produce any validation results, and false otherwise.@en",
    :rdfs/domain :sh/ValidationReport,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "conforms@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "conforms@en",
    :rdfs/range :xsd/boolean})
 
 (def construct
   "The SPARQL CONSTRUCT query to execute."
   {:db/ident         :sh/construct,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The SPARQL CONSTRUCT query to execute.@en",
+   :rdfs/comment     #xsd/langString
+                      "The SPARQL CONSTRUCT query to execute.@en",
    :rdfs/domain      :sh/SPARQLConstructExecutable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "construct@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "construct@en",
    :rdfs/range       :xsd/string})
 
 (def datatype
@@ -1288,30 +1300,31 @@
   {:db/ident :sh/datatype,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr "Specifies an RDF datatype that all value nodes must have.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "datatype@en",
+   #xsd/langString
+    "Specifies an RDF datatype that all value nodes must have.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "datatype@en",
    :rdfs/range :rdfs/Datatype})
 
 (def deactivated
   "If set to true then all nodes conform to this."
   {:db/ident         :sh/deactivated,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "If set to true then all nodes conform to this.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "deactivated@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "deactivated@en",
    :rdfs/range       :xsd/boolean})
 
 (def declare
   "Links a resource with its namespace prefix declarations."
   {:db/ident :sh/declare,
    :rdf/type :rdf/Property,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "Links a resource with its namespace prefix declarations.@en",
    :rdfs/domain :owl/Ontology,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "declare@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "declare@en",
    :rdfs/range :sh/PrefixDeclaration})
 
 (def defaultValue
@@ -1319,33 +1332,33 @@
   {:db/ident :sh/defaultValue,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A default value for a property, for example for user interface tools to pre-populate input fields.@en",
    :rdfs/domain :sh/PropertyShape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "default value@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "default value@en"})
 
 (def description
   "Human-readable descriptions for the property in the context of the surrounding shape."
   {:db/ident :sh/description,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Human-readable descriptions for the property in the context of the surrounding shape.@en",
    :rdfs/domain :sh/PropertyShape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "description@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "description@en"})
 
 (def detail
   "Links a result with other results that provide more details, for example to describe violations against nested shapes."
   {:db/ident :sh/detail,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Links a result with other results that provide more details, for example to describe violations against nested shapes.@en",
    :rdfs/domain :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "detail@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "detail@en",
    :rdfs/range :sh/AbstractResult})
 
 (def disjoint
@@ -1353,10 +1366,10 @@
   {:db/ident :sh/disjoint,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a property where the set of values must be disjoint with the value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "disjoint@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "disjoint@en",
    :rdfs/range :rdf/Property})
 
 (def entailment
@@ -1364,11 +1377,11 @@
   {:db/ident :sh/entailment,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "An entailment regime that indicates what kind of inferencing is required by a shapes graph.@en",
    :rdfs/domain :owl/Ontology,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "entailment@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "entailment@en",
    :rdfs/range :rdfs/Resource})
 
 (def equals
@@ -1376,10 +1389,10 @@
   {:db/ident :sh/equals,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a property that must have the same values as the value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "equals@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "equals@en",
    :rdfs/range :rdf/Property})
 
 (def expression
@@ -1387,20 +1400,20 @@
   {:db/ident :sh/expression,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The node expression that must return true for the value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "expression@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "expression@en"})
 
 (def filterShape
   "The shape that all input nodes of the expression need to conform to."
   {:db/ident :sh/filterShape,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The shape that all input nodes of the expression need to conform to.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "filter shape@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "filter shape@en",
    :rdfs/range :sh/Shape})
 
 (def flags
@@ -1408,10 +1421,10 @@
   {:db/ident :sh/flags,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "An optional flag to be used with regular expression pattern matching.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "flags@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "flags@en",
    :rdfs/range :xsd/string})
 
 (def focusNode
@@ -1419,42 +1432,42 @@
   {:db/ident :sh/focusNode,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The focus node that was validated when the result was produced.@en",
    :rdfs/domain :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "focus node@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "focus node@en"})
 
 (def group
   "Can be used to link to a property group to indicate that a property shape belongs to a group of related property shapes."
   {:db/ident :sh/group,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Can be used to link to a property group to indicate that a property shape belongs to a group of related property shapes.@en",
    :rdfs/domain :sh/PropertyShape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "group@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "group@en",
    :rdfs/range :sh/PropertyGroup})
 
 (def hasValue
   "Specifies a value that must be among the value nodes."
   {:db/ident :sh/hasValue,
    :rdf/type [:rdf/Property :rdfs/Resource],
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "Specifies a value that must be among the value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "has value@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "has value@en"})
 
 (def ignoredProperties
   "An optional RDF list of properties that are also permitted in addition to those explicitly enumerated via sh:property/sh:path."
   {:db/ident :sh/ignoredProperties,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "An optional RDF list of properties that are also permitted in addition to those explicitly enumerated via sh:property/sh:path.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "ignored properties@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "ignored properties@en",
    :rdfs/range :rdf/List})
 
 (def in
@@ -1462,50 +1475,50 @@
   {:db/ident :sh/in,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a list of allowed values so that each value node must be among the members of the given list.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "in@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "in@en",
    :rdfs/range :rdf/List})
 
 (def intersection
   "A list of node expressions that shall be intersected."
   {:db/ident :sh/intersection,
    :rdf/type :rdf/Property,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "A list of node expressions that shall be intersected.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "intersection@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "intersection@en"})
 
 (def inversePath
   "The (single) value of this property represents an inverse path (object to subject)."
   {:db/ident :sh/inversePath,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (single) value of this property represents an inverse path (object to subject).@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "inverse path@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "inverse path@en",
    :rdfs/range :rdfs/Resource})
 
 (def js
   "Constraints expressed in JavaScript."
   {:db/ident         :sh/js,
    :rdf/type         [:rdf/Property :rdfs/Resource],
-   :rdfs/comment     "Constraints expressed in JavaScript.",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "JavaScript constraint@en",
+   :rdfs/comment     #xsd/string "Constraints expressed in JavaScript.",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "JavaScript constraint@en",
    :rdfs/range       :sh/JSConstraint})
 
 (def jsFunctionName
   "The name of the JavaScript function to execute."
   {:db/ident         :sh/jsFunctionName,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "The name of the JavaScript function to execute.@en",
    :rdfs/domain      :sh/JSExecutable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "JavaScript function name@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "JavaScript function name@en",
    :rdfs/range       :xsd/string})
 
 (def jsLibrary
@@ -1513,10 +1526,10 @@
   {:db/ident :sh/jsLibrary,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Declares which JavaScript libraries are needed to execute this.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript library@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript library@en",
    :rdfs/range :sh/JSLibrary})
 
 (def jsLibraryURL
@@ -1524,11 +1537,11 @@
   {:db/ident :sh/jsLibraryURL,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Declares the URLs of a JavaScript library. This should be the absolute URL of a JavaScript file. Implementations may redirect those to local files.@en",
    :rdfs/domain :sh/JSLibrary,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "JavaScript library URL@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "JavaScript library URL@en",
    :rdfs/range :xsd/anyURI})
 
 (def labelTemplate
@@ -1536,21 +1549,21 @@
   {:db/ident :sh/labelTemplate,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Outlines how human-readable labels of instances of the associated Parameterizable shall be produced. The values can contain {?paramName} as placeholders for the actual values of the given parameter.@en",
    :rdfs/domain :sh/Parameterizable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "label template@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "label template@en"})
 
 (def languageIn
   "Specifies a list of language tags that all value nodes must have."
   {:db/ident :sh/languageIn,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a list of language tags that all value nodes must have.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "language in@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "language in@en",
    :rdfs/range :rdf/List})
 
 (def lessThan
@@ -1558,10 +1571,10 @@
   {:db/ident :sh/lessThan,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a property that must have smaller values than the value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "less than@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "less than@en",
    :rdfs/range :rdf/Property})
 
 (def lessThanOrEquals
@@ -1569,10 +1582,10 @@
   {:db/ident :sh/lessThanOrEquals,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a property that must have smaller or equal values than the value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "less than or equals@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "less than or equals@en",
    :rdfs/range :rdf/Property})
 
 (def maxCount
@@ -1580,10 +1593,10 @@
   {:db/ident :sh/maxCount,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies the maximum number of values in the set of value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "max count@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "max count@en",
    :rdfs/range :xsd/integer})
 
 (def maxExclusive
@@ -1591,27 +1604,29 @@
   {:db/ident :sh/maxExclusive,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr "Specifies the maximum exclusive value of each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "max exclusive@en"})
+   #xsd/langString
+    "Specifies the maximum exclusive value of each value node.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "max exclusive@en"})
 
 (def maxInclusive
   "Specifies the maximum inclusive value of each value node."
   {:db/ident :sh/maxInclusive,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr "Specifies the maximum inclusive value of each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "max inclusive@en"})
+   #xsd/langString
+    "Specifies the maximum inclusive value of each value node.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "max inclusive@en"})
 
 (def maxLength
   "Specifies the maximum string length of each value node."
   {:db/ident :sh/maxLength,
    :rdf/type [:rdf/Property :rdfs/Resource],
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "Specifies the maximum string length of each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "max length@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "max length@en",
    :rdfs/range :xsd/integer})
 
 (def message
@@ -1619,20 +1634,20 @@
   {:db/ident :sh/message,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "A human-readable message (possibly with placeholders for variables) explaining the cause of the result.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "message@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "message@en"})
 
 (def minCount
   "Specifies the minimum number of values in the set of value nodes."
   {:db/ident :sh/minCount,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies the minimum number of values in the set of value nodes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "min count@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "min count@en",
    :rdfs/range :xsd/integer})
 
 (def minExclusive
@@ -1640,27 +1655,29 @@
   {:db/ident :sh/minExclusive,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr "Specifies the minimum exclusive value of each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "min exclusive@en"})
+   #xsd/langString
+    "Specifies the minimum exclusive value of each value node.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "min exclusive@en"})
 
 (def minInclusive
   "Specifies the minimum inclusive value of each value node."
   {:db/ident :sh/minInclusive,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr "Specifies the minimum inclusive value of each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "min inclusive@en"})
+   #xsd/langString
+    "Specifies the minimum inclusive value of each value node.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "min inclusive@en"})
 
 (def minLength
   "Specifies the minimum string length of each value node."
   {:db/ident :sh/minLength,
    :rdf/type [:rdf/Property :rdfs/Resource],
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "Specifies the minimum string length of each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "min length@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "min length@en",
    :rdfs/range :xsd/integer})
 
 (def name
@@ -1668,22 +1685,22 @@
   {:db/ident :sh/name,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Human-readable labels for the property in the context of the surrounding shape.@en",
    :rdfs/domain :sh/PropertyShape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "name@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "name@en"})
 
 (def namespace
   "The namespace associated with a prefix in a prefix declaration."
   {:db/ident :sh/namespace,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The namespace associated with a prefix in a prefix declaration.@en",
    :rdfs/domain :sh/PrefixDeclaration,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "namespace@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "namespace@en",
    :rdfs/range :xsd/anyURI})
 
 (def node
@@ -1691,10 +1708,10 @@
   {:db/ident :sh/node,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies the node shape that all value nodes must conform to.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "node@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "node@en",
    :rdfs/range :sh/NodeShape})
 
 (def nodeKind
@@ -1702,10 +1719,10 @@
   {:db/ident :sh/nodeKind,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies the node kind (e.g. IRI or literal) each value node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "node kind@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "node kind@en",
    :rdfs/range :sh/NodeKind})
 
 (def nodeValidator
@@ -1713,11 +1730,11 @@
   {:db/ident :sh/nodeValidator,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The validator(s) used to evaluate a constraint in the context of a node shape.@en",
    :rdfs/domain :sh/ConstraintComponent,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "shape validator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "shape validator@en",
    :rdfs/range :sh/Validator})
 
 (def nodes
@@ -1725,19 +1742,20 @@
   {:db/ident :sh/nodes,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The node expression producing the input nodes of a filter shape expression.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "nodes@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "nodes@en"})
 
 (def not
   "Specifies a shape that the value nodes must not conform to."
   {:db/ident :sh/not,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr "Specifies a shape that the value nodes must not conform to.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "not@en",
+   #xsd/langString
+    "Specifies a shape that the value nodes must not conform to.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "not@en",
    :rdfs/range :sh/Shape})
 
 (def object
@@ -1745,31 +1763,32 @@
   {:db/ident :sh/object,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "An expression producing the nodes that shall be inferred as objects.@en",
    :rdfs/domain :sh/TripleRule,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "object@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "object@en"})
 
 (def oneOrMorePath
   "The (single) value of this property represents a path that is matched one or more times."
   {:db/ident :sh/oneOrMorePath,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (single) value of this property represents a path that is matched one or more times.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "one or more path@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "one or more path@en",
    :rdfs/range :rdfs/Resource})
 
 (def optional
   "Indicates whether a parameter is optional."
   {:db/ident         :sh/optional,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "Indicates whether a parameter is optional.@en",
+   :rdfs/comment     #xsd/langString
+                      "Indicates whether a parameter is optional.@en",
    :rdfs/domain      :sh/Parameter,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "optional@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "optional@en",
    :rdfs/range       :xsd/boolean})
 
 (def or
@@ -1777,10 +1796,10 @@
   {:db/ident :sh/or,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a list of shapes so that the value nodes must conform to at least one of the shapes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "or@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "or@en",
    :rdfs/range :rdf/List})
 
 (def order
@@ -1788,31 +1807,31 @@
   {:db/ident :sh/order,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies the relative order of this compared to its siblings. For example use 0 for the first, 1 for the second.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "order@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "order@en"})
 
 (def parameter
   "The parameters of a function or constraint component."
   {:db/ident :sh/parameter,
    :rdf/type :rdf/Property,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "The parameters of a function or constraint component.@en",
    :rdfs/domain :sh/Parameterizable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "parameter@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "parameter@en",
    :rdfs/range :sh/Parameter})
 
 (def path
   "Specifies the property path of a property shape."
   {:db/ident         :sh/path,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr
+   :rdfs/comment     #xsd/langString
                       "Specifies the property path of a property shape.@en",
    :rdfs/domain      :sh/PropertyShape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "path@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "path@en",
    :rdfs/range       :rdfs/Resource})
 
 (def pattern
@@ -1820,10 +1839,10 @@
   {:db/ident :sh/pattern,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a regular expression pattern that the string representations of the value nodes must match.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "pattern@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "pattern@en",
    :rdfs/range :xsd/string})
 
 (def predicate
@@ -1831,20 +1850,20 @@
   {:db/ident :sh/predicate,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "An expression producing the properties that shall be inferred as predicates.@en",
    :rdfs/domain :sh/TripleRule,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "predicate@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "predicate@en"})
 
 (def prefix
   "The prefix of a prefix declaration."
   {:db/ident         :sh/prefix,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The prefix of a prefix declaration.@en",
+   :rdfs/comment     #xsd/langString "The prefix of a prefix declaration.@en",
    :rdfs/domain      :sh/PrefixDeclaration,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "prefix@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "prefix@en",
    :rdfs/range       :xsd/string})
 
 (def prefixes
@@ -1852,21 +1871,21 @@
   {:db/ident :sh/prefixes,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The prefixes that shall be applied before parsing the associated SPARQL query.@en",
    :rdfs/domain :sh/SPARQLExecutable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "prefixes@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "prefixes@en",
    :rdfs/range :owl/Ontology})
 
 (def property
   "Links a shape to its property shapes."
   {:db/ident         :sh/property,
    :rdf/type         [:rdf/Property :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "Links a shape to its property shapes.@en",
+   :rdfs/comment     #xsd/langString "Links a shape to its property shapes.@en",
    :rdfs/domain      :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "property@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "property@en",
    :rdfs/range       :sh/PropertyShape})
 
 (def propertyValidator
@@ -1874,11 +1893,11 @@
   {:db/ident :sh/propertyValidator,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The validator(s) used to evaluate a constraint in the context of a property shape.@en",
    :rdfs/domain :sh/ConstraintComponent,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "property validator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "property validator@en",
    :rdfs/range :sh/Validator})
 
 (def qualifiedMaxCount
@@ -1886,10 +1905,10 @@
   {:db/ident :sh/qualifiedMaxCount,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The maximum number of value nodes that can conform to the shape.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "qualified max count@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "qualified max count@en",
    :rdfs/range :xsd/integer})
 
 (def qualifiedMinCount
@@ -1897,10 +1916,10 @@
   {:db/ident :sh/qualifiedMinCount,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The minimum number of value nodes that must conform to the shape.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "qualified min count@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "qualified min count@en",
    :rdfs/range :xsd/integer})
 
 (def qualifiedValueShape
@@ -1908,9 +1927,10 @@
   {:db/ident :sh/qualifiedValueShape,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr "The shape that a specified number of values must conform to.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "qualified value shape@en",
+   #xsd/langString
+    "The shape that a specified number of values must conform to.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "qualified value shape@en",
    :rdfs/range :sh/Shape})
 
 (def qualifiedValueShapesDisjoint
@@ -1918,21 +1938,21 @@
   {:db/ident :sh/qualifiedValueShapesDisjoint,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Can be used to mark the qualified value shape to be disjoint with its sibling shapes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "qualified value shapes disjoint@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "qualified value shapes disjoint@en",
    :rdfs/range :xsd/boolean})
 
 (def result
   "The validation results contained in a validation report."
   {:db/ident :sh/result,
    :rdf/type :rdf/Property,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "The validation results contained in a validation report.@en",
    :rdfs/domain :sh/ValidationReport,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "result@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "result@en",
    :rdfs/range :sh/ValidationResult})
 
 (def resultAnnotation
@@ -1940,11 +1960,11 @@
   {:db/ident :sh/resultAnnotation,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Links a SPARQL validator with zero or more sh:ResultAnnotation instances, defining how to derive additional result properties based on the variables of the SELECT query.@en",
    :rdfs/domain :sh/SPARQLSelectValidator,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "result annotation@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "result annotation@en",
    :rdfs/range :sh/ResultAnnotation})
 
 (def resultMessage
@@ -1952,31 +1972,33 @@
   {:db/ident :sh/resultMessage,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr "Human-readable messages explaining the cause of the result.@en",
+   #xsd/langString
+    "Human-readable messages explaining the cause of the result.@en",
    :rdfs/domain :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "result message@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "result message@en"})
 
 (def resultPath
   "The path of a validation result, based on the path of the validated property shape."
   {:db/ident :sh/resultPath,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The path of a validation result, based on the path of the validated property shape.@en",
    :rdfs/domain :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "result path@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "result path@en",
    :rdfs/range :rdfs/Resource})
 
 (def resultSeverity
   "The severity of the result, e.g. warning."
   {:db/ident         :sh/resultSeverity,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The severity of the result, e.g. warning.@en",
+   :rdfs/comment     #xsd/langString
+                      "The severity of the result, e.g. warning.@en",
    :rdfs/domain      :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "result severity@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "result severity@en",
    :rdfs/range       :sh/Severity})
 
 (def returnType
@@ -1984,31 +2006,31 @@
   {:db/ident :sh/returnType,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The expected type of values returned by the associated function.@en",
    :rdfs/domain :sh/Function,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "return type@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "return type@en",
    :rdfs/range :rdfs/Class})
 
 (def rule
   "The rules linked to a shape."
   {:db/ident         :sh/rule,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The rules linked to a shape.@en",
+   :rdfs/comment     #xsd/langString "The rules linked to a shape.@en",
    :rdfs/domain      :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "rule@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "rule@en",
    :rdfs/range       :sh/Rule})
 
 (def select
   "The SPARQL SELECT query to execute."
   {:db/ident         :sh/select,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The SPARQL SELECT query to execute.@en",
+   :rdfs/comment     #xsd/langString "The SPARQL SELECT query to execute.@en",
    :rdfs/domain      :sh/SPARQLSelectExecutable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "select@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "select@en",
    :rdfs/range       :xsd/string})
 
 (def severity
@@ -2016,11 +2038,11 @@
   {:db/ident :sh/severity,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Defines the severity that validation results produced by a shape must have. Defaults to sh:Violation.@en",
    :rdfs/domain :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "severity@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "severity@en",
    :rdfs/range :sh/Severity})
 
 (def shapesGraph
@@ -2028,11 +2050,11 @@
   {:db/ident :sh/shapesGraph,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Shapes graphs that should be used when validating this data graph.@en",
    :rdfs/domain :owl/Ontology,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "shapes graph@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "shapes graph@en",
    :rdfs/range :owl/Ontology})
 
 (def shapesGraphWellFormed
@@ -2040,11 +2062,11 @@
   {:db/ident :sh/shapesGraphWellFormed,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "If true then the validation engine was certain that the shapes graph has passed all SHACL syntax requirements during the validation process.@en",
    :rdfs/domain :sh/ValidationReport,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "shapes graph well-formed@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "shapes graph well-formed@en",
    :rdfs/range :xsd/boolean})
 
 (def sourceConstraint
@@ -2052,21 +2074,22 @@
   {:db/ident :sh/sourceConstraint,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The constraint that was validated when the result was produced.@en",
    :rdfs/domain :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "source constraint@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "source constraint@en"})
 
 (def sourceConstraintComponent
   "The constraint component that is the source of the result."
   {:db/ident :sh/sourceConstraintComponent,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr "The constraint component that is the source of the result.@en",
+   #xsd/langString
+    "The constraint component that is the source of the result.@en",
    :rdfs/domain :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "source constraint component@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "source constraint component@en",
    :rdfs/range :sh/ConstraintComponent})
 
 (def sourceShape
@@ -2074,20 +2097,22 @@
   {:db/ident :sh/sourceShape,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr "The shape that is was validated when the result was produced.@en",
+   #xsd/langString
+    "The shape that is was validated when the result was produced.@en",
    :rdfs/domain :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "source shape@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "source shape@en",
    :rdfs/range :sh/Shape})
 
 (def sparql
   "Links a shape with SPARQL constraints."
   {:db/ident         :sh/sparql,
    :rdf/type         [:rdf/Property :rdfs/Resource],
-   :rdfs/comment     #voc/lstr "Links a shape with SPARQL constraints.@en",
+   :rdfs/comment     #xsd/langString
+                      "Links a shape with SPARQL constraints.@en",
    :rdfs/domain      :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "constraint (in SPARQL)@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "constraint (in SPARQL)@en",
    :rdfs/range       :sh/SPARQLConstraint})
 
 (def subject
@@ -2095,22 +2120,22 @@
   {:db/ident :sh/subject,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "An expression producing the resources that shall be inferred as subjects.@en",
    :rdfs/domain :sh/TripleRule,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "subject@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "subject@en"})
 
 (def suggestedShapesGraph
   "Suggested shapes graphs for this ontology. The values of this property may be used in the absence of specific sh:shapesGraph statements."
   {:db/ident :sh/suggestedShapesGraph,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Suggested shapes graphs for this ontology. The values of this property may be used in the absence of specific sh:shapesGraph statements.@en",
    :rdfs/domain :owl/Ontology,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "suggested shapes graph@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "suggested shapes graph@en",
    :rdfs/range :owl/Ontology})
 
 (def target
@@ -2118,11 +2143,11 @@
   {:db/ident :sh/target,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Links a shape to a target specified by an extension language, for example instances of sh:SPARQLTarget.@en",
    :rdfs/domain :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "target@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "target@en",
    :rdfs/range :sh/Target})
 
 (def targetClass
@@ -2130,11 +2155,11 @@
   {:db/ident :sh/targetClass,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Links a shape to a class, indicating that all instances of the class must conform to the shape.@en",
    :rdfs/domain :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "target class@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "target class@en",
    :rdfs/range :rdfs/Class})
 
 (def targetNode
@@ -2142,22 +2167,22 @@
   {:db/ident :sh/targetNode,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Links a shape to individual nodes, indicating that these nodes must conform to the shape.@en",
    :rdfs/domain :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "target node@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "target node@en"})
 
 (def targetObjectsOf
   "Links a shape to a property, indicating that all all objects of triples that have the given property as their predicate must conform to the shape."
   {:db/ident :sh/targetObjectsOf,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Links a shape to a property, indicating that all all objects of triples that have the given property as their predicate must conform to the shape.@en",
    :rdfs/domain :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "target objects of@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "target objects of@en",
    :rdfs/range :rdf/Property})
 
 (def targetSubjectsOf
@@ -2165,11 +2190,11 @@
   {:db/ident :sh/targetSubjectsOf,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Links a shape to a property, indicating that all subjects of triples that have the given property as their predicate must conform to the shape.@en",
    :rdfs/domain :sh/Shape,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "target subjects of@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "target subjects of@en",
    :rdfs/range :rdf/Property})
 
 (def this
@@ -2177,38 +2202,39 @@
   {:db/ident :sh/this,
    :rdf/type :rdfs/Resource,
    :rdfs/comment
-   #voc/lstr "A node expression that represents the current focus node.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "this@en"})
+   #xsd/langString
+    "A node expression that represents the current focus node.@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "this@en"})
 
 (def union
   "A list of node expressions that shall be used together."
   {:db/ident :sh/union,
    :rdf/type :rdf/Property,
-   :rdfs/comment #voc/lstr
+   :rdfs/comment #xsd/langString
                   "A list of node expressions that shall be used together.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "union@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "union@en"})
 
 (def uniqueLang
   "Specifies whether all node values must have a unique (or no) language tag."
   {:db/ident :sh/uniqueLang,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies whether all node values must have a unique (or no) language tag.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "unique languages@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "unique languages@en",
    :rdfs/range :xsd/boolean})
 
 (def update
   "The SPARQL UPDATE to execute."
   {:db/ident         :sh/update,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "The SPARQL UPDATE to execute.@en",
+   :rdfs/comment     #xsd/langString "The SPARQL UPDATE to execute.@en",
    :rdfs/domain      :sh/SPARQLUpdateExecutable,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "update@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "update@en",
    :rdfs/range       :xsd/string})
 
 (def validator
@@ -2216,31 +2242,32 @@
   {:db/ident :sh/validator,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The validator(s) used to evaluate constraints of either node or property shapes.@en",
    :rdfs/domain :sh/ConstraintComponent,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "validator@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "validator@en",
    :rdfs/range :sh/Validator})
 
 (def value
   "An RDF node that has caused the result."
   {:db/ident         :sh/value,
    :rdf/type         :rdf/Property,
-   :rdfs/comment     #voc/lstr "An RDF node that has caused the result.@en",
+   :rdfs/comment     #xsd/langString
+                      "An RDF node that has caused the result.@en",
    :rdfs/domain      :sh/AbstractResult,
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label       #voc/lstr "value@en"})
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label       #xsd/langString "value@en"})
 
 (def xone
   "Specifies a list of shapes so that the value nodes must conform to exactly one of the shapes."
   {:db/ident :sh/xone,
    :rdf/type [:rdf/Property :rdfs/Resource],
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "Specifies a list of shapes so that the value nodes must conform to exactly one of the shapes.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "exactly one@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "exactly one@en",
    :rdfs/range :rdf/List})
 
 (def zeroOrMorePath
@@ -2248,10 +2275,10 @@
   {:db/ident :sh/zeroOrMorePath,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (single) value of this property represents a path that is matched zero or more times.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "zero or more path@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "zero or more path@en",
    :rdfs/range :rdfs/Resource})
 
 (def zeroOrOnePath
@@ -2259,8 +2286,8 @@
   {:db/ident :sh/zeroOrOnePath,
    :rdf/type :rdf/Property,
    :rdfs/comment
-   #voc/lstr
+   #xsd/langString
     "The (single) value of this property represents a path that is matched zero or one times.@en",
-   :rdfs/isDefinedBy "http://www.w3.org/ns/shacl#",
-   :rdfs/label #voc/lstr "zero or one path@en",
+   :rdfs/isDefinedBy {:rdfa/uri "http://www.w3.org/ns/shacl#"},
+   :rdfs/label #xsd/langString "zero or one path@en",
    :rdfs/range :rdfs/Resource})
